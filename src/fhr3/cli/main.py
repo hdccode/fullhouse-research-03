@@ -106,11 +106,37 @@ def cmd_simulate(args: argparse.Namespace) -> int:
         "invalid": sum(r["invalid"] for r in results),
         "traced": sum(r["traced"] for r in results),
         "blocks_per_s_aggregate": blocks_done / wall if wall > 0 else None,
+        "timing_shares_of_worker_time": _timing_shares(results),
+        "peak_rss_mb_parent": _peak_rss_mb(),
     }
     _write_json_atomic(mpath, manifest.to_dict())
     print(json.dumps(manifest.summary, indent=2), file=sys.stderr)
     print(f"manifest: {mpath}", file=sys.stderr)
     return 1 if manifest.summary["invalid"] else 0
+
+
+def _peak_rss_mb() -> float | None:
+    try:
+        import resource
+
+        rss = resource.getrusage(resource.RUSAGE_SELF).ru_maxrss
+        return rss / (1024 * 1024) if sys.platform == "darwin" else rss / 1024
+    except Exception:  # pragma: no cover
+        return None
+
+
+def _timing_shares(results: list[dict[str, Any]]) -> dict[str, float] | None:
+    """Worker time split: agents, estimators, engine (rest of block time), serialization."""
+    sim = sum(r.get("simulate_s", 0.0) for r in results)
+    ser = sum(r.get("serialize_s", 0.0) for r in results)
+    blk = sum(r.get("runtime_ms_sum", 0.0) for r in results) / 1000.0
+    ag = sum(r.get("agent_ms_sum", 0.0) for r in results) / 1000.0
+    es = sum(r.get("estimator_ms_sum", 0.0) for r in results) / 1000.0
+    total = sim + ser
+    if total <= 0:
+        return None
+    return {"agents": ag / total, "estimators": es / total, "engine_and_block_overhead": (blk - ag - es) / total,
+            "runner_overhead": (sim - blk) / total, "serialization": ser / total}
 
 
 # ------------------------------------------------------------------ replay
@@ -316,8 +342,23 @@ def cmd_bench(args: argparse.Namespace) -> int:
     hands = sum(r.played_hands for r in res)
     decs = sum(r.decision_count for r in res)
     agent = sum(r.agent_ms for r in res) / 1000
-    print(f"{args.blocks} blocks in {wall:.2f}s: {args.blocks / wall:.1f} blocks/s, {hands / wall:.0f} hands/s, "
-          f"{decs / wall:.0f} decisions/s; agent share {agent / wall:.2f} (single process)")
+    est = sum(r.estimator_ms for r in res) / 1000
+    t_s = time.perf_counter()
+    from fhr3.io.schema import rows_to_table
+
+    table = rows_to_table([sim.row(r, "bench", False) for r in res])
+    import io
+
+    import pyarrow.parquet as pq
+
+    buf = io.BytesIO()
+    pq.write_table(table, buf, compression="zstd")
+    ser = time.perf_counter() - t_s
+    print(f"{cfg.game.variant} {cfg.game.player_count}-max {cfg.game.stack_bb:g}bb, {args.blocks} blocks in {wall:.2f}s "
+          f"(single process): {args.blocks / wall:.1f} blocks/s, {hands / wall:.0f} hands/s, {decs / wall:.0f} decisions/s")
+    print(f"time shares: agents {agent / wall:.2f}, estimators {est / wall:.2f}, engine+bookkeeping "
+          f"{(wall - agent - est) / wall:.2f}; serialization {ser:.3f}s ({ser / (wall + ser):.3f} of total), "
+          f"{buf.tell() / args.blocks:.0f} B/block; peak RSS {_peak_rss_mb() or float('nan'):.0f} MB")
     if prof:
         pstats.Stats(prof).sort_stats("cumulative").print_stats(args.profile_top)
     return 0
