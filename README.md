@@ -7,11 +7,11 @@ population, reduced to one paired difference `D = Σ_s (X_A,s − X_B,s)`. All
 inference (CIs, power, bootstrap, later sequential inference) runs on the
 independent sequence `D_1, D_2, …`.
 
-Status: **milestone 1 — 6-max NLHE vertical slice**, plus 4-max NLHE and
-6-max 20/50BB stack-sensitivity configs (PokerKit engine, heuristic
-agent family, matched blocks, invariant tests, Parquet + manifests, sparse PHH
-traces, resumable/shardable runner, analysis CLI). Other formats are not yet
-implemented; see `docs/extending.md` for the order and the recipe.
+Status: all seven headline formats run through one pipeline — 4-max AoF, 4-max
+NLHE, 6-max NLHE (20/50/100BB), 6-max Crazy Pineapple, 6-max PLO, 6-max NLHE Bomb
+Pot, 6-max Nit Game — with invariant tests for each; RQ6 estimators (all-in EV,
+PVAT-backed MIVAT/AIVAT with frozen value functions); RQ7 anytime-valid
+sequential layer; cross-format comparison and figure-ready outputs.
 
 ## Install
 
@@ -30,7 +30,12 @@ fhr3 simulate --config ... --blocks 0:10000 --shard 3/16                # zero-b
 fhr3 validate --config ... --blocks 0:10000 --replay 20                 # structure + exact replay
 fhr3 analyze results/fhr3-nlhe6-100bb-pilot-v1 --json reports/pilot.json
 fhr3 power-sim results/fhr3-nlhe6-100bb-pilot-v1/p2-neutral-vs-tight
-fhr3 compare results/fhr3-nlhe6-20bb-v1 results/fhr3-nlhe6-50bb-v1 results/fhr3-nlhe6-100bb-pilot-v1
+fhr3 compare results/<exp1> results/<exp2> ...                          # cross-format table + relations
+fhr3 figures results/<exp1> ... --out reports/figures                   # figure-ready CSVs
+fhr3 vat-fit --config ... --training-root-seed N --out vf.json          # frozen AIVAT value function
+fhr3 sequential results/<exp>                                            # anytime-valid stopping
+fhr3 cs-coverage --sampler t3 --reps 2000                               # CS coverage (synthetic)
+scripts/run_pilot.sh configs/plo_6max_100bb.yaml                        # simulate+validate+analyze
 fhr3 replay --config ... --pairing p2-neutral-vs-tight --block 1234 --trace-dir /tmp/b1234
 fhr3 bench --config ... --blocks 100 --profile
 ```
@@ -42,6 +47,10 @@ whose configuration disagrees with existing results is refused.
 
 | doc | contents |
 |---|---|
+| `docs/variants.md` | benchmark rule definitions for every format, agent families, pairings |
+| `docs/estimators.md` | all-in EV, MIVAT/AIVAT (PVAT), value-function freezing |
+| `docs/sequential.md` | RQ7 confidence sequences, confseq status |
+| `docs/performance.md` | measured throughput, bottlenecks, optimisation decisions |
 | `docs/matched_blocks.md` | estimand, matched-block protocol, seat rotation, RNG streams and coupling, seed derivation |
 | `docs/architecture.md` | package layout and interfaces |
 | `docs/results_schema.md` | Parquet columns, layout on disk, manifests, traces |

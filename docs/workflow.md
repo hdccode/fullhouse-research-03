@@ -1,106 +1,127 @@
-# Workflow: pilots, validation, analysis
+# Workflow: pilots, validation, analysis (researcher-run commands)
 
-Heavy jobs are run by the researcher from a terminal; the coding agent only runs
-tests and tiny smoke samples. All commands assume the repo root and the venv
-(`source .venv/bin/activate`, or prefix with `.venv/bin/`).
+Heavy jobs are run from a terminal by the researcher; the coding agent runs only
+tests and tiny smoke samples. Commands assume the repo root. Runtime estimates are
+for `--workers 8` on the development laptop (see performance.md) and are order of
+magnitude only.
 
-## 1. Before any large run
+## 0. Before any large run
 
 ```bash
-python -m pytest                                               # all invariants, ~10 s
-fhr3 simulate --config configs/nlhe_6max_100bb.yaml --dry-run   # hashes, plan, output dirs
-git status                                                      # manifests record the SHA and dirty flag
+.venv/bin/python -m pytest          # all invariants (~2 min)
+git status && git log -1            # commit first: manifests record git SHA + dirty flag
+.venv/bin/fhr3 simulate --config <config> --dry-run
 ```
 
-Commit before running, so the manifest's `git.sha` identifies the code exactly.
+Re-running a `simulate` command is always safe (finished chunks are skipped).
+Existing v1 corpora (schema `fhr3-block-v1`) remain readable, analysable and
+replay-validatable, but cannot be *extended* by v2 code (the lock refuses); new
+blocks go under a new experiment_id.
 
-## 2. 6-max NLHE 100BB pilot (10,000 blocks × 3 pairings + self-play control)
+## 1. Headline format pilots (10,000 blocks per pairing, incl. control)
+
+One command per format (simulate → validate → analyze):
 
 ```bash
-fhr3 simulate --config configs/nlhe_6max_100bb.yaml --blocks 0:10000 --workers 8
+scripts/run_pilot.sh configs/aof_4max_8bb.yaml       # 4 pairings, ~1-2 min
+scripts/run_pilot.sh configs/plo_6max_100bb.yaml     # 4 pairings, ~5 min
+scripts/run_pilot.sh configs/cp_6max_100bb.yaml      # 4 pairings, ~3 min
+scripts/run_pilot.sh configs/bomb_6max_100bb.yaml    # 4 pairings, ~10-15 min
+scripts/run_pilot.sh configs/nit_6max_100bb.yaml     # 5 pairings, ~20-30 min
 ```
 
-* Output: `results/fhr3-nlhe6-100bb-pilot-v1/<pairing>/blocks/*.parquet` (40 chunks
-  per pairing), manifest in `results/fhr3-nlhe6-100bb-pilot-v1/runs/`, about 40 traced
-  blocks (≈480 PHH files) under `traces/fhr3-nlhe6-100bb-pilot-v1/`.
-* Size: 40,000 blocks = 480,000 played hands, a few MB of Parquet.
-* Interrupted? Re-run the identical command; finished chunks are skipped.
-* Split across machines/sessions: add `--shard i/n` (zero-based); shards partition
-  the chunk list exactly.
+(4-max NLHE and 6-max NLHE 20/50/100BB are already complete.)
 
-Then validate and analyse:
+Outputs: `results/<experiment_id>/...`, `traces/<experiment_id>/...` (~0.1% of
+blocks; PHH for NLHE/PLO/AoF/Nit, JSON traces for Crazy Pineapple and bomb pots),
+`reports/<experiment_id>{-validate.json,.json,.txt}`, `reports/ecdf-<experiment_id>/`.
+
+Validation conditions (all formats):
+* `simulate` exits 0; manifest summary `invalid: 0`
+* `validate`: every pairing `[OK]`, 20 blocks replayed exactly
+* `c0-selfplay-control`: sigma_D = 0 (every D exactly 0)
+* no non-control pairing with sigma_D = 0 (degenerate pairing)
+* Nit Game: `variant_json` truncated counts small (rounds cap at 60 hands)
+
+## 2. Cross-format comparison and figure data
 
 ```bash
-fhr3 validate --config configs/nlhe_6max_100bb.yaml --blocks 0:10000 --replay 20 \
-    --json reports/nlhe6-100bb-pilot-validate.json
-fhr3 analyze results/fhr3-nlhe6-100bb-pilot-v1 --bootstrap 2000 \
-    --json reports/nlhe6-100bb-pilot.json --ecdf-dir reports/ecdf-nlhe6-100bb
-fhr3 power-sim results/fhr3-nlhe6-100bb-pilot-v1/p1-neutral-vs-loose10 \
-    results/fhr3-nlhe6-100bb-pilot-v1/p2-neutral-vs-tight \
-    results/fhr3-nlhe6-100bb-pilot-v1/p3-aggressive-vs-neutral \
-    --n 1000,10000,50000,100000,300000 --deltas 0.5,1,2,5 --reps 2000 \
-    --json reports/nlhe6-100bb-pilot-powersim.json
+.venv/bin/fhr3 compare results/fhr3-aof4-8bb-pilot-v1 results/fhr3-nlhe4-100bb-pilot-v1 \
+    results/fhr3-nlhe6-20bb-v1 results/fhr3-nlhe6-50bb-v1 results/fhr3-nlhe6-100bb-pilot-v1 \
+    results/fhr3-cp6-100bb-pilot-v1 results/fhr3-plo6-100bb-pilot-v1 \
+    results/fhr3-bomb6-100bb-pilot-v1 results/fhr3-nit6-100bb-pilot-v1 \
+    --json reports/cross-format-compare.json | tee reports/cross-format-compare.txt
+.venv/bin/fhr3 figures <same directories> --powersim reports/nlhe6-100bb-ref250k-powersim.json \
+    --out reports/figures --workers 8
 ```
 
-The analysis report gives, per pairing: mean D with t- and bootstrap CIs, σ_D,
-tail quantiles, skew/kurtosis, the share of variance from the top 1%/0.1% of
-blocks, per-hand showdown/all-in/pot diagnostics, per-core throughput, storage per
-block, and required blocks/hands for Δ ∈ {0.25, 0.5, 1, 2, 5} BB/100 at 80%/95%
-power. `power-sim` output is labelled `synthetic_location_shift`: it resamples
-centred block residuals, so it describes the *statistics*, not a real matchup.
-
-### Sanity checks for the pilot
-
-* `invalid` = 0 everywhere (the exit code of `simulate` is 1 otherwise).
-* `c0-selfplay-control`: every D exactly 0, σ_D = 0.
-* `validate`: all OK, replayed blocks match exactly.
-* p1–p3: a large share of blocks with D = 0 (~70–90%); very heavy tails (excess
-  kurtosis ≫ 3; most variance from a few % of blocks). A 200-block smoke sample
-  gave σ_D ≈ 10–12 BB/block; the pilot is what actually estimates it.
-* Per hand: showdown ≈ 0.13, all-in ≈ 0.03, mean pot ≈ 10–11 BB.
-* Throughput ≈ 90–120 blocks/s per core.
-
-## 3. Stack sensitivity (6-max 20/50/100BB) and 4-max NLHE
-
-`configs/nlhe_6max_{20,50}bb.yaml` are identical to the 100BB config except for
-`experiment_id` and `stack_bb` (enforced by `tests/test_configs.py`). Same root seed
-means the same deals for each block id, so D is paired across stack depths.
-`configs/nlhe_4max_100bb.yaml` uses the same candidates with a 3-seat reference
-population (`mixed3-v1`).
+`compare` labels relations strictly: `paired` only for same variant + deal layout
++ protocol + seeds (the stack series); everything else is `shared cards,
+different game`, `shared seed material only` or `independent`, with the observed
+corr(D). Empirical power per format (optional, minutes each):
 
 ```bash
-for c in nlhe_6max_20bb nlhe_6max_50bb nlhe_4max_100bb; do
-  fhr3 simulate --config configs/$c.yaml --blocks 0:10000 --workers 8 || break
-  fhr3 validate --config configs/$c.yaml --blocks 0:10000 --replay 20
-done
-fhr3 compare results/fhr3-nlhe6-20bb-v1 results/fhr3-nlhe6-50bb-v1 \
-    results/fhr3-nlhe6-100bb-pilot-v1 results/fhr3-nlhe4-100bb-pilot-v1 \
-    --json reports/stack-and-format-compare.json
+.venv/bin/fhr3 power-sim results/<experiment_id> --n 1000,10000,50000,100000,250000 \
+    --deltas 0.5,1,2,5 --reps 2000 --json reports/<experiment_id>-powersim.json
 ```
 
-`compare` reports, per pairing and config: σ_D, share of D = 0, kurtosis, variance
-share of the top 1% of blocks, all-in rate, mean pot, blocks/hands for a fixed
-BB/100 effect (`--delta`), the BB/100 gap corresponding to fixed d, and the
-correlation of D across configs on common block ids. That correlation is labelled
-`same deals` (same player count, fully paired) or `same seeds, different deal
-layout` (different player counts: seats 0–3 share hole cards but the boards
-differ, so the comparison is partially paired).
+## 3. RQ6: raw vs all-in EV vs MIVAT vs AIVAT (6-max NLHE 100BB)
 
-Sanity checks: 0 invalid, control σ_D = 0, all-in rate per hand ≈ 0.10 at 20BB,
-≈ 0.055 at 50BB, ≈ 0.025 at 100BB; σ_D increasing with stack depth.
+`configs/nlhe_6max_100bb_rq6.yaml` has the same root seed as the 250k reference
+corpus, so raw D must equal the stored D block for block (a built-in regression
+check); estimators use the prior value function.
 
-## 4. Reproducing / tracing one block
+a) Fit a frozen value function on **separate** training blocks (~1-2 min, one
+process, < 1 GB RAM; ~36k hand histories):
 
 ```bash
-fhr3 replay --config configs/nlhe_6max_100bb.yaml --pairing p2-neutral-vs-tight \
+mkdir -p reports/vat
+.venv/bin/fhr3 vat-fit --config configs/nlhe_6max_100bb_rq6.yaml \
+    --pairing p1-neutral-vs-loose10 --pairing p2-neutral-vs-tight --pairing p3-aggressive-vs-neutral \
+    --blocks 0:1000 --training-root-seed 90210 --flop-samples 16 \
+    --out reports/vat/nlhe6-100bb-vf.json --write-config configs/nlhe_6max_100bb_rq6_fitted.yaml
+```
+
+b) Evaluate (10k blocks per pairing each; ~5-8 min each):
+
+```bash
+scripts/run_pilot.sh configs/nlhe_6max_100bb_rq6.yaml
+scripts/run_pilot.sh configs/nlhe_6max_100bb_rq6_fitted.yaml
+.venv/bin/fhr3 compare results/fhr3-nlhe6-100bb-pilot-v1 results/fhr3-nlhe6-100bb-rq6-v1 \
+    results/fhr3-nlhe6-100bb-rq6-v1-fittedvf --json reports/rq6-compare.json
+```
+
+Check: raw rows of the RQ6 experiments show `paired; corr(D) +1.000` against the
+reference corpus; the analyze report's `estimator ...: mean(est-raw) z` stays
+within about ±3 for every estimator and pairing; the control stays exactly 0.
+Interpret `var ratio vs raw` only for the fitted value function.
+
+## 4. RQ7: sequential inference
+
+```bash
+# on existing corpora (seconds)
+.venv/bin/fhr3 sequential results/fhr3-nlhe6-100bb-pilot-v1 --t-star 250000 --json reports/rq7-nlhe6-100bb.json
+# coverage on synthetic streams (minutes each; 2000 reps x 100k blocks)
+.venv/bin/fhr3 cs-coverage --sampler t3 --true-mean 0 --n-max 100000 --reps 2000 --t-star 100000 --json reports/rq7-cov-t3-null.json
+.venv/bin/fhr3 cs-coverage --sampler bootstrap:results/fhr3-nlhe6-100bb-pilot-v1/p2-neutral-vs-tight \
+    --true-mean 0 --n-max 100000 --reps 2000 --t-star 100000 --json reports/rq7-cov-boot-null.json
+.venv/bin/fhr3 cs-coverage --sampler bootstrap:results/fhr3-nlhe6-100bb-pilot-v1/p2-neutral-vs-tight \
+    --true-mean 0.12 --n-max 250000 --reps 1000 --t-star 250000 --json reports/rq7-cov-boot-2bb100.json
+```
+
+Expected: `asymp` time-uniform miscoverage ≤ ~0.05 (asymptotic; heavy tails may
+need a larger `--min-n`); `peek` far above 0.05; `fixed` final-n miscoverage ≈ 0.05.
+(`--true-mean 0.12` BB/block = 2 BB/100 at 6 candidate hands per side.)
+
+## 5. Reproducing / tracing one block
+
+```bash
+.venv/bin/fhr3 replay --config configs/plo_6max_100bb.yaml --pairing p2-neutral-vs-tight \
     --block 4711 --trace-dir traces/replay-4711 --compare results
 ```
 
-## 5. Throughput / profiling
+## 6. Throughput / profiling
 
 ```bash
-fhr3 bench --config configs/nlhe_6max_100bb.yaml --blocks 200 --profile
+.venv/bin/fhr3 bench --config configs/<config>.yaml --blocks 200 [--profile]
 ```
-
-Profile before optimizing: at milestone 1, ~45% of the time is PokerKit state
-transitions (about half of which is its showdown hand evaluation), ~25% is agents.
