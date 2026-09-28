@@ -208,3 +208,35 @@ def test_other_players_discards_are_private():
     own = [r for r in h.observation(0).history if r.kind is ActionKind.DISCARD]
     assert own[0].cards == ("2c",)  # a player sees its own discard
     assert h.outcome is not None and any(r.cards == ("2c",) for r in h._history)  # full record kept for traces
+
+
+def test_preflop_all_in_still_discards_and_showdown_uses_kept_cards():
+    """Regression for the FHR3 rule where go_trumpcards diverges (docs/variants.md).
+
+    Everyone is all-in preflop (no further betting possible); the flop is still
+    dealt, every live player - all of them all-in - discards 3 -> 2, the turn and
+    river run out, and showdown uses only the kept two cards (Hold'em rules).
+    Seat 0 is dealt AA2 and keeps A2: with all three hole cards AA would win
+    both pots; with the kept cards KK wins the main pot and QQ the side pot.
+    """
+    ad = cp(3)
+    deal = deal_for(ad, ["AsAh2c", "KsKh3d", "QsQh4h"], "5c6d9hJs2d", burns=("3s", "4s", "8s"))
+    h = ad.new_hand(deal, starting_stacks=(10000, 3000, 10000))
+    h.apply(Action.raise_to(10000))  # BTN (seat 2) jams
+    h.apply(Action.check_call())  # SB calls all-in
+    h.apply(Action.check_call())  # BB (short) calls all-in
+    for seat, card in ((0, "Ah"), (1, "3d"), (2, "4h")):
+        assert h.actor() == seat and isinstance(h.legal_actions(), LegalDiscards)
+        obs = h.observation(seat)
+        assert obs.street == 1 and obs.board == ("5c", "6d", "9h") and len(obs.hole_cards) == 3
+        assert obs.stacks[seat] == 0  # the discarder is all-in
+        h.apply(Action.discard(card))
+    assert h.is_terminal()
+    o = h.outcome()
+    assert o.board == ("5c", "6d", "9h", "Js", "2d")  # turn and river ran out after the discards
+    kept = {0: ("As", "2c"), 1: ("Ks", "Kh"), 2: ("Qs", "Qh")}
+    assert rank_holdem(kept[1], o.board) > rank_holdem(kept[2], o.board) > rank_holdem(kept[0], o.board)
+    # main pot 9000 -> seat 1 (KK); side pot 14000 (seats 0, 2) -> seat 2 (QQ)
+    assert o.payoffs_chips == (-10000, 6000, 4000)
+    # with all three hole cards seat 0 (AA) would have won everything
+    assert rank_holdem(("As", "Ah", "2c"), o.board) > rank_holdem(kept[1], o.board)

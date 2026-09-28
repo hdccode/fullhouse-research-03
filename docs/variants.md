@@ -43,7 +43,20 @@ the adapter (agents see `LegalDiscards`); PokerKit's own draw mechanism is not
 used because it always deals replacement cards. A per-hand PokerKit hand type
 evaluates the kept two cards at showdown (a showdown before a registered discard
 raises). Validated by a sequencing oracle and a showdown oracle
-(`tests/test_crazy_pineapple.py`); no independent CP engine was available offline.
+(`tests/test_crazy_pineapple.py`).
+
+External check (go_trumpcards, `internal/domain/Pineapple.go` at commit
+`26642803`): its Crazy Pineapple agrees on 3 hole cards, normal preflop betting,
+flop dealt, flop betting completed, then one discard phase in which folded
+players are skipped and every other player (all-in players included) discards
+down to 2, followed by Hold'em-style showdown. **Divergence:** when at most one
+player still has chips after *preflop* betting, go_trumpcards deals the flop and
+runs straight to showdown without its discard phase, evaluating all 3 hole cards.
+We treat that as an implementation edge case (its own discard phase explicitly
+includes all-in players, and its plain-Pineapple path discards after a preflop
+all-in), not a rule: FHR3 always holds the discard after the flop, including when
+everyone is all-in (`test_preflop_all_in_still_discards_and_showdown_uses_kept_cards`).
+In the CP pilot this situation arises in ~0.25% of hands.
 
 ## NLHE Bomb Pot (`bomb_pot`, single board)
 Every seat posts `options.ante_bb` (default 2 BB) as an ante; no blinds; **no
@@ -73,6 +86,12 @@ B-round use the same deal (per-hand chance key), so they are matched hand by han
 while both last. Round lengths can differ between A and B; BB/100 figures for the
 Nit Game therefore use the mean candidate hands per side (a ratio
 approximation), while block-level quantities are exact.
+
+**D and BB/100 include nit-penalty transfers.** In the 10k pilot the large mean
+gaps (+10 to +30 BB/100) are almost entirely transfers (e.g. p2: +14.97 of +14.50
+BB/block; chip-play gap −1.0 BB/100, z −1.0), while chip play carries ~75–85% of
+var(D). Report the transfer/chip split (`variant_json` per block) alongside Nit
+effects.
 
 ## All-in or Fold (`aof`)
 NLHE engine with legal actions restricted to fold and all-in (open shove or

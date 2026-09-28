@@ -57,12 +57,22 @@
     heuristic, nit-aware heuristic, AoF production policy v2 + AoF heuristics).
     They share a philosophy (soft thresholds, explicit distributions), not
     strategic equivalence; σ_D across formats compares benchmark environments,
-    not games in the abstract. Bomb pots with the NLHE family show ~71%
-    showdowns and ~30% all-in hands (large pots are inherent to the format but
-    also shaped by the heuristic's sizing).
+    not games in the abstract.
+    **Bomb Pot is scientifically caveated.** With the NLHE family the 10k pilot
+    shows ~69% showdowns, ~28% of hands with an all-in and ~80 BB mean pots, and
+    very large genuine gaps: tight beats neutral by 25 BB/100 (z −5.4) and
+    aggressive loses 17 BB/100 (z −2.8). The NLHE heuristic was not designed for
+    six-way flops (multiway discount, 45%-of-stack commit rule), so these are
+    partly agent artefacts. Bomb Pot results hold "under this benchmark family"
+    only; a multiway-aware robustness pairing is needed before calling it the
+    hardest format.
 17. **Nit Game BB/100** uses the mean candidate hands per side (round lengths
     differ between A and B); block-level results are exact, BB/100 is a ratio
-    approximation.
+    approximation. Nit D and BB/100 **include nit-penalty transfers**, which
+    account for almost all of the large mean gaps (docs/variants.md).
+21. **Crazy Pineapple preflop all-ins:** FHR3 always discards after the flop,
+    including all-in players; go_trumpcards skips the discard when no betting is
+    possible after preflop (treated as its edge case, see docs/variants.md).
 18. **AoF production policy** is the aof-ml v2 range table vendored with
     provenance; its validation status is aof-ml's (best estimate from finite
     training, with the documented mixed stress-cell result).
