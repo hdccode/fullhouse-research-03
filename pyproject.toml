@@ -13,16 +13,22 @@ dependencies = [
   "numpy>=1.26",
   "scipy>=1.11",
   "pyyaml>=6",
+  "pvat==0.0.0.dev2",
 ]
 
 [project.optional-dependencies]
 dev = ["pytest>=8", "hypothesis>=6"]
+# Optional cross-check for the sequential layer; needs Boost to build on Python >= 3.11
+sequential = ["confseq==0.0.11"]
 
 [project.scripts]
 fhr3 = "fhr3.cli.main:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]
+
+[tool.setuptools.package-data]
+"fhr3.agents.data" = ["*.json"]
 
 [tool.pytest.ini_options]
 addopts = "-q"

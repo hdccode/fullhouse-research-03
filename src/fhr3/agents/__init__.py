@@ -9,6 +9,30 @@ def build_agent(spec: AgentSpec) -> Agent:
 
         style = params.pop("style", "neutral")
         return HeuristicAgent(spec.agent_id, style=style, **params.pop("overrides", {}), **params)
+    if spec.kind == "plo_heuristic":
+        from fhr3.agents.plo import PLOHeuristicAgent
+
+        style = params.pop("style", "neutral")
+        return PLOHeuristicAgent(spec.agent_id, style=style, **params.pop("overrides", {}), **params)
+    if spec.kind == "cp_heuristic":
+        from fhr3.agents.pineapple import CrazyPineappleAgent
+
+        style = params.pop("style", "neutral")
+        return CrazyPineappleAgent(spec.agent_id, style=style, **params.pop("overrides", {}), **params)
+    if spec.kind == "nit_heuristic":
+        from fhr3.agents.nit import NitHeuristicAgent
+
+        style = params.pop("style", "neutral")
+        return NitHeuristicAgent(spec.agent_id, style=style, **params.pop("overrides", {}), **params)
+    if spec.kind == "aof_policy":
+        from fhr3.agents.aof import AoFPolicyAgent
+
+        return AoFPolicyAgent(spec.agent_id, **params)
+    if spec.kind == "aof_heuristic":
+        from fhr3.agents.aof import AoFHeuristicAgent
+
+        style = params.pop("style", "neutral")
+        return AoFHeuristicAgent(spec.agent_id, style=style, **params.pop("overrides", {}), **params)
     if spec.kind == "checkcall":
         from fhr3.agents.simple import CheckCallAgent
 

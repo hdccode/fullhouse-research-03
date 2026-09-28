@@ -37,6 +37,14 @@ Seat components `D_s` are stored (`seat_D`) for diagnostics, but they are *not*
 independent (they share one deck and are positively/negatively correlated), so
 all inference uses `D`.
 
+## Nit Game protocol (`fhr3-nit-round-v1`)
+
+Each seat/side plays one complete nit round (see variants.md) from the empty
+button state. Hand h uses `KeyedStream("chance", seed, salt_chance, "hand", h)`
+and the dealer rotates one seat per hand; decision keys append `("hand", h)` and
+use table seats. The block is still one independent observation; hands and
+rounds inside it are not.
+
 ## Decision randomness
 
 Agents receive a `DecisionRNG`, a keyed counter-based stream:
@@ -67,6 +75,10 @@ Consequences, all covered by tests:
 
 Policies following `DistributionAgent` consume exactly one uniform per decision
 (inverse-CDF selection), which maximises A/B coupling.
+
+Estimator streams (all-in EV Monte Carlo, AIVAT flop samples) are keyed by
+`("hand", seed, s[, h])` without the side, so they are shared between the A- and
+B-hand of a seat (exact self-play zero and swap negation for every estimator).
 
 ## Seeds and hashing
 

@@ -106,11 +106,37 @@ def cmd_simulate(args: argparse.Namespace) -> int:
         "invalid": sum(r["invalid"] for r in results),
         "traced": sum(r["traced"] for r in results),
         "blocks_per_s_aggregate": blocks_done / wall if wall > 0 else None,
+        "timing_shares_of_worker_time": _timing_shares(results),
+        "peak_rss_mb_parent": _peak_rss_mb(),
     }
     _write_json_atomic(mpath, manifest.to_dict())
     print(json.dumps(manifest.summary, indent=2), file=sys.stderr)
     print(f"manifest: {mpath}", file=sys.stderr)
     return 1 if manifest.summary["invalid"] else 0
+
+
+def _peak_rss_mb() -> float | None:
+    try:
+        import resource
+
+        rss = resource.getrusage(resource.RUSAGE_SELF).ru_maxrss
+        return rss / (1024 * 1024) if sys.platform == "darwin" else rss / 1024
+    except Exception:  # pragma: no cover
+        return None
+
+
+def _timing_shares(results: list[dict[str, Any]]) -> dict[str, float] | None:
+    """Worker time split: agents, estimators, engine (rest of block time), serialization."""
+    sim = sum(r.get("simulate_s", 0.0) for r in results)
+    ser = sum(r.get("serialize_s", 0.0) for r in results)
+    blk = sum(r.get("runtime_ms_sum", 0.0) for r in results) / 1000.0
+    ag = sum(r.get("agent_ms_sum", 0.0) for r in results) / 1000.0
+    es = sum(r.get("estimator_ms_sum", 0.0) for r in results) / 1000.0
+    total = sim + ser
+    if total <= 0:
+        return None
+    return {"agents": ag / total, "estimators": es / total, "engine_and_block_overhead": (blk - ag - es) / total,
+            "runner_overhead": (sim - blk) / total, "serialization": ser / total}
 
 
 # ------------------------------------------------------------------ replay
@@ -157,6 +183,8 @@ def cmd_validate(args: argparse.Namespace) -> int:
         print(f"[{status}] {r['pairing_id']}: {r['rows']} rows, {r['invalid']} invalid, replayed {len(r['replayed_blocks'])} blocks exactly")
         for p in r["problems"]:
             print(f"    - {p}")
+        for n in r.get("notes", []):
+            print(f"    note: {n}")
     _dump(reports, args.json)
     return 0 if all(r["ok"] for r in reports) else 1
 
@@ -194,9 +222,103 @@ def cmd_power_sim(args: argparse.Namespace) -> int:
 def cmd_compare(args: argparse.Namespace) -> int:
     from fhr3.analysis.compare import compare_paths, format_compare
 
-    rep = compare_paths([Path(p) for p in args.paths], args.delta, args.power, args.alpha)
+    deltas = tuple(float(x) for x in args.deltas.split(","))
+    rep = compare_paths([Path(p) for p in args.paths], deltas, args.power, args.alpha)
     print(format_compare(rep))
     _dump(rep, args.json)
+    return 0
+
+
+def cmd_figures(args: argparse.Namespace) -> int:
+    from fhr3.analysis.figures import write_figure_data
+
+    files = write_figure_data([Path(p) for p in args.paths], Path(args.out),
+                              [Path(p) for p in args.powersim or []], args.workers, args.alpha)
+    for f in files:
+        print(f)
+    return 0
+
+
+def cmd_vat_fit(args: argparse.Namespace) -> int:
+    from fhr3.eval.runner import parse_range
+    from fhr3.estimators.vat_fit import fit_value_function
+
+    cfg = _cfg(args)
+    start, end = parse_range(args.blocks)
+    meta = fit_value_function(cfg, _pairings(cfg, args.pairing), start, end, args.training_root_seed,
+                              args.kind, args.flop_samples, Path(args.out))
+    v = meta["in_sample_per_hand_variance"]
+    print(f"fitted {meta['n_hand_histories']} hand histories; in-sample per-hand variance {v['raw']:.2f} -> {v['fitted']:.2f}")
+    print(f"wrote {args.out}  sha256 {meta['sha256']}")
+    print("add to the evaluation config:")
+    print("estimators:")
+    for kind in ("mivat", "aivat"):
+        print(f"  {kind}: {{value_function: {args.out}, value_function_sha256: {meta['sha256']}, flop_samples: {args.flop_samples}}}")
+    if args.write_config:
+        import yaml
+
+        raw = dict(cfg.raw)
+        raw["experiment_id"] = f"{cfg.experiment_id}-fittedvf"
+        est = dict(raw.get("estimators") or {})
+        for kind in ("mivat", "aivat"):
+            est[kind] = {"value_function": str(args.out), "value_function_sha256": meta["sha256"],
+                         "flop_samples": args.flop_samples}
+        raw["estimators"] = est
+        Path(args.write_config).write_text(
+            "# Derived by fhr3 vat-fit: evaluation config with a frozen, sha256-pinned value function\n"
+            + yaml.safe_dump(raw, sort_keys=False))
+        print(f"wrote evaluation config {args.write_config}")
+    return 0
+
+
+def cmd_sequential(args: argparse.Namespace) -> int:
+    import numpy as np
+    import pyarrow.compute as pc
+
+    from fhr3.analysis.report import k_effective
+    from fhr3.analysis.sequential import run_sequential
+    from fhr3.io.store import read_blocks
+
+    table = read_blocks([Path(p) for p in args.paths])
+    keys = sorted(set(zip(table.column("config_hash").to_pylist(), table.column("pairing_id").to_pylist(), strict=True)))
+    out = []
+    for chash, pid in keys:
+        m = pc.and_(pc.and_(pc.equal(table.column("config_hash"), chash), pc.equal(table.column("pairing_id"), pid)), table.column("valid"))
+        t = table.filter(m)
+        order = np.argsort(t.column("block_id").to_numpy())  # the stream is D in block_id order
+        D = np.asarray(t.column("D").to_numpy(zero_copy_only=False), dtype=float)[order]
+        if D.size < args.min_n or not D.std() > 0:
+            continue
+        k = k_effective(t)
+        width = args.width_bb100 * k / 100.0 if args.width_bb100 else None
+        for method in args.methods.split(","):
+            r = run_sequential(D, method, args.alpha, args.t_star, args.min_n, width) | {
+                "experiment_id": t.column("experiment_id")[0].as_py(), "pairing_id": pid,
+                "played_hands_at_stop": None}
+            r["played_hands_at_stop"] = int(t.column("played_hands").to_numpy()[order][: r["stopping_time"]].sum())
+            r["interval_bb100"] = [100.0 * v / k for v in r["interval"]]
+            out.append(r)
+            iv = r["interval_bb100"]
+            print(f"{r['experiment_id']}/{pid} [{method}] stop n={r['stopping_time']:,} ({r['played_hands_at_stop']:,} hands) "
+                  f"{r['reason']} decision {r['decision']}  CI {iv[0]:+.2f}..{iv[1]:+.2f} BB/100"
+                  + ("" if r["valid_for_optional_stopping"] else "  [not valid under optional stopping]"))
+    _dump(out, args.json)
+    return 0
+
+
+def cmd_cs_coverage(args: argparse.Namespace) -> int:
+    from fhr3.analysis.sequential import coverage_experiment, make_sampler
+
+    out = []
+    for method in args.methods.split(","):
+        r = coverage_experiment(make_sampler(args.sampler, args.true_mean, args.scale), args.true_mean, args.n_max,
+                                args.reps, method, args.alpha, args.t_star, args.min_n, args.seed)
+        r["sampler"] = args.sampler
+        out.append(r)
+        print(f"[{method}] reps {r['reps']} n_max {r['n_max']:,} true mean {r['true_mean']}: time-uniform miscoverage "
+              f"{r['time_uniform_miscoverage'] if r['time_uniform_miscoverage'] is None else round(r['time_uniform_miscoverage'], 4)}  final-n miscoverage {r['final_n_miscoverage']:.4f}  "
+              f"median stop {r['stopping_time_quantiles'][0.5]:,.0f}  decisions {r['decisions']}  wrong sign {r['wrong_sign_rate']:.4f}")
+    _dump(out, args.json)
     return 0
 
 
@@ -220,8 +342,23 @@ def cmd_bench(args: argparse.Namespace) -> int:
     hands = sum(r.played_hands for r in res)
     decs = sum(r.decision_count for r in res)
     agent = sum(r.agent_ms for r in res) / 1000
-    print(f"{args.blocks} blocks in {wall:.2f}s: {args.blocks / wall:.1f} blocks/s, {hands / wall:.0f} hands/s, "
-          f"{decs / wall:.0f} decisions/s; agent share {agent / wall:.2f} (single process)")
+    est = sum(r.estimator_ms for r in res) / 1000
+    t_s = time.perf_counter()
+    from fhr3.io.schema import rows_to_table
+
+    table = rows_to_table([sim.row(r, "bench", False) for r in res])
+    import io
+
+    import pyarrow.parquet as pq
+
+    buf = io.BytesIO()
+    pq.write_table(table, buf, compression="zstd")
+    ser = time.perf_counter() - t_s
+    print(f"{cfg.game.variant} {cfg.game.player_count}-max {cfg.game.stack_bb:g}bb, {args.blocks} blocks in {wall:.2f}s "
+          f"(single process): {args.blocks / wall:.1f} blocks/s, {hands / wall:.0f} hands/s, {decs / wall:.0f} decisions/s")
+    print(f"time shares: agents {agent / wall:.2f}, estimators {est / wall:.2f}, engine+bookkeeping "
+          f"{(wall - agent - est) / wall:.2f}; serialization {ser:.3f}s ({ser / (wall + ser):.3f} of total), "
+          f"{buf.tell() / args.blocks:.0f} B/block; peak RSS {_peak_rss_mb() or float('nan'):.0f} MB")
     if prof:
         pstats.Stats(prof).sort_stats("cumulative").print_stats(args.profile_top)
     return 0
@@ -283,11 +420,54 @@ def build_parser() -> argparse.ArgumentParser:
 
     c = sub.add_parser("compare", help="compare pairings across configs (stack depth, player count)")
     c.add_argument("paths", nargs="+", help="experiment directories")
-    c.add_argument("--delta", type=float, default=1.0, help="fixed effect in BB/100")
+    c.add_argument("--deltas", default="0.25,0.5,1,2,5", help="target effects in BB/100")
     c.add_argument("--power", type=float, default=0.8)
     c.add_argument("--alpha", type=float, default=0.05)
     c.add_argument("--json")
     c.set_defaults(func=cmd_compare)
+
+    f = sub.add_parser("figures", help="write figure-ready CSV data products")
+    f.add_argument("paths", nargs="+", help="experiment directories")
+    f.add_argument("--out", default="reports/figures")
+    f.add_argument("--powersim", action="append", help="power-sim JSON output(s) to include")
+    f.add_argument("--workers", type=int, default=8, help="worker count for wall-clock translation")
+    f.add_argument("--alpha", type=float, default=0.05)
+    f.set_defaults(func=cmd_figures)
+
+    vf = sub.add_parser("vat-fit", help="fit a frozen MIVAT/AIVAT value function on separate training blocks")
+    vf.add_argument("--config", required=True)
+    vf.add_argument("--pairing", action="append")
+    vf.add_argument("--blocks", required=True, help="training block range under the training seed")
+    vf.add_argument("--training-root-seed", type=int, required=True, help="must differ from the config root_seed")
+    vf.add_argument("--kind", choices=["aivat", "mivat"], default="aivat")
+    vf.add_argument("--flop-samples", type=int, default=16)
+    vf.add_argument("--out", required=True)
+    vf.add_argument("--write-config", help="also write a derived evaluation config using the fitted value function")
+    vf.set_defaults(func=cmd_vat_fit)
+
+    sq = sub.add_parser("sequential", help="anytime-valid stopping on block corpora (D in block_id order)")
+    sq.add_argument("paths", nargs="+")
+    sq.add_argument("--methods", default="asymp,fixed,peek")
+    sq.add_argument("--alpha", type=float, default=0.05)
+    sq.add_argument("--t-star", type=float, default=100_000, help="blocks at which the CS width is optimised")
+    sq.add_argument("--min-n", type=int, default=200)
+    sq.add_argument("--width-bb100", type=float, help="also stop when the interval is narrower than this (BB/100)")
+    sq.add_argument("--json")
+    sq.set_defaults(func=cmd_sequential)
+
+    cv = sub.add_parser("cs-coverage", help="coverage of sequential methods on synthetic IID block streams")
+    cv.add_argument("--sampler", default="t3", help="normal | t3 | bootstrap:<results dir>")
+    cv.add_argument("--true-mean", type=float, default=0.0, help="true mean (BB per block)")
+    cv.add_argument("--scale", type=float, default=1.0, help="SD for normal/t3 samplers")
+    cv.add_argument("--n-max", type=int, default=20_000)
+    cv.add_argument("--reps", type=int, default=1000)
+    cv.add_argument("--methods", default="asymp,peek,fixed")
+    cv.add_argument("--alpha", type=float, default=0.05)
+    cv.add_argument("--t-star", type=float, default=10_000)
+    cv.add_argument("--min-n", type=int, default=200)
+    cv.add_argument("--seed", type=int, default=0)
+    cv.add_argument("--json")
+    cv.set_defaults(func=cmd_cs_coverage)
 
     b = sub.add_parser("bench", help="small single-process throughput/profile run (no output files)")
     b.add_argument("--config", required=True)

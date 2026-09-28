@@ -3,21 +3,28 @@
 Units: all payoff columns are in big blinds. ``D`` is the block total
 ``sum_s (X_A,s - X_B,s)`` over the k candidate seats (see eval/matched.py).
 
+v2 (this version) = v1 + ``hands_a``, ``hands_b``, ``deal_layout``,
+``estimator_config_hash``, ``estimator_ms``, ``allin_ev_hands``,
+``variant_json``. v1 files remain readable (missing columns read as null) and
+v1 rows can be replayed against current code (``validation.corpus``).
+
 ``NONDETERMINISTIC_COLUMNS`` are excluded from replay/serial-vs-parallel
 equality checks; every other column must be bit-identical on re-run.
 """
 
 from __future__ import annotations
 
+import json
 from typing import Any
 
 import pyarrow as pa
 
 from fhr3.configs.experiment import ExperimentConfig, Pairing
-from fhr3.eval.matched import MATCHED_PROTOCOL_VERSION, MatchedBlockResult
+from fhr3.eval.matched import MatchedBlockResult
 from fhr3.rng import SEED_DERIVATION_VERSION
 
-SCHEMA_VERSION = "fhr3-block-v1"
+SCHEMA_VERSION = "fhr3-block-v2"
+COMPATIBLE_SCHEMA_VERSIONS = ("fhr3-block-v1", "fhr3-block-v2")
 
 _f64, _i64, _i32, _str, _bool = pa.float64(), pa.int64(), pa.int32(), pa.string(), pa.bool_()
 
@@ -66,13 +73,21 @@ BLOCK_SCHEMA = pa.schema(
         ("pot_bb_sum", _f64),
         ("pot_bb_max", _f64),
         ("traced", _bool),
+        # v2 additions
+        ("hands_a", _i32),  # candidate hands actually played, side A (k unless Nit Game)
+        ("hands_b", _i32),
+        ("deal_layout", _str),  # equal layout + equal seeds => same cards per block id
+        ("estimator_config_hash", _str),
+        ("estimator_ms", _f64),
+        ("allin_ev_hands", _i32),  # hands with an all-in runout (EV replaced the realized payoff)
+        ("variant_json", _str),  # variant-specific diagnostics (e.g. nit rounds)
         ("matched_protocol_version", _str),
         ("seed_derivation_version", _str),
         ("schema_version", _str),
     ]
 )
 
-NONDETERMINISTIC_COLUMNS = frozenset({"run_id", "runtime_ms", "agent_ms", "traced"})
+NONDETERMINISTIC_COLUMNS = frozenset({"run_id", "runtime_ms", "agent_ms", "estimator_ms", "traced"})
 
 
 def result_to_row(
@@ -82,8 +97,10 @@ def result_to_row(
     result: MatchedBlockResult,
     run_id: str,
     traced: bool,
+    deal_layout: str | None = None,
 ) -> dict[str, Any]:
     hands = result.hands if result.valid else []
+    has_allin = "allin_ev" in result.seat_estimates
     return {
         "experiment_id": cfg.experiment_id,
         "run_id": run_id,
@@ -115,9 +132,9 @@ def result_to_row(
         "error_code": result.error_code,
         "error_detail": result.error_detail,
         "raw_estimator_D": result.D,
-        "allin_ev_D": None,
-        "mivat_D": None,
-        "aivat_D": None,
+        "allin_ev_D": result.estimator_D("allin_ev"),
+        "mivat_D": result.estimator_D("mivat"),
+        "aivat_D": result.estimator_D("aivat"),
         "seat_payoff_a": result.seat_payoff_a,
         "seat_payoff_b": result.seat_payoff_b,
         "seat_D": result.seat_D if result.valid else [],
@@ -126,7 +143,14 @@ def result_to_row(
         "pot_bb_sum": sum(h.pot_bb for h in hands),
         "pot_bb_max": max((h.pot_bb for h in hands), default=0.0),
         "traced": traced,
-        "matched_protocol_version": MATCHED_PROTOCOL_VERSION,
+        "hands_a": result.hands_for("A") if result.valid else None,
+        "hands_b": result.hands_for("B") if result.valid else None,
+        "deal_layout": deal_layout,
+        "estimator_config_hash": cfg.estimator_config_hash,
+        "estimator_ms": result.estimator_ms,
+        "allin_ev_hands": sum(h.allin_runout for h in hands) if has_allin and result.valid else None,
+        "variant_json": json.dumps(result.variant_info, sort_keys=True) if result.variant_info else None,
+        "matched_protocol_version": result.protocol,
         "seed_derivation_version": SEED_DERIVATION_VERSION,
         "schema_version": SCHEMA_VERSION,
     }

@@ -53,7 +53,21 @@ about strong play. Strong or learned agents are validation agents for later.
 extreme raise sizes over-weighted). Used for invariants and fuzzing, not as
 experimental candidates.
 
-## Planned
+## Other families (see docs/variants.md for per-format pairings)
 
-* FullHouse 4-max AoF production policy (`~/aof-ml`, v2) behind the same
-  interface, via an adapter that maps `Observation` to its shove/call lookup.
+* `plo_heuristic` (`plo-heuristic-1.0.0`): same skeleton, Hutchison-style 4-card
+  preflop score (percentile over a fixed deterministic sample), Omaha 2+3
+  postflop features (sets, top two, nut flush, Omaha flush/straight draws).
+* `cp_heuristic` (`cp-heuristic-1.0.0`): 3-card preflop percentile; flop play on
+  the best kept pair; discard keeps the pair maximising strength + draw equity.
+* `nit_heuristic` (`nit-heuristic-1.0.0`): NLHE family; without a nit button it
+  uses looseness × `nit_looseness` (1.3) and call_margin − `nit_call_shift` (0.04).
+* `aof_policy` (`aof-policy-1.0.0`): FullHouse 4-max 8BB production policy v2,
+  vendored by `scripts/vendor_aof_policy.py` from aof-ml commit `d682f23`
+  (source content hash `32a541ab…`, file sha256 recorded in the JSON); optional
+  `blend` with an AoF heuristic for controlled perturbations.
+* `aof_heuristic` (`aof-heuristic-1.0.0`): percentile shove/call thresholds by
+  position and number of prior shoves.
+
+All families except `RandomLegalAgent` are `DistributionAgent`s, which is what
+lets AIVAT correct their actions.

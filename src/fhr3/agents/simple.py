@@ -5,7 +5,7 @@ from __future__ import annotations
 from collections.abc import Sequence
 
 from fhr3.agents.base import DistributionAgent
-from fhr3.games.base import Action, LegalActions, Observation
+from fhr3.games.base import Action, LegalActions, LegalDiscards, Observation
 from fhr3.rng import DecisionRNG
 
 SIMPLE_VERSION = "simple-1.0.0"
@@ -18,8 +18,10 @@ class CheckCallAgent(DistributionAgent):
         self.agent_id, self.version = agent_id, f"{SIMPLE_VERSION}/checkcall"
 
     def action_distribution(
-        self, observation: Observation, legal_actions: LegalActions
+        self, observation: Observation, legal_actions: LegalActions | LegalDiscards
     ) -> Sequence[tuple[Action, float]]:
+        if isinstance(legal_actions, LegalDiscards):
+            return [(Action.discard(*legal_actions.cards[-legal_actions.count:]), 1.0)]
         return [(Action.check_call(), 1.0)]
 
 
@@ -30,8 +32,11 @@ class RandomLegalAgent:
         self.agent_id, self.version = agent_id, f"{SIMPLE_VERSION}/random"
 
     def act(
-        self, observation: Observation, legal_actions: LegalActions, rng: DecisionRNG
+        self, observation: Observation, legal_actions: LegalActions | LegalDiscards, rng: DecisionRNG
     ) -> Action:
+        if isinstance(legal_actions, LegalDiscards):
+            cards = rng.shuffle(legal_actions.cards)[: legal_actions.count]
+            return Action.discard(*cards)
         options = []
         if legal_actions.can_fold:
             options.append("f")

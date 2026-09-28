@@ -48,6 +48,17 @@ def test_cli_compare(tmp_path, capsys):
     capsys.readouterr()
     assert main(["compare", str(out / "cmp-100"), str(out / "cmp-20"), "--json", str(tmp_path / "c.json")]) == 0
     text = capsys.readouterr().out
-    assert "6max/20bb" in text and "(same deals)" in text
+    assert "nlhe/6max/20bb" in text and ": paired;" in text
     rep = json.loads((tmp_path / "c.json").read_text())
-    assert [c["stack_bb"] for c in rep["pairings"]["ab"]["configs"]] == [20, 100]
+    assert [r["stack_bb"] for r in rep["rows"] if r["pairing_id"] == "ab"] == [20, 100]
+    assert {x["relation"] for x in rep["relations"]} == {"paired"}
+    assert main(["figures", str(out / "cmp-100"), str(out / "cmp-20"), "--out", str(tmp_path / "fig")]) == 0
+    for name in ("sigma_by_format_pairing", "hands_vs_effect", "blocks_vs_d", "stack_sensitivity",
+                 "variance_concentration", "variance_reduction", "cost_translation", "relations"):
+        assert (tmp_path / "fig" / f"{name}.csv").exists()
+    import csv as _csv
+
+    sig = list(_csv.DictReader(open(tmp_path / "fig" / "sigma_by_format_pairing.csv")))
+    assert {r["role"] for r in sig} == {"ab"}  # role = pairing-id prefix
+    cost = list(_csv.DictReader(open(tmp_path / "fig" / "cost_translation.csv")))
+    assert all(float(r["measured_aggregate_blocks_per_s"]) > 0 and float(r["wall_hours_measured_aggregate"]) > 0 for r in cost)
