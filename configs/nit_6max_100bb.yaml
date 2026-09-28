@@ -1,0 +1,73 @@
+# FHR3 pilot: 6-max Nit Game (NLHE), 100BB, fixed mixed reference population.
+# Block protocol fhr3-nit-round-v1: every seat/side plays one complete nit round
+# (hands until at most one player lacks a nit button, capped at max_hands),
+# starting from the empty button state in every block (blocks stay independent).
+# The last player without a button pays nit_penalty_bb to every other player.
+# Agents: nit_heuristic (NLHE heuristic that plays hungrier without a button).
+# Scientific fields (experiment_id, root_seed, game, rng, agents used by a
+# pairing) are hashed; blocks / chunk_size / trace are operational.
+experiment_id: fhr3-nit6-100bb-pilot-v1
+root_seed: 20260928
+
+game:
+  variant: nit_game
+  player_count: 6
+  stack_bb: 100
+  bb_chips: 100
+  sb_chips: 50
+  ante_chips: 0
+  options: {nit_penalty_bb: 5, max_hands: 60}
+
+rng:
+  candidate_coupling: shared      # common random numbers for A/B policy mixing
+  reference_coupling: shared      # reference seats reuse draws across A-hand/B-hand
+  salts: {chance: 0, candidate: 0, reference: 0}
+
+blocks: 10000
+chunk_size: 250
+
+trace:
+  rate: 0.001          # ~0.1% of blocks get full PHH traces (deterministic selection)
+  include_invalid: true
+  block_ids: []
+
+agents:
+  # candidates
+  neutral:        {kind: nit_heuristic, style: neutral}
+  neutral_copy:   {kind: nit_heuristic, style: neutral}          # identical policy, control
+  neutral_loose10: {kind: nit_heuristic, style: neutral, overrides: {looseness: 1.10}}
+  tight:          {kind: nit_heuristic, style: tight}
+  aggressive:     {kind: nit_heuristic, style: aggressive}
+  neutral_naive:  {kind: nit_heuristic, style: neutral, nit_looseness: 1.0, nit_call_shift: 0.0}
+  # reference seats
+  ref_tight:      {kind: nit_heuristic, style: tight}
+  ref_neutral_1:  {kind: nit_heuristic, style: neutral}
+  ref_loose:      {kind: nit_heuristic, style: loose}
+  ref_aggressive: {kind: nit_heuristic, style: aggressive}
+  ref_neutral_2:  {kind: nit_heuristic, style: neutral}
+
+reference_populations:
+  # Order j = 0..4 : reference j sits j+1 seats after the candidate.
+  mixed5-v1: [ref_tight, ref_neutral_1, ref_loose, ref_aggressive, ref_neutral_2]
+
+pairings:
+  - pairing_id: p1-neutral-vs-loose10     # small perturbation
+    candidate_a: neutral
+    candidate_b: neutral_loose10
+    reference_population: mixed5-v1
+  - pairing_id: p2-neutral-vs-tight       # moderate style gap
+    candidate_a: neutral
+    candidate_b: tight
+    reference_population: mixed5-v1
+  - pairing_id: p3-aggressive-vs-neutral  # larger style gap, higher variance
+    candidate_a: aggressive
+    candidate_b: neutral
+    reference_population: mixed5-v1
+  - pairing_id: p4-nitaware-vs-naive      # nit-specific: button-aware vs button-blind
+    candidate_a: neutral
+    candidate_b: neutral_naive
+    reference_population: mixed5-v1
+  - pairing_id: c0-selfplay-control       # must give D == 0 exactly
+    candidate_a: neutral
+    candidate_b: neutral_copy
+    reference_population: mixed5-v1

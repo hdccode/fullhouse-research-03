@@ -338,6 +338,27 @@ class SingleHandProtocol:
                 _record(blk.result, side, payoff, est)
 
 
+def nit_update_buttons(buttons: Sequence[bool], table_payoffs: Sequence[int]) -> list[bool]:
+    """A player earns a nit button in a hand where its net chip result is positive."""
+    return [b or p > 0 for b, p in zip(buttons, table_payoffs, strict=True)]
+
+
+def nit_resolution(buttons: Sequence[bool], penalty_bb: float) -> tuple[bool, int | None, list[float]]:
+    """(round over?, nit seat or None, per-seat transfers in BB). Transfers sum to 0.
+
+    The round is over when at most one player lacks a button. If exactly one
+    lacks it, that player pays ``penalty_bb`` to every other player.
+    """
+    k = len(buttons)
+    without = [t for t in range(k) if not buttons[t]]
+    if len(without) > 1:
+        return False, None, [0.0] * k
+    if not without:
+        return True, None, [0.0] * k
+    nit = without[0]
+    return True, nit, [-penalty_bb * (k - 1) if t == nit else penalty_bb for t in range(k)]
+
+
 class NitRoundProtocol:
     """One complete nit round per seat/side, fresh state per block.
 
@@ -360,9 +381,10 @@ class NitRoundProtocol:
         r = spec.rng
         table = blk.table(side, s)
         buttons = [False] * k
-        payoff_chips = 0.0
+        payoff_bb_total = 0.0
         est_total: dict[str, float] = {}
         truncated, nit_seat = False, None
+        transfers = [0.0] * k
         h = 0
         need_log = any(e.needs_decision_log for e in blk.estimators)
         while True:
@@ -393,7 +415,7 @@ class NitRoundProtocol:
             if text is not None:
                 blk.result.traces[f"{label}.{text[0]}"] = text[1]
             payoff = outcome.payoffs_chips[cand_pos] / bb
-            payoff_chips += payoff
+            payoff_bb_total += payoff
             est = blk.run_estimators(deal, outcome, cand_pos, pos_agents, log, ("hand", seed, s, h))
             for name, v in est.items():
                 est_total[name] = est_total.get(name, 0.0) + v
@@ -403,21 +425,17 @@ class NitRoundProtocol:
                             outcome.allin_snapshot is not None)
             )
             blk.result.decision_count += outcome.decision_count
-            for p, x in enumerate(outcome.payoffs_chips):
-                if x > 0:
-                    buttons[(p + h) % k] = True
+            table_payoffs = [outcome.payoffs_chips[(t - h) % k] for t in range(k)]
+            buttons = nit_update_buttons(buttons, table_payoffs)
             h += 1
-            without = [t for t in range(k) if not buttons[t]]
-            if len(without) <= 1:
-                nit_seat = without[0] if without else None
+            over, nit_seat, transfers = nit_resolution(buttons, self.penalty_bb)
+            if over:
                 break
             if h >= self.max_hands:
-                truncated = True
+                truncated, transfers = True, [0.0] * k
                 break
-        transfer = 0.0
-        if nit_seat is not None:
-            transfer = -self.penalty_bb * (k - 1) if nit_seat == s else self.penalty_bb
-        total = payoff_chips + transfer
+        transfer = transfers[s]
+        total = payoff_bb_total + transfer
         est_total = {n: v + transfer for n, v in est_total.items()}
         info = {"hands": h, "truncated": truncated, "nit_seat": nit_seat, "candidate_transfer_bb": transfer}
         return total, est_total, info

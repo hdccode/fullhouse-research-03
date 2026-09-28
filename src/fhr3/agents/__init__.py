@@ -19,6 +19,11 @@ def build_agent(spec: AgentSpec) -> Agent:
 
         style = params.pop("style", "neutral")
         return CrazyPineappleAgent(spec.agent_id, style=style, **params.pop("overrides", {}), **params)
+    if spec.kind == "nit_heuristic":
+        from fhr3.agents.nit import NitHeuristicAgent
+
+        style = params.pop("style", "neutral")
+        return NitHeuristicAgent(spec.agent_id, style=style, **params.pop("overrides", {}), **params)
     if spec.kind == "checkcall":
         from fhr3.agents.simple import CheckCallAgent
 
