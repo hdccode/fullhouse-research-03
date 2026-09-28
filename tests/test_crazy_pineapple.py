@@ -195,3 +195,16 @@ def test_cp_matched_invariants():
 
 def test_cp_serial_parallel_and_parquet(tmp_path):
     check_serial_parallel_parquet(load("cp_6max_100bb.yaml"), tmp_path)
+
+
+def test_other_players_discards_are_private():
+    ad = cp(3)
+    h = ad.new_hand(deal_for(ad, ["AsAh2c", "KsKh3d", "QsQh4h"], "7c8d9hTsJc", burns=("5c", "5d", "5h")))
+    for _ in range(6):  # preflop call/complete/check, flop checked around
+        h.apply(Action.check_call())
+    h.apply(Action.discard("2c"))  # seat 0
+    seen_by_1 = [r for r in h.observation(1).history if r.kind is ActionKind.DISCARD]
+    assert seen_by_1 and seen_by_1[0].seat == 0 and seen_by_1[0].cards == ()  # seat 1 cannot see the card
+    own = [r for r in h.observation(0).history if r.kind is ActionKind.DISCARD]
+    assert own[0].cards == ("2c",)  # a player sees its own discard
+    assert h.outcome is not None and any(r.cards == ("2c",) for r in h._history)  # full record kept for traces

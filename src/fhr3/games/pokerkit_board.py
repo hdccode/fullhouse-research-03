@@ -24,6 +24,7 @@ from __future__ import annotations
 
 import json
 from collections import deque
+from dataclasses import replace
 from collections.abc import Mapping, Sequence
 from typing import Any
 
@@ -351,6 +352,17 @@ class CrazyPineappleHand(PokerKitBoardHand):
         if seat in self._kept:
             return self._kept[seat]
         return super()._current_hole(seat)
+
+    def observation(self, seat: int) -> Observation:
+        """Discards are private: other players' discarded cards are censored."""
+        obs = super().observation(seat)
+        if not any(r.kind is ActionKind.DISCARD and r.seat != seat for r in obs.history):
+            return obs
+        hist = tuple(
+            ActionRecord(r.seat, r.street, r.kind, r.amount, ()) if r.kind is ActionKind.DISCARD and r.seat != seat else r
+            for r in obs.history
+        )
+        return replace(obs, history=hist)
 
     def is_terminal(self) -> bool:
         return not self._state.status
