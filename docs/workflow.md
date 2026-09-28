@@ -18,6 +18,20 @@ Existing v1 corpora (schema `fhr3-block-v1`) remain readable, analysable and
 replay-validatable, but cannot be *extended* by v2 code (the lock refuses); new
 blocks go under a new experiment_id.
 
+## Status: final core corpus
+
+The pilots below have been extended. Current corpus sizes, integrity checks and
+conclusions are in `final_status.md`. The canonical analysis products are in
+`reports/final-analysis/` (the older `reports/pilot-analysis/` and
+`reports/figures/` are pre-extension snapshots). The remaining researcher-run jobs
+are:
+
+```bash
+scripts/run_core_extensions.sh   # 4-max NLHE v2 re-run to 100k + AoF to 50k, then full re-analysis (~10 min + analysis)
+scripts/run_rq6_final.sh         # RQ6 minimum estimator set (~15-25 min)
+scripts/run_rq7_final.sh         # RQ7 coverage / stopping study (~40-50 min, single process)
+```
+
 ## 1. Headline format pilots (10,000 blocks per pairing, incl. control)
 
 One command per format (simulate → validate → analyze):
