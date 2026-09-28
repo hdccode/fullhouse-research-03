@@ -64,3 +64,28 @@ def test_location_shift_power_matches_analytic_and_null_size():
     assert alt["power_two_sided"] == pytest.approx(analytic_power(2.0, 0.2, 400), abs=0.03)
     assert alt["p_select_stronger"] > 0.9
     assert all(r["kind"] == "synthetic_location_shift" for r in res)
+
+
+def test_variance_concentration_gaussian_vs_heavy_tail():
+    from fhr3.analysis.stats import concentration_curve, variance_concentration
+
+    rng = np.random.default_rng(4)
+    g = variance_concentration(rng.normal(size=100_000))
+    heavy = np.where(rng.random(100_000) < 0.002, rng.normal(0, 60, 100_000), rng.normal(0, 1, 100_000))
+    h = variance_concentration(heavy)
+    assert 0.05 < g["0.01"] < 0.15  # Gaussian: top 1% carries ~10%
+    assert h["0.01"] > 0.8 and h["0.001"] > g["0.001"]
+    assert variance_concentration(np.arange(50.0))["0.001"] is None  # < 1 block
+    curve = concentration_curve(heavy)
+    assert curve[-1] == (1.0, pytest.approx(1.0)) and all(b >= a for (_, a), (_, b) in zip(curve, curve[1:]))
+
+
+def test_relation_labels_never_claim_pairing_from_seed_alone():
+    from fhr3.analysis.compare import relation
+
+    base = {"variant": "nlhe", "deal_layout": "board-h2-k6", "protocol": "fhr3-matched-v1"}
+    assert relation(base, dict(base), True) == "paired"
+    assert relation(base, dict(base), False) == "independent"
+    assert relation(base, base | {"variant": "bomb_pot"}, True) == "shared cards, different game"
+    assert relation(base, base | {"deal_layout": "board-h2-k4"}, True) == "shared seed material only"
+    assert relation(base, base | {"variant": "nit_game", "protocol": "fhr3-nit-round-v1"}, True) == "shared seed material only"

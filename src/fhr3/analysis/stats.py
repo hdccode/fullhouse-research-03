@@ -20,17 +20,52 @@ from scipy import stats as sps
 
 DEFAULT_DELTAS_BB100 = (0.25, 0.5, 1.0, 2.0, 5.0)
 DEFAULT_POWERS = (0.80, 0.95)
+CONCENTRATION_FRACTIONS = (0.10, 0.05, 0.01, 0.005, 0.001, 0.0005, 0.0001)
 
 
-def bb100_to_block(delta_bb100: float, k: int) -> float:
+def variance_concentration(D: np.ndarray, fractions: Sequence[float] = CONCENTRATION_FRACTIONS) -> dict[str, Any]:
+    """Share of the total squared deviation contributed by the top-f fraction of
+    blocks (ranked by |D - mean|). ``None`` where f*n < 1 block.
+
+    A Gaussian-like sample has the top 1% contributing ~ 10% of the variance;
+    values near 1 mean sigma_D is driven by rare extreme blocks.
+    """
+    n = D.size
+    dev2 = np.sort((D - D.mean()) ** 2)[::-1]
+    total = float(dev2.sum())
+    out: dict[str, Any] = {}
+    for f in fractions:
+        m = int(np.floor(f * n))
+        out[f"{f:g}"] = (float(dev2[:m].sum() / total) if total > 0 else None) if m >= 1 else None
+    return out
+
+
+def concentration_curve(D: np.ndarray, points: int = 200) -> list[tuple[float, float]]:
+    """Figure data: (top fraction of blocks, cumulative share of squared deviation)
+    on a log-spaced grid from 1/n to 1."""
+    n = D.size
+    if n < 2:
+        return []
+    dev2 = np.sort((D - D.mean()) ** 2)[::-1]
+    total = float(dev2.sum())
+    if total <= 0:
+        return []
+    cum = np.cumsum(dev2) / total
+    ms = np.unique(np.clip(np.round(np.logspace(0, np.log10(n), points)).astype(int), 1, n))
+    return [(float(m / n), float(cum[m - 1])) for m in ms]
+
+
+def bb100_to_block(delta_bb100: float, k: float) -> float:
+    """``k`` = candidate hands per side per block (exactly the player count for
+    single-hand protocols; the mean round length x seats for the Nit Game)."""
     return delta_bb100 * k / 100.0
 
 
-def block_to_bb100(delta_block: float, k: int) -> float:
+def block_to_bb100(delta_block: float, k: float) -> float:
     return 100.0 * delta_block / k
 
 
-def describe(D: np.ndarray, k: int, alpha: float = 0.05) -> dict[str, Any]:
+def describe(D: np.ndarray, k: float, alpha: float = 0.05) -> dict[str, Any]:
     n = int(D.size)
     mean = float(D.mean())
     sd = float(D.std(ddof=1)) if n > 1 else float("nan")
@@ -62,6 +97,7 @@ def describe(D: np.ndarray, k: int, alpha: float = 0.05) -> dict[str, Any]:
         # blocks: a direct measure of how much sigma_D is driven by rare big pots.
         "var_share_top1pct": float(np.sum(top[: max(1, n // 100)] ** 2) / ss) if n else float("nan"),
         "var_share_top0p1pct": float(np.sum(top[: max(1, n // 1000)] ** 2) / ss) if n else float("nan"),
+        "concentration": variance_concentration(D) if n > 1 else {},
     }
 
 
@@ -84,7 +120,7 @@ def analytic_power(sigma: float, delta_block: float, n: int, alpha: float = 0.05
 
 def power_table(
     sigma: float,
-    k: int,
+    k: float,
     deltas_bb100: Sequence[float] = DEFAULT_DELTAS_BB100,
     powers: Sequence[float] = DEFAULT_POWERS,
     alpha: float = 0.05,
@@ -101,8 +137,8 @@ def power_table(
             n = required_blocks(sigma, db, alpha, p)
             tag = f"{int(round(p * 100))}"
             row[f"blocks_power{tag}"] = math.ceil(n) if math.isfinite(n) else None
-            row[f"played_hands_power{tag}"] = math.ceil(n) * 2 * k if math.isfinite(n) else None
-            row[f"candidate_hands_power{tag}"] = math.ceil(n) * k if math.isfinite(n) else None
+            row[f"played_hands_power{tag}"] = round(math.ceil(n) * 2 * k) if math.isfinite(n) else None
+            row[f"candidate_hands_power{tag}"] = round(math.ceil(n) * k) if math.isfinite(n) else None
         out.append(row)
     return out
 

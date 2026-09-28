@@ -196,9 +196,20 @@ def cmd_power_sim(args: argparse.Namespace) -> int:
 def cmd_compare(args: argparse.Namespace) -> int:
     from fhr3.analysis.compare import compare_paths, format_compare
 
-    rep = compare_paths([Path(p) for p in args.paths], args.delta, args.power, args.alpha)
+    deltas = tuple(float(x) for x in args.deltas.split(","))
+    rep = compare_paths([Path(p) for p in args.paths], deltas, args.power, args.alpha)
     print(format_compare(rep))
     _dump(rep, args.json)
+    return 0
+
+
+def cmd_figures(args: argparse.Namespace) -> int:
+    from fhr3.analysis.figures import write_figure_data
+
+    files = write_figure_data([Path(p) for p in args.paths], Path(args.out),
+                              [Path(p) for p in args.powersim or []], args.workers, args.alpha)
+    for f in files:
+        print(f)
     return 0
 
 
@@ -285,11 +296,19 @@ def build_parser() -> argparse.ArgumentParser:
 
     c = sub.add_parser("compare", help="compare pairings across configs (stack depth, player count)")
     c.add_argument("paths", nargs="+", help="experiment directories")
-    c.add_argument("--delta", type=float, default=1.0, help="fixed effect in BB/100")
+    c.add_argument("--deltas", default="0.25,0.5,1,2,5", help="target effects in BB/100")
     c.add_argument("--power", type=float, default=0.8)
     c.add_argument("--alpha", type=float, default=0.05)
     c.add_argument("--json")
     c.set_defaults(func=cmd_compare)
+
+    f = sub.add_parser("figures", help="write figure-ready CSV data products")
+    f.add_argument("paths", nargs="+", help="experiment directories")
+    f.add_argument("--out", default="reports/figures")
+    f.add_argument("--powersim", action="append", help="power-sim JSON output(s) to include")
+    f.add_argument("--workers", type=int, default=8, help="worker count for wall-clock translation")
+    f.add_argument("--alpha", type=float, default=0.05)
+    f.set_defaults(func=cmd_figures)
 
     b = sub.add_parser("bench", help="small single-process throughput/profile run (no output files)")
     b.add_argument("--config", required=True)
