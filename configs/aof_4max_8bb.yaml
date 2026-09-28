@@ -1,0 +1,61 @@
+# FHR3 pilot: 4-max All-in-or-Fold, 8BB equal stacks, blinds 0.5/1 BB, no ante.
+# Candidates include the FullHouse AoF production policy v2 (vendored from aof-ml
+# with provenance; see src/fhr3/agents/data/). Reference population mixes the
+# production policy with two transparent AoF heuristics.
+# Deal layout board-h2-k4 (same as 4-max NLHE; same root seed => same cards per
+# block id as nlhe_4max_100bb.yaml, but a different game).
+experiment_id: fhr3-aof4-8bb-pilot-v1
+root_seed: 20260928
+
+game:
+  variant: aof
+  player_count: 4
+  stack_bb: 8
+  bb_chips: 100
+  sb_chips: 50
+  ante_chips: 0
+
+rng:
+  candidate_coupling: shared
+  reference_coupling: shared
+  salts: {chance: 0, candidate: 0, reference: 0}
+
+blocks: 10000
+chunk_size: 250
+
+trace:
+  rate: 0.001
+  include_invalid: true
+  block_ids: []
+
+agents:
+  prod_v2:          {kind: aof_policy, policy: production-v2}
+  prod_v2_copy:     {kind: aof_policy, policy: production-v2}            # control
+  prod_v2_blend10:  {kind: aof_policy, policy: production-v2, blend: 0.10, blend_style: loose}
+  aof_neutral:      {kind: aof_heuristic, style: neutral}
+  aof_aggressive:   {kind: aof_heuristic, style: aggressive}
+  ref_prod_v2:      {kind: aof_policy, policy: production-v2}
+  ref_aof_loose:    {kind: aof_heuristic, style: loose}
+  ref_aof_tight:    {kind: aof_heuristic, style: tight}
+
+reference_populations:
+  # reference j sits j+1 seats after the candidate
+  aof-mixed3-v1: [ref_prod_v2, ref_aof_loose, ref_aof_tight]
+
+pairings:
+  - pairing_id: p1-prodv2-vs-blend10       # small perturbation of the production policy
+    candidate_a: prod_v2
+    candidate_b: prod_v2_blend10
+    reference_population: aof-mixed3-v1
+  - pairing_id: p2-prodv2-vs-heuristic     # production policy vs transparent heuristic
+    candidate_a: prod_v2
+    candidate_b: aof_neutral
+    reference_population: aof-mixed3-v1
+  - pairing_id: p3-aggressive-vs-neutral   # heuristic style gap
+    candidate_a: aof_aggressive
+    candidate_b: aof_neutral
+    reference_population: aof-mixed3-v1
+  - pairing_id: c0-selfplay-control
+    candidate_a: prod_v2
+    candidate_b: prod_v2_copy
+    reference_population: aof-mixed3-v1
