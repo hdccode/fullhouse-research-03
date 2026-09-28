@@ -84,6 +84,10 @@ class Action:
     def raise_to(amount: int) -> Action:
         return Action(ActionKind.BET_RAISE, int(amount))
 
+    @staticmethod
+    def discard(*cards: str) -> Action:
+        return Action(ActionKind.DISCARD, None, tuple(cards))
+
 
 @dataclass(frozen=True)
 class LegalActions:
