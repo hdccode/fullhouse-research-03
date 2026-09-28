@@ -41,6 +41,21 @@ EFFECT_GRID = [round(float(x), 4) for x in np.logspace(np.log10(0.1), np.log10(2
 D_GRID = [float(x) for x in np.logspace(-3, -1, 30)]
 
 
+def measured_aggregate_throughput(paths: list[Path], experiment_id: str) -> float | None:
+    """Block-weighted aggregate blocks/s of the experiment's simulate manifests."""
+    for p in map(Path, paths):
+        runs = p / "runs" if p.name == experiment_id else p.parent / "runs"
+        if (p.name == experiment_id or p.parent.name == experiment_id) and runs.exists():
+            blocks = secs = 0.0
+            for f in runs.glob("*.json"):
+                s = json.loads(f.read_text()).get("summary") or {}
+                if s.get("blocks") and s.get("wall_s"):
+                    blocks += s["blocks"]
+                    secs += s["wall_s"]
+            return blocks / secs if secs else None
+    return None
+
+
 def _write(path: Path, header: list[str], rows: list[list[Any]]) -> Path:
     path.parent.mkdir(parents=True, exist_ok=True)
     with path.open("w", newline="") as fh:
@@ -63,11 +78,11 @@ def write_figure_data(
     written = []
 
     written.append(_write(out_dir / "sigma_by_format_pairing.csv", [
-        "experiment_id", "pairing_id", "variant", "player_count", "stack_bb", "label", "n_blocks",
+        "experiment_id", "pairing_id", "role", "variant", "player_count", "stack_bb", "label", "n_blocks",
         "hands_per_block", "candidate_hands_per_side", "mean_D", "mean_bb100", "sd_D", "frac_zero", "skew",
         "excess_kurtosis", "q001", "q01", "q99", "q999", "conc_top1pct", "conc_top0p1pct", "allin_rate_per_hand",
         "showdown_rate_per_hand", "mean_pot_bb", "max_pot_bb", "blocks_per_s_core", "storage_bytes_per_block"],
-        [[r["experiment_id"], r["pairing_id"], r["variant"], r["player_count"], r["stack_bb"], r["label"], r["n_blocks"],
+        [[r["experiment_id"], r["pairing_id"], r["role"], r["variant"], r["player_count"], r["stack_bb"], r["label"], r["n_blocks"],
           r["hands_per_block"], r["candidate_hands_per_side"], r["mean_D"], r["mean_bb100"], r["sd_D"], r["frac_zero"],
           r["skew"], r["excess_kurtosis"], r["q001"], r["q01"], r["q99"], r["q999"], r["concentration"].get("0.01"),
           r["concentration"].get("0.001"), r["allin_rate_per_hand"], r["showdown_rate_per_hand"], r["mean_pot_bb"],
@@ -150,16 +165,21 @@ def write_figure_data(
 
     ct = []
     for r in rows:
+        agg = measured_aggregate_throughput(paths, r["experiment_id"])
         for dl, t in r["targets"].items():
             if not t or not r["blocks_per_s_core"]:
                 continue
             cpu_h = t["blocks"] / r["blocks_per_s_core"] / 3600.0
             ct.append([r["experiment_id"], r["pairing_id"], r["label"], float(dl), t["blocks"], t["played_hands"],
                        r["blocks_per_s_core"], cpu_h, cpu_h / workers, workers,
+                       agg, t["blocks"] / agg / 3600.0 if agg else None,
                        (r["storage_bytes_per_block"] or 0) * t["blocks"] / 1e6])
     written.append(_write(out_dir / "cost_translation.csv", [
         "experiment_id", "pairing_id", "label", "delta_bb100", "blocks_power80", "played_hands_power80",
-        "blocks_per_s_core", "cpu_hours", "wall_hours_at_workers", "workers", "storage_mb"], ct))
+        # per-worker speed measured under load; wall_hours_at_workers assumes perfect scaling
+        "blocks_per_s_per_worker", "cpu_hours", "wall_hours_at_workers", "workers",
+        # wall-clock at the aggregate throughput actually measured by that experiment's runs
+        "measured_aggregate_blocks_per_s", "wall_hours_measured_aggregate", "storage_mb"], ct))
 
     written.append(_write(out_dir / "relations.csv", [
         "pairing_id", "a", "b", "a_experiment", "b_experiment", "relation", "corr_D", "common_blocks"],

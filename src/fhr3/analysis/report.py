@@ -283,6 +283,8 @@ def format_report(report: dict[str, Any]) -> str:
             continue
         p, k = e["paired"], e["candidate_hands_per_side"]
         approx = "" if float(k).is_integer() else " (BB/100 via mean hands/side: ratio approximation)"
+        if e["protocol"].startswith("fhr3-nit"):
+            approx += " [Nit: D and BB/100 include nit-penalty transfers]"
         lines.append(f"   candidate hands per side per block: {k:.2f}{approx}; played hands/block {e['diagnostics']['played_hands_per_block']:.1f}")
         lines.append(
             f"   mean D = {p['mean_D']:+.4f} BB/block  95% CI [{p['ci_mean'][0]:+.4f}, {p['ci_mean'][1]:+.4f}]"

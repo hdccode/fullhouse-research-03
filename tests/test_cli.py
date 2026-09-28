@@ -56,3 +56,9 @@ def test_cli_compare(tmp_path, capsys):
     for name in ("sigma_by_format_pairing", "hands_vs_effect", "blocks_vs_d", "stack_sensitivity",
                  "variance_concentration", "variance_reduction", "cost_translation", "relations"):
         assert (tmp_path / "fig" / f"{name}.csv").exists()
+    import csv as _csv
+
+    sig = list(_csv.DictReader(open(tmp_path / "fig" / "sigma_by_format_pairing.csv")))
+    assert {r["role"] for r in sig} == {"ab"}  # role = pairing-id prefix
+    cost = list(_csv.DictReader(open(tmp_path / "fig" / "cost_translation.csv")))
+    assert all(float(r["measured_aggregate_blocks_per_s"]) > 0 and float(r["wall_hours_measured_aggregate"]) > 0 for r in cost)

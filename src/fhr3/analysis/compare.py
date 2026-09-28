@@ -62,6 +62,9 @@ def summarize_entry(e: dict[str, Any], deltas: tuple[float, ...], power: float, 
     row: dict[str, Any] = {
         "experiment_id": e["experiment_id"],
         "pairing_id": e["pairing_id"],
+        # p1/p2/p3/c0: pairings are aligned across formats by role, not by id
+        # (ids differ where a format needs a different perturbation)
+        "role": e["pairing_id"].split("-", 1)[0],
         "variant": e["variant"],
         "player_count": e["player_count"],
         "stack_bb": e["stack_bb"],
