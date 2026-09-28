@@ -245,6 +245,57 @@ def cmd_vat_fit(args: argparse.Namespace) -> int:
     return 0
 
 
+def cmd_sequential(args: argparse.Namespace) -> int:
+    import numpy as np
+    import pyarrow.compute as pc
+
+    from fhr3.analysis.report import k_effective
+    from fhr3.analysis.sequential import run_sequential
+    from fhr3.io.store import read_blocks
+
+    table = read_blocks([Path(p) for p in args.paths])
+    keys = sorted(set(zip(table.column("config_hash").to_pylist(), table.column("pairing_id").to_pylist(), strict=True)))
+    out = []
+    for chash, pid in keys:
+        m = pc.and_(pc.and_(pc.equal(table.column("config_hash"), chash), pc.equal(table.column("pairing_id"), pid)), table.column("valid"))
+        t = table.filter(m)
+        order = np.argsort(t.column("block_id").to_numpy())  # the stream is D in block_id order
+        D = np.asarray(t.column("D").to_numpy(zero_copy_only=False), dtype=float)[order]
+        if D.size < args.min_n or not D.std() > 0:
+            continue
+        k = k_effective(t)
+        width = args.width_bb100 * k / 100.0 if args.width_bb100 else None
+        for method in args.methods.split(","):
+            r = run_sequential(D, method, args.alpha, args.t_star, args.min_n, width) | {
+                "experiment_id": t.column("experiment_id")[0].as_py(), "pairing_id": pid,
+                "played_hands_at_stop": None}
+            r["played_hands_at_stop"] = int(t.column("played_hands").to_numpy()[order][: r["stopping_time"]].sum())
+            r["interval_bb100"] = [100.0 * v / k for v in r["interval"]]
+            out.append(r)
+            iv = r["interval_bb100"]
+            print(f"{r['experiment_id']}/{pid} [{method}] stop n={r['stopping_time']:,} ({r['played_hands_at_stop']:,} hands) "
+                  f"{r['reason']} decision {r['decision']}  CI {iv[0]:+.2f}..{iv[1]:+.2f} BB/100"
+                  + ("" if r["valid_for_optional_stopping"] else "  [not valid under optional stopping]"))
+    _dump(out, args.json)
+    return 0
+
+
+def cmd_cs_coverage(args: argparse.Namespace) -> int:
+    from fhr3.analysis.sequential import coverage_experiment, make_sampler
+
+    out = []
+    for method in args.methods.split(","):
+        r = coverage_experiment(make_sampler(args.sampler, args.true_mean, args.scale), args.true_mean, args.n_max,
+                                args.reps, method, args.alpha, args.t_star, args.min_n, args.seed)
+        r["sampler"] = args.sampler
+        out.append(r)
+        print(f"[{method}] reps {r['reps']} n_max {r['n_max']:,} true mean {r['true_mean']}: time-uniform miscoverage "
+              f"{r['time_uniform_miscoverage'] if r['time_uniform_miscoverage'] is None else round(r['time_uniform_miscoverage'], 4)}  final-n miscoverage {r['final_n_miscoverage']:.4f}  "
+              f"median stop {r['stopping_time_quantiles'][0.5]:,.0f}  decisions {r['decisions']}  wrong sign {r['wrong_sign_rate']:.4f}")
+    _dump(out, args.json)
+    return 0
+
+
 # ------------------------------------------------------------------ bench
 def cmd_bench(args: argparse.Namespace) -> int:
     import cProfile
@@ -352,6 +403,30 @@ def build_parser() -> argparse.ArgumentParser:
     vf.add_argument("--out", required=True)
     vf.add_argument("--write-config", help="also write a derived evaluation config using the fitted value function")
     vf.set_defaults(func=cmd_vat_fit)
+
+    sq = sub.add_parser("sequential", help="anytime-valid stopping on block corpora (D in block_id order)")
+    sq.add_argument("paths", nargs="+")
+    sq.add_argument("--methods", default="asymp,fixed,peek")
+    sq.add_argument("--alpha", type=float, default=0.05)
+    sq.add_argument("--t-star", type=float, default=100_000, help="blocks at which the CS width is optimised")
+    sq.add_argument("--min-n", type=int, default=200)
+    sq.add_argument("--width-bb100", type=float, help="also stop when the interval is narrower than this (BB/100)")
+    sq.add_argument("--json")
+    sq.set_defaults(func=cmd_sequential)
+
+    cv = sub.add_parser("cs-coverage", help="coverage of sequential methods on synthetic IID block streams")
+    cv.add_argument("--sampler", default="t3", help="normal | t3 | bootstrap:<results dir>")
+    cv.add_argument("--true-mean", type=float, default=0.0, help="true mean (BB per block)")
+    cv.add_argument("--scale", type=float, default=1.0, help="SD for normal/t3 samplers")
+    cv.add_argument("--n-max", type=int, default=20_000)
+    cv.add_argument("--reps", type=int, default=1000)
+    cv.add_argument("--methods", default="asymp,peek,fixed")
+    cv.add_argument("--alpha", type=float, default=0.05)
+    cv.add_argument("--t-star", type=float, default=10_000)
+    cv.add_argument("--min-n", type=int, default=200)
+    cv.add_argument("--seed", type=int, default=0)
+    cv.add_argument("--json")
+    cv.set_defaults(func=cmd_cs_coverage)
 
     b = sub.add_parser("bench", help="small single-process throughput/profile run (no output files)")
     b.add_argument("--config", required=True)
