@@ -142,7 +142,10 @@ def test_fuzz_sequencing_and_showdown_oracles(seed, k):
             best = max(rank_holdem(kept[s], o.board) for s in contenders)
             winners = {s for s in contenders if rank_holdem(kept[s], o.board) == best}
             top = max(o.payoffs_chips[s] for s in contenders)
-            assert winners == {s for s in contenders if o.payoffs_chips[s] == top}
+            # split pots: PokerKit gives odd chips to the first winner, so tied
+            # winners may differ by up to (n - 1) chips
+            tol = len(contenders) - 1
+            assert winners == {s for s in contenders if o.payoffs_chips[s] >= top - tol}
 
 
 def test_allin_ev_uses_kept_cards_and_matches_pokerkit():

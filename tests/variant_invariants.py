@@ -41,13 +41,20 @@ def check_core_invariants(cfg: ExperimentConfig, blocks: range, allin_expected: 
         allins += sum(h.all_in for h in r.hands)
         hands += r.played_hands
     assert nonzero > 0
+    # every non-control pairing must be able to differ (no degenerate pairings)
+    for p in cfg.pairings:
+        if p.pairing_id.startswith("c0-"):
+            continue
+        sim = BlockSimulator(cfg, p)
+        assert any(sim.run(b).D != 0 for b in blocks), f"{p.pairing_id}: D == 0 in every block"
     if allin_expected:
         assert allins > 0
     return {"nonzero": nonzero, "allins": allins, "hands": hands, "k": k}
 
 
 def check_serial_parallel_parquet(cfg: ExperimentConfig, tmp_path: Path, n: int = 4) -> None:
-    units = plan_work(["p1-neutral-vs-loose10", "c0-selfplay-control"], 0, n, 2)
+    p1 = next(p.pairing_id for p in cfg.pairings if p.pairing_id.startswith("p1-"))
+    units = plan_work([p1, "c0-selfplay-control"], 0, n, 2)
     serial = execute(cfg, units, tmp_path, None, "r", workers=1, write=False)
     parallel = execute(cfg, units, tmp_path, None, "r", workers=2, write=False)
     flat = lambda res: strip([row for r in res for row in r["rows"]])  # noqa: E731
