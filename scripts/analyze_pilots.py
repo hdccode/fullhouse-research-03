@@ -30,9 +30,15 @@ from scipy import stats as sps
 from fhr3.analysis.stats import CONCENTRATION_FRACTIONS, required_blocks, variance_concentration
 from fhr3.io.store import read_blocks
 
+def _first_existing(*experiment_ids: str) -> str:
+    """The first experiment with results on disk (newest listed first)."""
+    return next((e for e in experiment_ids if (Path("results") / e).is_dir()), experiment_ids[-1])
+
+
 EXPERIMENTS = [
     ("aof/4max/8bb", "fhr3-aof4-8bb-pilot-v1"),
-    ("nlhe/4max/100bb", "fhr3-nlhe4-100bb-pilot-v1"),
+    # the v1 4-max corpus cannot be extended by v2 code; its 100k extension is a v2 re-run
+    ("nlhe/4max/100bb", _first_existing("fhr3-nlhe4-100bb-v2", "fhr3-nlhe4-100bb-pilot-v1")),
     ("nlhe/6max/20bb", "fhr3-nlhe6-20bb-v1"),
     ("nlhe/6max/50bb", "fhr3-nlhe6-50bb-v1"),
     ("nlhe/6max/100bb", "fhr3-nlhe6-100bb-pilot-v1"),

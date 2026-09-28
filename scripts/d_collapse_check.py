@@ -11,6 +11,7 @@ appear), so this is a check of the normal approximation, not new poker data.
 
 from __future__ import annotations
 
+import argparse
 import csv
 import math
 import sys
@@ -32,7 +33,12 @@ Z = sps.norm.ppf(0.975) + sps.norm.ppf(0.8)
 
 
 def main() -> None:
-    out = Path("reports/pilot-analysis/d_collapse.csv")
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--out", default="reports/pilot-analysis/d_collapse.csv")
+    ap.add_argument("--reps", type=int, default=REPS)
+    a = ap.parse_args()
+    out = Path(a.out)
+    out.parent.mkdir(parents=True, exist_ok=True)
     rows = []
     for label, exp in EXPERIMENTS:
         t = read_blocks(Path("results") / exp, columns=["config_hash", "pairing_id", "block_id", "valid", "D"])
@@ -44,10 +50,11 @@ def main() -> None:
             sd = D.std(ddof=1)
             for n in NS:
                 delta = Z * sd / math.sqrt(n)
-                res = location_shift_power(D, [delta], [n], reps=REPS, seed=7)[0]
+                null, res = location_shift_power(D, [0.0, delta], [n], reps=a.reps, seed=7)
                 rows.append({"format": label, "pairing_id": pid, "n_blocks": n, "d": delta / sd,
                              "empirical_power": res["power_two_sided"], "p_select_stronger": res["p_select_stronger"],
-                             "analytic_power": 0.8})
+                             "analytic_power": 0.8, "null_rejection": null["power_two_sided"],
+                             "excess_kurtosis": float(sps.kurtosis(D)), "reps": a.reps})
                 print(f"{label:<16}{pid[:24]:<25} n={n:>6} d={delta / sd:.4f} empirical power {res['power_two_sided']:.3f}  P(correct sign) {res['p_select_stronger']:.3f}")
     with out.open("w", newline="") as fh:
         w = csv.DictWriter(fh, fieldnames=list(rows[0]))

@@ -1,5 +1,7 @@
 """How typical is the naive-peeking failure? Permutation study on a block corpus.
 
+Usage: .venv/bin/python scripts/peeking_permutation.py [results_dir] [reps=100] [out_json]
+
 Each random permutation of a pairing's blocks is an exchangeable stream whose
 true mean is exactly the corpus mean mu. For each stream we apply the stopping
 rule "stop at the first n >= min_n where the interval excludes 0" with
@@ -24,6 +26,7 @@ from fhr3.io.store import read_blocks
 
 EXP = sys.argv[1] if len(sys.argv) > 1 else "results/fhr3-nlhe6-100bb-pilot-v1"
 R, MIN_N, BATCH = int(sys.argv[2]) if len(sys.argv) > 2 else 100, 200, 5
+OUT = sys.argv[3] if len(sys.argv) > 3 else "reports/pilot-analysis/peeking_permutation.json"
 
 
 def main() -> None:
@@ -62,7 +65,7 @@ def main() -> None:
         full_z = mu / (D.std(ddof=1) / math.sqrt(n))
         out[pid] = {"n": n, "true_mean_block": mu, "full_sample_z": full_z, "reps": R, **summ}
         print(pid, json.dumps(out[pid]))
-    json.dump(out, open("reports/pilot-analysis/peeking_permutation.json", "w"), indent=1)
+    json.dump(out, open(OUT, "w"), indent=1)
 
 
 if __name__ == "__main__":
