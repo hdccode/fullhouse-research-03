@@ -95,12 +95,19 @@ def _clip01(x: float) -> float:
 
 
 class HeuristicAgent(DistributionAgent):
+    IMPL = IMPL_VERSION
+    STYLE_TABLE: dict[str, StyleParams] = STYLES
+
     def __init__(self, agent_id: str, style: str = "neutral", **overrides: Any) -> None:
-        if style not in STYLES:
-            raise ValueError(f"unknown style {style!r}; choose from {sorted(STYLES)}")
-        self.p = _merge(STYLES[style], overrides)
+        if style not in self.STYLE_TABLE:
+            raise ValueError(f"unknown style {style!r}; choose from {sorted(self.STYLE_TABLE)}")
+        self.p = _merge(self.STYLE_TABLE[style], overrides)
         self.agent_id = agent_id
-        self.version = f"{IMPL_VERSION}+{params_hash(asdict(self.p))}"
+        self.version = f"{self.IMPL}+{params_hash(asdict(self.p))}"
+
+    def preflop_strength(self, obs: Observation) -> float:
+        """Percentile of the starting hand among all starting hands (0..1)."""
+        return preflop_percentile(obs.hole_cards)
 
     # ------------------------------------------------------------------ helpers
     def _in_range(self, strength: float, pct: float, temperature: float) -> float:
@@ -147,7 +154,7 @@ class HeuristicAgent(DistributionAgent):
     # ------------------------------------------------------------------ preflop
     def _preflop(self, obs: Observation, legal: LegalActions) -> list[tuple[Action, float]]:
         p, k, seat, bb = self.p, obs.player_count, obs.seat, obs.bb_chips
-        s = preflop_percentile(obs.hole_cards)
+        s = self.preflop_strength(obs)
         pre = [r for r in obs.history if r.street == 0]
         raises = [r for r in pre if r.kind is ActionKind.BET_RAISE]
         limpers = sum(1 for r in pre if r.kind is ActionKind.CHECK_CALL and not raises)

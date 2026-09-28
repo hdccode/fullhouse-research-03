@@ -9,6 +9,11 @@ def build_agent(spec: AgentSpec) -> Agent:
 
         style = params.pop("style", "neutral")
         return HeuristicAgent(spec.agent_id, style=style, **params.pop("overrides", {}), **params)
+    if spec.kind == "plo_heuristic":
+        from fhr3.agents.plo import PLOHeuristicAgent
+
+        style = params.pop("style", "neutral")
+        return PLOHeuristicAgent(spec.agent_id, style=style, **params.pop("overrides", {}), **params)
     if spec.kind == "checkcall":
         from fhr3.agents.simple import CheckCallAgent
 

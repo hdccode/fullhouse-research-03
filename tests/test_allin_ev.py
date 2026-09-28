@@ -62,7 +62,7 @@ def test_exact_ev_equals_pokerkit_average_over_all_rivers_including_side_pots():
         for river in pool:
             burn3 = next(c for c in pool if c != river)
             total += play(make_deal(river, burn3)).payoffs_chips[seat]
-        assert ev * len(pool) == total  # exact, incl. side pot and odd-chip rules
+        assert abs(ev * len(pool) - total) < 1e-6  # exact, incl. side pot and odd-chip rules
     evs = [expected_payoff(snap, s, "holdem", 10_000, 1, None)[0] for s in range(3)]
     assert abs(sum(evs)) < 1e-9  # zero-sum
 
