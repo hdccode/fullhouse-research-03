@@ -213,6 +213,38 @@ def cmd_figures(args: argparse.Namespace) -> int:
     return 0
 
 
+def cmd_vat_fit(args: argparse.Namespace) -> int:
+    from fhr3.eval.runner import parse_range
+    from fhr3.estimators.vat_fit import fit_value_function
+
+    cfg = _cfg(args)
+    start, end = parse_range(args.blocks)
+    meta = fit_value_function(cfg, _pairings(cfg, args.pairing), start, end, args.training_root_seed,
+                              args.kind, args.flop_samples, Path(args.out))
+    v = meta["in_sample_per_hand_variance"]
+    print(f"fitted {meta['n_hand_histories']} hand histories; in-sample per-hand variance {v['raw']:.2f} -> {v['fitted']:.2f}")
+    print(f"wrote {args.out}  sha256 {meta['sha256']}")
+    print("add to the evaluation config:")
+    print("estimators:")
+    for kind in ("mivat", "aivat"):
+        print(f"  {kind}: {{value_function: {args.out}, value_function_sha256: {meta['sha256']}, flop_samples: {args.flop_samples}}}")
+    if args.write_config:
+        import yaml
+
+        raw = dict(cfg.raw)
+        raw["experiment_id"] = f"{cfg.experiment_id}-fittedvf"
+        est = dict(raw.get("estimators") or {})
+        for kind in ("mivat", "aivat"):
+            est[kind] = {"value_function": str(args.out), "value_function_sha256": meta["sha256"],
+                         "flop_samples": args.flop_samples}
+        raw["estimators"] = est
+        Path(args.write_config).write_text(
+            "# Derived by fhr3 vat-fit: evaluation config with a frozen, sha256-pinned value function\n"
+            + yaml.safe_dump(raw, sort_keys=False))
+        print(f"wrote evaluation config {args.write_config}")
+    return 0
+
+
 # ------------------------------------------------------------------ bench
 def cmd_bench(args: argparse.Namespace) -> int:
     import cProfile
@@ -309,6 +341,17 @@ def build_parser() -> argparse.ArgumentParser:
     f.add_argument("--workers", type=int, default=8, help="worker count for wall-clock translation")
     f.add_argument("--alpha", type=float, default=0.05)
     f.set_defaults(func=cmd_figures)
+
+    vf = sub.add_parser("vat-fit", help="fit a frozen MIVAT/AIVAT value function on separate training blocks")
+    vf.add_argument("--config", required=True)
+    vf.add_argument("--pairing", action="append")
+    vf.add_argument("--blocks", required=True, help="training block range under the training seed")
+    vf.add_argument("--training-root-seed", type=int, required=True, help="must differ from the config root_seed")
+    vf.add_argument("--kind", choices=["aivat", "mivat"], default="aivat")
+    vf.add_argument("--flop-samples", type=int, default=16)
+    vf.add_argument("--out", required=True)
+    vf.add_argument("--write-config", help="also write a derived evaluation config using the fitted value function")
+    vf.set_defaults(func=cmd_vat_fit)
 
     b = sub.add_parser("bench", help="small single-process throughput/profile run (no output files)")
     b.add_argument("--config", required=True)

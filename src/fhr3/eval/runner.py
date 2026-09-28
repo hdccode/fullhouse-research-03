@@ -100,7 +100,7 @@ class BlockSimulator:
         self.versions = {"A": self.a.version, "B": self.b.version}
         from fhr3.estimators import build_estimators
 
-        self.estimators = build_estimators(cfg.estimators, self.adapter)
+        self.estimators = build_estimators(cfg.estimators, self.adapter, cfg.root_seed)
 
     def spec(self, block_id: int) -> MatchedBlockSpec:
         c = self.cfg

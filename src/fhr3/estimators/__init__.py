@@ -10,7 +10,7 @@ from fhr3.eval.matched import HandEstimator
 KNOWN = ("allin_ev", "mivat", "aivat")
 
 
-def build_estimators(settings: Mapping[str, Any], adapter: Any) -> list[HandEstimator]:
+def build_estimators(settings: Mapping[str, Any], adapter: Any, root_seed: int | None = None) -> list[HandEstimator]:
     """Instantiate the per-hand estimators enabled in ``estimators:`` config."""
     out: list[HandEstimator] = []
     unknown = set(settings) - set(KNOWN)
@@ -27,5 +27,5 @@ def build_estimators(settings: Mapping[str, Any], adapter: Any) -> list[HandEsti
         else:
             from fhr3.estimators.vat import build_vat_estimator
 
-            out.append(build_vat_estimator(name, adapter, opts))
+            out.append(build_vat_estimator(name, adapter, opts, root_seed))
     return out
