@@ -125,6 +125,7 @@ class ActionRecord:
     street: int
     kind: ActionKind
     amount: int | None  # raise-to total for BET_RAISE, chips added for CHECK_CALL
+    cards: tuple[str, ...] = ()  # DISCARD only
 
 
 @dataclass(frozen=True)
@@ -144,6 +145,9 @@ class Observation:
     starting_stacks: tuple[int, ...]
     bb_chips: int
     history: tuple[ActionRecord, ...]
+    # Public variant-specific state indexed by seat where applicable
+    # (e.g. Nit Game buttons). Empty for plain NLHE.
+    extra: Mapping[str, Any] = field(default_factory=dict)
 
     @property
     def button(self) -> int:
@@ -156,6 +160,22 @@ class Observation:
     @property
     def n_active(self) -> int:
         return sum(self.active)
+
+
+@dataclass(frozen=True)
+class LegalDiscards:
+    """Legal discard set (Crazy Pineapple): choose exactly ``count`` of ``cards``."""
+
+    cards: tuple[str, ...]
+    count: int = 1
+
+    def contains(self, action: Action) -> bool:
+        return (
+            action.kind is ActionKind.DISCARD
+            and len(action.cards) == self.count
+            and len(set(action.cards)) == self.count
+            and set(action.cards) <= set(self.cards)
+        )
 
 
 @dataclass(frozen=True)
@@ -173,6 +193,24 @@ class Deal:
     deck_order: tuple[str, ...]
 
 
+@dataclass(frozen=True)
+class AllInSnapshot:
+    """State at the first point where no strategic decision remains but board
+    cards are still to come (input to the all-in EV estimator).
+
+    ``pots`` are (amount, eligible seats); ``contributed`` are chips each seat
+    has put in; ``dead`` are all cards already dealt (hole, discarded, board,
+    burned) and therefore excluded from the remaining runout.
+    """
+
+    board: tuple[str, ...]
+    hole: tuple[tuple[str, ...], ...]  # current (post-discard) hole cards; () if folded
+    live: tuple[bool, ...]
+    pots: tuple[tuple[int, tuple[int, ...]], ...]
+    contributed: tuple[int, ...]
+    dead: frozenset[str]
+
+
 @dataclass
 class HandOutcome:
     payoffs_chips: tuple[int, ...]
@@ -184,6 +222,7 @@ class HandOutcome:
     had_all_in: bool
     decision_count: int
     history: tuple[ActionRecord, ...]
+    allin_snapshot: AllInSnapshot | None = None
 
 
 class IllegalActionError(Exception):
@@ -193,22 +232,35 @@ class IllegalActionError(Exception):
 
 
 class Hand(Protocol):
-    """One hand in progress. Created by ``GameAdapter.new_hand``."""
+    """One hand in progress. Created by ``GameAdapter.new_hand``.
+
+    ``legal_actions`` returns ``LegalDiscards`` when the pending decision is a
+    discard (Crazy Pineapple); agents then answer with an ``ActionKind.DISCARD``
+    action (see ``fhr3.agents.base.Agent``).
+    """
+
+    trace_format: str  # "phh" or "json"
 
     def is_terminal(self) -> bool: ...
     def actor(self) -> int: ...
     def observation(self, seat: int) -> Observation: ...
-    def legal_actions(self) -> LegalActions: ...
+    def legal_actions(self) -> LegalActions | LegalDiscards: ...
     def apply(self, action: Action) -> None: ...
     def outcome(self) -> HandOutcome: ...
-    def to_phh(self, players: Sequence[str], extra: Mapping[str, Any]) -> str: ...
+    def to_trace(self, players: Sequence[str], extra: Mapping[str, Any]) -> str: ...
 
 
 class GameAdapter(Protocol):
     config: GameConfig
+    showdown: str  # "holdem" | "omaha": which evaluator all-in EV must use
 
+    @property
+    def deal_layout(self) -> str: ...
     def cards_per_deal(self) -> int: ...
     def deal_from_deck(self, deck: Sequence[str]) -> Deal: ...
     def new_hand(
-        self, deal: Deal, starting_stacks: Sequence[int] | None = None
+        self,
+        deal: Deal,
+        starting_stacks: Sequence[int] | None = None,
+        public_info: Mapping[str, Any] | None = None,
     ) -> Hand: ...

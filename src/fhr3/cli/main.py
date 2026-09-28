@@ -157,6 +157,8 @@ def cmd_validate(args: argparse.Namespace) -> int:
         print(f"[{status}] {r['pairing_id']}: {r['rows']} rows, {r['invalid']} invalid, replayed {len(r['replayed_blocks'])} blocks exactly")
         for p in r["problems"]:
             print(f"    - {p}")
+        for n in r.get("notes", []):
+            print(f"    note: {n}")
     _dump(reports, args.json)
     return 0 if all(r["ok"] for r in reports) else 1
 

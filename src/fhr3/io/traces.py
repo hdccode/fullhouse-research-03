@@ -29,7 +29,7 @@ def write_traces(directory: Path, traces: dict[str, str]) -> list[Path]:
     directory.mkdir(parents=True, exist_ok=True)
     out = []
     for name, text in sorted(traces.items()):
-        p = directory / f"{name}.phh"
+        p = directory / (name if name.endswith((".phh", ".json")) else f"{name}.phh")
         p.write_text(text)
         out.append(p)
     return out

@@ -98,6 +98,9 @@ class BlockSimulator:
         self.b: Agent = build_agent(pairing.candidate_b)
         self.refs: list[Agent] = [build_agent(s) for s in pairing.reference_seats]
         self.versions = {"A": self.a.version, "B": self.b.version}
+        from fhr3.estimators import build_estimators
+
+        self.estimators = build_estimators(cfg.estimators, self.adapter)
 
     def spec(self, block_id: int) -> MatchedBlockSpec:
         c = self.cfg
@@ -112,10 +115,14 @@ class BlockSimulator:
         )
 
     def run(self, block_id: int, trace: bool = False) -> MatchedBlockResult:
-        return run_matched_block(self.spec(block_id), self.adapter, self.a, self.b, self.refs, trace)
+        return run_matched_block(
+            self.spec(block_id), self.adapter, self.a, self.b, self.refs, trace, self.estimators
+        )
 
     def row(self, result: MatchedBlockResult, run_id: str, traced: bool) -> dict[str, Any]:
-        return result_to_row(self.cfg, self.pairing, self.versions, result, run_id, traced)
+        return result_to_row(
+            self.cfg, self.pairing, self.versions, result, run_id, traced, self.adapter.deal_layout
+        )
 
 
 def run_unit(

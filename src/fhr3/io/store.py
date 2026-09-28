@@ -60,10 +60,17 @@ def _check_or_create_lock(path: Path, expected: dict[str, Any], what: str) -> No
             diff = sorted(
                 k for k in set(existing) | set(expected) if existing.get(k) != expected.get(k)
             )
+            hint = (
+                " Results written by an older schema can still be read, analysed and"
+                " replay-validated, but not extended; write new blocks under a new"
+                " experiment_id."
+                if "schema_version" in diff
+                else ""
+            )
             raise IncompatibleResultsError(
                 f"{what} at {path} was produced by a different configuration "
                 f"(differs in: {diff}). Use a new experiment_id / pairing_id or a "
-                f"different --out directory; refusing to mix results."
+                f"different --out directory; refusing to mix results.{hint}"
             )
     else:
         _write_json_atomic(path, expected)
@@ -77,6 +84,7 @@ def ensure_locks(root: Path, cfg: ExperimentConfig, pairings: list[Pairing]) -> 
             "environment": cfg.environment(),
             "schema_version": SCHEMA_VERSION,
             "matched_protocol_version": MATCHED_PROTOCOL_VERSION,
+            "estimators": dict(cfg.estimators),
         },
         "experiment lock",
     )

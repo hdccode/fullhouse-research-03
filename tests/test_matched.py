@@ -109,7 +109,7 @@ def test_illegal_action_invalidates_block_with_code():
 
 def test_invalid_block_keeps_partial_trace():
     r = run_matched_block(spec(0), adapter(), IllegalAgent(), HeuristicAgent("B"), refs(), trace=True)
-    assert any(k.endswith("-partial") for k in r.traces)
+    assert any("-partial." in k for k in r.traces)
 
 
 # ---------------------------------------------------------------- seat rotation

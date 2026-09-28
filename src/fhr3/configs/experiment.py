@@ -10,6 +10,10 @@ Two hashes are persisted with every result row:
 
 Operational settings (block count, chunk size, trace policy, workers, output
 paths) are deliberately *not* hashed: they cannot change any block's result.
+
+Estimator settings (``estimators:``) are hashed separately into
+``estimator_config_hash``: they never change the raw D, only the
+variance-reduced columns, and they are part of the experiment lock.
 """
 
 from __future__ import annotations
@@ -113,7 +117,12 @@ class ExperimentConfig:
     blocks: int = 1000
     chunk_size: int = 250
     trace: TracePolicy = TracePolicy()
+    estimators: Mapping[str, Any] = field(default_factory=dict)
     raw: Mapping[str, Any] = field(default_factory=dict)
+
+    @property
+    def estimator_config_hash(self) -> str | None:
+        return canonical_hash(dict(self.estimators))[:16] if self.estimators else None
 
     def environment(self) -> dict[str, Any]:
         return {
@@ -205,6 +214,7 @@ def config_from_dict(raw: Mapping[str, Any]) -> ExperimentConfig:
         blocks=int(raw.get("blocks", 1000)),
         chunk_size=int(raw.get("chunk_size", 250)),
         trace=trace,
+        estimators=dict(raw.get("estimators", {}) or {}),
         raw=raw,
     )
 
