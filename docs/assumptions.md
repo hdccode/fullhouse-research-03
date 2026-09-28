@@ -30,3 +30,14 @@
    `power-sim` (block-residual resampling) is the reference for small n.
 10. **Invalid blocks** are excluded from statistics but always reported; any
     non-zero count is a blocking bug, not a data-cleaning step.
+11. **Agents are not re-tuned per stack depth or player count.** Preflop ranges
+    are identical at 20/50/100BB (only the all-in commitment rule depends on
+    stack), and 4-max uses the same seats-behind open table. Stack-depth and
+    format effects on σ_D therefore include "these heuristics are more or less
+    appropriate at this depth", not only the game itself.
+12. **4-max reference population** `mixed3-v1` = tight, loose, aggressive (no
+    neutral seat). This is a choice, not a derivation from `mixed5-v1`.
+13. **Cross-format pairing is partial.** 4-max and 6-max blocks with the same id
+    share the deck order, so seats 0–3 get identical hole cards but boards differ.
+    Their D values are correlated (≈ 0.3–0.6 in smoke runs); cross-format
+    comparisons must not assume independence.

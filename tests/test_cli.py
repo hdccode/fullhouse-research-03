@@ -33,3 +33,21 @@ def test_cli_simulate_validate_analyze_replay(tmp_path, capsys):
     assert main(["replay", *common, "--pairing", "ab", "--block", "5", "--compare", str(out)]) == 0
     assert "replay matches stored row exactly" in capsys.readouterr().out
     assert main(["power-sim", str(out / "test-exp" / "ab"), "--n", "10,20", "--deltas", "1", "--reps", "50"]) == 0
+
+
+def test_cli_compare(tmp_path, capsys):
+    import copy
+
+    out = tmp_path / "results"
+    for stack, exp in ((100, "cmp-100"), (20, "cmp-20")):
+        raw = copy.deepcopy(TINY)
+        raw["experiment_id"], raw["game"]["stack_bb"] = exp, stack
+        cfg = tmp_path / f"{exp}.yaml"
+        cfg.write_text(yaml.safe_dump(raw))
+        assert main(["simulate", "--config", str(cfg), "--blocks", "0:8", "--out", str(out), "--no-traces"]) == 0
+    capsys.readouterr()
+    assert main(["compare", str(out / "cmp-100"), str(out / "cmp-20"), "--json", str(tmp_path / "c.json")]) == 0
+    text = capsys.readouterr().out
+    assert "6max/20bb" in text and "(same deals)" in text
+    rep = json.loads((tmp_path / "c.json").read_text())
+    assert [c["stack_bb"] for c in rep["pairings"]["ab"]["configs"]] == [20, 100]

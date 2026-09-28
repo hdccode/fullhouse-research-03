@@ -1,0 +1,637 @@
+{
+  "corpus": {
+    "bytes_on_disk": 4113699,
+    "rows": 40000,
+    "bytes_per_block": 102.842475
+  },
+  "pairings": {
+    "5f8886e193bc5489/c0-selfplay-control": {
+      "config_hash": "5f8886e193bc5489",
+      "pairing_id": "c0-selfplay-control",
+      "variant": "nlhe",
+      "stack_bb": 100.0,
+      "candidate_a": "neutral [heuristic-1.0.0+29fb750a9a]",
+      "candidate_b": "neutral_copy [heuristic-1.0.0+29fb750a9a]",
+      "reference_population": "mixed5-v1 [7ff8708d6c]",
+      "coupling": {
+        "candidate": "shared",
+        "reference": "shared"
+      },
+      "blocks_total": 10000,
+      "blocks_invalid": 0,
+      "invalid_error_codes": [],
+      "block_id_range": [
+        0,
+        9999
+      ],
+      "block_ids_contiguous": true,
+      "paired": {
+        "n_blocks": 10000,
+        "k": 6,
+        "mean_D": 0.0,
+        "sd_D": 0.0,
+        "se_mean": 0.0,
+        "ci_mean": [
+          0.0,
+          0.0
+        ],
+        "mean_bb100": 0.0,
+        "ci_bb100": [
+          0.0,
+          0.0
+        ],
+        "sd_bb100_per_block": 0.0,
+        "skew": NaN,
+        "excess_kurtosis": NaN,
+        "quantiles": {
+          "0.001": 0.0,
+          "0.01": 0.0,
+          "0.05": 0.0,
+          "0.25": 0.0,
+          "0.5": 0.0,
+          "0.75": 0.0,
+          "0.95": 0.0,
+          "0.99": 0.0,
+          "0.999": 0.0
+        },
+        "min": 0.0,
+        "max": 0.0,
+        "frac_zero": 1.0,
+        "frac_beyond_4sd": 0.0,
+        "var_share_top1pct": NaN,
+        "var_share_top0p1pct": NaN
+      },
+      "bootstrap_ci": {
+        "mean": [
+          0.0,
+          0.0
+        ],
+        "sd": [
+          0.0,
+          0.0
+        ]
+      },
+      "power": [
+        {
+          "delta_bb100": 0.25,
+          "delta_block": 0.015,
+          "standardized_d": NaN,
+          "blocks_power80": null,
+          "played_hands_power80": null,
+          "candidate_hands_power80": null,
+          "blocks_power95": null,
+          "played_hands_power95": null,
+          "candidate_hands_power95": null
+        },
+        {
+          "delta_bb100": 0.5,
+          "delta_block": 0.03,
+          "standardized_d": NaN,
+          "blocks_power80": null,
+          "played_hands_power80": null,
+          "candidate_hands_power80": null,
+          "blocks_power95": null,
+          "played_hands_power95": null,
+          "candidate_hands_power95": null
+        },
+        {
+          "delta_bb100": 1.0,
+          "delta_block": 0.06,
+          "standardized_d": NaN,
+          "blocks_power80": null,
+          "played_hands_power80": null,
+          "candidate_hands_power80": null,
+          "blocks_power95": null,
+          "played_hands_power95": null,
+          "candidate_hands_power95": null
+        },
+        {
+          "delta_bb100": 2.0,
+          "delta_block": 0.12,
+          "standardized_d": NaN,
+          "blocks_power80": null,
+          "played_hands_power80": null,
+          "candidate_hands_power80": null,
+          "blocks_power95": null,
+          "played_hands_power95": null,
+          "candidate_hands_power95": null
+        },
+        {
+          "delta_bb100": 5.0,
+          "delta_block": 0.3,
+          "standardized_d": NaN,
+          "blocks_power80": null,
+          "played_hands_power80": null,
+          "candidate_hands_power80": null,
+          "blocks_power95": null,
+          "played_hands_power95": null,
+          "candidate_hands_power95": null
+        }
+      ],
+      "diagnostics": {
+        "played_hands_per_block": 12.0,
+        "decisions_per_block": 90.3636,
+        "showdown_rate_per_hand": 0.14046666666666666,
+        "allin_rate_per_hand": 0.025066666666666668,
+        "mean_pot_bb": 9.796941666666667,
+        "max_pot_bb": 400.5,
+        "seat_D_mean": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "seat_D_sd": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "seat_D_corr_offdiag_mean": null
+      },
+      "throughput_single_core": {
+        "mean_block_ms": 16.031780774728396,
+        "blocks_per_s": 62.37610244623256,
+        "played_hands_per_s": 748.5132293547907,
+        "decisions_per_s": 5636.52917101038,
+        "agent_time_share": 0.24571237918142866,
+        "note": "per-process timings; aggregate throughput ~= this x worker count"
+      }
+    },
+    "5f8886e193bc5489/p1-neutral-vs-loose10": {
+      "config_hash": "5f8886e193bc5489",
+      "pairing_id": "p1-neutral-vs-loose10",
+      "variant": "nlhe",
+      "stack_bb": 100.0,
+      "candidate_a": "neutral [heuristic-1.0.0+29fb750a9a]",
+      "candidate_b": "neutral_loose10 [heuristic-1.0.0+10afe268a4]",
+      "reference_population": "mixed5-v1 [7ff8708d6c]",
+      "coupling": {
+        "candidate": "shared",
+        "reference": "shared"
+      },
+      "blocks_total": 10000,
+      "blocks_invalid": 0,
+      "invalid_error_codes": [],
+      "block_id_range": [
+        0,
+        9999
+      ],
+      "block_ids_contiguous": true,
+      "paired": {
+        "n_blocks": 10000,
+        "k": 6,
+        "mean_D": 0.019932000000000002,
+        "sd_D": 8.224361758094593,
+        "se_mean": 0.08224361758094594,
+        "ci_mean": [
+          -0.14128204310696188,
+          0.1811460431069619
+        ],
+        "mean_bb100": 0.3322,
+        "ci_bb100": [
+          -2.3547007184493647,
+          3.0191007184493652
+        ],
+        "sd_bb100_per_block": 137.0726959682432,
+        "skew": -1.8814810101039643,
+        "excess_kurtosis": 179.930630158297,
+        "quantiles": {
+          "0.001": -101.5,
+          "0.01": -9.138299999999992,
+          "0.05": -1.5,
+          "0.25": 0.0,
+          "0.5": 0.0,
+          "0.75": 0.0,
+          "0.95": 1.5,
+          "0.99": 12.862900000000062,
+          "0.999": 99.0005000000001
+        },
+        "min": -210.5,
+        "max": 101.46,
+        "frac_zero": 0.8717,
+        "frac_beyond_4sd": 0.0099,
+        "var_share_top1pct": 0.9328613511184637,
+        "var_share_top0p1pct": 0.2620230479982474
+      },
+      "bootstrap_ci": {
+        "mean": [
+          -0.151136025,
+          0.17654297499999977
+        ],
+        "sd": [
+          7.075544814444742,
+          9.287172809275363
+        ]
+      },
+      "power": [
+        {
+          "delta_bb100": 0.25,
+          "delta_block": 0.015,
+          "standardized_d": 0.0018238497334138637,
+          "blocks_power80": 2359553,
+          "played_hands_power80": 28314636,
+          "candidate_hands_power80": 14157318,
+          "blocks_power95": 3906506,
+          "played_hands_power95": 46878072,
+          "candidate_hands_power95": 23439036
+        },
+        {
+          "delta_bb100": 0.5,
+          "delta_block": 0.03,
+          "standardized_d": 0.0036476994668277274,
+          "blocks_power80": 589889,
+          "played_hands_power80": 7078668,
+          "candidate_hands_power80": 3539334,
+          "blocks_power95": 976627,
+          "played_hands_power95": 11719524,
+          "candidate_hands_power95": 5859762
+        },
+        {
+          "delta_bb100": 1.0,
+          "delta_block": 0.06,
+          "standardized_d": 0.007295398933655455,
+          "blocks_power80": 147473,
+          "played_hands_power80": 1769676,
+          "candidate_hands_power80": 884838,
+          "blocks_power95": 244157,
+          "played_hands_power95": 2929884,
+          "candidate_hands_power95": 1464942
+        },
+        {
+          "delta_bb100": 2.0,
+          "delta_block": 0.12,
+          "standardized_d": 0.01459079786731091,
+          "blocks_power80": 36869,
+          "played_hands_power80": 442428,
+          "candidate_hands_power80": 221214,
+          "blocks_power95": 61040,
+          "played_hands_power95": 732480,
+          "candidate_hands_power95": 366240
+        },
+        {
+          "delta_bb100": 5.0,
+          "delta_block": 0.3,
+          "standardized_d": 0.03647699466827727,
+          "blocks_power80": 5899,
+          "played_hands_power80": 70788,
+          "candidate_hands_power80": 35394,
+          "blocks_power95": 9767,
+          "played_hands_power95": 117204,
+          "candidate_hands_power95": 58602
+        }
+      ],
+      "diagnostics": {
+        "played_hands_per_block": 12.0,
+        "decisions_per_block": 90.6602,
+        "showdown_rate_per_hand": 0.14239166666666667,
+        "allin_rate_per_hand": 0.0254,
+        "mean_pot_bb": 9.918538583333333,
+        "max_pot_bb": 400.5,
+        "seat_D_mean": [
+          0.005673999999999992,
+          0.011155999999999985,
+          0.035056000000000004,
+          0.052948,
+          -0.05571,
+          -0.029192000000000003
+        ],
+        "seat_D_sd": [
+          2.9292712760593282,
+          4.643036444225356,
+          2.584948756333735,
+          3.055122640210766,
+          3.397319984076997,
+          3.446322173098089
+        ],
+        "seat_D_corr_offdiag_mean": -0.004550388427192586
+      },
+      "throughput_single_core": {
+        "mean_block_ms": 17.74642198168731,
+        "blocks_per_s": 56.34938699372239,
+        "played_hands_per_s": 676.1926439246687,
+        "decisions_per_s": 5108.646694728271,
+        "agent_time_share": 0.24389570624791576,
+        "note": "per-process timings; aggregate throughput ~= this x worker count"
+      }
+    },
+    "5f8886e193bc5489/p2-neutral-vs-tight": {
+      "config_hash": "5f8886e193bc5489",
+      "pairing_id": "p2-neutral-vs-tight",
+      "variant": "nlhe",
+      "stack_bb": 100.0,
+      "candidate_a": "neutral [heuristic-1.0.0+29fb750a9a]",
+      "candidate_b": "tight [heuristic-1.0.0+cde1a93ac7]",
+      "reference_population": "mixed5-v1 [7ff8708d6c]",
+      "coupling": {
+        "candidate": "shared",
+        "reference": "shared"
+      },
+      "blocks_total": 10000,
+      "blocks_invalid": 0,
+      "invalid_error_codes": [],
+      "block_id_range": [
+        0,
+        9999
+      ],
+      "block_ids_contiguous": true,
+      "paired": {
+        "n_blocks": 10000,
+        "k": 6,
+        "mean_D": 0.11541100000000004,
+        "sd_D": 13.96498992500315,
+        "se_mean": 0.13964989925003152,
+        "ci_mean": [
+          -0.15833090897450697,
+          0.38915290897450705
+        ],
+        "mean_bb100": 1.9235166666666672,
+        "ci_bb100": [
+          -2.6388484829084495,
+          6.4858818162417835
+        ],
+        "sd_bb100_per_block": 232.74983208338585,
+        "skew": -1.2539521533373932,
+        "excess_kurtosis": 103.46706696470541,
+        "quantiles": {
+          "0.001": -101.5,
+          "0.01": -36.97,
+          "0.05": -5.13,
+          "0.25": 0.0,
+          "0.5": 0.0,
+          "0.75": 0.0,
+          "0.95": 6.0,
+          "0.99": 38.47,
+          "0.999": 108.5010000000002
+        },
+        "min": -331.15999999999997,
+        "max": 223.9,
+        "frac_zero": 0.6952,
+        "frac_beyond_4sd": 0.0137,
+        "var_share_top1pct": 0.6923060210552707,
+        "var_share_top0p1pct": 0.21265961747263734
+      },
+      "bootstrap_ci": {
+        "mean": [
+          -0.15949305,
+          0.39195087499999987
+        ],
+        "sd": [
+          12.578947462206127,
+          15.444107376212093
+        ]
+      },
+      "power": [
+        {
+          "delta_bb100": 0.25,
+          "delta_block": 0.015,
+          "standardized_d": 0.0010741146309847134,
+          "blocks_power80": 6803094,
+          "played_hands_power80": 81637128,
+          "candidate_hands_power80": 40818564,
+          "blocks_power95": 11263292,
+          "played_hands_power95": 135159504,
+          "candidate_hands_power95": 67579752
+        },
+        {
+          "delta_bb100": 0.5,
+          "delta_block": 0.03,
+          "standardized_d": 0.002148229261969427,
+          "blocks_power80": 1700774,
+          "played_hands_power80": 20409288,
+          "candidate_hands_power80": 10204644,
+          "blocks_power95": 2815823,
+          "played_hands_power95": 33789876,
+          "candidate_hands_power95": 16894938
+        },
+        {
+          "delta_bb100": 1.0,
+          "delta_block": 0.06,
+          "standardized_d": 0.004296458523938854,
+          "blocks_power80": 425194,
+          "played_hands_power80": 5102328,
+          "candidate_hands_power80": 2551164,
+          "blocks_power95": 703956,
+          "played_hands_power95": 8447472,
+          "candidate_hands_power95": 4223736
+        },
+        {
+          "delta_bb100": 2.0,
+          "delta_block": 0.12,
+          "standardized_d": 0.008592917047877707,
+          "blocks_power80": 106299,
+          "played_hands_power80": 1275588,
+          "candidate_hands_power80": 637794,
+          "blocks_power95": 175989,
+          "played_hands_power95": 2111868,
+          "candidate_hands_power95": 1055934
+        },
+        {
+          "delta_bb100": 5.0,
+          "delta_block": 0.3,
+          "standardized_d": 0.021482292619694268,
+          "blocks_power80": 17008,
+          "played_hands_power80": 204096,
+          "candidate_hands_power80": 102048,
+          "blocks_power95": 28159,
+          "played_hands_power95": 337908,
+          "candidate_hands_power95": 168954
+        }
+      ],
+      "diagnostics": {
+        "played_hands_per_block": 12.0,
+        "decisions_per_block": 89.6886,
+        "showdown_rate_per_hand": 0.1363,
+        "allin_rate_per_hand": 0.024191666666666667,
+        "mean_pot_bb": 9.510627499999998,
+        "max_pot_bb": 400.5,
+        "seat_D_mean": [
+          0.05119099999999999,
+          -0.08440199999999999,
+          0.019907000000000008,
+          0.044192,
+          -0.020827999999999975,
+          0.105351
+        ],
+        "seat_D_sd": [
+          5.958441087527837,
+          7.4225178153688605,
+          4.79154528226196,
+          5.0524762719663485,
+          5.864214035575002,
+          5.116222908600131
+        ],
+        "seat_D_corr_offdiag_mean": -0.0030469149045916346
+      },
+      "throughput_single_core": {
+        "mean_block_ms": 17.24182279238885,
+        "blocks_per_s": 57.99850816477684,
+        "played_hands_per_s": 695.982097977322,
+        "decisions_per_s": 5201.804999387403,
+        "agent_time_share": 0.24552320771838484,
+        "note": "per-process timings; aggregate throughput ~= this x worker count"
+      }
+    },
+    "5f8886e193bc5489/p3-aggressive-vs-neutral": {
+      "config_hash": "5f8886e193bc5489",
+      "pairing_id": "p3-aggressive-vs-neutral",
+      "variant": "nlhe",
+      "stack_bb": 100.0,
+      "candidate_a": "aggressive [heuristic-1.0.0+dee8f8572d]",
+      "candidate_b": "neutral [heuristic-1.0.0+29fb750a9a]",
+      "reference_population": "mixed5-v1 [7ff8708d6c]",
+      "coupling": {
+        "candidate": "shared",
+        "reference": "shared"
+      },
+      "blocks_total": 10000,
+      "blocks_invalid": 0,
+      "invalid_error_codes": [],
+      "block_id_range": [
+        0,
+        9999
+      ],
+      "block_ids_contiguous": true,
+      "paired": {
+        "n_blocks": 10000,
+        "k": 6,
+        "mean_D": 0.090181,
+        "sd_D": 14.107169631812793,
+        "se_mean": 0.14107169631812794,
+        "ci_mean": [
+          -0.1863479173840027,
+          0.3667099173840027
+        ],
+        "mean_bb100": 1.5030166666666667,
+        "ci_bb100": [
+          -3.1057986230667116,
+          6.111831956400046
+        ],
+        "sd_bb100_per_block": 235.11949386354652,
+        "skew": 0.7886116285345205,
+        "excess_kurtosis": 59.08625956147854,
+        "quantiles": {
+          "0.001": -103.95230000000001,
+          "0.01": -43.8527,
+          "0.05": -5.5,
+          "0.25": 0.0,
+          "0.5": 0.0,
+          "0.75": 0.0,
+          "0.95": 6.63,
+          "0.99": 38.47,
+          "0.999": 121.1144200000009
+        },
+        "min": -195.0,
+        "max": 210.5,
+        "frac_zero": 0.7271,
+        "frac_beyond_4sd": 0.0153,
+        "var_share_top1pct": 0.6520497968178507,
+        "var_share_top0p1pct": 0.16543282168799572
+      },
+      "bootstrap_ci": {
+        "mean": [
+          -0.17631127500000005,
+          0.37633244999999954
+        ],
+        "sd": [
+          12.981452854147458,
+          15.111988901730104
+        ]
+      },
+      "power": [
+        {
+          "delta_bb100": 0.25,
+          "delta_block": 0.015,
+          "standardized_d": 0.0010632891211695508,
+          "blocks_power80": 6942325,
+          "played_hands_power80": 83307900,
+          "candidate_hands_power80": 41653950,
+          "blocks_power95": 11493806,
+          "played_hands_power95": 137925672,
+          "candidate_hands_power95": 68962836
+        },
+        {
+          "delta_bb100": 0.5,
+          "delta_block": 0.03,
+          "standardized_d": 0.0021265782423391015,
+          "blocks_power80": 1735582,
+          "played_hands_power80": 20826984,
+          "candidate_hands_power80": 10413492,
+          "blocks_power95": 2873452,
+          "played_hands_power95": 34481424,
+          "candidate_hands_power95": 17240712
+        },
+        {
+          "delta_bb100": 1.0,
+          "delta_block": 0.06,
+          "standardized_d": 0.004253156484678203,
+          "blocks_power80": 433896,
+          "played_hands_power80": 5206752,
+          "candidate_hands_power80": 2603376,
+          "blocks_power95": 718363,
+          "played_hands_power95": 8620356,
+          "candidate_hands_power95": 4310178
+        },
+        {
+          "delta_bb100": 2.0,
+          "delta_block": 0.12,
+          "standardized_d": 0.008506312969356406,
+          "blocks_power80": 108474,
+          "played_hands_power80": 1301688,
+          "candidate_hands_power80": 650844,
+          "blocks_power95": 179591,
+          "played_hands_power95": 2155092,
+          "candidate_hands_power95": 1077546
+        },
+        {
+          "delta_bb100": 5.0,
+          "delta_block": 0.3,
+          "standardized_d": 0.021265782423391014,
+          "blocks_power80": 17356,
+          "played_hands_power80": 208272,
+          "candidate_hands_power80": 104136,
+          "blocks_power95": 28735,
+          "played_hands_power95": 344820,
+          "candidate_hands_power95": 172410
+        }
+      ],
+      "diagnostics": {
+        "played_hands_per_block": 12.0,
+        "decisions_per_block": 90.4615,
+        "showdown_rate_per_hand": 0.13861666666666667,
+        "allin_rate_per_hand": 0.02578333333333333,
+        "mean_pot_bb": 9.952044333333331,
+        "max_pot_bb": 400.5,
+        "seat_D_mean": [
+          0.03885599999999996,
+          0.021789999999999945,
+          -0.008735,
+          -0.07291200000000002,
+          0.09994299999999992,
+          0.011238999999999985
+        ],
+        "seat_D_sd": [
+          5.536585741179492,
+          7.201211206469328,
+          4.025163010799161,
+          4.26401580477088,
+          6.165856873610137,
+          6.34654506155132
+        ],
+        "seat_D_corr_offdiag_mean": 0.004976353278665425
+      },
+      "throughput_single_core": {
+        "mean_block_ms": 19.683070900363965,
+        "blocks_per_s": 50.805080419717875,
+        "played_hands_per_s": 609.6609650366145,
+        "decisions_per_s": 4595.903782388308,
+        "agent_time_share": 0.24411239273118332,
+        "note": "per-process timings; aggregate throughput ~= this x worker count"
+      }
+    }
+  }
+}

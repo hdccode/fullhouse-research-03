@@ -1,0 +1,64 @@
+# FHR3 pilot: 4-max NLHE, 100BB, fixed mixed reference population (3 seats).
+# Same agents/candidates/root seed as the 6-max configs.
+# Scientific fields (experiment_id, root_seed, game, rng, agents used by a
+# pairing) are hashed; blocks / chunk_size / trace are operational.
+experiment_id: fhr3-nlhe4-100bb-pilot-v1
+root_seed: 20260928
+
+game:
+  variant: nlhe
+  player_count: 4
+  stack_bb: 100
+  bb_chips: 100
+  sb_chips: 50
+  ante_chips: 0
+
+rng:
+  candidate_coupling: shared      # common random numbers for A/B policy mixing
+  reference_coupling: shared      # reference seats reuse draws across A-hand/B-hand
+  salts: {chance: 0, candidate: 0, reference: 0}
+
+blocks: 10000
+chunk_size: 250
+
+trace:
+  rate: 0.001          # ~0.1% of blocks get full PHH traces (deterministic selection)
+  include_invalid: true
+  block_ids: []
+
+agents:
+  # candidates
+  neutral:        {kind: heuristic, style: neutral}
+  neutral_copy:   {kind: heuristic, style: neutral}          # identical policy, control
+  neutral_loose10: {kind: heuristic, style: neutral, overrides: {looseness: 1.10}}
+  tight:          {kind: heuristic, style: tight}
+  aggressive:     {kind: heuristic, style: aggressive}
+  # reference seats
+  ref_tight:      {kind: heuristic, style: tight}
+  ref_neutral_1:  {kind: heuristic, style: neutral}
+  ref_loose:      {kind: heuristic, style: loose}
+  ref_aggressive: {kind: heuristic, style: aggressive}
+
+reference_populations:
+  # Order j = 0..2 : reference j sits j+1 seats after the candidate.
+  # Design choice: one tight, one loose, one aggressive seat (no neutral seat,
+  # so the population is as heterogeneous as mixed5 but with 3 seats).
+  mixed3-v1: [ref_tight, ref_loose, ref_aggressive]
+
+pairings:
+  - pairing_id: p1-neutral-vs-loose10     # small perturbation
+    candidate_a: neutral
+    candidate_b: neutral_loose10
+    reference_population: mixed3-v1
+  - pairing_id: p2-neutral-vs-tight       # moderate style gap
+    candidate_a: neutral
+    candidate_b: tight
+    reference_population: mixed3-v1
+  - pairing_id: p3-aggressive-vs-neutral  # larger style gap, higher variance
+    candidate_a: aggressive
+    candidate_b: neutral
+    reference_population: mixed3-v1
+  - pairing_id: c0-selfplay-control       # must give D == 0 exactly
+    candidate_a: neutral
+    candidate_b: neutral_copy
+    reference_population: mixed3-v1

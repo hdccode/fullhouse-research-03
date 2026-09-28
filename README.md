@@ -7,7 +7,8 @@ population, reduced to one paired difference `D = Σ_s (X_A,s − X_B,s)`. All
 inference (CIs, power, bootstrap, later sequential inference) runs on the
 independent sequence `D_1, D_2, …`.
 
-Status: **milestone 1 — 6-max NLHE vertical slice** (PokerKit engine, heuristic
+Status: **milestone 1 — 6-max NLHE vertical slice**, plus 4-max NLHE and
+6-max 20/50BB stack-sensitivity configs (PokerKit engine, heuristic
 agent family, matched blocks, invariant tests, Parquet + manifests, sparse PHH
 traces, resumable/shardable runner, analysis CLI). Other formats are not yet
 implemented; see `docs/extending.md` for the order and the recipe.
@@ -29,6 +30,7 @@ fhr3 simulate --config ... --blocks 0:10000 --shard 3/16                # zero-b
 fhr3 validate --config ... --blocks 0:10000 --replay 20                 # structure + exact replay
 fhr3 analyze results/fhr3-nlhe6-100bb-pilot-v1 --json reports/pilot.json
 fhr3 power-sim results/fhr3-nlhe6-100bb-pilot-v1/p2-neutral-vs-tight
+fhr3 compare results/fhr3-nlhe6-20bb-v1 results/fhr3-nlhe6-50bb-v1 results/fhr3-nlhe6-100bb-pilot-v1
 fhr3 replay --config ... --pairing p2-neutral-vs-tight --block 1234 --trace-dir /tmp/b1234
 fhr3 bench --config ... --blocks 100 --profile
 ```

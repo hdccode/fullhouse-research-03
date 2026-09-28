@@ -60,14 +60,43 @@ centred block residuals, so it describes the *statistics*, not a real matchup.
 * Per hand: showdown ≈ 0.13, all-in ≈ 0.03, mean pot ≈ 10–11 BB.
 * Throughput ≈ 90–120 blocks/s per core.
 
-## 3. Reproducing / tracing one block
+## 3. Stack sensitivity (6-max 20/50/100BB) and 4-max NLHE
+
+`configs/nlhe_6max_{20,50}bb.yaml` are identical to the 100BB config except for
+`experiment_id` and `stack_bb` (enforced by `tests/test_configs.py`). Same root seed
+means the same deals for each block id, so D is paired across stack depths.
+`configs/nlhe_4max_100bb.yaml` uses the same candidates with a 3-seat reference
+population (`mixed3-v1`).
+
+```bash
+for c in nlhe_6max_20bb nlhe_6max_50bb nlhe_4max_100bb; do
+  fhr3 simulate --config configs/$c.yaml --blocks 0:10000 --workers 8 || break
+  fhr3 validate --config configs/$c.yaml --blocks 0:10000 --replay 20
+done
+fhr3 compare results/fhr3-nlhe6-20bb-v1 results/fhr3-nlhe6-50bb-v1 \
+    results/fhr3-nlhe6-100bb-pilot-v1 results/fhr3-nlhe4-100bb-pilot-v1 \
+    --json reports/stack-and-format-compare.json
+```
+
+`compare` reports, per pairing and config: σ_D, share of D = 0, kurtosis, variance
+share of the top 1% of blocks, all-in rate, mean pot, blocks/hands for a fixed
+BB/100 effect (`--delta`), the BB/100 gap corresponding to fixed d, and the
+correlation of D across configs on common block ids. That correlation is labelled
+`same deals` (same player count, fully paired) or `same seeds, different deal
+layout` (different player counts: seats 0–3 share hole cards but the boards
+differ, so the comparison is partially paired).
+
+Sanity checks: 0 invalid, control σ_D = 0, all-in rate per hand ≈ 0.10 at 20BB,
+≈ 0.055 at 50BB, ≈ 0.025 at 100BB; σ_D increasing with stack depth.
+
+## 4. Reproducing / tracing one block
 
 ```bash
 fhr3 replay --config configs/nlhe_6max_100bb.yaml --pairing p2-neutral-vs-tight \
     --block 4711 --trace-dir traces/replay-4711 --compare results
 ```
 
-## 4. Throughput / profiling
+## 5. Throughput / profiling
 
 ```bash
 fhr3 bench --config configs/nlhe_6max_100bb.yaml --blocks 200 --profile

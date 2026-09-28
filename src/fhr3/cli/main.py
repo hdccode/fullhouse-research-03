@@ -191,6 +191,15 @@ def cmd_power_sim(args: argparse.Namespace) -> int:
     return 0
 
 
+def cmd_compare(args: argparse.Namespace) -> int:
+    from fhr3.analysis.compare import compare_paths, format_compare
+
+    rep = compare_paths([Path(p) for p in args.paths], args.delta, args.power, args.alpha)
+    print(format_compare(rep))
+    _dump(rep, args.json)
+    return 0
+
+
 # ------------------------------------------------------------------ bench
 def cmd_bench(args: argparse.Namespace) -> int:
     import cProfile
@@ -271,6 +280,14 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--seed", type=int, default=0)
     p.add_argument("--json")
     p.set_defaults(func=cmd_power_sim)
+
+    c = sub.add_parser("compare", help="compare pairings across configs (stack depth, player count)")
+    c.add_argument("paths", nargs="+", help="experiment directories")
+    c.add_argument("--delta", type=float, default=1.0, help="fixed effect in BB/100")
+    c.add_argument("--power", type=float, default=0.8)
+    c.add_argument("--alpha", type=float, default=0.05)
+    c.add_argument("--json")
+    c.set_defaults(func=cmd_compare)
 
     b = sub.add_parser("bench", help="small single-process throughput/profile run (no output files)")
     b.add_argument("--config", required=True)

@@ -21,6 +21,7 @@ src/fhr3/
   io/traces.py           deterministic sparse PHH tracing
   analysis/stats.py      describe, power, bootstrap, location-shift power
   analysis/report.py     corpus report, ECDF export
+  analysis/compare.py    cross-config comparison (stack depth, player count)
   validation/corpus.py   output validation + exact replay
   cli/main.py            `fhr3` entry point
 ```
