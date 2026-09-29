@@ -1,0 +1,231 @@
+{
+ "source": "gostevehoward/confseq, PyPI wheel confseq==0.0.9",
+ "function": "confseq.boundaries.normal_mixture_bound(v, alpha, v_opt, alpha_opt, is_one_sided=False)",
+ "python": "3.10.20",
+ "cases": [
+  {
+   "v": 50.0,
+   "alpha": 0.05,
+   "v_opt": 1000.0,
+   "alpha_opt": 0.05,
+   "two_sided": true,
+   "bound": 33.36690856788842
+  },
+  {
+   "v": 200.0,
+   "alpha": 0.05,
+   "v_opt": 1000.0,
+   "alpha_opt": 0.05,
+   "two_sided": true,
+   "bound": 47.57255644102396
+  },
+  {
+   "v": 1000.0,
+   "alpha": 0.05,
+   "v_opt": 1000.0,
+   "alpha_opt": 0.05,
+   "two_sided": true,
+   "bound": 95.98173584209047
+  },
+  {
+   "v": 10000.0,
+   "alpha": 0.05,
+   "v_opt": 1000.0,
+   "alpha_opt": 0.05,
+   "two_sided": true,
+   "bound": 324.17231454054377
+  },
+  {
+   "v": 100000.0,
+   "alpha": 0.05,
+   "v_opt": 1000.0,
+   "alpha_opt": 0.05,
+   "two_sided": true,
+   "bound": 1126.289789723669
+  },
+  {
+   "v": 250000.0,
+   "alpha": 0.05,
+   "v_opt": 1000.0,
+   "alpha_opt": 0.05,
+   "two_sided": true,
+   "bound": 1843.3465005705473
+  },
+  {
+   "v": 1000000.0,
+   "alpha": 0.05,
+   "v_opt": 1000.0,
+   "alpha_opt": 0.05,
+   "two_sided": true,
+   "bound": 3869.452296670984
+  },
+  {
+   "v": 50.0,
+   "alpha": 0.05,
+   "v_opt": 100000.0,
+   "alpha_opt": 0.05,
+   "two_sided": true,
+   "bound": 275.4005930988904
+  },
+  {
+   "v": 200.0,
+   "alpha": 0.05,
+   "v_opt": 100000.0,
+   "alpha_opt": 0.05,
+   "two_sided": true,
+   "bound": 277.3007143690265
+  },
+  {
+   "v": 1000.0,
+   "alpha": 0.05,
+   "v_opt": 100000.0,
+   "alpha_opt": 0.05,
+   "two_sided": true,
+   "bound": 287.2733015110024
+  },
+  {
+   "v": 10000.0,
+   "alpha": 0.05,
+   "v_opt": 100000.0,
+   "alpha_opt": 0.05,
+   "two_sided": true,
+   "bound": 385.5054633530311
+  },
+  {
+   "v": 100000.0,
+   "alpha": 0.05,
+   "v_opt": 100000.0,
+   "alpha_opt": 0.05,
+   "two_sided": true,
+   "bound": 959.8173584209046
+  },
+  {
+   "v": 250000.0,
+   "alpha": 0.05,
+   "v_opt": 100000.0,
+   "alpha_opt": 0.05,
+   "two_sided": true,
+   "bound": 1539.757024452911
+  },
+  {
+   "v": 1000000.0,
+   "alpha": 0.05,
+   "v_opt": 100000.0,
+   "alpha_opt": 0.05,
+   "two_sided": true,
+   "bound": 3241.7231454054377
+  },
+  {
+   "v": 50.0,
+   "alpha": 0.01,
+   "v_opt": 1000.0,
+   "alpha_opt": 0.01,
+   "two_sided": true,
+   "bound": 36.34992723694947
+  },
+  {
+   "v": 200.0,
+   "alpha": 0.01,
+   "v_opt": 1000.0,
+   "alpha_opt": 0.01,
+   "two_sided": true,
+   "bound": 54.621516434848594
+  },
+  {
+   "v": 1000.0,
+   "alpha": 0.01,
+   "v_opt": 1000.0,
+   "alpha_opt": 0.01,
+   "two_sided": true,
+   "bound": 112.94485667271462
+  },
+  {
+   "v": 10000.0,
+   "alpha": 0.01,
+   "v_opt": 1000.0,
+   "alpha_opt": 0.01,
+   "two_sided": true,
+   "bound": 375.33892043524565
+  },
+  {
+   "v": 100000.0,
+   "alpha": 0.01,
+   "v_opt": 1000.0,
+   "alpha_opt": 0.01,
+   "two_sided": true,
+   "bound": 1275.7646010922167
+  },
+  {
+   "v": 250000.0,
+   "alpha": 0.01,
+   "v_opt": 1000.0,
+   "alpha_opt": 0.01,
+   "two_sided": true,
+   "bound": 2072.6421594798267
+  },
+  {
+   "v": 1000000.0,
+   "alpha": 0.01,
+   "v_opt": 1000.0,
+   "alpha_opt": 0.01,
+   "two_sided": true,
+   "bound": 4308.720066331528
+  },
+  {
+   "v": 50.0,
+   "alpha": 0.01,
+   "v_opt": 100000.0,
+   "alpha_opt": 0.01,
+   "two_sided": true,
+   "bound": 283.48946796014593
+  },
+  {
+   "v": 200.0,
+   "alpha": 0.01,
+   "v_opt": 100000.0,
+   "alpha_opt": 0.01,
+   "two_sided": true,
+   "bound": 286.1817164282065
+  },
+  {
+   "v": 1000.0,
+   "alpha": 0.01,
+   "v_opt": 100000.0,
+   "alpha_opt": 0.01,
+   "two_sided": true,
+   "bound": 300.20248021664526
+  },
+  {
+   "v": 10000.0,
+   "alpha": 0.01,
+   "v_opt": 100000.0,
+   "alpha_opt": 0.01,
+   "two_sided": true,
+   "bound": 431.6013747714238
+  },
+  {
+   "v": 100000.0,
+   "alpha": 0.01,
+   "v_opt": 100000.0,
+   "alpha_opt": 0.01,
+   "two_sided": true,
+   "bound": 1129.4485667271463
+  },
+  {
+   "v": 250000.0,
+   "alpha": 0.01,
+   "v_opt": 100000.0,
+   "alpha_opt": 0.01,
+   "two_sided": true,
+   "bound": 1805.767688255368
+  },
+  {
+   "v": 1000000.0,
+   "alpha": 0.01,
+   "v_opt": 100000.0,
+   "alpha_opt": 0.01,
+   "two_sided": true,
+   "bound": 3753.389204352457
+  }
+ ]
+}

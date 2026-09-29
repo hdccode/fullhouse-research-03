@@ -324,6 +324,68 @@ def cmd_cs_coverage(args: argparse.Namespace) -> int:
     return 0
 
 
+def cmd_rq7_cell(args: argparse.Namespace) -> int:
+    """One RQ7 cell: all methods on the same streams; per-replicate CSV + summary JSON."""
+    import csv
+    import time
+
+    from fhr3.analysis.rq7 import DEFAULT_CHECKPOINTS, Design, make_sampler, run_cell, summarize
+    from fhr3.io.manifest import git_info, now_iso
+
+    sampler = make_sampler(args.sampler, args.scale)
+    if args.effect_d is not None and args.true_mean is not None:
+        raise SystemExit("give --effect-d or --true-mean, not both")
+    if sampler.name.startswith("permutation:"):
+        if args.effect_d or args.true_mean:
+            raise SystemExit("permutation streams have a fixed true mean (the corpus mean)")
+        mu = sampler.true_mean
+    else:
+        mu = args.effect_d * sampler.sigma if args.effect_d is not None else (args.true_mean or 0.0)
+        sampler = sampler.with_true_mean(mu)
+    n_max = args.n_max
+    design = Design(sampler=args.sampler, true_mean=float(mu), effect_d=args.effect_d, sigma=float(sampler.sigma),
+                    reps=args.reps, n_max=n_max, t_star=float(args.t_star), min_n=args.min_n,
+                    fixed_n=args.fixed_n or int(min(args.t_star, n_max)), alpha=args.alpha, seed=args.seed,
+                    checkpoints=tuple(c for c in (args.checkpoints or DEFAULT_CHECKPOINTS) if c <= n_max))
+    out_dir = Path(args.out_dir)
+    out_dir.mkdir(parents=True, exist_ok=True)
+    jpath, cpath = out_dir / f"{args.name}.json", out_dir / f"{args.name}.csv"
+    if jpath.exists():
+        old = json.loads(jpath.read_text())
+        if old.get("design_hash") == design.hash() and cpath.exists():
+            print(f"{args.name}: already complete (design {design.hash()}); skipping")
+            return 0
+        if not args.force:
+            raise SystemExit(f"{jpath} exists with a different design; refusing to overwrite (use a new --name)")
+    t0 = time.perf_counter()
+    rows = run_cell(design, sampler, workers=args.workers)
+    wall = time.perf_counter() - t0
+    tmp = cpath.with_suffix(".csv.tmp")
+    with tmp.open("w", newline="") as fh:
+        w = csv.DictWriter(fh, fieldnames=["rep", *[k for k in rows[0] if k != "rep"]])
+        w.writeheader()
+        w.writerows(rows)
+    tmp.replace(cpath)
+    summ = summarize(rows, design)
+    doc = {"name": args.name, "design": asdict_design(design), "design_hash": design.hash(), "summary": summ,
+           "wall_s": wall, "workers": args.workers, "git": git_info(), "finished_at": now_iso(),
+           "per_replicate_csv": cpath.name}
+    jpath.write_text(json.dumps(doc, indent=1, default=float) + "\n")
+    for m, v in summ.items():
+        dq = v["decision_time_quantiles"].get("0.5")
+        print(f"{args.name} [{m:<5}] miscoverage {v['miscoverage']:.4f} (MC se {v['miscoverage_mc_se']:.4f})  "
+              f"decisions {v['decision_rate']:.3f}  wrong {v['wrong_decision_rate']:.4f}  "
+              f"median decision n {dq if dq is None else f'{dq:,.0f}'}")
+    print(f"{args.name}: {design.reps} reps x {design.n_max:,} blocks in {wall:.1f}s -> {jpath}")
+    return 0
+
+
+def asdict_design(design: Any) -> dict[str, Any]:
+    from dataclasses import asdict
+
+    return asdict(design)
+
+
 # ------------------------------------------------------------------ bench
 def cmd_bench(args: argparse.Namespace) -> int:
     import cProfile
@@ -470,6 +532,25 @@ def build_parser() -> argparse.ArgumentParser:
     cv.add_argument("--seed", type=int, default=0)
     cv.add_argument("--json")
     cv.set_defaults(func=cmd_cs_coverage)
+
+    rq = sub.add_parser("rq7-cell", help="RQ7: fixed / peek / asymptotic CS on the same block streams (one cell)")
+    rq.add_argument("--name", required=True, help="cell name (output <out-dir>/<name>.json/.csv)")
+    rq.add_argument("--sampler", required=True, help="normal | t3 | bootstrap:<pairing dir> | permutation:<pairing dir>")
+    rq.add_argument("--scale", type=float, default=1.0, help="SD for normal / t3")
+    rq.add_argument("--effect-d", type=float, help="true mean = d * sigma of the sampler")
+    rq.add_argument("--true-mean", type=float, help="true mean in BB per block")
+    rq.add_argument("--reps", type=int, required=True)
+    rq.add_argument("--n-max", type=int, required=True, help="horizon (blocks)")
+    rq.add_argument("--t-star", type=float, default=100_000)
+    rq.add_argument("--min-n", type=int, default=200)
+    rq.add_argument("--fixed-n", type=int, help="pre-committed n of the single fixed look (default min(t*, n_max))")
+    rq.add_argument("--alpha", type=float, default=0.05)
+    rq.add_argument("--seed", type=int, default=20261007)
+    rq.add_argument("--checkpoints", type=lambda s: [int(x) for x in s.split(",")])
+    rq.add_argument("--workers", type=int, default=1)
+    rq.add_argument("--out-dir", default="reports/rq7/cells")
+    rq.add_argument("--force", action="store_true")
+    rq.set_defaults(func=cmd_rq7_cell)
 
     b = sub.add_parser("bench", help="small single-process throughput/profile run (no output files)")
     b.add_argument("--config", required=True)
