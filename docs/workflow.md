@@ -113,7 +113,12 @@ for e in fhr3-nlhe6-100bb-rq6-v1-fittedvf fhr3-nlhe6-20bb-rq6-allin-v1 fhr3-aof4
 .venv/bin/fhr3 compare results/fhr3-nlhe6-100bb-pilot-v1 results/fhr3-nlhe6-100bb-rq6-v1-fittedvf results/fhr3-nlhe6-20bb-v1 results/fhr3-nlhe6-20bb-rq6-allin-v1 results/fhr3-aof4-8bb-pilot-v1 results/fhr3-aof4-8bb-rq6-allin-v1 --json reports/rq6/compare.json | tee reports/rq6/compare.txt
 .venv/bin/python scripts/analyze_rq6.py --out reports/rq6 --boot 2000
 .venv/bin/python scripts/freeze_rq_manifest.py rq6
+# deep analysis: estimator increments, tails / big-pot decomposition, hands at 80% + 95%, efficiency (~10 s)
+.venv/bin/python scripts/rq6_deep_analysis.py --out reports/rq6/deep --boot 2000
 ```
+
+Status: RQ6 has been run (2026-09-29, `ac3cd5f`), every gate passes, and results are in
+`final_status.md` section 4.
 
 Pass/fail:
 * `analyze_rq6.py` exits 0. That means raw D reproduces the frozen reference block by
@@ -173,7 +178,13 @@ done
 for e in fhr3-nlhe6-100bb-pilot-v1 fhr3-nlhe4-100bb-v2 fhr3-cp6-100bb-pilot-v1 fhr3-plo6-100bb-pilot-v1 fhr3-bomb6-100bb-pilot-v1 fhr3-aof4-8bb-pilot-v1 fhr3-nit6-100bb-pilot-v1 fhr3-nlhe6-20bb-v1 fhr3-nlhe6-50bb-v1; do .venv/bin/fhr3 sequential "results/$e" --t-star 100000 --json "reports/rq7/sequential-$e.json" > /dev/null; done
 .venv/bin/python scripts/analyze_rq7.py --cells reports/rq7/cells --out reports/rq7
 .venv/bin/python scripts/freeze_rq_manifest.py rq7
+# deep analysis: invariants + recomputation check, null timing, width inflation, power-matched cost,
+# wrong-sign bounds, real-ordering signs, illustrative trajectory (~15 s)
+.venv/bin/python scripts/rq7_deep_analysis.py --out reports/rq7/deep
 ```
+
+Status: RQ7 has been run (2026-09-29, `ac3cd5f`), every check passes, and results are in
+`final_status.md` section 4b.
 
 Outputs, in `reports/rq7/`:
 * the tables `coverage.csv`, `min_n_sensitivity.csv`, `stopping.csv`,

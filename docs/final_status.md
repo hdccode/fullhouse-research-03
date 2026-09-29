@@ -123,27 +123,134 @@ blocks of every mixed-SHA extension. `src/` is unchanged since a86909d.
   * Treat it as a stress case. No core claim depends on its absolute rank.
 * **Nit.** A block-construction and mechanism case study (see above).
 
-## 4. Next: RQ6 / RQ7 (architecture complete, runs are USER-RUN)
+## 4. RQ6 results (complete, 2026-09-29) and RQ7 status
 
-* RQ6: `scripts/run_rq6_final.sh`, expanded in `workflow.md` section 3. It covers:
-  * NLHE6 100BB with raw, all-in EV, fitted MIVAT and fitted AIVAT at 25k/pairing;
-  * 20BB with all-in EV at 10k;
-  * AoF with all-in EV at 50k.
+The RQ6 run is at `ac3cd5f` (clean). Corpora:
+* `fhr3-nlhe6-100bb-rq6-v1-fittedvf`: 25k per pairing, plus a 2k control;
+* `fhr3-nlhe6-20bb-rq6-allin-v1`: 10k per pairing;
+* `fhr3-aof4-8bb-rq6-allin-v1`: 50k per pairing, plus a 10k control.
 
-  Each setting shares its seed with the frozen raw corpus, so raw D must reproduce it.
-  Analysis: `scripts/analyze_rq6.py`, which uses paired variance ratios with joint
-  block-bootstrap CIs. Correctness gates: `tests/test_rq6.py`.
-* RQ7: `scripts/run_rq7_final.sh`, expanded in `workflow.md` section 4. It covers:
-  * fixed / peek / asymptotic CS on the same streams (`fhr3 rq7-cell`);
-  * null runs for 5 distributions at 2,000 reps;
-  * min-N {50, 1,000, 5,000} for heavy, mild and t3;
-  * non-null d ∈ {0.0177, 0.0089} at 1,000 reps;
-  * 1,000 permutations of NLHE6 p1.
+Every gate passes:
+* 0 invalid rows, contiguous block ids, validation replays `[OK]`;
+* raw D reproduces the frozen corpora block for block, and `compare` shows `paired`
+  with corr 1.000;
+* self-play is exactly 0 for every estimator;
+* the value function verifies (sha256 `acb224b9…`, training seed 90210 ≠ evaluation seed
+  20260928, 36,000 training hands);
+* `reports/rq6/MANIFEST.json` verifies;
+* max |z(mean(estimator − raw))| = 1.29.
 
-  Analysis: `scripts/analyze_rq7.py`.
-* Both freeze separately into `reports/rq6/MANIFEST.json` and `reports/rq7/MANIFEST.json`
-  (`scripts/freeze_rq_manifest.py`). This manifest stays the core freeze.
-* The Bomb multiway-aware robustness agent remains optional and out of scope.
+Numbers come from `reports/rq6/` (summary) and `reports/rq6/deep/`
+(`scripts/rq6_deep_analysis.py`). Variance ratio = Var(estimator D) / Var(raw D) on the same
+blocks, with a paired bootstrap 95% CI. The effective-sample-size multiplier is 1/ratio.
+
+| setting | estimator | variance ratio p1 / p2 / p3 | median ESS | hands saved @1 BB/100 |
+|---|---|---|---|---|
+| NLHE6 100BB | all-in EV | 0.878 / 0.857 / 0.924 | 1.14× | 8-14% |
+| NLHE6 100BB | fitted MIVAT | 0.616 / 0.596 / 0.663 | 1.62× | 34-40% |
+| NLHE6 100BB | fitted AIVAT | 0.571 / 0.580 / 0.590 | 1.72× | 41-43% |
+| NLHE6 20BB | all-in EV | 0.675 / 0.716 / 0.774 | 1.40× | 23-33% |
+| AoF 8BB | all-in EV | 0.098 / 0.093 / 0.131 | 10.2× | 87-91% |
+
+* **Estimator increments (NLHE100, paired).**
+  * MIVAT/all-in EV = 0.70-0.72; every CI is below 1.
+  * AIVAT/MIVAT = 0.93 / 0.97 / 0.89. p1 and p2 CIs include 1; p3 is [0.83, 0.95].
+  * So broader chance correction matters, while known-action correction adds little.
+* **Dose-response of all-in EV** (median variance ratio): 0.88 at 100BB, 0.72 at 20BB,
+  0.10 in AoF. The 100BB − 20BB difference is 0.16 [0.10, 0.23].
+* **Tails persist at 100BB.**
+  * Excess kurtosis (raw → all-in EV / MIVAT / AIVAT): p1 183 → 177 / 229 / 265.
+  * The top-1% share stays at 0.93-0.95 (p1).
+  * Blocks with a pot of at least one stack still carry 82-87% of the corrected squared
+    deviation.
+  * Correction removes 9-43% of the big-pot squared deviation at 100BB, but ~90% in AoF.
+  * Correction is proportional, not tail-selective: at deep stacks, most of the tail is
+    not runout luck the estimators can see.
+* **AIVAT removes zero inflation.** D=0 goes from 87% of blocks to 0%, because action
+  corrections differ between the A and B policies. It is still unbiased.
+* **AoF p1 (production v2 vs 10% blend), same 50k blocks.**
+  * Raw: +0.27 [−0.07, +0.62] BB/100, z = 1.55.
+  * All-in EV: +0.41 [+0.30, +0.52], z = 7.38.
+  * Raw would need ~511k blocks for that precision.
+* **Compute** (single-process benches, estimator vs raw):
+  * slowdown: NLHE100 all-in EV 1.06×, MIVAT 1.42×, AIVAT 1.86×; 20BB all-in EV 1.01×;
+    AoF all-in EV 1.70×. These match the measured 8-worker aggregates (2.25× for all three
+    NLHE100 estimators together, 1.74× for AoF).
+  * Net wall-clock efficiency (ESS / slowdown): NLHE100 all-in EV 1.02-1.10, MIVAT
+    1.07-1.18, AIVAT 0.91-0.94 (a net loss in simulation); 20BB 1.28-1.47; AoF 4.5-6.3.
+* **Interpretation.**
+  * Chance correction removes ~40% of NLHE100 variance at best.
+  * Exact post-all-in runout luck is only 8-14% of it.
+  * The share that can be removed rises steeply as stacks shrink.
+  * The remaining deep-stack variance is strategic divergence, plus chance variance the
+    linear value function cannot capture. The latter is an upper-bound caveat.
+
+## 4b. RQ7 results (complete, 2026-09-29)
+
+The run is at `ac3cd5f` (clean): 25 cells, seed 20261007, horizon 250,000 blocks,
+t* = 100,000, alpha 0.05.
+
+Integrity:
+* every cell is present with its full repetitions (2,000 null / 1,000 non-null and
+  permutation) × 3 methods;
+* `reports/rq7/MANIFEST.json` verifies, and there are no FLAGS;
+* the same-stream invariant holds in every cell (0 violations);
+* recomputing 40 replicates of two cells with a different worker count and chunking
+  reproduces them exactly (`reports/rq7/deep/invariants.json`).
+
+Numbers come from `reports/rq7/*.csv` and `reports/rq7/deep/` (`scripts/rq7_deep_analysis.py`).
+
+| null, min_n 200 (2,000 reps) | fixed-N (one look at 100k) | naive peeking, ever | asymptotic CS, ever |
+|---|---|---|---|
+| heavy (NLHE6 p1, kurt 186) | 4.95% | 58.0% [55.8, 60.1] | 2.40% [1.8, 3.2] |
+| moderate (CP p2) | 4.45% | 62.8% [60.7, 64.9] | 2.70% [2.1, 3.5] |
+| mild (PLO p3) | 4.95% | 60.6% [58.4, 62.7] | 2.55% [1.9, 3.3] |
+| normal | 4.75% | 63.9% [61.8, 66.0] | 3.40% [2.7, 4.3] |
+| t3 | 4.65% | 63.4% [61.2, 65.4] | 3.20% [2.5, 4.1] |
+
+(Wilson 95% CIs.)
+
+* **Naive peeking.**
+  * False stops start early and keep accumulating: on the heavy data, 16% of runs by
+    1k blocks, 36% by 10k, 52% by 100k and 58% by 250k.
+  * The median first false exclusion is at 3.9k blocks (heavy) and 2.0-2.3k for the
+    other distributions.
+  * A later burn-in only dampens it: at min_n 5,000 the rate is still 44-45%.
+* **Asymptotic CS.**
+  * It is conservative in every distribution, and the heavy poker stream is the most
+    conservative.
+  * No null miss occurs before 8.7k blocks, except one replicate (0.05%) at block 50
+    with min_n 50 on the heavy data.
+  * So miscoverage is unchanged across min_n 200 / 1,000 / 5,000. Recommendation:
+    min_n ≥ 200 (1,000 costs nothing).
+* **Width.** CS width / t-interval width is 4.63 at 1k blocks, 1.97 at 10k, 1.67 at 25k,
+  1.55 at t* = 100k and 1.57 at 250k. The ratio is the same for every distribution,
+  because both widths scale with the same running σ̂.
+* **Stopping cost (non-null, 1,000 reps per cell).**
+  * The fixed test decides in 80-82% of runs at N80.
+  * By N80 the CS has decided in 40-58%.
+  * To reach the fixed test's decision rate, the CS needs 1.60-1.73 × N80 (power-matched).
+  * Median CS stop is 0.87-1.13 × N80; the 90th percentile is about 2.0-2.2 × N80.
+  * By the 250k horizon the CS decides in 95-100%.
+  * The cost is nearly identical across the heavy, mild, normal and t3 distributions.
+* **Wrong-sign decisions (non-null, pooled).**
+  * CS: 0 / 9,768 (one-sided 95% upper bound 0.031%).
+  * Fixed-N: 0 / 8,096.
+  * Naive peeking: 854 / 9,995 = 8.5%, and up to 12.6% at the weak effect.
+* **Real orderings: 1,000 permutations of the 250k NLHE6 p1 blocks** (true mean = corpus
+  mean, −0.54 BB/100).
+  * Naive peeking excluded the true mean in 44.8% [41.7, 47.9] of orderings. It
+    eventually "decided" in every ordering, and in 11.2% it declared the wrong direction.
+  * CS: 0.9% [0.5, 1.7] miscoverage; 10.3% decisions, all correct.
+  * Sampling without replacement makes permutation coverage conservative (fixed-N at
+    100k is 0.8%).
+* **Frozen corpora in block order (28 streams).**
+  * Peeking stopped in 23, 7 of them where the full corpus is not significant. 4 of
+    those stops contradict the full-corpus sign, including NLHE6 p2 at block 204
+    (full corpus +1.28 BB/100, z = 2.94).
+  * The CS stopped in 10, and none contradicts the full-corpus sign.
+  * Illustrative trajectory: `reports/rq7/deep/trajectory_nlhe6_p2.csv`.
+
 
 ## 5. Regenerating and verifying
 
