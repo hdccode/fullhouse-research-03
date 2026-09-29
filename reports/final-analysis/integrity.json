@@ -1,0 +1,1272 @@
+{
+ "corpora": [
+  {
+   "experiment_id": "fhr3-aof4-8bb-pilot-v1",
+   "pairing_id": "c0-selfplay-control",
+   "rows": 10000,
+   "first": 0,
+   "last": 9999,
+   "contiguous_from_0": true,
+   "invalid": 0,
+   "nan_D": 0,
+   "config_hash": [
+    "de4e24c88c9fbb58"
+   ],
+   "config_hash_matches_lock": true,
+   "pairing_hash_matches_lock": true,
+   "experiment_id_matches_dir": true,
+   "schema": [
+    "fhr3-block-v2"
+   ],
+   "one_version_per_role": true,
+   "runs": {
+    "20260928T190146.791692Z-64195-d9cc85": {
+     "git": "d3b8ded7",
+     "rows": 10000
+    }
+   },
+   "all_runs_have_manifest": true,
+   "control_exact_zero": true,
+   "ok": true
+  },
+  {
+   "experiment_id": "fhr3-aof4-8bb-pilot-v1",
+   "pairing_id": "p1-prodv2-vs-blend10",
+   "rows": 50000,
+   "first": 0,
+   "last": 49999,
+   "contiguous_from_0": true,
+   "invalid": 0,
+   "nan_D": 0,
+   "config_hash": [
+    "de4e24c88c9fbb58"
+   ],
+   "config_hash_matches_lock": true,
+   "pairing_hash_matches_lock": true,
+   "experiment_id_matches_dir": true,
+   "schema": [
+    "fhr3-block-v2"
+   ],
+   "one_version_per_role": true,
+   "runs": {
+    "20260928T190146.791692Z-64195-d9cc85": {
+     "git": "d3b8ded7",
+     "rows": 10000
+    },
+    "20260928T231849.492025Z-17546-a202f4": {
+     "git": "6e888199",
+     "rows": 40000
+    }
+   },
+   "all_runs_have_manifest": true,
+   "ok": true
+  },
+  {
+   "experiment_id": "fhr3-aof4-8bb-pilot-v1",
+   "pairing_id": "p2-prodv2-vs-heuristic",
+   "rows": 50000,
+   "first": 0,
+   "last": 49999,
+   "contiguous_from_0": true,
+   "invalid": 0,
+   "nan_D": 0,
+   "config_hash": [
+    "de4e24c88c9fbb58"
+   ],
+   "config_hash_matches_lock": true,
+   "pairing_hash_matches_lock": true,
+   "experiment_id_matches_dir": true,
+   "schema": [
+    "fhr3-block-v2"
+   ],
+   "one_version_per_role": true,
+   "runs": {
+    "20260928T190146.791692Z-64195-d9cc85": {
+     "git": "d3b8ded7",
+     "rows": 10000
+    },
+    "20260928T231849.492025Z-17546-a202f4": {
+     "git": "6e888199",
+     "rows": 40000
+    }
+   },
+   "all_runs_have_manifest": true,
+   "ok": true
+  },
+  {
+   "experiment_id": "fhr3-aof4-8bb-pilot-v1",
+   "pairing_id": "p3-aggressive-vs-neutral",
+   "rows": 50000,
+   "first": 0,
+   "last": 49999,
+   "contiguous_from_0": true,
+   "invalid": 0,
+   "nan_D": 0,
+   "config_hash": [
+    "de4e24c88c9fbb58"
+   ],
+   "config_hash_matches_lock": true,
+   "pairing_hash_matches_lock": true,
+   "experiment_id_matches_dir": true,
+   "schema": [
+    "fhr3-block-v2"
+   ],
+   "one_version_per_role": true,
+   "runs": {
+    "20260928T190146.791692Z-64195-d9cc85": {
+     "git": "d3b8ded7",
+     "rows": 10000
+    },
+    "20260928T231849.492025Z-17546-a202f4": {
+     "git": "6e888199",
+     "rows": 40000
+    }
+   },
+   "all_runs_have_manifest": true,
+   "ok": true
+  },
+  {
+   "experiment_id": "fhr3-bomb6-100bb-pilot-v1",
+   "pairing_id": "c0-selfplay-control",
+   "rows": 10000,
+   "first": 0,
+   "last": 9999,
+   "contiguous_from_0": true,
+   "invalid": 0,
+   "nan_D": 0,
+   "config_hash": [
+    "e43d42143a832c18"
+   ],
+   "config_hash_matches_lock": true,
+   "pairing_hash_matches_lock": true,
+   "experiment_id_matches_dir": true,
+   "schema": [
+    "fhr3-block-v2"
+   ],
+   "one_version_per_role": true,
+   "runs": {
+    "20260928T191015.333025Z-65692-95668a": {
+     "git": "d3b8ded7",
+     "rows": 10000
+    }
+   },
+   "all_runs_have_manifest": true,
+   "control_exact_zero": true,
+   "ok": true
+  },
+  {
+   "experiment_id": "fhr3-bomb6-100bb-pilot-v1",
+   "pairing_id": "p1-neutral-vs-aggr10",
+   "rows": 50000,
+   "first": 0,
+   "last": 49999,
+   "contiguous_from_0": true,
+   "invalid": 0,
+   "nan_D": 0,
+   "config_hash": [
+    "e43d42143a832c18"
+   ],
+   "config_hash_matches_lock": true,
+   "pairing_hash_matches_lock": true,
+   "experiment_id_matches_dir": true,
+   "schema": [
+    "fhr3-block-v2"
+   ],
+   "one_version_per_role": true,
+   "runs": {
+    "20260928T191015.333025Z-65692-95668a": {
+     "git": "d3b8ded7",
+     "rows": 10000
+    },
+    "20260928T220049.084379Z-98321-8840b9": {
+     "git": "a86909d1",
+     "rows": 40000
+    }
+   },
+   "all_runs_have_manifest": true,
+   "ok": true
+  },
+  {
+   "experiment_id": "fhr3-bomb6-100bb-pilot-v1",
+   "pairing_id": "p2-neutral-vs-tight",
+   "rows": 50000,
+   "first": 0,
+   "last": 49999,
+   "contiguous_from_0": true,
+   "invalid": 0,
+   "nan_D": 0,
+   "config_hash": [
+    "e43d42143a832c18"
+   ],
+   "config_hash_matches_lock": true,
+   "pairing_hash_matches_lock": true,
+   "experiment_id_matches_dir": true,
+   "schema": [
+    "fhr3-block-v2"
+   ],
+   "one_version_per_role": true,
+   "runs": {
+    "20260928T191015.333025Z-65692-95668a": {
+     "git": "d3b8ded7",
+     "rows": 10000
+    },
+    "20260928T220049.084379Z-98321-8840b9": {
+     "git": "a86909d1",
+     "rows": 40000
+    }
+   },
+   "all_runs_have_manifest": true,
+   "ok": true
+  },
+  {
+   "experiment_id": "fhr3-bomb6-100bb-pilot-v1",
+   "pairing_id": "p3-aggressive-vs-neutral",
+   "rows": 50000,
+   "first": 0,
+   "last": 49999,
+   "contiguous_from_0": true,
+   "invalid": 0,
+   "nan_D": 0,
+   "config_hash": [
+    "e43d42143a832c18"
+   ],
+   "config_hash_matches_lock": true,
+   "pairing_hash_matches_lock": true,
+   "experiment_id_matches_dir": true,
+   "schema": [
+    "fhr3-block-v2"
+   ],
+   "one_version_per_role": true,
+   "runs": {
+    "20260928T191015.333025Z-65692-95668a": {
+     "git": "d3b8ded7",
+     "rows": 10000
+    },
+    "20260928T220049.084379Z-98321-8840b9": {
+     "git": "a86909d1",
+     "rows": 40000
+    }
+   },
+   "all_runs_have_manifest": true,
+   "ok": true
+  },
+  {
+   "experiment_id": "fhr3-cp6-100bb-pilot-v1",
+   "pairing_id": "c0-selfplay-control",
+   "rows": 10000,
+   "first": 0,
+   "last": 9999,
+   "contiguous_from_0": true,
+   "invalid": 0,
+   "nan_D": 0,
+   "config_hash": [
+    "1dd6885d2d0ddf84"
+   ],
+   "config_hash_matches_lock": true,
+   "pairing_hash_matches_lock": true,
+   "experiment_id_matches_dir": true,
+   "schema": [
+    "fhr3-block-v2"
+   ],
+   "one_version_per_role": true,
+   "runs": {
+    "20260928T190713.893326Z-65118-309394": {
+     "git": "d3b8ded7",
+     "rows": 10000
+    }
+   },
+   "all_runs_have_manifest": true,
+   "control_exact_zero": true,
+   "ok": true
+  },
+  {
+   "experiment_id": "fhr3-cp6-100bb-pilot-v1",
+   "pairing_id": "p1-neutral-vs-loose10",
+   "rows": 100000,
+   "first": 0,
+   "last": 99999,
+   "contiguous_from_0": true,
+   "invalid": 0,
+   "nan_D": 0,
+   "config_hash": [
+    "1dd6885d2d0ddf84"
+   ],
+   "config_hash_matches_lock": true,
+   "pairing_hash_matches_lock": true,
+   "experiment_id_matches_dir": true,
+   "schema": [
+    "fhr3-block-v2"
+   ],
+   "one_version_per_role": true,
+   "runs": {
+    "20260928T190713.893326Z-65118-309394": {
+     "git": "d3b8ded7",
+     "rows": 10000
+    },
+    "20260928T212503.469354Z-91376-23648b": {
+     "git": "a86909d1",
+     "rows": 90000
+    }
+   },
+   "all_runs_have_manifest": true,
+   "ok": true
+  },
+  {
+   "experiment_id": "fhr3-cp6-100bb-pilot-v1",
+   "pairing_id": "p2-neutral-vs-tight",
+   "rows": 100000,
+   "first": 0,
+   "last": 99999,
+   "contiguous_from_0": true,
+   "invalid": 0,
+   "nan_D": 0,
+   "config_hash": [
+    "1dd6885d2d0ddf84"
+   ],
+   "config_hash_matches_lock": true,
+   "pairing_hash_matches_lock": true,
+   "experiment_id_matches_dir": true,
+   "schema": [
+    "fhr3-block-v2"
+   ],
+   "one_version_per_role": true,
+   "runs": {
+    "20260928T190713.893326Z-65118-309394": {
+     "git": "d3b8ded7",
+     "rows": 10000
+    },
+    "20260928T212503.469354Z-91376-23648b": {
+     "git": "a86909d1",
+     "rows": 90000
+    }
+   },
+   "all_runs_have_manifest": true,
+   "ok": true
+  },
+  {
+   "experiment_id": "fhr3-cp6-100bb-pilot-v1",
+   "pairing_id": "p3-aggressive-vs-neutral",
+   "rows": 100000,
+   "first": 0,
+   "last": 99999,
+   "contiguous_from_0": true,
+   "invalid": 0,
+   "nan_D": 0,
+   "config_hash": [
+    "1dd6885d2d0ddf84"
+   ],
+   "config_hash_matches_lock": true,
+   "pairing_hash_matches_lock": true,
+   "experiment_id_matches_dir": true,
+   "schema": [
+    "fhr3-block-v2"
+   ],
+   "one_version_per_role": true,
+   "runs": {
+    "20260928T190713.893326Z-65118-309394": {
+     "git": "d3b8ded7",
+     "rows": 10000
+    },
+    "20260928T212503.469354Z-91376-23648b": {
+     "git": "a86909d1",
+     "rows": 90000
+    }
+   },
+   "all_runs_have_manifest": true,
+   "ok": true
+  },
+  {
+   "experiment_id": "fhr3-nit6-100bb-pilot-v1",
+   "pairing_id": "c0-selfplay-control",
+   "rows": 10000,
+   "first": 0,
+   "last": 9999,
+   "contiguous_from_0": true,
+   "invalid": 0,
+   "nan_D": 0,
+   "config_hash": [
+    "8ad12fd04095aed9"
+   ],
+   "config_hash_matches_lock": true,
+   "pairing_hash_matches_lock": true,
+   "experiment_id_matches_dir": true,
+   "schema": [
+    "fhr3-block-v2"
+   ],
+   "one_version_per_role": true,
+   "runs": {
+    "20260928T192048.948344Z-67850-fca370": {
+     "git": "d3b8ded7",
+     "rows": 10000
+    }
+   },
+   "all_runs_have_manifest": true,
+   "control_exact_zero": true,
+   "ok": true
+  },
+  {
+   "experiment_id": "fhr3-nit6-100bb-pilot-v1",
+   "pairing_id": "p1-neutral-vs-loose10",
+   "rows": 10000,
+   "first": 0,
+   "last": 9999,
+   "contiguous_from_0": true,
+   "invalid": 0,
+   "nan_D": 0,
+   "config_hash": [
+    "8ad12fd04095aed9"
+   ],
+   "config_hash_matches_lock": true,
+   "pairing_hash_matches_lock": true,
+   "experiment_id_matches_dir": true,
+   "schema": [
+    "fhr3-block-v2"
+   ],
+   "one_version_per_role": true,
+   "runs": {
+    "20260928T192048.948344Z-67850-fca370": {
+     "git": "d3b8ded7",
+     "rows": 10000
+    }
+   },
+   "all_runs_have_manifest": true,
+   "ok": true
+  },
+  {
+   "experiment_id": "fhr3-nit6-100bb-pilot-v1",
+   "pairing_id": "p2-neutral-vs-tight",
+   "rows": 10000,
+   "first": 0,
+   "last": 9999,
+   "contiguous_from_0": true,
+   "invalid": 0,
+   "nan_D": 0,
+   "config_hash": [
+    "8ad12fd04095aed9"
+   ],
+   "config_hash_matches_lock": true,
+   "pairing_hash_matches_lock": true,
+   "experiment_id_matches_dir": true,
+   "schema": [
+    "fhr3-block-v2"
+   ],
+   "one_version_per_role": true,
+   "runs": {
+    "20260928T192048.948344Z-67850-fca370": {
+     "git": "d3b8ded7",
+     "rows": 10000
+    }
+   },
+   "all_runs_have_manifest": true,
+   "ok": true
+  },
+  {
+   "experiment_id": "fhr3-nit6-100bb-pilot-v1",
+   "pairing_id": "p3-aggressive-vs-neutral",
+   "rows": 10000,
+   "first": 0,
+   "last": 9999,
+   "contiguous_from_0": true,
+   "invalid": 0,
+   "nan_D": 0,
+   "config_hash": [
+    "8ad12fd04095aed9"
+   ],
+   "config_hash_matches_lock": true,
+   "pairing_hash_matches_lock": true,
+   "experiment_id_matches_dir": true,
+   "schema": [
+    "fhr3-block-v2"
+   ],
+   "one_version_per_role": true,
+   "runs": {
+    "20260928T192048.948344Z-67850-fca370": {
+     "git": "d3b8ded7",
+     "rows": 10000
+    }
+   },
+   "all_runs_have_manifest": true,
+   "ok": true
+  },
+  {
+   "experiment_id": "fhr3-nit6-100bb-pilot-v1",
+   "pairing_id": "p4-nitaware-vs-naive",
+   "rows": 10000,
+   "first": 0,
+   "last": 9999,
+   "contiguous_from_0": true,
+   "invalid": 0,
+   "nan_D": 0,
+   "config_hash": [
+    "8ad12fd04095aed9"
+   ],
+   "config_hash_matches_lock": true,
+   "pairing_hash_matches_lock": true,
+   "experiment_id_matches_dir": true,
+   "schema": [
+    "fhr3-block-v2"
+   ],
+   "one_version_per_role": true,
+   "runs": {
+    "20260928T192048.948344Z-67850-fca370": {
+     "git": "d3b8ded7",
+     "rows": 10000
+    }
+   },
+   "all_runs_have_manifest": true,
+   "ok": true
+  },
+  {
+   "experiment_id": "fhr3-nlhe4-100bb-pilot-v1",
+   "pairing_id": "c0-selfplay-control",
+   "rows": 10000,
+   "first": 0,
+   "last": 9999,
+   "contiguous_from_0": true,
+   "invalid": 0,
+   "nan_D": 0,
+   "config_hash": [
+    "81142155c6aef6e7"
+   ],
+   "config_hash_matches_lock": true,
+   "pairing_hash_matches_lock": true,
+   "experiment_id_matches_dir": true,
+   "schema": [
+    "fhr3-block-v1"
+   ],
+   "one_version_per_role": true,
+   "runs": {
+    "20260928T155400.872519Z-30829-a261de": {
+     "git": "7be008e7",
+     "rows": 10000
+    }
+   },
+   "all_runs_have_manifest": true,
+   "control_exact_zero": true,
+   "ok": true
+  },
+  {
+   "experiment_id": "fhr3-nlhe4-100bb-pilot-v1",
+   "pairing_id": "p1-neutral-vs-loose10",
+   "rows": 10000,
+   "first": 0,
+   "last": 9999,
+   "contiguous_from_0": true,
+   "invalid": 0,
+   "nan_D": 0,
+   "config_hash": [
+    "81142155c6aef6e7"
+   ],
+   "config_hash_matches_lock": true,
+   "pairing_hash_matches_lock": true,
+   "experiment_id_matches_dir": true,
+   "schema": [
+    "fhr3-block-v1"
+   ],
+   "one_version_per_role": true,
+   "runs": {
+    "20260928T155400.872519Z-30829-a261de": {
+     "git": "7be008e7",
+     "rows": 10000
+    }
+   },
+   "all_runs_have_manifest": true,
+   "ok": true
+  },
+  {
+   "experiment_id": "fhr3-nlhe4-100bb-pilot-v1",
+   "pairing_id": "p2-neutral-vs-tight",
+   "rows": 10000,
+   "first": 0,
+   "last": 9999,
+   "contiguous_from_0": true,
+   "invalid": 0,
+   "nan_D": 0,
+   "config_hash": [
+    "81142155c6aef6e7"
+   ],
+   "config_hash_matches_lock": true,
+   "pairing_hash_matches_lock": true,
+   "experiment_id_matches_dir": true,
+   "schema": [
+    "fhr3-block-v1"
+   ],
+   "one_version_per_role": true,
+   "runs": {
+    "20260928T155400.872519Z-30829-a261de": {
+     "git": "7be008e7",
+     "rows": 10000
+    }
+   },
+   "all_runs_have_manifest": true,
+   "ok": true
+  },
+  {
+   "experiment_id": "fhr3-nlhe4-100bb-pilot-v1",
+   "pairing_id": "p3-aggressive-vs-neutral",
+   "rows": 10000,
+   "first": 0,
+   "last": 9999,
+   "contiguous_from_0": true,
+   "invalid": 0,
+   "nan_D": 0,
+   "config_hash": [
+    "81142155c6aef6e7"
+   ],
+   "config_hash_matches_lock": true,
+   "pairing_hash_matches_lock": true,
+   "experiment_id_matches_dir": true,
+   "schema": [
+    "fhr3-block-v1"
+   ],
+   "one_version_per_role": true,
+   "runs": {
+    "20260928T155400.872519Z-30829-a261de": {
+     "git": "7be008e7",
+     "rows": 10000
+    }
+   },
+   "all_runs_have_manifest": true,
+   "ok": true
+  },
+  {
+   "experiment_id": "fhr3-nlhe4-100bb-v2",
+   "pairing_id": "c0-selfplay-control",
+   "rows": 10000,
+   "first": 0,
+   "last": 9999,
+   "contiguous_from_0": true,
+   "invalid": 0,
+   "nan_D": 0,
+   "config_hash": [
+    "ab7e279f1720c074"
+   ],
+   "config_hash_matches_lock": true,
+   "pairing_hash_matches_lock": true,
+   "experiment_id_matches_dir": true,
+   "schema": [
+    "fhr3-block-v2"
+   ],
+   "one_version_per_role": true,
+   "runs": {
+    "20260928T231112.233051Z-15740-71076a": {
+     "git": "6e888199",
+     "rows": 10000
+    }
+   },
+   "all_runs_have_manifest": true,
+   "control_exact_zero": true,
+   "ok": true
+  },
+  {
+   "experiment_id": "fhr3-nlhe4-100bb-v2",
+   "pairing_id": "p1-neutral-vs-loose10",
+   "rows": 100000,
+   "first": 0,
+   "last": 99999,
+   "contiguous_from_0": true,
+   "invalid": 0,
+   "nan_D": 0,
+   "config_hash": [
+    "ab7e279f1720c074"
+   ],
+   "config_hash_matches_lock": true,
+   "pairing_hash_matches_lock": true,
+   "experiment_id_matches_dir": true,
+   "schema": [
+    "fhr3-block-v2"
+   ],
+   "one_version_per_role": true,
+   "runs": {
+    "20260928T231112.233051Z-15740-71076a": {
+     "git": "6e888199",
+     "rows": 10000
+    },
+    "20260928T231159.545966Z-15922-4d2fea": {
+     "git": "6e888199",
+     "rows": 90000
+    }
+   },
+   "all_runs_have_manifest": true,
+   "ok": true
+  },
+  {
+   "experiment_id": "fhr3-nlhe4-100bb-v2",
+   "pairing_id": "p2-neutral-vs-tight",
+   "rows": 100000,
+   "first": 0,
+   "last": 99999,
+   "contiguous_from_0": true,
+   "invalid": 0,
+   "nan_D": 0,
+   "config_hash": [
+    "ab7e279f1720c074"
+   ],
+   "config_hash_matches_lock": true,
+   "pairing_hash_matches_lock": true,
+   "experiment_id_matches_dir": true,
+   "schema": [
+    "fhr3-block-v2"
+   ],
+   "one_version_per_role": true,
+   "runs": {
+    "20260928T231112.233051Z-15740-71076a": {
+     "git": "6e888199",
+     "rows": 10000
+    },
+    "20260928T231159.545966Z-15922-4d2fea": {
+     "git": "6e888199",
+     "rows": 90000
+    }
+   },
+   "all_runs_have_manifest": true,
+   "ok": true
+  },
+  {
+   "experiment_id": "fhr3-nlhe4-100bb-v2",
+   "pairing_id": "p3-aggressive-vs-neutral",
+   "rows": 100000,
+   "first": 0,
+   "last": 99999,
+   "contiguous_from_0": true,
+   "invalid": 0,
+   "nan_D": 0,
+   "config_hash": [
+    "ab7e279f1720c074"
+   ],
+   "config_hash_matches_lock": true,
+   "pairing_hash_matches_lock": true,
+   "experiment_id_matches_dir": true,
+   "schema": [
+    "fhr3-block-v2"
+   ],
+   "one_version_per_role": true,
+   "runs": {
+    "20260928T231112.233051Z-15740-71076a": {
+     "git": "6e888199",
+     "rows": 10000
+    },
+    "20260928T231159.545966Z-15922-4d2fea": {
+     "git": "6e888199",
+     "rows": 90000
+    }
+   },
+   "all_runs_have_manifest": true,
+   "ok": true
+  },
+  {
+   "experiment_id": "fhr3-nlhe6-100bb-pilot-v1",
+   "pairing_id": "c0-selfplay-control",
+   "rows": 10000,
+   "first": 0,
+   "last": 9999,
+   "contiguous_from_0": true,
+   "invalid": 0,
+   "nan_D": 0,
+   "config_hash": [
+    "5f8886e193bc5489"
+   ],
+   "config_hash_matches_lock": true,
+   "pairing_hash_matches_lock": true,
+   "experiment_id_matches_dir": true,
+   "schema": [
+    "fhr3-block-v1"
+   ],
+   "one_version_per_role": true,
+   "runs": {
+    "20260928T153937.873721Z-27900-323a60": {
+     "git": "0ccfc14f",
+     "rows": 10000
+    }
+   },
+   "all_runs_have_manifest": true,
+   "control_exact_zero": true,
+   "ok": true
+  },
+  {
+   "experiment_id": "fhr3-nlhe6-100bb-pilot-v1",
+   "pairing_id": "p1-neutral-vs-loose10",
+   "rows": 250000,
+   "first": 0,
+   "last": 249999,
+   "contiguous_from_0": true,
+   "invalid": 0,
+   "nan_D": 0,
+   "config_hash": [
+    "5f8886e193bc5489"
+   ],
+   "config_hash_matches_lock": true,
+   "pairing_hash_matches_lock": true,
+   "experiment_id_matches_dir": true,
+   "schema": [
+    "fhr3-block-v1"
+   ],
+   "one_version_per_role": true,
+   "runs": {
+    "20260928T153937.873721Z-27900-323a60": {
+     "git": "0ccfc14f",
+     "rows": 10000
+    },
+    "20260928T163731.015741Z-33477-7d49a5": {
+     "git": "7be008e7",
+     "rows": 240000
+    }
+   },
+   "all_runs_have_manifest": true,
+   "ok": true
+  },
+  {
+   "experiment_id": "fhr3-nlhe6-100bb-pilot-v1",
+   "pairing_id": "p2-neutral-vs-tight",
+   "rows": 250000,
+   "first": 0,
+   "last": 249999,
+   "contiguous_from_0": true,
+   "invalid": 0,
+   "nan_D": 0,
+   "config_hash": [
+    "5f8886e193bc5489"
+   ],
+   "config_hash_matches_lock": true,
+   "pairing_hash_matches_lock": true,
+   "experiment_id_matches_dir": true,
+   "schema": [
+    "fhr3-block-v1"
+   ],
+   "one_version_per_role": true,
+   "runs": {
+    "20260928T153937.873721Z-27900-323a60": {
+     "git": "0ccfc14f",
+     "rows": 10000
+    },
+    "20260928T163731.015741Z-33477-7d49a5": {
+     "git": "7be008e7",
+     "rows": 240000
+    }
+   },
+   "all_runs_have_manifest": true,
+   "ok": true
+  },
+  {
+   "experiment_id": "fhr3-nlhe6-100bb-pilot-v1",
+   "pairing_id": "p3-aggressive-vs-neutral",
+   "rows": 250000,
+   "first": 0,
+   "last": 249999,
+   "contiguous_from_0": true,
+   "invalid": 0,
+   "nan_D": 0,
+   "config_hash": [
+    "5f8886e193bc5489"
+   ],
+   "config_hash_matches_lock": true,
+   "pairing_hash_matches_lock": true,
+   "experiment_id_matches_dir": true,
+   "schema": [
+    "fhr3-block-v1"
+   ],
+   "one_version_per_role": true,
+   "runs": {
+    "20260928T153937.873721Z-27900-323a60": {
+     "git": "0ccfc14f",
+     "rows": 10000
+    },
+    "20260928T163731.015741Z-33477-7d49a5": {
+     "git": "7be008e7",
+     "rows": 240000
+    }
+   },
+   "all_runs_have_manifest": true,
+   "ok": true
+  },
+  {
+   "experiment_id": "fhr3-nlhe6-20bb-v1",
+   "pairing_id": "c0-selfplay-control",
+   "rows": 10000,
+   "first": 0,
+   "last": 9999,
+   "contiguous_from_0": true,
+   "invalid": 0,
+   "nan_D": 0,
+   "config_hash": [
+    "f2fc15f7420d7414"
+   ],
+   "config_hash_matches_lock": true,
+   "pairing_hash_matches_lock": true,
+   "experiment_id_matches_dir": true,
+   "schema": [
+    "fhr3-block-v1"
+   ],
+   "one_version_per_role": true,
+   "runs": {
+    "20260928T155041.863800Z-30266-c3fe34": {
+     "git": "7be008e7",
+     "rows": 10000
+    }
+   },
+   "all_runs_have_manifest": true,
+   "control_exact_zero": true,
+   "ok": true
+  },
+  {
+   "experiment_id": "fhr3-nlhe6-20bb-v1",
+   "pairing_id": "p1-neutral-vs-loose10",
+   "rows": 10000,
+   "first": 0,
+   "last": 9999,
+   "contiguous_from_0": true,
+   "invalid": 0,
+   "nan_D": 0,
+   "config_hash": [
+    "f2fc15f7420d7414"
+   ],
+   "config_hash_matches_lock": true,
+   "pairing_hash_matches_lock": true,
+   "experiment_id_matches_dir": true,
+   "schema": [
+    "fhr3-block-v1"
+   ],
+   "one_version_per_role": true,
+   "runs": {
+    "20260928T155041.863800Z-30266-c3fe34": {
+     "git": "7be008e7",
+     "rows": 10000
+    }
+   },
+   "all_runs_have_manifest": true,
+   "ok": true
+  },
+  {
+   "experiment_id": "fhr3-nlhe6-20bb-v1",
+   "pairing_id": "p2-neutral-vs-tight",
+   "rows": 10000,
+   "first": 0,
+   "last": 9999,
+   "contiguous_from_0": true,
+   "invalid": 0,
+   "nan_D": 0,
+   "config_hash": [
+    "f2fc15f7420d7414"
+   ],
+   "config_hash_matches_lock": true,
+   "pairing_hash_matches_lock": true,
+   "experiment_id_matches_dir": true,
+   "schema": [
+    "fhr3-block-v1"
+   ],
+   "one_version_per_role": true,
+   "runs": {
+    "20260928T155041.863800Z-30266-c3fe34": {
+     "git": "7be008e7",
+     "rows": 10000
+    }
+   },
+   "all_runs_have_manifest": true,
+   "ok": true
+  },
+  {
+   "experiment_id": "fhr3-nlhe6-20bb-v1",
+   "pairing_id": "p3-aggressive-vs-neutral",
+   "rows": 10000,
+   "first": 0,
+   "last": 9999,
+   "contiguous_from_0": true,
+   "invalid": 0,
+   "nan_D": 0,
+   "config_hash": [
+    "f2fc15f7420d7414"
+   ],
+   "config_hash_matches_lock": true,
+   "pairing_hash_matches_lock": true,
+   "experiment_id_matches_dir": true,
+   "schema": [
+    "fhr3-block-v1"
+   ],
+   "one_version_per_role": true,
+   "runs": {
+    "20260928T155041.863800Z-30266-c3fe34": {
+     "git": "7be008e7",
+     "rows": 10000
+    }
+   },
+   "all_runs_have_manifest": true,
+   "ok": true
+  },
+  {
+   "experiment_id": "fhr3-nlhe6-50bb-v1",
+   "pairing_id": "c0-selfplay-control",
+   "rows": 10000,
+   "first": 0,
+   "last": 9999,
+   "contiguous_from_0": true,
+   "invalid": 0,
+   "nan_D": 0,
+   "config_hash": [
+    "ae85c2a8b95b59a5"
+   ],
+   "config_hash_matches_lock": true,
+   "pairing_hash_matches_lock": true,
+   "experiment_id_matches_dir": true,
+   "schema": [
+    "fhr3-block-v1"
+   ],
+   "one_version_per_role": true,
+   "runs": {
+    "20260928T155214.090112Z-30590-3c9842": {
+     "git": "7be008e7",
+     "rows": 10000
+    }
+   },
+   "all_runs_have_manifest": true,
+   "control_exact_zero": true,
+   "ok": true
+  },
+  {
+   "experiment_id": "fhr3-nlhe6-50bb-v1",
+   "pairing_id": "p1-neutral-vs-loose10",
+   "rows": 10000,
+   "first": 0,
+   "last": 9999,
+   "contiguous_from_0": true,
+   "invalid": 0,
+   "nan_D": 0,
+   "config_hash": [
+    "ae85c2a8b95b59a5"
+   ],
+   "config_hash_matches_lock": true,
+   "pairing_hash_matches_lock": true,
+   "experiment_id_matches_dir": true,
+   "schema": [
+    "fhr3-block-v1"
+   ],
+   "one_version_per_role": true,
+   "runs": {
+    "20260928T155214.090112Z-30590-3c9842": {
+     "git": "7be008e7",
+     "rows": 10000
+    }
+   },
+   "all_runs_have_manifest": true,
+   "ok": true
+  },
+  {
+   "experiment_id": "fhr3-nlhe6-50bb-v1",
+   "pairing_id": "p2-neutral-vs-tight",
+   "rows": 10000,
+   "first": 0,
+   "last": 9999,
+   "contiguous_from_0": true,
+   "invalid": 0,
+   "nan_D": 0,
+   "config_hash": [
+    "ae85c2a8b95b59a5"
+   ],
+   "config_hash_matches_lock": true,
+   "pairing_hash_matches_lock": true,
+   "experiment_id_matches_dir": true,
+   "schema": [
+    "fhr3-block-v1"
+   ],
+   "one_version_per_role": true,
+   "runs": {
+    "20260928T155214.090112Z-30590-3c9842": {
+     "git": "7be008e7",
+     "rows": 10000
+    }
+   },
+   "all_runs_have_manifest": true,
+   "ok": true
+  },
+  {
+   "experiment_id": "fhr3-nlhe6-50bb-v1",
+   "pairing_id": "p3-aggressive-vs-neutral",
+   "rows": 10000,
+   "first": 0,
+   "last": 9999,
+   "contiguous_from_0": true,
+   "invalid": 0,
+   "nan_D": 0,
+   "config_hash": [
+    "ae85c2a8b95b59a5"
+   ],
+   "config_hash_matches_lock": true,
+   "pairing_hash_matches_lock": true,
+   "experiment_id_matches_dir": true,
+   "schema": [
+    "fhr3-block-v1"
+   ],
+   "one_version_per_role": true,
+   "runs": {
+    "20260928T155214.090112Z-30590-3c9842": {
+     "git": "7be008e7",
+     "rows": 10000
+    }
+   },
+   "all_runs_have_manifest": true,
+   "ok": true
+  },
+  {
+   "experiment_id": "fhr3-plo6-100bb-pilot-v1",
+   "pairing_id": "c0-selfplay-control",
+   "rows": 10000,
+   "first": 0,
+   "last": 9999,
+   "contiguous_from_0": true,
+   "invalid": 0,
+   "nan_D": 0,
+   "config_hash": [
+    "dbe32e5ed981d3b7"
+   ],
+   "config_hash_matches_lock": true,
+   "pairing_hash_matches_lock": true,
+   "experiment_id_matches_dir": true,
+   "schema": [
+    "fhr3-block-v2"
+   ],
+   "one_version_per_role": true,
+   "runs": {
+    "20260928T190235.814685Z-64259-ba9b98": {
+     "git": "d3b8ded7",
+     "rows": 10000
+    }
+   },
+   "all_runs_have_manifest": true,
+   "control_exact_zero": true,
+   "ok": true
+  },
+  {
+   "experiment_id": "fhr3-plo6-100bb-pilot-v1",
+   "pairing_id": "p1-neutral-vs-loose10",
+   "rows": 50000,
+   "first": 0,
+   "last": 49999,
+   "contiguous_from_0": true,
+   "invalid": 0,
+   "nan_D": 0,
+   "config_hash": [
+    "dbe32e5ed981d3b7"
+   ],
+   "config_hash_matches_lock": true,
+   "pairing_hash_matches_lock": true,
+   "experiment_id_matches_dir": true,
+   "schema": [
+    "fhr3-block-v2"
+   ],
+   "one_version_per_role": true,
+   "runs": {
+    "20260928T190235.814685Z-64259-ba9b98": {
+     "git": "d3b8ded7",
+     "rows": 10000
+    },
+    "20260928T214512.650338Z-95117-19a422": {
+     "git": "a86909d1",
+     "rows": 40000
+    }
+   },
+   "all_runs_have_manifest": true,
+   "ok": true
+  },
+  {
+   "experiment_id": "fhr3-plo6-100bb-pilot-v1",
+   "pairing_id": "p2-neutral-vs-tight",
+   "rows": 50000,
+   "first": 0,
+   "last": 49999,
+   "contiguous_from_0": true,
+   "invalid": 0,
+   "nan_D": 0,
+   "config_hash": [
+    "dbe32e5ed981d3b7"
+   ],
+   "config_hash_matches_lock": true,
+   "pairing_hash_matches_lock": true,
+   "experiment_id_matches_dir": true,
+   "schema": [
+    "fhr3-block-v2"
+   ],
+   "one_version_per_role": true,
+   "runs": {
+    "20260928T190235.814685Z-64259-ba9b98": {
+     "git": "d3b8ded7",
+     "rows": 10000
+    },
+    "20260928T214512.650338Z-95117-19a422": {
+     "git": "a86909d1",
+     "rows": 40000
+    }
+   },
+   "all_runs_have_manifest": true,
+   "ok": true
+  },
+  {
+   "experiment_id": "fhr3-plo6-100bb-pilot-v1",
+   "pairing_id": "p3-aggressive-vs-neutral",
+   "rows": 50000,
+   "first": 0,
+   "last": 49999,
+   "contiguous_from_0": true,
+   "invalid": 0,
+   "nan_D": 0,
+   "config_hash": [
+    "dbe32e5ed981d3b7"
+   ],
+   "config_hash_matches_lock": true,
+   "pairing_hash_matches_lock": true,
+   "experiment_id_matches_dir": true,
+   "schema": [
+    "fhr3-block-v2"
+   ],
+   "one_version_per_role": true,
+   "runs": {
+    "20260928T190235.814685Z-64259-ba9b98": {
+     "git": "d3b8ded7",
+     "rows": 10000
+    },
+    "20260928T214512.650338Z-95117-19a422": {
+     "git": "a86909d1",
+     "rows": 40000
+    }
+   },
+   "all_runs_have_manifest": true,
+   "ok": true
+  }
+ ],
+ "reproductions": [
+  {
+   "new": "fhr3-nlhe4-100bb-v2",
+   "old": "fhr3-nlhe4-100bb-pilot-v1",
+   "pairing_id": "c0-selfplay-control",
+   "common_blocks": 10000,
+   "mismatches": 0,
+   "max_abs_diff": 0.0,
+   "ok": true
+  },
+  {
+   "new": "fhr3-nlhe4-100bb-v2",
+   "old": "fhr3-nlhe4-100bb-pilot-v1",
+   "pairing_id": "p1-neutral-vs-loose10",
+   "common_blocks": 10000,
+   "mismatches": 0,
+   "max_abs_diff": 0.0,
+   "ok": true
+  },
+  {
+   "new": "fhr3-nlhe4-100bb-v2",
+   "old": "fhr3-nlhe4-100bb-pilot-v1",
+   "pairing_id": "p2-neutral-vs-tight",
+   "common_blocks": 10000,
+   "mismatches": 0,
+   "max_abs_diff": 0.0,
+   "ok": true
+  },
+  {
+   "new": "fhr3-nlhe4-100bb-v2",
+   "old": "fhr3-nlhe4-100bb-pilot-v1",
+   "pairing_id": "p3-aggressive-vs-neutral",
+   "common_blocks": 10000,
+   "mismatches": 0,
+   "max_abs_diff": 0.0,
+   "ok": true
+  }
+ ]
+}

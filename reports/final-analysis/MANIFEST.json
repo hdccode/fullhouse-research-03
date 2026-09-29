@@ -1,0 +1,437 @@
+{
+ "description": "Final core raw-simulation analysis (frozen for writing). Numbers cited in the paper must come from these outputs.",
+ "analysis_code_git_sha": "e0a7f27be2b8e97ea8d13f0be845a2f43f7c1cce",
+ "commands": [
+  ".venv/bin/python scripts/integrity_check.py",
+  ".venv/bin/python scripts/analyze_pilots.py --out reports/final-analysis/core --boot 1000",
+  ".venv/bin/python scripts/final_analysis.py --boot 1000",
+  ".venv/bin/python scripts/d_collapse_check.py --out reports/final-analysis/d_collapse.csv --reps 4000",
+  ".venv/bin/python scripts/final_tables.py",
+  ".venv/bin/fhr3 compare <CORE_EXPERIMENTS as results/...> --json reports/final-analysis/cross-format-compare.json",
+  ".venv/bin/fhr3 figures <CORE_EXPERIMENTS as results/...> --powersim reports/nlhe6-100bb-ref250k-powersim.json --out reports/final-analysis/figures --workers 8"
+ ],
+ "core_experiments": [
+  "fhr3-aof4-8bb-pilot-v1",
+  "fhr3-nlhe4-100bb-v2",
+  "fhr3-nlhe6-20bb-v1",
+  "fhr3-nlhe6-50bb-v1",
+  "fhr3-nlhe6-100bb-pilot-v1",
+  "fhr3-cp6-100bb-pilot-v1",
+  "fhr3-plo6-100bb-pilot-v1",
+  "fhr3-bomb6-100bb-pilot-v1",
+  "fhr3-nit6-100bb-pilot-v1"
+ ],
+ "superseded": {
+  "fhr3-nlhe4-100bb-pilot-v1": "v1 10k corpus; reproduced exactly by blocks 0..9999 of fhr3-nlhe4-100bb-v2 (integrity.json reproductions)"
+ },
+ "corpora": {
+  "fhr3-aof4-8bb-pilot-v1": {
+   "config_hash": "de4e24c88c9fbb58",
+   "schema_version": "fhr3-block-v2",
+   "runs": [
+    "20260928T190146.791692Z-64195-d9cc85",
+    "20260928T231849.492025Z-17546-a202f4"
+   ],
+   "pairings": {
+    "c0-selfplay-control": {
+     "pairing_hash": "7d4398844b0c0598",
+     "rows": 10000,
+     "chunks": 40,
+     "first_chunk": "blocks_000000000_000000250.parquet",
+     "last_chunk": "blocks_000009750_000010000.parquet",
+     "parquet_sha256": "a30abd286377f96165964549a2ad9d638b167df58ac03b8a025f667d07b3fcb5"
+    },
+    "p1-prodv2-vs-blend10": {
+     "pairing_hash": "329a1eaf30fa8323",
+     "rows": 50000,
+     "chunks": 200,
+     "first_chunk": "blocks_000000000_000000250.parquet",
+     "last_chunk": "blocks_000049750_000050000.parquet",
+     "parquet_sha256": "abac2bf2e643ed3bf574668e013f6a4c3736a498d34019db2a7fab3b29d59337"
+    },
+    "p2-prodv2-vs-heuristic": {
+     "pairing_hash": "bbd86aadd189da44",
+     "rows": 50000,
+     "chunks": 200,
+     "first_chunk": "blocks_000000000_000000250.parquet",
+     "last_chunk": "blocks_000049750_000050000.parquet",
+     "parquet_sha256": "d9a252959063c7ffb18cce5b1aea3d8009c24a42de98b0bab87e2ba99cfa4935"
+    },
+    "p3-aggressive-vs-neutral": {
+     "pairing_hash": "37dfafddbe7c9ce9",
+     "rows": 50000,
+     "chunks": 200,
+     "first_chunk": "blocks_000000000_000000250.parquet",
+     "last_chunk": "blocks_000049750_000050000.parquet",
+     "parquet_sha256": "e7ffc8fcd9239afeceb77fb2c7bb36e0a25631d9334e83cf02c5f7d0c143a194"
+    }
+   }
+  },
+  "fhr3-nlhe4-100bb-v2": {
+   "config_hash": "ab7e279f1720c074",
+   "schema_version": "fhr3-block-v2",
+   "runs": [
+    "20260928T231112.233051Z-15740-71076a",
+    "20260928T231159.545966Z-15922-4d2fea"
+   ],
+   "pairings": {
+    "c0-selfplay-control": {
+     "pairing_hash": "87ef4dd3c9d23cbe",
+     "rows": 10000,
+     "chunks": 40,
+     "first_chunk": "blocks_000000000_000000250.parquet",
+     "last_chunk": "blocks_000009750_000010000.parquet",
+     "parquet_sha256": "d2b167772a29d343ff229d8a1cc5f9ef873437d00c0bb07e980bab081a6e96ca"
+    },
+    "p1-neutral-vs-loose10": {
+     "pairing_hash": "c9611883f0df92dd",
+     "rows": 100000,
+     "chunks": 400,
+     "first_chunk": "blocks_000000000_000000250.parquet",
+     "last_chunk": "blocks_000099750_000100000.parquet",
+     "parquet_sha256": "c2bac9117053dc46bde0362d8c35885c9b87a587bbe65d73098acc685ca4b638"
+    },
+    "p2-neutral-vs-tight": {
+     "pairing_hash": "2fab1924aa240919",
+     "rows": 100000,
+     "chunks": 400,
+     "first_chunk": "blocks_000000000_000000250.parquet",
+     "last_chunk": "blocks_000099750_000100000.parquet",
+     "parquet_sha256": "26676493396e98f6d1b637fda1cd561c7326ca955d7eb0c6cafab1a38f128b78"
+    },
+    "p3-aggressive-vs-neutral": {
+     "pairing_hash": "288544a16a8fd536",
+     "rows": 100000,
+     "chunks": 400,
+     "first_chunk": "blocks_000000000_000000250.parquet",
+     "last_chunk": "blocks_000099750_000100000.parquet",
+     "parquet_sha256": "2c62388386435fd84969ae8a54955a84edb5ac06b0c442d0453586f75dc70463"
+    }
+   }
+  },
+  "fhr3-nlhe6-20bb-v1": {
+   "config_hash": "f2fc15f7420d7414",
+   "schema_version": "fhr3-block-v1",
+   "runs": [
+    "20260928T155041.863800Z-30266-c3fe34"
+   ],
+   "pairings": {
+    "c0-selfplay-control": {
+     "pairing_hash": "a8faf06a963035ba",
+     "rows": 10000,
+     "chunks": 40,
+     "first_chunk": "blocks_000000000_000000250.parquet",
+     "last_chunk": "blocks_000009750_000010000.parquet",
+     "parquet_sha256": "107d877e258930c28fcf7cc7589db3446dbdd3b8e360c74db5f09d211308a2ae"
+    },
+    "p1-neutral-vs-loose10": {
+     "pairing_hash": "8271526be0009827",
+     "rows": 10000,
+     "chunks": 40,
+     "first_chunk": "blocks_000000000_000000250.parquet",
+     "last_chunk": "blocks_000009750_000010000.parquet",
+     "parquet_sha256": "e4982c94f855a48863ed5cb5068d7c25f5d1c8ac12d01564a77537221abbbe3a"
+    },
+    "p2-neutral-vs-tight": {
+     "pairing_hash": "7ccf8986402ec53f",
+     "rows": 10000,
+     "chunks": 40,
+     "first_chunk": "blocks_000000000_000000250.parquet",
+     "last_chunk": "blocks_000009750_000010000.parquet",
+     "parquet_sha256": "72172a37d9777750f0a375b9a0499b9c94297aafcfb588c45d156a632bd23f95"
+    },
+    "p3-aggressive-vs-neutral": {
+     "pairing_hash": "87abe185aa06c57a",
+     "rows": 10000,
+     "chunks": 40,
+     "first_chunk": "blocks_000000000_000000250.parquet",
+     "last_chunk": "blocks_000009750_000010000.parquet",
+     "parquet_sha256": "89b05832b9dc2d906c29aa23b223174238c02a8381a8f949a0ae03cec6c4d00a"
+    }
+   }
+  },
+  "fhr3-nlhe6-50bb-v1": {
+   "config_hash": "ae85c2a8b95b59a5",
+   "schema_version": "fhr3-block-v1",
+   "runs": [
+    "20260928T155214.090112Z-30590-3c9842"
+   ],
+   "pairings": {
+    "c0-selfplay-control": {
+     "pairing_hash": "a8faf06a963035ba",
+     "rows": 10000,
+     "chunks": 40,
+     "first_chunk": "blocks_000000000_000000250.parquet",
+     "last_chunk": "blocks_000009750_000010000.parquet",
+     "parquet_sha256": "3348bce82b3a96a1941105ba06ea36e02a99d15113add4609c5ba85658d55cab"
+    },
+    "p1-neutral-vs-loose10": {
+     "pairing_hash": "8271526be0009827",
+     "rows": 10000,
+     "chunks": 40,
+     "first_chunk": "blocks_000000000_000000250.parquet",
+     "last_chunk": "blocks_000009750_000010000.parquet",
+     "parquet_sha256": "b5dad02ca1aee7284bd9bbb44ae0c3567e9f1ff36dcfdc368b6287e705bc1d0f"
+    },
+    "p2-neutral-vs-tight": {
+     "pairing_hash": "7ccf8986402ec53f",
+     "rows": 10000,
+     "chunks": 40,
+     "first_chunk": "blocks_000000000_000000250.parquet",
+     "last_chunk": "blocks_000009750_000010000.parquet",
+     "parquet_sha256": "7ccb9a486742200ffe276e2d2dd949f02240eaa12d627427f36e43ece1acd621"
+    },
+    "p3-aggressive-vs-neutral": {
+     "pairing_hash": "87abe185aa06c57a",
+     "rows": 10000,
+     "chunks": 40,
+     "first_chunk": "blocks_000000000_000000250.parquet",
+     "last_chunk": "blocks_000009750_000010000.parquet",
+     "parquet_sha256": "0f6ace84915ea405ca017960c4b3ecfc2dbe0f53c0a297a081d528edbc7fd3b7"
+    }
+   }
+  },
+  "fhr3-nlhe6-100bb-pilot-v1": {
+   "config_hash": "5f8886e193bc5489",
+   "schema_version": "fhr3-block-v1",
+   "runs": [
+    "20260928T153937.873721Z-27900-323a60",
+    "20260928T163731.015741Z-33477-7d49a5"
+   ],
+   "pairings": {
+    "c0-selfplay-control": {
+     "pairing_hash": "a8faf06a963035ba",
+     "rows": 10000,
+     "chunks": 40,
+     "first_chunk": "blocks_000000000_000000250.parquet",
+     "last_chunk": "blocks_000009750_000010000.parquet",
+     "parquet_sha256": "8e2a8e4d29d6ba2631e73a212bbb4a4d67a5494a989ac945e6222a27a204a095"
+    },
+    "p1-neutral-vs-loose10": {
+     "pairing_hash": "8271526be0009827",
+     "rows": 250000,
+     "chunks": 1000,
+     "first_chunk": "blocks_000000000_000000250.parquet",
+     "last_chunk": "blocks_000249750_000250000.parquet",
+     "parquet_sha256": "e12ca10bbf23907baa92fa85740939e61e774e6bb0d0a96daf7d0f7e9946964f"
+    },
+    "p2-neutral-vs-tight": {
+     "pairing_hash": "7ccf8986402ec53f",
+     "rows": 250000,
+     "chunks": 1000,
+     "first_chunk": "blocks_000000000_000000250.parquet",
+     "last_chunk": "blocks_000249750_000250000.parquet",
+     "parquet_sha256": "6310a23291abb38f4dc6df3185337f563caef9dc0f5b74c78e499443a8d0fed1"
+    },
+    "p3-aggressive-vs-neutral": {
+     "pairing_hash": "87abe185aa06c57a",
+     "rows": 250000,
+     "chunks": 1000,
+     "first_chunk": "blocks_000000000_000000250.parquet",
+     "last_chunk": "blocks_000249750_000250000.parquet",
+     "parquet_sha256": "f784e0b113c16f791d1fc6e501e4c9fc917d1edc5ff901445294510325805135"
+    }
+   }
+  },
+  "fhr3-cp6-100bb-pilot-v1": {
+   "config_hash": "1dd6885d2d0ddf84",
+   "schema_version": "fhr3-block-v2",
+   "runs": [
+    "20260928T190713.893326Z-65118-309394",
+    "20260928T212503.469354Z-91376-23648b"
+   ],
+   "pairings": {
+    "c0-selfplay-control": {
+     "pairing_hash": "f31261ddd62340f1",
+     "rows": 10000,
+     "chunks": 40,
+     "first_chunk": "blocks_000000000_000000250.parquet",
+     "last_chunk": "blocks_000009750_000010000.parquet",
+     "parquet_sha256": "04191bd42935de2a0cb783a5dd8a797fb63631585e76c8fb03fbd9342b35f8d1"
+    },
+    "p1-neutral-vs-loose10": {
+     "pairing_hash": "98a640cb4db87959",
+     "rows": 100000,
+     "chunks": 400,
+     "first_chunk": "blocks_000000000_000000250.parquet",
+     "last_chunk": "blocks_000099750_000100000.parquet",
+     "parquet_sha256": "c3fc757fec1aee7f845149896f5940efe92bd28351da33e9e14c08adafcf251a"
+    },
+    "p2-neutral-vs-tight": {
+     "pairing_hash": "80e90ae4c174b4f4",
+     "rows": 100000,
+     "chunks": 400,
+     "first_chunk": "blocks_000000000_000000250.parquet",
+     "last_chunk": "blocks_000099750_000100000.parquet",
+     "parquet_sha256": "efa5c047656b1680fa4e1f4204fc46ac9e2347fbda750cee46f632e63bc929de"
+    },
+    "p3-aggressive-vs-neutral": {
+     "pairing_hash": "689bc7a866b1009d",
+     "rows": 100000,
+     "chunks": 400,
+     "first_chunk": "blocks_000000000_000000250.parquet",
+     "last_chunk": "blocks_000099750_000100000.parquet",
+     "parquet_sha256": "1b993a70111dbe86529caa25bde147aa00ecd811487898955055445172237c83"
+    }
+   }
+  },
+  "fhr3-plo6-100bb-pilot-v1": {
+   "config_hash": "dbe32e5ed981d3b7",
+   "schema_version": "fhr3-block-v2",
+   "runs": [
+    "20260928T190235.814685Z-64259-ba9b98",
+    "20260928T214512.650338Z-95117-19a422"
+   ],
+   "pairings": {
+    "c0-selfplay-control": {
+     "pairing_hash": "be1aa463b37b79bc",
+     "rows": 10000,
+     "chunks": 40,
+     "first_chunk": "blocks_000000000_000000250.parquet",
+     "last_chunk": "blocks_000009750_000010000.parquet",
+     "parquet_sha256": "21235169bee7a90a9ed6e40cfb9dd2117fa1be4f44f4bc9c47d7ea2a3f189543"
+    },
+    "p1-neutral-vs-loose10": {
+     "pairing_hash": "91e045ae6ba0b4d5",
+     "rows": 50000,
+     "chunks": 200,
+     "first_chunk": "blocks_000000000_000000250.parquet",
+     "last_chunk": "blocks_000049750_000050000.parquet",
+     "parquet_sha256": "a895530a2547b9962d42d634b739dc7a3682efde42b27e199c7031b2b045f0f9"
+    },
+    "p2-neutral-vs-tight": {
+     "pairing_hash": "e402bd81c010aa9c",
+     "rows": 50000,
+     "chunks": 200,
+     "first_chunk": "blocks_000000000_000000250.parquet",
+     "last_chunk": "blocks_000049750_000050000.parquet",
+     "parquet_sha256": "d544fc3ec6d20b4189243d2955c76d772e9ded9877da3f2a56ab8d66df279fd8"
+    },
+    "p3-aggressive-vs-neutral": {
+     "pairing_hash": "7fecc78f8a8c9a1e",
+     "rows": 50000,
+     "chunks": 200,
+     "first_chunk": "blocks_000000000_000000250.parquet",
+     "last_chunk": "blocks_000049750_000050000.parquet",
+     "parquet_sha256": "19f8659a0148c874888bc1fb55f5531ee90b69692053128205561ced44cb8017"
+    }
+   }
+  },
+  "fhr3-bomb6-100bb-pilot-v1": {
+   "config_hash": "e43d42143a832c18",
+   "schema_version": "fhr3-block-v2",
+   "runs": [
+    "20260928T191015.333025Z-65692-95668a",
+    "20260928T220049.084379Z-98321-8840b9"
+   ],
+   "pairings": {
+    "c0-selfplay-control": {
+     "pairing_hash": "a8faf06a963035ba",
+     "rows": 10000,
+     "chunks": 40,
+     "first_chunk": "blocks_000000000_000000250.parquet",
+     "last_chunk": "blocks_000009750_000010000.parquet",
+     "parquet_sha256": "d10e43fe088423b8f4ae8219bcba998b7a3515801830c041712d2957c639e5d6"
+    },
+    "p1-neutral-vs-aggr10": {
+     "pairing_hash": "6e043902d33935bf",
+     "rows": 50000,
+     "chunks": 200,
+     "first_chunk": "blocks_000000000_000000250.parquet",
+     "last_chunk": "blocks_000049750_000050000.parquet",
+     "parquet_sha256": "3789fadde2e7edfb75b7a289b54928acfd7b469049cd6a595503aade4220a476"
+    },
+    "p2-neutral-vs-tight": {
+     "pairing_hash": "7ccf8986402ec53f",
+     "rows": 50000,
+     "chunks": 200,
+     "first_chunk": "blocks_000000000_000000250.parquet",
+     "last_chunk": "blocks_000049750_000050000.parquet",
+     "parquet_sha256": "44f4ee437737d743f1fdf8be3d856b5e3379f26d972c92cbfe46490ad40b797b"
+    },
+    "p3-aggressive-vs-neutral": {
+     "pairing_hash": "87abe185aa06c57a",
+     "rows": 50000,
+     "chunks": 200,
+     "first_chunk": "blocks_000000000_000000250.parquet",
+     "last_chunk": "blocks_000049750_000050000.parquet",
+     "parquet_sha256": "8b3adc31cc5ee077953ee06f1bf198b8313346f2ed96368390cda42fa7c64d00"
+    }
+   }
+  },
+  "fhr3-nit6-100bb-pilot-v1": {
+   "config_hash": "8ad12fd04095aed9",
+   "schema_version": "fhr3-block-v2",
+   "runs": [
+    "20260928T192048.948344Z-67850-fca370"
+   ],
+   "pairings": {
+    "c0-selfplay-control": {
+     "pairing_hash": "95fb993a6192998b",
+     "rows": 10000,
+     "chunks": 40,
+     "first_chunk": "blocks_000000000_000000250.parquet",
+     "last_chunk": "blocks_000009750_000010000.parquet",
+     "parquet_sha256": "5989218d8dbc52eefc055dd751be6a7e8a2a10c3b7be92d8388b0fb6f7561262"
+    },
+    "p1-neutral-vs-loose10": {
+     "pairing_hash": "5b029460f53fb80c",
+     "rows": 10000,
+     "chunks": 40,
+     "first_chunk": "blocks_000000000_000000250.parquet",
+     "last_chunk": "blocks_000009750_000010000.parquet",
+     "parquet_sha256": "d8320d4df581985d11e168b9d83a8543900f956dd8c0bbd73db16cdf87a1ab5f"
+    },
+    "p2-neutral-vs-tight": {
+     "pairing_hash": "95472cf72cbc8c08",
+     "rows": 10000,
+     "chunks": 40,
+     "first_chunk": "blocks_000000000_000000250.parquet",
+     "last_chunk": "blocks_000009750_000010000.parquet",
+     "parquet_sha256": "88395e5cfb8a1d675cffbb78ba885aed58d504ad8d285f1f05585a8ab889bd07"
+    },
+    "p3-aggressive-vs-neutral": {
+     "pairing_hash": "161cbe40c8b4a106",
+     "rows": 10000,
+     "chunks": 40,
+     "first_chunk": "blocks_000000000_000000250.parquet",
+     "last_chunk": "blocks_000009750_000010000.parquet",
+     "parquet_sha256": "516dacd67eb8fdfed4ec7b4bcbde52379b042ed908d6243bd1435fd403a21d88"
+    },
+    "p4-nitaware-vs-naive": {
+     "pairing_hash": "304a9df0b63215ae",
+     "rows": 10000,
+     "chunks": 40,
+     "first_chunk": "blocks_000000000_000000250.parquet",
+     "last_chunk": "blocks_000009750_000010000.parquet",
+     "parquet_sha256": "78e2587c2006ba7947105af2d3cd6bd7e31299a43ec95243e8cb47517616cd07"
+    }
+   }
+  }
+ },
+ "outputs": {
+  "core/pilot_table.csv": "704c8b98039d924d7541daaae5ac55b2be09f995ee7d336edf097f904e834505",
+  "core/pilot_analysis.json": "034cb945c9f0cf3d5ce6723fa0643870390f02dc19b7d8172438ca59b917a836",
+  "final_tables.md": "b47c48f4998a10839e78334bd8d0da912c19986d772f6454a8dbe27512c6ef42",
+  "convergence.csv": "63e0180485a877216799b5f7fd325282cca1982805abbd967c9b5a8f3a14a539",
+  "ranking.json": "07304c37bd9048340bf7c5d0c6f83aab4a80a89f592f6b3c5845e98cdd33b83d",
+  "allin.csv": "ba6ba64cc30a9189fa9a277771920fe0623d7e743985cab2c0d54b9dfbc1f357",
+  "allin_regression.json": "6ba612ad5de8341711e58a9a42b3878740ddb008c5454f09596a2dd846ead04f",
+  "stack.json": "a739358a8e8b9c8b5f823ee03eea90de859394c8a1fc9156189233f5ee2e29c7",
+  "nit.json": "4b1f4a5843ef8b8256292b544de63e0e7775c7619dc88a4666224092c66538cd",
+  "windows.csv": "4ae6bf7285bb7de8ffdb06b47e64c315c26b4af30d7eb7d149ef2af9f30ae23a",
+  "d_collapse.csv": "7c531846b709e29c047c242fffbf082235fe3a9286d7e81010ec6d835b0d021c",
+  "integrity.json": "c62eace62853199f3cf78df76b37135a4cf5b1ba16cf683f456e2c8338c05405",
+  "cross-format-compare.json": "871e1013ee92f803fcfacae0f9bf6f82dbdd489c3285aee4e70e08a5f02db9bd",
+  "cross-format-compare.txt": "f5a9ce7481dbb888d194693dcee1b4c8d0f870f4cd792b734d1cd9d89f1a0e5e",
+  "figures/sigma_by_format_pairing.csv": "1e8f746ca445cafe5fc23da0ee377b891f3918a81e9c12bfe2a1bff78bf01256",
+  "figures/hands_vs_effect.csv": "e33afbebcab21c69abf264e544138d0f9ffbfd2a927cf43cad5be6561e0f172a",
+  "figures/blocks_vs_d.csv": "0e1e51270f9af6871cfedfe7f5fee24101f2d0510c013867b3ac91d7a53d7871",
+  "figures/empirical_power.csv": "5b39771a7af887523093cf4c0fdd53bee0e2755f530d93d0507b93311b6cf3e6",
+  "figures/stack_sensitivity.csv": "d93823424818cc9d513f9e6215fc5c8b7bb57805195cb85951c899d861e2bf25",
+  "figures/variance_concentration.csv": "36b8948c218d3d0f11b053e363cc57831975032f367270fa27c646fe3c371a68",
+  "figures/variance_reduction.csv": "4633b087c369f413f4ea03e4bed1667c4be5d5330cb6702776ac3d79f568b723",
+  "figures/cost_translation.csv": "1ae42b55ec7da445647c947f5351989b00e23f6b12b8ad38845651fadf7e0dfc",
+  "figures/relations.csv": "a3676ffeeacb7c3edaef142ef9c770da8efa925b9defab7eea347d266fbb2d5f"
+ }
+}

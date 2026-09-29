@@ -1,0 +1,214 @@
+required samples at 80% power, two-sided alpha 0.05 (normal approx); blocks at fixed d (every config): d=0.005: 313,956, d=0.01: 78,489, d=0.02: 19,623
+
+== c0-selfplay-control
+   config                      blocks  h/blk  BB/100  sigma_D   D=0   skew  exkurt  top1% top.1% allin/h   sd/h    pot  blk/s  B/blk
+   aof/4max/8bb                 10000    8.0   +0.00    0.000  1.00    n/a     n/a    n/a    n/a  0.8095  0.331    6.4  126.6     98
+      sigma_D = 0 (identical play)
+   bomb_pot/6max/100bb          10000   12.0   +0.00    0.000  1.00    n/a     n/a    n/a    n/a  0.2800  0.696   80.4    8.3    111
+      sigma_D = 0 (identical play)
+   crazy_pineapple/6max/100bb   10000   12.0   +0.00    0.000  1.00    n/a     n/a    n/a    n/a  0.0464  0.164   16.0   30.9    109
+      sigma_D = 0 (identical play)
+   nit_game/6max/100bb          10000   95.0   +0.00    0.000  1.00    n/a     n/a    n/a    n/a  0.0333  0.188   13.0    4.6    176
+      sigma_D = 0 (identical play)
+   nlhe/4max/100bb              10000    8.0   +0.00    0.000  1.00    n/a     n/a    n/a    n/a  0.0158  0.104    7.0  130.4    103
+      sigma_D = 0 (identical play)
+   nlhe/6max/20bb               10000   12.0   +0.00    0.000  1.00    n/a     n/a    n/a    n/a  0.1157  0.149    5.9   68.0     98
+      sigma_D = 0 (identical play)
+   nlhe/6max/50bb               10000   12.0   +0.00    0.000  1.00    n/a     n/a    n/a    n/a  0.0543  0.140    8.2   53.4     99
+      sigma_D = 0 (identical play)
+   nlhe/6max/100bb              10000   12.0   +0.00    0.000  1.00    n/a     n/a    n/a    n/a  0.0251  0.140    9.8   62.4    100
+      sigma_D = 0 (identical play)
+   plo/6max/100bb               10000   12.0   +0.00    0.000  1.00    n/a     n/a    n/a    n/a  0.0693  0.248   26.4   20.4    113
+      sigma_D = 0 (identical play)
+
+== p1-neutral-vs-aggr10
+   config                      blocks  h/blk  BB/100  sigma_D   D=0   skew  exkurt  top1% top.1% allin/h   sd/h    pot  blk/s  B/blk
+   bomb_pot/6max/100bb          50000   12.0   +1.88   12.672  0.95  -3.80   161.2   0.85   0.32  0.2782  0.698   80.0    8.0    113
+      targets (BB/100 -> blocks / played hands): 0.25: 5,601,269 blk / 67,215,228 h  0.5: 1,400,318 blk / 16,803,816 h  1: 350,080 blk / 4,200,960 h  2: 87,520 blk / 1,050,240 h  5: 14,004 blk / 168,048 h
+      BB/100 at fixed d 0.005: 1.06, 0.01: 2.11, 0.02: 4.22
+
+== p1-neutral-vs-loose10
+   config                      blocks  h/blk  BB/100  sigma_D   D=0   skew  exkurt  top1% top.1% allin/h   sd/h    pot  blk/s  B/blk
+   crazy_pineapple/6max/100bb  100000   12.0   -0.60   11.565  0.87  -1.49    96.7   0.84   0.18  0.0450  0.161   15.6   30.8    112
+      targets (BB/100 -> blocks / played hands): 0.25: 4,665,448 blk / 55,985,376 h  0.5: 1,166,362 blk / 13,996,344 h  1: 291,591 blk / 3,499,092 h  2: 72,898 blk / 874,776 h  5: 11,664 blk / 139,968 h
+      BB/100 at fixed d 0.005: 0.96, 0.01: 1.93, 0.02: 3.85
+   nit_game/6max/100bb          10000   95.0  -10.09   32.619  0.31  -1.13    12.1   0.28   0.07  0.0337  0.190   13.1    4.6    190
+      targets (BB/100 -> blocks / played hands): 0.25: 591,981 blk / 56,248,969 h  0.5: 147,996 blk / 14,062,314 h  1: 36,999 blk / 3,515,578 h  2: 9,250 blk / 878,918 h  5: 1,480 blk / 140,627 h
+      BB/100 at fixed d 0.005: 0.34, 0.01: 0.69, 0.02: 1.37
+   nlhe/4max/100bb             100000    8.0   -1.58    5.792  0.89  -2.49   305.4   0.95   0.39  0.0154  0.113    7.2  101.1    106
+      targets (BB/100 -> blocks / played hands): 0.25: 2,632,723 blk / 21,061,784 h  0.5: 658,181 blk / 5,265,448 h  1: 164,546 blk / 1,316,368 h  2: 41,137 blk / 329,096 h  5: 6,582 blk / 52,656 h
+      BB/100 at fixed d 0.005: 0.72, 0.01: 1.45, 0.02: 2.90
+   nlhe/6max/20bb               10000   12.0   -0.55    3.092  0.87  -0.97    53.6   0.59   0.15  0.1171  0.151    6.0   63.2    100
+      targets (BB/100 -> blocks / played hands): 0.25: 333,446 blk / 4,001,352 h  0.5: 83,362 blk / 1,000,344 h  1: 20,841 blk / 250,092 h  2: 5,211 blk / 62,532 h  5: 834 blk / 10,008 h
+      BB/100 at fixed d 0.005: 0.26, 0.01: 0.52, 0.02: 1.03
+   nlhe/6max/50bb               10000   12.0   -0.15    5.726  0.87  -1.06   101.1   0.87   0.20  0.0551  0.142    8.3   52.6    102
+      targets (BB/100 -> blocks / played hands): 0.25: 1,143,798 blk / 13,725,576 h  0.5: 285,950 blk / 3,431,400 h  1: 71,488 blk / 857,856 h  2: 17,872 blk / 214,464 h  5: 2,860 blk / 34,320 h
+      BB/100 at fixed d 0.005: 0.48, 0.01: 0.95, 0.02: 1.91
+   nlhe/6max/100bb             250000   12.0   -0.54    7.700  0.87  -1.29   185.6   0.94   0.27  0.0255  0.140   10.1   49.5    102
+      targets (BB/100 -> blocks / played hands): 0.25: 2,068,158 blk / 24,817,896 h  0.5: 517,040 blk / 6,204,480 h  1: 129,260 blk / 1,551,120 h  2: 32,315 blk / 387,780 h  5: 5,171 blk / 62,052 h
+      BB/100 at fixed d 0.005: 0.64, 0.01: 1.28, 0.02: 2.57
+   plo/6max/100bb               50000   12.0   +0.53   14.702  0.83  -0.89    56.5   0.60   0.15  0.0714  0.251   27.1   15.8    116
+      targets (BB/100 -> blocks / played hands): 0.25: 7,539,681 blk / 90,476,172 h  0.5: 1,884,921 blk / 22,619,052 h  1: 471,231 blk / 5,654,772 h  2: 117,808 blk / 1,413,696 h  5: 18,850 blk / 226,200 h
+      BB/100 at fixed d 0.005: 1.23, 0.01: 2.45, 0.02: 4.90
+
+== p1-prodv2-vs-blend10
+   config                      blocks  h/blk  BB/100  sigma_D   D=0   skew  exkurt  top1% top.1% allin/h   sd/h    pot  blk/s  B/blk
+   aof/4max/8bb                 50000    8.0   +0.27    1.582  0.95  +0.28    36.2   0.43   0.12  0.8137  0.335    6.4   97.1     99
+      targets (BB/100 -> blocks / played hands): 0.25: 196,471 blk / 1,571,768 h  0.5: 49,118 blk / 392,944 h  1: 12,280 blk / 98,240 h  2: 3,070 blk / 24,560 h  5: 492 blk / 3,936 h
+      BB/100 at fixed d 0.005: 0.20, 0.01: 0.40, 0.02: 0.79
+
+== p2-neutral-vs-tight
+   config                      blocks  h/blk  BB/100  sigma_D   D=0   skew  exkurt  top1% top.1% allin/h   sd/h    pot  blk/s  B/blk
+   bomb_pot/6max/100bb          50000   12.0  -31.29   27.962  0.82  +1.52    32.1   0.46   0.11  0.2751  0.695   79.1    7.7    114
+      targets (BB/100 -> blocks / played hands): 0.25: 27,275,023 blk / 327,300,276 h  0.5: 6,818,756 blk / 81,825,072 h  1: 1,704,689 blk / 20,456,268 h  2: 426,173 blk / 5,114,076 h  5: 68,188 blk / 818,256 h
+      BB/100 at fixed d 0.005: 2.33, 0.01: 4.66, 0.02: 9.32
+   crazy_pineapple/6max/100bb  100000   12.0   -0.40   18.245  0.68  +0.78    37.8   0.44   0.13  0.0429  0.154   14.9   29.3    114
+      targets (BB/100 -> blocks / played hands): 0.25: 11,612,748 blk / 139,352,976 h  0.5: 2,903,187 blk / 34,838,244 h  1: 725,797 blk / 8,709,564 h  2: 181,450 blk / 2,177,400 h  5: 29,032 blk / 348,384 h
+      BB/100 at fixed d 0.005: 1.52, 0.01: 3.04, 0.02: 6.08
+   nit_game/6max/100bb          10000   95.6  +30.32   53.794  0.04  +0.24     4.2   0.19   0.04  0.0321  0.182   12.6    4.6    197
+      targets (BB/100 -> blocks / played hands): 0.25: 1,588,979 blk / 151,979,644 h  0.5: 397,245 blk / 37,994,935 h  1: 99,312 blk / 9,498,805 h  2: 24,828 blk / 2,374,701 h  5: 3,973 blk / 380,002 h
+      BB/100 at fixed d 0.005: 0.56, 0.01: 1.12, 0.02: 2.25
+   nlhe/4max/100bb             100000    8.0   +2.31   10.424  0.73  +0.03    94.4   0.82   0.18  0.0143  0.104    6.8   97.8    107
+      targets (BB/100 -> blocks / played hands): 0.25: 8,527,993 blk / 68,223,944 h  0.5: 2,131,999 blk / 17,055,992 h  1: 533,000 blk / 4,264,000 h  2: 133,250 blk / 1,066,000 h  5: 21,320 blk / 170,560 h
+      BB/100 at fixed d 0.005: 1.30, 0.01: 2.61, 0.02: 5.21
+   nlhe/6max/20bb               10000   12.0   +2.86    5.209  0.70  +0.36    24.9   0.33   0.10  0.1121  0.144    5.8   59.0    102
+      targets (BB/100 -> blocks / played hands): 0.25: 946,563 blk / 11,358,756 h  0.5: 236,641 blk / 2,839,692 h  1: 59,161 blk / 709,932 h  2: 14,791 blk / 177,492 h  5: 2,367 blk / 28,404 h
+      BB/100 at fixed d 0.005: 0.43, 0.01: 0.87, 0.02: 1.74
+   nlhe/6max/50bb               10000   12.0   +2.38    9.575  0.70  -0.08    45.4   0.45   0.15  0.0527  0.136    7.9   52.7    103
+      targets (BB/100 -> blocks / played hands): 0.25: 3,197,951 blk / 38,375,412 h  0.5: 799,488 blk / 9,593,856 h  1: 199,872 blk / 2,398,464 h  2: 49,968 blk / 599,616 h  5: 7,995 blk / 95,940 h
+      BB/100 at fixed d 0.005: 0.80, 0.01: 1.60, 0.02: 3.19
+   nlhe/6max/100bb             250000   12.0   +1.28   13.012  0.68  +0.49    71.4   0.70   0.16  0.0244  0.134    9.7   47.3    104
+      targets (BB/100 -> blocks / played hands): 0.25: 5,906,542 blk / 70,878,504 h  0.5: 1,476,636 blk / 17,719,632 h  1: 369,159 blk / 4,429,908 h  2: 92,290 blk / 1,107,480 h  5: 14,767 blk / 177,204 h
+      BB/100 at fixed d 0.005: 1.08, 0.01: 2.17, 0.02: 4.34
+   plo/6max/100bb               50000   12.0   -4.85   25.029  0.60  +0.59    21.0   0.34   0.08  0.0675  0.241   25.9   17.9    118
+      targets (BB/100 -> blocks / played hands): 0.25: 21,852,232 blk / 262,226,784 h  0.5: 5,463,058 blk / 65,556,696 h  1: 1,365,765 blk / 16,389,180 h  2: 341,442 blk / 4,097,304 h  5: 54,631 blk / 655,572 h
+      BB/100 at fixed d 0.005: 2.09, 0.01: 4.17, 0.02: 8.34
+
+== p2-prodv2-vs-heuristic
+   config                      blocks  h/blk  BB/100  sigma_D   D=0   skew  exkurt  top1% top.1% allin/h   sd/h    pot  blk/s  B/blk
+   aof/4max/8bb                 50000    8.0   +4.49    4.999  0.60  +0.35     4.6   0.18   0.03  0.8115  0.333    6.4   94.3    101
+      targets (BB/100 -> blocks / played hands): 0.25: 1,961,549 blk / 15,692,392 h  0.5: 490,388 blk / 3,923,104 h  1: 122,597 blk / 980,776 h  2: 30,650 blk / 245,200 h  5: 4,904 blk / 39,232 h
+      BB/100 at fixed d 0.005: 0.62, 0.01: 1.25, 0.02: 2.50
+
+== p3-aggressive-vs-neutral
+   config                      blocks  h/blk  BB/100  sigma_D   D=0   skew  exkurt  top1% top.1% allin/h   sd/h    pot  blk/s  B/blk
+   aof/4max/8bb                 50000    8.0   +0.25    2.922  0.79  -0.41     9.8   0.23   0.04  0.8241  0.338    6.5   93.0    100
+      targets (BB/100 -> blocks / played hands): 0.25: 670,331 blk / 5,362,648 h  0.5: 167,583 blk / 1,340,664 h  1: 41,896 blk / 335,168 h  2: 10,474 blk / 83,792 h  5: 1,676 blk / 13,408 h
+      BB/100 at fixed d 0.005: 0.37, 0.01: 0.73, 0.02: 1.46
+   bomb_pot/6max/100bb          50000   12.0  -24.40   36.952  0.65  +1.01    21.1   0.38   0.10  0.2847  0.693   81.1    7.8    117
+      targets (BB/100 -> blocks / played hands): 0.25: 47,631,245 blk / 571,574,940 h  0.5: 11,907,812 blk / 142,893,744 h  1: 2,976,953 blk / 35,723,436 h  2: 744,239 blk / 8,930,868 h  5: 119,079 blk / 1,428,948 h
+      BB/100 at fixed d 0.005: 3.08, 0.01: 6.16, 0.02: 12.32
+   crazy_pineapple/6max/100bb  100000   12.0   -2.35   19.415  0.73  +0.50    40.5   0.45   0.13  0.0453  0.158   15.6   28.7    115
+      targets (BB/100 -> blocks / played hands): 0.25: 13,149,188 blk / 157,790,256 h  0.5: 3,287,297 blk / 39,447,564 h  1: 821,825 blk / 9,861,900 h  2: 205,457 blk / 2,465,484 h  5: 32,873 blk / 394,476 h
+      BB/100 at fixed d 0.005: 1.62, 0.01: 3.24, 0.02: 6.47
+   nit_game/6max/100bb          10000   95.1  +17.33   53.625  0.06  +0.22     4.4   0.19   0.04  0.0342  0.185   13.2    4.6    199
+      targets (BB/100 -> blocks / played hands): 0.25: 1,596,836 blk / 151,877,148 h  0.5: 399,209 blk / 37,969,287 h  1: 99,803 blk / 9,492,393 h  2: 24,951 blk / 2,373,122 h  5: 3,993 blk / 379,779 h
+      BB/100 at fixed d 0.005: 0.56, 0.01: 1.13, 0.02: 2.26
+   nlhe/4max/100bb             100000    8.0   +1.53   10.724  0.77  +0.19   109.2   0.80   0.21  0.0158  0.108    7.3   93.3    108
+      targets (BB/100 -> blocks / played hands): 0.25: 9,027,160 blk / 72,217,280 h  0.5: 2,256,790 blk / 18,054,320 h  1: 564,198 blk / 4,513,584 h  2: 141,050 blk / 1,128,400 h  5: 22,568 blk / 180,544 h
+      BB/100 at fixed d 0.005: 1.34, 0.01: 2.68, 0.02: 5.36
+   nlhe/6max/20bb               10000   12.0   +2.72    5.394  0.74  +0.00    19.8   0.34   0.09  0.1189  0.148    6.0   56.6    103
+      targets (BB/100 -> blocks / played hands): 0.25: 1,015,117 blk / 12,181,404 h  0.5: 253,780 blk / 3,045,360 h  1: 63,445 blk / 761,340 h  2: 15,862 blk / 190,344 h  5: 2,538 blk / 30,456 h
+      BB/100 at fixed d 0.005: 0.45, 0.01: 0.90, 0.02: 1.80
+   nlhe/6max/50bb               10000   12.0   +1.60    9.855  0.73  +0.21    32.6   0.44   0.11  0.0558  0.139    8.3   52.5    105
+      targets (BB/100 -> blocks / played hands): 0.25: 3,387,765 blk / 40,653,180 h  0.5: 846,942 blk / 10,163,304 h  1: 211,736 blk / 2,540,832 h  2: 52,934 blk / 635,208 h  5: 8,470 blk / 101,640 h
+      BB/100 at fixed d 0.005: 0.82, 0.01: 1.64, 0.02: 3.28
+   nlhe/6max/100bb             250000   12.0   +0.01   13.776  0.73  +0.01    62.0   0.65   0.16  0.0259  0.137   10.1   47.6    105
+      targets (BB/100 -> blocks / played hands): 0.25: 6,620,679 blk / 79,448,148 h  0.5: 1,655,170 blk / 19,862,040 h  1: 413,793 blk / 4,965,516 h  2: 103,449 blk / 1,241,388 h  5: 16,552 blk / 198,624 h
+      BB/100 at fixed d 0.005: 1.15, 0.01: 2.30, 0.02: 4.59
+   plo/6max/100bb               50000   12.0   -2.30   27.188  0.62  +0.24    19.6   0.33   0.08  0.0734  0.247   27.5   17.7    121
+      targets (BB/100 -> blocks / played hands): 0.25: 25,786,088 blk / 309,433,056 h  0.5: 6,446,522 blk / 77,358,264 h  1: 1,611,631 blk / 19,339,572 h  2: 402,908 blk / 4,834,896 h  5: 64,466 blk / 773,592 h
+      BB/100 at fixed d 0.005: 2.27, 0.01: 4.53, 0.02: 9.06
+
+== p4-nitaware-vs-naive
+   config                      blocks  h/blk  BB/100  sigma_D   D=0   skew  exkurt  top1% top.1% allin/h   sd/h    pot  blk/s  B/blk
+   nit_game/6max/100bb          10000   96.1  +25.78   45.127  0.13  +0.39     4.8   0.19   0.04  0.0325  0.183   12.7    4.6    194
+      targets (BB/100 -> blocks / played hands): 0.25: 1,108,251 blk / 106,475,326 h  0.5: 277,063 blk / 26,618,855 h  1: 69,266 blk / 6,654,738 h  2: 17,317 blk / 1,663,733 h  5: 2,771 blk / 266,224 h
+      BB/100 at fixed d 0.005: 0.47, 0.01: 0.94, 0.02: 1.88
+
+relations between configs (same pairing id, common block ids; controls omitted):
+   p1-neutral-vs-loose10: crazy_pineapple/6max/100bb vs nit_game/6max/100bb: shared seed material only; corr(D) +0.003 on 10000 blocks
+   p1-neutral-vs-loose10: crazy_pineapple/6max/100bb vs nlhe/4max/100bb: shared seed material only; corr(D) +0.010 on 100000 blocks
+   p1-neutral-vs-loose10: crazy_pineapple/6max/100bb vs nlhe/6max/20bb: shared seed material only; corr(D) -0.005 on 10000 blocks
+   p1-neutral-vs-loose10: crazy_pineapple/6max/100bb vs nlhe/6max/50bb: shared seed material only; corr(D) -0.002 on 10000 blocks
+   p1-neutral-vs-loose10: crazy_pineapple/6max/100bb vs nlhe/6max/100bb: shared seed material only; corr(D) +0.002 on 100000 blocks
+   p1-neutral-vs-loose10: crazy_pineapple/6max/100bb vs plo/6max/100bb: shared seed material only; corr(D) +0.000 on 50000 blocks
+   p1-neutral-vs-loose10: nit_game/6max/100bb vs nlhe/4max/100bb: shared seed material only; corr(D) +0.002 on 10000 blocks
+   p1-neutral-vs-loose10: nit_game/6max/100bb vs nlhe/6max/20bb: shared seed material only; corr(D) -0.005 on 10000 blocks
+   p1-neutral-vs-loose10: nit_game/6max/100bb vs nlhe/6max/50bb: shared seed material only; corr(D) -0.002 on 10000 blocks
+   p1-neutral-vs-loose10: nit_game/6max/100bb vs nlhe/6max/100bb: shared seed material only; corr(D) -0.004 on 10000 blocks
+   p1-neutral-vs-loose10: nit_game/6max/100bb vs plo/6max/100bb: shared seed material only; corr(D) -0.001 on 10000 blocks
+   p1-neutral-vs-loose10: nlhe/4max/100bb vs nlhe/6max/20bb: shared seed material only; corr(D) -0.031 on 10000 blocks
+   p1-neutral-vs-loose10: nlhe/4max/100bb vs nlhe/6max/50bb: shared seed material only; corr(D) -0.040 on 10000 blocks
+   p1-neutral-vs-loose10: nlhe/4max/100bb vs nlhe/6max/100bb: shared seed material only; corr(D) +0.037 on 100000 blocks
+   p1-neutral-vs-loose10: nlhe/4max/100bb vs plo/6max/100bb: shared seed material only; corr(D) +0.001 on 50000 blocks
+   p1-neutral-vs-loose10: nlhe/6max/20bb vs nlhe/6max/50bb: paired; corr(D) +0.868 on 10000 blocks
+   p1-neutral-vs-loose10: nlhe/6max/20bb vs nlhe/6max/100bb: paired; corr(D) +0.740 on 10000 blocks
+   p1-neutral-vs-loose10: nlhe/6max/20bb vs plo/6max/100bb: shared seed material only; corr(D) +0.021 on 10000 blocks
+   p1-neutral-vs-loose10: nlhe/6max/50bb vs nlhe/6max/100bb: paired; corr(D) +0.896 on 10000 blocks
+   p1-neutral-vs-loose10: nlhe/6max/50bb vs plo/6max/100bb: shared seed material only; corr(D) +0.025 on 10000 blocks
+   p1-neutral-vs-loose10: nlhe/6max/100bb vs plo/6max/100bb: shared seed material only; corr(D) +0.003 on 50000 blocks
+   p2-neutral-vs-tight: bomb_pot/6max/100bb vs crazy_pineapple/6max/100bb: shared seed material only; corr(D) +0.004 on 50000 blocks
+   p2-neutral-vs-tight: bomb_pot/6max/100bb vs nit_game/6max/100bb: shared seed material only; corr(D) -0.013 on 10000 blocks
+   p2-neutral-vs-tight: bomb_pot/6max/100bb vs nlhe/4max/100bb: shared seed material only; corr(D) +0.003 on 50000 blocks
+   p2-neutral-vs-tight: bomb_pot/6max/100bb vs nlhe/6max/20bb: shared cards, different game; corr(D) +0.008 on 10000 blocks
+   p2-neutral-vs-tight: bomb_pot/6max/100bb vs nlhe/6max/50bb: shared cards, different game; corr(D) -0.003 on 10000 blocks
+   p2-neutral-vs-tight: bomb_pot/6max/100bb vs nlhe/6max/100bb: shared cards, different game; corr(D) +0.000 on 50000 blocks
+   p2-neutral-vs-tight: bomb_pot/6max/100bb vs plo/6max/100bb: shared seed material only; corr(D) +0.005 on 50000 blocks
+   p2-neutral-vs-tight: crazy_pineapple/6max/100bb vs nit_game/6max/100bb: shared seed material only; corr(D) +0.003 on 10000 blocks
+   p2-neutral-vs-tight: crazy_pineapple/6max/100bb vs nlhe/4max/100bb: shared seed material only; corr(D) -0.005 on 100000 blocks
+   p2-neutral-vs-tight: crazy_pineapple/6max/100bb vs nlhe/6max/20bb: shared seed material only; corr(D) +0.005 on 10000 blocks
+   p2-neutral-vs-tight: crazy_pineapple/6max/100bb vs nlhe/6max/50bb: shared seed material only; corr(D) +0.009 on 10000 blocks
+   p2-neutral-vs-tight: crazy_pineapple/6max/100bb vs nlhe/6max/100bb: shared seed material only; corr(D) +0.001 on 100000 blocks
+   p2-neutral-vs-tight: crazy_pineapple/6max/100bb vs plo/6max/100bb: shared seed material only; corr(D) -0.011 on 50000 blocks
+   p2-neutral-vs-tight: nit_game/6max/100bb vs nlhe/4max/100bb: shared seed material only; corr(D) -0.011 on 10000 blocks
+   p2-neutral-vs-tight: nit_game/6max/100bb vs nlhe/6max/20bb: shared seed material only; corr(D) +0.005 on 10000 blocks
+   p2-neutral-vs-tight: nit_game/6max/100bb vs nlhe/6max/50bb: shared seed material only; corr(D) -0.001 on 10000 blocks
+   p2-neutral-vs-tight: nit_game/6max/100bb vs nlhe/6max/100bb: shared seed material only; corr(D) +0.003 on 10000 blocks
+   p2-neutral-vs-tight: nit_game/6max/100bb vs plo/6max/100bb: shared seed material only; corr(D) -0.008 on 10000 blocks
+   p2-neutral-vs-tight: nlhe/4max/100bb vs nlhe/6max/20bb: shared seed material only; corr(D) +0.058 on 10000 blocks
+   p2-neutral-vs-tight: nlhe/4max/100bb vs nlhe/6max/50bb: shared seed material only; corr(D) +0.048 on 10000 blocks
+   p2-neutral-vs-tight: nlhe/4max/100bb vs nlhe/6max/100bb: shared seed material only; corr(D) +0.027 on 100000 blocks
+   p2-neutral-vs-tight: nlhe/4max/100bb vs plo/6max/100bb: shared seed material only; corr(D) +0.015 on 50000 blocks
+   p2-neutral-vs-tight: nlhe/6max/20bb vs nlhe/6max/50bb: paired; corr(D) +0.813 on 10000 blocks
+   p2-neutral-vs-tight: nlhe/6max/20bb vs nlhe/6max/100bb: paired; corr(D) +0.722 on 10000 blocks
+   p2-neutral-vs-tight: nlhe/6max/20bb vs plo/6max/100bb: shared seed material only; corr(D) +0.004 on 10000 blocks
+   p2-neutral-vs-tight: nlhe/6max/50bb vs nlhe/6max/100bb: paired; corr(D) +0.877 on 10000 blocks
+   p2-neutral-vs-tight: nlhe/6max/50bb vs plo/6max/100bb: shared seed material only; corr(D) -0.000 on 10000 blocks
+   p2-neutral-vs-tight: nlhe/6max/100bb vs plo/6max/100bb: shared seed material only; corr(D) -0.001 on 50000 blocks
+   p3-aggressive-vs-neutral: aof/4max/8bb vs bomb_pot/6max/100bb: shared seed material only; corr(D) -0.002 on 50000 blocks
+   p3-aggressive-vs-neutral: aof/4max/8bb vs crazy_pineapple/6max/100bb: shared seed material only; corr(D) -0.005 on 50000 blocks
+   p3-aggressive-vs-neutral: aof/4max/8bb vs nit_game/6max/100bb: shared seed material only; corr(D) -0.000 on 10000 blocks
+   p3-aggressive-vs-neutral: aof/4max/8bb vs nlhe/4max/100bb: shared cards, different game; corr(D) +0.062 on 50000 blocks
+   p3-aggressive-vs-neutral: aof/4max/8bb vs nlhe/6max/20bb: shared seed material only; corr(D) +0.012 on 10000 blocks
+   p3-aggressive-vs-neutral: aof/4max/8bb vs nlhe/6max/50bb: shared seed material only; corr(D) +0.007 on 10000 blocks
+   p3-aggressive-vs-neutral: aof/4max/8bb vs nlhe/6max/100bb: shared seed material only; corr(D) +0.001 on 50000 blocks
+   p3-aggressive-vs-neutral: aof/4max/8bb vs plo/6max/100bb: shared seed material only; corr(D) +0.004 on 50000 blocks
+   p3-aggressive-vs-neutral: bomb_pot/6max/100bb vs crazy_pineapple/6max/100bb: shared seed material only; corr(D) +0.001 on 50000 blocks
+   p3-aggressive-vs-neutral: bomb_pot/6max/100bb vs nit_game/6max/100bb: shared seed material only; corr(D) -0.006 on 10000 blocks
+   p3-aggressive-vs-neutral: bomb_pot/6max/100bb vs nlhe/4max/100bb: shared seed material only; corr(D) +0.006 on 50000 blocks
+   p3-aggressive-vs-neutral: bomb_pot/6max/100bb vs nlhe/6max/20bb: shared cards, different game; corr(D) +0.016 on 10000 blocks
+   p3-aggressive-vs-neutral: bomb_pot/6max/100bb vs nlhe/6max/50bb: shared cards, different game; corr(D) +0.023 on 10000 blocks
+   p3-aggressive-vs-neutral: bomb_pot/6max/100bb vs nlhe/6max/100bb: shared cards, different game; corr(D) +0.016 on 50000 blocks
+   p3-aggressive-vs-neutral: bomb_pot/6max/100bb vs plo/6max/100bb: shared seed material only; corr(D) -0.008 on 50000 blocks
+   p3-aggressive-vs-neutral: crazy_pineapple/6max/100bb vs nit_game/6max/100bb: shared seed material only; corr(D) +0.006 on 10000 blocks
+   p3-aggressive-vs-neutral: crazy_pineapple/6max/100bb vs nlhe/4max/100bb: shared seed material only; corr(D) +0.003 on 100000 blocks
+   p3-aggressive-vs-neutral: crazy_pineapple/6max/100bb vs nlhe/6max/20bb: shared seed material only; corr(D) +0.019 on 10000 blocks
+   p3-aggressive-vs-neutral: crazy_pineapple/6max/100bb vs nlhe/6max/50bb: shared seed material only; corr(D) +0.009 on 10000 blocks
+   p3-aggressive-vs-neutral: crazy_pineapple/6max/100bb vs nlhe/6max/100bb: shared seed material only; corr(D) +0.000 on 100000 blocks
+   p3-aggressive-vs-neutral: crazy_pineapple/6max/100bb vs plo/6max/100bb: shared seed material only; corr(D) -0.004 on 50000 blocks
+   p3-aggressive-vs-neutral: nit_game/6max/100bb vs nlhe/4max/100bb: shared seed material only; corr(D) +0.004 on 10000 blocks
+   p3-aggressive-vs-neutral: nit_game/6max/100bb vs nlhe/6max/20bb: shared seed material only; corr(D) -0.018 on 10000 blocks
+   p3-aggressive-vs-neutral: nit_game/6max/100bb vs nlhe/6max/50bb: shared seed material only; corr(D) -0.003 on 10000 blocks
+   p3-aggressive-vs-neutral: nit_game/6max/100bb vs nlhe/6max/100bb: shared seed material only; corr(D) -0.000 on 10000 blocks
+   p3-aggressive-vs-neutral: nit_game/6max/100bb vs plo/6max/100bb: shared seed material only; corr(D) -0.004 on 10000 blocks
+   p3-aggressive-vs-neutral: nlhe/4max/100bb vs nlhe/6max/20bb: shared seed material only; corr(D) +0.000 on 10000 blocks
+   p3-aggressive-vs-neutral: nlhe/4max/100bb vs nlhe/6max/50bb: shared seed material only; corr(D) -0.006 on 10000 blocks
+   p3-aggressive-vs-neutral: nlhe/4max/100bb vs nlhe/6max/100bb: shared seed material only; corr(D) +0.038 on 100000 blocks
+   p3-aggressive-vs-neutral: nlhe/4max/100bb vs plo/6max/100bb: shared seed material only; corr(D) -0.004 on 50000 blocks
+   p3-aggressive-vs-neutral: nlhe/6max/20bb vs nlhe/6max/50bb: paired; corr(D) +0.808 on 10000 blocks
+   p3-aggressive-vs-neutral: nlhe/6max/20bb vs nlhe/6max/100bb: paired; corr(D) +0.688 on 10000 blocks
+   p3-aggressive-vs-neutral: nlhe/6max/20bb vs plo/6max/100bb: shared seed material only; corr(D) -0.005 on 10000 blocks
+   p3-aggressive-vs-neutral: nlhe/6max/50bb vs nlhe/6max/100bb: paired; corr(D) +0.852 on 10000 blocks
+   p3-aggressive-vs-neutral: nlhe/6max/50bb vs plo/6max/100bb: shared seed material only; corr(D) +0.005 on 10000 blocks
+   p3-aggressive-vs-neutral: nlhe/6max/100bb vs plo/6max/100bb: shared seed material only; corr(D) +0.004 on 50000 blocks

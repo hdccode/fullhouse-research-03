@@ -1,0 +1,42 @@
+{
+ "n_pairings": 24,
+ "note": "exploratory; excludes Nit (block = ~95 hands); log var_D on each regressor",
+ "univariate_r2": {
+  "log_frac_blocks_allin": 0.058625173769738116,
+  "log_mean_dev2_allin": 0.8057773394336266,
+  "log_rms_D_nonzero": 0.8545567181293354,
+  "log_frac_nonzero": 0.22111298038181115,
+  "log_allin_per_hand": 0.09895789599032508
+ },
+ "two_factor_fit": {
+  "coef": {
+   "const": -0.0326964851068659,
+   "log_frac_blocks_allin": 0.9468666512830455,
+   "log_mean_dev2_allin": 1.008193970157786
+  },
+  "r2": 0.9994890285760613
+ },
+ "log_var_decomposition": {
+  "var_log_var": 2.342287771624967,
+  "frequency_term": -0.14720994570805668,
+  "magnitude_term": 1.129621135034134,
+  "non_allin_term": 0.017588810673922373,
+  "corr_log_freq_log_magnitude": -0.6445892317878744
+ },
+ "log_var_decomposition_100bb_allin": {
+  "n_pairings": 15,
+  "frequency_term": 0.6558742735821086,
+  "magnitude_term": 0.37478732907053536,
+  "residual_term": -0.03066160265264418,
+  "r2_frequency": 0.5640470034518552,
+  "r2_magnitude": 0.3274300503378191
+ },
+ "log_var_decomposition_100bb_big_pot": {
+  "n_pairings": 15,
+  "frequency_term": 0.7325107602492149,
+  "magnitude_term": 0.3214861527973461,
+  "residual_term": -0.05399691304656055,
+  "r2_frequency": 0.5943006302997262,
+  "r2_magnitude": 0.2462956573873501
+ }
+}

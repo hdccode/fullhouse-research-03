@@ -1,0 +1,130 @@
+[
+  {
+    "pairing_id": "p1-neutral-vs-loose10",
+    "rows": 10000,
+    "invalid": 0,
+    "replayed_blocks": [
+      278,
+      675,
+      899,
+      923,
+      1013,
+      2250,
+      2726,
+      3131,
+      3133,
+      4352,
+      4937,
+      5834,
+      5862,
+      6183,
+      6205,
+      6626,
+      7058,
+      8133,
+      8645,
+      9161
+    ],
+    "ok": true,
+    "problems": [],
+    "notes": [
+      "stored schema ['fhr3-block-v1']; replay compares shared columns (cross-schema)"
+    ]
+  },
+  {
+    "pairing_id": "p2-neutral-vs-tight",
+    "rows": 10000,
+    "invalid": 0,
+    "replayed_blocks": [
+      1704,
+      1916,
+      2662,
+      3282,
+      3510,
+      3891,
+      5992,
+      6503,
+      6587,
+      6660,
+      6989,
+      8041,
+      8162,
+      8300,
+      8362,
+      8799,
+      8836,
+      9682,
+      9815,
+      9925
+    ],
+    "ok": true,
+    "problems": [],
+    "notes": [
+      "stored schema ['fhr3-block-v1']; replay compares shared columns (cross-schema)"
+    ]
+  },
+  {
+    "pairing_id": "p3-aggressive-vs-neutral",
+    "rows": 10000,
+    "invalid": 0,
+    "replayed_blocks": [
+      1205,
+      1206,
+      1281,
+      2525,
+      3378,
+      3393,
+      4238,
+      4805,
+      6119,
+      6230,
+      7374,
+      7482,
+      7963,
+      8263,
+      8269,
+      8383,
+      9111,
+      9246,
+      9474,
+      9628
+    ],
+    "ok": true,
+    "problems": [],
+    "notes": [
+      "stored schema ['fhr3-block-v1']; replay compares shared columns (cross-schema)"
+    ]
+  },
+  {
+    "pairing_id": "c0-selfplay-control",
+    "rows": 10000,
+    "invalid": 0,
+    "replayed_blocks": [
+      646,
+      1342,
+      1823,
+      2020,
+      2734,
+      3102,
+      3239,
+      3682,
+      4023,
+      4830,
+      4896,
+      5007,
+      6049,
+      6111,
+      6979,
+      7112,
+      7403,
+      7662,
+      7848,
+      8678
+    ],
+    "ok": true,
+    "problems": [],
+    "notes": [
+      "stored schema ['fhr3-block-v1']; replay compares shared columns (cross-schema)"
+    ]
+  }
+]

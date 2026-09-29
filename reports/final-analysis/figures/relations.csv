@@ -1,0 +1,122 @@
+pairing_id,a,b,a_experiment,b_experiment,relation,corr_D,common_blocks
+c0-selfplay-control,aof/4max/8bb,bomb_pot/6max/100bb,fhr3-aof4-8bb-pilot-v1,fhr3-bomb6-100bb-pilot-v1,shared seed material only,,10000
+c0-selfplay-control,aof/4max/8bb,crazy_pineapple/6max/100bb,fhr3-aof4-8bb-pilot-v1,fhr3-cp6-100bb-pilot-v1,shared seed material only,,10000
+c0-selfplay-control,aof/4max/8bb,nit_game/6max/100bb,fhr3-aof4-8bb-pilot-v1,fhr3-nit6-100bb-pilot-v1,shared seed material only,,10000
+c0-selfplay-control,aof/4max/8bb,nlhe/4max/100bb,fhr3-aof4-8bb-pilot-v1,fhr3-nlhe4-100bb-v2,"shared cards, different game",,10000
+c0-selfplay-control,aof/4max/8bb,nlhe/6max/20bb,fhr3-aof4-8bb-pilot-v1,fhr3-nlhe6-20bb-v1,shared seed material only,,10000
+c0-selfplay-control,aof/4max/8bb,nlhe/6max/50bb,fhr3-aof4-8bb-pilot-v1,fhr3-nlhe6-50bb-v1,shared seed material only,,10000
+c0-selfplay-control,aof/4max/8bb,nlhe/6max/100bb,fhr3-aof4-8bb-pilot-v1,fhr3-nlhe6-100bb-pilot-v1,shared seed material only,,10000
+c0-selfplay-control,aof/4max/8bb,plo/6max/100bb,fhr3-aof4-8bb-pilot-v1,fhr3-plo6-100bb-pilot-v1,shared seed material only,,10000
+c0-selfplay-control,bomb_pot/6max/100bb,crazy_pineapple/6max/100bb,fhr3-bomb6-100bb-pilot-v1,fhr3-cp6-100bb-pilot-v1,shared seed material only,,10000
+c0-selfplay-control,bomb_pot/6max/100bb,nit_game/6max/100bb,fhr3-bomb6-100bb-pilot-v1,fhr3-nit6-100bb-pilot-v1,shared seed material only,,10000
+c0-selfplay-control,bomb_pot/6max/100bb,nlhe/4max/100bb,fhr3-bomb6-100bb-pilot-v1,fhr3-nlhe4-100bb-v2,shared seed material only,,10000
+c0-selfplay-control,bomb_pot/6max/100bb,nlhe/6max/20bb,fhr3-bomb6-100bb-pilot-v1,fhr3-nlhe6-20bb-v1,"shared cards, different game",,10000
+c0-selfplay-control,bomb_pot/6max/100bb,nlhe/6max/50bb,fhr3-bomb6-100bb-pilot-v1,fhr3-nlhe6-50bb-v1,"shared cards, different game",,10000
+c0-selfplay-control,bomb_pot/6max/100bb,nlhe/6max/100bb,fhr3-bomb6-100bb-pilot-v1,fhr3-nlhe6-100bb-pilot-v1,"shared cards, different game",,10000
+c0-selfplay-control,bomb_pot/6max/100bb,plo/6max/100bb,fhr3-bomb6-100bb-pilot-v1,fhr3-plo6-100bb-pilot-v1,shared seed material only,,10000
+c0-selfplay-control,crazy_pineapple/6max/100bb,nit_game/6max/100bb,fhr3-cp6-100bb-pilot-v1,fhr3-nit6-100bb-pilot-v1,shared seed material only,,10000
+c0-selfplay-control,crazy_pineapple/6max/100bb,nlhe/4max/100bb,fhr3-cp6-100bb-pilot-v1,fhr3-nlhe4-100bb-v2,shared seed material only,,10000
+c0-selfplay-control,crazy_pineapple/6max/100bb,nlhe/6max/20bb,fhr3-cp6-100bb-pilot-v1,fhr3-nlhe6-20bb-v1,shared seed material only,,10000
+c0-selfplay-control,crazy_pineapple/6max/100bb,nlhe/6max/50bb,fhr3-cp6-100bb-pilot-v1,fhr3-nlhe6-50bb-v1,shared seed material only,,10000
+c0-selfplay-control,crazy_pineapple/6max/100bb,nlhe/6max/100bb,fhr3-cp6-100bb-pilot-v1,fhr3-nlhe6-100bb-pilot-v1,shared seed material only,,10000
+c0-selfplay-control,crazy_pineapple/6max/100bb,plo/6max/100bb,fhr3-cp6-100bb-pilot-v1,fhr3-plo6-100bb-pilot-v1,shared seed material only,,10000
+c0-selfplay-control,nit_game/6max/100bb,nlhe/4max/100bb,fhr3-nit6-100bb-pilot-v1,fhr3-nlhe4-100bb-v2,shared seed material only,,10000
+c0-selfplay-control,nit_game/6max/100bb,nlhe/6max/20bb,fhr3-nit6-100bb-pilot-v1,fhr3-nlhe6-20bb-v1,shared seed material only,,10000
+c0-selfplay-control,nit_game/6max/100bb,nlhe/6max/50bb,fhr3-nit6-100bb-pilot-v1,fhr3-nlhe6-50bb-v1,shared seed material only,,10000
+c0-selfplay-control,nit_game/6max/100bb,nlhe/6max/100bb,fhr3-nit6-100bb-pilot-v1,fhr3-nlhe6-100bb-pilot-v1,shared seed material only,,10000
+c0-selfplay-control,nit_game/6max/100bb,plo/6max/100bb,fhr3-nit6-100bb-pilot-v1,fhr3-plo6-100bb-pilot-v1,shared seed material only,,10000
+c0-selfplay-control,nlhe/4max/100bb,nlhe/6max/20bb,fhr3-nlhe4-100bb-v2,fhr3-nlhe6-20bb-v1,shared seed material only,,10000
+c0-selfplay-control,nlhe/4max/100bb,nlhe/6max/50bb,fhr3-nlhe4-100bb-v2,fhr3-nlhe6-50bb-v1,shared seed material only,,10000
+c0-selfplay-control,nlhe/4max/100bb,nlhe/6max/100bb,fhr3-nlhe4-100bb-v2,fhr3-nlhe6-100bb-pilot-v1,shared seed material only,,10000
+c0-selfplay-control,nlhe/4max/100bb,plo/6max/100bb,fhr3-nlhe4-100bb-v2,fhr3-plo6-100bb-pilot-v1,shared seed material only,,10000
+c0-selfplay-control,nlhe/6max/20bb,nlhe/6max/50bb,fhr3-nlhe6-20bb-v1,fhr3-nlhe6-50bb-v1,paired,,10000
+c0-selfplay-control,nlhe/6max/20bb,nlhe/6max/100bb,fhr3-nlhe6-20bb-v1,fhr3-nlhe6-100bb-pilot-v1,paired,,10000
+c0-selfplay-control,nlhe/6max/20bb,plo/6max/100bb,fhr3-nlhe6-20bb-v1,fhr3-plo6-100bb-pilot-v1,shared seed material only,,10000
+c0-selfplay-control,nlhe/6max/50bb,nlhe/6max/100bb,fhr3-nlhe6-50bb-v1,fhr3-nlhe6-100bb-pilot-v1,paired,,10000
+c0-selfplay-control,nlhe/6max/50bb,plo/6max/100bb,fhr3-nlhe6-50bb-v1,fhr3-plo6-100bb-pilot-v1,shared seed material only,,10000
+c0-selfplay-control,nlhe/6max/100bb,plo/6max/100bb,fhr3-nlhe6-100bb-pilot-v1,fhr3-plo6-100bb-pilot-v1,shared seed material only,,10000
+p1-neutral-vs-loose10,crazy_pineapple/6max/100bb,nit_game/6max/100bb,fhr3-cp6-100bb-pilot-v1,fhr3-nit6-100bb-pilot-v1,shared seed material only,0.0029799981202127644,10000
+p1-neutral-vs-loose10,crazy_pineapple/6max/100bb,nlhe/4max/100bb,fhr3-cp6-100bb-pilot-v1,fhr3-nlhe4-100bb-v2,shared seed material only,0.00995012709965791,100000
+p1-neutral-vs-loose10,crazy_pineapple/6max/100bb,nlhe/6max/20bb,fhr3-cp6-100bb-pilot-v1,fhr3-nlhe6-20bb-v1,shared seed material only,-0.005166255459407348,10000
+p1-neutral-vs-loose10,crazy_pineapple/6max/100bb,nlhe/6max/50bb,fhr3-cp6-100bb-pilot-v1,fhr3-nlhe6-50bb-v1,shared seed material only,-0.0016080078862486843,10000
+p1-neutral-vs-loose10,crazy_pineapple/6max/100bb,nlhe/6max/100bb,fhr3-cp6-100bb-pilot-v1,fhr3-nlhe6-100bb-pilot-v1,shared seed material only,0.0024928981248742896,100000
+p1-neutral-vs-loose10,crazy_pineapple/6max/100bb,plo/6max/100bb,fhr3-cp6-100bb-pilot-v1,fhr3-plo6-100bb-pilot-v1,shared seed material only,0.00014148990702010642,50000
+p1-neutral-vs-loose10,nit_game/6max/100bb,nlhe/4max/100bb,fhr3-nit6-100bb-pilot-v1,fhr3-nlhe4-100bb-v2,shared seed material only,0.0024885019947870307,10000
+p1-neutral-vs-loose10,nit_game/6max/100bb,nlhe/6max/20bb,fhr3-nit6-100bb-pilot-v1,fhr3-nlhe6-20bb-v1,shared seed material only,-0.005088428069368116,10000
+p1-neutral-vs-loose10,nit_game/6max/100bb,nlhe/6max/50bb,fhr3-nit6-100bb-pilot-v1,fhr3-nlhe6-50bb-v1,shared seed material only,-0.002100255734613394,10000
+p1-neutral-vs-loose10,nit_game/6max/100bb,nlhe/6max/100bb,fhr3-nit6-100bb-pilot-v1,fhr3-nlhe6-100bb-pilot-v1,shared seed material only,-0.0035051741045321804,10000
+p1-neutral-vs-loose10,nit_game/6max/100bb,plo/6max/100bb,fhr3-nit6-100bb-pilot-v1,fhr3-plo6-100bb-pilot-v1,shared seed material only,-0.0009951147986447455,10000
+p1-neutral-vs-loose10,nlhe/4max/100bb,nlhe/6max/20bb,fhr3-nlhe4-100bb-v2,fhr3-nlhe6-20bb-v1,shared seed material only,-0.03059888390890594,10000
+p1-neutral-vs-loose10,nlhe/4max/100bb,nlhe/6max/50bb,fhr3-nlhe4-100bb-v2,fhr3-nlhe6-50bb-v1,shared seed material only,-0.04020587592209994,10000
+p1-neutral-vs-loose10,nlhe/4max/100bb,nlhe/6max/100bb,fhr3-nlhe4-100bb-v2,fhr3-nlhe6-100bb-pilot-v1,shared seed material only,0.03738499532825201,100000
+p1-neutral-vs-loose10,nlhe/4max/100bb,plo/6max/100bb,fhr3-nlhe4-100bb-v2,fhr3-plo6-100bb-pilot-v1,shared seed material only,0.0012563124248593795,50000
+p1-neutral-vs-loose10,nlhe/6max/20bb,nlhe/6max/50bb,fhr3-nlhe6-20bb-v1,fhr3-nlhe6-50bb-v1,paired,0.8678166393306478,10000
+p1-neutral-vs-loose10,nlhe/6max/20bb,nlhe/6max/100bb,fhr3-nlhe6-20bb-v1,fhr3-nlhe6-100bb-pilot-v1,paired,0.7404629941348178,10000
+p1-neutral-vs-loose10,nlhe/6max/20bb,plo/6max/100bb,fhr3-nlhe6-20bb-v1,fhr3-plo6-100bb-pilot-v1,shared seed material only,0.02104069355894464,10000
+p1-neutral-vs-loose10,nlhe/6max/50bb,nlhe/6max/100bb,fhr3-nlhe6-50bb-v1,fhr3-nlhe6-100bb-pilot-v1,paired,0.8960501041030777,10000
+p1-neutral-vs-loose10,nlhe/6max/50bb,plo/6max/100bb,fhr3-nlhe6-50bb-v1,fhr3-plo6-100bb-pilot-v1,shared seed material only,0.024976538054658017,10000
+p1-neutral-vs-loose10,nlhe/6max/100bb,plo/6max/100bb,fhr3-nlhe6-100bb-pilot-v1,fhr3-plo6-100bb-pilot-v1,shared seed material only,0.0031717970643175466,50000
+p2-neutral-vs-tight,bomb_pot/6max/100bb,crazy_pineapple/6max/100bb,fhr3-bomb6-100bb-pilot-v1,fhr3-cp6-100bb-pilot-v1,shared seed material only,0.0041033645619310815,50000
+p2-neutral-vs-tight,bomb_pot/6max/100bb,nit_game/6max/100bb,fhr3-bomb6-100bb-pilot-v1,fhr3-nit6-100bb-pilot-v1,shared seed material only,-0.013405060890221462,10000
+p2-neutral-vs-tight,bomb_pot/6max/100bb,nlhe/4max/100bb,fhr3-bomb6-100bb-pilot-v1,fhr3-nlhe4-100bb-v2,shared seed material only,0.003322035727827686,50000
+p2-neutral-vs-tight,bomb_pot/6max/100bb,nlhe/6max/20bb,fhr3-bomb6-100bb-pilot-v1,fhr3-nlhe6-20bb-v1,"shared cards, different game",0.008498707070827314,10000
+p2-neutral-vs-tight,bomb_pot/6max/100bb,nlhe/6max/50bb,fhr3-bomb6-100bb-pilot-v1,fhr3-nlhe6-50bb-v1,"shared cards, different game",-0.002997959150991751,10000
+p2-neutral-vs-tight,bomb_pot/6max/100bb,nlhe/6max/100bb,fhr3-bomb6-100bb-pilot-v1,fhr3-nlhe6-100bb-pilot-v1,"shared cards, different game",0.0004223619915550162,50000
+p2-neutral-vs-tight,bomb_pot/6max/100bb,plo/6max/100bb,fhr3-bomb6-100bb-pilot-v1,fhr3-plo6-100bb-pilot-v1,shared seed material only,0.004554861697220006,50000
+p2-neutral-vs-tight,crazy_pineapple/6max/100bb,nit_game/6max/100bb,fhr3-cp6-100bb-pilot-v1,fhr3-nit6-100bb-pilot-v1,shared seed material only,0.0026832554486873692,10000
+p2-neutral-vs-tight,crazy_pineapple/6max/100bb,nlhe/4max/100bb,fhr3-cp6-100bb-pilot-v1,fhr3-nlhe4-100bb-v2,shared seed material only,-0.0048306576349778545,100000
+p2-neutral-vs-tight,crazy_pineapple/6max/100bb,nlhe/6max/20bb,fhr3-cp6-100bb-pilot-v1,fhr3-nlhe6-20bb-v1,shared seed material only,0.005313014855958316,10000
+p2-neutral-vs-tight,crazy_pineapple/6max/100bb,nlhe/6max/50bb,fhr3-cp6-100bb-pilot-v1,fhr3-nlhe6-50bb-v1,shared seed material only,0.009336801360000306,10000
+p2-neutral-vs-tight,crazy_pineapple/6max/100bb,nlhe/6max/100bb,fhr3-cp6-100bb-pilot-v1,fhr3-nlhe6-100bb-pilot-v1,shared seed material only,0.0009373474701584737,100000
+p2-neutral-vs-tight,crazy_pineapple/6max/100bb,plo/6max/100bb,fhr3-cp6-100bb-pilot-v1,fhr3-plo6-100bb-pilot-v1,shared seed material only,-0.011052453511940782,50000
+p2-neutral-vs-tight,nit_game/6max/100bb,nlhe/4max/100bb,fhr3-nit6-100bb-pilot-v1,fhr3-nlhe4-100bb-v2,shared seed material only,-0.011426289551887214,10000
+p2-neutral-vs-tight,nit_game/6max/100bb,nlhe/6max/20bb,fhr3-nit6-100bb-pilot-v1,fhr3-nlhe6-20bb-v1,shared seed material only,0.0048098427766911115,10000
+p2-neutral-vs-tight,nit_game/6max/100bb,nlhe/6max/50bb,fhr3-nit6-100bb-pilot-v1,fhr3-nlhe6-50bb-v1,shared seed material only,-0.001339976804730201,10000
+p2-neutral-vs-tight,nit_game/6max/100bb,nlhe/6max/100bb,fhr3-nit6-100bb-pilot-v1,fhr3-nlhe6-100bb-pilot-v1,shared seed material only,0.0033477801696781065,10000
+p2-neutral-vs-tight,nit_game/6max/100bb,plo/6max/100bb,fhr3-nit6-100bb-pilot-v1,fhr3-plo6-100bb-pilot-v1,shared seed material only,-0.008128023767391803,10000
+p2-neutral-vs-tight,nlhe/4max/100bb,nlhe/6max/20bb,fhr3-nlhe4-100bb-v2,fhr3-nlhe6-20bb-v1,shared seed material only,0.0581796311451215,10000
+p2-neutral-vs-tight,nlhe/4max/100bb,nlhe/6max/50bb,fhr3-nlhe4-100bb-v2,fhr3-nlhe6-50bb-v1,shared seed material only,0.04763330260230845,10000
+p2-neutral-vs-tight,nlhe/4max/100bb,nlhe/6max/100bb,fhr3-nlhe4-100bb-v2,fhr3-nlhe6-100bb-pilot-v1,shared seed material only,0.027080198223052715,100000
+p2-neutral-vs-tight,nlhe/4max/100bb,plo/6max/100bb,fhr3-nlhe4-100bb-v2,fhr3-plo6-100bb-pilot-v1,shared seed material only,0.01481204101823288,50000
+p2-neutral-vs-tight,nlhe/6max/20bb,nlhe/6max/50bb,fhr3-nlhe6-20bb-v1,fhr3-nlhe6-50bb-v1,paired,0.8132894523205937,10000
+p2-neutral-vs-tight,nlhe/6max/20bb,nlhe/6max/100bb,fhr3-nlhe6-20bb-v1,fhr3-nlhe6-100bb-pilot-v1,paired,0.7216890172708101,10000
+p2-neutral-vs-tight,nlhe/6max/20bb,plo/6max/100bb,fhr3-nlhe6-20bb-v1,fhr3-plo6-100bb-pilot-v1,shared seed material only,0.004080513151877062,10000
+p2-neutral-vs-tight,nlhe/6max/50bb,nlhe/6max/100bb,fhr3-nlhe6-50bb-v1,fhr3-nlhe6-100bb-pilot-v1,paired,0.8769685041327416,10000
+p2-neutral-vs-tight,nlhe/6max/50bb,plo/6max/100bb,fhr3-nlhe6-50bb-v1,fhr3-plo6-100bb-pilot-v1,shared seed material only,-0.0003790011537491242,10000
+p2-neutral-vs-tight,nlhe/6max/100bb,plo/6max/100bb,fhr3-nlhe6-100bb-pilot-v1,fhr3-plo6-100bb-pilot-v1,shared seed material only,-0.0007570625919256651,50000
+p3-aggressive-vs-neutral,aof/4max/8bb,bomb_pot/6max/100bb,fhr3-aof4-8bb-pilot-v1,fhr3-bomb6-100bb-pilot-v1,shared seed material only,-0.002194191968292324,50000
+p3-aggressive-vs-neutral,aof/4max/8bb,crazy_pineapple/6max/100bb,fhr3-aof4-8bb-pilot-v1,fhr3-cp6-100bb-pilot-v1,shared seed material only,-0.004769130656503939,50000
+p3-aggressive-vs-neutral,aof/4max/8bb,nit_game/6max/100bb,fhr3-aof4-8bb-pilot-v1,fhr3-nit6-100bb-pilot-v1,shared seed material only,-0.00012864128780675326,10000
+p3-aggressive-vs-neutral,aof/4max/8bb,nlhe/4max/100bb,fhr3-aof4-8bb-pilot-v1,fhr3-nlhe4-100bb-v2,"shared cards, different game",0.06160303511521833,50000
+p3-aggressive-vs-neutral,aof/4max/8bb,nlhe/6max/20bb,fhr3-aof4-8bb-pilot-v1,fhr3-nlhe6-20bb-v1,shared seed material only,0.011606253335790682,10000
+p3-aggressive-vs-neutral,aof/4max/8bb,nlhe/6max/50bb,fhr3-aof4-8bb-pilot-v1,fhr3-nlhe6-50bb-v1,shared seed material only,0.006802165669749085,10000
+p3-aggressive-vs-neutral,aof/4max/8bb,nlhe/6max/100bb,fhr3-aof4-8bb-pilot-v1,fhr3-nlhe6-100bb-pilot-v1,shared seed material only,0.0006774973162267898,50000
+p3-aggressive-vs-neutral,aof/4max/8bb,plo/6max/100bb,fhr3-aof4-8bb-pilot-v1,fhr3-plo6-100bb-pilot-v1,shared seed material only,0.0038620803522312294,50000
+p3-aggressive-vs-neutral,bomb_pot/6max/100bb,crazy_pineapple/6max/100bb,fhr3-bomb6-100bb-pilot-v1,fhr3-cp6-100bb-pilot-v1,shared seed material only,0.0013822509023637079,50000
+p3-aggressive-vs-neutral,bomb_pot/6max/100bb,nit_game/6max/100bb,fhr3-bomb6-100bb-pilot-v1,fhr3-nit6-100bb-pilot-v1,shared seed material only,-0.005963710785660052,10000
+p3-aggressive-vs-neutral,bomb_pot/6max/100bb,nlhe/4max/100bb,fhr3-bomb6-100bb-pilot-v1,fhr3-nlhe4-100bb-v2,shared seed material only,0.005951851846536277,50000
+p3-aggressive-vs-neutral,bomb_pot/6max/100bb,nlhe/6max/20bb,fhr3-bomb6-100bb-pilot-v1,fhr3-nlhe6-20bb-v1,"shared cards, different game",0.015610120104396009,10000
+p3-aggressive-vs-neutral,bomb_pot/6max/100bb,nlhe/6max/50bb,fhr3-bomb6-100bb-pilot-v1,fhr3-nlhe6-50bb-v1,"shared cards, different game",0.023388994897714146,10000
+p3-aggressive-vs-neutral,bomb_pot/6max/100bb,nlhe/6max/100bb,fhr3-bomb6-100bb-pilot-v1,fhr3-nlhe6-100bb-pilot-v1,"shared cards, different game",0.015666336720682406,50000
+p3-aggressive-vs-neutral,bomb_pot/6max/100bb,plo/6max/100bb,fhr3-bomb6-100bb-pilot-v1,fhr3-plo6-100bb-pilot-v1,shared seed material only,-0.008225891972886642,50000
+p3-aggressive-vs-neutral,crazy_pineapple/6max/100bb,nit_game/6max/100bb,fhr3-cp6-100bb-pilot-v1,fhr3-nit6-100bb-pilot-v1,shared seed material only,0.006317180950487338,10000
+p3-aggressive-vs-neutral,crazy_pineapple/6max/100bb,nlhe/4max/100bb,fhr3-cp6-100bb-pilot-v1,fhr3-nlhe4-100bb-v2,shared seed material only,0.0034845487045128153,100000
+p3-aggressive-vs-neutral,crazy_pineapple/6max/100bb,nlhe/6max/20bb,fhr3-cp6-100bb-pilot-v1,fhr3-nlhe6-20bb-v1,shared seed material only,0.01905581072205152,10000
+p3-aggressive-vs-neutral,crazy_pineapple/6max/100bb,nlhe/6max/50bb,fhr3-cp6-100bb-pilot-v1,fhr3-nlhe6-50bb-v1,shared seed material only,0.008634427400628732,10000
+p3-aggressive-vs-neutral,crazy_pineapple/6max/100bb,nlhe/6max/100bb,fhr3-cp6-100bb-pilot-v1,fhr3-nlhe6-100bb-pilot-v1,shared seed material only,0.00031914841084989556,100000
+p3-aggressive-vs-neutral,crazy_pineapple/6max/100bb,plo/6max/100bb,fhr3-cp6-100bb-pilot-v1,fhr3-plo6-100bb-pilot-v1,shared seed material only,-0.004391695601976991,50000
+p3-aggressive-vs-neutral,nit_game/6max/100bb,nlhe/4max/100bb,fhr3-nit6-100bb-pilot-v1,fhr3-nlhe4-100bb-v2,shared seed material only,0.004325530345809352,10000
+p3-aggressive-vs-neutral,nit_game/6max/100bb,nlhe/6max/20bb,fhr3-nit6-100bb-pilot-v1,fhr3-nlhe6-20bb-v1,shared seed material only,-0.01784736968494217,10000
+p3-aggressive-vs-neutral,nit_game/6max/100bb,nlhe/6max/50bb,fhr3-nit6-100bb-pilot-v1,fhr3-nlhe6-50bb-v1,shared seed material only,-0.003048478515438523,10000
+p3-aggressive-vs-neutral,nit_game/6max/100bb,nlhe/6max/100bb,fhr3-nit6-100bb-pilot-v1,fhr3-nlhe6-100bb-pilot-v1,shared seed material only,-4.1675540611790905e-06,10000
+p3-aggressive-vs-neutral,nit_game/6max/100bb,plo/6max/100bb,fhr3-nit6-100bb-pilot-v1,fhr3-plo6-100bb-pilot-v1,shared seed material only,-0.004281470508958786,10000
+p3-aggressive-vs-neutral,nlhe/4max/100bb,nlhe/6max/20bb,fhr3-nlhe4-100bb-v2,fhr3-nlhe6-20bb-v1,shared seed material only,2.105299535240884e-05,10000
+p3-aggressive-vs-neutral,nlhe/4max/100bb,nlhe/6max/50bb,fhr3-nlhe4-100bb-v2,fhr3-nlhe6-50bb-v1,shared seed material only,-0.005630989158323351,10000
+p3-aggressive-vs-neutral,nlhe/4max/100bb,nlhe/6max/100bb,fhr3-nlhe4-100bb-v2,fhr3-nlhe6-100bb-pilot-v1,shared seed material only,0.038338104408170884,100000
+p3-aggressive-vs-neutral,nlhe/4max/100bb,plo/6max/100bb,fhr3-nlhe4-100bb-v2,fhr3-plo6-100bb-pilot-v1,shared seed material only,-0.0040931309445247106,50000
+p3-aggressive-vs-neutral,nlhe/6max/20bb,nlhe/6max/50bb,fhr3-nlhe6-20bb-v1,fhr3-nlhe6-50bb-v1,paired,0.8084423528482172,10000
+p3-aggressive-vs-neutral,nlhe/6max/20bb,nlhe/6max/100bb,fhr3-nlhe6-20bb-v1,fhr3-nlhe6-100bb-pilot-v1,paired,0.6883245575845267,10000
+p3-aggressive-vs-neutral,nlhe/6max/20bb,plo/6max/100bb,fhr3-nlhe6-20bb-v1,fhr3-plo6-100bb-pilot-v1,shared seed material only,-0.005021337677198441,10000
+p3-aggressive-vs-neutral,nlhe/6max/50bb,nlhe/6max/100bb,fhr3-nlhe6-50bb-v1,fhr3-nlhe6-100bb-pilot-v1,paired,0.8524956128491257,10000
+p3-aggressive-vs-neutral,nlhe/6max/50bb,plo/6max/100bb,fhr3-nlhe6-50bb-v1,fhr3-plo6-100bb-pilot-v1,shared seed material only,0.005354403011775115,10000
+p3-aggressive-vs-neutral,nlhe/6max/100bb,plo/6max/100bb,fhr3-nlhe6-100bb-pilot-v1,fhr3-plo6-100bb-pilot-v1,shared seed material only,0.004246600888403278,50000

@@ -1,0 +1,1086 @@
+{
+ "metric": {
+  "blocks": {
+   "order": [
+    "aof/4max/8bb",
+    "nit/6max/100bb",
+    "nlhe/6max/100bb",
+    "nlhe/4max/100bb",
+    "cp/6max/100bb",
+    "plo/6max/100bb",
+    "bomb/6max/100bb"
+   ],
+   "formats": {
+    "aof/4max/8bb": {
+     "median": 41896.0,
+     "min": 12280.0,
+     "max": 122597.0,
+     "pairing_spread": 9.983469055374593,
+     "median_ci": [
+      40646.04906509615,
+      43177.20861323118
+     ]
+    },
+    "nlhe/4max/100bb": {
+     "median": 533000.0,
+     "min": 164546.0,
+     "max": 564198.0,
+     "pairing_spread": 3.428816258067653,
+     "median_ci": [
+      500980.5504614575,
+      559931.6440227758
+     ]
+    },
+    "nlhe/6max/100bb": {
+     "median": 369159.0,
+     "min": 129260.0,
+     "max": 413793.0,
+     "pairing_spread": 3.2012455516014233,
+     "median_ci": [
+      356792.3543173329,
+      381457.8537896357
+     ]
+    },
+    "cp/6max/100bb": {
+     "median": 725797.0,
+     "min": 291591.0,
+     "max": 821825.0,
+     "pairing_spread": 2.818416892153736,
+     "median_ci": [
+      695481.4677691979,
+      754817.6398561184
+     ]
+    },
+    "plo/6max/100bb": {
+     "median": 1365765.0,
+     "min": 471231.0,
+     "max": 1611631.0,
+     "pairing_spread": 3.420044521688938,
+     "median_ci": [
+      1312568.7368034236,
+      1428430.1031705495
+     ]
+    },
+    "bomb/6max/100bb": {
+     "median": 1704689.0,
+     "min": 350080.0,
+     "max": 2976953.0,
+     "pairing_spread": 8.503636311700182,
+     "median_ci": [
+      1620084.1912485256,
+      1796449.4911286903
+     ]
+    },
+    "nit/6max/100bb": {
+     "median": 99312.0,
+     "min": 36999.0,
+     "max": 99803.0,
+     "pairing_spread": 2.6974512824670938,
+     "median_ci": [
+      94293.4489641908,
+      101870.735327665
+     ]
+    }
+   },
+   "pairs": {
+    "aof/4max/8bb < nit/6max/100bb": {
+     "ratio_of_medians": 2.370441092228375,
+     "ratio_ci": [
+      2.2268481054231324,
+      2.459022056386936
+     ],
+     "p_boot": 1.0,
+     "pairing_ranges_overlap": true,
+     "roles_agreeing": 2
+    },
+    "aof/4max/8bb < nlhe/6max/100bb": {
+     "ratio_of_medians": 8.81131850295971,
+     "ratio_ci": [
+      8.403672141249851,
+      9.219267685056659
+     ],
+     "p_boot": 1.0,
+     "pairing_ranges_overlap": false,
+     "roles_agreeing": 3
+    },
+    "aof/4max/8bb < nlhe/4max/100bb": {
+     "ratio_of_medians": 12.721978231812106,
+     "ratio_ci": [
+      11.895440831238451,
+      13.500765518293687
+     ],
+     "p_boot": 1.0,
+     "pairing_ranges_overlap": false,
+     "roles_agreeing": 3
+    },
+    "aof/4max/8bb < cp/6max/100bb": {
+     "ratio_of_medians": 17.32377792629368,
+     "ratio_ci": [
+      16.4653538577855,
+      18.149188614242515
+     ],
+     "p_boot": 1.0,
+     "pairing_ranges_overlap": false,
+     "roles_agreeing": 3
+    },
+    "aof/4max/8bb < plo/6max/100bb": {
+     "ratio_of_medians": 32.598935459232386,
+     "ratio_ci": [
+      30.987333554743746,
+      34.3921885710911
+     ],
+     "p_boot": 1.0,
+     "pairing_ranges_overlap": false,
+     "roles_agreeing": 3
+    },
+    "aof/4max/8bb < bomb/6max/100bb": {
+     "ratio_of_medians": 40.688586022531986,
+     "ratio_ci": [
+      38.35131978572789,
+      43.2570387408917
+     ],
+     "p_boot": 1.0,
+     "pairing_ranges_overlap": false,
+     "roles_agreeing": 3
+    },
+    "nit/6max/100bb < nlhe/6max/100bb": {
+     "ratio_of_medians": 3.717164088931851,
+     "ratio_ci": [
+      3.580598361489329,
+      3.97351270495483
+     ],
+     "p_boot": 1.0,
+     "pairing_ranges_overlap": false,
+     "roles_agreeing": 3
+    },
+    "nit/6max/100bb < nlhe/4max/100bb": {
+     "ratio_of_medians": 5.36692444014822,
+     "ratio_ci": [
+      5.045483198692057,
+      5.801314085358391
+     ],
+     "p_boot": 1.0,
+     "pairing_ranges_overlap": false,
+     "roles_agreeing": 3
+    },
+    "nit/6max/100bb < cp/6max/100bb": {
+     "ratio_of_medians": 7.308250765265023,
+     "ratio_ci": [
+      6.986419852340703,
+      7.795957688303512
+     ],
+     "p_boot": 1.0,
+     "pairing_ranges_overlap": false,
+     "roles_agreeing": 3
+    },
+    "nit/6max/100bb < plo/6max/100bb": {
+     "ratio_of_medians": 13.752265587240213,
+     "ratio_ci": [
+      13.162446828298316,
+      14.786651956768786
+     ],
+     "p_boot": 1.0,
+     "pairing_ranges_overlap": false,
+     "roles_agreeing": 3
+    },
+    "nit/6max/100bb < bomb/6max/100bb": {
+     "ratio_of_medians": 17.1649850974706,
+     "ratio_ci": [
+      16.356551367278364,
+      18.544082570038753
+     ],
+     "p_boot": 1.0,
+     "pairing_ranges_overlap": false,
+     "roles_agreeing": 3
+    },
+    "nlhe/6max/100bb < nlhe/4max/100bb": {
+     "ratio_of_medians": 1.4438223096281007,
+     "ratio_ci": [
+      1.348983225670616,
+      1.5324286979936217
+     ],
+     "p_boot": 1.0,
+     "pairing_ranges_overlap": true,
+     "roles_agreeing": 3
+    },
+    "nlhe/6max/100bb < cp/6max/100bb": {
+     "ratio_of_medians": 1.9660823655931454,
+     "ratio_ci": [
+      1.86222292968819,
+      2.0635476616030366
+     ],
+     "p_boot": 1.0,
+     "pairing_ranges_overlap": true,
+     "roles_agreeing": 3
+    },
+    "nlhe/6max/100bb < plo/6max/100bb": {
+     "ratio_of_medians": 3.699665997578279,
+     "ratio_ci": [
+      3.504006198079128,
+      3.909045373349985
+     ],
+     "p_boot": 1.0,
+     "pairing_ranges_overlap": false,
+     "roles_agreeing": 3
+    },
+    "nlhe/6max/100bb < bomb/6max/100bb": {
+     "ratio_of_medians": 4.617763619470201,
+     "ratio_ci": [
+      4.342506952931203,
+      4.894401337261824
+     ],
+     "p_boot": 1.0,
+     "pairing_ranges_overlap": true,
+     "roles_agreeing": 3
+    },
+    "nlhe/4max/100bb < cp/6max/100bb": {
+     "ratio_of_medians": 1.361720450281426,
+     "ratio_ci": [
+      1.2793896600903778,
+      1.458722811043316
+     ],
+     "p_boot": 1.0,
+     "pairing_ranges_overlap": true,
+     "roles_agreeing": 3
+    },
+    "nlhe/4max/100bb < plo/6max/100bb": {
+     "ratio_of_medians": 2.5624108818011258,
+     "ratio_ci": [
+      2.4055462866492197,
+      2.7546688938550545
+     ],
+     "p_boot": 1.0,
+     "pairing_ranges_overlap": true,
+     "roles_agreeing": 3
+    },
+    "nlhe/4max/100bb < bomb/6max/100bb": {
+     "ratio_of_medians": 3.1982908067542213,
+     "ratio_ci": [
+      2.993939092353668,
+      3.4645620660166814
+     ],
+     "p_boot": 1.0,
+     "pairing_ranges_overlap": true,
+     "roles_agreeing": 3
+    },
+    "cp/6max/100bb < plo/6max/100bb": {
+     "ratio_of_medians": 1.8817451711704511,
+     "ratio_ci": [
+      1.7836051683680525,
+      2.0017952611823486
+     ],
+     "p_boot": 1.0,
+     "pairing_ranges_overlap": true,
+     "roles_agreeing": 3
+    },
+    "cp/6max/100bb < bomb/6max/100bb": {
+     "ratio_of_medians": 2.348713207687549,
+     "ratio_ci": [
+      2.2131807549324805,
+      2.501988231565405
+     ],
+     "p_boot": 1.0,
+     "pairing_ranges_overlap": true,
+     "roles_agreeing": 3
+    },
+    "plo/6max/100bb < bomb/6max/100bb": {
+     "ratio_of_medians": 1.2481568937555143,
+     "ratio_ci": [
+      1.1708629034909845,
+      1.329567765360775
+     ],
+     "p_boot": 1.0,
+     "pairing_ranges_overlap": true,
+     "roles_agreeing": 2
+    }
+   },
+   "largest_over_smallest_median": 40.688586022531986,
+   "largest_over_smallest_median_100bb_excl_nit": 4.617763619470201,
+   "largest_over_smallest_median_100bb_incl_nit": 17.1649850974706,
+   "within_format_spread_100bb_excl_nit": [
+    2.818416892153736,
+    8.503636311700182
+   ],
+   "max_within_format_spread": 9.983469055374593,
+   "median_within_format_spread": 3.420044521688938
+  },
+  "hands": {
+   "order": [
+    "aof/4max/8bb",
+    "nlhe/4max/100bb",
+    "nlhe/6max/100bb",
+    "cp/6max/100bb",
+    "nit/6max/100bb",
+    "plo/6max/100bb",
+    "bomb/6max/100bb"
+   ],
+   "formats": {
+    "aof/4max/8bb": {
+     "median": 335168.0,
+     "min": 98240.0,
+     "max": 980776.0,
+     "pairing_spread": 9.983469055374593,
+     "median_ci": [
+      325168.3925207692,
+      345417.66890584945
+     ]
+    },
+    "nlhe/4max/100bb": {
+     "median": 4264000.0,
+     "min": 1316368.0,
+     "max": 4513584.0,
+     "pairing_spread": 3.428816258067653,
+     "median_ci": [
+      4007844.40369166,
+      4479453.1521822065
+     ]
+    },
+    "nlhe/6max/100bb": {
+     "median": 4429908.0,
+     "min": 1551120.0,
+     "max": 4965516.0,
+     "pairing_spread": 3.2012455516014233,
+     "median_ci": [
+      4281508.251807994,
+      4577494.245475628
+     ]
+    },
+    "cp/6max/100bb": {
+     "median": 8709564.0,
+     "min": 3499092.0,
+     "max": 9861900.0,
+     "pairing_spread": 2.818416892153736,
+     "median_ci": [
+      8345777.613230374,
+      9057811.67827342
+     ]
+    },
+    "plo/6max/100bb": {
+     "median": 16389180.0,
+     "min": 5654772.0,
+     "max": 19339572.0,
+     "pairing_spread": 3.420044521688938,
+     "median_ci": [
+      15750824.841641083,
+      17141161.238046594
+     ]
+    },
+    "bomb/6max/100bb": {
+     "median": 20456268.0,
+     "min": 4200960.0,
+     "max": 35723436.0,
+     "pairing_spread": 8.503636311700182,
+     "median_ci": [
+      19441010.29498231,
+      21557393.893544283
+     ]
+    },
+    "nit/6max/100bb": {
+     "median": 9492393.0739,
+     "min": 3515578.3817999996,
+     "max": 9498805.4832,
+     "pairing_spread": 2.7019182767691694,
+     "median_ci": [
+      8988410.465508385,
+      9721910.064897256
+     ]
+    }
+   },
+   "pairs": {
+    "aof/4max/8bb < nlhe/4max/100bb": {
+     "ratio_of_medians": 12.721978231812106,
+     "ratio_ci": [
+      11.895440831238451,
+      13.500765518293687
+     ],
+     "p_boot": 1.0,
+     "pairing_ranges_overlap": false,
+     "roles_agreeing": 3
+    },
+    "aof/4max/8bb < nlhe/6max/100bb": {
+     "ratio_of_medians": 13.216977754439565,
+     "ratio_ci": [
+      12.60550821187478,
+      13.82890152758499
+     ],
+     "p_boot": 1.0,
+     "pairing_ranges_overlap": false,
+     "roles_agreeing": 3
+    },
+    "aof/4max/8bb < cp/6max/100bb": {
+     "ratio_of_medians": 25.98566688944052,
+     "ratio_ci": [
+      24.69803078667825,
+      27.223782921363775
+     ],
+     "p_boot": 1.0,
+     "pairing_ranges_overlap": false,
+     "roles_agreeing": 3
+    },
+    "aof/4max/8bb < nit/6max/100bb": {
+     "ratio_of_medians": 28.321298793142542,
+     "ratio_ci": [
+      26.594732814806896,
+      29.34565290696468
+     ],
+     "p_boot": 1.0,
+     "pairing_ranges_overlap": false,
+     "roles_agreeing": 3
+    },
+    "aof/4max/8bb < plo/6max/100bb": {
+     "ratio_of_medians": 48.898403188848576,
+     "ratio_ci": [
+      46.48100033211562,
+      51.58828285663664
+     ],
+     "p_boot": 1.0,
+     "pairing_ranges_overlap": false,
+     "roles_agreeing": 3
+    },
+    "aof/4max/8bb < bomb/6max/100bb": {
+     "ratio_of_medians": 61.032879033797975,
+     "ratio_ci": [
+      57.526979678591836,
+      64.88555811133755
+     ],
+     "p_boot": 1.0,
+     "pairing_ranges_overlap": false,
+     "roles_agreeing": 3
+    },
+    "nlhe/4max/100bb < nlhe/6max/100bb": {
+     "ratio_of_medians": 1.0389090056285177,
+     "ratio_ci": [
+      0.9788383661834366,
+      1.1119486583397793
+     ],
+     "p_boot": 0.894,
+     "pairing_ranges_overlap": true,
+     "roles_agreeing": 3
+    },
+    "nlhe/4max/100bb < cp/6max/100bb": {
+     "ratio_of_medians": 2.0425806754221387,
+     "ratio_ci": [
+      1.9190844901355664,
+      2.1880842165649743
+     ],
+     "p_boot": 1.0,
+     "pairing_ranges_overlap": true,
+     "roles_agreeing": 3
+    },
+    "nlhe/4max/100bb < nit/6max/100bb": {
+     "ratio_of_medians": 2.226170983560037,
+     "ratio_ci": [
+      2.0602265906983015,
+      2.364722259173677
+     ],
+     "p_boot": 1.0,
+     "pairing_ranges_overlap": true,
+     "roles_agreeing": 3
+    },
+    "nlhe/4max/100bb < plo/6max/100bb": {
+     "ratio_of_medians": 3.8436163227016884,
+     "ratio_ci": [
+      3.60831942997383,
+      4.132003340782582
+     ],
+     "p_boot": 1.0,
+     "pairing_ranges_overlap": false,
+     "roles_agreeing": 3
+    },
+    "nlhe/4max/100bb < bomb/6max/100bb": {
+     "ratio_of_medians": 4.797436210131332,
+     "ratio_ci": [
+      4.490908638530502,
+      5.196843099025022
+     ],
+     "p_boot": 1.0,
+     "pairing_ranges_overlap": true,
+     "roles_agreeing": 3
+    },
+    "nlhe/6max/100bb < cp/6max/100bb": {
+     "ratio_of_medians": 1.9660823655931454,
+     "ratio_ci": [
+      1.86222292968819,
+      2.063547661603037
+     ],
+     "p_boot": 1.0,
+     "pairing_ranges_overlap": true,
+     "roles_agreeing": 3
+    },
+    "nlhe/6max/100bb < nit/6max/100bb": {
+     "ratio_of_medians": 2.1427968874071426,
+     "ratio_ci": [
+      2.00094028472718,
+      2.22264157387127
+     ],
+     "p_boot": 1.0,
+     "pairing_ranges_overlap": true,
+     "roles_agreeing": 3
+    },
+    "nlhe/6max/100bb < plo/6max/100bb": {
+     "ratio_of_medians": 3.699665997578279,
+     "ratio_ci": [
+      3.504006198079128,
+      3.909045373349985
+     ],
+     "p_boot": 1.0,
+     "pairing_ranges_overlap": false,
+     "roles_agreeing": 3
+    },
+    "nlhe/6max/100bb < bomb/6max/100bb": {
+     "ratio_of_medians": 4.617763619470201,
+     "ratio_ci": [
+      4.342506952931203,
+      4.894401337261824
+     ],
+     "p_boot": 1.0,
+     "pairing_ranges_overlap": true,
+     "roles_agreeing": 3
+    },
+    "cp/6max/100bb < nit/6max/100bb": {
+     "ratio_of_medians": 1.089881545608942,
+     "ratio_ci": [
+      1.0185842835961125,
+      1.1369757749198643
+     ],
+     "p_boot": 1.0,
+     "pairing_ranges_overlap": true,
+     "roles_agreeing": 2
+    },
+    "cp/6max/100bb < plo/6max/100bb": {
+     "ratio_of_medians": 1.8817451711704511,
+     "ratio_ci": [
+      1.7836051683680525,
+      2.0017952611823486
+     ],
+     "p_boot": 1.0,
+     "pairing_ranges_overlap": true,
+     "roles_agreeing": 3
+    },
+    "cp/6max/100bb < bomb/6max/100bb": {
+     "ratio_of_medians": 2.348713207687549,
+     "ratio_ci": [
+      2.21318075493248,
+      2.501988231565405
+     ],
+     "p_boot": 1.0,
+     "pairing_ranges_overlap": true,
+     "roles_agreeing": 3
+    },
+    "nit/6max/100bb < plo/6max/100bb": {
+     "ratio_of_medians": 1.7265593483547579,
+     "ratio_ci": [
+      1.6554306290728311,
+      1.8602305462235333
+     ],
+     "p_boot": 1.0,
+     "pairing_ranges_overlap": true,
+     "roles_agreeing": 3
+    },
+    "nit/6max/100bb < bomb/6max/100bb": {
+     "ratio_of_medians": 2.15501695312702,
+     "ratio_ci": [
+      2.059381405577952,
+      2.3336168761178433
+     ],
+     "p_boot": 1.0,
+     "pairing_ranges_overlap": true,
+     "roles_agreeing": 3
+    },
+    "plo/6max/100bb < bomb/6max/100bb": {
+     "ratio_of_medians": 1.2481568937555143,
+     "ratio_ci": [
+      1.1708629034909848,
+      1.329567765360775
+     ],
+     "p_boot": 1.0,
+     "pairing_ranges_overlap": true,
+     "roles_agreeing": 2
+    }
+   },
+   "largest_over_smallest_median": 61.032879033797975,
+   "largest_over_smallest_median_100bb_excl_nit": 4.797436210131332,
+   "largest_over_smallest_median_100bb_incl_nit": 4.797436210131332,
+   "within_format_spread_100bb_excl_nit": [
+    2.818416892153736,
+    8.503636311700182
+   ],
+   "max_within_format_spread": 9.983469055374593,
+   "median_within_format_spread": 3.420044521688938
+  },
+  "wall_h": {
+   "order": [
+    "aof/4max/8bb",
+    "nlhe/4max/100bb",
+    "nlhe/6max/100bb",
+    "nit/6max/100bb",
+    "cp/6max/100bb",
+    "plo/6max/100bb",
+    "bomb/6max/100bb"
+   ],
+   "formats": {
+    "aof/4max/8bb": {
+     "median": 0.01626301788644389,
+     "min": 0.004766800163393426,
+     "max": 0.047589201924392824,
+     "pairing_spread": 9.983469055374593,
+     "median_ci": [
+      0.015777817045993285,
+      0.016760352204594663
+     ]
+    },
+    "nlhe/4max/100bb": {
+     "median": 0.21368856152331925,
+     "min": 0.06596922710021781,
+     "max": 0.226196358413384,
+     "pairing_spread": 3.4288162580676524,
+     "median_ci": [
+      0.20085143185604037,
+      0.2244859053707584
+     ]
+    },
+    "nlhe/6max/100bb": {
+     "median": 0.2892831551846853,
+     "min": 0.10129169447087143,
+     "max": 0.3242595863390476,
+     "pairing_spread": 3.201245551601423,
+     "median_ci": [
+      0.2795923111794382,
+      0.298920875596272
+     ]
+    },
+    "cp/6max/100bb": {
+     "median": 0.9000614034786844,
+     "min": 0.3616022175646263,
+     "max": 1.019145798224393,
+     "pairing_spread": 2.818416892153736,
+     "median_ci": [
+      0.8624670892463865,
+      0.9360499207069828
+     ]
+    },
+    "plo/6max/100bb": {
+     "median": 2.8654053395986923,
+     "min": 0.9886531164471424,
+     "max": 3.381237674755745,
+     "pairing_spread": 3.420044521688938,
+     "median_ci": [
+      2.753798396522711,
+      2.996878119492302
+     ]
+    },
+    "bomb/6max/100bb": {
+     "median": 7.719342522201777,
+     "min": 1.5852671250723143,
+     "max": 13.480535088509486,
+     "pairing_spread": 8.503636311700182,
+     "median_ci": [
+      7.3362266003075165,
+      8.134861517765083
+     ]
+    },
+    "nit/6max/100bb": {
+     "median": 0.7698840256467144,
+     "min": 0.2868227310385733,
+     "max": 0.7736903436807138,
+     "pairing_spread": 2.6974512824670933,
+     "median_ci": [
+      0.7309793386565998,
+      0.789719790253481
+     ]
+    }
+   },
+   "pairs": {
+    "aof/4max/8bb < nlhe/4max/100bb": {
+     "ratio_of_medians": 13.139539230381112,
+     "ratio_ci": [
+      12.285873204364984,
+      13.943887887200756
+     ],
+     "p_boot": 1.0,
+     "pairing_ranges_overlap": false,
+     "roles_agreeing": 3
+    },
+    "aof/4max/8bb < nlhe/6max/100bb": {
+     "ratio_of_medians": 17.78779050755509,
+     "ratio_ci": [
+      16.96485713148585,
+      18.611335200262715
+     ],
+     "p_boot": 1.0,
+     "pairing_ranges_overlap": false,
+     "roles_agreeing": 3
+    },
+    "aof/4max/8bb < nit/6max/100bb": {
+     "ratio_of_medians": 47.339554750687114,
+     "ratio_ci": [
+      44.47189097158377,
+      49.10858559325946
+     ],
+     "p_boot": 1.0,
+     "pairing_ranges_overlap": false,
+     "roles_agreeing": 3
+    },
+    "aof/4max/8bb < cp/6max/100bb": {
+     "ratio_of_medians": 55.344057896470396,
+     "ratio_ci": [
+      52.60166120047416,
+      57.98098715615983
+     ],
+     "p_boot": 1.0,
+     "pairing_ranges_overlap": false,
+     "roles_agreeing": 3
+    },
+    "aof/4max/8bb < plo/6max/100bb": {
+     "ratio_of_medians": 176.1914891569518,
+     "ratio_ci": [
+      167.48106547348104,
+      185.88370553649747
+     ],
+     "p_boot": 1.0,
+     "pairing_ranges_overlap": false,
+     "roles_agreeing": 3
+    },
+    "aof/4max/8bb < bomb/6max/100bb": {
+     "ratio_of_medians": 474.6562154762351,
+     "ratio_ci": [
+      447.390634266127,
+      504.61872255994547
+     ],
+     "p_boot": 1.0,
+     "pairing_ranges_overlap": false,
+     "roles_agreeing": 3
+    },
+    "nlhe/4max/100bb < nlhe/6max/100bb": {
+     "ratio_of_medians": 1.3537605996431241,
+     "ratio_ci": [
+      1.2754849619929127,
+      1.4489356376074003
+     ],
+     "p_boot": 1.0,
+     "pairing_ranges_overlap": true,
+     "roles_agreeing": 3
+    },
+    "nlhe/4max/100bb < nit/6max/100bb": {
+     "ratio_of_medians": 3.6028321785614112,
+     "ratio_ci": [
+      3.3330600301648663,
+      3.83236398546534
+     ],
+     "p_boot": 1.0,
+     "pairing_ranges_overlap": false,
+     "roles_agreeing": 3
+    },
+    "nlhe/4max/100bb < cp/6max/100bb": {
+     "ratio_of_medians": 4.212024251847767,
+     "ratio_ci": [
+      3.957361641113812,
+      4.5120684319371
+     ],
+     "p_boot": 1.0,
+     "pairing_ranges_overlap": false,
+     "roles_agreeing": 3
+    },
+    "nlhe/4max/100bb < plo/6max/100bb": {
+     "ratio_of_medians": 13.409259340659647,
+     "ratio_ci": [
+      12.588376923753513,
+      14.415357762368927
+     ],
+     "p_boot": 1.0,
+     "pairing_ranges_overlap": false,
+     "roles_agreeing": 3
+    },
+    "nlhe/4max/100bb < bomb/6max/100bb": {
+     "ratio_of_medians": 36.12426639579108,
+     "ratio_ci": [
+      33.81614114531272,
+      39.13176461416026
+     ],
+     "p_boot": 1.0,
+     "pairing_ranges_overlap": false,
+     "roles_agreeing": 3
+    },
+    "nlhe/6max/100bb < nit/6max/100bb": {
+     "ratio_of_medians": 2.6613510391063113,
+     "ratio_ci": [
+      2.489655736037966,
+      2.762856237214477
+     ],
+     "p_boot": 1.0,
+     "pairing_ranges_overlap": true,
+     "roles_agreeing": 3
+    },
+    "nlhe/6max/100bb < cp/6max/100bb": {
+     "ratio_of_medians": 3.111350893915906,
+     "ratio_ci": [
+      2.9469919868835466,
+      3.2655909914688213
+     ],
+     "p_boot": 1.0,
+     "pairing_ranges_overlap": false,
+     "roles_agreeing": 3
+    },
+    "nlhe/6max/100bb < plo/6max/100bb": {
+     "ratio_of_medians": 9.905192501683512,
+     "ratio_ci": [
+      9.38134846274905,
+      10.465768246699042
+     ],
+     "p_boot": 1.0,
+     "pairing_ranges_overlap": false,
+     "roles_agreeing": 3
+    },
+    "nlhe/6max/100bb < bomb/6max/100bb": {
+     "ratio_of_medians": 26.6843830477221,
+     "ratio_ci": [
+      25.093774490931466,
+      28.28297219937864
+     ],
+     "p_boot": 1.0,
+     "pairing_ranges_overlap": false,
+     "roles_agreeing": 3
+    },
+    "nit/6max/100bb < cp/6max/100bb": {
+     "ratio_of_medians": 1.1690869968663382,
+     "ratio_ci": [
+      1.1176043168688625,
+      1.247104547210386
+     ],
+     "p_boot": 1.0,
+     "pairing_ranges_overlap": true,
+     "roles_agreeing": 3
+    },
+    "nit/6max/100bb < plo/6max/100bb": {
+     "ratio_of_medians": 3.7218662086042213,
+     "ratio_ci": [
+      3.562239673312209,
+      4.0018090042815535
+     ],
+     "p_boot": 1.0,
+     "pairing_ranges_overlap": false,
+     "roles_agreeing": 3
+    },
+    "nit/6max/100bb < bomb/6max/100bb": {
+     "ratio_of_medians": 10.026630330090835,
+     "ratio_ci": [
+      9.554397694117943,
+      10.832206359902887
+     ],
+     "p_boot": 1.0,
+     "pairing_ranges_overlap": false,
+     "roles_agreeing": 3
+    },
+    "cp/6max/100bb < plo/6max/100bb": {
+     "ratio_of_medians": 3.1835665083782834,
+     "ratio_ci": [
+      3.01753168557625,
+      3.3866691663497415
+     ],
+     "p_boot": 1.0,
+     "pairing_ranges_overlap": true,
+     "roles_agreeing": 3
+    },
+    "cp/6max/100bb < bomb/6max/100bb": {
+     "ratio_of_medians": 8.576462108437239,
+     "ratio_ci": [
+      8.081557519101766,
+      9.13615472231431
+     ],
+     "p_boot": 1.0,
+     "pairing_ranges_overlap": false,
+     "roles_agreeing": 3
+    },
+    "plo/6max/100bb < bomb/6max/100bb": {
+     "ratio_of_medians": 2.693979248074861,
+     "ratio_ci": [
+      2.52715053702475,
+      2.8696936953286514
+     ],
+     "p_boot": 1.0,
+     "pairing_ranges_overlap": true,
+     "roles_agreeing": 3
+    }
+   },
+   "largest_over_smallest_median": 474.6562154762351,
+   "largest_over_smallest_median_100bb_excl_nit": 36.12426639579108,
+   "largest_over_smallest_median_100bb_incl_nit": 36.12426639579108,
+   "within_format_spread_100bb_excl_nit": [
+    2.818416892153736,
+    8.503636311700182
+   ],
+   "max_within_format_spread": 9.983469055374593,
+   "median_within_format_spread": 3.420044521688938
+  }
+ },
+ "per_pairing": {
+  "aof/4max/8bb|p1": {
+   "pairing_id": "p1-prodv2-vs-blend10",
+   "sd": 1.5821402982458497,
+   "blocks": 12280,
+   "hands": 98240.0,
+   "wall_h": 0.004766800163393426,
+   "n": 50000
+  },
+  "aof/4max/8bb|p2": {
+   "pairing_id": "p2-prodv2-vs-heuristic",
+   "sd": 4.999144176456,
+   "blocks": 122597,
+   "hands": 980776.0,
+   "wall_h": 0.047589201924392824,
+   "n": 50000
+  },
+  "aof/4max/8bb|p3": {
+   "pairing_id": "p3-aggressive-vs-neutral",
+   "sd": 2.9224061755877715,
+   "blocks": 41896,
+   "hands": 335168.0,
+   "wall_h": 0.01626301788644389,
+   "n": 50000
+  },
+  "nlhe/4max/100bb|p1": {
+   "pairing_id": "p1-neutral-vs-loose10",
+   "sd": 5.7916015519838515,
+   "blocks": 164546,
+   "hands": 1316368.0,
+   "wall_h": 0.06596922710021781,
+   "n": 100000
+  },
+  "nlhe/4max/100bb|p2": {
+   "pairing_id": "p2-neutral-vs-tight",
+   "sd": 10.423643974889563,
+   "blocks": 533000,
+   "hands": 4264000.0,
+   "wall_h": 0.21368856152331925,
+   "n": 100000
+  },
+  "nlhe/4max/100bb|p3": {
+   "pairing_id": "p3-aggressive-vs-neutral",
+   "sd": 10.724368584577702,
+   "blocks": 564198,
+   "hands": 4513584.0,
+   "wall_h": 0.226196358413384,
+   "n": 100000
+  },
+  "nlhe/6max/100bb|p1": {
+   "pairing_id": "p1-neutral-vs-loose10",
+   "sd": 7.699795861111344,
+   "blocks": 129260,
+   "hands": 1551120.0,
+   "wall_h": 0.10129169447087143,
+   "n": 250000
+  },
+  "nlhe/6max/100bb|p2": {
+   "pairing_id": "p2-neutral-vs-tight",
+   "sd": 13.012299651609785,
+   "blocks": 369159,
+   "hands": 4429908.0,
+   "wall_h": 0.2892831551846853,
+   "n": 250000
+  },
+  "nlhe/6max/100bb|p3": {
+   "pairing_id": "p3-aggressive-vs-neutral",
+   "sd": 13.776493100614648,
+   "blocks": 413793,
+   "hands": 4965516.0,
+   "wall_h": 0.3242595863390476,
+   "n": 250000
+  },
+  "cp/6max/100bb|p1": {
+   "pairing_id": "p1-neutral-vs-loose10",
+   "sd": 11.564692429617898,
+   "blocks": 291591,
+   "hands": 3499092.0,
+   "wall_h": 0.3616022175646263,
+   "n": 100000
+  },
+  "cp/6max/100bb|p2": {
+   "pairing_id": "p2-neutral-vs-tight",
+   "sd": 18.245463746508687,
+   "blocks": 725797,
+   "hands": 8709564.0,
+   "wall_h": 0.9000614034786844,
+   "n": 100000
+  },
+  "cp/6max/100bb|p3": {
+   "pairing_id": "p3-aggressive-vs-neutral",
+   "sd": 19.414977037074785,
+   "blocks": 821825,
+   "hands": 9861900.0,
+   "wall_h": 1.019145798224393,
+   "n": 100000
+  },
+  "plo/6max/100bb|p1": {
+   "pairing_id": "p1-neutral-vs-loose10",
+   "sd": 14.70157574057138,
+   "blocks": 471231,
+   "hands": 5654772.0,
+   "wall_h": 0.9886531164471424,
+   "n": 50000
+  },
+  "plo/6max/100bb|p2": {
+   "pairing_id": "p2-neutral-vs-tight",
+   "sd": 25.028528789495432,
+   "blocks": 1365765,
+   "hands": 16389180.0,
+   "wall_h": 2.8654053395986923,
+   "n": 50000
+  },
+  "plo/6max/100bb|p3": {
+   "pairing_id": "p3-aggressive-vs-neutral",
+   "sd": 27.18818063732528,
+   "blocks": 1611631,
+   "hands": 19339572.0,
+   "wall_h": 3.381237674755745,
+   "n": 50000
+  },
+  "bomb/6max/100bb|p1": {
+   "pairing_id": "p1-neutral-vs-aggr10",
+   "sd": 12.671575335546473,
+   "blocks": 350080,
+   "hands": 4200960.0,
+   "wall_h": 1.5852671250723143,
+   "n": 50000
+  },
+  "bomb/6max/100bb|p2": {
+   "pairing_id": "p2-neutral-vs-tight",
+   "sd": 27.962112594893274,
+   "blocks": 1704689,
+   "hands": 20456268.0,
+   "wall_h": 7.719342522201777,
+   "n": 50000
+  },
+  "bomb/6max/100bb|p3": {
+   "pairing_id": "p3-aggressive-vs-neutral",
+   "sd": 36.95161180735838,
+   "blocks": 2976953,
+   "hands": 35723436.0,
+   "wall_h": 13.480535088509486,
+   "n": 50000
+  },
+  "nit/6max/100bb|p1": {
+   "pairing_id": "p1-neutral-vs-loose10",
+   "sd": 32.61871052102927,
+   "blocks": 36999,
+   "hands": 3515578.3817999996,
+   "wall_h": 0.2868227310385733,
+   "n": 10000
+  },
+  "nit/6max/100bb|p2": {
+   "pairing_id": "p2-neutral-vs-tight",
+   "sd": 53.79383294175472,
+   "blocks": 99312,
+   "hands": 9498805.4832,
+   "wall_h": 0.7698840256467144,
+   "n": 10000
+  },
+  "nit/6max/100bb|p3": {
+   "pairing_id": "p3-aggressive-vs-neutral",
+   "sd": 53.625124745161834,
+   "blocks": 99803,
+   "hands": 9492393.0739,
+   "wall_h": 0.7736903436807138,
+   "n": 10000
+  }
+ }
+}
