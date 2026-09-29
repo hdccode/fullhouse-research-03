@@ -58,6 +58,7 @@ whose configuration disagrees with existing results is refused.
 | `docs/agents.md` | agent definitions and versioning |
 | `docs/extending.md` | adding variants, agents, estimators |
 | `docs/assumptions.md` | assumptions that could affect the paper |
+| `docs/table_size.md` | FHR3A table-size sweep (NLHE 100BB 3/4/6/8 seats): design, runbook, caveats |
 
 ## Guardrails
 
@@ -68,3 +69,7 @@ whose configuration disagrees with existing results is refused.
   population — not an intrinsic property of a variant.
 * This is pairwise comparison against a controlled reference environment; field
   ranking is FHR4. Nothing here describes FullHouse 2027 competition modes.
+* FHR3A framing (`paper/FHR3A_SCOPE.md`): the synthetic agents are controlled
+  experimental populations, and absolute sample sizes are conditional on them. This is
+  not the FullHouse Swiss ranking experiment; tournament-level Swiss ranking reliability
+  is a separate, next research direction.

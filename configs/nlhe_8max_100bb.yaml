@@ -1,0 +1,74 @@
+# FHR3A table-size sweep: 8-max NLHE, 100BB (sweep = 3 / 4 / 6 / 8 seats; 4- and 6-max
+# reuse the frozen corpora fhr3-nlhe4-100bb-v2 and fhr3-nlhe6-100bb-pilot-v1).
+# Only player_count, experiment_id and the reference population differ from the
+# 4-/6-max configs: same variant, 100BB stack, blinds, root seed, RNG coupling/salts,
+# candidate specs and p1/p2/p3/c0 pairing definitions. See docs/table_size.md.
+# Reference population rule (docs/table_size.md): tight, loose and aggressive seats once each
+# plus neutral filler. 8-max = the 6-max population mixed5-v1 with two extra neutral seats
+# appended (so the 5 seats nearest the candidate's left are exactly the 6-max line-up).
+# Block = candidate in each of the 8 seats x sides A/B = 16 played hands.
+# Publication target: p1-p3 at 30,000 blocks, c0 control at 10,000 (scripts/run_table_size.sh).
+# Scientific fields (experiment_id, root_seed, game, rng, agents used by a
+# pairing) are hashed; blocks / chunk_size / trace are operational.
+experiment_id: fhr3-nlhe8-100bb-v1
+root_seed: 20260928
+
+game:
+  variant: nlhe
+  player_count: 8
+  stack_bb: 100
+  bb_chips: 100
+  sb_chips: 50
+  ante_chips: 0
+
+rng:
+  candidate_coupling: shared      # common random numbers for A/B policy mixing
+  reference_coupling: shared      # reference seats reuse draws across A-hand/B-hand
+  salts: {chance: 0, candidate: 0, reference: 0}
+
+blocks: 30000
+chunk_size: 250
+
+trace:
+  rate: 0.001          # ~0.1% of blocks get full PHH traces (deterministic selection)
+  include_invalid: true
+  block_ids: []
+
+agents:
+  # candidates
+  neutral:        {kind: heuristic, style: neutral}
+  neutral_copy:   {kind: heuristic, style: neutral}          # identical policy, control
+  neutral_loose10: {kind: heuristic, style: neutral, overrides: {looseness: 1.10}}
+  tight:          {kind: heuristic, style: tight}
+  aggressive:     {kind: heuristic, style: aggressive}
+  # reference seats
+  ref_tight:      {kind: heuristic, style: tight}
+  ref_neutral_1:  {kind: heuristic, style: neutral}
+  ref_loose:      {kind: heuristic, style: loose}
+  ref_aggressive: {kind: heuristic, style: aggressive}
+  ref_neutral_2:  {kind: heuristic, style: neutral}
+  ref_neutral_3:  {kind: heuristic, style: neutral}
+  ref_neutral_4:  {kind: heuristic, style: neutral}
+
+reference_populations:
+  # Order j = 0..6 : reference j sits j+1 seats after the candidate.
+  # = mixed5-v1 [ref_tight, ref_neutral_1, ref_loose, ref_aggressive, ref_neutral_2] + 2 neutral.
+  mixed7-v1: [ref_tight, ref_neutral_1, ref_loose, ref_aggressive, ref_neutral_2, ref_neutral_3, ref_neutral_4]
+
+pairings:
+  - pairing_id: p1-neutral-vs-loose10     # small perturbation
+    candidate_a: neutral
+    candidate_b: neutral_loose10
+    reference_population: mixed7-v1
+  - pairing_id: p2-neutral-vs-tight       # moderate style gap
+    candidate_a: neutral
+    candidate_b: tight
+    reference_population: mixed7-v1
+  - pairing_id: p3-aggressive-vs-neutral  # larger style gap, higher variance
+    candidate_a: aggressive
+    candidate_b: neutral
+    reference_population: mixed7-v1
+  - pairing_id: c0-selfplay-control       # must give D == 0 exactly
+    candidate_a: neutral
+    candidate_b: neutral_copy
+    reference_population: mixed7-v1

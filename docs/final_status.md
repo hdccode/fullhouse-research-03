@@ -1,5 +1,11 @@
 # Final core corpus: status and frozen conclusions (internal analysis note)
 
+> **Update (2026-09-29).** One targeted extension has been added: the NLHE 100BB table-size
+> sweep (3/4/6/8 seats). It reuses the frozen 4-max and 6-max corpora and adds two new corpora
+> (3-max, 8-max). It is set up and tested, and the runs are pending
+> (`docs/table_size.md`, `scripts/run_table_size.sh`). Everything below is frozen and
+> unchanged. Framing: `paper/FHR3A_SCOPE.md`.
+
 **EMPIRICAL RESEARCH COMPLETE (2026-09-29).**
 * The core, RQ6 and RQ7 results are frozen, and their manifests verify.
 * The writer handoff is in `paper/`: CLAIMS, NUMBERS, EVIDENCE_MAP, FIGURES, LIMITATIONS,

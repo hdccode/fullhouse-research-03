@@ -83,3 +83,7 @@
 20. **Sequential inference** uses an asymptotic CS (finite-variance, asymptotic
     time-uniform validity); coverage must be checked by simulation on streams
     resembling the observed heavy-tailed D before interpreting stopping times.
+22. **Table-size populations** (`docs/table_size.md`): tight, loose and aggressive
+    references appear once each, and the remaining seats are neutral. 8-max = `mixed5-v1`
+    + 2 neutral; 3-max = the first two seats of `mixed3-v1` (tight, loose). Table size is
+    therefore confounded with population composition, as it already was for 4 vs 6.
