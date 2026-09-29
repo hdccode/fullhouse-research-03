@@ -1,0 +1,502 @@
+{
+ "description": "FHR3A controlled table-size suite: claim hierarchy (values read programmatically from frozen/derived outputs).",
+ "primary_manifest_sha256": "7ff5d62ac55e566dd5b031c5b313e580b7fd7445a2670a0ba123b05dc791ef91",
+ "claims": [
+  {
+   "id": "TS1",
+   "tier": "main",
+   "status": "supported",
+   "wording": "In the controlled NLHE 100BB benchmark, the played-hand burden to detect a 1 BB/100 edge (80% power) rises modestly with table size.",
+   "values": {
+    "hands_required_median_M": {
+     "3": 3.71,
+     "4": 4.11,
+     "6": 4.55,
+     "8": 5.47
+    },
+    "hands_rel_6max_median": {
+     "3": [
+      0.816,
+      [
+       0.713,
+       0.935
+      ]
+     ],
+     "4": [
+      0.903,
+      [
+       0.794,
+       1.024
+      ]
+     ],
+     "6": [
+      1.0,
+      [
+       1.0,
+       1.0
+      ]
+     ],
+     "8": [
+      1.202,
+      [
+       1.073,
+       1.357
+      ]
+     ]
+    },
+    "hands_8_over_3_median": [
+     1.473,
+     [
+      1.292,
+      1.69
+     ]
+    ],
+    "elasticity_median": [
+     0.374,
+     [
+      0.249,
+      0.502
+     ]
+    ]
+   },
+   "sources": [
+    "reports/table-size/summary.json:primary_controlled.medians",
+    "reports/table-size/deep/endpoints.csv"
+   ],
+   "uncertainty": "95% block-bootstrap CIs; sampling only, pairings held fixed; table sizes independent",
+   "caveats": [
+    "absolute hands conditional on these agents/pairings",
+    "descriptive fit over four table sizes",
+    "1 BB/100 fixed across k"
+   ],
+   "figure": "new table-size figure, panel a"
+  },
+  {
+   "id": "TS2",
+   "tier": "main",
+   "status": "supported",
+   "wording": "The direction is common to all three candidate pairings, with slopes that cannot be distinguished; the absolute level differs by pairing (~3x).",
+   "values": {
+    "elasticity": {
+     "p1": [
+      0.28,
+      [
+       0.053,
+       0.534
+      ]
+     ],
+     "p2": [
+      0.358,
+      [
+       0.218,
+       0.504
+      ]
+     ],
+     "p3": [
+      0.349,
+      [
+       0.222,
+       0.499
+      ]
+     ]
+    },
+    "p_beta_gt_0": {
+     "p1": 0.997,
+     "p2": 1.0,
+     "p3": 1.0
+    },
+    "hands_8_over_3": {
+     "p1": [
+      1.311,
+      [
+       1.039,
+       1.698
+      ]
+     ],
+     "p2": [
+      1.473,
+      [
+       1.269,
+       1.72
+      ]
+     ],
+     "p3": [
+      1.424,
+      [
+       1.239,
+       1.657
+      ]
+     ]
+    },
+    "pairwise_slope_differences": {
+     "p1-p2": [
+      -0.071,
+      [
+       -0.341,
+       0.199
+      ]
+     ],
+     "p1-p3": [
+      -0.064,
+      [
+       -0.328,
+       0.211
+      ]
+     ],
+     "p2-p3": [
+      0.004,
+      [
+       -0.202,
+       0.198
+      ]
+     ]
+    }
+   },
+   "sources": [
+    "reports/table-size/summary.json:primary_controlled.elasticity_hands_vs_seats",
+    "reports/table-size/deep/heterogeneity.csv"
+   ],
+   "caveats": [
+    "p1 (smallest perturbation) is the least precise: no single-k ratio excludes 1; window slopes 0.01-0.55"
+   ],
+   "figure": "panel a"
+  },
+  {
+   "id": "TS3",
+   "tier": "main",
+   "status": "supported",
+   "wording": "Required independent matched blocks fall with table size while required played hands rise, because block-level variance grows faster than the number of hands per block but slower than the per-block signal squared.",
+   "values": {
+    "beta_sigma_D": [
+     0.687,
+     [
+      0.624,
+      0.751
+     ]
+    ],
+    "beta_var_D": [
+     1.374,
+     [
+      1.249,
+      1.502
+     ]
+    ],
+    "beta_blocks_required": [
+     -0.626,
+     [
+      -0.751,
+      -0.498
+     ]
+    ],
+    "beta_hands_required": [
+     0.374,
+     [
+      0.249,
+      0.502
+     ]
+    ],
+    "blocks_8_over_3_median": [
+     0.552,
+     [
+      0.484,
+      0.634
+     ]
+    ],
+    "identity": "N_blocks ~ sigma_D^2/k^2 ~ k^(beta_var-2); N_hands = 2k N_blocks ~ k^(beta_var-1)"
+   },
+   "sources": [
+    "reports/table-size/deep/power_laws.csv",
+    "reports/table-size/deep/endpoints.csv"
+   ],
+   "caveats": [
+    "power laws are descriptive fits over 4 points; no curvature detectable (quadratic term CI includes 0)"
+   ],
+   "figure": "panel a (blocks ratio line)"
+  },
+  {
+   "id": "TS4",
+   "tier": "main",
+   "status": "supported (descriptive association)",
+   "wording": "Cross-seat covariance is negligible, so the increase is in per-seat variance: at larger tables candidate A/B outcomes differ less often per seat but by more when they do, accompanied by more stack-sized pots and all-in hands per played hand; big-pot blocks carry most of the variance at every table size, and the squared deviation per big-pot block does not rise.",
+   "values": {
+    "seat_var_mean": {
+     "k3": 24.682,
+     "k8": 34.821,
+     "ratio_8_over_3": 1.411
+    },
+    "cov_share_of_var": {
+     "k3": -0.009,
+     "k8": 0.001,
+     "ratio_8_over_3": -0.121
+    },
+    "p_seat_diverges": {
+     "k3": 0.067,
+     "k8": 0.046,
+     "ratio_8_over_3": 0.691
+    },
+    "seat_dev2_given_diverge": {
+     "k3": 307.328,
+     "k8": 663.389,
+     "ratio_8_over_3": 2.159
+    },
+    "big_blocks_per_played_hand": {
+     "k3": 0.003,
+     "k8": 0.007,
+     "ratio_8_over_3": 2.177
+    },
+    "allin_hands_per_played_hand": {
+     "k3": 0.011,
+     "k8": 0.038,
+     "ratio_8_over_3": 3.528
+    },
+    "share_big": {
+     "k3": 0.798,
+     "k8": 0.875,
+     "ratio_8_over_3": 1.096
+    },
+    "mean_dev2_big_block": {
+     "k3": 2892.19,
+     "k8": 2163.04,
+     "ratio_8_over_3": 0.748
+    }
+   },
+   "sources": [
+    "reports/table-size/deep/mechanism.csv",
+    "reports/table-size/deep/mechanism_scaling.csv"
+   ],
+   "caveats": [
+    "association across four table sizes under these agents, not an identified causal mechanism",
+    "divergence probability per seat FALLS with table size: do not say multiway play increases divergence"
+   ],
+   "figure": "panel b"
+  },
+  {
+   "id": "TS5",
+   "tier": "main",
+   "status": "supported",
+   "wording": "Standardizing the opponent population did not detectably change block-level variance at fixed table size (paired on identical deals); the earlier 4-vs-6 near-invariance was correct for those two sizes but underpowered as a general claim, and the 3-8 sweep reveals the gradient.",
+   "values": {
+    "controlled_over_historical_hands_k4": [
+     0.998,
+     [
+      0.866,
+      1.104
+     ]
+    ],
+    "controlled_over_historical_hands_k6": [
+     1.01,
+     [
+      0.934,
+      1.066
+     ]
+    ],
+    "hands_6_over_4_controlled_30k": [
+     1.107,
+     [
+      0.986,
+      1.246
+     ]
+    ],
+    "hands_6_over_4_historical_first30k": [
+     1.095,
+     [
+      0.951,
+      1.247
+     ]
+    ],
+    "hands_6_over_4_historical_full_frozen_C10": [
+     1.04,
+     [
+      0.98,
+      1.11
+     ]
+    ],
+    "population_term": [
+     1.011,
+     [
+      0.891,
+      1.181
+     ]
+    ]
+   },
+   "sources": [
+    "reports/table-size/deep/historical.csv",
+    "reports/table-size/summary.json:controlled_vs_historical",
+    "paper/NUMBERS.md:nlhe6_over_nlhe4_hands"
+   ],
+   "caveats": [
+    "historical 4-max p3 differs (controlled/historical 0.90 [0.80, 0.99])",
+    "keep historical and controlled numbers in separate sentences"
+   ],
+   "figure": "none (text + appendix table)"
+  },
+  {
+   "id": "TS6",
+   "tier": "main (one sentence)",
+   "status": "supported",
+   "wording": "Tail concentration depends on table size: larger tables are harder per hand but less dominated by rare extreme blocks.",
+   "values": {
+    "top1pct_share": {
+     "k3": 0.876,
+     "k8": 0.566
+    },
+    "excess_kurtosis": {
+     "k3": 133.895,
+     "k8": 67.577
+    }
+   },
+   "sources": [
+    "reports/table-size/deep/mechanism_scaling.csv"
+   ],
+   "caveats": [
+    "p1 barely changes (top-1% 0.975 -> 0.897)"
+   ],
+   "figure": "none (qualifies F3 caption)"
+  },
+  {
+   "id": "TS-A1",
+   "tier": "appendix",
+   "wording": "Segment elasticities (3->4, 4->6, 6->8) and no detectable curvature.",
+   "values": {
+    "3->4": [
+     0.352,
+     [
+      -0.191,
+      0.836
+     ]
+    ],
+    "4->6": [
+     0.251,
+     [
+      -0.059,
+      0.57
+     ]
+    ],
+    "6->8": [
+     0.64,
+     [
+      0.244,
+      1.06
+     ]
+    ],
+    "curvature_median": [
+     0.208,
+     [
+      -0.267,
+      0.692
+     ]
+    ]
+   },
+   "sources": [
+    "reports/table-size/summary.json",
+    "reports/table-size/deep/power_laws.csv"
+   ],
+   "caveats": [
+    "do not claim acceleration at 8-max"
+   ]
+  },
+  {
+   "id": "TS-A2",
+   "tier": "appendix",
+   "wording": "Stability: the elasticity is stable across 10k/20k/30k prefixes and disjoint 10k windows.",
+   "values": {
+    "prefix 0:10000": [
+     0.373,
+     [
+      0.196,
+      0.614
+     ]
+    ],
+    "prefix 0:20000": [
+     0.335,
+     [
+      0.224,
+      0.506
+     ]
+    ],
+    "prefix 0:30000": [
+     0.374,
+     [
+      0.245,
+      0.504
+     ]
+    ],
+    "window 0:10000": [
+     0.373,
+     [
+      0.196,
+      0.614
+     ]
+    ],
+    "window 10000:20000": [
+     0.278,
+     [
+      0.085,
+      0.486
+     ]
+    ],
+    "window 20000:30000": [
+     0.379,
+     [
+      0.181,
+      0.636
+     ]
+    ]
+   },
+   "sources": [
+    "reports/table-size/deep/prefix.csv"
+   ]
+  },
+  {
+   "id": "TS-A3",
+   "tier": "appendix",
+   "wording": "Seat-position decomposition of per-seat variance (blinds carry the most).",
+   "sources": [
+    "reports/table-size/deep/seat_position.csv"
+   ]
+  },
+  {
+   "id": "TS-A4",
+   "tier": "appendix",
+   "wording": "Compute cost (implementation-specific) rises faster than required hands.",
+   "values": {
+    "wall_h_8_workers_median": {
+     "3": 0.16,
+     "4": 0.241,
+     "6": 0.32,
+     "8": 0.473
+    },
+    "decisions_per_played_hand": {
+     "3": 3.727,
+     "4": 5.077,
+     "6": 7.536,
+     "8": 9.886
+    }
+   },
+   "sources": [
+    "reports/table-size/summary.json",
+    "reports/table-size/deep/mechanism_scaling.csv"
+   ],
+   "caveats": [
+    "hardware/implementation specific (L9)"
+   ]
+  },
+  {
+   "id": "C10-historical",
+   "tier": "appendix (context)",
+   "wording": "Frozen C10 (6-max/4-max 1.04 [0.98, 1.11] per played hand, fixed populations that differ by table size) is retained as historical context; it is superseded in the main text by TS1-TS5.",
+   "sources": [
+    "paper/CLAIMS.md#C10"
+   ]
+  }
+ ],
+ "do_not_claim": [
+  "variance or sample requirements intrinsic to a table size or to NLHE",
+  "a structural or universal scaling law in k",
+  "multiway play increases candidate divergence (contradicted per seat)",
+  "individual big pots get larger at bigger tables (not supported)",
+  "acceleration of burden at 8-max (no detectable curvature)",
+  "synthetic agents represent FullHouse entrants",
+  "the population change explains the historical 4/6 result (it does not)"
+ ]
+}

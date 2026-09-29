@@ -1,7 +1,9 @@
 # FHR3A controlled table-size suite: NLHE 100BB at 3 / 4 / 6 / 8 seats
 
-Status: **set up, not run** (2026-09-29). All four corpora are new and researcher-run
-(`scripts/run_table_size.sh`).
+Status: **complete** (2026-09-29). All four corpora have been run, validated and frozen
+(`reports/table-size/MANIFEST.json`). The scientific analysis is in
+`reports/table-size/ANALYSIS.md`, with claims in `claims.json` and figure and paper plans in
+`figure_plan.md`; derived tables are in `reports/table-size/deep/` (`scripts/table_size_deep.py`).
 
 ## Why 4-max and 6-max are rerun
 

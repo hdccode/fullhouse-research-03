@@ -82,7 +82,8 @@ def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--out", default="reports/final-analysis/integrity.json")
     a = ap.parse_args()
-    corpora = [r for e in sorted(Path("results").glob("fhr3-*")) for r in check_experiment(e)]
+    # fhr3-* (core, RQ6) and fhr3a-* (FHR3A table-size suite)
+    corpora = [r for e in sorted(Path("results").glob("fhr3*-*")) if e.is_dir() for r in check_experiment(e)]
     repro = [r for n, o in REPRODUCTIONS if (Path("results") / n).is_dir() for r in check_reproduction(n, o)]
     for r in corpora:
         print(f"[{'OK' if r['ok'] else 'FAIL'}] {r['experiment_id']:<28} {r['pairing_id']:<26} {r['rows']:>7} rows "

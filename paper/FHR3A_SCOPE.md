@@ -18,7 +18,7 @@ The controlled axes, with their status:
 | variance concentration / big pots | `allin.csv`, `pilot_table.csv`, C2 | frozen |
 | chance-variance removability (all-in EV, MIVAT, AIVAT) | RQ6, C6 | frozen |
 | candidate/reference population sensitivity | the p1/p2/p3 spread, C7 | frozen |
-| **table size** (NLHE 100BB at 3/4/6/8 seats, one controlled opponent population) | `docs/table_size.md`, `reports/table-size/` | **set up; all four controlled runs pending** |
+| **table size** (NLHE 100BB at 3/4/6/8 seats, one controlled opponent population) | `reports/table-size/ANALYSIS.md`, `claims.json` (TS1–TS6) | **complete; analysed; frozen** |
 
 ## What must be stated explicitly
 
@@ -40,8 +40,11 @@ The controlled axes, with their status:
      20% tight, 20% loose and 20% aggressive.
    * **The frozen 4/6 corpora** are untouched. They are reported only as a separate historical
      comparison, never in the primary curve.
-   * **Until then:** until the controlled runs are analysed, C10 stays a 4-vs-6 statement and
-     no general player-count claim is made.
+   * **Result:** per-hand burden rises modestly with table size (required hands ∝ k^0.37
+     [0.25, 0.50]; ×1.47 from 3 to 8 seats), consistently across p1–p3. Standardizing the
+     population changed almost nothing at fixed table size. The historical 4-vs-6
+     near-invariance was correct for those two sizes but underpowered as a general claim.
+     See `../reports/table-size/ANALYSIS.md`.
 4. **This work is NOT the FullHouse Swiss ranking experiment.** Every result is a pairwise
    comparison against a fixed reference environment.
 5. **Tournament-level Swiss ranking reliability is a separate, next research direction.** It

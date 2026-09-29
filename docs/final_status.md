@@ -3,8 +3,8 @@
 > **Update (2026-09-29).** One targeted extension has been added: a controlled NLHE 100BB
 > table-size suite (3/4/6/8 seats). It uses four new corpora, `fhr3a-nlhe{3,4,6,8}-100bb-tablesize-v1`,
 > under one scheduled 40/20/20/20 reference population. The frozen 4/6-max corpora are used
-> only as a separate historical comparison. The suite is set up and tested; the runs are
-> pending (`docs/table_size.md`, `scripts/run_table_size.sh`). Everything below is frozen and
+> only as a separate historical comparison. The suite is complete and frozen
+> (`reports/table-size/MANIFEST.json`); its analysis is in `reports/table-size/ANALYSIS.md`. Everything below is frozen and
 > unchanged. Framing: `paper/FHR3A_SCOPE.md`.
 
 **EMPIRICAL RESEARCH COMPLETE (2026-09-29).**

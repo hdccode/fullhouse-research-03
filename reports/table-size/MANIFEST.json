@@ -1,0 +1,239 @@
+{
+ "description": "FHR3A controlled table-size suite (NLHE 100BB 3/4/6/8-max, scheduled 40/20/20/20 reference population). Historical frozen 4/6-max corpora are read-only and reported separately.",
+ "analysis_code_git_sha": "c55383179c0a61952961098fe7bda5e0ee357d7a",
+ "commands": [
+  ".venv/bin/python scripts/table_size_analysis.py --boot 1000 --freeze",
+  ".venv/bin/python scripts/table_size_analysis.py --boot 1000 --verify"
+ ],
+ "corpora": {
+  "fhr3a-nlhe3-100bb-tablesize-v1": {
+   "config_hash": "c9937b916d1bb80f",
+   "schema_version": "fhr3-block-v2",
+   "pairings": {
+    "c0-selfplay-control": {
+     "pairing_hash": "6b579ec93d864457",
+     "rows": 10000,
+     "chunks": 40,
+     "parquet_sha256": "40922eba48b4be2c9949c7a35ff7890a64afdcab8eb5553bc3fff597a1d77fe0"
+    },
+    "p1-neutral-vs-loose10": {
+     "pairing_hash": "673af4685c2af5bd",
+     "rows": 30000,
+     "chunks": 120,
+     "parquet_sha256": "b09397368e0cc58dd9000a8555eb7949e0e33cafb2255463e70cf31ae53e44fc"
+    },
+    "p2-neutral-vs-tight": {
+     "pairing_hash": "ae7864c08a103e25",
+     "rows": 30000,
+     "chunks": 120,
+     "parquet_sha256": "dd10add94642646314817a4083e123b0fedcedde7e80af98523a9acc1f10ab8a"
+    },
+    "p3-aggressive-vs-neutral": {
+     "pairing_hash": "23aee34fa30d77a6",
+     "rows": 30000,
+     "chunks": 120,
+     "parquet_sha256": "825dfe73a72ba1f7f69d7c6c4d9d26e083c7fb6f779beb48383ebd0cb0972f22"
+    }
+   },
+   "run_ids": [
+    "20260929T201826.118971Z-66411-96f047",
+    "20260929T203420.430657Z-70000-e56422"
+   ],
+   "seats": 3,
+   "config": "configs/tablesize/nlhe_3max_100bb.yaml",
+   "role": "controlled"
+  },
+  "fhr3a-nlhe4-100bb-tablesize-v1": {
+   "config_hash": "56dcbd13a8614cbb",
+   "schema_version": "fhr3-block-v2",
+   "pairings": {
+    "c0-selfplay-control": {
+     "pairing_hash": "6b579ec93d864457",
+     "rows": 10000,
+     "chunks": 40,
+     "parquet_sha256": "6838912e0b839d2b629819b87a828346f5849c3261f3d0f825829b3ebbe63b1d"
+    },
+    "p1-neutral-vs-loose10": {
+     "pairing_hash": "673af4685c2af5bd",
+     "rows": 30000,
+     "chunks": 120,
+     "parquet_sha256": "277bf09d9b86cb676c4cf4d69cdad7ab32bc2ac7e1d2cb643aa6ea37fa4e1cd6"
+    },
+    "p2-neutral-vs-tight": {
+     "pairing_hash": "ae7864c08a103e25",
+     "rows": 30000,
+     "chunks": 120,
+     "parquet_sha256": "947156cb8aefec7a46ced4073bc77f86c0bce742ddf8198b6f5a08074a785f5b"
+    },
+    "p3-aggressive-vs-neutral": {
+     "pairing_hash": "23aee34fa30d77a6",
+     "rows": 30000,
+     "chunks": 120,
+     "parquet_sha256": "d449e5a83d77b4c0e0f0f89432dee7f463093e3ca76f58e02d2171bbb206b3b1"
+    }
+   },
+   "run_ids": [
+    "20260929T201947.469011Z-66649-04bff8",
+    "20260929T203433.102245Z-70118-78f6d1"
+   ],
+   "seats": 4,
+   "config": "configs/tablesize/nlhe_4max_100bb.yaml",
+   "role": "controlled"
+  },
+  "fhr3a-nlhe6-100bb-tablesize-v1": {
+   "config_hash": "e02ffdc936b79e3f",
+   "schema_version": "fhr3-block-v2",
+   "pairings": {
+    "c0-selfplay-control": {
+     "pairing_hash": "6b579ec93d864457",
+     "rows": 10000,
+     "chunks": 40,
+     "parquet_sha256": "3f5dad8b95315c997ac1d194ce5ec350b48d4bddb90cfc450386c889a305da35"
+    },
+    "p1-neutral-vs-loose10": {
+     "pairing_hash": "673af4685c2af5bd",
+     "rows": 30000,
+     "chunks": 120,
+     "parquet_sha256": "db2cc2bf2e02c489fd66ba5efdb9f4588250cc321eb0bfe7715dc659615db216"
+    },
+    "p2-neutral-vs-tight": {
+     "pairing_hash": "ae7864c08a103e25",
+     "rows": 30000,
+     "chunks": 120,
+     "parquet_sha256": "f4b0134b6095aee87122546d73c548e61b17c90816c86432b3c6c822052a7a81"
+    },
+    "p3-aggressive-vs-neutral": {
+     "pairing_hash": "23aee34fa30d77a6",
+     "rows": 30000,
+     "chunks": 120,
+     "parquet_sha256": "5c8ac88eac074807cd3d92a4a7700b7c063c73498e8aa7f1fc63c99e834aafd7"
+    }
+   },
+   "run_ids": [
+    "20260929T202219.266827Z-67272-0ee7f6",
+    "20260929T203451.338144Z-70142-ccc223"
+   ],
+   "seats": 6,
+   "config": "configs/tablesize/nlhe_6max_100bb.yaml",
+   "role": "controlled"
+  },
+  "fhr3a-nlhe8-100bb-tablesize-v1": {
+   "config_hash": "1bbb0bcb3b465ed8",
+   "schema_version": "fhr3-block-v2",
+   "pairings": {
+    "c0-selfplay-control": {
+     "pairing_hash": "6b579ec93d864457",
+     "rows": 10000,
+     "chunks": 40,
+     "parquet_sha256": "af2c63653905fd9de05477ccf523d34b7b2185d64157154125329cf21a1516e7"
+    },
+    "p1-neutral-vs-loose10": {
+     "pairing_hash": "673af4685c2af5bd",
+     "rows": 30000,
+     "chunks": 120,
+     "parquet_sha256": "ca4bae4a8a003f5dfa00c5b1584dd0304258bb53a9c96e65dd1cf59b806f4af4"
+    },
+    "p2-neutral-vs-tight": {
+     "pairing_hash": "ae7864c08a103e25",
+     "rows": 30000,
+     "chunks": 120,
+     "parquet_sha256": "cdc48bcb4f5a2ac14de75045ffd6505911223f79d2d414670c19516e1fde6f86"
+    },
+    "p3-aggressive-vs-neutral": {
+     "pairing_hash": "23aee34fa30d77a6",
+     "rows": 30000,
+     "chunks": 120,
+     "parquet_sha256": "f8094cd6b93ed4a2356ea65770a13a809e6e3e4a601ae174144c5d1bb279b8f7"
+    }
+   },
+   "run_ids": [
+    "20260929T202650.658857Z-68364-0526bb",
+    "20260929T203524.701448Z-70336-aaf14b"
+   ],
+   "seats": 8,
+   "config": "configs/tablesize/nlhe_8max_100bb.yaml",
+   "role": "controlled"
+  },
+  "fhr3-nlhe4-100bb-v2": {
+   "config_hash": "ab7e279f1720c074",
+   "schema_version": "fhr3-block-v2",
+   "pairings": {
+    "c0-selfplay-control": {
+     "pairing_hash": "87ef4dd3c9d23cbe",
+     "rows": 10000,
+     "chunks": 40,
+     "parquet_sha256": "d2b167772a29d343ff229d8a1cc5f9ef873437d00c0bb07e980bab081a6e96ca"
+    },
+    "p1-neutral-vs-loose10": {
+     "pairing_hash": "c9611883f0df92dd",
+     "rows": 100000,
+     "chunks": 400,
+     "parquet_sha256": "c2bac9117053dc46bde0362d8c35885c9b87a587bbe65d73098acc685ca4b638"
+    },
+    "p2-neutral-vs-tight": {
+     "pairing_hash": "2fab1924aa240919",
+     "rows": 100000,
+     "chunks": 400,
+     "parquet_sha256": "26676493396e98f6d1b637fda1cd561c7326ca955d7eb0c6cafab1a38f128b78"
+    },
+    "p3-aggressive-vs-neutral": {
+     "pairing_hash": "288544a16a8fd536",
+     "rows": 100000,
+     "chunks": 400,
+     "parquet_sha256": "2c62388386435fd84969ae8a54955a84edb5ac06b0c442d0453586f75dc70463"
+    }
+   },
+   "run_ids": [
+    "20260928T231112.233051Z-15740-71076a",
+    "20260928T231159.545966Z-15922-4d2fea"
+   ],
+   "seats": 4,
+   "config": "configs/nlhe_4max_100bb_v2.yaml",
+   "role": "historical"
+  },
+  "fhr3-nlhe6-100bb-pilot-v1": {
+   "config_hash": "5f8886e193bc5489",
+   "schema_version": "fhr3-block-v1",
+   "pairings": {
+    "c0-selfplay-control": {
+     "pairing_hash": "a8faf06a963035ba",
+     "rows": 10000,
+     "chunks": 40,
+     "parquet_sha256": "8e2a8e4d29d6ba2631e73a212bbb4a4d67a5494a989ac945e6222a27a204a095"
+    },
+    "p1-neutral-vs-loose10": {
+     "pairing_hash": "8271526be0009827",
+     "rows": 250000,
+     "chunks": 1000,
+     "parquet_sha256": "e12ca10bbf23907baa92fa85740939e61e774e6bb0d0a96daf7d0f7e9946964f"
+    },
+    "p2-neutral-vs-tight": {
+     "pairing_hash": "7ccf8986402ec53f",
+     "rows": 250000,
+     "chunks": 1000,
+     "parquet_sha256": "6310a23291abb38f4dc6df3185337f563caef9dc0f5b74c78e499443a8d0fed1"
+    },
+    "p3-aggressive-vs-neutral": {
+     "pairing_hash": "87abe185aa06c57a",
+     "rows": 250000,
+     "chunks": 1000,
+     "parquet_sha256": "f784e0b113c16f791d1fc6e501e4c9fc917d1edc5ff901445294510325805135"
+    }
+   },
+   "run_ids": [
+    "20260928T153937.873721Z-27900-323a60",
+    "20260928T163731.015741Z-33477-7d49a5"
+   ],
+   "seats": 6,
+   "config": "configs/nlhe_6max_100bb.yaml",
+   "role": "historical"
+  }
+ },
+ "outputs": {
+  "summary.csv": "d3eaf8ce21c8fd494a61cf93b77197843672fbedb30378eb266146136de518a1",
+  "figure_data.csv": "3b8e4cf40ce200b8adabfdfa8f09a4ceca2ff232930e5009d6dfa2978ba39455",
+  "historical.csv": "bdfa25e1c9f477b69715eef2bf9ba717c2925b4100e23916c1c780cb476d134d",
+  "summary.json": "806ffb23af3f4b2a4ba77ff55844c70d3d30dd82559dd77de9a57f81c416591f"
+ },
+ "n_invariant_checks": 360
+}

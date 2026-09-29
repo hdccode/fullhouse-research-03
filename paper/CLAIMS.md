@@ -250,10 +250,12 @@ source field. If a number here and in NUMBERS.md ever disagree, NUMBERS.md wins.
 * **Source:** `reports/final-analysis/ranking.json`, field `metric.{hands,blocks}.pairs`.
 * **Caveat:** this is not a player-count effect claim. The CI is sampling-only, with
   pairings held fixed.
-* **Pending extension:** the controlled table-size suite (3/4/6/8 seats with one fixed
-  40/20/20/20 opponent population; `docs/table_size.md`) tests whether this similarity
-  generalises once reference composition no longer changes with table size. C10 stays a
-  4-vs-6 statement until `reports/table-size/` is frozen.
+* **Superseded in the main text by the controlled table-size suite**
+  (`reports/table-size/claims.json`, TS1–TS6). Across 3–8 seats with one fixed opponent
+  population, required hands rise modestly (∝ k^0.37 [0.25, 0.50]). Paired on the same deals,
+  the population change had no detectable effect at 4 or 6 seats. C10 remains correct as
+  historical context for 4 vs 6 but is underpowered as a general statement; move it to the
+  appendix.
 
 ### C11 [S]: Block construction changes the statistical appearance, not the mechanism (Nit Game)
 * **Wording:** "In the Nit Game, the large win-rate gaps (+30.3, +17.3, −10.1 BB/100) are

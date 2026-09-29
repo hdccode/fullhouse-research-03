@@ -1,0 +1,5 @@
+series,hands_ratio_controlled_over_historical_k4,hands_ratio_controlled_over_historical_k4_ci,hands_ratio_controlled_over_historical_k6,hands_ratio_controlled_over_historical_k6_ci,hands_6_over_4_controlled_30k,hands_6_over_4_controlled_30k_ci,hands_6_over_4_historical_first30k,hands_6_over_4_historical_first30k_ci,hands_6_over_4_historical_full,population_term_ratio,population_term_ratio_ci
+p1,0.965727,0.856857;1.0777,0.989665,0.903236;1.09548,1.13154,0.92466;1.47169,1.10417,0.884029;1.4206,1.17834,1.02479,0.880127;1.21322
+p2,1.04418,0.952807;1.14696,1.00953,0.946079;1.08052,1.05842,0.924322;1.21965,1.09474,0.949155;1.27178,1.03891,0.966822,0.85924;1.08145
+p3,0.896062,0.800926;0.990301,0.974768,0.917963;1.03954,1.12205,0.987003;1.28306,1.03145,0.888262;1.1951,1.10013,1.08784,0.970398;1.235
+median,0.998102,0.865787;1.1041,1.00953,0.933723;1.06602,1.10728,0.986215;1.24605,1.09474,0.951343;1.24743,1.03891,1.01145,0.89145;1.18148

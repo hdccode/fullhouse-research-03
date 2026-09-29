@@ -6,10 +6,10 @@ them is manuscript prose.
 **Framing and scope (FHR3A): read `FHR3A_SCOPE.md` first.** FHR3A is a controlled
 empirical study of how poker format, table size, stack depth and betting structure affect the
 concentration, magnitude and removability of evaluation variance. It is not the FullHouse
-Swiss ranking experiment. One targeted extension is set up but not yet run: a controlled NLHE 100BB table-size suite
-(3/4/6/8 seats). It uses four new corpora under one fixed 40/20/20/20 opponent population, and
-the frozen 4/6-max corpora are reported only as a historical comparison
-(`../docs/table_size.md`). The frozen evidence below is unchanged.
+Swiss ranking experiment. One targeted extension is complete: a controlled NLHE 100BB table-size suite (3/4/6/8 seats)
+with four new corpora under one fixed 40/20/20/20 opponent population. Its analysis, claims
+and figure plan are in `../reports/table-size/` (`ANALYSIS.md`, `claims.json`,
+`figure_plan.md`). The frozen evidence below is unchanged.
 
 | file | what it is |
 |---|---|

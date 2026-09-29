@@ -1,0 +1,2372 @@
+{
+ "description": "FHR3A controlled table-size suite, NLHE 100BB at 3/4/6/8 seats, one scheduled reference population (per-slot 40% neutral / 20% tight / 20% loose / 20% aggressive). Target: 1 BB/100 of candidate hands, two-sided alpha 0.05, 80% power. Medians over pairings p1-p3. Ratios ('_rel_base') are relative to the controlled 6-max corpus.",
+ "provisional": false,
+ "question": "Does required played hands (per-hand resolving difficulty) stay flat in table size?",
+ "primary_controlled": {
+  "note": "The publication 3/4/6/8 curve: controlled corpora only.",
+  "base_seats": 6,
+  "bootstrap_reps": 1000,
+  "per_pairing": [
+   {
+    "seats": 3,
+    "role": "p1",
+    "pairing_id": "p1-neutral-vs-loose10",
+    "experiment_id": "fhr3a-nlhe3-100bb-tablesize-v1",
+    "n_blocks": 30000,
+    "hands_per_block": 6.0,
+    "candidate_hands_per_side": 3.0,
+    "mean_bb100": -2.080322222222222,
+    "sigma_D": 4.969381718952789,
+    "var_D": 24.694754668662178,
+    "var_D_per_candidate_hand": 8.231584889554059,
+    "blocks_required_1bb100": 215363,
+    "hands_required_1bb100": 1292178.0,
+    "p_D_zero": 0.9117333333333333,
+    "excess_kurtosis": 349.08809970016017,
+    "top1pct_share": 0.9750138944640582,
+    "top01pct_share": 0.44176253619005384,
+    "frac_blocks_pot_ge_1stack": 0.019233333333333335,
+    "share_pot_ge_1stack": 0.8492332545282727,
+    "frac_blocks_allin": 0.0226,
+    "share_allin": 0.8539119403243192,
+    "sigma_D_rel_se_delta": 0.05409005605624754,
+    "blocks_per_s_8_workers": 1071.9646255317452,
+    "wall_h_required_8_workers": 0.055806930686617094,
+    "sigma_D_ci": [
+     4.440372901395584,
+     5.453606707185821
+    ],
+    "hands_required_ci": [
+     1031704.510920862,
+     1556266.7944881774
+    ],
+    "sigma_D_rel_base": 0.6646700269422405,
+    "sigma_D_rel_base_ci": [
+     0.5752119374819837,
+     0.748280766712239
+    ],
+    "var_D_rel_base": 0.44178624471539873,
+    "var_D_rel_base_ci": [
+     0.33086877526796304,
+     0.5599241255746585
+    ],
+    "blocks_required_1bb100_rel_base": 1.7671390240500202,
+    "blocks_required_1bb100_rel_base_ci": [
+     1.3234751010718522,
+     2.239696502298634
+    ],
+    "hands_required_1bb100_rel_base": 0.8835695120250101,
+    "hands_required_1bb100_rel_base_ci": [
+     0.6617375505359261,
+     1.119848251149317
+    ]
+   },
+   {
+    "seats": 3,
+    "role": "p2",
+    "pairing_id": "p2-neutral-vs-tight",
+    "experiment_id": "fhr3a-nlhe3-100bb-tablesize-v1",
+    "n_blocks": 30000,
+    "hands_per_block": 6.0,
+    "candidate_hands_per_side": 3.0,
+    "mean_bb100": 3.556711111111111,
+    "sigma_D": 8.42571730769572,
+    "var_D": 70.99271214920321,
+    "var_D_per_candidate_hand": 23.66423738306774,
+    "blocks_required_1bb100": 619126,
+    "hands_required_1bb100": 3714756.0,
+    "p_D_zero": 0.7722333333333333,
+    "excess_kurtosis": 117.26606943399018,
+    "top1pct_share": 0.8760052630051163,
+    "top01pct_share": 0.17535117182981366,
+    "frac_blocks_pot_ge_1stack": 0.018833333333333334,
+    "share_pot_ge_1stack": 0.7963312933758561,
+    "frac_blocks_allin": 0.022133333333333335,
+    "share_allin": 0.8030030055584803,
+    "sigma_D_rel_se_delta": 0.03152592444243179,
+    "blocks_per_s_8_workers": 1071.9646255317452,
+    "wall_h_required_8_workers": 0.16043388032430128,
+    "sigma_D_ci": [
+     7.891627237860489,
+     8.937773510803282
+    ],
+    "hands_required_ci": [
+     3258738.7583474,
+     4179988.6822172427
+    ],
+    "sigma_D_rel_base": 0.6388167798077964,
+    "sigma_D_rel_base_ci": [
+     0.5871021162148231,
+     0.6873436334075328
+    ],
+    "var_D_rel_base": 0.4080868781640026,
+    "var_D_rel_base_ci": [
+     0.3446889281647215,
+     0.4724412703937675
+    ],
+    "blocks_required_1bb100_rel_base": 1.6323460396640002,
+    "blocks_required_1bb100_rel_base_ci": [
+     1.378755712658886,
+     1.8897650815750706
+    ],
+    "hands_required_1bb100_rel_base": 0.8161730198320001,
+    "hands_required_1bb100_rel_base_ci": [
+     0.689377856329443,
+     0.9448825407875353
+    ]
+   },
+   {
+    "seats": 3,
+    "role": "p3",
+    "pairing_id": "p3-aggressive-vs-neutral",
+    "experiment_id": "fhr3a-nlhe3-100bb-tablesize-v1",
+    "n_blocks": 30000,
+    "hands_per_block": 6.0,
+    "candidate_hands_per_side": 3.0,
+    "mean_bb100": 2.6414555555555546,
+    "sigma_D": 8.714629968266545,
+    "var_D": 75.94477548380935,
+    "var_D_per_candidate_hand": 25.314925161269784,
+    "blocks_required_1bb100": 662313,
+    "hands_required_1bb100": 3973878.0,
+    "p_D_zero": 0.8165333333333333,
+    "excess_kurtosis": 133.89523306660743,
+    "top1pct_share": 0.8732287073916984,
+    "top01pct_share": 0.22494128766905042,
+    "frac_blocks_pot_ge_1stack": 0.020966666666666668,
+    "share_pot_ge_1stack": 0.7984960235507903,
+    "frac_blocks_allin": 0.025166666666666667,
+    "share_allin": 0.8173470785544357,
+    "sigma_D_rel_se_delta": 0.033652047122798665,
+    "blocks_per_s_8_workers": 1071.9646255317452,
+    "wall_h_required_8_workers": 0.171624910889268,
+    "sigma_D_ci": [
+     8.147743317278163,
+     9.273773734505564
+    ],
+    "hands_required_ci": [
+     3473690.4205748877,
+     4500175.044552013
+    ],
+    "sigma_D_rel_base": 0.65635885188152,
+    "sigma_D_rel_base_ci": [
+     0.6044824990980495,
+     0.7079609157898524
+    ],
+    "var_D_rel_base": 0.43080694244322704,
+    "var_D_rel_base_ci": [
+     0.36539909171643364,
+     0.5012086633683644
+    ],
+    "blocks_required_1bb100_rel_base": 1.7232252273348163,
+    "blocks_required_1bb100_rel_base_ci": [
+     1.461596366865735,
+     2.004834653473458
+    ],
+    "hands_required_1bb100_rel_base": 0.8616126136674082,
+    "hands_required_1bb100_rel_base_ci": [
+     0.7307981834328675,
+     1.002417326736729
+    ]
+   },
+   {
+    "seats": 4,
+    "role": "p1",
+    "pairing_id": "p1-neutral-vs-loose10",
+    "experiment_id": "fhr3a-nlhe4-100bb-tablesize-v1",
+    "n_blocks": 30000,
+    "hands_per_block": 8.0,
+    "candidate_hands_per_side": 4.0,
+    "mean_bb100": -0.9188833333333334,
+    "sigma_D": 5.738731365037126,
+    "var_D": 32.93303768006088,
+    "var_D_per_candidate_hand": 8.23325942001522,
+    "blocks_required_1bb100": 161555,
+    "hands_required_1bb100": 1292440.0,
+    "p_D_zero": 0.8933333333333333,
+    "excess_kurtosis": 249.4822644450084,
+    "top1pct_share": 0.9570688440739548,
+    "top01pct_share": 0.3435644728673959,
+    "frac_blocks_pot_ge_1stack": 0.03236666666666667,
+    "share_pot_ge_1stack": 0.8121645597821924,
+    "frac_blocks_allin": 0.0375,
+    "share_allin": 0.8150958735429877,
+    "sigma_D_rel_se_delta": 0.045778658095686216,
+    "blocks_per_s_8_workers": 591.0409185650309,
+    "wall_h_required_8_workers": 0.07592771918032819,
+    "sigma_D_ci": [
+     5.198409644453905,
+     6.249620297000206
+    ],
+    "hands_required_ci": [
+     1060519.5605802597,
+     1532798.0636259497
+    ],
+    "sigma_D_rel_base": 0.7675728987503335,
+    "sigma_D_rel_base_ci": [
+     0.6691165576235558,
+     0.8613457480787183
+    ],
+    "var_D_rel_base": 0.5891681548959896,
+    "var_D_rel_base_ci": [
+     0.4477170064449759,
+     0.741916579240949
+    ],
+    "blocks_required_1bb100_rel_base": 1.3256229948059834,
+    "blocks_required_1bb100_rel_base_ci": [
+     1.0073632645011958,
+     1.669312303292135
+    ],
+    "hands_required_1bb100_rel_base": 0.8837486632039889,
+    "hands_required_1bb100_rel_base_ci": [
+     0.6715755096674638,
+     1.1128748688614234
+    ]
+   },
+   {
+    "seats": 4,
+    "role": "p2",
+    "pairing_id": "p2-neutral-vs-tight",
+    "experiment_id": "fhr3a-nlhe4-100bb-tablesize-v1",
+    "n_blocks": 30000,
+    "hands_per_block": 8.0,
+    "candidate_hands_per_side": 4.0,
+    "mean_bb100": 3.657775,
+    "sigma_D": 10.467794804647957,
+    "var_D": 109.57472807221475,
+    "var_D_per_candidate_hand": 27.39368201805369,
+    "blocks_required_1bb100": 537525,
+    "hands_required_1bb100": 4300200.0,
+    "p_D_zero": 0.7284,
+    "excess_kurtosis": 91.25255700480113,
+    "top1pct_share": 0.8345404479517826,
+    "top01pct_share": 0.16021868559985347,
+    "frac_blocks_pot_ge_1stack": 0.03183333333333333,
+    "share_pot_ge_1stack": 0.8301450271966795,
+    "frac_blocks_allin": 0.03713333333333333,
+    "share_allin": 0.8436232093002893,
+    "sigma_D_rel_se_delta": 0.02787659666649923,
+    "blocks_per_s_8_workers": 591.0409185650309,
+    "wall_h_required_8_workers": 0.2526263331522139,
+    "sigma_D_ci": [
+     9.870785121798798,
+     11.025298387571414
+    ],
+    "hands_required_ci": [
+     3823675.9327420164,
+     4770439.396818088
+    ],
+    "sigma_D_rel_base": 0.7936419802129301,
+    "sigma_D_rel_base_ci": [
+     0.7355905762350842,
+     0.8498684065298271
+    ],
+    "var_D_rel_base": 0.6298675927563008,
+    "var_D_rel_base_ci": [
+     0.5410934976779744,
+     0.7222763510563834
+    ],
+    "blocks_required_1bb100_rel_base": 1.4172023222581376,
+    "blocks_required_1bb100_rel_base_ci": [
+     1.2174603697754427,
+     1.6251217898768624
+    ],
+    "hands_required_1bb100_rel_base": 0.9448015481720917,
+    "hands_required_1bb100_rel_base_ci": [
+     0.8116402465169619,
+     1.083414526584575
+    ]
+   },
+   {
+    "seats": 4,
+    "role": "p3",
+    "pairing_id": "p3-aggressive-vs-neutral",
+    "experiment_id": "fhr3a-nlhe4-100bb-tablesize-v1",
+    "n_blocks": 30000,
+    "hands_per_block": 8.0,
+    "candidate_hands_per_side": 4.0,
+    "mean_bb100": 2.164383333333333,
+    "sigma_D": 10.234248743959503,
+    "var_D": 104.73984735323667,
+    "var_D_per_candidate_hand": 26.184961838309167,
+    "blocks_required_1bb100": 513807,
+    "hands_required_1bb100": 4110456.0,
+    "p_D_zero": 0.7767,
+    "excess_kurtosis": 95.68020946535486,
+    "top1pct_share": 0.8124540211628927,
+    "top01pct_share": 0.1929773764200315,
+    "frac_blocks_pot_ge_1stack": 0.03443333333333334,
+    "share_pot_ge_1stack": 0.7928040813733532,
+    "frac_blocks_allin": 0.041133333333333334,
+    "share_allin": 0.814928841921684,
+    "sigma_D_rel_se_delta": 0.028530715826011514,
+    "blocks_per_s_8_workers": 591.0409185650309,
+    "wall_h_required_8_workers": 0.24147933278999034,
+    "sigma_D_ci": [
+     9.692432433745855,
+     10.794828798312741
+    ],
+    "hands_required_ci": [
+     3686746.2221097522,
+     4573084.604005808
+    ],
+    "sigma_D_rel_base": 0.7708118164415092,
+    "sigma_D_rel_base_ci": [
+     0.7167077305092647,
+     0.8272279095083729
+    ],
+    "var_D_rel_base": 0.594150856365859,
+    "var_D_rel_base_ci": [
+     0.5136700013596821,
+     0.6843060143222004
+    ],
+    "blocks_required_1bb100_rel_base": 1.3368379971119697,
+    "blocks_required_1bb100_rel_base_ci": [
+     1.1557575030592848,
+     1.539688532224951
+    ],
+    "hands_required_1bb100_rel_base": 0.8912253314079798,
+    "hands_required_1bb100_rel_base_ci": [
+     0.7705050020395231,
+     1.0264590214833007
+    ]
+   },
+   {
+    "seats": 6,
+    "role": "p1",
+    "pairing_id": "p1-neutral-vs-loose10",
+    "experiment_id": "fhr3a-nlhe6-100bb-tablesize-v1",
+    "n_blocks": 30000,
+    "hands_per_block": 12.0,
+    "candidate_hands_per_side": 6.0,
+    "mean_bb100": -0.3109611111111111,
+    "sigma_D": 7.476464286819159,
+    "var_D": 55.89751823208231,
+    "var_D_per_candidate_hand": 9.316253038680385,
+    "blocks_required_1bb100": 121871,
+    "hands_required_1bb100": 1462452.0,
+    "p_D_zero": 0.8741,
+    "excess_kurtosis": 182.73681155002998,
+    "top1pct_share": 0.9350772619960009,
+    "top01pct_share": 0.26873890223204744,
+    "frac_blocks_pot_ge_1stack": 0.06526666666666667,
+    "share_pot_ge_1stack": 0.8444772580337151,
+    "frac_blocks_allin": 0.0764,
+    "share_allin": 0.8466809990146189,
+    "sigma_D_rel_se_delta": 0.03923612403874245,
+    "blocks_per_s_8_workers": 329.0236718786676,
+    "wall_h_required_8_workers": 0.10288942240009825,
+    "sigma_D_ci": [
+     6.875260152634189,
+     8.112604404187628
+    ],
+    "hands_required_ci": [
+     1236700.9463908558,
+     1721896.419494765
+    ],
+    "sigma_D_rel_base": 1.0,
+    "sigma_D_rel_base_ci": [
+     1.0,
+     1.0
+    ],
+    "var_D_rel_base": 1.0,
+    "var_D_rel_base_ci": [
+     1.0,
+     1.0
+    ],
+    "blocks_required_1bb100_rel_base": 1.0,
+    "blocks_required_1bb100_rel_base_ci": [
+     1.0,
+     1.0
+    ],
+    "hands_required_1bb100_rel_base": 1.0,
+    "hands_required_1bb100_rel_base_ci": [
+     1.0,
+     1.0
+    ]
+   },
+   {
+    "seats": 6,
+    "role": "p2",
+    "pairing_id": "p2-neutral-vs-tight",
+    "experiment_id": "fhr3a-nlhe6-100bb-tablesize-v1",
+    "n_blocks": 30000,
+    "hands_per_block": 12.0,
+    "candidate_hands_per_side": 6.0,
+    "mean_bb100": 1.6724833333333333,
+    "sigma_D": 13.189567923107472,
+    "var_D": 173.96470199826555,
+    "var_D_per_candidate_hand": 28.994116999710926,
+    "blocks_required_1bb100": 379286,
+    "hands_required_1bb100": 4551432.0,
+    "p_D_zero": 0.6839333333333333,
+    "excess_kurtosis": 71.24969259664142,
+    "top1pct_share": 0.711019358176721,
+    "top01pct_share": 0.17895189237237213,
+    "frac_blocks_pot_ge_1stack": 0.06543333333333333,
+    "share_pot_ge_1stack": 0.8482456887515255,
+    "frac_blocks_allin": 0.0766,
+    "share_allin": 0.8605725547287264,
+    "sigma_D_rel_se_delta": 0.02470655995827853,
+    "blocks_per_s_8_workers": 329.0236718786676,
+    "wall_h_required_8_workers": 0.32021167845052284,
+    "sigma_D_ci": [
+     12.542546373444956,
+     13.83393976952303
+    ],
+    "hands_required_ci": [
+     4115834.002661986,
+     5007006.873937401
+    ],
+    "sigma_D_rel_base": 1.0,
+    "sigma_D_rel_base_ci": [
+     1.0,
+     1.0
+    ],
+    "var_D_rel_base": 1.0,
+    "var_D_rel_base_ci": [
+     1.0,
+     1.0
+    ],
+    "blocks_required_1bb100_rel_base": 1.0,
+    "blocks_required_1bb100_rel_base_ci": [
+     1.0,
+     1.0
+    ],
+    "hands_required_1bb100_rel_base": 1.0,
+    "hands_required_1bb100_rel_base_ci": [
+     1.0,
+     1.0
+    ]
+   },
+   {
+    "seats": 6,
+    "role": "p3",
+    "pairing_id": "p3-aggressive-vs-neutral",
+    "experiment_id": "fhr3a-nlhe6-100bb-tablesize-v1",
+    "n_blocks": 30000,
+    "hands_per_block": 12.0,
+    "candidate_hands_per_side": 6.0,
+    "mean_bb100": 1.1853,
+    "sigma_D": 13.277233853531744,
+    "var_D": 176.2849388013694,
+    "var_D_per_candidate_hand": 29.380823133561567,
+    "blocks_required_1bb100": 384345,
+    "hands_required_1bb100": 4612140.0,
+    "p_D_zero": 0.7303333333333333,
+    "excess_kurtosis": 59.83654093083497,
+    "top1pct_share": 0.67227971161362,
+    "top01pct_share": 0.1549570015661769,
+    "frac_blocks_pot_ge_1stack": 0.0689,
+    "share_pot_ge_1stack": 0.8248571035611444,
+    "frac_blocks_allin": 0.08143333333333333,
+    "share_allin": 0.8474325788572723,
+    "sigma_D_rel_se_delta": 0.022700319551868825,
+    "blocks_per_s_8_workers": 329.0236718786676,
+    "wall_h_required_8_workers": 0.32448273217062107,
+    "sigma_D_ci": [
+     12.663393806195797,
+     13.85075639580122
+    ],
+    "hands_required_ci": [
+     4195528.2785640275,
+     5019187.294979719
+    ],
+    "sigma_D_rel_base": 1.0,
+    "sigma_D_rel_base_ci": [
+     1.0,
+     1.0
+    ],
+    "var_D_rel_base": 1.0,
+    "var_D_rel_base_ci": [
+     1.0,
+     1.0
+    ],
+    "blocks_required_1bb100_rel_base": 1.0,
+    "blocks_required_1bb100_rel_base_ci": [
+     1.0,
+     1.0
+    ],
+    "hands_required_1bb100_rel_base": 1.0,
+    "hands_required_1bb100_rel_base_ci": [
+     1.0,
+     1.0
+    ]
+   },
+   {
+    "seats": 8,
+    "role": "p1",
+    "pairing_id": "p1-neutral-vs-loose10",
+    "experiment_id": "fhr3a-nlhe8-100bb-tablesize-v1",
+    "n_blocks": 30000,
+    "hands_per_block": 16.0,
+    "candidate_hands_per_side": 8.0,
+    "mean_bb100": 0.2782083333333333,
+    "sigma_D": 9.29181966917932,
+    "var_D": 86.3379127645477,
+    "var_D_per_candidate_hand": 10.792239095568462,
+    "blocks_required_1bb100": 105884,
+    "hands_required_1bb100": 1694144.0,
+    "p_D_zero": 0.8541333333333333,
+    "excess_kurtosis": 136.8296162356942,
+    "top1pct_share": 0.8970166443874086,
+    "top01pct_share": 0.23305649972431097,
+    "frac_blocks_pot_ge_1stack": 0.11146666666666667,
+    "share_pot_ge_1stack": 0.8750492547827345,
+    "frac_blocks_allin": 0.12866666666666668,
+    "share_allin": 0.8777771251889932,
+    "sigma_D_rel_se_delta": 0.03401343070951216,
+    "blocks_per_s_8_workers": 200.76842207978035,
+    "wall_h_required_8_workers": 0.1464982486664887,
+    "sigma_D_ci": [
+     8.641430603362577,
+     9.893456437585659
+    ],
+    "hands_required_ci": [
+     1465274.4542952166,
+     1920630.305506141
+    ],
+    "sigma_D_rel_base": 1.2428093431223357,
+    "sigma_D_rel_base_ci": [
+     1.118285639516636,
+     1.3731382567830637
+    ],
+    "var_D_rel_base": 1.5445750633521715,
+    "var_D_rel_base_ci": [
+     1.250562771674102,
+     1.8855086917007866
+    ],
+    "blocks_required_1bb100_rel_base": 0.868820309999918,
+    "blocks_required_1bb100_rel_base_ci": [
+     0.7034415590666824,
+     1.0605986390816922
+    ],
+    "hands_required_1bb100_rel_base": 1.1584270799998906,
+    "hands_required_1bb100_rel_base_ci": [
+     0.9379220787555765,
+     1.4141315187755894
+    ]
+   },
+   {
+    "seats": 8,
+    "role": "p2",
+    "pairing_id": "p2-neutral-vs-tight",
+    "experiment_id": "fhr3a-nlhe8-100bb-tablesize-v1",
+    "n_blocks": 30000,
+    "hands_per_block": 16.0,
+    "candidate_hands_per_side": 8.0,
+    "mean_bb100": 0.0017125000000000532,
+    "sigma_D": 16.699058196878042,
+    "var_D": 278.85854466271974,
+    "var_D_per_candidate_hand": 34.85731808283997,
+    "blocks_required_1bb100": 341989,
+    "hands_required_1bb100": 5471824.0,
+    "p_D_zero": 0.6426,
+    "excess_kurtosis": 67.577354009867,
+    "top1pct_share": 0.5659531770643522,
+    "top01pct_share": 0.18323715340537478,
+    "frac_blocks_pot_ge_1stack": 0.11163333333333333,
+    "share_pot_ge_1stack": 0.8928053100601712,
+    "frac_blocks_allin": 0.12923333333333334,
+    "share_allin": 0.9014086767282322,
+    "sigma_D_rel_se_delta": 0.024079270824000427,
+    "blocks_per_s_8_workers": 200.76842207978035,
+    "wall_h_required_8_workers": 0.47316676328060714,
+    "sigma_D_ci": [
+     15.898969650802261,
+     17.473446446843642
+    ],
+    "hands_required_ci": [
+     4960045.333596855,
+     5991076.024352302
+    ],
+    "sigma_D_rel_base": 1.2660807612675558,
+    "sigma_D_rel_base_ci": [
+     1.1749490066695552,
+     1.3551938649077149
+    ],
+    "var_D_rel_base": 1.6029604940518334,
+    "var_D_rel_base_ci": [
+     1.3805051831941926,
+     1.8365504367165797
+    ],
+    "blocks_required_1bb100_rel_base": 0.9016652341504827,
+    "blocks_required_1bb100_rel_base_ci": [
+     0.7765341655467333,
+     1.033059620653076
+    ],
+    "hands_required_1bb100_rel_base": 1.2022203122006436,
+    "hands_required_1bb100_rel_base_ci": [
+     1.0353788873956444,
+     1.3774128275374349
+    ]
+   },
+   {
+    "seats": 8,
+    "role": "p3",
+    "pairing_id": "p3-aggressive-vs-neutral",
+    "experiment_id": "fhr3a-nlhe8-100bb-tablesize-v1",
+    "n_blocks": 30000,
+    "hands_per_block": 16.0,
+    "candidate_hands_per_side": 8.0,
+    "mean_bb100": -1.7643208333333338,
+    "sigma_D": 16.983603887401166,
+    "var_D": 288.442801004148,
+    "var_D_per_candidate_hand": 36.0553501255185,
+    "blocks_required_1bb100": 353743,
+    "hands_required_1bb100": 5659888.0,
+    "p_D_zero": 0.6876333333333333,
+    "excess_kurtosis": 47.43465567021194,
+    "top1pct_share": 0.537020810434977,
+    "top01pct_share": 0.1498685032635959,
+    "frac_blocks_pot_ge_1stack": 0.116,
+    "share_pot_ge_1stack": 0.8699178181576276,
+    "frac_blocks_allin": 0.13436666666666666,
+    "share_allin": 0.8818050001987369,
+    "sigma_D_rel_se_delta": 0.020296686032907758,
+    "blocks_per_s_8_workers": 200.76842207978035,
+    "wall_h_required_8_workers": 0.48942928089257787,
+    "sigma_D_ci": [
+     16.277315632866255,
+     17.684683938024648
+    ],
+    "hands_required_ci": [
+     5198921.424081439,
+     6136804.523925799
+    ],
+    "sigma_D_rel_base": 1.2791522748455266,
+    "sigma_D_rel_base_ci": [
+     1.1991947195864756,
+     1.3651745523868863
+    ],
+    "var_D_rel_base": 1.6362305422424854,
+    "var_D_rel_base_ci": [
+     1.438067982355128,
+     1.863701559151391
+    ],
+    "blocks_required_1bb100_rel_base": 0.9203788263148994,
+    "blocks_required_1bb100_rel_base_ci": [
+     0.8089132400747596,
+     1.0483321270226573
+    ],
+    "hands_required_1bb100_rel_base": 1.2271717684198657,
+    "hands_required_1bb100_rel_base_ci": [
+     1.0785509867663463,
+     1.397776169363543
+    ]
+   }
+  ],
+  "medians": {
+   "3": {
+    "seats": 3,
+    "hands_per_block": 6.0,
+    "sigma_D": 8.42571730769572,
+    "sigma_D_pairing_range": [
+     4.969381718952789,
+     8.714629968266545
+    ],
+    "sigma_D_median_ci": [
+     7.885093314223811,
+     8.84002235498158
+    ],
+    "var_D": 70.99271214920321,
+    "var_D_pairing_range": [
+     24.694754668662178,
+     75.94477548380935
+    ],
+    "var_D_median_ci": [
+     62.17469659794764,
+     78.1459955499091
+    ],
+    "blocks_required_1bb100": 619126.0,
+    "blocks_required_1bb100_pairing_range": [
+     215363.0,
+     662313.0
+    ],
+    "blocks_required_1bb100_median_ci": [
+     542224.1290188162,
+     681509.4675469062
+    ],
+    "hands_required_1bb100": 3714756.0,
+    "hands_required_1bb100_pairing_range": [
+     1292178.0,
+     3973878.0
+    ],
+    "hands_required_1bb100_median_ci": [
+     3253344.774112897,
+     4089056.8052814375
+    ],
+    "p_D_zero": 0.8165333333333333,
+    "p_D_zero_pairing_range": [
+     0.7722333333333333,
+     0.9117333333333333
+    ],
+    "excess_kurtosis": 133.89523306660743,
+    "excess_kurtosis_pairing_range": [
+     117.26606943399018,
+     349.08809970016017
+    ],
+    "top1pct_share": 0.8760052630051163,
+    "top1pct_share_pairing_range": [
+     0.8732287073916984,
+     0.9750138944640582
+    ],
+    "frac_blocks_pot_ge_1stack": 0.019233333333333335,
+    "frac_blocks_pot_ge_1stack_pairing_range": [
+     0.018833333333333334,
+     0.020966666666666668
+    ],
+    "share_pot_ge_1stack": 0.7984960235507903,
+    "share_pot_ge_1stack_pairing_range": [
+     0.7963312933758561,
+     0.8492332545282727
+    ],
+    "frac_blocks_allin": 0.0226,
+    "frac_blocks_allin_pairing_range": [
+     0.022133333333333335,
+     0.025166666666666667
+    ],
+    "share_allin": 0.8173470785544357,
+    "share_allin_pairing_range": [
+     0.8030030055584803,
+     0.8539119403243192
+    ],
+    "var_D_per_candidate_hand": 23.66423738306774,
+    "var_D_per_candidate_hand_pairing_range": [
+     8.231584889554059,
+     25.314925161269784
+    ],
+    "wall_h_required_8_workers": 0.16043388032430128,
+    "wall_h_required_8_workers_pairing_range": [
+     0.055806930686617094,
+     0.171624910889268
+    ],
+    "sigma_D_rel_base": 0.6388167798077964,
+    "sigma_D_rel_base_ci": [
+     0.5969799943645726,
+     0.6836644969168825
+    ],
+    "sigma_D_rel_base_roles_below_1": 3,
+    "var_D_rel_base": 0.4080868781640026,
+    "var_D_rel_base_ci": [
+     0.35638511599104716,
+     0.46739714984340996
+    ],
+    "var_D_rel_base_roles_below_1": 3,
+    "blocks_required_1bb100_rel_base": 1.6323460396640002,
+    "blocks_required_1bb100_rel_base_ci": [
+     1.4255404639641887,
+     1.8695885993736403
+    ],
+    "blocks_required_1bb100_rel_base_roles_below_1": 0,
+    "hands_required_1bb100_rel_base": 0.8161730198320001,
+    "hands_required_1bb100_rel_base_ci": [
+     0.7127702319820943,
+     0.9347942996868203
+    ],
+    "hands_required_1bb100_rel_base_roles_below_1": 3
+   },
+   "4": {
+    "seats": 4,
+    "hands_per_block": 8.0,
+    "sigma_D": 10.234248743959503,
+    "sigma_D_pairing_range": [
+     5.738731365037126,
+     10.467794804647957
+    ],
+    "sigma_D_median_ci": [
+     9.659999558635022,
+     10.62091118380531
+    ],
+    "var_D": 104.73984735323667,
+    "var_D_pairing_range": [
+     32.93303768006088,
+     109.57472807221475
+    ],
+    "var_D_median_ci": [
+     93.31559148838684,
+     112.80375528859368
+    ],
+    "blocks_required_1bb100": 513807.0,
+    "blocks_required_1bb100_pairing_range": [
+     161555.0,
+     537525.0
+    ],
+    "blocks_required_1bb100_median_ci": [
+     457764.28433249856,
+     553364.4430269479
+    ],
+    "hands_required_1bb100": 4110456.0,
+    "hands_required_1bb100_pairing_range": [
+     1292440.0,
+     4300200.0
+    ],
+    "hands_required_1bb100_median_ci": [
+     3662114.2746599885,
+     4426915.544215583
+    ],
+    "p_D_zero": 0.7767,
+    "p_D_zero_pairing_range": [
+     0.7284,
+     0.8933333333333333
+    ],
+    "excess_kurtosis": 95.68020946535486,
+    "excess_kurtosis_pairing_range": [
+     91.25255700480113,
+     249.4822644450084
+    ],
+    "top1pct_share": 0.8345404479517826,
+    "top1pct_share_pairing_range": [
+     0.8124540211628927,
+     0.9570688440739548
+    ],
+    "frac_blocks_pot_ge_1stack": 0.03236666666666667,
+    "frac_blocks_pot_ge_1stack_pairing_range": [
+     0.03183333333333333,
+     0.03443333333333334
+    ],
+    "share_pot_ge_1stack": 0.8121645597821924,
+    "share_pot_ge_1stack_pairing_range": [
+     0.7928040813733532,
+     0.8301450271966795
+    ],
+    "frac_blocks_allin": 0.0375,
+    "frac_blocks_allin_pairing_range": [
+     0.03713333333333333,
+     0.041133333333333334
+    ],
+    "share_allin": 0.8150958735429877,
+    "share_allin_pairing_range": [
+     0.814928841921684,
+     0.8436232093002893
+    ],
+    "var_D_per_candidate_hand": 26.184961838309167,
+    "var_D_per_candidate_hand_pairing_range": [
+     8.23325942001522,
+     27.39368201805369
+    ],
+    "wall_h_required_8_workers": 0.24147933278999034,
+    "wall_h_required_8_workers_pairing_range": [
+     0.07592771918032819,
+     0.2526263331522139
+    ],
+    "sigma_D_rel_base": 0.7759351029255177,
+    "sigma_D_rel_base_ci": [
+     0.7274471899840462,
+     0.8263046869550075
+    ],
+    "sigma_D_rel_base_roles_below_1": 3,
+    "var_D_rel_base": 0.6020752839520338,
+    "var_D_rel_base_ci": [
+     0.5291794179637525,
+     0.6827794361134414
+    ],
+    "var_D_rel_base_roles_below_1": 3,
+    "blocks_required_1bb100_rel_base": 1.354669036030858,
+    "blocks_required_1bb100_rel_base_ci": [
+     1.190653690418443,
+     1.5362537312552431
+    ],
+    "blocks_required_1bb100_rel_base_roles_below_1": 0,
+    "hands_required_1bb100_rel_base": 0.9031126906872387,
+    "hands_required_1bb100_rel_base_ci": [
+     0.7937691269456285,
+     1.0241691541701623
+    ],
+    "hands_required_1bb100_rel_base_roles_below_1": 3
+   },
+   "6": {
+    "seats": 6,
+    "hands_per_block": 12.0,
+    "sigma_D": 13.189567923107472,
+    "sigma_D_pairing_range": [
+     7.476464286819159,
+     13.277233853531744
+    ],
+    "sigma_D_median_ci": [
+     12.484571677027201,
+     13.554728998128175
+    ],
+    "var_D": 173.96470199826555,
+    "var_D_pairing_range": [
+     55.89751823208231,
+     176.2849388013694
+    ],
+    "var_D_median_ci": [
+     155.86453080097826,
+     183.7306782469227
+    ],
+    "blocks_required_1bb100": 379286.0,
+    "blocks_required_1bb100_pairing_range": [
+     121871.0,
+     384345.0
+    ],
+    "blocks_required_1bb100_median_ci": [
+     339822.76586322987,
+     400577.7769640234
+    ],
+    "hands_required_1bb100": 4551432.0,
+    "hands_required_1bb100_pairing_range": [
+     1462452.0,
+     4612140.0
+    ],
+    "hands_required_1bb100_median_ci": [
+     4077873.1903587584,
+     4806933.323568281
+    ],
+    "p_D_zero": 0.7303333333333333,
+    "p_D_zero_pairing_range": [
+     0.6839333333333333,
+     0.8741
+    ],
+    "excess_kurtosis": 71.24969259664142,
+    "excess_kurtosis_pairing_range": [
+     59.83654093083497,
+     182.73681155002998
+    ],
+    "top1pct_share": 0.711019358176721,
+    "top1pct_share_pairing_range": [
+     0.67227971161362,
+     0.9350772619960009
+    ],
+    "frac_blocks_pot_ge_1stack": 0.06543333333333333,
+    "frac_blocks_pot_ge_1stack_pairing_range": [
+     0.06526666666666667,
+     0.0689
+    ],
+    "share_pot_ge_1stack": 0.8444772580337151,
+    "share_pot_ge_1stack_pairing_range": [
+     0.8248571035611444,
+     0.8482456887515255
+    ],
+    "frac_blocks_allin": 0.0766,
+    "frac_blocks_allin_pairing_range": [
+     0.0764,
+     0.08143333333333333
+    ],
+    "share_allin": 0.8474325788572723,
+    "share_allin_pairing_range": [
+     0.8466809990146189,
+     0.8605725547287264
+    ],
+    "var_D_per_candidate_hand": 28.994116999710926,
+    "var_D_per_candidate_hand_pairing_range": [
+     9.316253038680385,
+     29.380823133561567
+    ],
+    "wall_h_required_8_workers": 0.32021167845052284,
+    "wall_h_required_8_workers_pairing_range": [
+     0.10288942240009825,
+     0.32448273217062107
+    ],
+    "sigma_D_rel_base": 1.0,
+    "sigma_D_rel_base_ci": [
+     1.0,
+     1.0
+    ],
+    "sigma_D_rel_base_roles_below_1": 0,
+    "var_D_rel_base": 1.0,
+    "var_D_rel_base_ci": [
+     1.0,
+     1.0
+    ],
+    "var_D_rel_base_roles_below_1": 0,
+    "blocks_required_1bb100_rel_base": 1.0,
+    "blocks_required_1bb100_rel_base_ci": [
+     1.0,
+     1.0
+    ],
+    "blocks_required_1bb100_rel_base_roles_below_1": 0,
+    "hands_required_1bb100_rel_base": 1.0,
+    "hands_required_1bb100_rel_base_ci": [
+     1.0,
+     1.0
+    ],
+    "hands_required_1bb100_rel_base_roles_below_1": 0
+   },
+   "8": {
+    "seats": 8,
+    "hands_per_block": 16.0,
+    "sigma_D": 16.699058196878042,
+    "sigma_D_pairing_range": [
+     9.29181966917932,
+     16.983603887401166
+    ],
+    "sigma_D_median_ci": [
+     15.892233149604143,
+     17.190402731300647
+    ],
+    "var_D": 278.85854466271974,
+    "var_D_pairing_range": [
+     86.3379127645477,
+     288.442801004148
+    ],
+    "var_D_median_ci": [
+     252.56307497640427,
+     295.5099537953547
+    ],
+    "blocks_required_1bb100": 341989.0,
+    "blocks_required_1bb100_pairing_range": [
+     105884.0,
+     353743.0
+    ],
+    "blocks_required_1bb100_median_ci": [
+     309740.1876292482,
+     362409.7011941867
+    ],
+    "hands_required_1bb100": 5471824.0,
+    "hands_required_1bb100_pairing_range": [
+     1694144.0,
+     5659888.0
+    ],
+    "hands_required_1bb100_median_ci": [
+     4955843.002067971,
+     5798555.219106987
+    ],
+    "p_D_zero": 0.6876333333333333,
+    "p_D_zero_pairing_range": [
+     0.6426,
+     0.8541333333333333
+    ],
+    "excess_kurtosis": 67.577354009867,
+    "excess_kurtosis_pairing_range": [
+     47.43465567021194,
+     136.8296162356942
+    ],
+    "top1pct_share": 0.5659531770643522,
+    "top1pct_share_pairing_range": [
+     0.537020810434977,
+     0.8970166443874086
+    ],
+    "frac_blocks_pot_ge_1stack": 0.11163333333333333,
+    "frac_blocks_pot_ge_1stack_pairing_range": [
+     0.11146666666666667,
+     0.116
+    ],
+    "share_pot_ge_1stack": 0.8750492547827345,
+    "share_pot_ge_1stack_pairing_range": [
+     0.8699178181576276,
+     0.8928053100601712
+    ],
+    "frac_blocks_allin": 0.12923333333333334,
+    "frac_blocks_allin_pairing_range": [
+     0.12866666666666668,
+     0.13436666666666666
+    ],
+    "share_allin": 0.8818050001987369,
+    "share_allin_pairing_range": [
+     0.8777771251889932,
+     0.9014086767282322
+    ],
+    "var_D_per_candidate_hand": 34.85731808283997,
+    "var_D_per_candidate_hand_pairing_range": [
+     10.792239095568462,
+     36.0553501255185
+    ],
+    "wall_h_required_8_workers": 0.47316676328060714,
+    "wall_h_required_8_workers_pairing_range": [
+     0.1464982486664887,
+     0.48942928089257787
+    ],
+    "sigma_D_rel_base": 1.2660807612675558,
+    "sigma_D_rel_base_ci": [
+     1.1959420909859602,
+     1.3449572283477613
+    ],
+    "sigma_D_rel_base_roles_below_1": 0,
+    "var_D_rel_base": 1.6029604940518334,
+    "var_D_rel_base_ci": [
+     1.4302774940407788,
+     1.8089099515517715
+    ],
+    "var_D_rel_base_roles_below_1": 0,
+    "blocks_required_1bb100_rel_base": 0.9016652341504827,
+    "blocks_required_1bb100_rel_base_ci": [
+     0.8045310903979377,
+     1.0175118477478715
+    ],
+    "blocks_required_1bb100_rel_base_roles_below_1": 3,
+    "hands_required_1bb100_rel_base": 1.2022203122006436,
+    "hands_required_1bb100_rel_base_ci": [
+     1.0727081205305837,
+     1.3566824636638286
+    ],
+    "hands_required_1bb100_rel_base_roles_below_1": 0
+   }
+  },
+  "elasticity_hands_vs_seats": {
+   "p1": {
+    "overall": 0.28032372526990396,
+    "overall_ci": [
+     0.052631133803664645,
+     0.5336368987676325
+    ],
+    "segments": {
+     "3->4": {
+      "elasticity": 0.0007047289706075129,
+      "ci": [
+       -0.933991989789192,
+       0.9652268744891209
+      ]
+     },
+     "4->6": {
+      "elasticity": 0.30479213116408654,
+      "ci": [
+       -0.2637623247006328,
+       0.9819069147484062
+      ]
+     },
+     "6->8": {
+      "elasticity": 0.5112001529829547,
+      "ci": [
+       -0.222775109930827,
+       1.2045086835716146
+      ]
+     }
+    }
+   },
+   "p2": {
+    "overall": 0.35767636933092406,
+    "overall_ci": [
+     0.21816077899935954,
+     0.5039419345667593
+    ],
+    "segments": {
+     "3->4": {
+      "elasticity": 0.508716221566393,
+      "ci": [
+       -0.09132559473370538,
+       1.0260174156582755
+      ]
+     },
+     "4->6": {
+      "elasticity": 0.1400376366319447,
+      "ci": [
+       -0.1975941526649144,
+       0.5147128217819282
+      ]
+     },
+     "6->8": {
+      "elasticity": 0.6401862506367705,
+      "ci": [
+       0.12085359574185651,
+       1.1130584076610655
+      ]
+     }
+    }
+   },
+   "p3": {
+    "overall": 0.34940027676335933,
+    "overall_ci": [
+     0.22212045314334827,
+     0.49888584680738
+    ],
+    "segments": {
+     "3->4": {
+      "elasticity": 0.11746135885201331,
+      "ci": [
+       -0.44199849853729517,
+       0.7112231274363146
+      ]
+     },
+     "4->6": {
+      "elasticity": 0.2840145402859032,
+      "ci": [
+       -0.06440760347501828,
+       0.6429881276226379
+      ]
+     },
+     "6->8": {
+      "elasticity": 0.7115916009245269,
+      "ci": [
+       0.2628542375175363,
+       1.1640715727336521
+      ]
+     }
+    }
+   },
+   "median": {
+    "overall": 0.37392033003313835,
+    "overall_ci": [
+     0.24875343873686542,
+     0.502195224556714
+    ],
+    "segments": {
+     "3->4": {
+      "elasticity": 0.3518501311551565,
+      "ci": [
+       -0.1910911265096976,
+       0.8361508935382326
+      ]
+     },
+     "4->6": {
+      "elasticity": 0.2513358990088751,
+      "ci": [
+       -0.05889952269218792,
+       0.5696239742349811
+      ]
+     },
+     "6->8": {
+      "elasticity": 0.6401862506367705,
+      "ci": [
+       0.2439720748589701,
+       1.0603453529564937
+      ]
+     }
+    }
+   }
+  }
+ },
+ "historical_frozen": {
+  "note": "Frozen core corpora with table-size-dependent fixed populations (4-max mixed3-v1, 6-max mixed5-v1). NOT part of the primary curve. '_rel_base' is relative to historical 6-max; '*_first_n' = first 30k blocks.",
+  "base_seats": 6,
+  "bootstrap_reps": 1000,
+  "per_pairing": [
+   {
+    "seats": 4,
+    "role": "p1",
+    "pairing_id": "p1-neutral-vs-loose10",
+    "experiment_id": "fhr3-nlhe4-100bb-v2",
+    "n_blocks": 100000,
+    "hands_per_block": 8.0,
+    "candidate_hands_per_side": 4.0,
+    "mean_bb100": -1.5825475000000002,
+    "sigma_D": 5.7916015519838515,
+    "var_D": 33.542648536941755,
+    "var_D_per_candidate_hand": 8.385662134235439,
+    "blocks_required_1bb100": 164546,
+    "hands_required_1bb100": 1316368.0,
+    "p_D_zero": 0.89359,
+    "excess_kurtosis": 305.37959784271544,
+    "top1pct_share": 0.9530598260699977,
+    "top01pct_share": 0.3866226652306155,
+    "frac_blocks_pot_ge_1stack": 0.03362,
+    "share_pot_ge_1stack": 0.7899826204949953,
+    "frac_blocks_allin": 0.04033,
+    "share_allin": 0.8053507921444918,
+    "sigma_D_rel_se_delta": 0.027720912586110664,
+    "blocks_per_s_8_workers": 692.8567186755977,
+    "wall_h_required_8_workers": 0.06596922710021781,
+    "n_first": 30000,
+    "sigma_D_first_n": 5.839676409904687,
+    "hands_required_1bb100_first_n": 1338312.0,
+    "sigma_D_ci": [
+     5.4723795717980925,
+     6.1234674284169675
+    ],
+    "hands_required_ci": [
+     1175249.591062701,
+     1471541.46175037
+    ],
+    "sigma_D_rel_base": 0.7521759870589511,
+    "sigma_D_rel_base_ci": [
+     0.7057148003550459,
+     0.7998621932035732
+    ],
+    "var_D_rel_base": 0.5657687155081074,
+    "var_D_rel_base_ci": [
+     0.4980333794506013,
+     0.6397795606212979
+    ],
+    "blocks_required_1bb100_rel_base": 1.272984682036206,
+    "blocks_required_1bb100_rel_base_ci": [
+     1.1205751037638527,
+     1.4395040113979203
+    ],
+    "hands_required_1bb100_rel_base": 0.8486564546908041,
+    "hands_required_1bb100_rel_base_ci": [
+     0.7470500691759019,
+     0.9596693409319469
+    ]
+   },
+   {
+    "seats": 4,
+    "role": "p2",
+    "pairing_id": "p2-neutral-vs-tight",
+    "experiment_id": "fhr3-nlhe4-100bb-v2",
+    "n_blocks": 100000,
+    "hands_per_block": 8.0,
+    "candidate_hands_per_side": 4.0,
+    "mean_bb100": 2.3070925000000004,
+    "sigma_D": 10.423643974889563,
+    "var_D": 108.6523537152515,
+    "var_D_per_candidate_hand": 27.163088428812873,
+    "blocks_required_1bb100": 533000,
+    "hands_required_1bb100": 4264000.0,
+    "p_D_zero": 0.72843,
+    "excess_kurtosis": 94.35811166179504,
+    "top1pct_share": 0.81518833530037,
+    "top01pct_share": 0.1780601668670195,
+    "frac_blocks_pot_ge_1stack": 0.03367,
+    "share_pot_ge_1stack": 0.8095279871738164,
+    "frac_blocks_allin": 0.04031,
+    "share_allin": 0.8232924631287704,
+    "sigma_D_rel_se_delta": 0.015520801498456437,
+    "blocks_per_s_8_workers": 692.8567186755977,
+    "wall_h_required_8_workers": 0.21368856152331925,
+    "n_first": 30000,
+    "sigma_D_first_n": 10.243973147037863,
+    "hands_required_1bb100_first_n": 4118272.0,
+    "sigma_D_ci": [
+     10.122201258717842,
+     10.71216497034424
+    ],
+    "hands_required_ci": [
+     4020940.2182485233,
+     4503313.520307166
+    ],
+    "sigma_D_rel_base": 0.8010608619514866,
+    "sigma_D_rel_base_ci": [
+     0.7735208478264795,
+     0.8262149586246248
+    ],
+    "var_D_rel_base": 0.6416985045504587,
+    "var_D_rel_base_ci": [
+     0.5983345030608309,
+     0.6826311616358889
+    ],
+    "blocks_required_1bb100_rel_base": 1.4438223096281007,
+    "blocks_required_1bb100_rel_base_ci": [
+     1.3462526318868695,
+     1.5359201136807499
+    ],
+    "hands_required_1bb100_rel_base": 0.9625482064187337,
+    "hands_required_1bb100_rel_base_ci": [
+     0.8975017545912461,
+     1.023946742453833
+    ]
+   },
+   {
+    "seats": 4,
+    "role": "p3",
+    "pairing_id": "p3-aggressive-vs-neutral",
+    "experiment_id": "fhr3-nlhe4-100bb-v2",
+    "n_blocks": 100000,
+    "hands_per_block": 8.0,
+    "candidate_hands_per_side": 4.0,
+    "mean_bb100": 1.52558,
+    "sigma_D": 10.724368584577702,
+    "var_D": 115.01208153787714,
+    "var_D_per_candidate_hand": 28.753020384469284,
+    "blocks_required_1bb100": 564198,
+    "hands_required_1bb100": 4513584.0,
+    "p_D_zero": 0.77447,
+    "excess_kurtosis": 109.19712989787628,
+    "top1pct_share": 0.7963311587901459,
+    "top01pct_share": 0.21081665183810824,
+    "frac_blocks_pot_ge_1stack": 0.03639,
+    "share_pot_ge_1stack": 0.794737231534221,
+    "frac_blocks_allin": 0.04425,
+    "share_allin": 0.8179718513344273,
+    "sigma_D_rel_se_delta": 0.016673116827536798,
+    "blocks_per_s_8_workers": 692.8567186755977,
+    "wall_h_required_8_workers": 0.226196358413384,
+    "n_first": 30000,
+    "sigma_D_first_n": 10.811527339673992,
+    "hands_required_1bb100_first_n": 4587248.0,
+    "sigma_D_ci": [
+     10.381206437105119,
+     11.083351437778136
+    ],
+    "hands_required_ci": [
+     4229347.149767574,
+     4820808.589299512
+    ],
+    "sigma_D_rel_base": 0.7784541759832353,
+    "sigma_D_rel_base_ci": [
+     0.7511837512592726,
+     0.8072650124893997
+    ],
+    "var_D_rel_base": 0.6059909041057379,
+    "var_D_rel_base_ci": [
+     0.5642770300213144,
+     0.6516768069682138
+    ],
+    "blocks_required_1bb100_rel_base": 1.3634788408697103,
+    "blocks_required_1bb100_rel_base_ci": [
+     1.2696233175479572,
+     1.4662728156784803
+    ],
+    "hands_required_1bb100_rel_base": 0.9089858939131401,
+    "hands_required_1bb100_rel_base_ci": [
+     0.8464155450319715,
+     0.9775152104523203
+    ]
+   },
+   {
+    "seats": 6,
+    "role": "p1",
+    "pairing_id": "p1-neutral-vs-loose10",
+    "experiment_id": "fhr3-nlhe6-100bb-pilot-v1",
+    "n_blocks": 250000,
+    "hands_per_block": 12.0,
+    "candidate_hands_per_side": 6.0,
+    "mean_bb100": -0.5408106666666667,
+    "sigma_D": 7.699795861111344,
+    "var_D": 59.286856302787385,
+    "var_D_per_candidate_hand": 9.881142717131231,
+    "blocks_required_1bb100": 129260,
+    "hands_required_1bb100": 1551120.0,
+    "p_D_zero": 0.87188,
+    "excess_kurtosis": 185.64293052834657,
+    "top1pct_share": 0.9375453000312741,
+    "top01pct_share": 0.2714777029942231,
+    "frac_blocks_pot_ge_1stack": 0.066424,
+    "share_pot_ge_1stack": 0.8450791214835845,
+    "frac_blocks_allin": 0.077996,
+    "share_allin": 0.8572945458343684,
+    "sigma_D_rel_se_delta": 0.013698282028354745,
+    "blocks_per_s_8_workers": 354.47679835073706,
+    "wall_h_required_8_workers": 0.10129169447087143,
+    "n_first": 30000,
+    "sigma_D_first_n": 7.515400400332411,
+    "hands_required_1bb100_first_n": 1477716.0,
+    "sigma_D_ci": [
+     7.498125046794182,
+     7.900876172359375
+    ],
+    "hands_required_ci": [
+     1470929.2281108692,
+     1633190.8256781064
+    ],
+    "sigma_D_rel_base": 1.0,
+    "sigma_D_rel_base_ci": [
+     1.0,
+     1.0
+    ],
+    "var_D_rel_base": 1.0,
+    "var_D_rel_base_ci": [
+     1.0,
+     1.0
+    ],
+    "blocks_required_1bb100_rel_base": 1.0,
+    "blocks_required_1bb100_rel_base_ci": [
+     1.0,
+     1.0
+    ],
+    "hands_required_1bb100_rel_base": 1.0,
+    "hands_required_1bb100_rel_base_ci": [
+     1.0,
+     1.0
+    ]
+   },
+   {
+    "seats": 6,
+    "role": "p2",
+    "pairing_id": "p2-neutral-vs-tight",
+    "experiment_id": "fhr3-nlhe6-100bb-pilot-v1",
+    "n_blocks": 250000,
+    "hands_per_block": 12.0,
+    "candidate_hands_per_side": 6.0,
+    "mean_bb100": 1.2758826666666665,
+    "sigma_D": 13.012299651609785,
+    "var_D": 169.31994222328413,
+    "var_D_per_candidate_hand": 28.219990370547354,
+    "blocks_required_1bb100": 369159,
+    "hands_required_1bb100": 4429908.0,
+    "p_D_zero": 0.683528,
+    "excess_kurtosis": 71.36154761316591,
+    "top1pct_share": 0.7048909220528418,
+    "top01pct_share": 0.16147316464309916,
+    "frac_blocks_pot_ge_1stack": 0.066508,
+    "share_pot_ge_1stack": 0.8481583208254436,
+    "frac_blocks_allin": 0.077864,
+    "share_allin": 0.8595222045982471,
+    "sigma_D_rel_se_delta": 0.00856513558638542,
+    "blocks_per_s_8_workers": 354.47679835073706,
+    "wall_h_required_8_workers": 0.2892831551846853,
+    "n_first": 30000,
+    "sigma_D_first_n": 13.127152449547847,
+    "hands_required_1bb100_first_n": 4508460.0,
+    "sigma_D_ci": [
+     12.80383228119432,
+     13.226395666626436
+    ],
+    "hands_required_ci": [
+     4289101.992030953,
+     4576879.105195598
+    ],
+    "sigma_D_rel_base": 1.0,
+    "sigma_D_rel_base_ci": [
+     1.0,
+     1.0
+    ],
+    "var_D_rel_base": 1.0,
+    "var_D_rel_base_ci": [
+     1.0,
+     1.0
+    ],
+    "blocks_required_1bb100_rel_base": 1.0,
+    "blocks_required_1bb100_rel_base_ci": [
+     1.0,
+     1.0
+    ],
+    "hands_required_1bb100_rel_base": 1.0,
+    "hands_required_1bb100_rel_base_ci": [
+     1.0,
+     1.0
+    ]
+   },
+   {
+    "seats": 6,
+    "role": "p3",
+    "pairing_id": "p3-aggressive-vs-neutral",
+    "experiment_id": "fhr3-nlhe6-100bb-pilot-v1",
+    "n_blocks": 250000,
+    "hands_per_block": 12.0,
+    "candidate_hands_per_side": 6.0,
+    "mean_bb100": 0.007848666666666485,
+    "sigma_D": 13.776493100614648,
+    "var_D": 189.791762151283,
+    "var_D_per_candidate_hand": 31.631960358547165,
+    "blocks_required_1bb100": 413793,
+    "hands_required_1bb100": 4965516.0,
+    "p_D_zero": 0.727432,
+    "excess_kurtosis": 61.95985546647411,
+    "top1pct_share": 0.6521735615266898,
+    "top01pct_share": 0.1608556062388283,
+    "frac_blocks_pot_ge_1stack": 0.070348,
+    "share_pot_ge_1stack": 0.8344211639424807,
+    "frac_blocks_allin": 0.08302,
+    "share_allin": 0.8519775680611514,
+    "sigma_D_rel_se_delta": 0.007997490573078164,
+    "blocks_per_s_8_workers": 354.47679835073706,
+    "wall_h_required_8_workers": 0.3242595863390476,
+    "n_first": 30000,
+    "sigma_D_first_n": 13.447976236665871,
+    "hands_required_1bb100_first_n": 4731516.0,
+    "sigma_D_ci": [
+     13.56841012775599,
+     13.996268396749377
+    ],
+    "hands_required_ci": [
+     4816641.738200141,
+     5125201.499989403
+    ],
+    "sigma_D_rel_base": 1.0,
+    "sigma_D_rel_base_ci": [
+     1.0,
+     1.0
+    ],
+    "var_D_rel_base": 1.0,
+    "var_D_rel_base_ci": [
+     1.0,
+     1.0
+    ],
+    "blocks_required_1bb100_rel_base": 1.0,
+    "blocks_required_1bb100_rel_base_ci": [
+     1.0,
+     1.0
+    ],
+    "hands_required_1bb100_rel_base": 1.0,
+    "hands_required_1bb100_rel_base_ci": [
+     1.0,
+     1.0
+    ]
+   }
+  ],
+  "medians": {
+   "4": {
+    "seats": 4,
+    "hands_per_block": 8.0,
+    "sigma_D": 10.423643974889563,
+    "sigma_D_pairing_range": [
+     5.7916015519838515,
+     10.724368584577702
+    ],
+    "sigma_D_median_ci": [
+     10.122201258717842,
+     10.686713581759744
+    ],
+    "var_D": 108.6523537152515,
+    "var_D_pairing_range": [
+     33.542648536941755,
+     115.01208153787714
+    ],
+    "var_D_median_ci": [
+     102.45895858619578,
+     114.20584718576093
+    ],
+    "blocks_required_1bb100": 533000.0,
+    "blocks_required_1bb100_pairing_range": [
+     164546.0,
+     564198.0
+    ],
+    "blocks_required_1bb100_median_ci": [
+     502617.5272810654,
+     560242.4747003049
+    ],
+    "hands_required_1bb100": 4264000.0,
+    "hands_required_1bb100_pairing_range": [
+     1316368.0,
+     4513584.0
+    ],
+    "hands_required_1bb100_median_ci": [
+     4020940.2182485233,
+     4481939.797602439
+    ],
+    "p_D_zero": 0.77447,
+    "p_D_zero_pairing_range": [
+     0.72843,
+     0.89359
+    ],
+    "excess_kurtosis": 109.19712989787628,
+    "excess_kurtosis_pairing_range": [
+     94.35811166179504,
+     305.37959784271544
+    ],
+    "top1pct_share": 0.81518833530037,
+    "top1pct_share_pairing_range": [
+     0.7963311587901459,
+     0.9530598260699977
+    ],
+    "frac_blocks_pot_ge_1stack": 0.03367,
+    "frac_blocks_pot_ge_1stack_pairing_range": [
+     0.03362,
+     0.03639
+    ],
+    "share_pot_ge_1stack": 0.794737231534221,
+    "share_pot_ge_1stack_pairing_range": [
+     0.7899826204949953,
+     0.8095279871738164
+    ],
+    "frac_blocks_allin": 0.04033,
+    "frac_blocks_allin_pairing_range": [
+     0.04031,
+     0.04425
+    ],
+    "share_allin": 0.8179718513344273,
+    "share_allin_pairing_range": [
+     0.8053507921444918,
+     0.8232924631287704
+    ],
+    "var_D_per_candidate_hand": 27.163088428812873,
+    "var_D_per_candidate_hand_pairing_range": [
+     8.385662134235439,
+     28.753020384469284
+    ],
+    "wall_h_required_8_workers": 0.21368856152331925,
+    "wall_h_required_8_workers_pairing_range": [
+     0.06596922710021781,
+     0.226196358413384
+    ],
+    "sigma_D_rel_base": 0.8010608619514866,
+    "sigma_D_rel_base_ci": [
+     0.7733107331026559,
+     0.8249558011953458
+    ],
+    "sigma_D_rel_base_roles_below_1": 3,
+    "var_D_rel_base": 0.6416985045504587,
+    "var_D_rel_base_ci": [
+     0.5980094929875704,
+     0.6805520741895481
+    ],
+    "var_D_rel_base_roles_below_1": 3,
+    "blocks_required_1bb100_rel_base": 1.4438223096281007,
+    "blocks_required_1bb100_rel_base_ci": [
+     1.3455213592220332,
+     1.531242166926483
+    ],
+    "blocks_required_1bb100_rel_base_roles_below_1": 0,
+    "hands_required_1bb100_rel_base": 0.9625482064187337,
+    "hands_required_1bb100_rel_base_ci": [
+     0.8970142394813555,
+     1.0208281112843223
+    ],
+    "hands_required_1bb100_rel_base_roles_below_1": 3
+   },
+   "6": {
+    "seats": 6,
+    "hands_per_block": 12.0,
+    "sigma_D": 13.012299651609785,
+    "sigma_D_pairing_range": [
+     7.699795861111344,
+     13.776493100614648
+    ],
+    "sigma_D_median_ci": [
+     12.80383228119432,
+     13.226395666626436
+    ],
+    "var_D": 169.31994222328413,
+    "var_D_pairing_range": [
+     59.286856302787385,
+     189.791762151283
+    ],
+    "var_D_median_ci": [
+     163.93812125546535,
+     174.93754243038458
+    ],
+    "blocks_required_1bb100": 369159.0,
+    "blocks_required_1bb100_pairing_range": [
+     129260.0,
+     413793.0
+    ],
+    "blocks_required_1bb100_median_ci": [
+     357425.1660025794,
+     381406.5920996331
+    ],
+    "hands_required_1bb100": 4429908.0,
+    "hands_required_1bb100_pairing_range": [
+     1551120.0,
+     4965516.0
+    ],
+    "hands_required_1bb100_median_ci": [
+     4289101.992030953,
+     4576879.105195598
+    ],
+    "p_D_zero": 0.727432,
+    "p_D_zero_pairing_range": [
+     0.683528,
+     0.87188
+    ],
+    "excess_kurtosis": 71.36154761316591,
+    "excess_kurtosis_pairing_range": [
+     61.95985546647411,
+     185.64293052834657
+    ],
+    "top1pct_share": 0.7048909220528418,
+    "top1pct_share_pairing_range": [
+     0.6521735615266898,
+     0.9375453000312741
+    ],
+    "frac_blocks_pot_ge_1stack": 0.066508,
+    "frac_blocks_pot_ge_1stack_pairing_range": [
+     0.066424,
+     0.070348
+    ],
+    "share_pot_ge_1stack": 0.8450791214835845,
+    "share_pot_ge_1stack_pairing_range": [
+     0.8344211639424807,
+     0.8481583208254436
+    ],
+    "frac_blocks_allin": 0.077996,
+    "frac_blocks_allin_pairing_range": [
+     0.077864,
+     0.08302
+    ],
+    "share_allin": 0.8572945458343684,
+    "share_allin_pairing_range": [
+     0.8519775680611514,
+     0.8595222045982471
+    ],
+    "var_D_per_candidate_hand": 28.219990370547354,
+    "var_D_per_candidate_hand_pairing_range": [
+     9.881142717131231,
+     31.631960358547165
+    ],
+    "wall_h_required_8_workers": 0.2892831551846853,
+    "wall_h_required_8_workers_pairing_range": [
+     0.10129169447087143,
+     0.3242595863390476
+    ],
+    "sigma_D_rel_base": 1.0,
+    "sigma_D_rel_base_ci": [
+     1.0,
+     1.0
+    ],
+    "sigma_D_rel_base_roles_below_1": 0,
+    "var_D_rel_base": 1.0,
+    "var_D_rel_base_ci": [
+     1.0,
+     1.0
+    ],
+    "var_D_rel_base_roles_below_1": 0,
+    "blocks_required_1bb100_rel_base": 1.0,
+    "blocks_required_1bb100_rel_base_ci": [
+     1.0,
+     1.0
+    ],
+    "blocks_required_1bb100_rel_base_roles_below_1": 0,
+    "hands_required_1bb100_rel_base": 1.0,
+    "hands_required_1bb100_rel_base_ci": [
+     1.0,
+     1.0
+    ],
+    "hands_required_1bb100_rel_base_roles_below_1": 0
+   }
+  },
+  "elasticity_hands_vs_seats": {
+   "p1": {
+    "overall": 0.4047224244163668,
+    "overall_ci": [
+     0.10152930825478139,
+     0.7192309850997476
+    ],
+    "segments": {
+     "4->6": {
+      "elasticity": 0.4047224244163668,
+      "ci": [
+       0.10152930825478136,
+       0.7192309850997476
+      ]
+     }
+    }
+   },
+   "p2": {
+    "overall": 0.09414158880796554,
+    "overall_ci": [
+     -0.058363850288643104,
+     0.2667065672356084
+    ],
+    "segments": {
+     "4->6": {
+      "elasticity": 0.09414158880796553,
+      "ci": [
+       -0.058363850288643104,
+       0.2667065672356084
+      ]
+     }
+    }
+   },
+   "p3": {
+    "overall": 0.23534874213388987,
+    "overall_ci": [
+     0.056087309141645336,
+     0.4112434220998077
+    ],
+    "segments": {
+     "4->6": {
+      "elasticity": 0.23534874213388984,
+      "ci": [
+       0.05608730914164533,
+       0.4112434220998077
+      ]
+     }
+    }
+   },
+   "median": {
+    "overall": 0.09414158880796554,
+    "overall_ci": [
+     -0.050840801158806646,
+     0.2680466223510183
+    ],
+    "segments": {
+     "4->6": {
+      "elasticity": 0.09414158880796553,
+      "ci": [
+       -0.050840801158806646,
+       0.2680466223510183
+      ]
+     }
+    }
+   }
+  }
+ },
+ "controlled_vs_historical": {
+  "note": "Same table size, same deals (paired on block id); only the reference population differs. sigma ratio controlled / historical, paired bootstrap.",
+  "pairs": {
+   "4|p1": {
+    "seats": 4,
+    "role": "p1",
+    "common_blocks": 30000,
+    "sigma_ratio_controlled_over_historical": 0.9827139317691734,
+    "sigma_ratio_ci": [
+     0.9306697567220539,
+     1.038703331899994
+    ],
+    "hands_ratio_controlled_over_historical": 0.9657266716932277,
+    "hands_ratio_ci": [
+     0.866146196077087,
+     1.0789046117001493
+    ],
+    "corr_D": 0.7942770876602416
+   },
+   "4|p2": {
+    "seats": 4,
+    "role": "p2",
+    "common_blocks": 30000,
+    "sigma_ratio_controlled_over_historical": 1.0218491062400739,
+    "sigma_ratio_ci": [
+     0.9743377330781342,
+     1.0703884924242428
+    ],
+    "hands_ratio_controlled_over_historical": 1.0441755959236378,
+    "hands_ratio_ci": [
+     0.9493340180998375,
+     1.1457315247142434
+    ],
+    "corr_D": 0.6981708289873005
+   },
+   "4|p3": {
+    "seats": 4,
+    "role": "p3",
+    "common_blocks": 30000,
+    "sigma_ratio_controlled_over_historical": 0.9466052688415163,
+    "sigma_ratio_ci": [
+     0.8967522522027481,
+     0.9935785446899537
+    ],
+    "hands_ratio_controlled_over_historical": 0.8960615349985194,
+    "hands_ratio_ci": [
+     0.8041646018307012,
+     0.9871983244682062
+    ],
+    "corr_D": 0.7235727143275738
+   },
+   "6|p1": {
+    "seats": 6,
+    "role": "p1",
+    "common_blocks": 30000,
+    "sigma_ratio_controlled_over_historical": 0.9948191564734821,
+    "sigma_ratio_ci": [
+     0.9496917150144534,
+     1.0495994181731716
+    ],
+    "hands_ratio_controlled_over_historical": 0.9896651540866104,
+    "hands_ratio_ci": [
+     0.9019143535670937,
+     1.1016589386294604
+    ],
+    "corr_D": 0.7686395837279543
+   },
+   "6|p2": {
+    "seats": 6,
+    "role": "p2",
+    "common_blocks": 30000,
+    "sigma_ratio_controlled_over_historical": 1.004754684902115,
+    "sigma_ratio_ci": [
+     0.970511662623519,
+     1.0386857349162433
+    ],
+    "hands_ratio_controlled_over_historical": 1.0095319768327482,
+    "hands_ratio_ci": [
+     0.941892887288267,
+     1.0788680559184964
+    ],
+    "corr_D": 0.7527182815003097
+   },
+   "6|p3": {
+    "seats": 6,
+    "role": "p3",
+    "common_blocks": 30000,
+    "sigma_ratio_controlled_over_historical": 0.987303488634327,
+    "sigma_ratio_ci": [
+     0.9569794435644852,
+     1.018998002559241
+    ],
+    "hands_ratio_controlled_over_historical": 0.9747681786695127,
+    "hands_ratio_ci": [
+     0.9158096554049916,
+     1.0383569292197228
+    ],
+    "corr_D": 0.7527272619250149
+   }
+  }
+ },
+ "sources": {
+  "controlled": {
+   "3": {
+    "experiment_id": "fhr3a-nlhe3-100bb-tablesize-v1",
+    "config": "configs/tablesize/nlhe_3max_100bb.yaml",
+    "config_hash": "c9937b916d1bb80f",
+    "frozen_core_corpus": false,
+    "results_dir": "results/fhr3a-nlhe3-100bb-tablesize-v1",
+    "blocks_per_s_8_workers": 1071.9646255317452
+   },
+   "4": {
+    "experiment_id": "fhr3a-nlhe4-100bb-tablesize-v1",
+    "config": "configs/tablesize/nlhe_4max_100bb.yaml",
+    "config_hash": "56dcbd13a8614cbb",
+    "frozen_core_corpus": false,
+    "results_dir": "results/fhr3a-nlhe4-100bb-tablesize-v1",
+    "blocks_per_s_8_workers": 591.0409185650309
+   },
+   "6": {
+    "experiment_id": "fhr3a-nlhe6-100bb-tablesize-v1",
+    "config": "configs/tablesize/nlhe_6max_100bb.yaml",
+    "config_hash": "e02ffdc936b79e3f",
+    "frozen_core_corpus": false,
+    "results_dir": "results/fhr3a-nlhe6-100bb-tablesize-v1",
+    "blocks_per_s_8_workers": 329.0236718786676
+   },
+   "8": {
+    "experiment_id": "fhr3a-nlhe8-100bb-tablesize-v1",
+    "config": "configs/tablesize/nlhe_8max_100bb.yaml",
+    "config_hash": "1bbb0bcb3b465ed8",
+    "frozen_core_corpus": false,
+    "results_dir": "results/fhr3a-nlhe8-100bb-tablesize-v1",
+    "blocks_per_s_8_workers": 200.76842207978035
+   }
+  },
+  "historical": {
+   "4": {
+    "experiment_id": "fhr3-nlhe4-100bb-v2",
+    "config": "configs/nlhe_4max_100bb_v2.yaml",
+    "config_hash": "ab7e279f1720c074",
+    "frozen_core_corpus": true,
+    "results_dir": "results/fhr3-nlhe4-100bb-v2",
+    "blocks_per_s_8_workers": 692.8567186755977
+   },
+   "6": {
+    "experiment_id": "fhr3-nlhe6-100bb-pilot-v1",
+    "config": "configs/nlhe_6max_100bb.yaml",
+    "config_hash": "5f8886e193bc5489",
+    "frozen_core_corpus": true,
+    "results_dir": "results/fhr3-nlhe6-100bb-pilot-v1",
+    "blocks_per_s_8_workers": 354.47679835073706
+   }
+  }
+ },
+ "invariant_checks_passed": [
+  "controlled 3-max experiment lock config_hash = configs/tablesize/nlhe_3max_100bb.yaml",
+  "controlled 3-max rows carry config_hash c9937b916d1bb80f",
+  "controlled 3-max p1-neutral-vs-loose10 present",
+  "controlled 3-max p1-neutral-vs-loose10 pairing_hash = config",
+  "controlled 3-max p1-neutral-vs-loose10 block ids contiguous 0..29999",
+  "controlled 3-max p1-neutral-vs-loose10 has exactly 30000 blocks (30000)",
+  "controlled 3-max p1-neutral-vs-loose10 no invalid blocks",
+  "controlled 3-max p1-neutral-vs-loose10 no NaN/inf D",
+  "controlled 3-max p1-neutral-vs-loose10 every block = 6 played hands, k = 3",
+  "controlled 3-max p1-neutral-vs-loose10 every block's recorded lineup = cycle[(b + j) mod 5]",
+  "controlled 3-max p1-neutral-vs-loose10 block count is a multiple of 5 (30000)",
+  "controlled 3-max p1-neutral-vs-loose10 slot 0 mixture exactly 40/20/20/20 over 30000 blocks",
+  "controlled 3-max p1-neutral-vs-loose10 slot 1 mixture exactly 40/20/20/20 over 30000 blocks",
+  "controlled 3-max p2-neutral-vs-tight present",
+  "controlled 3-max p2-neutral-vs-tight pairing_hash = config",
+  "controlled 3-max p2-neutral-vs-tight block ids contiguous 0..29999",
+  "controlled 3-max p2-neutral-vs-tight has exactly 30000 blocks (30000)",
+  "controlled 3-max p2-neutral-vs-tight no invalid blocks",
+  "controlled 3-max p2-neutral-vs-tight no NaN/inf D",
+  "controlled 3-max p2-neutral-vs-tight every block = 6 played hands, k = 3",
+  "controlled 3-max p2-neutral-vs-tight every block's recorded lineup = cycle[(b + j) mod 5]",
+  "controlled 3-max p2-neutral-vs-tight block count is a multiple of 5 (30000)",
+  "controlled 3-max p2-neutral-vs-tight slot 0 mixture exactly 40/20/20/20 over 30000 blocks",
+  "controlled 3-max p2-neutral-vs-tight slot 1 mixture exactly 40/20/20/20 over 30000 blocks",
+  "controlled 3-max p3-aggressive-vs-neutral present",
+  "controlled 3-max p3-aggressive-vs-neutral pairing_hash = config",
+  "controlled 3-max p3-aggressive-vs-neutral block ids contiguous 0..29999",
+  "controlled 3-max p3-aggressive-vs-neutral has exactly 30000 blocks (30000)",
+  "controlled 3-max p3-aggressive-vs-neutral no invalid blocks",
+  "controlled 3-max p3-aggressive-vs-neutral no NaN/inf D",
+  "controlled 3-max p3-aggressive-vs-neutral every block = 6 played hands, k = 3",
+  "controlled 3-max p3-aggressive-vs-neutral every block's recorded lineup = cycle[(b + j) mod 5]",
+  "controlled 3-max p3-aggressive-vs-neutral block count is a multiple of 5 (30000)",
+  "controlled 3-max p3-aggressive-vs-neutral slot 0 mixture exactly 40/20/20/20 over 30000 blocks",
+  "controlled 3-max p3-aggressive-vs-neutral slot 1 mixture exactly 40/20/20/20 over 30000 blocks",
+  "controlled 3-max c0-selfplay-control present",
+  "controlled 3-max c0-selfplay-control pairing_hash = config",
+  "controlled 3-max c0-selfplay-control block ids contiguous 0..9999",
+  "controlled 3-max c0-selfplay-control has exactly 10000 blocks (10000)",
+  "controlled 3-max c0-selfplay-control no invalid blocks",
+  "controlled 3-max c0-selfplay-control no NaN/inf D",
+  "controlled 3-max c0-selfplay-control every block = 6 played hands, k = 3",
+  "controlled 3-max c0-selfplay-control every block's recorded lineup = cycle[(b + j) mod 5]",
+  "controlled 3-max c0-selfplay-control block count is a multiple of 5 (10000)",
+  "controlled 3-max c0-selfplay-control slot 0 mixture exactly 40/20/20/20 over 10000 blocks",
+  "controlled 3-max c0-selfplay-control slot 1 mixture exactly 40/20/20/20 over 10000 blocks",
+  "controlled 3-max c0-selfplay-control self-play control D == 0 exactly (10000 blocks)",
+  "controlled 4-max experiment lock config_hash = configs/tablesize/nlhe_4max_100bb.yaml",
+  "controlled 4-max rows carry config_hash 56dcbd13a8614cbb",
+  "controlled 4-max p1-neutral-vs-loose10 present",
+  "controlled 4-max p1-neutral-vs-loose10 pairing_hash = config",
+  "controlled 4-max p1-neutral-vs-loose10 block ids contiguous 0..29999",
+  "controlled 4-max p1-neutral-vs-loose10 has exactly 30000 blocks (30000)",
+  "controlled 4-max p1-neutral-vs-loose10 no invalid blocks",
+  "controlled 4-max p1-neutral-vs-loose10 no NaN/inf D",
+  "controlled 4-max p1-neutral-vs-loose10 every block = 8 played hands, k = 4",
+  "controlled 4-max p1-neutral-vs-loose10 every block's recorded lineup = cycle[(b + j) mod 5]",
+  "controlled 4-max p1-neutral-vs-loose10 block count is a multiple of 5 (30000)",
+  "controlled 4-max p1-neutral-vs-loose10 slot 0 mixture exactly 40/20/20/20 over 30000 blocks",
+  "controlled 4-max p1-neutral-vs-loose10 slot 1 mixture exactly 40/20/20/20 over 30000 blocks",
+  "controlled 4-max p1-neutral-vs-loose10 slot 2 mixture exactly 40/20/20/20 over 30000 blocks",
+  "controlled 4-max p2-neutral-vs-tight present",
+  "controlled 4-max p2-neutral-vs-tight pairing_hash = config",
+  "controlled 4-max p2-neutral-vs-tight block ids contiguous 0..29999",
+  "controlled 4-max p2-neutral-vs-tight has exactly 30000 blocks (30000)",
+  "controlled 4-max p2-neutral-vs-tight no invalid blocks",
+  "controlled 4-max p2-neutral-vs-tight no NaN/inf D",
+  "controlled 4-max p2-neutral-vs-tight every block = 8 played hands, k = 4",
+  "controlled 4-max p2-neutral-vs-tight every block's recorded lineup = cycle[(b + j) mod 5]",
+  "controlled 4-max p2-neutral-vs-tight block count is a multiple of 5 (30000)",
+  "controlled 4-max p2-neutral-vs-tight slot 0 mixture exactly 40/20/20/20 over 30000 blocks",
+  "controlled 4-max p2-neutral-vs-tight slot 1 mixture exactly 40/20/20/20 over 30000 blocks",
+  "controlled 4-max p2-neutral-vs-tight slot 2 mixture exactly 40/20/20/20 over 30000 blocks",
+  "controlled 4-max p3-aggressive-vs-neutral present",
+  "controlled 4-max p3-aggressive-vs-neutral pairing_hash = config",
+  "controlled 4-max p3-aggressive-vs-neutral block ids contiguous 0..29999",
+  "controlled 4-max p3-aggressive-vs-neutral has exactly 30000 blocks (30000)",
+  "controlled 4-max p3-aggressive-vs-neutral no invalid blocks",
+  "controlled 4-max p3-aggressive-vs-neutral no NaN/inf D",
+  "controlled 4-max p3-aggressive-vs-neutral every block = 8 played hands, k = 4",
+  "controlled 4-max p3-aggressive-vs-neutral every block's recorded lineup = cycle[(b + j) mod 5]",
+  "controlled 4-max p3-aggressive-vs-neutral block count is a multiple of 5 (30000)",
+  "controlled 4-max p3-aggressive-vs-neutral slot 0 mixture exactly 40/20/20/20 over 30000 blocks",
+  "controlled 4-max p3-aggressive-vs-neutral slot 1 mixture exactly 40/20/20/20 over 30000 blocks",
+  "controlled 4-max p3-aggressive-vs-neutral slot 2 mixture exactly 40/20/20/20 over 30000 blocks",
+  "controlled 4-max c0-selfplay-control present",
+  "controlled 4-max c0-selfplay-control pairing_hash = config",
+  "controlled 4-max c0-selfplay-control block ids contiguous 0..9999",
+  "controlled 4-max c0-selfplay-control has exactly 10000 blocks (10000)",
+  "controlled 4-max c0-selfplay-control no invalid blocks",
+  "controlled 4-max c0-selfplay-control no NaN/inf D",
+  "controlled 4-max c0-selfplay-control every block = 8 played hands, k = 4",
+  "controlled 4-max c0-selfplay-control every block's recorded lineup = cycle[(b + j) mod 5]",
+  "controlled 4-max c0-selfplay-control block count is a multiple of 5 (10000)",
+  "controlled 4-max c0-selfplay-control slot 0 mixture exactly 40/20/20/20 over 10000 blocks",
+  "controlled 4-max c0-selfplay-control slot 1 mixture exactly 40/20/20/20 over 10000 blocks",
+  "controlled 4-max c0-selfplay-control slot 2 mixture exactly 40/20/20/20 over 10000 blocks",
+  "controlled 4-max c0-selfplay-control self-play control D == 0 exactly (10000 blocks)",
+  "controlled 6-max experiment lock config_hash = configs/tablesize/nlhe_6max_100bb.yaml",
+  "controlled 6-max rows carry config_hash e02ffdc936b79e3f",
+  "controlled 6-max p1-neutral-vs-loose10 present",
+  "controlled 6-max p1-neutral-vs-loose10 pairing_hash = config",
+  "controlled 6-max p1-neutral-vs-loose10 block ids contiguous 0..29999",
+  "controlled 6-max p1-neutral-vs-loose10 has exactly 30000 blocks (30000)",
+  "controlled 6-max p1-neutral-vs-loose10 no invalid blocks",
+  "controlled 6-max p1-neutral-vs-loose10 no NaN/inf D",
+  "controlled 6-max p1-neutral-vs-loose10 every block = 12 played hands, k = 6",
+  "controlled 6-max p1-neutral-vs-loose10 every block's recorded lineup = cycle[(b + j) mod 5]",
+  "controlled 6-max p1-neutral-vs-loose10 block count is a multiple of 5 (30000)",
+  "controlled 6-max p1-neutral-vs-loose10 slot 0 mixture exactly 40/20/20/20 over 30000 blocks",
+  "controlled 6-max p1-neutral-vs-loose10 slot 1 mixture exactly 40/20/20/20 over 30000 blocks",
+  "controlled 6-max p1-neutral-vs-loose10 slot 2 mixture exactly 40/20/20/20 over 30000 blocks",
+  "controlled 6-max p1-neutral-vs-loose10 slot 3 mixture exactly 40/20/20/20 over 30000 blocks",
+  "controlled 6-max p1-neutral-vs-loose10 slot 4 mixture exactly 40/20/20/20 over 30000 blocks",
+  "controlled 6-max p2-neutral-vs-tight present",
+  "controlled 6-max p2-neutral-vs-tight pairing_hash = config",
+  "controlled 6-max p2-neutral-vs-tight block ids contiguous 0..29999",
+  "controlled 6-max p2-neutral-vs-tight has exactly 30000 blocks (30000)",
+  "controlled 6-max p2-neutral-vs-tight no invalid blocks",
+  "controlled 6-max p2-neutral-vs-tight no NaN/inf D",
+  "controlled 6-max p2-neutral-vs-tight every block = 12 played hands, k = 6",
+  "controlled 6-max p2-neutral-vs-tight every block's recorded lineup = cycle[(b + j) mod 5]",
+  "controlled 6-max p2-neutral-vs-tight block count is a multiple of 5 (30000)",
+  "controlled 6-max p2-neutral-vs-tight slot 0 mixture exactly 40/20/20/20 over 30000 blocks",
+  "controlled 6-max p2-neutral-vs-tight slot 1 mixture exactly 40/20/20/20 over 30000 blocks",
+  "controlled 6-max p2-neutral-vs-tight slot 2 mixture exactly 40/20/20/20 over 30000 blocks",
+  "controlled 6-max p2-neutral-vs-tight slot 3 mixture exactly 40/20/20/20 over 30000 blocks",
+  "controlled 6-max p2-neutral-vs-tight slot 4 mixture exactly 40/20/20/20 over 30000 blocks",
+  "controlled 6-max p3-aggressive-vs-neutral present",
+  "controlled 6-max p3-aggressive-vs-neutral pairing_hash = config",
+  "controlled 6-max p3-aggressive-vs-neutral block ids contiguous 0..29999",
+  "controlled 6-max p3-aggressive-vs-neutral has exactly 30000 blocks (30000)",
+  "controlled 6-max p3-aggressive-vs-neutral no invalid blocks",
+  "controlled 6-max p3-aggressive-vs-neutral no NaN/inf D",
+  "controlled 6-max p3-aggressive-vs-neutral every block = 12 played hands, k = 6",
+  "controlled 6-max p3-aggressive-vs-neutral every block's recorded lineup = cycle[(b + j) mod 5]",
+  "controlled 6-max p3-aggressive-vs-neutral block count is a multiple of 5 (30000)",
+  "controlled 6-max p3-aggressive-vs-neutral slot 0 mixture exactly 40/20/20/20 over 30000 blocks",
+  "controlled 6-max p3-aggressive-vs-neutral slot 1 mixture exactly 40/20/20/20 over 30000 blocks",
+  "controlled 6-max p3-aggressive-vs-neutral slot 2 mixture exactly 40/20/20/20 over 30000 blocks",
+  "controlled 6-max p3-aggressive-vs-neutral slot 3 mixture exactly 40/20/20/20 over 30000 blocks",
+  "controlled 6-max p3-aggressive-vs-neutral slot 4 mixture exactly 40/20/20/20 over 30000 blocks",
+  "controlled 6-max c0-selfplay-control present",
+  "controlled 6-max c0-selfplay-control pairing_hash = config",
+  "controlled 6-max c0-selfplay-control block ids contiguous 0..9999",
+  "controlled 6-max c0-selfplay-control has exactly 10000 blocks (10000)",
+  "controlled 6-max c0-selfplay-control no invalid blocks",
+  "controlled 6-max c0-selfplay-control no NaN/inf D",
+  "controlled 6-max c0-selfplay-control every block = 12 played hands, k = 6",
+  "controlled 6-max c0-selfplay-control every block's recorded lineup = cycle[(b + j) mod 5]",
+  "controlled 6-max c0-selfplay-control block count is a multiple of 5 (10000)",
+  "controlled 6-max c0-selfplay-control slot 0 mixture exactly 40/20/20/20 over 10000 blocks",
+  "controlled 6-max c0-selfplay-control slot 1 mixture exactly 40/20/20/20 over 10000 blocks",
+  "controlled 6-max c0-selfplay-control slot 2 mixture exactly 40/20/20/20 over 10000 blocks",
+  "controlled 6-max c0-selfplay-control slot 3 mixture exactly 40/20/20/20 over 10000 blocks",
+  "controlled 6-max c0-selfplay-control slot 4 mixture exactly 40/20/20/20 over 10000 blocks",
+  "controlled 6-max c0-selfplay-control self-play control D == 0 exactly (10000 blocks)",
+  "controlled 8-max experiment lock config_hash = configs/tablesize/nlhe_8max_100bb.yaml",
+  "controlled 8-max rows carry config_hash 1bbb0bcb3b465ed8",
+  "controlled 8-max p1-neutral-vs-loose10 present",
+  "controlled 8-max p1-neutral-vs-loose10 pairing_hash = config",
+  "controlled 8-max p1-neutral-vs-loose10 block ids contiguous 0..29999",
+  "controlled 8-max p1-neutral-vs-loose10 has exactly 30000 blocks (30000)",
+  "controlled 8-max p1-neutral-vs-loose10 no invalid blocks",
+  "controlled 8-max p1-neutral-vs-loose10 no NaN/inf D",
+  "controlled 8-max p1-neutral-vs-loose10 every block = 16 played hands, k = 8",
+  "controlled 8-max p1-neutral-vs-loose10 every block's recorded lineup = cycle[(b + j) mod 5]",
+  "controlled 8-max p1-neutral-vs-loose10 block count is a multiple of 5 (30000)",
+  "controlled 8-max p1-neutral-vs-loose10 slot 0 mixture exactly 40/20/20/20 over 30000 blocks",
+  "controlled 8-max p1-neutral-vs-loose10 slot 1 mixture exactly 40/20/20/20 over 30000 blocks",
+  "controlled 8-max p1-neutral-vs-loose10 slot 2 mixture exactly 40/20/20/20 over 30000 blocks",
+  "controlled 8-max p1-neutral-vs-loose10 slot 3 mixture exactly 40/20/20/20 over 30000 blocks",
+  "controlled 8-max p1-neutral-vs-loose10 slot 4 mixture exactly 40/20/20/20 over 30000 blocks",
+  "controlled 8-max p1-neutral-vs-loose10 slot 5 mixture exactly 40/20/20/20 over 30000 blocks",
+  "controlled 8-max p1-neutral-vs-loose10 slot 6 mixture exactly 40/20/20/20 over 30000 blocks",
+  "controlled 8-max p2-neutral-vs-tight present",
+  "controlled 8-max p2-neutral-vs-tight pairing_hash = config",
+  "controlled 8-max p2-neutral-vs-tight block ids contiguous 0..29999",
+  "controlled 8-max p2-neutral-vs-tight has exactly 30000 blocks (30000)",
+  "controlled 8-max p2-neutral-vs-tight no invalid blocks",
+  "controlled 8-max p2-neutral-vs-tight no NaN/inf D",
+  "controlled 8-max p2-neutral-vs-tight every block = 16 played hands, k = 8",
+  "controlled 8-max p2-neutral-vs-tight every block's recorded lineup = cycle[(b + j) mod 5]",
+  "controlled 8-max p2-neutral-vs-tight block count is a multiple of 5 (30000)",
+  "controlled 8-max p2-neutral-vs-tight slot 0 mixture exactly 40/20/20/20 over 30000 blocks",
+  "controlled 8-max p2-neutral-vs-tight slot 1 mixture exactly 40/20/20/20 over 30000 blocks",
+  "controlled 8-max p2-neutral-vs-tight slot 2 mixture exactly 40/20/20/20 over 30000 blocks",
+  "controlled 8-max p2-neutral-vs-tight slot 3 mixture exactly 40/20/20/20 over 30000 blocks",
+  "controlled 8-max p2-neutral-vs-tight slot 4 mixture exactly 40/20/20/20 over 30000 blocks",
+  "controlled 8-max p2-neutral-vs-tight slot 5 mixture exactly 40/20/20/20 over 30000 blocks",
+  "controlled 8-max p2-neutral-vs-tight slot 6 mixture exactly 40/20/20/20 over 30000 blocks",
+  "controlled 8-max p3-aggressive-vs-neutral present",
+  "controlled 8-max p3-aggressive-vs-neutral pairing_hash = config",
+  "controlled 8-max p3-aggressive-vs-neutral block ids contiguous 0..29999",
+  "controlled 8-max p3-aggressive-vs-neutral has exactly 30000 blocks (30000)",
+  "controlled 8-max p3-aggressive-vs-neutral no invalid blocks",
+  "controlled 8-max p3-aggressive-vs-neutral no NaN/inf D",
+  "controlled 8-max p3-aggressive-vs-neutral every block = 16 played hands, k = 8",
+  "controlled 8-max p3-aggressive-vs-neutral every block's recorded lineup = cycle[(b + j) mod 5]",
+  "controlled 8-max p3-aggressive-vs-neutral block count is a multiple of 5 (30000)",
+  "controlled 8-max p3-aggressive-vs-neutral slot 0 mixture exactly 40/20/20/20 over 30000 blocks",
+  "controlled 8-max p3-aggressive-vs-neutral slot 1 mixture exactly 40/20/20/20 over 30000 blocks",
+  "controlled 8-max p3-aggressive-vs-neutral slot 2 mixture exactly 40/20/20/20 over 30000 blocks",
+  "controlled 8-max p3-aggressive-vs-neutral slot 3 mixture exactly 40/20/20/20 over 30000 blocks",
+  "controlled 8-max p3-aggressive-vs-neutral slot 4 mixture exactly 40/20/20/20 over 30000 blocks",
+  "controlled 8-max p3-aggressive-vs-neutral slot 5 mixture exactly 40/20/20/20 over 30000 blocks",
+  "controlled 8-max p3-aggressive-vs-neutral slot 6 mixture exactly 40/20/20/20 over 30000 blocks",
+  "controlled 8-max c0-selfplay-control present",
+  "controlled 8-max c0-selfplay-control pairing_hash = config",
+  "controlled 8-max c0-selfplay-control block ids contiguous 0..9999",
+  "controlled 8-max c0-selfplay-control has exactly 10000 blocks (10000)",
+  "controlled 8-max c0-selfplay-control no invalid blocks",
+  "controlled 8-max c0-selfplay-control no NaN/inf D",
+  "controlled 8-max c0-selfplay-control every block = 16 played hands, k = 8",
+  "controlled 8-max c0-selfplay-control every block's recorded lineup = cycle[(b + j) mod 5]",
+  "controlled 8-max c0-selfplay-control block count is a multiple of 5 (10000)",
+  "controlled 8-max c0-selfplay-control slot 0 mixture exactly 40/20/20/20 over 10000 blocks",
+  "controlled 8-max c0-selfplay-control slot 1 mixture exactly 40/20/20/20 over 10000 blocks",
+  "controlled 8-max c0-selfplay-control slot 2 mixture exactly 40/20/20/20 over 10000 blocks",
+  "controlled 8-max c0-selfplay-control slot 3 mixture exactly 40/20/20/20 over 10000 blocks",
+  "controlled 8-max c0-selfplay-control slot 4 mixture exactly 40/20/20/20 over 10000 blocks",
+  "controlled 8-max c0-selfplay-control slot 5 mixture exactly 40/20/20/20 over 10000 blocks",
+  "controlled 8-max c0-selfplay-control slot 6 mixture exactly 40/20/20/20 over 10000 blocks",
+  "controlled 8-max c0-selfplay-control self-play control D == 0 exactly (10000 blocks)",
+  "historical 4-max experiment lock config_hash = configs/nlhe_4max_100bb_v2.yaml",
+  "historical 4-max config_hash = frozen MANIFEST",
+  "historical 4-max c0-selfplay-control Parquet fingerprint = frozen MANIFEST (10000 rows)",
+  "historical 4-max p1-neutral-vs-loose10 Parquet fingerprint = frozen MANIFEST (100000 rows)",
+  "historical 4-max p2-neutral-vs-tight Parquet fingerprint = frozen MANIFEST (100000 rows)",
+  "historical 4-max p3-aggressive-vs-neutral Parquet fingerprint = frozen MANIFEST (100000 rows)",
+  "historical 4-max rows carry config_hash ab7e279f1720c074",
+  "historical 4-max p1-neutral-vs-loose10 present",
+  "historical 4-max p1-neutral-vs-loose10 pairing_hash = config",
+  "historical 4-max p1-neutral-vs-loose10 block ids contiguous 0..99999",
+  "historical 4-max p1-neutral-vs-loose10 no invalid blocks",
+  "historical 4-max p1-neutral-vs-loose10 no NaN/inf D",
+  "historical 4-max p1-neutral-vs-loose10 every block = 8 played hands, k = 4",
+  "historical 4-max p2-neutral-vs-tight present",
+  "historical 4-max p2-neutral-vs-tight pairing_hash = config",
+  "historical 4-max p2-neutral-vs-tight block ids contiguous 0..99999",
+  "historical 4-max p2-neutral-vs-tight no invalid blocks",
+  "historical 4-max p2-neutral-vs-tight no NaN/inf D",
+  "historical 4-max p2-neutral-vs-tight every block = 8 played hands, k = 4",
+  "historical 4-max p3-aggressive-vs-neutral present",
+  "historical 4-max p3-aggressive-vs-neutral pairing_hash = config",
+  "historical 4-max p3-aggressive-vs-neutral block ids contiguous 0..99999",
+  "historical 4-max p3-aggressive-vs-neutral no invalid blocks",
+  "historical 4-max p3-aggressive-vs-neutral no NaN/inf D",
+  "historical 4-max p3-aggressive-vs-neutral every block = 8 played hands, k = 4",
+  "historical 4-max c0-selfplay-control present",
+  "historical 4-max c0-selfplay-control pairing_hash = config",
+  "historical 4-max c0-selfplay-control block ids contiguous 0..9999",
+  "historical 4-max c0-selfplay-control no invalid blocks",
+  "historical 4-max c0-selfplay-control no NaN/inf D",
+  "historical 4-max c0-selfplay-control every block = 8 played hands, k = 4",
+  "historical 4-max c0-selfplay-control self-play control D == 0 exactly (10000 blocks)",
+  "historical 6-max experiment lock config_hash = configs/nlhe_6max_100bb.yaml",
+  "historical 6-max config_hash = frozen MANIFEST",
+  "historical 6-max c0-selfplay-control Parquet fingerprint = frozen MANIFEST (10000 rows)",
+  "historical 6-max p1-neutral-vs-loose10 Parquet fingerprint = frozen MANIFEST (250000 rows)",
+  "historical 6-max p2-neutral-vs-tight Parquet fingerprint = frozen MANIFEST (250000 rows)",
+  "historical 6-max p3-aggressive-vs-neutral Parquet fingerprint = frozen MANIFEST (250000 rows)",
+  "historical 6-max rows carry config_hash 5f8886e193bc5489",
+  "historical 6-max p1-neutral-vs-loose10 present",
+  "historical 6-max p1-neutral-vs-loose10 pairing_hash = config",
+  "historical 6-max p1-neutral-vs-loose10 block ids contiguous 0..249999",
+  "historical 6-max p1-neutral-vs-loose10 no invalid blocks",
+  "historical 6-max p1-neutral-vs-loose10 no NaN/inf D",
+  "historical 6-max p1-neutral-vs-loose10 every block = 12 played hands, k = 6",
+  "historical 6-max p2-neutral-vs-tight present",
+  "historical 6-max p2-neutral-vs-tight pairing_hash = config",
+  "historical 6-max p2-neutral-vs-tight block ids contiguous 0..249999",
+  "historical 6-max p2-neutral-vs-tight no invalid blocks",
+  "historical 6-max p2-neutral-vs-tight no NaN/inf D",
+  "historical 6-max p2-neutral-vs-tight every block = 12 played hands, k = 6",
+  "historical 6-max p3-aggressive-vs-neutral present",
+  "historical 6-max p3-aggressive-vs-neutral pairing_hash = config",
+  "historical 6-max p3-aggressive-vs-neutral block ids contiguous 0..249999",
+  "historical 6-max p3-aggressive-vs-neutral no invalid blocks",
+  "historical 6-max p3-aggressive-vs-neutral no NaN/inf D",
+  "historical 6-max p3-aggressive-vs-neutral every block = 12 played hands, k = 6",
+  "historical 6-max c0-selfplay-control present",
+  "historical 6-max c0-selfplay-control pairing_hash = config",
+  "historical 6-max c0-selfplay-control block ids contiguous 0..9999",
+  "historical 6-max c0-selfplay-control no invalid blocks",
+  "historical 6-max c0-selfplay-control no NaN/inf D",
+  "historical 6-max c0-selfplay-control every block = 12 played hands, k = 6",
+  "historical 6-max c0-selfplay-control self-play control D == 0 exactly (10000 blocks)",
+  "historical 4-max p1 n = ranking.json",
+  "historical 4-max p1 sigma_D = ranking.json",
+  "historical 4-max p1 blocks required = ranking.json",
+  "historical 4-max p1 hands required = ranking.json",
+  "historical 4-max p1 p_D_zero = allin.csv frac_zero",
+  "historical 4-max p1 frac_blocks_allin = allin.csv frac_blocks_allin",
+  "historical 4-max p1 share_allin = allin.csv share_allin",
+  "historical 4-max p1 frac_blocks_pot_ge_1stack = allin.csv frac_blocks_pot_ge_1stack",
+  "historical 4-max p1 share_pot_ge_1stack = allin.csv share_pot_ge_1stack",
+  "historical 4-max p1 excess kurtosis = pilot_table.csv",
+  "historical 4-max p1 top-1% share = pilot_table.csv",
+  "historical 4-max p2 n = ranking.json",
+  "historical 4-max p2 sigma_D = ranking.json",
+  "historical 4-max p2 blocks required = ranking.json",
+  "historical 4-max p2 hands required = ranking.json",
+  "historical 4-max p2 p_D_zero = allin.csv frac_zero",
+  "historical 4-max p2 frac_blocks_allin = allin.csv frac_blocks_allin",
+  "historical 4-max p2 share_allin = allin.csv share_allin",
+  "historical 4-max p2 frac_blocks_pot_ge_1stack = allin.csv frac_blocks_pot_ge_1stack",
+  "historical 4-max p2 share_pot_ge_1stack = allin.csv share_pot_ge_1stack",
+  "historical 4-max p2 excess kurtosis = pilot_table.csv",
+  "historical 4-max p2 top-1% share = pilot_table.csv",
+  "historical 4-max p3 n = ranking.json",
+  "historical 4-max p3 sigma_D = ranking.json",
+  "historical 4-max p3 blocks required = ranking.json",
+  "historical 4-max p3 hands required = ranking.json",
+  "historical 4-max p3 p_D_zero = allin.csv frac_zero",
+  "historical 4-max p3 frac_blocks_allin = allin.csv frac_blocks_allin",
+  "historical 4-max p3 share_allin = allin.csv share_allin",
+  "historical 4-max p3 frac_blocks_pot_ge_1stack = allin.csv frac_blocks_pot_ge_1stack",
+  "historical 4-max p3 share_pot_ge_1stack = allin.csv share_pot_ge_1stack",
+  "historical 4-max p3 excess kurtosis = pilot_table.csv",
+  "historical 4-max p3 top-1% share = pilot_table.csv",
+  "historical 6-max p1 n = ranking.json",
+  "historical 6-max p1 sigma_D = ranking.json",
+  "historical 6-max p1 blocks required = ranking.json",
+  "historical 6-max p1 hands required = ranking.json",
+  "historical 6-max p1 p_D_zero = allin.csv frac_zero",
+  "historical 6-max p1 frac_blocks_allin = allin.csv frac_blocks_allin",
+  "historical 6-max p1 share_allin = allin.csv share_allin",
+  "historical 6-max p1 frac_blocks_pot_ge_1stack = allin.csv frac_blocks_pot_ge_1stack",
+  "historical 6-max p1 share_pot_ge_1stack = allin.csv share_pot_ge_1stack",
+  "historical 6-max p1 excess kurtosis = pilot_table.csv",
+  "historical 6-max p1 top-1% share = pilot_table.csv",
+  "historical 6-max p2 n = ranking.json",
+  "historical 6-max p2 sigma_D = ranking.json",
+  "historical 6-max p2 blocks required = ranking.json",
+  "historical 6-max p2 hands required = ranking.json",
+  "historical 6-max p2 p_D_zero = allin.csv frac_zero",
+  "historical 6-max p2 frac_blocks_allin = allin.csv frac_blocks_allin",
+  "historical 6-max p2 share_allin = allin.csv share_allin",
+  "historical 6-max p2 frac_blocks_pot_ge_1stack = allin.csv frac_blocks_pot_ge_1stack",
+  "historical 6-max p2 share_pot_ge_1stack = allin.csv share_pot_ge_1stack",
+  "historical 6-max p2 excess kurtosis = pilot_table.csv",
+  "historical 6-max p2 top-1% share = pilot_table.csv",
+  "historical 6-max p3 n = ranking.json",
+  "historical 6-max p3 sigma_D = ranking.json",
+  "historical 6-max p3 blocks required = ranking.json",
+  "historical 6-max p3 hands required = ranking.json",
+  "historical 6-max p3 p_D_zero = allin.csv frac_zero",
+  "historical 6-max p3 frac_blocks_allin = allin.csv frac_blocks_allin",
+  "historical 6-max p3 share_allin = allin.csv share_allin",
+  "historical 6-max p3 frac_blocks_pot_ge_1stack = allin.csv frac_blocks_pot_ge_1stack",
+  "historical 6-max p3 share_pot_ge_1stack = allin.csv share_pot_ge_1stack",
+  "historical 6-max p3 excess kurtosis = pilot_table.csv",
+  "historical 6-max p3 top-1% share = pilot_table.csv",
+  "controlled/historical 4-max p1 common block ids 0..29999",
+  "controlled/historical 4-max p2 common block ids 0..29999",
+  "controlled/historical 4-max p3 common block ids 0..29999",
+  "controlled/historical 6-max p1 common block ids 0..29999",
+  "controlled/historical 6-max p2 common block ids 0..29999",
+  "controlled/historical 6-max p3 common block ids 0..29999"
+ ]
+}
