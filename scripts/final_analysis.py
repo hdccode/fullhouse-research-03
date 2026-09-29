@@ -114,6 +114,9 @@ def convergence(data: dict) -> list[dict]:
                 "window_frac_within_20pct": float(np.mean(np.abs(ratio - 1) <= 0.2)),
                 "window_sd_rel_sd": float(w.std(ddof=1) / full["sd"]) if w.size > 1 else float("nan"),
                 "delta_method_rel_se": math.sqrt((full["kurt"] + 2) / (4 * m)),
+                # blocks for sigma within +-5%: rel SE = sqrt((kappa+2)/(4n)); 1 SE and 95% versions
+                "pilot_n_5pct_1se": math.ceil((full["kurt"] + 2) / (4 * 0.05 ** 2)),
+                "pilot_n_5pct_95": math.ceil(1.96 ** 2 * (full["kurt"] + 2) / (4 * 0.05 ** 2)),
             })
     return rows
 
@@ -156,8 +159,11 @@ def ranking(data: dict, reps: int) -> dict:
         for i, a in enumerate(order):
             for b in order[i + 1:]:
                 ra, rb = (fm[a]["min"], fm[a]["max"]), (fm[b]["min"], fm[b]["max"])
+                rb_ = fm[b]["_b"] / fm[a]["_b"]
                 pairs[f"{a} < {b}"] = {
                     "ratio_of_medians": fm[b]["median"] / fm[a]["median"],
+                    # sampling uncertainty only (pairings held fixed)
+                    "ratio_ci": [float(np.quantile(rb_, 0.025)), float(np.quantile(rb_, 0.975))],
                     "p_boot": float(np.mean(fm[a]["_b"] < fm[b]["_b"])),
                     "pairing_ranges_overlap": bool(ra[1] >= rb[0]),
                     # same-role ordering consistency (p1 vs p1, ...): identical IDs are not
@@ -168,8 +174,14 @@ def ranking(data: dict, reps: int) -> dict:
         for v in fm.values():
             v.pop("_b")
         meds = [fm[x]["median"] for x in order]
+        m100 = [fm[x]["median"] for x in order if x.endswith("/100bb") and not x.startswith("nit")]
+        m100n = [fm[x]["median"] for x in order if x.endswith("/100bb")]
+        s100 = [fm[x]["pairing_spread"] for x in order if x.endswith("/100bb") and not x.startswith("nit")]
         out["metric"][metric] = {"order": order, "formats": fm, "pairs": pairs,
                                  "largest_over_smallest_median": meds[-1] / meds[0],
+                                 "largest_over_smallest_median_100bb_excl_nit": max(m100) / min(m100),
+                                 "largest_over_smallest_median_100bb_incl_nit": max(m100n) / min(m100n),
+                                 "within_format_spread_100bb_excl_nit": [min(s100), max(s100)],
                                  "max_within_format_spread": max(v["pairing_spread"] for v in fm.values()),
                                  "median_within_format_spread": float(np.median([v["pairing_spread"] for v in fm.values()]))}
     return out
@@ -196,6 +208,19 @@ def allin(data: dict) -> tuple[list[dict], dict]:
         # top-1% blocks: how many contain an all-in hand
         top = np.argsort(dev2)[::-1][: max(1, n // 100)]
         r["top1pct_blocks_with_allin"] = float(a[top].mean())
+        big = pm > stack - 1e-9  # a pot of at least one starting stack
+        r["frac_blocks_big_decisive"] = float(np.mean(big & (D != 0)))
+        r["share_big_decisive"] = float(dev2[big & (D != 0)].sum() / tot)
+        r["frac_blocks_big_not_allin"] = float(np.mean(big & ~a))
+        r["share_big_not_allin"] = float(dev2[big & ~a].sum() / tot)
+        r["frac_blocks_allin_not_big"] = float(np.mean(a & ~big))
+        r["share_allin_not_big"] = float(dev2[a & ~big].sum() / tot)
+        r["mean_dev2_big"] = float(dev2[big].mean()) if big.any() else float("nan")
+        # format-agnostic: share carried by the top-f blocks ranked by largest pot (ties random)
+        order = np.lexsort((np.random.default_rng(0).random(n), -pm))
+        cum = np.cumsum(dev2[order]) / tot
+        for f in (0.01, 0.05, 0.10):
+            r[f"share_top{f:g}_by_pot"] = float(cum[max(1, int(f * n)) - 1])
         for name, thr in (("pot_ge_1stack", stack), ("pot_ge_2stack", 2 * stack), ("pot_gt_100bb", 100.0),
                           ("pot_gt_50bb", 50.0)):
             m = pm > thr - 1e-9 if name.endswith("stack") else pm > thr
@@ -228,6 +253,21 @@ def allin(data: dict) -> tuple[list[dict], dict]:
         "non_allin_term": float((np.var(ls) + np.cov(lp, ls, ddof=0)[0, 1] + np.cov(lm, ls, ddof=0)[0, 1]) / tot),
         "corr_log_freq_log_magnitude": float(np.corrcoef(lp, lm)[0, 1]),
     }
+    # same decomposition within the 100BB formats only (no stack confound), for all-in and big-pot blocks
+    s100 = [r for r in sel if r["format"].endswith("/100bb")]
+    y1 = np.log([r["var"] for r in s100])
+    for tag, pk, mk, sk in (("allin", "frac_blocks_allin", "mean_dev2_allin", "share_allin"),
+                            ("big_pot", "frac_blocks_pot_ge_1stack", "mean_dev2_big", "share_pot_ge_1stack")):
+        lp1, lm1 = np.log([r[pk] for r in s100]), np.log([r[mk] for r in s100])
+        ls1 = -np.log([r[sk] for r in s100])
+        t1 = np.var(y1)
+        c = lambda u, v: np.cov(u, v, ddof=0)[0, 1]  # noqa: E731
+        reg[f"log_var_decomposition_100bb_{tag}"] = {
+            "n_pairings": len(s100),
+            "frequency_term": float((np.var(lp1) + c(lp1, lm1) + c(lp1, ls1)) / t1),
+            "magnitude_term": float((np.var(lm1) + c(lp1, lm1) + c(lm1, ls1)) / t1),
+            "residual_term": float((np.var(ls1) + c(lp1, ls1) + c(lm1, ls1)) / t1),
+            "r2_frequency": float(np.corrcoef(lp1, y1)[0, 1] ** 2), "r2_magnitude": float(np.corrcoef(lm1, y1)[0, 1] ** 2)}
     return rows, reg
 
 

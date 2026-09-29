@@ -12,6 +12,7 @@ import pytest
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "scripts"))
 import analyze_pilots  # noqa: E402
 import final_analysis as fa  # noqa: E402
+import integrity_check  # noqa: E402
 
 
 def _entry(D, allin, potmax=None, stack=100.0, k=6.0, played=12.0, vj=None):
@@ -51,6 +52,11 @@ def test_allin_shares_and_decisive_blocks():
     # identity: var = p * m_allin + (1 - p) * m_no_allin
     assert r["var"] == pytest.approx(r["frac_blocks_allin"] * r["mean_dev2_allin"]
                                      + (1 - r["frac_blocks_allin"]) * r["mean_dev2_no_allin"])
+    big = e["potmax"] >= e["stack"]
+    assert r["share_big_decisive"] == pytest.approx(dev2[big & (e["D"] != 0)].sum() / dev2.sum())
+    assert r["share_big_not_allin"] == 0.0 and r["share_allin_not_big"] == 0.0
+    assert 0 < r["share_top0.01_by_pot"] <= r["share_top0.05_by_pot"] <= r["share_top0.1_by_pot"] <= 1
+    assert set(reg["log_var_decomposition_100bb_big_pot"]) >= {"frequency_term", "magnitude_term"}
     d = reg["log_var_decomposition"]
     assert d["frequency_term"] + d["magnitude_term"] + d["non_allin_term"] == pytest.approx(1.0)
 
@@ -79,3 +85,24 @@ def test_convergence_prefix_is_the_leading_blocks():
     assert r10["sd_prefix"] == pytest.approx(D[:10000].std(ddof=1))
     assert r10["windows"] == 6
     assert r10["hands_ratio_prefix"] == pytest.approx(r10["hands_1bb100_prefix"] / r10["hands_1bb100_full"])
+
+
+def _write_corpus(root: Path, exp: str, pid: str, D: list[float]) -> None:
+    import pyarrow as pa
+    import pyarrow.parquet as pq
+
+    d = root / "results" / exp / pid / "blocks"
+    d.mkdir(parents=True)
+    pq.write_table(pa.table({"config_hash": [exp] * len(D), "pairing_id": [pid] * len(D),
+                             "block_id": list(range(len(D))), "D": D}), d / f"blocks_000000000_{len(D):09d}.parquet")
+
+
+def test_reproduction_check_requires_exact_equality(tmp_path, monkeypatch):
+    monkeypatch.chdir(tmp_path)
+    _write_corpus(tmp_path, "old", "p1-x", [0.0, 1.5, -2.0])
+    _write_corpus(tmp_path, "new", "p1-x", [0.0, 1.5, -2.0, 7.0])
+    (r,) = integrity_check.check_reproduction("new", "old")
+    assert r["ok"] and r["common_blocks"] == 3 and r["mismatches"] == 0
+    _write_corpus(tmp_path, "bad", "p1-x", [0.0, 1.5 + 1e-12, -2.0])
+    (r,) = integrity_check.check_reproduction("bad", "old")
+    assert not r["ok"] and r["mismatches"] == 1
