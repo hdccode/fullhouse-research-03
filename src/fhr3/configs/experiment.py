@@ -76,13 +76,39 @@ class TracePolicy:
     block_ids: tuple[int, ...] = ()
 
 
+REFERENCE_SCHEDULE_RULE = "cycle[(block_id + j) mod len(cycle)]"
+
+
 @dataclass(frozen=True)
 class Pairing:
+    """One A/B comparison against a reference population.
+
+    The population is either *fixed* (``reference_seats``: reference j sits j+1 seats after
+    the candidate in every block) or a deterministic *cycle schedule*
+    (``reference_cycle``): in block b, relative slot j gets ``cycle[(b + j) mod len(cycle)]``.
+    Over any ``len(cycle)`` consecutive blocks every slot sees each cycle entry exactly once,
+    so every slot has the cycle's exact marginal mixture at any table size. The lineup is
+    fixed within a block (A and B face the same references). Fixed populations hash exactly
+    as before the schedule existed.
+    """
+
     pairing_id: str
     candidate_a: AgentSpec
     candidate_b: AgentSpec
     reference_population: str
     reference_seats: tuple[AgentSpec, ...]
+    reference_cycle: tuple[AgentSpec, ...] = ()
+
+    @property
+    def scheduled(self) -> bool:
+        return bool(self.reference_cycle)
+
+    def reference_specs(self, block_id: int, player_count: int) -> tuple[AgentSpec, ...]:
+        """Reference specs by relative slot j = 0..k-2 for this block."""
+        if not self.scheduled:
+            return self.reference_seats
+        c = self.reference_cycle
+        return tuple(c[(block_id + j) % len(c)] for j in range(player_count - 1))
 
     def resolved(self) -> dict[str, Any]:
         """Specs plus implementation versions (what the pairing hash covers)."""
@@ -90,13 +116,17 @@ class Pairing:
         def one(spec: AgentSpec) -> dict[str, Any]:
             return spec.to_dict() | {"version": build_agent(spec).version}
 
-        return {
+        out = {
             "pairing_id": self.pairing_id,
             "candidate_a": one(self.candidate_a),
             "candidate_b": one(self.candidate_b),
             "reference_population": self.reference_population,
             "reference_seats": [one(s) for s in self.reference_seats],
         }
+        if self.scheduled:  # key absent for fixed populations: their hashes are unchanged
+            out["reference_schedule"] = {"rule": REFERENCE_SCHEDULE_RULE,
+                                         "cycle": [one(s) for s in self.reference_cycle]}
+        return out
 
     @property
     def pairing_hash(self) -> str:
@@ -104,7 +134,8 @@ class Pairing:
 
     @property
     def reference_version(self) -> str:
-        return canonical_hash(self.resolved()["reference_seats"])[:10]
+        key = "reference_schedule" if self.scheduled else "reference_seats"
+        return canonical_hash(self.resolved()[key])[:10]
 
 
 @dataclass(frozen=True)
@@ -190,12 +221,20 @@ def config_from_dict(raw: Mapping[str, Any]) -> ExperimentConfig:
     pairings = []
     for p in raw["pairings"]:
         pop_id = p["reference_population"]
-        seats = tuple(agents[a] for a in pops[pop_id])
-        if len(seats) != game.player_count - 1:
-            raise ValueError(
-                f"reference population {pop_id!r} has {len(seats)} seats; "
-                f"need player_count-1 = {game.player_count - 1}"
-            )
+        pop = pops[pop_id]
+        seats: tuple[AgentSpec, ...] = ()
+        cycle: tuple[AgentSpec, ...] = ()
+        if isinstance(pop, Mapping):  # scheduled population: {cycle: [agent ids]}
+            if set(pop) != {"cycle"} or not pop["cycle"]:
+                raise ValueError(f"reference population {pop_id!r}: a schedule needs exactly one non-empty 'cycle'")
+            cycle = tuple(agents[a] for a in pop["cycle"])
+        else:
+            seats = tuple(agents[a] for a in pop)
+            if len(seats) != game.player_count - 1:
+                raise ValueError(
+                    f"reference population {pop_id!r} has {len(seats)} seats; "
+                    f"need player_count-1 = {game.player_count - 1}"
+                )
         pairings.append(
             Pairing(
                 pairing_id=p["pairing_id"],
@@ -203,6 +242,7 @@ def config_from_dict(raw: Mapping[str, Any]) -> ExperimentConfig:
                 candidate_b=agents[p["candidate_b"]],
                 reference_population=pop_id,
                 reference_seats=seats,
+                reference_cycle=cycle,
             )
         )
     ids = [p.pairing_id for p in pairings]

@@ -83,7 +83,8 @@
 20. **Sequential inference** uses an asymptotic CS (finite-variance, asymptotic
     time-uniform validity); coverage must be checked by simulation on streams
     resembling the observed heavy-tailed D before interpreting stopping times.
-22. **Table-size populations** (`docs/table_size.md`): tight, loose and aggressive
-    references appear once each, and the remaining seats are neutral. 8-max = `mixed5-v1`
-    + 2 neutral; 3-max = the first two seats of `mixed3-v1` (tight, loose). Table size is
-    therefore confounded with population composition, as it already was for 4 vs 6.
+22. **Table-size populations** (`docs/table_size.md`). The controlled suite
+    `fhr3a-nlhe{3,4,6,8}-100bb-tablesize-v1` seats reference slot j of block b as
+    cycle[(b + j) mod 5], with cycle = [neutral, neutral, tight, loose, aggressive]. This
+    gives exactly 40/20/20/20 per slot at every table size. The frozen 4-max (`mixed3-v1`)
+    and 6-max (`mixed5-v1`) populations differ, so they are only a historical comparison.

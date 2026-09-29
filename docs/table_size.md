@@ -1,132 +1,146 @@
-# FHR3A table-size sweep: NLHE 100BB at 3 / 4 / 6 / 8 seats
+# FHR3A controlled table-size suite: NLHE 100BB at 3 / 4 / 6 / 8 seats
 
-Status: **set up, not run** (2026-09-29). The two new corpora are researcher-run
-(`scripts/run_table_size.sh`). The 4- and 6-max points reuse the frozen core corpora; they are
-only read.
+Status: **set up, not run** (2026-09-29). All four corpora are new and researcher-run
+(`scripts/run_table_size.sh`).
+
+## Why 4-max and 6-max are rerun
+
+The original 4/6 comparison changed the reference composition along with table size:
+* frozen 4-max `mixed3-v1`: tight, loose, aggressive;
+* frozen 6-max `mixed5-v1`: tight, neutral, loose, aggressive, neutral.
+
+The dedicated table-size experiment standardizes the marginal opponent population to isolate
+table size more cleanly. The frozen 4/6-max corpora and their manifests are untouched. They
+appear only in a separate historical comparison and are never mixed into the primary
+3/4/6/8 curve.
 
 ## Question
 
-The frozen result C10 says NLHE 4-max and 6-max cost about the same per played hand
-(6-max / 4-max required hands 1.04 [0.98, 1.11]). The sweep tests whether that per-hand
-similarity holds outside 4 vs 6.
+Frozen C10 found 6-max / 4-max required played hands of 1.04 [0.98, 1.11], under different
+populations. The question here: with the opponent population held fixed, does per-hand
+resolving difficulty stay flat in table size, or does it bend at small or large tables?
 
-Per-played-hand invariance means σ_D² ∝ k. Under that, required played hands are flat in k,
-and required blocks scale as 1/k. The analysis reports:
-* σ_D relative to 6-max;
+Per-played-hand invariance means σ_D² ∝ k. Then required played hands are flat in k, and
+required blocks scale as 1/k. The analysis reports:
+* σ_D relative to controlled 6-max;
 * required blocks;
-* required **played hands** at 1 BB/100, α = .05 two-sided, 80% power;
+* required played hands at 1 BB/100, α = .05 two-sided, 80% power;
 * the elasticity d log(hands) / d log(k), where 0 means invariance.
 
 These are reported per pairing and as the median over p1–p3.
 
 ## Experiments
 
-| seats | experiment_id | config | config_hash | role | blocks p1–p3 | control |
-|---|---|---|---|---|---|---|
-| 3 | `fhr3-nlhe3-100bb-v1` | `configs/nlhe_3max_100bb.yaml` | `579e143783d086c7` | **new** | 30,000 | 10,000 |
-| 4 | `fhr3-nlhe4-100bb-v2` | `configs/nlhe_4max_100bb_v2.yaml` | `ab7e279f1720c074` | frozen, reused | 100,000 | 10,000 |
-| 6 | `fhr3-nlhe6-100bb-pilot-v1` | `configs/nlhe_6max_100bb.yaml` | `5f8886e193bc5489` | frozen, reused | 250,000 | 10,000 |
-| 8 | `fhr3-nlhe8-100bb-v1` | `configs/nlhe_8max_100bb.yaml` | `389507f11e1692ab` | **new** | 30,000 | 10,000 |
+| seats | experiment_id | config | config_hash | p1–p3 | control |
+|---|---|---|---|---|---|
+| 3 | `fhr3a-nlhe3-100bb-tablesize-v1` | `configs/tablesize/nlhe_3max_100bb.yaml` | `c9937b916d1bb80f` | 30,000 | 10,000 |
+| 4 | `fhr3a-nlhe4-100bb-tablesize-v1` | `configs/tablesize/nlhe_4max_100bb.yaml` | `56dcbd13a8614cbb` | 30,000 | 10,000 |
+| 6 | `fhr3a-nlhe6-100bb-tablesize-v1` | `configs/tablesize/nlhe_6max_100bb.yaml` | `e02ffdc936b79e3f` | 30,000 | 10,000 |
+| 8 | `fhr3a-nlhe8-100bb-tablesize-v1` | `configs/tablesize/nlhe_8max_100bb.yaml` | `1bbb0bcb3b465ed8` | 30,000 | 10,000 |
 
-Pairing hashes:
+Pairing hashes are **identical at every table size**, because the pairing (candidates plus
+reference schedule) is the same object:
 
-| pairing | 3-max | 8-max |
-|---|---|---|
-| p1-neutral-vs-loose10 | `977da395648b8e30` | `84167055446c4ef7` |
-| p2-neutral-vs-tight | `c02f9e38f144a4f6` | `dd624a8e514a67f0` |
-| p3-aggressive-vs-neutral | `8ecc36ca1bbd9992` | `4d3c9a4892e0fa58` |
-| c0-selfplay-control | `81adff0361fb903b` | `aafedcc07d3b7d4d` |
+| pairing | hash |
+|---|---|
+| p1-neutral-vs-loose10 | `673af4685c2af5bd` |
+| p2-neutral-vs-tight | `ae7864c08a103e25` |
+| p3-aggressive-vs-neutral | `23aee34fa30d77a6` |
+| c0-selfplay-control | `6b579ec93d864457` |
 
-All eight 3-/8-max hashes and the 4-/6-max lock hashes are pinned in
-`tests/test_table_size.py`.
+The reference version is `e945702f6e`. Table size lives only in `config_hash`. All values are
+pinned in `tests/test_table_size.py`.
 
-**What is identical across the sweep:**
+**Identical across the suite:**
 * variant `nlhe`, 100BB, blinds 50/100, no ante;
 * root seed 20260928;
 * RNG coupling (shared/shared) and salts;
 * seed derivation `fhr3-seed-v1` and matched protocol `fhr3-matched-v1`;
-* candidate specs and implementation versions (`heuristic-1.0.0`);
-* pairing definitions p1/p2/p3/c0.
+* candidate specs (`heuristic-1.0.0`), byte-identical to every frozen NLHE config;
+* p1/p2/p3/c0;
+* the reference schedule.
 
-**What differs:** only `player_count`, `experiment_id` and the reference population, which
-must have k − 1 seats. A test enforces this.
+**Differs:** only `player_count` and `experiment_id`.
+
+## The common reference population: a deterministic balanced schedule
+
+```
+cycle = [neutral, neutral, tight, loose, aggressive]          # 40 / 20 / 20 / 20 %
+reference in relative slot j of block b = cycle[(b + j) mod 5]
+```
+
+Slot j = 0 sits immediately after the candidate, and slot j occupies seat (s + 1 + j) mod k
+when the candidate is in seat s. The lineup is ordered relative to the candidate, as in the
+existing matched design. Consequences:
+
+* **Exact mixture per slot.** Over any 5 consecutive blocks, aligned or not, every relative
+  slot sees neutral twice and tight, loose and aggressive once each, at every table size.
+  30,000 and 10,000 are multiples of 5, so each slot's corpus mixture is exactly 40/20/20/20.
+* **No population noise.** The lineup is a deterministic function of the block id; no random
+  draw is involved.
+* **A and B face the same lineup.** The lineup is chosen once per block, before any hand is
+  played, and every hand of that block (all k seats, both sides) uses it.
+* **Per-block composition** is a window of the cycle:
+  * at 6-max (5 slots) every block has exactly two neutral seats and one each of tight, loose
+    and aggressive, in rotated order;
+  * at 3-, 4- and 8-max the per-block composition varies by block, but the per-slot marginal
+    is exact;
+  * at 8-max, slots j and j + 5 hold the same cycle entry.
+* **Recorded and verified.** Each row stores its lineup in `variant_json.reference_lineup`
+  (agent ids and styles). Exact replay therefore re-checks it, and the analysis verifies the
+  rule and the exact mixture from the stored data.
+* **Stratification.** D is independent across blocks, but blocks cycle deterministically
+  through 5 lineup patterns. σ_D is the marginal SD under the mixed population, which is the
+  intended estimand. Because the design is balanced by stratum, the naive SE of the mean is
+  slightly conservative.
+
+**Implementation.**
+* `Pairing.reference_cycle` and `Pairing.reference_specs(block_id, k)` in
+  `configs/experiment.py`.
+* `BlockSimulator.references(block_id)` in `eval/runner.py`.
+* A scheduled population is written in YAML as `{cycle: [agent ids]}`.
+
+Fixed populations are unaffected: the schedule key is absent from their pairing hash, and the
+frozen 4/6-max lock hashes are pinned in the tests.
 
 ## Matched-block construction
 
-The design is the same as `docs/matched_blocks.md`, which was already general in k. No engine
-or agent code changed for this sweep.
+This is unchanged (`docs/matched_blocks.md`); nothing needed changing for any table size.
 
-1. `block_seed = derive_seed("fhr3-block", root_seed, block_id)`. One deck is shuffled from
-   the chance stream. Hole cards are bound to **seats** (`deck[2p:2p+2]` → seat p), followed
-   by a fixed runout of 8 cards (burn, flop, burn, turn, burn, river). The deal uses 2k + 8
-   cards: 14 at 3-max, 24 at 8-max.
-2. Fixed-button table: seat 0 = SB, seat 1 = BB, seat k−1 = button. Preflop action starts at
+1. **Deal.** `block_seed = derive_seed("fhr3-block", root_seed, block_id)` gives one deck,
+   with hole cards bound to seats and an 8-card runout (2k + 8 cards).
+2. **Seats.** Fixed-button table: seat 0 = SB, 1 = BB, k−1 = BTN. Preflop action starts at
    seat 2; postflop action starts at the SB.
-3. **Candidate seat rotation.** For every seat s = 0..k−1 and side X ∈ {A, B}, one hand is
-   played on the same deal with candidate X in seat s. Reference j sits in seat
-   (s + 1 + j) mod k, so the reference line-up relative to the candidate is identical in
-   every hand.
-4. `D = Σ_s (X_{A,s} − X_{B,s})` in BB. The block is the only independent unit.
+3. **Rotation.** The candidate occupies every seat s for side A and for side B on the same
+   deal. The block's reference lineup fills seats (s + 1 + j) mod k.
+4. **Block difference.** `D = Σ_s (X_{A,s} − X_{B,s})`; the block is the only independent unit.
 
-| | 3-max | 8-max |
+| seats | positions | played hands / block |
 |---|---|---|
-| seats (positions) | 0 SB, 1 BB, 2 BTN | 0 SB, 1 BB, 2 UTG, 3 UTG+1, 4 LJ, 5 HJ, 6 CO, 7 BTN |
-| candidate hands per side (k) | 3 | 8 |
-| **played hands per matched block** | **6** | **16** |
-| hands per block, compare | 4-max: 8; 6-max: 12 | |
+| 3 | SB, BB, BTN | **6** |
+| 4 | SB, BB, CO, BTN | **8** |
+| 6 | SB, BB, UTG, HJ, CO, BTN | **12** |
+| 8 | SB, BB, UTG, UTG+1, LJ, HJ, CO, BTN | **16** |
 
-**3-max reference fill** (population `mixed2-v1` = [ref_tight, ref_loose]):
+**Cross-table-size matching.** Blocks are not paired across table sizes, because the deal
+layouts (`board-h2-k3` to `-k8`) differ. Ratio CIs resample each corpus independently.
 
-| candidate seat s | ref_tight (j=0) | ref_loose (j=1) |
-|---|---|---|
-| 0 SB | 1 BB | 2 BTN |
-| 1 BB | 2 BTN | 0 SB |
-| 2 BTN | 0 SB | 1 BB |
+The suite shares the frozen corpora's root seed and deal layout at 4 and 6 seats. Controlled
+block b therefore deals exactly the same cards as historical block b. The analysis uses this
+for a **paired** controlled-vs-historical σ comparison at fixed table size, where only the
+population differs.
 
-**8-max reference fill** (population `mixed7-v1`): reference j sits in seat (s + 1 + j) mod 8,
-where j runs over [ref_tight, ref_neutral_1, ref_loose, ref_aggressive, ref_neutral_2,
-ref_neutral_3, ref_neutral_4]. For example:
-* with the candidate on the button (s = 7), ref_tight is SB and ref_neutral_4 is CO;
-* with the candidate in the SB (s = 0), ref_tight is BB and ref_neutral_4 is BTN.
+## Agents and positional handling
 
-**RNG streams** are unchanged: chance, candidate and reference streams are keyed separately.
-* The A- and B-hands of a seat share candidate draws by ordinal and reference draws by
-  seat/ordinal (common random numbers).
-* Self-play therefore gives D = 0 exactly, and an A/B swap negates D exactly.
-* Both properties are tested at 3 and 8 seats.
-
-**Cross-table-size matching.** Blocks are not paired across table sizes. The deal layouts
-differ (`board-h2-k3`, `-k4`, `-k6`, `-k8`), so the same block id deals different hands. The
-controlled intervention is the shared rules, stack, agent family, pairings and method. This is
-the same as the existing 4 vs 6 comparison, which has corr(D) ≈ 0. Ratio CIs therefore
-resample each corpus independently.
-
-## Pairings and the positional generalisation
-
-p1/p2/p3/c0 use byte-identical candidate specs at every table size:
-* p1: neutral vs neutral with looseness 1.10 (small perturbation);
-* p2: neutral vs tight (moderate style gap);
-* p3: aggressive vs neutral (larger gap);
-* c0: neutral vs neutral copy.
-
-No pairing was invented or tuned for the new sizes.
-
-**Seat-count audit of `HeuristicAgent` and the engine.** Nothing was hard-coded to 4 or 6
-seats. Nothing was fixed, because nothing was broken, and no agent or engine code changed.
-
-| checked | finding |
-|---|---|
-| position naming/ordering | seat index = position for any k (`games/base.py`); no position names in agent logic |
-| preflop open ranges | indexed by **seats behind the button**: `open_pct_by_seats_behind = (0.45, 0.28, 0.20, 0.16, 0.14, 0.12, 0.11, 0.10)` (8 entries, so no clipping up to 10-max); SB uses `sb_open_pct`; BB iso-raises vs limps |
-| blind handling | PokerKit blinds tuple `(SB, BB, 0, …)` built from `player_count`; tested at 3 and 8 |
-| facing-raise / 3-bet / 4-bet ranges | depend only on "am I the BB" and the number of raises |
-| number of opponents | postflop equity penalty uses `n_active` (live players), so it scales with table size |
-| seat rotation | `reference_seats(k, s)` is generic |
-| player-count limits | `GameConfig` allows 2–10; the deck needs 2k + 8 ≤ 52 |
-| reference population | the loader enforces exactly k − 1 seats |
-| hard-coded 4/6 lookups | only in the frozen core-analysis scripts (`final_analysis.py`, `paper_numbers.py` format labels). They are not touched; the sweep has its own script. |
-
-The resulting unopened-pot open ranges (before looseness) are:
+The seat-count audit found nothing hard-coded to 4 or 6 seats, so no agent or engine logic
+changed.
+* `HeuristicAgent` opens by seats behind the button:
+  `open_pct_by_seats_behind = (0.45, 0.28, 0.20, 0.16, 0.14, 0.12, 0.11, 0.10)`. There is no
+  clipping up to 10-max. The SB uses `sb_open_pct`, and the BB iso-raises vs limps.
+* Blinds come from `player_count`.
+* The multiway penalty uses live players (`n_active`).
+* Rotation uses `reference_seats(k, s)`.
+* 4/6 labels appear only in the frozen core-analysis scripts, which are untouched.
 
 | seats behind BTN | 5 | 4 | 3 | 2 | 1 | 0 | SB |
 |---|---|---|---|---|---|---|---|
@@ -135,156 +149,113 @@ The resulting unopened-pot open ranges (before looseness) are:
 | 6-max | | | UTG 16% | HJ 20% | CO 28% | BTN 45% | 36% |
 | 8-max | UTG 12% | UTG+1 14% | LJ 16% | HJ 20% | CO 28% | BTN 45% | 36% |
 
-8-max is the first NLHE corpus to use the 14% and 12% entries. These values have been part of
-`heuristic-1.0.0` since its creation and were not chosen for this experiment.
-`test_heuristic_positional_mapping_generalises` checks the rule at every unopened seat.
+These are the ranges before looseness. The 14% and 12% entries are part of the original
+`heuristic-1.0.0`, and nothing was tuned for this suite.
 
-## Reference populations: the smallest principled generalisation
+## Analysis (`scripts/table_size_analysis.py`)
 
-The existing populations follow one rule: **tight, loose and aggressive reference seats
-appear once each, and the remaining seats are neutral.**
-* 4-max `mixed3-v1` = [tight, loose, aggressive];
-* 6-max `mixed5-v1` = [tight, neutral, loose, aggressive, neutral].
-
-The sweep extends the rule by nesting:
-
-| seats | population | styles (j = 0 sits immediately after the candidate) | neutral share |
-|---|---|---|---|
-| 3 | `mixed2-v1` | tight, loose | 0% |
-| 4 | `mixed3-v1` | tight, loose, aggressive | 0% |
-| 6 | `mixed5-v1` | tight, neutral, loose, aggressive, neutral | 40% |
-| 8 | `mixed7-v1` | tight, neutral, loose, aggressive, neutral, neutral, neutral | 57% |
-
-* **8-max** is the 6-max population with two neutral seats appended. The five seats nearest the
-  candidate's left are exactly the 6-max line-up.
-* **3-max** cannot seat three non-neutral styles in two seats, so an exact mapping is
-  impossible. It takes the first two seats of `mixed3-v1` (a prefix rule), fixed before any
-  data. It drops the aggressive reference.
-
-Mean reference looseness and aggression by table size:
-
-| seats | looseness | aggression |
-|---|---|---|
-| 3 | 1.05 | 0.95 |
-| 4 | 1.08 | 1.10 |
-| 6 | 1.05 | 1.06 |
-| 8 | 1.04 | 1.04 |
-
-The populations were not tuned. See caveat 1.
-
-## Metrics (`scripts/table_size_analysis.py`)
-
-The definitions are identical to `scripts/final_analysis.py`. For 4-/6-max, every number is
-asserted equal to the frozen `ranking.json`, `allin.csv` and `core/pilot_table.csv`. The
-13 metrics, per table size and per p1/p2/p3:
-
-1. σ_D, with a block-bootstrap CI;
+**Primary: the publication curve.** It uses only the four controlled corpora. Per table size
+and per p1/p2/p3:
+1. σ_D, with a bootstrap CI;
 2. σ_D², plus σ_D²/k;
-3. played hands per block (2k);
-4. required blocks: ⌈((z.975 + z.8) σ_D / (k/100))²⌉;
-5. required played hands (blocks × 2k), with a CI;
+3. hands per block;
+4. N80 blocks at 1 BB/100;
+5. N80 played hands, with a CI;
 6. P(D = 0);
-7. excess kurtosis (Fisher, as in the core);
-8. top-1% share of squared deviation (and top-0.1%);
-9. share of blocks with a pot ≥ one starting stack;
-10. share of squared deviation in those blocks;
-11. all-in block frequency;
-12. all-in block share of squared deviation;
-13. blocks/s and wall-clock hours required at 8 workers. This is secondary and
-    implementation-specific.
+7. excess kurtosis;
+8. top-1% (and top-0.1%) share of squared deviation;
+9. big-pot (≥ one starting stack) frequency and share;
+10. all-in block frequency and share;
+11. σ, σ², blocks and hands relative to controlled 6-max, per pairing with CIs, and as ratios
+    of medians with CIs;
+12. elasticity of required hands in k: overall log-log and per segment 3→4, 4→6, 6→8;
+13. wall-clock (secondary).
 
-**Derived quantities:**
-* σ, σ², blocks and hands ratios vs 6-max, per pairing (with CIs) and as ratio of medians
-  (with CIs);
-* elasticity of required hands in k: overall log-log OLS and per segment (3→4, 4→6, 6→8), per
-  pairing and for the median series;
-* same-n sensitivity: σ_D and required hands of the 4-/6-max corpora on their first 30,000
-  blocks.
+**Historical: separate.** The frozen 4/6-max corpora are reported with the same metrics:
+* their fingerprints must equal the core MANIFEST;
+* every number must equal the frozen `ranking.json`, `allin.csv` and `pilot_table.csv`;
+* same-n (first 30k) columns are included.
 
-**Outputs:**
+A third section gives the paired controlled-vs-historical σ ratio at 4 and 6 seats. None of
+this enters the primary curve.
+
+**Checks.** The script refuses to produce output unless all of the following hold:
+* every controlled corpus has exactly 30,000 (p1–p3) or 10,000 (control) contiguous blocks,
+  with no invalid rows or NaNs, the right config and pairing hashes, and exactly 2k hands per
+  block;
+* the control is exactly 0;
+* every block's recorded lineup equals the rule;
+* **every relative slot of every table size and pairing is exactly 40/20/20/20.**
+
+**Outputs.**
 
 | file | contents |
 |---|---|
-| `reports/table-size/summary.csv` | one row per seats × pairing |
-| `reports/table-size/summary.json` | per-pairing rows, medians, elasticities, invariant checks, sources |
-| `reports/table-size/figure_data.csv` | pairing rows and median rows; for Panel A (σ vs 6-max) and Panel B (required hands, absolute and vs 6-max), with hands per block as an annotation |
-| `reports/table-size/MANIFEST.json` | written by `--freeze`; checked by `--verify` |
+| `reports/table-size/summary.csv` | primary: one row per table size × pairing |
+| `reports/table-size/figure_data.csv` | primary: pairing and median rows for panel A (σ vs 6-max) and panel B (hands: absolute and vs 6-max; hands per block for annotation) |
+| `reports/table-size/historical.csv` | the frozen 4/6-max rows |
+| `reports/table-size/summary.json` | all three sections, checks and sources |
+| `reports/table-size/MANIFEST.json` | written by `--freeze`, checked by `--verify` |
 | `reports/table-size/validate/` | validation reports |
 
-**Guards.** The script refuses to run if any of the following fails:
-* a frozen 4-/6-max Parquet fingerprint differs from `reports/final-analysis/MANIFEST.json`;
-* a new corpus is short of target, non-contiguous, has invalid or NaN rows, or carries the
-  wrong config or pairing hash;
-* played hands ≠ 2k;
-* the control is not exactly 0.
+`--allow-partial` is for smoke runs only: the output is provisional and cannot go to
+`reports/table-size` or be frozen.
 
-`--allow-partial` exists for smoke runs only. Its output is marked provisional and cannot be
-written to `reports/table-size` or frozen.
-
-## Runbook
-
-These are the exact commands. They are also bundled as `scripts/run_table_size.sh
-[sim3|sim8|validate|analyse|all]`. Every `simulate` is resumable: re-running skips finished
-250-block chunks.
+## Runbook (resumable: re-running skips finished 250-block chunks)
 
 ```bash
-# 1. 3-max publication corpus
-.venv/bin/fhr3 simulate --config configs/nlhe_3max_100bb.yaml --blocks 0:10000 --pairing c0-selfplay-control --workers 8
-.venv/bin/fhr3 simulate --config configs/nlhe_3max_100bb.yaml --blocks 0:30000 \
-    --pairing p1-neutral-vs-loose10 --pairing p2-neutral-vs-tight --pairing p3-aggressive-vs-neutral --workers 8
-# 2. 8-max publication corpus
-.venv/bin/fhr3 simulate --config configs/nlhe_8max_100bb.yaml --blocks 0:10000 --pairing c0-selfplay-control --workers 8
-.venv/bin/fhr3 simulate --config configs/nlhe_8max_100bb.yaml --blocks 0:30000 \
-    --pairing p1-neutral-vs-loose10 --pairing p2-neutral-vs-tight --pairing p3-aggressive-vs-neutral --workers 8
-# 3. validation / integrity (and proof the frozen research is untouched)
+# p1-p3 publication corpora, 30,000 blocks each
+.venv/bin/fhr3 simulate --config configs/tablesize/nlhe_3max_100bb.yaml --blocks 0:30000 --pairing p1-neutral-vs-loose10 --pairing p2-neutral-vs-tight --pairing p3-aggressive-vs-neutral --workers 8
+.venv/bin/fhr3 simulate --config configs/tablesize/nlhe_4max_100bb.yaml --blocks 0:30000 --pairing p1-neutral-vs-loose10 --pairing p2-neutral-vs-tight --pairing p3-aggressive-vs-neutral --workers 8
+.venv/bin/fhr3 simulate --config configs/tablesize/nlhe_6max_100bb.yaml --blocks 0:30000 --pairing p1-neutral-vs-loose10 --pairing p2-neutral-vs-tight --pairing p3-aggressive-vs-neutral --workers 8
+.venv/bin/fhr3 simulate --config configs/tablesize/nlhe_8max_100bb.yaml --blocks 0:30000 --pairing p1-neutral-vs-loose10 --pairing p2-neutral-vs-tight --pairing p3-aggressive-vs-neutral --workers 8
+# self-play controls, 10,000 blocks each
+for k in 3 4 6 8; do .venv/bin/fhr3 simulate --config configs/tablesize/nlhe_${k}max_100bb.yaml --blocks 0:10000 --pairing c0-selfplay-control --workers 8; done
+# validation: replay, integrity, frozen manifests verify
 scripts/run_table_size.sh validate
-# 4 + 5. table-size analysis + figure data, frozen and re-verified
+# combined table-size analysis + figure data (freeze, then re-verify)
 scripts/run_table_size.sh analyse
 ```
 
-**Runtime estimate.** This is an **estimate, not a measurement**. It comes from the frozen
-runs' throughput on the same Apple M1 at 8 workers:
-* 4-max: 674 blocks/s, about 5.4k hands/s;
-* 6-max: 352 blocks/s, about 4.2k hands/s;
-* a 200-block smoke run gave 8-max ≈ 207 blocks/s, including start-up.
+The same steps are available as `scripts/run_table_size.sh
+[sim3|sim4|sim6|sim8|controls|validate|analyse|all]`.
 
-Per-hand speed falls as the table grows. Each new corpus is 100,000 blocks (3 × 30k + 10k).
+**Runtime.** These figures are an **estimate**, based on the frozen runs' sustained
+throughput on this M1 at 8 workers: 4-max 674 blocks/s, 6-max 352 blocks/s. 3-max (~1,000/s)
+and 8-max (~200/s) are extrapolated from hands/s. Each table size is 100,000 blocks.
 
 | step | expected time |
 |---|---|
-| 3-max, at ~1,000 blocks/s | ≈ 2–4 min |
-| 8-max, at ~190–220 blocks/s | ≈ 8–12 min |
-| validation (replays, integrity, three manifest verifies) | ≈ 1–2 min |
-| analysis with 1,000 bootstrap reps | ≈ 1–2 min |
-| **total** | **≈ 15–20 min** |
+| 3-max | ≈ 2 min |
+| 4-max | ≈ 3 min |
+| 6-max | ≈ 5 min |
+| 8-max | ≈ 8–10 min |
+| validation and analysis | ≈ 3–5 min |
+| **total** | **≈ 20–25 min** |
 
-## Caveats: things that could make the 3/4/6/8 comparison invalid
+The balanced population contains more aggressive and loose seats than some of the frozen
+lineups, so hands may run slightly longer.
 
-1. **Table size is confounded with reference-population composition.** k − 1 reference seats
-   cannot hold a fixed population:
-   * 3-max has no aggressive reference;
-   * 4-max has no neutral seat;
-   * 6- and 8-max are 40% and 57% neutral.
+## Caveats
 
-   This was already true of the frozen 4 vs 6 comparison (C10). The sweep measures "table size
-   under this nested population rule". A bend at 3-max, in particular, may reflect the missing
-   aggressive seat. A population-matched design (for example, all-neutral references) would be
-   a separate experiment.
-2. **Agents are not re-tuned per table size.** Positional adaptation comes only from the
-   seats-behind open table and the `n_active` multiway penalty. A table-size effect on σ_D
-   includes how appropriate these heuristics are at 3 or 8 seats (assumption 11).
-3. **Unequal and modest n.** The new corpora have 30k blocks, against 100k/250k for the frozen
-   ones. The relative SE of σ_D is √((κ + 2)/(4n)), and NLHE 100BB kurtosis is large, so
-   30k blocks give roughly ±10–25% on required hands at 95%. Small bends may not be
-   resolvable.
+1. **Composition is controlled per slot, not per block.** The marginal opponent population is
+   identical across table sizes. However, the number of opponents grows with k, so a larger
+   table has more opponents in total, and more of every style. That is part of what "table
+   size" means.
 
-   The same-n prefix columns show the frozen points at 30k. Extending is resumable: rerun
-   with `--blocks 0:60000`. A second freeze is then required.
+   At 3/4/8-max, per-block compositions vary around the marginal. At 6-max each block has the
+   exact composition.
+
+   Slot position relative to the candidate is also a table-size feature. For example, at
+   3-max slot 1 is always the seat on the candidate's right; at 8-max it is a middle seat.
+2. **Agents are not re-tuned per table size** (assumption 11). The effect includes how
+   appropriate these heuristics are at 3 and 8 seats.
+3. **30k blocks is modest for heavy tails.** Required hands carry roughly ±10–25% at 95%, so
+   small bends may not be resolvable. Extending is resumable (`--blocks 0:60000`) and needs a
+   new freeze.
 4. **Not paired across table sizes.** CIs are independent-sample, with pairings held fixed.
-   Pairing-to-pairing variation is shown by keeping p1/p2/p3 separate, not by the CI.
-5. **Effect-size meaning.** 1 BB/100 of candidate hands is held fixed across k. Realistic edges
-   may differ by table size, the same caveat as L3.
-6. **Schema.** The new corpora use the current block schema. The 6-max corpus is
-   `fhr3-block-v1`. Every column used exists in both, and the frozen cross-checks prove the
-   definitions agree.
-7. **Wall-clock** is secondary and specific to the implementation and machine (L9).
+   Pairing variation is shown by keeping p1/p2/p3 separate.
+5. **Effect-size meaning.** 1 BB/100 of candidate hands is held fixed across k (L3).
+6. **The historical 4/6 corpora use different populations** (and 6-max uses schema v1). They
+   answer a different question and are reported only separately.
+7. **Wall-clock is secondary** and specific to this implementation and machine (L9).

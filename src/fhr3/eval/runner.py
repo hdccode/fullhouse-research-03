@@ -97,6 +97,8 @@ class BlockSimulator:
         self.a: Agent = build_agent(pairing.candidate_a)
         self.b: Agent = build_agent(pairing.candidate_b)
         self.refs: list[Agent] = [build_agent(s) for s in pairing.reference_seats]
+        # scheduled populations: one agent instance per cycle entry (agents are stateless)
+        self._cycle_agents: dict[str, Agent] = {s.agent_id: build_agent(s) for s in pairing.reference_cycle}
         self.versions = {"A": self.a.version, "B": self.b.version}
         from fhr3.estimators import build_estimators
 
@@ -114,10 +116,24 @@ class BlockSimulator:
             rng=c.rng,
         )
 
+    def references(self, block_id: int) -> list[Agent]:
+        """Reference agents by relative slot for this block (the same for the A- and B-hands)."""
+        if not self.pairing.scheduled:
+            return self.refs
+        specs = self.pairing.reference_specs(block_id, self.cfg.game.player_count)
+        return [self._cycle_agents[s.agent_id] for s in specs]
+
     def run(self, block_id: int, trace: bool = False) -> MatchedBlockResult:
-        return run_matched_block(
-            self.spec(block_id), self.adapter, self.a, self.b, self.refs, trace, self.estimators
+        result = run_matched_block(
+            self.spec(block_id), self.adapter, self.a, self.b, self.references(block_id), trace, self.estimators
         )
+        if self.pairing.scheduled:  # record the lineup actually seated (checked on replay)
+            specs = self.pairing.reference_specs(block_id, self.cfg.game.player_count)
+            result.variant_info["reference_lineup"] = {
+                "agents": [s.agent_id for s in specs],
+                "styles": [str(s.params.get("style", s.kind)) for s in specs],
+            }
+        return result
 
     def row(self, result: MatchedBlockResult, run_id: str, traced: bool) -> dict[str, Any]:
         return result_to_row(

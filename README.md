@@ -58,7 +58,7 @@ whose configuration disagrees with existing results is refused.
 | `docs/agents.md` | agent definitions and versioning |
 | `docs/extending.md` | adding variants, agents, estimators |
 | `docs/assumptions.md` | assumptions that could affect the paper |
-| `docs/table_size.md` | FHR3A table-size sweep (NLHE 100BB 3/4/6/8 seats): design, runbook, caveats |
+| `docs/table_size.md` | FHR3A controlled table-size suite (NLHE 100BB 3/4/6/8 seats, one scheduled opponent population): design, runbook, caveats |
 
 ## Guardrails
 

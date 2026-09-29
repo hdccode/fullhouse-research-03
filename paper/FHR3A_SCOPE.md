@@ -18,7 +18,7 @@ The controlled axes, with their status:
 | variance concentration / big pots | `allin.csv`, `pilot_table.csv`, C2 | frozen |
 | chance-variance removability (all-in EV, MIVAT, AIVAT) | RQ6, C6 | frozen |
 | candidate/reference population sensitivity | the p1/p2/p3 spread, C7 | frozen |
-| **table size** (NLHE 100BB at 3/4/6/8 seats) | `docs/table_size.md`, `reports/table-size/` | **set up; 3-/8-max runs pending** |
+| **table size** (NLHE 100BB at 3/4/6/8 seats, one controlled opponent population) | `docs/table_size.md`, `reports/table-size/` | **set up; all four controlled runs pending** |
 
 ## What must be stated explicitly
 
@@ -30,9 +30,18 @@ The controlled axes, with their status:
    within-design comparisons are the transferable findings (L1, L2).
 3. **The table-size experiment tests whether the 4-max/6-max per-played-hand similarity (C10,
    1.04 [0.98, 1.11]) generalises** to 3 and 8 seats, or whether it bends at small or large
-   tables. Until the runs are analysed, C10 stays a 4-vs-6 statement and no general
-   player-count claim is made. Table size is confounded with reference-population composition
-   (`docs/table_size.md`, caveat 1).
+   tables.
+   * **Why 4-max and 6-max are rerun.** The original 4/6 comparison changed reference
+     composition with table size (4-max: tight, loose, aggressive; 6-max: those plus two
+     neutral seats). The dedicated table-size experiment standardizes the marginal opponent
+     population to isolate table size more cleanly.
+   * **The common population.** All four table sizes (3/4/6/8) run new corpora under one
+     deterministic reference schedule. Every relative opponent slot is exactly 40% neutral,
+     20% tight, 20% loose and 20% aggressive.
+   * **The frozen 4/6 corpora** are untouched. They are reported only as a separate historical
+     comparison, never in the primary curve.
+   * **Until then:** until the controlled runs are analysed, C10 stays a 4-vs-6 statement and
+     no general player-count claim is made.
 4. **This work is NOT the FullHouse Swiss ranking experiment.** Every result is a pairwise
    comparison against a fixed reference environment.
 5. **Tournament-level Swiss ranking reliability is a separate, next research direction.** It
