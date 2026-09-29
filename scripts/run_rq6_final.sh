@@ -1,10 +1,11 @@
 #!/usr/bin/env bash
-# RQ6 final: the minimum estimator set (researcher-run; ~15-25 min total at 8 workers).
+# RQ6 final: the minimum estimator set (researcher-run; ~15-20 min total at 8 workers).
 #   1. 6-max NLHE 100BB: raw vs all-in EV vs fitted MIVAT vs fitted AIVAT, 25k blocks
 #      per pairing (same root seed as the 250k reference: raw D must equal stored D).
 #   2. 6-max NLHE 20BB: raw vs all-in EV, 10k/pairing (same seed as the 20BB corpus).
-#   3. AoF 4-max 8BB: raw vs all-in EV, 10k/pairing (every contested hand is a
-#      preflop all-in: the all-in EV limit case; production-policy anchor).
+#   3. AoF 4-max 8BB: raw vs all-in EV, 50k/pairing (every contested hand is a
+#      preflop all-in: the all-in EV limit case). 50k matches the raw corpus: the
+#      production-vs-blend gap (+0.27 [-0.07, +0.62] BB/100 raw) is the test case.
 # The prior-value-function 100BB run and the Bomb Pot all-in EV run are not part
 # of the minimum set (see docs/final_status.md).
 set -euo pipefail
@@ -27,8 +28,14 @@ $FHR3 analyze results/fhr3-nlhe6-100bb-rq6-v1-fittedvf --bootstrap 2000 --json r
 
 # 2. 20BB all-in EV (experiment fhr3-nlhe6-20bb-rq6-allin-v1)
 scripts/run_pilot.sh configs/rq6/nlhe_6max_20bb_allin.yaml 10000 "$W"
-# 3. AoF all-in EV (experiment fhr3-aof4-8bb-rq6-allin-v1)
-scripts/run_pilot.sh configs/rq6/aof_4max_8bb_allin.yaml 10000 "$W"
+# 3. AoF all-in EV (experiment fhr3-aof4-8bb-rq6-allin-v1): control 10k, p1-p3 50k
+P3AOF=(--pairing p1-prodv2-vs-blend10 --pairing p2-prodv2-vs-heuristic --pairing p3-aggressive-vs-neutral)
+$FHR3 simulate --config configs/rq6/aof_4max_8bb_allin.yaml --blocks 0:10000 --workers "$W"
+$FHR3 simulate --config configs/rq6/aof_4max_8bb_allin.yaml --blocks 0:50000 "${P3AOF[@]}" --workers "$W"
+$FHR3 validate --config configs/rq6/aof_4max_8bb_allin.yaml --blocks 0:50000 "${P3AOF[@]}" --replay 20 \
+    --json reports/rq6/aof4-allin-validate.json
+$FHR3 analyze results/fhr3-aof4-8bb-rq6-allin-v1 --bootstrap 2000 --json reports/rq6/aof4-allin.json \
+    | tee reports/rq6/aof4-allin.txt
 
 # raw-D regression (expect "paired; corr(D) +1.000" for every raw row) + variance-reduction table
 $FHR3 compare results/fhr3-nlhe6-100bb-pilot-v1 results/fhr3-nlhe6-100bb-rq6-v1-fittedvf \
