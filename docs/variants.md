@@ -96,8 +96,19 @@ effects.
 ## All-in or Fold (`aof`)
 NLHE engine with legal actions restricted to fold and all-in (open shove or
 all-in call); 4-max, 8 BB equal stacks, blinds 0.5/1, no ante. Payoffs are
-verified hand-by-hand against aof-ml's own `AoFSimulator` (identical odd-chip
-order: SB, BB, CO, BTN).
+verified hand-by-hand against aof-ml's own `AoFSimulator` (same odd-chip order
+SB, BB, CO, BTN).
+
+Known convention difference, found by the randomized oracle test (seed 80397):
+* When a split pot leaves a remainder of 2 or more chips (e.g. a three-way chop),
+  PokerKit, the FHR3 engine, gives the whole remainder to the first winner in seat
+  order. aof-ml instead hands the chips out one at a time.
+* Winners and totals are identical, and the difference is at most (winners − 1)
+  chips, ≤ 0.02 BB, on rare hands.
+* It is identical on the A and B sides of a matched block, so D is unaffected. The
+  all-in EV estimator deliberately replicates PokerKit's rule.
+* The frozen corpora use PokerKit's rule. The oracle test accepts exactly this
+  redistribution and nothing else.
 
 ## Agent families per format
 

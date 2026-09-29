@@ -13,7 +13,7 @@ import sys
 from pathlib import Path
 
 import pytest
-from hypothesis import given, settings
+from hypothesis import example, given, settings
 from hypothesis import strategies as st
 
 from fhr3.agents.aof import (
@@ -99,6 +99,7 @@ def _plan(position: str, prior: tuple[str, ...], hole: tuple[str, str], seed: in
 @pytest.mark.skipif(not (AOF_ROOT / "src/aof_ml").exists(), reason="aof-ml not available")
 @settings(max_examples=150, deadline=None)
 @given(seed=st.integers(0, 2**31))
+@example(seed=80397)  # three-way chop with 2 odd chips: engines differ only in odd-chip placement
 def test_payoffs_match_aof_ml_simulator(seed):
     sys.path.insert(0, str(AOF_ROOT / "src"))
     from aof_ml.config import ProjectConfig
@@ -123,7 +124,18 @@ def test_payoffs_match_aof_ml_simulator(seed):
         h.apply(allin_action(la) if shove or not la.can_fold else Action.fold())
     o = h.outcome()
     aof_by_name = dict(zip(("CO", "BTN", "SB", "BB"), ref.net_utility, strict=True))
-    assert o.payoffs_chips == tuple(aof_by_name[POSITIONS_4MAX[s]] for s in range(4))
+    theirs = tuple(aof_by_name[POSITIONS_4MAX[s]] for s in range(4))
+    if o.payoffs_chips != theirs:
+        # Documented convention difference (docs/variants.md, AoF): in a split pot PokerKit
+        # (FHR3's engine; replicated by the all-in EV estimator) gives the whole divmod
+        # remainder to the first winner in seat order, aof-ml hands it out one chip at a time
+        # along its odd_chip_order. Anything beyond redistributing < n_winners odd chips
+        # among the same winners is a real mismatch.
+        diff = [a - b for a, b in zip(o.payoffs_chips, theirs, strict=True)]
+        winners = [s for s in range(4) if o.payoffs_chips[s] > -o.starting_stacks[s] and o.payoffs_chips[s] >= 0]
+        assert sum(diff) == 0, (o.payoffs_chips, theirs)
+        assert len(winners) >= 2 and all(diff[s] == 0 for s in range(4) if s not in winners), (o.payoffs_chips, theirs)
+        assert max(abs(x) for x in diff) < len(winners), (o.payoffs_chips, theirs)
 
 
 def test_policy_agent_rejects_wrong_game():
