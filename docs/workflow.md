@@ -18,17 +18,17 @@ Existing v1 corpora (schema `fhr3-block-v1`) remain readable, analysable and
 replay-validatable, but cannot be *extended* by v2 code (the lock refuses); new
 blocks go under a new experiment_id.
 
-## Status: final core corpus
+## Status: final core corpus (frozen)
 
-The pilots below have been extended. Current corpus sizes, integrity checks and
-conclusions are in `final_status.md`. The canonical analysis products are in
-`reports/final-analysis/` (the older `reports/pilot-analysis/` and
-`reports/figures/` are pre-extension snapshots). The remaining researcher-run jobs
+The core raw simulation campaign is complete. Corpus sizes, integrity checks and
+frozen conclusions are in `final_status.md`. The authoritative analysis products
+are in `reports/final-analysis/`, pinned by `MANIFEST.json`; verify them with
+`scripts/freeze_manifest.py --verify`. Pre-extension snapshots are in
+`reports/obsolete-pre-extension/`; do not cite them. The remaining researcher-run jobs
 are:
 
 ```bash
-scripts/run_core_extensions.sh   # 4-max NLHE v2 re-run to 100k + AoF to 50k, then full re-analysis (~10 min + analysis)
-scripts/run_rq6_final.sh         # RQ6 minimum estimator set (~15-25 min)
+scripts/run_rq6_final.sh         # RQ6 minimum estimator set (~15-20 min)
 scripts/run_rq7_final.sh         # RQ7 coverage / stopping study (~40-50 min, single process)
 ```
 
