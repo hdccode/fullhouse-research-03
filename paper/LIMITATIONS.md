@@ -1,0 +1,16 @@
+# LIMITATIONS: final list, with what each affects and what survives
+
+| # | limitation | affects | robust despite it |
+|---|---|---|---|
+| L1 | **Benchmark-agent dependence.** Candidates and references are heuristic families (plus one production AoF policy). σ_D depends on how often and how much the agents diverge. | absolute hand counts (C1); format medians; the Bomb and Nit numbers | the framework; the big-pot concentration mechanism, which appears in every format and pairing (C2); the RQ7 method comparison (C4, C5) |
+| L2 | **Only three main pairings per format**, and the perturbations are not identical across formats (AoF p1 and Bomb p1 are format-specific). | pairing-spread magnitude (C7); cross-format same-role comparisons; median-based orderings | that pairing is first-order (spread ≥ 2.7× in every format) |
+| L3 | **Effect-size comparability.** A fixed 1 BB/100 edge means different things across formats and stacks. Realistic gaps differ (Bomb style gaps reach 24–31 BB/100). | any "which format needs more hands" reading of C1 | the within-format and paired results; F1 curves at all Δ |
+| L4 | **Bomb Pot agent credibility.** Statistically stable, but the agents are not competent multiway players (70% showdown; ~18% six-way check-downs). | Bomb's position and absolute burden | no core claim depends on Bomb's rank (PLO vs Bomb is not robust); treat Bomb as a stress case |
+| L5 | **Stack series uses stack-unaware agents.** Identical strategies at 20/50/100BB. | the magnitude of the 7× / 2× stack effect; the RQ6 stack dose-response | the direction and mechanism (frequency up, magnitude down faster), paired on identical cards |
+| L6 | **RQ6 chance/strategy identifiability.** MIVAT/AIVAT use a fitted 7-feature linear value function. Remaining variance = strategic divergence + chance variation not captured by the model. | the "58% remains" interpretation (C6) | exact all-in EV results (model-free); the stack dose-response; AoF p1 resolution; unbiasedness (construction + tests) |
+| L7 | **RQ7 coverage is asymptotic.** The CS has no finite-sample guarantee. | any claim of exact validity | empirical coverage 2.4–3.4% on all tested streams; 0 wrong-sign decisions |
+| L8 | **Finite tested horizons and distributions.** Horizon 250k, t* = 100k, five distributions (three empirical), IID resampling. | generalization beyond these | peeking failure is robust (≥ 44% at every min-N and distribution) |
+| L9 | **Wall-clock depends on hardware and implementation.** PokerKit engine, Python estimators, 8 workers; run-to-run variation ~20%. | 475× (C1/F2); estimator slowdowns and net efficiency (C12) | blocks and played hands; variance ratios |
+| L10 | **Resampling cannot produce unseen tails.** Empirical power (C8), bootstrap RQ7 streams and CIs use observed blocks only. | fixed-N validation; bootstrap-stream coverage | real-order and permutation results use actual blocks; t3 (infinite kurtosis) is a synthetic check |
+| L11 | **Block construction differs for Nit** (variable-length rounds, penalty transfers). | Nit in cross-format comparisons | Nit as a mechanism case study (C11) |
+| L12 | **Heads-up excluded; no strong solver agents.** | comparison to the heads-up literature (e.g. AV-AIVAT) | multi-way conclusions within the tested population |

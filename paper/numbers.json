@@ -1,0 +1,942 @@
+[
+ {
+  "section": "core",
+  "key": "hands_1bb100_median/aof/4max/8bb",
+  "value": 335168.0,
+  "display": "0.34M [p1\u2013p3 0.10\u20130.98M]",
+  "source": "reports/final-analysis/ranking.json",
+  "field": "metric.hands.formats['aof/4max/8bb'].median|min|max",
+  "note": "played hands, 1 BB/100, 80% power, two-sided alpha 0.05; median over p1-p3"
+ },
+ {
+  "section": "core",
+  "key": "hands_1bb100_median/nlhe/4max/100bb",
+  "value": 4264000.0,
+  "display": "4.26M [p1\u2013p3 1.32\u20134.51M]",
+  "source": "reports/final-analysis/ranking.json",
+  "field": "metric.hands.formats['nlhe/4max/100bb'].median|min|max",
+  "note": "played hands, 1 BB/100, 80% power, two-sided alpha 0.05; median over p1-p3"
+ },
+ {
+  "section": "core",
+  "key": "hands_1bb100_median/nlhe/6max/100bb",
+  "value": 4429908.0,
+  "display": "4.43M [p1\u2013p3 1.55\u20134.97M]",
+  "source": "reports/final-analysis/ranking.json",
+  "field": "metric.hands.formats['nlhe/6max/100bb'].median|min|max",
+  "note": "played hands, 1 BB/100, 80% power, two-sided alpha 0.05; median over p1-p3"
+ },
+ {
+  "section": "core",
+  "key": "hands_1bb100_median/cp/6max/100bb",
+  "value": 8709564.0,
+  "display": "8.71M [p1\u2013p3 3.50\u20139.86M]",
+  "source": "reports/final-analysis/ranking.json",
+  "field": "metric.hands.formats['cp/6max/100bb'].median|min|max",
+  "note": "played hands, 1 BB/100, 80% power, two-sided alpha 0.05; median over p1-p3"
+ },
+ {
+  "section": "core",
+  "key": "hands_1bb100_median/nit/6max/100bb",
+  "value": 9492393.0739,
+  "display": "9.49M [p1\u2013p3 3.52\u20139.50M]",
+  "source": "reports/final-analysis/ranking.json",
+  "field": "metric.hands.formats['nit/6max/100bb'].median|min|max",
+  "note": "played hands, 1 BB/100, 80% power, two-sided alpha 0.05; median over p1-p3"
+ },
+ {
+  "section": "core",
+  "key": "hands_1bb100_median/plo/6max/100bb",
+  "value": 16389180.0,
+  "display": "16.39M [p1\u2013p3 5.65\u201319.34M]",
+  "source": "reports/final-analysis/ranking.json",
+  "field": "metric.hands.formats['plo/6max/100bb'].median|min|max",
+  "note": "played hands, 1 BB/100, 80% power, two-sided alpha 0.05; median over p1-p3"
+ },
+ {
+  "section": "core",
+  "key": "hands_1bb100_median/bomb/6max/100bb",
+  "value": 20456268.0,
+  "display": "20.46M [p1\u2013p3 4.20\u201335.72M]",
+  "source": "reports/final-analysis/ranking.json",
+  "field": "metric.hands.formats['bomb/6max/100bb'].median|min|max",
+  "note": "played hands, 1 BB/100, 80% power, two-sided alpha 0.05; median over p1-p3"
+ },
+ {
+  "section": "core",
+  "key": "hands_spread_full",
+  "value": 61.032879033797975,
+  "display": "61\u00d7",
+  "source": "reports/final-analysis/ranking.json",
+  "field": "metric.hands.largest_over_smallest_median",
+  "note": "Bomb / AoF medians"
+ },
+ {
+  "section": "core",
+  "key": "hands_spread_100bb",
+  "value": 4.797436210131332,
+  "display": "4.8\u00d7",
+  "source": "reports/final-analysis/ranking.json",
+  "field": "metric.hands.largest_over_smallest_median_100bb_excl_nit",
+  "note": "NLHE4, NLHE6, CP, PLO, Bomb"
+ },
+ {
+  "section": "core",
+  "key": "pairing_spread_100bb",
+  "value": [
+   2.818416892153736,
+   8.503636311700182
+  ],
+  "display": "2.8\u20138.5\u00d7",
+  "source": "reports/final-analysis/ranking.json",
+  "field": "metric.hands.within_format_spread_100bb_excl_nit",
+  "note": "max/min required hands over p1-p3 within a format"
+ },
+ {
+  "section": "core",
+  "key": "blocks_spread_full",
+  "value": 40.688586022531986,
+  "display": "41\u00d7",
+  "source": "reports/final-analysis/ranking.json",
+  "field": "metric.blocks.largest_over_smallest_median",
+  "note": ""
+ },
+ {
+  "section": "core",
+  "key": "wallclock_spread_full",
+  "value": 474.6562154762351,
+  "display": "475\u00d7",
+  "source": "reports/final-analysis/ranking.json",
+  "field": "metric.wall_h.largest_over_smallest_median",
+  "note": "implementation- and machine-specific (8 workers)"
+ },
+ {
+  "section": "core",
+  "key": "wallclock_h_median/aof/4max/8bb",
+  "value": 0.01626301788644389,
+  "display": "0.0163 h",
+  "source": "reports/final-analysis/ranking.json",
+  "field": "metric.wall_h.formats['aof/4max/8bb'].median",
+  "note": ""
+ },
+ {
+  "section": "core",
+  "key": "wallclock_h_median/nlhe/4max/100bb",
+  "value": 0.21368856152331925,
+  "display": "0.214 h",
+  "source": "reports/final-analysis/ranking.json",
+  "field": "metric.wall_h.formats['nlhe/4max/100bb'].median",
+  "note": ""
+ },
+ {
+  "section": "core",
+  "key": "wallclock_h_median/nlhe/6max/100bb",
+  "value": 0.2892831551846853,
+  "display": "0.289 h",
+  "source": "reports/final-analysis/ranking.json",
+  "field": "metric.wall_h.formats['nlhe/6max/100bb'].median",
+  "note": ""
+ },
+ {
+  "section": "core",
+  "key": "wallclock_h_median/nit/6max/100bb",
+  "value": 0.7698840256467144,
+  "display": "0.77 h",
+  "source": "reports/final-analysis/ranking.json",
+  "field": "metric.wall_h.formats['nit/6max/100bb'].median",
+  "note": ""
+ },
+ {
+  "section": "core",
+  "key": "wallclock_h_median/cp/6max/100bb",
+  "value": 0.9000614034786844,
+  "display": "0.9 h",
+  "source": "reports/final-analysis/ranking.json",
+  "field": "metric.wall_h.formats['cp/6max/100bb'].median",
+  "note": ""
+ },
+ {
+  "section": "core",
+  "key": "wallclock_h_median/plo/6max/100bb",
+  "value": 2.8654053395986923,
+  "display": "2.87 h",
+  "source": "reports/final-analysis/ranking.json",
+  "field": "metric.wall_h.formats['plo/6max/100bb'].median",
+  "note": ""
+ },
+ {
+  "section": "core",
+  "key": "wallclock_h_median/bomb/6max/100bb",
+  "value": 7.719342522201777,
+  "display": "7.72 h",
+  "source": "reports/final-analysis/ranking.json",
+  "field": "metric.wall_h.formats['bomb/6max/100bb'].median",
+  "note": ""
+ },
+ {
+  "section": "core",
+  "key": "nlhe6_over_nlhe4_hands",
+  "value": 1.0389090056285177,
+  "display": "1.04 [0.98, 1.11]",
+  "source": "reports/final-analysis/ranking.json",
+  "field": "metric.hands.pairs['nlhe/4max/100bb < nlhe/6max/100bb'].ratio_of_medians|ratio_ci",
+  "note": "bootstrap CI holds pairings fixed (sampling uncertainty only)"
+ },
+ {
+  "section": "core",
+  "key": "nlhe4_over_nlhe6_blocks",
+  "value": 1.4438223096281007,
+  "display": "1.44 [1.35, 1.53]",
+  "source": "reports/final-analysis/ranking.json",
+  "field": "metric.blocks.pairs['nlhe/6max/100bb < nlhe/4max/100bb']",
+  "note": ""
+ },
+ {
+  "section": "core",
+  "key": "bigpot_share_100bb",
+  "value": [
+   0.7899826204949953,
+   0.9669665070416259
+  ],
+  "display": "79\u201397%",
+  "source": "reports/final-analysis/allin.csv",
+  "field": "share_pot_ge_1stack (100BB formats, p1-p3)",
+  "note": "share of total squared deviation in blocks with a pot >= one starting stack"
+ },
+ {
+  "section": "core",
+  "key": "bigpot_decisive_block_frac_100bb",
+  "value": [
+   0.00567,
+   0.21574
+  ],
+  "display": "0.6\u201321.6% of all blocks",
+  "source": "reports/final-analysis/allin.csv",
+  "field": "frac_blocks_big_decisive",
+  "note": "blocks that are big-pot AND have D != 0, as a share of ALL blocks"
+ },
+ {
+  "section": "core",
+  "key": "allin_share_100bb",
+  "value": [
+   0.8053507921444918,
+   0.9707779657886088
+  ],
+  "display": "81\u201397%",
+  "source": "reports/final-analysis/allin.csv",
+  "field": "share_allin",
+  "note": ""
+ },
+ {
+  "section": "core",
+  "key": "plo_bigpot_vs_allin",
+  "value": null,
+  "display": "big-pot 93\u201394% vs all-in 82\u201383%; big-pot-without-all-in blocks 6.3\u20136.6% carry 12\u201313%",
+  "source": "reports/final-analysis/allin.csv",
+  "field": "share_pot_ge_1stack, share_allin, frac_blocks_big_not_allin, share_big_not_allin (plo)",
+  "note": ""
+ },
+ {
+  "section": "core",
+  "key": "top1pct_share_100bb",
+  "value": [
+   0.32584199380837914,
+   0.9530598260699977
+  ],
+  "display": "33\u201395%",
+  "source": "reports/final-analysis/core/pilot_table.csv",
+  "field": "conc_top0.01",
+  "note": ""
+ },
+ {
+  "section": "core",
+  "key": "freq_mag_decomp_100bb",
+  "value": {
+   "n_pairings": 15,
+   "frequency_term": 0.7325107602492149,
+   "magnitude_term": 0.3214861527973461,
+   "residual_term": -0.05399691304656055,
+   "r2_frequency": 0.5943006302997262,
+   "r2_magnitude": 0.2462956573873501
+  },
+  "display": "frequency 73%, magnitude 32% of cross-pairing log-variance",
+  "source": "reports/final-analysis/allin_regression.json",
+  "field": "log_var_decomposition_100bb_big_pot",
+  "note": "exploratory, 15 pairings, not causal"
+ },
+ {
+  "section": "core",
+  "key": "stack_100_vs_20",
+  "value": [
+   7.076265808831748,
+   7.1871552614022995,
+   6.8389409085048705
+  ],
+  "display": "7.1\u00d7 / 7.2\u00d7 / 6.8\u00d7 (CIs 5.7\u20138.6)",
+  "source": "reports/final-analysis/stack.json",
+  "field": "[role]['nlhe/6max/20bb'].sample_ratio_vs_100_common (inverted) + sample_ratio_ci",
+  "note": "paired, common blocks 0..9,999; p1/p2/p3"
+ },
+ {
+  "section": "core",
+  "key": "stack_100_vs_50",
+  "value": [
+   2.0629112991325456,
+   2.127329297170702,
+   2.04923497635292
+  ],
+  "display": "2.1\u00d7 / 2.1\u00d7 / 2.0\u00d7 (CIs 1.7\u20132.4)",
+  "source": "reports/final-analysis/stack.json",
+  "field": "[role]['nlhe/6max/50bb'].sample_ratio_vs_100_common (inverted)",
+  "note": ""
+ },
+ {
+  "section": "core",
+  "key": "stack_mechanism_p2",
+  "value": null,
+  "display": "all-in block freq 0.08 \u2192 0.16 \u2192 0.29; sq. dev per all-in block 1869 \u2192 535 \u2192 87 (100\u219250\u219220BB)",
+  "source": "reports/final-analysis/allin.csv",
+  "field": "frac_blocks_allin, mean_dev2_allin (p2)",
+  "note": ""
+ },
+ {
+  "section": "core",
+  "key": "fixedN_power_at_analytic_N",
+  "value": [
+   0.7795,
+   0.81475
+  ],
+  "display": "0.779\u20130.815",
+  "source": "reports/final-analysis/d_collapse.csv",
+  "field": "empirical_power (n = 500, 2k, 10k; 27 pairings; 4,000 resamples)",
+  "note": "target 0.80; MC SE 0.006"
+ },
+ {
+  "section": "core",
+  "key": "fixedN_null_rejection",
+  "value": [
+   0.02775,
+   0.05725
+  ],
+  "display": "0.028\u20130.057",
+  "source": "reports/final-analysis/d_collapse.csv",
+  "field": "null_rejection",
+  "note": ""
+ },
+ {
+  "section": "core",
+  "key": "pilot10k_hands_ratio",
+  "value": [
+   0.8586616754839983,
+   1.284263680480966
+  ],
+  "display": "prefix 0.86\u20131.28\u00d7; disjoint windows 0.75\u20131.33\u00d7",
+  "source": "reports/final-analysis/convergence.csv",
+  "field": "hands_ratio_prefix, window_hands_ratio_min/max (pilot_n = 10000; 18 extended pairings)",
+  "note": ""
+ },
+ {
+  "section": "core",
+  "key": "pilot_rule",
+  "value": null,
+  "display": "n \u2248 384(\u03ba+2) blocks for \u03c3 within \u00b15% at 95% (\u2248 100(\u03ba+2) at 1 SE)",
+  "source": "reports/final-analysis/convergence.csv",
+  "field": "pilot_n_5pct_95 = 1.96\u00b2(\u03ba+2)/(4\u00b70.05\u00b2)",
+  "note": "delta-method relative SE \u221a((\u03ba+2)/4n); observed/predicted window SD median 1.00"
+ },
+ {
+  "section": "core",
+  "key": "nit_decomposition",
+  "value": null,
+  "display": "p1 total -10.1, chip -1.5 [-2.6,-0.3] BB/100; p2 total +30.3, chip -1.0 [-2.9,+0.9] BB/100; p3 total +17.3, chip -0.2 [-2.2,+1.8] BB/100; p4 total +25.8, chip -2.1 [-3.6,-0.6] BB/100",
+  "source": "reports/final-analysis/nit.json",
+  "field": "[pairing].total|chip.mean_bb100, ci_bb100",
+  "note": ""
+ },
+ {
+  "section": "rq6",
+  "key": "var_ratio/nlhe6-100bb/allin_ev",
+  "value": [
+   0.857405032367005,
+   0.8777480886038235,
+   0.9238554757850685
+  ],
+  "display": "median 0.878 (p1\u2013p3 0.857\u20130.924); gain 1.14\u00d7; p1 0.878 [0.812,0.938]; p2 0.857 [0.809,0.897]; p3 0.924 [0.874,0.979]",
+  "source": "reports/rq6/rq6_summary.csv",
+  "field": "var_ratio_vs_raw, var_ratio_ci_lo/hi (setting=nlhe6-100bb, estimator=allin_ev)",
+  "note": "Var(estimator D)/Var(raw D) on the same blocks; paired bootstrap 95% CI; gain = 1/ratio"
+ },
+ {
+  "section": "rq6",
+  "key": "hands_saved_pct/nlhe6-100bb/allin_ev",
+  "value": [
+   7.61460912499301,
+   12.225428830069552,
+   14.259521888001759
+  ],
+  "display": "12.2% (p1\u2013p3 7.6\u201314.3%)",
+  "source": "reports/rq6/rq6_summary.csv",
+  "field": "pct_hands_saved_1bb100",
+  "note": ""
+ },
+ {
+  "section": "rq6",
+  "key": "var_ratio/nlhe6-100bb/mivat",
+  "value": [
+   0.5964436555587473,
+   0.6161499563361235,
+   0.662903412592525
+  ],
+  "display": "median 0.616 (p1\u2013p3 0.596\u20130.663); gain 1.62\u00d7; p1 0.616 [0.556,0.677]; p2 0.596 [0.556,0.638]; p3 0.663 [0.613,0.718]",
+  "source": "reports/rq6/rq6_summary.csv",
+  "field": "var_ratio_vs_raw, var_ratio_ci_lo/hi (setting=nlhe6-100bb, estimator=mivat)",
+  "note": "Var(estimator D)/Var(raw D) on the same blocks; paired bootstrap 95% CI; gain = 1/ratio"
+ },
+ {
+  "section": "rq6",
+  "key": "hands_saved_pct/nlhe6-100bb/mivat",
+  "value": [
+   33.7097953838042,
+   38.384643357292624,
+   40.35561963116477
+  ],
+  "display": "38.4% (p1\u2013p3 33.7\u201340.4%)",
+  "source": "reports/rq6/rq6_summary.csv",
+  "field": "pct_hands_saved_1bb100",
+  "note": ""
+ },
+ {
+  "section": "rq6",
+  "key": "var_ratio/nlhe6-100bb/aivat",
+  "value": [
+   0.5714453791996467,
+   0.5802397298900965,
+   0.590447629040303
+  ],
+  "display": "median 0.580 (p1\u2013p3 0.571\u20130.590); gain 1.72\u00d7; p1 0.571 [0.513,0.633]; p2 0.580 [0.528,0.637]; p3 0.590 [0.546,0.638]",
+  "source": "reports/rq6/rq6_summary.csv",
+  "field": "var_ratio_vs_raw, var_ratio_ci_lo/hi (setting=nlhe6-100bb, estimator=aivat)",
+  "note": "Var(estimator D)/Var(raw D) on the same blocks; paired bootstrap 95% CI; gain = 1/ratio"
+ },
+ {
+  "section": "rq6",
+  "key": "hands_saved_pct/nlhe6-100bb/aivat",
+  "value": [
+   40.95531295027833,
+   41.975966422987824,
+   42.855153311102
+  ],
+  "display": "42.0% (p1\u2013p3 41.0\u201342.9%)",
+  "source": "reports/rq6/rq6_summary.csv",
+  "field": "pct_hands_saved_1bb100",
+  "note": ""
+ },
+ {
+  "section": "rq6",
+  "key": "var_ratio/nlhe6-20bb/allin_ev",
+  "value": [
+   0.6746254554983657,
+   0.7163336629258195,
+   0.7740937365573681
+  ],
+  "display": "median 0.716 (p1\u2013p3 0.675\u20130.774); gain 1.40\u00d7; p1 0.675 [0.612,0.738]; p2 0.716 [0.657,0.774]; p3 0.774 [0.721,0.830]",
+  "source": "reports/rq6/rq6_summary.csv",
+  "field": "var_ratio_vs_raw, var_ratio_ci_lo/hi (setting=nlhe6-20bb, estimator=allin_ev)",
+  "note": "Var(estimator D)/Var(raw D) on the same blocks; paired bootstrap 95% CI; gain = 1/ratio"
+ },
+ {
+  "section": "rq6",
+  "key": "hands_saved_pct/nlhe6-20bb/allin_ev",
+  "value": [
+   22.589644574040513,
+   28.366660468889982,
+   32.536826447867185
+  ],
+  "display": "28.4% (p1\u2013p3 22.6\u201332.5%)",
+  "source": "reports/rq6/rq6_summary.csv",
+  "field": "pct_hands_saved_1bb100",
+  "note": ""
+ },
+ {
+  "section": "rq6",
+  "key": "var_ratio/aof4-8bb/allin_ev",
+  "value": [
+   0.09319281701575986,
+   0.09775431158241592,
+   0.1307498673281733
+  ],
+  "display": "median 0.098 (p1\u2013p3 0.093\u20130.131); gain 10.23\u00d7; p1 0.098 [0.092,0.104]; p2 0.093 [0.091,0.096]; p3 0.131 [0.127,0.135]",
+  "source": "reports/rq6/rq6_summary.csv",
+  "field": "var_ratio_vs_raw, var_ratio_ci_lo/hi (setting=aof4-8bb, estimator=allin_ev)",
+  "note": "Var(estimator D)/Var(raw D) on the same blocks; paired bootstrap 95% CI; gain = 1/ratio"
+ },
+ {
+  "section": "rq6",
+  "key": "hands_saved_pct/aof4-8bb/allin_ev",
+  "value": [
+   86.92476608745466,
+   90.2198697068404,
+   90.68003295349804
+  ],
+  "display": "90.2% (p1\u2013p3 86.9\u201390.7%)",
+  "source": "reports/rq6/rq6_summary.csv",
+  "field": "pct_hands_saved_1bb100",
+  "note": ""
+ },
+ {
+  "section": "rq6",
+  "key": "allin_removed_dose_response",
+  "value": null,
+  "display": "100BB 12%, 20BB 28%, AoF 90%; 100BB\u221220BB median ratio 0.16 [0.10, 0.23]",
+  "source": "reports/rq6/deep/rq6_deep.json",
+  "field": "allin_ev_dose_response",
+  "note": ""
+ },
+ {
+  "section": "rq6",
+  "key": "increment/mivat_over_allin_ev",
+  "value": null,
+  "display": "p1 0.70 [0.65,0.75]; p2 0.70 [0.65,0.74]; p3 0.72 [0.67,0.76]",
+  "source": "reports/rq6/deep/rq6_pairwise.csv",
+  "field": "var_ratio, ci_lo/hi (numerator=mivat, denominator=allin_ev)",
+  "note": ""
+ },
+ {
+  "section": "rq6",
+  "key": "increment/aivat_over_mivat",
+  "value": null,
+  "display": "p1 0.93 [0.84,1.03]; p2 0.97 [0.91,1.04]; p3 0.89 [0.83,0.95]",
+  "source": "reports/rq6/deep/rq6_pairwise.csv",
+  "field": "var_ratio, ci_lo/hi (numerator=aivat, denominator=mivat)",
+  "note": ""
+ },
+ {
+  "section": "rq6",
+  "key": "tails_100bb_bigpot_share_after_correction",
+  "value": [
+   0.8181712343164901,
+   0.8721405823823373
+  ],
+  "display": "82\u201387%",
+  "source": "reports/rq6/deep/rq6_tails.csv",
+  "field": "share_sq_dev_in_big_pot_blocks (nlhe6-100bb, corrected estimators)",
+  "note": ""
+ },
+ {
+  "section": "rq6",
+  "key": "tails_100bb_p1_kurtosis",
+  "value": null,
+  "display": "raw 183 / allin_ev 177 / mivat 229 / aivat 265",
+  "source": "reports/rq6/deep/rq6_tails.csv",
+  "field": "excess_kurtosis (nlhe6-100bb p1)",
+  "note": ""
+ },
+ {
+  "section": "rq6",
+  "key": "tails_100bb_p1_top1",
+  "value": null,
+  "display": "raw 0.94 / allin_ev 0.93 / mivat 0.95 / aivat 0.94",
+  "source": "reports/rq6/deep/rq6_tails.csv",
+  "field": "top1pct_share (nlhe6-100bb p1)",
+  "note": ""
+ },
+ {
+  "section": "rq6",
+  "key": "aof_p1",
+  "value": {
+   "raw": {
+    "mean_bb100": 0.274875,
+    "ci95_bb100": [
+     -0.07182677916831208,
+     0.6215767791683121
+    ],
+    "z": 1.5539435687131347,
+    "p_two_sided": 0.12019787791969254,
+    "se_bb100": 0.17688866284097554
+   },
+   "allin_ev": {
+    "mean_bb100": 0.40803215000000004,
+    "ci95_bb100": [
+     0.299633460658599,
+     0.516430839341401
+    ],
+    "z": 7.377792285672521,
+    "p_two_sided": 1.609357842224033e-13,
+    "se_bb100": 0.055305453745612736,
+    "raw_blocks_for_same_se": 511486.39063194033
+   }
+  },
+  "display": "raw +0.27 [-0.07, +0.62] z=1.55; all-in EV +0.41 [+0.30, +0.52] z=7.38; raw blocks for same SE \u2248 511k (vs 50k)",
+  "source": "reports/rq6/deep/rq6_deep.json",
+  "field": "settings['aof4-8bb'].pairings['p1-prodv2-vs-blend10'].precision",
+  "note": ""
+ },
+ {
+  "section": "rq6",
+  "key": "aof_p1_est_minus_raw_z",
+  "value": 0.7874159823738741,
+  "display": "+0.79",
+  "source": "reports/rq6/rq6_summary.csv",
+  "field": "mean_diff_z (aof4-8bb p1 allin_ev)",
+  "note": "the point-estimate shift is within sampling noise"
+ },
+ {
+  "section": "rq6",
+  "key": "max_abs_bias_z",
+  "value": 1.2947282737260153,
+  "display": "1.29",
+  "source": "reports/rq6/rq6_summary.csv",
+  "field": "max |mean_diff_z| over all rows",
+  "note": "gate |z| <= 3"
+ },
+ {
+  "section": "rq6",
+  "key": "slowdown/nlhe6-100bb/allin_ev",
+  "value": 1.0622605363984674,
+  "display": "1.06\u00d7",
+  "source": "reports/rq6/deep/rq6_deep.json",
+  "field": "estimator_bench['nlhe6-100bb/allin_ev'].slowdown",
+  "note": "single-process bench, 3 runs x 150-200 blocks"
+ },
+ {
+  "section": "rq6",
+  "key": "slowdown/nlhe6-100bb/mivat",
+  "value": 1.4163473818646233,
+  "display": "1.42\u00d7",
+  "source": "reports/rq6/deep/rq6_deep.json",
+  "field": "estimator_bench['nlhe6-100bb/mivat'].slowdown",
+  "note": "single-process bench, 3 runs x 150-200 blocks"
+ },
+ {
+  "section": "rq6",
+  "key": "slowdown/nlhe6-100bb/aivat",
+  "value": 1.8638655462184874,
+  "display": "1.86\u00d7",
+  "source": "reports/rq6/deep/rq6_deep.json",
+  "field": "estimator_bench['nlhe6-100bb/aivat'].slowdown",
+  "note": "single-process bench, 3 runs x 150-200 blocks"
+ },
+ {
+  "section": "rq6",
+  "key": "slowdown/nlhe6-100bb/all_three",
+  "value": 2.2224448897795592,
+  "display": "2.22\u00d7",
+  "source": "reports/rq6/deep/rq6_deep.json",
+  "field": "estimator_bench['nlhe6-100bb/all_three'].slowdown",
+  "note": "single-process bench, 3 runs x 150-200 blocks"
+ },
+ {
+  "section": "rq6",
+  "key": "slowdown/nlhe6-20bb/allin_ev",
+  "value": 1.0070360598065082,
+  "display": "1.01\u00d7",
+  "source": "reports/rq6/deep/rq6_deep.json",
+  "field": "estimator_bench['nlhe6-20bb/allin_ev'].slowdown",
+  "note": "single-process bench, 3 runs x 150-200 blocks"
+ },
+ {
+  "section": "rq6",
+  "key": "slowdown/aof4-8bb/allin_ev",
+  "value": 1.7016806722689075,
+  "display": "1.70\u00d7",
+  "source": "reports/rq6/deep/rq6_deep.json",
+  "field": "estimator_bench['aof4-8bb/allin_ev'].slowdown",
+  "note": "single-process bench, 3 runs x 150-200 blocks"
+ },
+ {
+  "section": "rq6",
+  "key": "net_wallclock/nlhe6-100bb/allin_ev",
+  "value": [
+   1.0725043445100406,
+   1.0979509133671974,
+   1.0189782526460829
+  ],
+  "display": "1.02\u20131.10",
+  "source": "reports/rq6/deep/rq6_efficiency.csv",
+  "field": "net_wallclock_efficiency = ESS / slowdown",
+  "note": ""
+ },
+ {
+  "section": "rq6",
+  "key": "net_wallclock/nlhe6-100bb/mivat",
+  "value": [
+   1.1458922808469325,
+   1.1837521821710386,
+   1.0650744367848497
+  ],
+  "display": "1.07\u20131.18",
+  "source": "reports/rq6/deep/rq6_efficiency.csv",
+  "field": "net_wallclock_efficiency = ESS / slowdown",
+  "note": ""
+ },
+ {
+  "section": "rq6",
+  "key": "net_wallclock/nlhe6-100bb/aivat",
+  "value": [
+   0.9388813110824752,
+   0.9246512418868814,
+   0.9086654945283292
+  ],
+  "display": "0.91\u20130.94",
+  "source": "reports/rq6/deep/rq6_efficiency.csv",
+  "field": "net_wallclock_efficiency = ESS / slowdown",
+  "note": ""
+ },
+ {
+  "section": "rq6",
+  "key": "net_wallclock/nlhe6-20bb/allin_ev",
+  "value": [
+   1.4719472743629476,
+   1.3862438020583625,
+   1.282807305550507
+  ],
+  "display": "1.28\u20131.47",
+  "source": "reports/rq6/deep/rq6_efficiency.csv",
+  "field": "net_wallclock_efficiency = ESS / slowdown",
+  "note": ""
+ },
+ {
+  "section": "rq6",
+  "key": "net_wallclock/aof4-8bb/allin_ev",
+  "value": [
+   6.011543751624781,
+   6.305789864558724,
+   4.494492675183232
+  ],
+  "display": "4.49\u20136.31",
+  "source": "reports/rq6/deep/rq6_efficiency.csv",
+  "field": "net_wallclock_efficiency = ESS / slowdown",
+  "note": ""
+ },
+ {
+  "section": "rq6",
+  "key": "value_function",
+  "value": {
+   "path": "configs/rq6/vf/nlhe6-100bb-vf.json",
+   "sha256": "acb224b9dd26ae3b1a9e8cca7e11000e591fe57c8fca67a81028991b1f7dfbff",
+   "pinned_sha256": "acb224b9dd26ae3b1a9e8cca7e11000e591fe57c8fca67a81028991b1f7dfbff",
+   "training_root_seed": 90210,
+   "blocks": [
+    0,
+    1000
+   ],
+   "n_hand_histories": 36000,
+   "pvat_version": "0.0.0.dev2"
+  },
+  "display": "sha256 acb224b9dd26\u2026, training seed 90210, 36,000 training hands",
+  "source": "reports/rq6/MANIFEST.json",
+  "field": "experiments[...fittedvf].estimator_experiment.value_functions.aivat",
+  "note": ""
+ },
+ {
+  "section": "rq7",
+  "key": "null_fixed",
+  "value": [
+   0.0495,
+   0.0495,
+   0.0445,
+   0.0475,
+   0.0465
+  ],
+  "display": "4.5\u20135.0% ; heavy 4.95% [4.1,6.0]; mild 4.95% [4.1,6.0]; moderate 4.45% [3.6,5.4]; normal 4.75% [3.9,5.8]; t3 4.65% [3.8,5.7]",
+  "source": "reports/rq7/coverage.csv",
+  "field": "miscoverage, wilson_lo/hi (method=fixed, min_n=200, 2,000 reps)",
+  "note": ""
+ },
+ {
+  "section": "rq7",
+  "key": "null_peek",
+  "value": [
+   0.58,
+   0.606,
+   0.628,
+   0.639,
+   0.6335
+  ],
+  "display": "58.0\u201363.9% ; heavy 58.00% [55.8,60.1]; mild 60.60% [58.4,62.7]; moderate 62.80% [60.7,64.9]; normal 63.90% [61.8,66.0]; t3 63.35% [61.2,65.4]",
+  "source": "reports/rq7/coverage.csv",
+  "field": "miscoverage, wilson_lo/hi (method=peek, min_n=200, 2,000 reps)",
+  "note": ""
+ },
+ {
+  "section": "rq7",
+  "key": "null_asymp",
+  "value": [
+   0.024,
+   0.0255,
+   0.027,
+   0.034,
+   0.032
+  ],
+  "display": "2.4\u20133.4% ; heavy 2.40% [1.8,3.2]; mild 2.55% [1.9,3.3]; moderate 2.70% [2.1,3.5]; normal 3.40% [2.7,4.3]; t3 3.20% [2.5,4.1]",
+  "source": "reports/rq7/coverage.csv",
+  "field": "miscoverage, wilson_lo/hi (method=asymp, min_n=200, 2,000 reps)",
+  "note": ""
+ },
+ {
+  "section": "rq7",
+  "key": "peek_min5000",
+  "value": [
+   0.448,
+   0.4425,
+   0.443
+  ],
+  "display": "44.2\u201344.8%",
+  "source": "reports/rq7/min_n_sensitivity.csv",
+  "field": "miscoverage (method=peek, min_n=5000)",
+  "note": ""
+ },
+ {
+  "section": "rq7",
+  "key": "asymp_min_n_invariance",
+  "value": null,
+  "display": "heavy 2.40% at min_n 1000; heavy 2.40% at min_n 200; heavy 2.40% at min_n 5000; heavy 2.45% at min_n 50; mild 2.55% at min_n 1000; mild 2.55% at min_n 200; mild 2.55% at min_n 50; mild 2.55% at min_n 5000; moderate 2.70% at min_n 200; normal 3.40% at min_n 200; t3 3.20% at min_n 1000; t3 3.20% at min_n 200; t3 3.20% at min_n 50; t3 3.20% at min_n 5000",
+  "source": "reports/rq7/min_n_sensitivity.csv",
+  "field": "miscoverage (method=asymp)",
+  "note": ""
+ },
+ {
+  "section": "rq7",
+  "key": "peek_timing_heavy",
+  "value": null,
+  "display": "false-stopped by 1k 16%, 10k 36%, 100k 52%, 250k 58%; median first false stop 3,908 blocks",
+  "source": "reports/rq7/deep/null_timing.csv",
+  "field": "cell=null-heavy-min200, method=peek",
+  "note": ""
+ },
+ {
+  "section": "rq7",
+  "key": "peek_median_first_false_stop",
+  "value": [
+   3908.5,
+   2346.5,
+   2255.5,
+   1963.5,
+   2180.0
+  ],
+  "display": "1,964\u20133,908 blocks",
+  "source": "reports/rq7/deep/null_timing.csv",
+  "field": "q0.5 (peek, min_n=200 cells)",
+  "note": ""
+ },
+ {
+  "section": "rq7",
+  "key": "asymp_earliest_null_miss",
+  "value": 8739,
+  "display": "8,739 blocks (min_n \u2265 200)",
+  "source": "reports/rq7/deep/null_timing.csv",
+  "field": "earliest_miss (asymp)",
+  "note": ""
+ },
+ {
+  "section": "rq7",
+  "key": "wrong_sign/peek",
+  "value": {
+   "decisions": 9995,
+   "wrong_sign": 854,
+   "rate": 0.08544272136068035,
+   "upper95_one_sided": 0.09018184512871748
+  },
+  "display": "854 / 9,995 = 8.5% (one-sided 95% upper 9.018%)",
+  "source": "reports/rq7/deep/wrong_sign.json",
+  "field": "peek",
+  "note": "pooled over the 10 non-null cells"
+ },
+ {
+  "section": "rq7",
+  "key": "wrong_sign/asymp",
+  "value": {
+   "decisions": 9768,
+   "wrong_sign": 0,
+   "rate": 0.0,
+   "upper95_one_sided": 0.000306641374114064
+  },
+  "display": "0 / 9,768 = 0.0% (one-sided 95% upper 0.031%)",
+  "source": "reports/rq7/deep/wrong_sign.json",
+  "field": "asymp",
+  "note": "pooled over the 10 non-null cells"
+ },
+ {
+  "section": "rq7",
+  "key": "wrong_sign/fixed",
+  "value": {
+   "decisions": 8096,
+   "wrong_sign": 0,
+   "rate": 0.0,
+   "upper95_one_sided": 0.000369957768301134
+  },
+  "display": "0 / 8,096 = 0.0% (one-sided 95% upper 0.037%)",
+  "source": "reports/rq7/deep/wrong_sign.json",
+  "field": "fixed",
+  "note": "pooled over the 10 non-null cells"
+ },
+ {
+  "section": "rq7",
+  "key": "peek_wrong_sign_max_cell",
+  "value": 0.126,
+  "display": "up to 12.6%",
+  "source": "reports/rq7/stopping.csv",
+  "field": "wrong_decision_rate (method=peek)",
+  "note": ""
+ },
+ {
+  "section": "rq7",
+  "key": "cs_cost/n25k",
+  "value": null,
+  "display": "strong (N80 = 25k): power-matched 1.69\u20131.73\u00d7 N80; median stop 1.08\u20131.13\u00d7 N80; CS decided by N80 40\u201346%",
+  "source": "reports/rq7/deep/stopping_cost.csv",
+  "field": "power_matched_ratio, cs_median_over_fixed_n, cs_decision_rate_by_fixed_n (cells *n25k)",
+  "note": ""
+ },
+ {
+  "section": "rq7",
+  "key": "cs_cost/n100k",
+  "value": null,
+  "display": "weak (N80 = 100k): power-matched 1.60\u20131.63\u00d7 N80; median stop 0.87\u20130.93\u00d7 N80; CS decided by N80 54\u201357%",
+  "source": "reports/rq7/deep/stopping_cost.csv",
+  "field": "power_matched_ratio, cs_median_over_fixed_n, cs_decision_rate_by_fixed_n (cells *n100k)",
+  "note": ""
+ },
+ {
+  "section": "rq7",
+  "key": "width_inflation",
+  "value": {
+   "1000": 4.629357131384993,
+   "10000": 1.966662661163846,
+   "25000": 1.6654057686582269,
+   "100000": 1.5485857275231296,
+   "250000": 1.5712019015643415
+  },
+  "display": "1k 4.63\u00d7, 10k 1.97\u00d7, 25k 1.67\u00d7, 100k 1.55\u00d7, 250k 1.57\u00d7",
+  "source": "reports/rq7/deep/width_inflation.csv",
+  "field": "inflation (identical for every distribution: \u03c3\u0302 cancels)",
+  "note": ""
+ },
+ {
+  "section": "rq7",
+  "key": "permutations",
+  "value": null,
+  "display": "peek 44.8% [41.7%,47.9%], wrong direction 11.2%; CS 0.9% [0.5%,1.7%], decisions 10.3% (all correct); fixed-N at 100k 0.8%",
+  "source": "reports/rq7/real_permutations.csv",
+  "field": "miscoverage, wilson_lo/hi, wrong_decision_rate, decision_rate",
+  "note": "without replacement: conservative by construction"
+ },
+ {
+  "section": "rq7",
+  "key": "real_orderings",
+  "value": null,
+  "display": "28 streams: peek stopped 23, contradicted full-corpus sign 4; CS stopped 10, contradicted 0",
+  "source": "reports/rq7/deep/real_orderings_sign.csv",
+  "field": "peek_stop, asymp_stop, *_contradicts_full_mean_sign",
+  "note": ""
+ },
+ {
+  "section": "rq7",
+  "key": "trajectory_nlhe6_p2",
+  "value": null,
+  "display": "peek stops at block 204 (B>A): -27.9 BB/100 [-54.0, -1.8]; full 250k: +1.28 [+0.43, +2.13]; CS final [-0.06, +2.61] (never excludes 0)",
+  "source": "reports/rq7/real_orderings.csv + reports/rq7/deep/trajectory_nlhe6_p2.csv",
+  "field": "fhr3-nlhe6-100bb-pilot-v1 p2 (peek, asymp); trajectory at 250,000",
+  "note": ""
+ }
+]

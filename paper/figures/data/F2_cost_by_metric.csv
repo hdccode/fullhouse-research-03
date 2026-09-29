@@ -1,0 +1,86 @@
+# source: reports/final-analysis/core/pilot_table.csv + reports/final-analysis/ranking.json (1 BB/100, 80% power)
+format,role,pairing_id,metric,value
+AoF 4-max 8BB,p1,p1-prodv2-vs-blend10,independent blocks,12280.0
+AoF 4-max 8BB,p1,p1-prodv2-vs-blend10,played hands,98240.0
+AoF 4-max 8BB,p1,p1-prodv2-vs-blend10,"wall-clock hours (8 workers, measured)",0.004766800163393426
+AoF 4-max 8BB,p2,p2-prodv2-vs-heuristic,independent blocks,122597.0
+AoF 4-max 8BB,p2,p2-prodv2-vs-heuristic,played hands,980776.0
+AoF 4-max 8BB,p2,p2-prodv2-vs-heuristic,"wall-clock hours (8 workers, measured)",0.047589201924392824
+AoF 4-max 8BB,p3,p3-aggressive-vs-neutral,independent blocks,41896.0
+AoF 4-max 8BB,p3,p3-aggressive-vs-neutral,played hands,335168.0
+AoF 4-max 8BB,p3,p3-aggressive-vs-neutral,"wall-clock hours (8 workers, measured)",0.01626301788644389
+NLHE 4-max,p1,p1-neutral-vs-loose10,independent blocks,164546.0
+NLHE 4-max,p1,p1-neutral-vs-loose10,played hands,1316368.0
+NLHE 4-max,p1,p1-neutral-vs-loose10,"wall-clock hours (8 workers, measured)",0.06596922710021781
+NLHE 4-max,p2,p2-neutral-vs-tight,independent blocks,533000.0
+NLHE 4-max,p2,p2-neutral-vs-tight,played hands,4264000.0
+NLHE 4-max,p2,p2-neutral-vs-tight,"wall-clock hours (8 workers, measured)",0.21368856152331925
+NLHE 4-max,p3,p3-aggressive-vs-neutral,independent blocks,564198.0
+NLHE 4-max,p3,p3-aggressive-vs-neutral,played hands,4513584.0
+NLHE 4-max,p3,p3-aggressive-vs-neutral,"wall-clock hours (8 workers, measured)",0.226196358413384
+NLHE 6-max,p1,p1-neutral-vs-loose10,independent blocks,129260.0
+NLHE 6-max,p1,p1-neutral-vs-loose10,played hands,1551120.0
+NLHE 6-max,p1,p1-neutral-vs-loose10,"wall-clock hours (8 workers, measured)",0.10129169447087143
+NLHE 6-max,p2,p2-neutral-vs-tight,independent blocks,369159.0
+NLHE 6-max,p2,p2-neutral-vs-tight,played hands,4429908.0
+NLHE 6-max,p2,p2-neutral-vs-tight,"wall-clock hours (8 workers, measured)",0.2892831551846853
+NLHE 6-max,p3,p3-aggressive-vs-neutral,independent blocks,413793.0
+NLHE 6-max,p3,p3-aggressive-vs-neutral,played hands,4965516.0
+NLHE 6-max,p3,p3-aggressive-vs-neutral,"wall-clock hours (8 workers, measured)",0.3242595863390476
+Crazy Pineapple,p1,p1-neutral-vs-loose10,independent blocks,291591.0
+Crazy Pineapple,p1,p1-neutral-vs-loose10,played hands,3499092.0
+Crazy Pineapple,p1,p1-neutral-vs-loose10,"wall-clock hours (8 workers, measured)",0.3616022175646263
+Crazy Pineapple,p2,p2-neutral-vs-tight,independent blocks,725797.0
+Crazy Pineapple,p2,p2-neutral-vs-tight,played hands,8709564.0
+Crazy Pineapple,p2,p2-neutral-vs-tight,"wall-clock hours (8 workers, measured)",0.9000614034786844
+Crazy Pineapple,p3,p3-aggressive-vs-neutral,independent blocks,821825.0
+Crazy Pineapple,p3,p3-aggressive-vs-neutral,played hands,9861900.0
+Crazy Pineapple,p3,p3-aggressive-vs-neutral,"wall-clock hours (8 workers, measured)",1.019145798224393
+PLO,p1,p1-neutral-vs-loose10,independent blocks,471231.0
+PLO,p1,p1-neutral-vs-loose10,played hands,5654772.0
+PLO,p1,p1-neutral-vs-loose10,"wall-clock hours (8 workers, measured)",0.9886531164471424
+PLO,p2,p2-neutral-vs-tight,independent blocks,1365765.0
+PLO,p2,p2-neutral-vs-tight,played hands,16389180.0
+PLO,p2,p2-neutral-vs-tight,"wall-clock hours (8 workers, measured)",2.8654053395986923
+PLO,p3,p3-aggressive-vs-neutral,independent blocks,1611631.0
+PLO,p3,p3-aggressive-vs-neutral,played hands,19339572.0
+PLO,p3,p3-aggressive-vs-neutral,"wall-clock hours (8 workers, measured)",3.381237674755745
+Bomb Pot,p1,p1-neutral-vs-aggr10,independent blocks,350080.0
+Bomb Pot,p1,p1-neutral-vs-aggr10,played hands,4200960.0
+Bomb Pot,p1,p1-neutral-vs-aggr10,"wall-clock hours (8 workers, measured)",1.5852671250723143
+Bomb Pot,p2,p2-neutral-vs-tight,independent blocks,1704689.0
+Bomb Pot,p2,p2-neutral-vs-tight,played hands,20456268.0
+Bomb Pot,p2,p2-neutral-vs-tight,"wall-clock hours (8 workers, measured)",7.719342522201777
+Bomb Pot,p3,p3-aggressive-vs-neutral,independent blocks,2976953.0
+Bomb Pot,p3,p3-aggressive-vs-neutral,played hands,35723436.0
+Bomb Pot,p3,p3-aggressive-vs-neutral,"wall-clock hours (8 workers, measured)",13.480535088509486
+Nit Game,p1,p1-neutral-vs-loose10,independent blocks,36999.0
+Nit Game,p1,p1-neutral-vs-loose10,played hands,3515578.0
+Nit Game,p1,p1-neutral-vs-loose10,"wall-clock hours (8 workers, measured)",0.2868227310385733
+Nit Game,p2,p2-neutral-vs-tight,independent blocks,99312.0
+Nit Game,p2,p2-neutral-vs-tight,played hands,9498805.0
+Nit Game,p2,p2-neutral-vs-tight,"wall-clock hours (8 workers, measured)",0.7698840256467144
+Nit Game,p3,p3-aggressive-vs-neutral,independent blocks,99803.0
+Nit Game,p3,p3-aggressive-vs-neutral,played hands,9492393.0
+Nit Game,p3,p3-aggressive-vs-neutral,"wall-clock hours (8 workers, measured)",0.7736903436807138
+AoF 4-max 8BB,median,,independent blocks,41896.0
+NLHE 4-max,median,,independent blocks,533000.0
+NLHE 6-max,median,,independent blocks,369159.0
+Crazy Pineapple,median,,independent blocks,725797.0
+PLO,median,,independent blocks,1365765.0
+Bomb Pot,median,,independent blocks,1704689.0
+Nit Game,median,,independent blocks,99312.0
+AoF 4-max 8BB,median,,played hands,335168.0
+NLHE 4-max,median,,played hands,4264000.0
+NLHE 6-max,median,,played hands,4429908.0
+Crazy Pineapple,median,,played hands,8709564.0
+PLO,median,,played hands,16389180.0
+Bomb Pot,median,,played hands,20456268.0
+Nit Game,median,,played hands,9492393.0739
+AoF 4-max 8BB,median,,"wall-clock hours (8 workers, measured)",0.01626301788644389
+NLHE 4-max,median,,"wall-clock hours (8 workers, measured)",0.21368856152331925
+NLHE 6-max,median,,"wall-clock hours (8 workers, measured)",0.2892831551846853
+Crazy Pineapple,median,,"wall-clock hours (8 workers, measured)",0.9000614034786844
+PLO,median,,"wall-clock hours (8 workers, measured)",2.8654053395986923
+Bomb Pot,median,,"wall-clock hours (8 workers, measured)",7.719342522201777
+Nit Game,median,,"wall-clock hours (8 workers, measured)",0.7698840256467144

@@ -1,0 +1,4 @@
+# source: reports/rq6/deep/rq6_deep.json settings['aof4-8bb'].pairings['p1-prodv2-vs-blend10'].precision
+estimator,mean_bb100,ci_lo,ci_hi,z,n_blocks
+raw,0.274875,-0.07182677916831208,0.6215767791683121,1.5539435687131347,50000
+allin_ev,0.40803215000000004,0.299633460658599,0.516430839341401,7.377792285672521,50000
