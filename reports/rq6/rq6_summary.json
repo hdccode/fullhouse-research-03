@@ -1,0 +1,224 @@
+{
+ "checks": [
+  {
+   "setting": "nlhe6-100bb",
+   "experiment": "results/fhr3-nlhe6-100bb-rq6-v1-fittedvf",
+   "reference": "results/fhr3-nlhe6-100bb-pilot-v1",
+   "pairings": {
+    "c0-selfplay-control": {
+     "n": 2000,
+     "estimators": [
+      "aivat",
+      "allin_ev",
+      "mivat"
+     ],
+     "estimator_config_hashes": [
+      "bb90e570f9dee0ed"
+     ],
+     "raw_reproduction": {
+      "common_blocks": 2000,
+      "mismatches": 0,
+      "ok": true
+     },
+     "raw_estimator_column_equals_D": true,
+     "selfplay_exact_zero": true
+    },
+    "p1-neutral-vs-loose10": {
+     "n": 25000,
+     "estimators": [
+      "aivat",
+      "allin_ev",
+      "mivat"
+     ],
+     "estimator_config_hashes": [
+      "bb90e570f9dee0ed"
+     ],
+     "raw_reproduction": {
+      "common_blocks": 25000,
+      "mismatches": 0,
+      "ok": true
+     },
+     "raw_estimator_column_equals_D": true
+    },
+    "p2-neutral-vs-tight": {
+     "n": 25000,
+     "estimators": [
+      "aivat",
+      "allin_ev",
+      "mivat"
+     ],
+     "estimator_config_hashes": [
+      "bb90e570f9dee0ed"
+     ],
+     "raw_reproduction": {
+      "common_blocks": 25000,
+      "mismatches": 0,
+      "ok": true
+     },
+     "raw_estimator_column_equals_D": true
+    },
+    "p3-aggressive-vs-neutral": {
+     "n": 25000,
+     "estimators": [
+      "aivat",
+      "allin_ev",
+      "mivat"
+     ],
+     "estimator_config_hashes": [
+      "bb90e570f9dee0ed"
+     ],
+     "raw_reproduction": {
+      "common_blocks": 25000,
+      "mismatches": 0,
+      "ok": true
+     },
+     "raw_estimator_column_equals_D": true
+    }
+   }
+  },
+  {
+   "setting": "nlhe6-20bb",
+   "experiment": "results/fhr3-nlhe6-20bb-rq6-allin-v1",
+   "reference": "results/fhr3-nlhe6-20bb-v1",
+   "pairings": {
+    "c0-selfplay-control": {
+     "n": 10000,
+     "estimators": [
+      "allin_ev"
+     ],
+     "estimator_config_hashes": [
+      "3e35c82fc077baf4"
+     ],
+     "raw_reproduction": {
+      "common_blocks": 10000,
+      "mismatches": 0,
+      "ok": true
+     },
+     "raw_estimator_column_equals_D": true,
+     "selfplay_exact_zero": true
+    },
+    "p1-neutral-vs-loose10": {
+     "n": 10000,
+     "estimators": [
+      "allin_ev"
+     ],
+     "estimator_config_hashes": [
+      "3e35c82fc077baf4"
+     ],
+     "raw_reproduction": {
+      "common_blocks": 10000,
+      "mismatches": 0,
+      "ok": true
+     },
+     "raw_estimator_column_equals_D": true
+    },
+    "p2-neutral-vs-tight": {
+     "n": 10000,
+     "estimators": [
+      "allin_ev"
+     ],
+     "estimator_config_hashes": [
+      "3e35c82fc077baf4"
+     ],
+     "raw_reproduction": {
+      "common_blocks": 10000,
+      "mismatches": 0,
+      "ok": true
+     },
+     "raw_estimator_column_equals_D": true
+    },
+    "p3-aggressive-vs-neutral": {
+     "n": 10000,
+     "estimators": [
+      "allin_ev"
+     ],
+     "estimator_config_hashes": [
+      "3e35c82fc077baf4"
+     ],
+     "raw_reproduction": {
+      "common_blocks": 10000,
+      "mismatches": 0,
+      "ok": true
+     },
+     "raw_estimator_column_equals_D": true
+    }
+   }
+  },
+  {
+   "setting": "aof4-8bb",
+   "experiment": "results/fhr3-aof4-8bb-rq6-allin-v1",
+   "reference": "results/fhr3-aof4-8bb-pilot-v1",
+   "pairings": {
+    "c0-selfplay-control": {
+     "n": 10000,
+     "estimators": [
+      "allin_ev"
+     ],
+     "estimator_config_hashes": [
+      "3e35c82fc077baf4"
+     ],
+     "raw_reproduction": {
+      "common_blocks": 10000,
+      "mismatches": 0,
+      "ok": true
+     },
+     "raw_estimator_column_equals_D": true,
+     "selfplay_exact_zero": true
+    },
+    "p1-prodv2-vs-blend10": {
+     "n": 50000,
+     "estimators": [
+      "allin_ev"
+     ],
+     "estimator_config_hashes": [
+      "3e35c82fc077baf4"
+     ],
+     "raw_reproduction": {
+      "common_blocks": 50000,
+      "mismatches": 0,
+      "ok": true
+     },
+     "raw_estimator_column_equals_D": true
+    },
+    "p2-prodv2-vs-heuristic": {
+     "n": 50000,
+     "estimators": [
+      "allin_ev"
+     ],
+     "estimator_config_hashes": [
+      "3e35c82fc077baf4"
+     ],
+     "raw_reproduction": {
+      "common_blocks": 50000,
+      "mismatches": 0,
+      "ok": true
+     },
+     "raw_estimator_column_equals_D": true
+    },
+    "p3-aggressive-vs-neutral": {
+     "n": 50000,
+     "estimators": [
+      "allin_ev"
+     ],
+     "estimator_config_hashes": [
+      "3e35c82fc077baf4"
+     ],
+     "raw_reproduction": {
+      "common_blocks": 50000,
+      "mismatches": 0,
+      "ok": true
+     },
+     "raw_estimator_column_equals_D": true
+    }
+   }
+  }
+ ],
+ "blockers": [],
+ "bootstrap_reps": 2000,
+ "unit": "matched block (paired)",
+ "main_text_candidates": [
+  "aof4-8bb/p1-prodv2-vs-blend10/allin_ev",
+  "aof4-8bb/p2-prodv2-vs-heuristic/allin_ev",
+  "aof4-8bb/p3-aggressive-vs-neutral/allin_ev"
+ ]
+}

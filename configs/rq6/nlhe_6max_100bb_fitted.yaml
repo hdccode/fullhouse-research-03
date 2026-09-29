@@ -1,0 +1,92 @@
+# Derived by fhr3 vat-fit: evaluation config with a frozen, sha256-pinned value function
+experiment_id: fhr3-nlhe6-100bb-rq6-v1-fittedvf
+root_seed: 20260928
+game:
+  variant: nlhe
+  player_count: 6
+  stack_bb: 100
+  bb_chips: 100
+  sb_chips: 50
+  ante_chips: 0
+rng:
+  candidate_coupling: shared
+  reference_coupling: shared
+  salts:
+    chance: 0
+    candidate: 0
+    reference: 0
+blocks: 10000
+estimators:
+  allin_ev:
+    mc_samples: 200
+    exact_max_combos: 1200
+  mivat:
+    value_function: configs/rq6/vf/nlhe6-100bb-vf.json
+    value_function_sha256: acb224b9dd26ae3b1a9e8cca7e11000e591fe57c8fca67a81028991b1f7dfbff
+    flop_samples: 16
+  aivat:
+    value_function: configs/rq6/vf/nlhe6-100bb-vf.json
+    value_function_sha256: acb224b9dd26ae3b1a9e8cca7e11000e591fe57c8fca67a81028991b1f7dfbff
+    flop_samples: 16
+chunk_size: 250
+trace:
+  rate: 0.001
+  include_invalid: true
+  block_ids: []
+agents:
+  neutral:
+    kind: heuristic
+    style: neutral
+  neutral_copy:
+    kind: heuristic
+    style: neutral
+  neutral_loose10:
+    kind: heuristic
+    style: neutral
+    overrides:
+      looseness: 1.1
+  tight:
+    kind: heuristic
+    style: tight
+  aggressive:
+    kind: heuristic
+    style: aggressive
+  ref_tight:
+    kind: heuristic
+    style: tight
+  ref_neutral_1:
+    kind: heuristic
+    style: neutral
+  ref_loose:
+    kind: heuristic
+    style: loose
+  ref_aggressive:
+    kind: heuristic
+    style: aggressive
+  ref_neutral_2:
+    kind: heuristic
+    style: neutral
+reference_populations:
+  mixed5-v1:
+  - ref_tight
+  - ref_neutral_1
+  - ref_loose
+  - ref_aggressive
+  - ref_neutral_2
+pairings:
+- pairing_id: p1-neutral-vs-loose10
+  candidate_a: neutral
+  candidate_b: neutral_loose10
+  reference_population: mixed5-v1
+- pairing_id: p2-neutral-vs-tight
+  candidate_a: neutral
+  candidate_b: tight
+  reference_population: mixed5-v1
+- pairing_id: p3-aggressive-vs-neutral
+  candidate_a: aggressive
+  candidate_b: neutral
+  reference_population: mixed5-v1
+- pairing_id: c0-selfplay-control
+  candidate_a: neutral
+  candidate_b: neutral_copy
+  reference_population: mixed5-v1

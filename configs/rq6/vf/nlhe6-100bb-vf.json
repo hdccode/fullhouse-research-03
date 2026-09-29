@@ -1,0 +1,46 @@
+{
+ "blocks": [
+  0,
+  1000
+ ],
+ "evaluation_config_hash": "31ad0c7ff93070d5",
+ "feature_version": "vat-features-1",
+ "features": [
+  "neg_contributed",
+  "lead_pot_preflop",
+  "lead_pot_flop",
+  "lead_pot_turn",
+  "lead_pot_river",
+  "equal_share_pot",
+  "alone_pot"
+ ],
+ "flop_samples": 16,
+ "git": {
+  "dirty": false,
+  "sha": "ac3cd5f012a707e3beb56abda2b0393969f4df55"
+ },
+ "in_sample_per_hand_variance": {
+  "fitted": 47.52340485288203,
+  "raw": 96.04231822975278
+ },
+ "kind_fitted": "aivat",
+ "method_version": "fhr3-vat-pvat-1",
+ "n_hand_histories": 36000,
+ "pairings": [
+  "p1-neutral-vs-loose10",
+  "p2-neutral-vs-tight",
+  "p3-aggressive-vs-neutral"
+ ],
+ "pvat_version": "0.0.0.dev2",
+ "theta": [
+  0.07510769164316353,
+  0.7993314090998083,
+  1.247060878134268,
+  0.742864701828325,
+  1.3471874794642082,
+  -0.724362338935609,
+  0.33576069496278105
+ ],
+ "training_config_hash": "795f848935d9101e",
+ "training_root_seed": 90210
+}

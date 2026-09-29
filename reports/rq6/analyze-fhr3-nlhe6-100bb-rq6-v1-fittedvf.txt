@@ -1,0 +1,91 @@
+corpus: 77000 rows, 10.23 MB, 133 B/block
+
+== c0-selfplay-control  (nlhe 6-max 100.0bb, fhr3-matched-v1, config 5eca573b73e2de90, experiment fhr3-nlhe6-100bb-rq6-v1-fittedvf)
+   A = neutral [heuristic-1.0.0+29fb750a9a]
+   B = neutral_copy [heuristic-1.0.0+29fb750a9a]
+   ref = mixed5-v1 [7ff8708d6c]   coupling = {'candidate': 'shared', 'reference': 'shared'}
+   blocks: 2000 total, 0 INVALID   ids [0, 1999] contiguous=True
+   candidate hands per side per block: 6.00; played hands/block 12.0
+   mean D = +0.0000 BB/block  95% CI [+0.0000, +0.0000]  = +0.00 BB/100 [+0.00, +0.00]
+   sigma_D = 0.0000 BB/block   SE = 0.0000   frac D==0: 1.000
+   bootstrap 95%: mean [+0.0000, +0.0000]  sd [0.0000, 0.0000]
+   tails: skew +nan  ex.kurt nan  q.001 +0.0  q.01 +0.0  q.99 +0.0  q.999 +0.0  min +0.0  max +0.0
+   variance concentration (share of squared deviation): 
+   per hand: showdown 0.147  all-in 0.0240  mean pot 9.73bb  max pot 400bb  decisions/block 91.0
+   throughput/core: 26.5 blocks/s  318 hands/s  2411 decisions/s  agent share 0.11  estimator share 0.56   storage 117 B/block
+   estimator allin_ev_D: mean +0.0000  sd 0.0000  var ratio vs raw n/a  mean(est-raw) z n/a
+   estimator mivat_D: mean +0.0000  sd 0.0000  var ratio vs raw n/a  mean(est-raw) z n/a
+   estimator aivat_D: mean +0.0000  sd 0.0000  var ratio vs raw n/a  mean(est-raw) z n/a
+   sigma_D = 0: A and B played identically in every block; no power table
+
+== p1-neutral-vs-loose10  (nlhe 6-max 100.0bb, fhr3-matched-v1, config 5eca573b73e2de90, experiment fhr3-nlhe6-100bb-rq6-v1-fittedvf)
+   A = neutral [heuristic-1.0.0+29fb750a9a]
+   B = neutral_loose10 [heuristic-1.0.0+10afe268a4]
+   ref = mixed5-v1 [7ff8708d6c]   coupling = {'candidate': 'shared', 'reference': 'shared'}
+   blocks: 25000 total, 0 INVALID   ids [0, 24999] contiguous=True
+   candidate hands per side per block: 6.00; played hands/block 12.0
+   mean D = +0.0175 BB/block  95% CI [-0.0779, +0.1129]  = +0.29 BB/100 [-1.30, +1.88]
+   sigma_D = 7.6994 BB/block   SE = 0.0487   frac D==0: 0.875
+   bootstrap 95%: mean [-0.0717, +0.1169]  sd [7.0617, 8.4043]
+   tails: skew -0.12  ex.kurt 182.6  q.001 -101.5  q.01 -9.1  q.99 +10.4  q.999 +99.5  min -210.5  max +179.1
+   variance concentration (share of squared deviation): top 10%: 1.00  top 5%: 1.00  top 1%: 0.94  top 0.5%: 0.83  top 0.1%: 0.27  top 0.05%: 0.17  top 0.01%: 0.06
+   per hand: showdown 0.141  all-in 0.0258  mean pot 10.03bb  max pot 400bb  decisions/block 90.7
+   throughput/core: 21.9 blocks/s  263 hands/s  1989 decisions/s  agent share 0.10  estimator share 0.56   storage 130 B/block
+   estimator allin_ev_D: mean +0.0088  sd 7.2134  var ratio vs raw 0.878  mean(est-raw) z -0.50
+   estimator mivat_D: mean +0.0129  sd 6.0437  var ratio vs raw 0.616  mean(est-raw) z -0.17
+   estimator aivat_D: mean -0.0014  sd 5.8203  var ratio vs raw 0.571  mean(est-raw) z -0.61
+   required sample (two-sided alpha=0.05, normal approx):
+     Delta BB/100 |     d     | blocks@80%  played hands@80% | blocks@95%  played hands@95%
+             0.25 |   0.00195 |  2,067,947        24,815,364 |  3,423,720        41,084,640
+              0.5 |   0.00390 |    516,987         6,203,844 |    855,930        10,271,160
+              1.0 |   0.00779 |    129,247         1,550,964 |    213,983         2,567,796
+              2.0 |   0.01559 |     32,312           387,744 |     53,496           641,952
+              5.0 |   0.03896 |      5,170            62,040 |      8,560           102,720
+
+== p2-neutral-vs-tight  (nlhe 6-max 100.0bb, fhr3-matched-v1, config 5eca573b73e2de90, experiment fhr3-nlhe6-100bb-rq6-v1-fittedvf)
+   A = neutral [heuristic-1.0.0+29fb750a9a]
+   B = tight [heuristic-1.0.0+cde1a93ac7]
+   ref = mixed5-v1 [7ff8708d6c]   coupling = {'candidate': 'shared', 'reference': 'shared'}
+   blocks: 25000 total, 0 INVALID   ids [0, 24999] contiguous=True
+   candidate hands per side per block: 6.00; played hands/block 12.0
+   mean D = +0.1140 BB/block  95% CI [-0.0503, +0.2783]  = +1.90 BB/100 [-0.84, +4.64]
+   sigma_D = 13.2519 BB/block   SE = 0.0838   frac D==0: 0.688
+   bootstrap 95%: mean [-0.0587, +0.2635]  sd [12.5243, 13.9985]
+   tails: skew -0.77  ex.kurt 79.3  q.001 -101.0  q.01 -38.3  q.99 +38.5  q.999 +107.0  min -331.2  max +223.9
+   variance concentration (share of squared deviation): top 10%: 0.99  top 5%: 0.98  top 1%: 0.68  top 0.5%: 0.41  top 0.1%: 0.16  top 0.05%: 0.12  top 0.01%: 0.05
+   per hand: showdown 0.135  all-in 0.0247  mean pot 9.65bb  max pot 400bb  decisions/block 89.8
+   throughput/core: 20.8 blocks/s  249 hands/s  1864 decisions/s  agent share 0.10  estimator share 0.56   storage 134 B/block
+   estimator allin_ev_D: mean +0.1217  sd 12.2708  var ratio vs raw 0.857  mean(est-raw) z +0.24
+   estimator mivat_D: mean +0.1048  sd 10.2344  var ratio vs raw 0.596  mean(est-raw) z -0.18
+   estimator aivat_D: mean +0.1024  sd 10.0945  var ratio vs raw 0.580  mean(est-raw) z -0.19
+   required sample (two-sided alpha=0.05, normal approx):
+     Delta BB/100 |     d     | blocks@80%  played hands@80% | blocks@95%  played hands@95%
+             0.25 |   0.00113 |  6,126,089        73,513,068 | 10,142,434       121,709,208
+              0.5 |   0.00226 |  1,531,523        18,378,276 |  2,535,609        30,427,308
+              1.0 |   0.00453 |    382,881         4,594,572 |    633,903         7,606,836
+              2.0 |   0.00906 |     95,721         1,148,652 |    158,476         1,901,712
+              5.0 |   0.02264 |     15,316           183,792 |     25,357           304,284
+
+== p3-aggressive-vs-neutral  (nlhe 6-max 100.0bb, fhr3-matched-v1, config 5eca573b73e2de90, experiment fhr3-nlhe6-100bb-rq6-v1-fittedvf)
+   A = aggressive [heuristic-1.0.0+dee8f8572d]
+   B = neutral [heuristic-1.0.0+29fb750a9a]
+   ref = mixed5-v1 [7ff8708d6c]   coupling = {'candidate': 'shared', 'reference': 'shared'}
+   blocks: 25000 total, 0 INVALID   ids [0, 24999] contiguous=True
+   candidate hands per side per block: 6.00; played hands/block 12.0
+   mean D = -0.0162 BB/block  95% CI [-0.1865, +0.1541]  = -0.27 BB/100 [-3.11, +2.57]
+   sigma_D = 13.7391 BB/block   SE = 0.0869   frac D==0: 0.730
+   bootstrap 95%: mean [-0.1826, +0.1610]  sd [13.1177, 14.3751]
+   tails: skew +0.18  ex.kurt 55.9  q.001 -105.8  q.01 -44.3  q.99 +37.1  q.999 +115.9  min -195.0  max +210.5
+   variance concentration (share of squared deviation): top 10%: 0.99  top 5%: 0.96  top 1%: 0.65  top 0.5%: 0.40  top 0.1%: 0.15  top 0.05%: 0.09  top 0.01%: 0.02
+   per hand: showdown 0.138  all-in 0.0261  mean pot 10.08bb  max pot 400bb  decisions/block 90.5
+   throughput/core: 20.2 blocks/s  243 hands/s  1831 decisions/s  agent share 0.10  estimator share 0.56   storage 136 B/block
+   estimator allin_ev_D: mean +0.0014  sd 13.2057  var ratio vs raw 0.924  mean(est-raw) z +0.41
+   estimator mivat_D: mean -0.0428  sd 11.1862  var ratio vs raw 0.663  mean(est-raw) z -0.43
+   estimator aivat_D: mean -0.0314  sd 10.5572  var ratio vs raw 0.590  mean(est-raw) z -0.21
+   required sample (two-sided alpha=0.05, normal approx):
+     Delta BB/100 |     d     | blocks@80%  played hands@80% | blocks@95%  played hands@95%
+             0.25 |   0.00109 |  6,584,801        79,017,612 | 10,901,884       130,822,608
+              0.5 |   0.00218 |  1,646,201        19,754,412 |  2,725,471        32,705,652
+              1.0 |   0.00437 |    411,551         4,938,612 |    681,368         8,176,416
+              2.0 |   0.00873 |    102,888         1,234,656 |    170,342         2,044,104
+              5.0 |   0.02184 |     16,463           197,556 |     27,255           327,060

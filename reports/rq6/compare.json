@@ -1,0 +1,1978 @@
+{
+  "deltas_bb100": [
+    0.25,
+    0.5,
+    1.0,
+    2.0,
+    5.0
+  ],
+  "power": 0.8,
+  "alpha": 0.05,
+  "rows": [
+    {
+      "experiment_id": "fhr3-aof4-8bb-rq6-allin-v1",
+      "pairing_id": "c0-selfplay-control",
+      "role": "c0",
+      "variant": "aof",
+      "player_count": 4,
+      "stack_bb": 8.0,
+      "label": "aof/4max/8bb",
+      "deal_layout": "board-h2-k4",
+      "protocol": "fhr3-matched-v1",
+      "n_blocks": 10000,
+      "hands_per_block": 8.0,
+      "candidate_hands_per_side": 4.0,
+      "mean_D": 0.0,
+      "mean_bb100": 0.0,
+      "sd_D": 0.0,
+      "frac_zero": 1.0,
+      "skew": NaN,
+      "excess_kurtosis": NaN,
+      "q001": 0.0,
+      "q01": 0.0,
+      "q99": 0.0,
+      "q999": 0.0,
+      "concentration": {
+        "0.1": null,
+        "0.05": null,
+        "0.01": null,
+        "0.005": null,
+        "0.001": null,
+        "0.0005": null,
+        "0.0001": null
+      },
+      "allin_rate_per_hand": 0.809525,
+      "showdown_rate_per_hand": 0.331025,
+      "mean_pot_bb": 6.3717,
+      "max_pot_bb": 32.0,
+      "blocks_per_s_core": 56.01647443302675,
+      "hands_per_s_core": 448.131795464214,
+      "storage_bytes_per_block": 106.0642,
+      "targets": {
+        "0.25": null,
+        "0.5": null,
+        "1": null,
+        "2": null,
+        "5": null
+      },
+      "bb100_at_fixed_d": null,
+      "config_hash": "1d578975d1023894"
+    },
+    {
+      "experiment_id": "fhr3-aof4-8bb-pilot-v1",
+      "pairing_id": "c0-selfplay-control",
+      "role": "c0",
+      "variant": "aof",
+      "player_count": 4,
+      "stack_bb": 8.0,
+      "label": "aof/4max/8bb",
+      "deal_layout": "board-h2-k4",
+      "protocol": "fhr3-matched-v1",
+      "n_blocks": 10000,
+      "hands_per_block": 8.0,
+      "candidate_hands_per_side": 4.0,
+      "mean_D": 0.0,
+      "mean_bb100": 0.0,
+      "sd_D": 0.0,
+      "frac_zero": 1.0,
+      "skew": NaN,
+      "excess_kurtosis": NaN,
+      "q001": 0.0,
+      "q01": 0.0,
+      "q99": 0.0,
+      "q999": 0.0,
+      "concentration": {
+        "0.1": null,
+        "0.05": null,
+        "0.01": null,
+        "0.005": null,
+        "0.001": null,
+        "0.0005": null,
+        "0.0001": null
+      },
+      "allin_rate_per_hand": 0.809525,
+      "showdown_rate_per_hand": 0.331025,
+      "mean_pot_bb": 6.3717,
+      "max_pot_bb": 32.0,
+      "blocks_per_s_core": 126.62682294900463,
+      "hands_per_s_core": 1013.0145835920371,
+      "storage_bytes_per_block": 97.5475,
+      "targets": {
+        "0.25": null,
+        "0.5": null,
+        "1": null,
+        "2": null,
+        "5": null
+      },
+      "bb100_at_fixed_d": null,
+      "config_hash": "de4e24c88c9fbb58"
+    },
+    {
+      "experiment_id": "fhr3-nlhe6-20bb-rq6-allin-v1",
+      "pairing_id": "c0-selfplay-control",
+      "role": "c0",
+      "variant": "nlhe",
+      "player_count": 6,
+      "stack_bb": 20.0,
+      "label": "nlhe/6max/20bb",
+      "deal_layout": "board-h2-k6",
+      "protocol": "fhr3-matched-v1",
+      "n_blocks": 10000,
+      "hands_per_block": 12.0,
+      "candidate_hands_per_side": 6.0,
+      "mean_D": 0.0,
+      "mean_bb100": 0.0,
+      "sd_D": 0.0,
+      "frac_zero": 1.0,
+      "skew": NaN,
+      "excess_kurtosis": NaN,
+      "q001": 0.0,
+      "q01": 0.0,
+      "q99": 0.0,
+      "q999": 0.0,
+      "concentration": {
+        "0.1": null,
+        "0.05": null,
+        "0.01": null,
+        "0.005": null,
+        "0.001": null,
+        "0.0005": null,
+        "0.0001": null
+      },
+      "allin_rate_per_hand": 0.11568333333333333,
+      "showdown_rate_per_hand": 0.14901666666666666,
+      "mean_pot_bb": 5.9226545,
+      "max_pot_bb": 80.5,
+      "blocks_per_s_core": 45.70210021255026,
+      "hands_per_s_core": 548.4252025506031,
+      "storage_bytes_per_block": 112.8179,
+      "targets": {
+        "0.25": null,
+        "0.5": null,
+        "1": null,
+        "2": null,
+        "5": null
+      },
+      "bb100_at_fixed_d": null,
+      "config_hash": "42aa126dec61fe76"
+    },
+    {
+      "experiment_id": "fhr3-nlhe6-20bb-v1",
+      "pairing_id": "c0-selfplay-control",
+      "role": "c0",
+      "variant": "nlhe",
+      "player_count": 6,
+      "stack_bb": 20.0,
+      "label": "nlhe/6max/20bb",
+      "deal_layout": "board-h2-k6",
+      "protocol": "fhr3-matched-v1",
+      "n_blocks": 10000,
+      "hands_per_block": 12.0,
+      "candidate_hands_per_side": 6.0,
+      "mean_D": 0.0,
+      "mean_bb100": 0.0,
+      "sd_D": 0.0,
+      "frac_zero": 1.0,
+      "skew": NaN,
+      "excess_kurtosis": NaN,
+      "q001": 0.0,
+      "q01": 0.0,
+      "q99": 0.0,
+      "q999": 0.0,
+      "concentration": {
+        "0.1": null,
+        "0.05": null,
+        "0.01": null,
+        "0.005": null,
+        "0.001": null,
+        "0.0005": null,
+        "0.0001": null
+      },
+      "allin_rate_per_hand": 0.11568333333333333,
+      "showdown_rate_per_hand": 0.14901666666666666,
+      "mean_pot_bb": 5.9226545,
+      "max_pot_bb": 80.5,
+      "blocks_per_s_core": 68.0154436366135,
+      "hands_per_s_core": 816.185323639362,
+      "storage_bytes_per_block": 97.5001,
+      "targets": {
+        "0.25": null,
+        "0.5": null,
+        "1": null,
+        "2": null,
+        "5": null
+      },
+      "bb100_at_fixed_d": null,
+      "config_hash": "f2fc15f7420d7414"
+    },
+    {
+      "experiment_id": "fhr3-nlhe6-100bb-rq6-v1-fittedvf",
+      "pairing_id": "c0-selfplay-control",
+      "role": "c0",
+      "variant": "nlhe",
+      "player_count": 6,
+      "stack_bb": 100.0,
+      "label": "nlhe/6max/100bb",
+      "deal_layout": "board-h2-k6",
+      "protocol": "fhr3-matched-v1",
+      "n_blocks": 2000,
+      "hands_per_block": 12.0,
+      "candidate_hands_per_side": 6.0,
+      "mean_D": 0.0,
+      "mean_bb100": 0.0,
+      "sd_D": 0.0,
+      "frac_zero": 1.0,
+      "skew": NaN,
+      "excess_kurtosis": NaN,
+      "q001": 0.0,
+      "q01": 0.0,
+      "q99": 0.0,
+      "q999": 0.0,
+      "concentration": {
+        "0.1": null,
+        "0.05": null,
+        "0.01": null,
+        "0.005": null,
+        "0.001": null,
+        "0.0005": null,
+        "0.0001": null
+      },
+      "allin_rate_per_hand": 0.024,
+      "showdown_rate_per_hand": 0.14716666666666667,
+      "mean_pot_bb": 9.734874166666666,
+      "max_pot_bb": 400.5,
+      "blocks_per_s_core": 26.5014376251407,
+      "hands_per_s_core": 318.01725150168835,
+      "storage_bytes_per_block": 117.139,
+      "targets": {
+        "0.25": null,
+        "0.5": null,
+        "1": null,
+        "2": null,
+        "5": null
+      },
+      "bb100_at_fixed_d": null,
+      "config_hash": "5eca573b73e2de90"
+    },
+    {
+      "experiment_id": "fhr3-nlhe6-100bb-pilot-v1",
+      "pairing_id": "c0-selfplay-control",
+      "role": "c0",
+      "variant": "nlhe",
+      "player_count": 6,
+      "stack_bb": 100.0,
+      "label": "nlhe/6max/100bb",
+      "deal_layout": "board-h2-k6",
+      "protocol": "fhr3-matched-v1",
+      "n_blocks": 10000,
+      "hands_per_block": 12.0,
+      "candidate_hands_per_side": 6.0,
+      "mean_D": 0.0,
+      "mean_bb100": 0.0,
+      "sd_D": 0.0,
+      "frac_zero": 1.0,
+      "skew": NaN,
+      "excess_kurtosis": NaN,
+      "q001": 0.0,
+      "q01": 0.0,
+      "q99": 0.0,
+      "q999": 0.0,
+      "concentration": {
+        "0.1": null,
+        "0.05": null,
+        "0.01": null,
+        "0.005": null,
+        "0.001": null,
+        "0.0005": null,
+        "0.0001": null
+      },
+      "allin_rate_per_hand": 0.025066666666666668,
+      "showdown_rate_per_hand": 0.14046666666666666,
+      "mean_pot_bb": 9.796941666666667,
+      "max_pot_bb": 400.5,
+      "blocks_per_s_core": 62.37610244623256,
+      "hands_per_s_core": 748.5132293547907,
+      "storage_bytes_per_block": 99.5749,
+      "targets": {
+        "0.25": null,
+        "0.5": null,
+        "1": null,
+        "2": null,
+        "5": null
+      },
+      "bb100_at_fixed_d": null,
+      "config_hash": "5f8886e193bc5489"
+    },
+    {
+      "experiment_id": "fhr3-nlhe6-20bb-rq6-allin-v1",
+      "pairing_id": "p1-neutral-vs-loose10",
+      "role": "p1",
+      "variant": "nlhe",
+      "player_count": 6,
+      "stack_bb": 20.0,
+      "label": "nlhe/6max/20bb",
+      "deal_layout": "board-h2-k6",
+      "protocol": "fhr3-matched-v1",
+      "n_blocks": 10000,
+      "hands_per_block": 12.0,
+      "candidate_hands_per_side": 6.0,
+      "mean_D": -0.033042999999999996,
+      "mean_bb100": -0.5507166666666666,
+      "sd_D": 3.091719861714727,
+      "frac_zero": 0.8726,
+      "skew": -0.9718452155308615,
+      "excess_kurtosis": 53.55612791668088,
+      "q001": -25.500999999999998,
+      "q01": -8.29,
+      "q99": 12.0,
+      "q999": 20.0,
+      "concentration": {
+        "0.1": 0.9940327317248664,
+        "0.05": 0.9691591953089475,
+        "0.01": 0.5894088022216661,
+        "0.005": 0.37048425294541587,
+        "0.001": 0.1450074840897323,
+        "0.0005": 0.09414441462054135,
+        "0.0001": 0.02664755685946666
+      },
+      "allin_rate_per_hand": 0.11705,
+      "showdown_rate_per_hand": 0.15106666666666665,
+      "mean_pot_bb": 5.984468833333333,
+      "max_pot_bb": 80.5,
+      "blocks_per_s_core": 45.39745358073687,
+      "hands_per_s_core": 544.7694429688424,
+      "storage_bytes_per_block": 116.1052,
+      "targets": {
+        "0.25": {
+          "blocks": 333446,
+          "played_hands": 4001352
+        },
+        "0.5": {
+          "blocks": 83362,
+          "played_hands": 1000344
+        },
+        "1": {
+          "blocks": 20841,
+          "played_hands": 250092
+        },
+        "2": {
+          "blocks": 5211,
+          "played_hands": 62532
+        },
+        "5": {
+          "blocks": 834,
+          "played_hands": 10008
+        }
+      },
+      "bb100_at_fixed_d": {
+        "0.005": 0.25764332180956057,
+        "0.01": 0.5152866436191211,
+        "0.02": 1.0305732872382423
+      },
+      "config_hash": "42aa126dec61fe76"
+    },
+    {
+      "experiment_id": "fhr3-nlhe6-20bb-v1",
+      "pairing_id": "p1-neutral-vs-loose10",
+      "role": "p1",
+      "variant": "nlhe",
+      "player_count": 6,
+      "stack_bb": 20.0,
+      "label": "nlhe/6max/20bb",
+      "deal_layout": "board-h2-k6",
+      "protocol": "fhr3-matched-v1",
+      "n_blocks": 10000,
+      "hands_per_block": 12.0,
+      "candidate_hands_per_side": 6.0,
+      "mean_D": -0.033042999999999996,
+      "mean_bb100": -0.5507166666666666,
+      "sd_D": 3.091719861714727,
+      "frac_zero": 0.8726,
+      "skew": -0.9718452155308615,
+      "excess_kurtosis": 53.55612791668088,
+      "q001": -25.500999999999998,
+      "q01": -8.29,
+      "q99": 12.0,
+      "q999": 20.0,
+      "concentration": {
+        "0.1": 0.9940327317248664,
+        "0.05": 0.9691591953089475,
+        "0.01": 0.5894088022216661,
+        "0.005": 0.37048425294541587,
+        "0.001": 0.1450074840897323,
+        "0.0005": 0.09414441462054135,
+        "0.0001": 0.02664755685946666
+      },
+      "allin_rate_per_hand": 0.11705,
+      "showdown_rate_per_hand": 0.15106666666666665,
+      "mean_pot_bb": 5.984468833333333,
+      "max_pot_bb": 80.5,
+      "blocks_per_s_core": 63.15670824896836,
+      "hands_per_s_core": 757.8804989876203,
+      "storage_bytes_per_block": 100.0729,
+      "targets": {
+        "0.25": {
+          "blocks": 333446,
+          "played_hands": 4001352
+        },
+        "0.5": {
+          "blocks": 83362,
+          "played_hands": 1000344
+        },
+        "1": {
+          "blocks": 20841,
+          "played_hands": 250092
+        },
+        "2": {
+          "blocks": 5211,
+          "played_hands": 62532
+        },
+        "5": {
+          "blocks": 834,
+          "played_hands": 10008
+        }
+      },
+      "bb100_at_fixed_d": {
+        "0.005": 0.25764332180956057,
+        "0.01": 0.5152866436191211,
+        "0.02": 1.0305732872382423
+      },
+      "config_hash": "f2fc15f7420d7414"
+    },
+    {
+      "experiment_id": "fhr3-nlhe6-100bb-rq6-v1-fittedvf",
+      "pairing_id": "p1-neutral-vs-loose10",
+      "role": "p1",
+      "variant": "nlhe",
+      "player_count": 6,
+      "stack_bb": 100.0,
+      "label": "nlhe/6max/100bb",
+      "deal_layout": "board-h2-k6",
+      "protocol": "fhr3-matched-v1",
+      "n_blocks": 25000,
+      "hands_per_block": 12.0,
+      "candidate_hands_per_side": 6.0,
+      "mean_D": 0.017502000000000007,
+      "mean_bb100": 0.2917000000000001,
+      "sd_D": 7.699402923617598,
+      "frac_zero": 0.87524,
+      "skew": -0.11707924369389139,
+      "excess_kurtosis": 182.5591796114199,
+      "q001": -101.5,
+      "q01": -9.129999999999999,
+      "q99": 10.399999999999999,
+      "q999": 99.5,
+      "concentration": {
+        "0.1": 0.9990956985831141,
+        "0.05": 0.9954404694601307,
+        "0.01": 0.9381781210010477,
+        "0.005": 0.8278626046261555,
+        "0.001": 0.2687630218561871,
+        "0.0005": 0.17444792526830927,
+        "0.0001": 0.057171317681645795
+      },
+      "allin_rate_per_hand": 0.025803333333333334,
+      "showdown_rate_per_hand": 0.14104666666666665,
+      "mean_pot_bb": 10.030931033333331,
+      "max_pot_bb": 400.5,
+      "blocks_per_s_core": 21.92634576365286,
+      "hands_per_s_core": 263.11614916383434,
+      "storage_bytes_per_block": 130.29656,
+      "targets": {
+        "0.25": {
+          "blocks": 2067947,
+          "played_hands": 24815364
+        },
+        "0.5": {
+          "blocks": 516987,
+          "played_hands": 6203844
+        },
+        "1": {
+          "blocks": 129247,
+          "played_hands": 1550964
+        },
+        "2": {
+          "blocks": 32312,
+          "played_hands": 387744
+        },
+        "5": {
+          "blocks": 5170,
+          "played_hands": 62040
+        }
+      },
+      "bb100_at_fixed_d": {
+        "0.005": 0.6416169103014665,
+        "0.01": 1.283233820602933,
+        "0.02": 2.566467641205866
+      },
+      "config_hash": "5eca573b73e2de90"
+    },
+    {
+      "experiment_id": "fhr3-nlhe6-100bb-pilot-v1",
+      "pairing_id": "p1-neutral-vs-loose10",
+      "role": "p1",
+      "variant": "nlhe",
+      "player_count": 6,
+      "stack_bb": 100.0,
+      "label": "nlhe/6max/100bb",
+      "deal_layout": "board-h2-k6",
+      "protocol": "fhr3-matched-v1",
+      "n_blocks": 250000,
+      "hands_per_block": 12.0,
+      "candidate_hands_per_side": 6.0,
+      "mean_D": -0.03244864,
+      "mean_bb100": -0.5408106666666667,
+      "sd_D": 7.699795861111344,
+      "frac_zero": 0.87188,
+      "skew": -1.2878422366441962,
+      "excess_kurtosis": 185.64293052834657,
+      "q001": -102.5,
+      "q01": -9.629999999999999,
+      "q99": 9.29,
+      "q999": 99.0,
+      "concentration": {
+        "0.1": 0.9990073552170124,
+        "0.05": 0.9950198313183286,
+        "0.01": 0.9375453000312741,
+        "0.005": 0.8233619477847329,
+        "0.001": 0.2714777029942231,
+        "0.0005": 0.1787021885517789,
+        "0.0001": 0.06976819234738135
+      },
+      "allin_rate_per_hand": 0.025517666666666668,
+      "showdown_rate_per_hand": 0.14014633333333334,
+      "mean_pot_bb": 10.058607586666664,
+      "max_pot_bb": 401.5,
+      "blocks_per_s_core": 49.48465984168102,
+      "hands_per_s_core": 593.8159181001723,
+      "storage_bytes_per_block": 102.345956,
+      "targets": {
+        "0.25": {
+          "blocks": 2068158,
+          "played_hands": 24817896
+        },
+        "0.5": {
+          "blocks": 517040,
+          "played_hands": 6204480
+        },
+        "1": {
+          "blocks": 129260,
+          "played_hands": 1551120
+        },
+        "2": {
+          "blocks": 32315,
+          "played_hands": 387780
+        },
+        "5": {
+          "blocks": 5171,
+          "played_hands": 62052
+        }
+      },
+      "bb100_at_fixed_d": {
+        "0.005": 0.641649655092612,
+        "0.01": 1.283299310185224,
+        "0.02": 2.566598620370448
+      },
+      "config_hash": "5f8886e193bc5489"
+    },
+    {
+      "experiment_id": "fhr3-aof4-8bb-rq6-allin-v1",
+      "pairing_id": "p1-prodv2-vs-blend10",
+      "role": "p1",
+      "variant": "aof",
+      "player_count": 4,
+      "stack_bb": 8.0,
+      "label": "aof/4max/8bb",
+      "deal_layout": "board-h2-k4",
+      "protocol": "fhr3-matched-v1",
+      "n_blocks": 50000,
+      "hands_per_block": 8.0,
+      "candidate_hands_per_side": 4.0,
+      "mean_D": 0.010995,
+      "mean_bb100": 0.274875,
+      "sd_D": 1.5821402982458497,
+      "frac_zero": 0.95314,
+      "skew": 0.27785879635681154,
+      "excess_kurtosis": 36.18404668021365,
+      "q001": -9.5,
+      "q01": -8.0,
+      "q99": 8.0,
+      "q999": 9.5,
+      "concentration": {
+        "0.1": 0.9999565337996106,
+        "0.05": 0.9999541190107,
+        "0.01": 0.43354404407113634,
+        "0.005": 0.261069653810329,
+        "0.001": 0.11636302486888656,
+        "0.0005": 0.06522014442685611,
+        "0.0001": 0.01781216106597865
+      },
+      "allin_rate_per_hand": 0.813735,
+      "showdown_rate_per_hand": 0.335425,
+      "mean_pot_bb": 6.43791875,
+      "max_pot_bb": 32.0,
+      "blocks_per_s_core": 54.304820700377924,
+      "hands_per_s_core": 434.4385656030234,
+      "storage_bytes_per_block": 108.00036,
+      "targets": {
+        "0.25": {
+          "blocks": 196471,
+          "played_hands": 1571768
+        },
+        "0.5": {
+          "blocks": 49118,
+          "played_hands": 392944
+        },
+        "1": {
+          "blocks": 12280,
+          "played_hands": 98240
+        },
+        "2": {
+          "blocks": 3070,
+          "played_hands": 24560
+        },
+        "5": {
+          "blocks": 492,
+          "played_hands": 3936
+        }
+      },
+      "bb100_at_fixed_d": {
+        "0.005": 0.1977675372807312,
+        "0.01": 0.3955350745614624,
+        "0.02": 0.7910701491229248
+      },
+      "config_hash": "1d578975d1023894"
+    },
+    {
+      "experiment_id": "fhr3-aof4-8bb-pilot-v1",
+      "pairing_id": "p1-prodv2-vs-blend10",
+      "role": "p1",
+      "variant": "aof",
+      "player_count": 4,
+      "stack_bb": 8.0,
+      "label": "aof/4max/8bb",
+      "deal_layout": "board-h2-k4",
+      "protocol": "fhr3-matched-v1",
+      "n_blocks": 50000,
+      "hands_per_block": 8.0,
+      "candidate_hands_per_side": 4.0,
+      "mean_D": 0.010995,
+      "mean_bb100": 0.274875,
+      "sd_D": 1.5821402982458497,
+      "frac_zero": 0.95314,
+      "skew": 0.27785879635681154,
+      "excess_kurtosis": 36.18404668021365,
+      "q001": -9.5,
+      "q01": -8.0,
+      "q99": 8.0,
+      "q999": 9.5,
+      "concentration": {
+        "0.1": 0.9999565337996106,
+        "0.05": 0.9999541190107,
+        "0.01": 0.43354404407113634,
+        "0.005": 0.261069653810329,
+        "0.001": 0.11636302486888656,
+        "0.0005": 0.06522014442685611,
+        "0.0001": 0.01781216106597865
+      },
+      "allin_rate_per_hand": 0.813735,
+      "showdown_rate_per_hand": 0.335425,
+      "mean_pot_bb": 6.43791875,
+      "max_pot_bb": 32.0,
+      "blocks_per_s_core": 97.09836753198562,
+      "hands_per_s_core": 776.7869402558849,
+      "storage_bytes_per_block": 98.9187,
+      "targets": {
+        "0.25": {
+          "blocks": 196471,
+          "played_hands": 1571768
+        },
+        "0.5": {
+          "blocks": 49118,
+          "played_hands": 392944
+        },
+        "1": {
+          "blocks": 12280,
+          "played_hands": 98240
+        },
+        "2": {
+          "blocks": 3070,
+          "played_hands": 24560
+        },
+        "5": {
+          "blocks": 492,
+          "played_hands": 3936
+        }
+      },
+      "bb100_at_fixed_d": {
+        "0.005": 0.1977675372807312,
+        "0.01": 0.3955350745614624,
+        "0.02": 0.7910701491229248
+      },
+      "config_hash": "de4e24c88c9fbb58"
+    },
+    {
+      "experiment_id": "fhr3-nlhe6-20bb-rq6-allin-v1",
+      "pairing_id": "p2-neutral-vs-tight",
+      "role": "p2",
+      "variant": "nlhe",
+      "player_count": 6,
+      "stack_bb": 20.0,
+      "label": "nlhe/6max/20bb",
+      "deal_layout": "board-h2-k6",
+      "protocol": "fhr3-matched-v1",
+      "n_blocks": 10000,
+      "hands_per_block": 12.0,
+      "candidate_hands_per_side": 6.0,
+      "mean_D": 0.171877,
+      "mean_bb100": 2.8646166666666666,
+      "sd_D": 5.209093025843001,
+      "frac_zero": 0.697,
+      "skew": 0.35723764911660344,
+      "excess_kurtosis": 24.94120183239705,
+      "q001": -28.5005,
+      "q01": -19.5,
+      "q99": 21.5,
+      "q999": 31.46083000000017,
+      "concentration": {
+        "0.1": 0.9558209979991543,
+        "0.05": 0.860444579327477,
+        "0.01": 0.3342487546762426,
+        "0.005": 0.23249187561314166,
+        "0.001": 0.1035476347310882,
+        "0.0005": 0.072953418260974,
+        "0.0001": 0.021666631433456582
+      },
+      "allin_rate_per_hand": 0.112125,
+      "showdown_rate_per_hand": 0.14448333333333332,
+      "mean_pot_bb": 5.770916833333334,
+      "max_pot_bb": 80.5,
+      "blocks_per_s_core": 47.8442470791372,
+      "hands_per_s_core": 574.1309649496463,
+      "storage_bytes_per_block": 118.1821,
+      "targets": {
+        "0.25": {
+          "blocks": 946563,
+          "played_hands": 11358756
+        },
+        "0.5": {
+          "blocks": 236641,
+          "played_hands": 2839692
+        },
+        "1": {
+          "blocks": 59161,
+          "played_hands": 709932
+        },
+        "2": {
+          "blocks": 14791,
+          "played_hands": 177492
+        },
+        "5": {
+          "blocks": 2367,
+          "played_hands": 28404
+        }
+      },
+      "bb100_at_fixed_d": {
+        "0.005": 0.4340910854869167,
+        "0.01": 0.8681821709738334,
+        "0.02": 1.7363643419476669
+      },
+      "config_hash": "42aa126dec61fe76"
+    },
+    {
+      "experiment_id": "fhr3-nlhe6-20bb-v1",
+      "pairing_id": "p2-neutral-vs-tight",
+      "role": "p2",
+      "variant": "nlhe",
+      "player_count": 6,
+      "stack_bb": 20.0,
+      "label": "nlhe/6max/20bb",
+      "deal_layout": "board-h2-k6",
+      "protocol": "fhr3-matched-v1",
+      "n_blocks": 10000,
+      "hands_per_block": 12.0,
+      "candidate_hands_per_side": 6.0,
+      "mean_D": 0.171877,
+      "mean_bb100": 2.8646166666666666,
+      "sd_D": 5.209093025843001,
+      "frac_zero": 0.697,
+      "skew": 0.35723764911660344,
+      "excess_kurtosis": 24.94120183239705,
+      "q001": -28.5005,
+      "q01": -19.5,
+      "q99": 21.5,
+      "q999": 31.46083000000017,
+      "concentration": {
+        "0.1": 0.9558209979991543,
+        "0.05": 0.860444579327477,
+        "0.01": 0.3342487546762426,
+        "0.005": 0.23249187561314166,
+        "0.001": 0.1035476347310882,
+        "0.0005": 0.072953418260974,
+        "0.0001": 0.021666631433456582
+      },
+      "allin_rate_per_hand": 0.112125,
+      "showdown_rate_per_hand": 0.14448333333333332,
+      "mean_pot_bb": 5.770916833333334,
+      "max_pot_bb": 80.5,
+      "blocks_per_s_core": 58.99707593630218,
+      "hands_per_s_core": 707.9649112356261,
+      "storage_bytes_per_block": 101.502,
+      "targets": {
+        "0.25": {
+          "blocks": 946563,
+          "played_hands": 11358756
+        },
+        "0.5": {
+          "blocks": 236641,
+          "played_hands": 2839692
+        },
+        "1": {
+          "blocks": 59161,
+          "played_hands": 709932
+        },
+        "2": {
+          "blocks": 14791,
+          "played_hands": 177492
+        },
+        "5": {
+          "blocks": 2367,
+          "played_hands": 28404
+        }
+      },
+      "bb100_at_fixed_d": {
+        "0.005": 0.4340910854869167,
+        "0.01": 0.8681821709738334,
+        "0.02": 1.7363643419476669
+      },
+      "config_hash": "f2fc15f7420d7414"
+    },
+    {
+      "experiment_id": "fhr3-nlhe6-100bb-rq6-v1-fittedvf",
+      "pairing_id": "p2-neutral-vs-tight",
+      "role": "p2",
+      "variant": "nlhe",
+      "player_count": 6,
+      "stack_bb": 100.0,
+      "label": "nlhe/6max/100bb",
+      "deal_layout": "board-h2-k6",
+      "protocol": "fhr3-matched-v1",
+      "n_blocks": 25000,
+      "hands_per_block": 12.0,
+      "candidate_hands_per_side": 6.0,
+      "mean_D": 0.11399399999999998,
+      "mean_bb100": 1.8998999999999997,
+      "sd_D": 13.251927659756975,
+      "frac_zero": 0.6882,
+      "skew": -0.7696665453414792,
+      "excess_kurtosis": 79.29851756146526,
+      "q001": -101.0005,
+      "q01": -38.3336,
+      "q99": 38.47,
+      "q999": 107.00128000000026,
+      "concentration": {
+        "0.1": 0.9929495954758321,
+        "0.05": 0.9753196767509897,
+        "0.01": 0.6849028828500804,
+        "0.005": 0.4050771826099319,
+        "0.001": 0.16021434165219156,
+        "0.0005": 0.11882508158710688,
+        "0.0001": 0.04711572000905869
+      },
+      "allin_rate_per_hand": 0.02466,
+      "showdown_rate_per_hand": 0.13534,
+      "mean_pot_bb": 9.649145033333333,
+      "max_pot_bb": 400.5,
+      "blocks_per_s_core": 20.762657437288706,
+      "hands_per_s_core": 249.15188924746445,
+      "storage_bytes_per_block": 133.9608,
+      "targets": {
+        "0.25": {
+          "blocks": 6126089,
+          "played_hands": 73513068
+        },
+        "0.5": {
+          "blocks": 1531523,
+          "played_hands": 18378276
+        },
+        "1": {
+          "blocks": 382881,
+          "played_hands": 4594572
+        },
+        "2": {
+          "blocks": 95721,
+          "played_hands": 1148652
+        },
+        "5": {
+          "blocks": 15316,
+          "played_hands": 183792
+        }
+      },
+      "bb100_at_fixed_d": {
+        "0.005": 1.104327304979748,
+        "0.01": 2.208654609959496,
+        "0.02": 4.417309219918992
+      },
+      "config_hash": "5eca573b73e2de90"
+    },
+    {
+      "experiment_id": "fhr3-nlhe6-100bb-pilot-v1",
+      "pairing_id": "p2-neutral-vs-tight",
+      "role": "p2",
+      "variant": "nlhe",
+      "player_count": 6,
+      "stack_bb": 100.0,
+      "label": "nlhe/6max/100bb",
+      "deal_layout": "board-h2-k6",
+      "protocol": "fhr3-matched-v1",
+      "n_blocks": 250000,
+      "hands_per_block": 12.0,
+      "candidate_hands_per_side": 6.0,
+      "mean_D": 0.07655295999999999,
+      "mean_bb100": 1.2758826666666665,
+      "sd_D": 13.012299651609785,
+      "frac_zero": 0.683528,
+      "skew": 0.4928540975128393,
+      "excess_kurtosis": 71.36154761316591,
+      "q001": -101.0,
+      "q01": -38.019999999999996,
+      "q99": 35.97,
+      "q999": 109.0,
+      "concentration": {
+        "0.1": 0.9928507406017217,
+        "0.05": 0.9754704544999494,
+        "0.01": 0.7048909220528418,
+        "0.005": 0.41886326211495273,
+        "0.001": 0.16147316464309916,
+        "0.0005": 0.11561561156086848,
+        "0.0001": 0.03623508885519761
+      },
+      "allin_rate_per_hand": 0.024388333333333335,
+      "showdown_rate_per_hand": 0.13421933333333333,
+      "mean_pot_bb": 9.67156369,
+      "max_pot_bb": 401.5,
+      "blocks_per_s_core": 47.27952517860689,
+      "hands_per_s_core": 567.3543021432827,
+      "storage_bytes_per_block": 103.93906,
+      "targets": {
+        "0.25": {
+          "blocks": 5906542,
+          "played_hands": 70878504
+        },
+        "0.5": {
+          "blocks": 1476636,
+          "played_hands": 17719632
+        },
+        "1": {
+          "blocks": 369159,
+          "played_hands": 4429908
+        },
+        "2": {
+          "blocks": 92290,
+          "played_hands": 1107480
+        },
+        "5": {
+          "blocks": 14767,
+          "played_hands": 177204
+        }
+      },
+      "bb100_at_fixed_d": {
+        "0.005": 1.0843583043008154,
+        "0.01": 2.1687166086016307,
+        "0.02": 4.3374332172032615
+      },
+      "config_hash": "5f8886e193bc5489"
+    },
+    {
+      "experiment_id": "fhr3-aof4-8bb-rq6-allin-v1",
+      "pairing_id": "p2-prodv2-vs-heuristic",
+      "role": "p2",
+      "variant": "aof",
+      "player_count": 4,
+      "stack_bb": 8.0,
+      "label": "aof/4max/8bb",
+      "deal_layout": "board-h2-k4",
+      "protocol": "fhr3-matched-v1",
+      "n_blocks": 50000,
+      "hands_per_block": 8.0,
+      "candidate_hands_per_side": 4.0,
+      "mean_D": 0.179684,
+      "mean_bb100": 4.492100000000001,
+      "sd_D": 4.999144176456,
+      "frac_zero": 0.6009,
+      "skew": 0.3453201188848829,
+      "excess_kurtosis": 4.629832235180111,
+      "q001": -23.5,
+      "q01": -15.5,
+      "q99": 17.0,
+      "q999": 25.5,
+      "concentration": {
+        "0.1": 0.6285991987411285,
+        "0.05": 0.46286068883879633,
+        "0.01": 0.17703455730776305,
+        "0.005": 0.11545141698624678,
+        "0.001": 0.03298155644966992,
+        "0.0005": 0.019268029450674955,
+        "0.0001": 0.005815268294750513
+      },
+      "allin_rate_per_hand": 0.811475,
+      "showdown_rate_per_hand": 0.332515,
+      "mean_pot_bb": 6.37984875,
+      "max_pot_bb": 32.0,
+      "blocks_per_s_core": 53.50931687815527,
+      "hands_per_s_core": 428.07453502524214,
+      "storage_bytes_per_block": 112.58832,
+      "targets": {
+        "0.25": {
+          "blocks": 1961549,
+          "played_hands": 15692392
+        },
+        "0.5": {
+          "blocks": 490388,
+          "played_hands": 3923104
+        },
+        "1": {
+          "blocks": 122597,
+          "played_hands": 980776
+        },
+        "2": {
+          "blocks": 30650,
+          "played_hands": 245200
+        },
+        "5": {
+          "blocks": 4904,
+          "played_hands": 39232
+        }
+      },
+      "bb100_at_fixed_d": {
+        "0.005": 0.624893022057,
+        "0.01": 1.249786044114,
+        "0.02": 2.499572088228
+      },
+      "config_hash": "1d578975d1023894"
+    },
+    {
+      "experiment_id": "fhr3-aof4-8bb-pilot-v1",
+      "pairing_id": "p2-prodv2-vs-heuristic",
+      "role": "p2",
+      "variant": "aof",
+      "player_count": 4,
+      "stack_bb": 8.0,
+      "label": "aof/4max/8bb",
+      "deal_layout": "board-h2-k4",
+      "protocol": "fhr3-matched-v1",
+      "n_blocks": 50000,
+      "hands_per_block": 8.0,
+      "candidate_hands_per_side": 4.0,
+      "mean_D": 0.179684,
+      "mean_bb100": 4.492100000000001,
+      "sd_D": 4.999144176456,
+      "frac_zero": 0.6009,
+      "skew": 0.3453201188848829,
+      "excess_kurtosis": 4.629832235180111,
+      "q001": -23.5,
+      "q01": -15.5,
+      "q99": 17.0,
+      "q999": 25.5,
+      "concentration": {
+        "0.1": 0.6285991987411285,
+        "0.05": 0.46286068883879633,
+        "0.01": 0.17703455730776305,
+        "0.005": 0.11545141698624678,
+        "0.001": 0.03298155644966992,
+        "0.0005": 0.019268029450674955,
+        "0.0001": 0.005815268294750513
+      },
+      "allin_rate_per_hand": 0.811475,
+      "showdown_rate_per_hand": 0.332515,
+      "mean_pot_bb": 6.37984875,
+      "max_pot_bb": 32.0,
+      "blocks_per_s_core": 94.28045817923697,
+      "hands_per_s_core": 754.2436654338958,
+      "storage_bytes_per_block": 101.42638,
+      "targets": {
+        "0.25": {
+          "blocks": 1961549,
+          "played_hands": 15692392
+        },
+        "0.5": {
+          "blocks": 490388,
+          "played_hands": 3923104
+        },
+        "1": {
+          "blocks": 122597,
+          "played_hands": 980776
+        },
+        "2": {
+          "blocks": 30650,
+          "played_hands": 245200
+        },
+        "5": {
+          "blocks": 4904,
+          "played_hands": 39232
+        }
+      },
+      "bb100_at_fixed_d": {
+        "0.005": 0.624893022057,
+        "0.01": 1.249786044114,
+        "0.02": 2.499572088228
+      },
+      "config_hash": "de4e24c88c9fbb58"
+    },
+    {
+      "experiment_id": "fhr3-aof4-8bb-rq6-allin-v1",
+      "pairing_id": "p3-aggressive-vs-neutral",
+      "role": "p3",
+      "variant": "aof",
+      "player_count": 4,
+      "stack_bb": 8.0,
+      "label": "aof/4max/8bb",
+      "deal_layout": "board-h2-k4",
+      "protocol": "fhr3-matched-v1",
+      "n_blocks": 50000,
+      "hands_per_block": 8.0,
+      "candidate_hands_per_side": 4.0,
+      "mean_D": 0.0100066,
+      "mean_bb100": 0.25016499999999997,
+      "sd_D": 2.9224061755877715,
+      "frac_zero": 0.7914,
+      "skew": -0.41142375658405617,
+      "excess_kurtosis": 9.794937112978754,
+      "q001": -17.0,
+      "q01": -8.0,
+      "q99": 9.0,
+      "q999": 17.0,
+      "concentration": {
+        "0.1": 0.9444670704916602,
+        "0.05": 0.5868028240091706,
+        "0.01": 0.23379939302506428,
+        "0.005": 0.1667930289615564,
+        "0.001": 0.04279464919731078,
+        "0.0005": 0.024844413480280103,
+        "0.0001": 0.007205940925643944
+      },
+      "allin_rate_per_hand": 0.824115,
+      "showdown_rate_per_hand": 0.3380275,
+      "mean_pot_bb": 6.46818375,
+      "max_pot_bb": 32.0,
+      "blocks_per_s_core": 53.12130713766499,
+      "hands_per_s_core": 424.97045710131994,
+      "storage_bytes_per_block": 110.08604,
+      "targets": {
+        "0.25": {
+          "blocks": 670331,
+          "played_hands": 5362648
+        },
+        "0.5": {
+          "blocks": 167583,
+          "played_hands": 1340664
+        },
+        "1": {
+          "blocks": 41896,
+          "played_hands": 335168
+        },
+        "2": {
+          "blocks": 10474,
+          "played_hands": 83792
+        },
+        "5": {
+          "blocks": 1676,
+          "played_hands": 13408
+        }
+      },
+      "bb100_at_fixed_d": {
+        "0.005": 0.36530077194847144,
+        "0.01": 0.7306015438969429,
+        "0.02": 1.4612030877938857
+      },
+      "config_hash": "1d578975d1023894"
+    },
+    {
+      "experiment_id": "fhr3-aof4-8bb-pilot-v1",
+      "pairing_id": "p3-aggressive-vs-neutral",
+      "role": "p3",
+      "variant": "aof",
+      "player_count": 4,
+      "stack_bb": 8.0,
+      "label": "aof/4max/8bb",
+      "deal_layout": "board-h2-k4",
+      "protocol": "fhr3-matched-v1",
+      "n_blocks": 50000,
+      "hands_per_block": 8.0,
+      "candidate_hands_per_side": 4.0,
+      "mean_D": 0.0100066,
+      "mean_bb100": 0.25016499999999997,
+      "sd_D": 2.9224061755877715,
+      "frac_zero": 0.7914,
+      "skew": -0.41142375658405617,
+      "excess_kurtosis": 9.794937112978754,
+      "q001": -17.0,
+      "q01": -8.0,
+      "q99": 9.0,
+      "q999": 17.0,
+      "concentration": {
+        "0.1": 0.9444670704916602,
+        "0.05": 0.5868028240091706,
+        "0.01": 0.23379939302506428,
+        "0.005": 0.1667930289615564,
+        "0.001": 0.04279464919731078,
+        "0.0005": 0.024844413480280103,
+        "0.0001": 0.007205940925643944
+      },
+      "allin_rate_per_hand": 0.824115,
+      "showdown_rate_per_hand": 0.3380275,
+      "mean_pot_bb": 6.46818375,
+      "max_pot_bb": 32.0,
+      "blocks_per_s_core": 93.04324495517949,
+      "hands_per_s_core": 744.3459596414359,
+      "storage_bytes_per_block": 100.17922,
+      "targets": {
+        "0.25": {
+          "blocks": 670331,
+          "played_hands": 5362648
+        },
+        "0.5": {
+          "blocks": 167583,
+          "played_hands": 1340664
+        },
+        "1": {
+          "blocks": 41896,
+          "played_hands": 335168
+        },
+        "2": {
+          "blocks": 10474,
+          "played_hands": 83792
+        },
+        "5": {
+          "blocks": 1676,
+          "played_hands": 13408
+        }
+      },
+      "bb100_at_fixed_d": {
+        "0.005": 0.36530077194847144,
+        "0.01": 0.7306015438969429,
+        "0.02": 1.4612030877938857
+      },
+      "config_hash": "de4e24c88c9fbb58"
+    },
+    {
+      "experiment_id": "fhr3-nlhe6-20bb-rq6-allin-v1",
+      "pairing_id": "p3-aggressive-vs-neutral",
+      "role": "p3",
+      "variant": "nlhe",
+      "player_count": 6,
+      "stack_bb": 20.0,
+      "label": "nlhe/6max/20bb",
+      "deal_layout": "board-h2-k6",
+      "protocol": "fhr3-matched-v1",
+      "n_blocks": 10000,
+      "hands_per_block": 12.0,
+      "candidate_hands_per_side": 6.0,
+      "mean_D": 0.163398,
+      "mean_bb100": 2.7233,
+      "sd_D": 5.394428770479037,
+      "frac_zero": 0.7352,
+      "skew": 0.004015739957299227,
+      "excess_kurtosis": 19.81082045296894,
+      "q001": -35.0015,
+      "q01": -19.4208,
+      "q99": 22.5,
+      "q999": 36.00022000000004,
+      "concentration": {
+        "0.1": 0.9475769893082829,
+        "0.05": 0.820422278302933,
+        "0.01": 0.3405512962093835,
+        "0.005": 0.23493172015905656,
+        "0.001": 0.08510029269764924,
+        "0.0005": 0.05159853970049226,
+        "0.0001": 0.015044858543838423
+      },
+      "allin_rate_per_hand": 0.11888333333333333,
+      "showdown_rate_per_hand": 0.14779166666666665,
+      "mean_pot_bb": 6.004093,
+      "max_pot_bb": 80.5,
+      "blocks_per_s_core": 47.49262097449452,
+      "hands_per_s_core": 569.9114516939343,
+      "storage_bytes_per_block": 119.3472,
+      "targets": {
+        "0.25": {
+          "blocks": 1015117,
+          "played_hands": 12181404
+        },
+        "0.5": {
+          "blocks": 253780,
+          "played_hands": 3045360
+        },
+        "1": {
+          "blocks": 63445,
+          "played_hands": 761340
+        },
+        "2": {
+          "blocks": 15862,
+          "played_hands": 190344
+        },
+        "5": {
+          "blocks": 2538,
+          "played_hands": 30456
+        }
+      },
+      "bb100_at_fixed_d": {
+        "0.005": 0.44953573087325305,
+        "0.01": 0.8990714617465061,
+        "0.02": 1.7981429234930122
+      },
+      "config_hash": "42aa126dec61fe76"
+    },
+    {
+      "experiment_id": "fhr3-nlhe6-20bb-v1",
+      "pairing_id": "p3-aggressive-vs-neutral",
+      "role": "p3",
+      "variant": "nlhe",
+      "player_count": 6,
+      "stack_bb": 20.0,
+      "label": "nlhe/6max/20bb",
+      "deal_layout": "board-h2-k6",
+      "protocol": "fhr3-matched-v1",
+      "n_blocks": 10000,
+      "hands_per_block": 12.0,
+      "candidate_hands_per_side": 6.0,
+      "mean_D": 0.163398,
+      "mean_bb100": 2.7233,
+      "sd_D": 5.394428770479037,
+      "frac_zero": 0.7352,
+      "skew": 0.004015739957299227,
+      "excess_kurtosis": 19.81082045296894,
+      "q001": -35.0015,
+      "q01": -19.4208,
+      "q99": 22.5,
+      "q999": 36.00022000000004,
+      "concentration": {
+        "0.1": 0.9475769893082829,
+        "0.05": 0.820422278302933,
+        "0.01": 0.3405512962093835,
+        "0.005": 0.23493172015905656,
+        "0.001": 0.08510029269764924,
+        "0.0005": 0.05159853970049226,
+        "0.0001": 0.015044858543838423
+      },
+      "allin_rate_per_hand": 0.11888333333333333,
+      "showdown_rate_per_hand": 0.14779166666666665,
+      "mean_pot_bb": 6.004093,
+      "max_pot_bb": 80.5,
+      "blocks_per_s_core": 56.63872484912844,
+      "hands_per_s_core": 679.6646981895412,
+      "storage_bytes_per_block": 102.5045,
+      "targets": {
+        "0.25": {
+          "blocks": 1015117,
+          "played_hands": 12181404
+        },
+        "0.5": {
+          "blocks": 253780,
+          "played_hands": 3045360
+        },
+        "1": {
+          "blocks": 63445,
+          "played_hands": 761340
+        },
+        "2": {
+          "blocks": 15862,
+          "played_hands": 190344
+        },
+        "5": {
+          "blocks": 2538,
+          "played_hands": 30456
+        }
+      },
+      "bb100_at_fixed_d": {
+        "0.005": 0.44953573087325305,
+        "0.01": 0.8990714617465061,
+        "0.02": 1.7981429234930122
+      },
+      "config_hash": "f2fc15f7420d7414"
+    },
+    {
+      "experiment_id": "fhr3-nlhe6-100bb-rq6-v1-fittedvf",
+      "pairing_id": "p3-aggressive-vs-neutral",
+      "role": "p3",
+      "variant": "nlhe",
+      "player_count": 6,
+      "stack_bb": 100.0,
+      "label": "nlhe/6max/100bb",
+      "deal_layout": "board-h2-k6",
+      "protocol": "fhr3-matched-v1",
+      "n_blocks": 25000,
+      "hands_per_block": 12.0,
+      "candidate_hands_per_side": 6.0,
+      "mean_D": -0.016232000000000024,
+      "mean_bb100": -0.27053333333333374,
+      "sd_D": 13.739114117745935,
+      "frac_zero": 0.73036,
+      "skew": 0.17764779416049475,
+      "excess_kurtosis": 55.865204243428266,
+      "q001": -105.79046000000001,
+      "q01": -44.3225,
+      "q99": 37.09,
+      "q999": 115.90215000000045,
+      "concentration": {
+        "0.1": 0.9906033234384543,
+        "0.05": 0.9648617909626381,
+        "0.01": 0.6513720157309548,
+        "0.005": 0.39606119372574083,
+        "0.001": 0.1489058959337451,
+        "0.0005": 0.08966515749054756,
+        "0.0001": 0.018385620975368076
+      },
+      "allin_rate_per_hand": 0.02615,
+      "showdown_rate_per_hand": 0.13755333333333333,
+      "mean_pot_bb": 10.076510033333333,
+      "max_pot_bb": 400.5,
+      "blocks_per_s_core": 20.2287225599411,
+      "hands_per_s_core": 242.7446707192932,
+      "storage_bytes_per_block": 135.72724,
+      "targets": {
+        "0.25": {
+          "blocks": 6584801,
+          "played_hands": 79017612
+        },
+        "0.5": {
+          "blocks": 1646201,
+          "played_hands": 19754412
+        },
+        "1": {
+          "blocks": 411551,
+          "played_hands": 4938612
+        },
+        "2": {
+          "blocks": 102888,
+          "played_hands": 1234656
+        },
+        "5": {
+          "blocks": 16463,
+          "played_hands": 197556
+        }
+      },
+      "bb100_at_fixed_d": {
+        "0.005": 1.1449261764788279,
+        "0.01": 2.2898523529576558,
+        "0.02": 4.5797047059153115
+      },
+      "config_hash": "5eca573b73e2de90"
+    },
+    {
+      "experiment_id": "fhr3-nlhe6-100bb-pilot-v1",
+      "pairing_id": "p3-aggressive-vs-neutral",
+      "role": "p3",
+      "variant": "nlhe",
+      "player_count": 6,
+      "stack_bb": 100.0,
+      "label": "nlhe/6max/100bb",
+      "deal_layout": "board-h2-k6",
+      "protocol": "fhr3-matched-v1",
+      "n_blocks": 250000,
+      "hands_per_block": 12.0,
+      "candidate_hands_per_side": 6.0,
+      "mean_D": 0.00047091999999998916,
+      "mean_bb100": 0.007848666666666485,
+      "sd_D": 13.776493100614648,
+      "frac_zero": 0.727432,
+      "skew": 0.012397546399961601,
+      "excess_kurtosis": 61.95985546647411,
+      "q001": -108.5,
+      "q01": -43.85,
+      "q99": 39.100500000000466,
+      "q999": 109.5,
+      "concentration": {
+        "0.1": 0.9902443016097685,
+        "0.05": 0.9640301870518482,
+        "0.01": 0.6521735615266898,
+        "0.005": 0.4014159420284941,
+        "0.001": 0.1608556062388283,
+        "0.0005": 0.10901856147565622,
+        "0.0001": 0.02987805117701734
+      },
+      "allin_rate_per_hand": 0.025914666666666666,
+      "showdown_rate_per_hand": 0.13670966666666667,
+      "mean_pot_bb": 10.115733943333332,
+      "max_pot_bb": 401.5,
+      "blocks_per_s_core": 47.57386169794733,
+      "hands_per_s_core": 570.8863403753679,
+      "storage_bytes_per_block": 105.438044,
+      "targets": {
+        "0.25": {
+          "blocks": 6620679,
+          "played_hands": 79448148
+        },
+        "0.5": {
+          "blocks": 1655170,
+          "played_hands": 19862040
+        },
+        "1": {
+          "blocks": 413793,
+          "played_hands": 4965516
+        },
+        "2": {
+          "blocks": 103449,
+          "played_hands": 1241388
+        },
+        "5": {
+          "blocks": 16552,
+          "played_hands": 198624
+        }
+      },
+      "bb100_at_fixed_d": {
+        "0.005": 1.1480410917178874,
+        "0.01": 2.2960821834357747,
+        "0.02": 4.5921643668715495
+      },
+      "config_hash": "5f8886e193bc5489"
+    }
+  ],
+  "relations": [
+    {
+      "pairing_id": "c0-selfplay-control",
+      "a": "aof/4max/8bb",
+      "b": "aof/4max/8bb",
+      "a_experiment": "fhr3-aof4-8bb-rq6-allin-v1",
+      "b_experiment": "fhr3-aof4-8bb-pilot-v1",
+      "common_blocks": 10000,
+      "relation": "paired",
+      "corr_D": null
+    },
+    {
+      "pairing_id": "c0-selfplay-control",
+      "a": "aof/4max/8bb",
+      "b": "nlhe/6max/20bb",
+      "a_experiment": "fhr3-aof4-8bb-rq6-allin-v1",
+      "b_experiment": "fhr3-nlhe6-20bb-rq6-allin-v1",
+      "common_blocks": 10000,
+      "relation": "shared seed material only",
+      "corr_D": null
+    },
+    {
+      "pairing_id": "c0-selfplay-control",
+      "a": "aof/4max/8bb",
+      "b": "nlhe/6max/20bb",
+      "a_experiment": "fhr3-aof4-8bb-rq6-allin-v1",
+      "b_experiment": "fhr3-nlhe6-20bb-v1",
+      "common_blocks": 10000,
+      "relation": "shared seed material only",
+      "corr_D": null
+    },
+    {
+      "pairing_id": "c0-selfplay-control",
+      "a": "aof/4max/8bb",
+      "b": "nlhe/6max/100bb",
+      "a_experiment": "fhr3-aof4-8bb-rq6-allin-v1",
+      "b_experiment": "fhr3-nlhe6-100bb-rq6-v1-fittedvf",
+      "common_blocks": 2000,
+      "relation": "shared seed material only",
+      "corr_D": null
+    },
+    {
+      "pairing_id": "c0-selfplay-control",
+      "a": "aof/4max/8bb",
+      "b": "nlhe/6max/100bb",
+      "a_experiment": "fhr3-aof4-8bb-rq6-allin-v1",
+      "b_experiment": "fhr3-nlhe6-100bb-pilot-v1",
+      "common_blocks": 10000,
+      "relation": "shared seed material only",
+      "corr_D": null
+    },
+    {
+      "pairing_id": "c0-selfplay-control",
+      "a": "aof/4max/8bb",
+      "b": "nlhe/6max/20bb",
+      "a_experiment": "fhr3-aof4-8bb-pilot-v1",
+      "b_experiment": "fhr3-nlhe6-20bb-rq6-allin-v1",
+      "common_blocks": 10000,
+      "relation": "shared seed material only",
+      "corr_D": null
+    },
+    {
+      "pairing_id": "c0-selfplay-control",
+      "a": "aof/4max/8bb",
+      "b": "nlhe/6max/20bb",
+      "a_experiment": "fhr3-aof4-8bb-pilot-v1",
+      "b_experiment": "fhr3-nlhe6-20bb-v1",
+      "common_blocks": 10000,
+      "relation": "shared seed material only",
+      "corr_D": null
+    },
+    {
+      "pairing_id": "c0-selfplay-control",
+      "a": "aof/4max/8bb",
+      "b": "nlhe/6max/100bb",
+      "a_experiment": "fhr3-aof4-8bb-pilot-v1",
+      "b_experiment": "fhr3-nlhe6-100bb-rq6-v1-fittedvf",
+      "common_blocks": 2000,
+      "relation": "shared seed material only",
+      "corr_D": null
+    },
+    {
+      "pairing_id": "c0-selfplay-control",
+      "a": "aof/4max/8bb",
+      "b": "nlhe/6max/100bb",
+      "a_experiment": "fhr3-aof4-8bb-pilot-v1",
+      "b_experiment": "fhr3-nlhe6-100bb-pilot-v1",
+      "common_blocks": 10000,
+      "relation": "shared seed material only",
+      "corr_D": null
+    },
+    {
+      "pairing_id": "c0-selfplay-control",
+      "a": "nlhe/6max/20bb",
+      "b": "nlhe/6max/20bb",
+      "a_experiment": "fhr3-nlhe6-20bb-rq6-allin-v1",
+      "b_experiment": "fhr3-nlhe6-20bb-v1",
+      "common_blocks": 10000,
+      "relation": "paired",
+      "corr_D": null
+    },
+    {
+      "pairing_id": "c0-selfplay-control",
+      "a": "nlhe/6max/20bb",
+      "b": "nlhe/6max/100bb",
+      "a_experiment": "fhr3-nlhe6-20bb-rq6-allin-v1",
+      "b_experiment": "fhr3-nlhe6-100bb-rq6-v1-fittedvf",
+      "common_blocks": 2000,
+      "relation": "paired",
+      "corr_D": null
+    },
+    {
+      "pairing_id": "c0-selfplay-control",
+      "a": "nlhe/6max/20bb",
+      "b": "nlhe/6max/100bb",
+      "a_experiment": "fhr3-nlhe6-20bb-rq6-allin-v1",
+      "b_experiment": "fhr3-nlhe6-100bb-pilot-v1",
+      "common_blocks": 10000,
+      "relation": "paired",
+      "corr_D": null
+    },
+    {
+      "pairing_id": "c0-selfplay-control",
+      "a": "nlhe/6max/20bb",
+      "b": "nlhe/6max/100bb",
+      "a_experiment": "fhr3-nlhe6-20bb-v1",
+      "b_experiment": "fhr3-nlhe6-100bb-rq6-v1-fittedvf",
+      "common_blocks": 2000,
+      "relation": "paired",
+      "corr_D": null
+    },
+    {
+      "pairing_id": "c0-selfplay-control",
+      "a": "nlhe/6max/20bb",
+      "b": "nlhe/6max/100bb",
+      "a_experiment": "fhr3-nlhe6-20bb-v1",
+      "b_experiment": "fhr3-nlhe6-100bb-pilot-v1",
+      "common_blocks": 10000,
+      "relation": "paired",
+      "corr_D": null
+    },
+    {
+      "pairing_id": "c0-selfplay-control",
+      "a": "nlhe/6max/100bb",
+      "b": "nlhe/6max/100bb",
+      "a_experiment": "fhr3-nlhe6-100bb-rq6-v1-fittedvf",
+      "b_experiment": "fhr3-nlhe6-100bb-pilot-v1",
+      "common_blocks": 2000,
+      "relation": "paired",
+      "corr_D": null
+    },
+    {
+      "pairing_id": "p1-neutral-vs-loose10",
+      "a": "nlhe/6max/20bb",
+      "b": "nlhe/6max/20bb",
+      "a_experiment": "fhr3-nlhe6-20bb-rq6-allin-v1",
+      "b_experiment": "fhr3-nlhe6-20bb-v1",
+      "common_blocks": 10000,
+      "relation": "paired",
+      "corr_D": 1.0
+    },
+    {
+      "pairing_id": "p1-neutral-vs-loose10",
+      "a": "nlhe/6max/20bb",
+      "b": "nlhe/6max/100bb",
+      "a_experiment": "fhr3-nlhe6-20bb-rq6-allin-v1",
+      "b_experiment": "fhr3-nlhe6-100bb-rq6-v1-fittedvf",
+      "common_blocks": 10000,
+      "relation": "paired",
+      "corr_D": 0.7404629941348178
+    },
+    {
+      "pairing_id": "p1-neutral-vs-loose10",
+      "a": "nlhe/6max/20bb",
+      "b": "nlhe/6max/100bb",
+      "a_experiment": "fhr3-nlhe6-20bb-rq6-allin-v1",
+      "b_experiment": "fhr3-nlhe6-100bb-pilot-v1",
+      "common_blocks": 10000,
+      "relation": "paired",
+      "corr_D": 0.7404629941348178
+    },
+    {
+      "pairing_id": "p1-neutral-vs-loose10",
+      "a": "nlhe/6max/20bb",
+      "b": "nlhe/6max/100bb",
+      "a_experiment": "fhr3-nlhe6-20bb-v1",
+      "b_experiment": "fhr3-nlhe6-100bb-rq6-v1-fittedvf",
+      "common_blocks": 10000,
+      "relation": "paired",
+      "corr_D": 0.7404629941348178
+    },
+    {
+      "pairing_id": "p1-neutral-vs-loose10",
+      "a": "nlhe/6max/20bb",
+      "b": "nlhe/6max/100bb",
+      "a_experiment": "fhr3-nlhe6-20bb-v1",
+      "b_experiment": "fhr3-nlhe6-100bb-pilot-v1",
+      "common_blocks": 10000,
+      "relation": "paired",
+      "corr_D": 0.7404629941348178
+    },
+    {
+      "pairing_id": "p1-neutral-vs-loose10",
+      "a": "nlhe/6max/100bb",
+      "b": "nlhe/6max/100bb",
+      "a_experiment": "fhr3-nlhe6-100bb-rq6-v1-fittedvf",
+      "b_experiment": "fhr3-nlhe6-100bb-pilot-v1",
+      "common_blocks": 25000,
+      "relation": "paired",
+      "corr_D": 1.0
+    },
+    {
+      "pairing_id": "p1-prodv2-vs-blend10",
+      "a": "aof/4max/8bb",
+      "b": "aof/4max/8bb",
+      "a_experiment": "fhr3-aof4-8bb-rq6-allin-v1",
+      "b_experiment": "fhr3-aof4-8bb-pilot-v1",
+      "common_blocks": 50000,
+      "relation": "paired",
+      "corr_D": 1.0
+    },
+    {
+      "pairing_id": "p2-neutral-vs-tight",
+      "a": "nlhe/6max/20bb",
+      "b": "nlhe/6max/20bb",
+      "a_experiment": "fhr3-nlhe6-20bb-rq6-allin-v1",
+      "b_experiment": "fhr3-nlhe6-20bb-v1",
+      "common_blocks": 10000,
+      "relation": "paired",
+      "corr_D": 0.9999999999999998
+    },
+    {
+      "pairing_id": "p2-neutral-vs-tight",
+      "a": "nlhe/6max/20bb",
+      "b": "nlhe/6max/100bb",
+      "a_experiment": "fhr3-nlhe6-20bb-rq6-allin-v1",
+      "b_experiment": "fhr3-nlhe6-100bb-rq6-v1-fittedvf",
+      "common_blocks": 10000,
+      "relation": "paired",
+      "corr_D": 0.7216890172708101
+    },
+    {
+      "pairing_id": "p2-neutral-vs-tight",
+      "a": "nlhe/6max/20bb",
+      "b": "nlhe/6max/100bb",
+      "a_experiment": "fhr3-nlhe6-20bb-rq6-allin-v1",
+      "b_experiment": "fhr3-nlhe6-100bb-pilot-v1",
+      "common_blocks": 10000,
+      "relation": "paired",
+      "corr_D": 0.7216890172708101
+    },
+    {
+      "pairing_id": "p2-neutral-vs-tight",
+      "a": "nlhe/6max/20bb",
+      "b": "nlhe/6max/100bb",
+      "a_experiment": "fhr3-nlhe6-20bb-v1",
+      "b_experiment": "fhr3-nlhe6-100bb-rq6-v1-fittedvf",
+      "common_blocks": 10000,
+      "relation": "paired",
+      "corr_D": 0.7216890172708101
+    },
+    {
+      "pairing_id": "p2-neutral-vs-tight",
+      "a": "nlhe/6max/20bb",
+      "b": "nlhe/6max/100bb",
+      "a_experiment": "fhr3-nlhe6-20bb-v1",
+      "b_experiment": "fhr3-nlhe6-100bb-pilot-v1",
+      "common_blocks": 10000,
+      "relation": "paired",
+      "corr_D": 0.7216890172708101
+    },
+    {
+      "pairing_id": "p2-neutral-vs-tight",
+      "a": "nlhe/6max/100bb",
+      "b": "nlhe/6max/100bb",
+      "a_experiment": "fhr3-nlhe6-100bb-rq6-v1-fittedvf",
+      "b_experiment": "fhr3-nlhe6-100bb-pilot-v1",
+      "common_blocks": 25000,
+      "relation": "paired",
+      "corr_D": 1.0
+    },
+    {
+      "pairing_id": "p2-prodv2-vs-heuristic",
+      "a": "aof/4max/8bb",
+      "b": "aof/4max/8bb",
+      "a_experiment": "fhr3-aof4-8bb-rq6-allin-v1",
+      "b_experiment": "fhr3-aof4-8bb-pilot-v1",
+      "common_blocks": 50000,
+      "relation": "paired",
+      "corr_D": 1.0
+    },
+    {
+      "pairing_id": "p3-aggressive-vs-neutral",
+      "a": "aof/4max/8bb",
+      "b": "aof/4max/8bb",
+      "a_experiment": "fhr3-aof4-8bb-rq6-allin-v1",
+      "b_experiment": "fhr3-aof4-8bb-pilot-v1",
+      "common_blocks": 50000,
+      "relation": "paired",
+      "corr_D": 1.0
+    },
+    {
+      "pairing_id": "p3-aggressive-vs-neutral",
+      "a": "aof/4max/8bb",
+      "b": "nlhe/6max/20bb",
+      "a_experiment": "fhr3-aof4-8bb-rq6-allin-v1",
+      "b_experiment": "fhr3-nlhe6-20bb-rq6-allin-v1",
+      "common_blocks": 10000,
+      "relation": "shared seed material only",
+      "corr_D": 0.011606253335790682
+    },
+    {
+      "pairing_id": "p3-aggressive-vs-neutral",
+      "a": "aof/4max/8bb",
+      "b": "nlhe/6max/20bb",
+      "a_experiment": "fhr3-aof4-8bb-rq6-allin-v1",
+      "b_experiment": "fhr3-nlhe6-20bb-v1",
+      "common_blocks": 10000,
+      "relation": "shared seed material only",
+      "corr_D": 0.011606253335790682
+    },
+    {
+      "pairing_id": "p3-aggressive-vs-neutral",
+      "a": "aof/4max/8bb",
+      "b": "nlhe/6max/100bb",
+      "a_experiment": "fhr3-aof4-8bb-rq6-allin-v1",
+      "b_experiment": "fhr3-nlhe6-100bb-rq6-v1-fittedvf",
+      "common_blocks": 25000,
+      "relation": "shared seed material only",
+      "corr_D": 0.0004547328998077917
+    },
+    {
+      "pairing_id": "p3-aggressive-vs-neutral",
+      "a": "aof/4max/8bb",
+      "b": "nlhe/6max/100bb",
+      "a_experiment": "fhr3-aof4-8bb-rq6-allin-v1",
+      "b_experiment": "fhr3-nlhe6-100bb-pilot-v1",
+      "common_blocks": 50000,
+      "relation": "shared seed material only",
+      "corr_D": 0.0006774973162267898
+    },
+    {
+      "pairing_id": "p3-aggressive-vs-neutral",
+      "a": "aof/4max/8bb",
+      "b": "nlhe/6max/20bb",
+      "a_experiment": "fhr3-aof4-8bb-pilot-v1",
+      "b_experiment": "fhr3-nlhe6-20bb-rq6-allin-v1",
+      "common_blocks": 10000,
+      "relation": "shared seed material only",
+      "corr_D": 0.011606253335790682
+    },
+    {
+      "pairing_id": "p3-aggressive-vs-neutral",
+      "a": "aof/4max/8bb",
+      "b": "nlhe/6max/20bb",
+      "a_experiment": "fhr3-aof4-8bb-pilot-v1",
+      "b_experiment": "fhr3-nlhe6-20bb-v1",
+      "common_blocks": 10000,
+      "relation": "shared seed material only",
+      "corr_D": 0.011606253335790682
+    },
+    {
+      "pairing_id": "p3-aggressive-vs-neutral",
+      "a": "aof/4max/8bb",
+      "b": "nlhe/6max/100bb",
+      "a_experiment": "fhr3-aof4-8bb-pilot-v1",
+      "b_experiment": "fhr3-nlhe6-100bb-rq6-v1-fittedvf",
+      "common_blocks": 25000,
+      "relation": "shared seed material only",
+      "corr_D": 0.0004547328998077917
+    },
+    {
+      "pairing_id": "p3-aggressive-vs-neutral",
+      "a": "aof/4max/8bb",
+      "b": "nlhe/6max/100bb",
+      "a_experiment": "fhr3-aof4-8bb-pilot-v1",
+      "b_experiment": "fhr3-nlhe6-100bb-pilot-v1",
+      "common_blocks": 50000,
+      "relation": "shared seed material only",
+      "corr_D": 0.0006774973162267898
+    },
+    {
+      "pairing_id": "p3-aggressive-vs-neutral",
+      "a": "nlhe/6max/20bb",
+      "b": "nlhe/6max/20bb",
+      "a_experiment": "fhr3-nlhe6-20bb-rq6-allin-v1",
+      "b_experiment": "fhr3-nlhe6-20bb-v1",
+      "common_blocks": 10000,
+      "relation": "paired",
+      "corr_D": 1.0
+    },
+    {
+      "pairing_id": "p3-aggressive-vs-neutral",
+      "a": "nlhe/6max/20bb",
+      "b": "nlhe/6max/100bb",
+      "a_experiment": "fhr3-nlhe6-20bb-rq6-allin-v1",
+      "b_experiment": "fhr3-nlhe6-100bb-rq6-v1-fittedvf",
+      "common_blocks": 10000,
+      "relation": "paired",
+      "corr_D": 0.6883245575845267
+    },
+    {
+      "pairing_id": "p3-aggressive-vs-neutral",
+      "a": "nlhe/6max/20bb",
+      "b": "nlhe/6max/100bb",
+      "a_experiment": "fhr3-nlhe6-20bb-rq6-allin-v1",
+      "b_experiment": "fhr3-nlhe6-100bb-pilot-v1",
+      "common_blocks": 10000,
+      "relation": "paired",
+      "corr_D": 0.6883245575845267
+    },
+    {
+      "pairing_id": "p3-aggressive-vs-neutral",
+      "a": "nlhe/6max/20bb",
+      "b": "nlhe/6max/100bb",
+      "a_experiment": "fhr3-nlhe6-20bb-v1",
+      "b_experiment": "fhr3-nlhe6-100bb-rq6-v1-fittedvf",
+      "common_blocks": 10000,
+      "relation": "paired",
+      "corr_D": 0.6883245575845267
+    },
+    {
+      "pairing_id": "p3-aggressive-vs-neutral",
+      "a": "nlhe/6max/20bb",
+      "b": "nlhe/6max/100bb",
+      "a_experiment": "fhr3-nlhe6-20bb-v1",
+      "b_experiment": "fhr3-nlhe6-100bb-pilot-v1",
+      "common_blocks": 10000,
+      "relation": "paired",
+      "corr_D": 0.6883245575845267
+    },
+    {
+      "pairing_id": "p3-aggressive-vs-neutral",
+      "a": "nlhe/6max/100bb",
+      "b": "nlhe/6max/100bb",
+      "a_experiment": "fhr3-nlhe6-100bb-rq6-v1-fittedvf",
+      "b_experiment": "fhr3-nlhe6-100bb-pilot-v1",
+      "common_blocks": 25000,
+      "relation": "paired",
+      "corr_D": 1.0
+    }
+  ],
+  "blocks_at_fixed_d": {
+    "0.005": 313956,
+    "0.01": 78489,
+    "0.02": 19623
+  }
+}

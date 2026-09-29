@@ -1,0 +1,365 @@
+{
+ "target": "rq6",
+ "analysis_code_git_sha": "ac3cd5f012a707e3beb56abda2b0393969f4df55",
+ "commands": [
+  "scripts/run_rq6_final.sh (expanded in docs/workflow.md)",
+  "scripts/analyze_rq6.sh"
+ ],
+ "experiments": {
+  "fhr3-nlhe6-100bb-rq6-v1-fittedvf": {
+   "estimator_experiment": {
+    "config_hash": "5eca573b73e2de90",
+    "root_seed": 20260928,
+    "schema_version": "fhr3-block-v2",
+    "estimators": {
+     "aivat": {
+      "flop_samples": 16,
+      "value_function": "configs/rq6/vf/nlhe6-100bb-vf.json",
+      "value_function_sha256": "acb224b9dd26ae3b1a9e8cca7e11000e591fe57c8fca67a81028991b1f7dfbff"
+     },
+     "allin_ev": {
+      "exact_max_combos": 1200,
+      "mc_samples": 200
+     },
+     "mivat": {
+      "flop_samples": 16,
+      "value_function": "configs/rq6/vf/nlhe6-100bb-vf.json",
+      "value_function_sha256": "acb224b9dd26ae3b1a9e8cca7e11000e591fe57c8fca67a81028991b1f7dfbff"
+     }
+    },
+    "estimator_config_hash": "bb90e570f9dee0ed",
+    "estimator_provenance": {
+     "estimators": {
+      "aivat": {
+       "feature_version": "vat-features-1",
+       "method_version": "fhr3-vat-pvat-1",
+       "pvat_version": "0.0.0.dev2",
+       "rng_stream": "KeyedStream('vat', salt, *hand_key)",
+       "settings": {
+        "flop_samples": 16,
+        "salt": 0,
+        "value_function": "configs/rq6/vf/nlhe6-100bb-vf.json",
+        "value_function_sha256": "acb224b9dd26ae3b1a9e8cca7e11000e591fe57c8fca67a81028991b1f7dfbff"
+       }
+      },
+      "allin_ev": {
+       "method_version": "allin-ev-1",
+       "rng_stream": "KeyedStream('allin-ev', method_version, salt, *hand_key)",
+       "settings": {
+        "exact_max_combos": 1200,
+        "mc_samples": 200,
+        "salt": 0
+       }
+      },
+      "mivat": {
+       "feature_version": "vat-features-1",
+       "method_version": "fhr3-vat-pvat-1",
+       "pvat_version": "0.0.0.dev2",
+       "rng_stream": "KeyedStream('vat', salt, *hand_key)",
+       "settings": {
+        "flop_samples": 16,
+        "salt": 0,
+        "value_function": "configs/rq6/vf/nlhe6-100bb-vf.json",
+        "value_function_sha256": "acb224b9dd26ae3b1a9e8cca7e11000e591fe57c8fca67a81028991b1f7dfbff"
+       }
+      }
+     },
+     "provenance_version": "fhr3-estimator-provenance-1"
+    },
+    "runs": {
+     "20260929T083904.233312Z-30415-a08a36": {
+      "git": {
+       "dirty": false,
+       "sha": "ac3cd5f012a707e3beb56abda2b0393969f4df55"
+      },
+      "command": [
+       "simulate",
+       "--config",
+       "configs/rq6/nlhe_6max_100bb_fitted.yaml",
+       "--blocks",
+       "0:2000",
+       "--pairing",
+       "c0-selfplay-control",
+       "--workers",
+       "8"
+      ],
+      "config_hash": "5eca573b73e2de90",
+      "estimator_config_hash": "bb90e570f9dee0ed"
+     },
+     "20260929T083915.840460Z-30443-e0c87c": {
+      "git": {
+       "dirty": false,
+       "sha": "ac3cd5f012a707e3beb56abda2b0393969f4df55"
+      },
+      "command": [
+       "simulate",
+       "--config",
+       "configs/rq6/nlhe_6max_100bb_fitted.yaml",
+       "--blocks",
+       "0:25000",
+       "--pairing",
+       "p1-neutral-vs-loose10",
+       "--pairing",
+       "p2-neutral-vs-tight",
+       "--pairing",
+       "p3-aggressive-vs-neutral",
+       "--workers",
+       "8"
+      ],
+      "config_hash": "5eca573b73e2de90",
+      "estimator_config_hash": "bb90e570f9dee0ed"
+     }
+    },
+    "pairings": {
+     "c0-selfplay-control": {
+      "pairing_hash": "a8faf06a963035ba",
+      "rows": 2000,
+      "chunks": 8,
+      "parquet_sha256": "ff645d60db78c840913a5529bdb5986ef4b71ac4f43589048483e35bc04950c4"
+     },
+     "p1-neutral-vs-loose10": {
+      "pairing_hash": "8271526be0009827",
+      "rows": 25000,
+      "chunks": 100,
+      "parquet_sha256": "3690276c1cf70d20471f442e404f4ac09983dc8e4f1a3476ef1f17d47323d652"
+     },
+     "p2-neutral-vs-tight": {
+      "pairing_hash": "7ccf8986402ec53f",
+      "rows": 25000,
+      "chunks": 100,
+      "parquet_sha256": "adf96c68675ebdaff08d25f72773b52a35953f4aee9cf9f130d6793901578e5c"
+     },
+     "p3-aggressive-vs-neutral": {
+      "pairing_hash": "87abe185aa06c57a",
+      "rows": 25000,
+      "chunks": 100,
+      "parquet_sha256": "f314cba1be237d70d90cc36fd8955dd7dbfaaae63befefe9fa1391122df419ac"
+     }
+    },
+    "value_functions": {
+     "aivat": {
+      "path": "configs/rq6/vf/nlhe6-100bb-vf.json",
+      "sha256": "acb224b9dd26ae3b1a9e8cca7e11000e591fe57c8fca67a81028991b1f7dfbff",
+      "pinned_sha256": "acb224b9dd26ae3b1a9e8cca7e11000e591fe57c8fca67a81028991b1f7dfbff",
+      "training_root_seed": 90210,
+      "blocks": [
+       0,
+       1000
+      ],
+      "n_hand_histories": 36000,
+      "pvat_version": "0.0.0.dev2"
+     },
+     "mivat": {
+      "path": "configs/rq6/vf/nlhe6-100bb-vf.json",
+      "sha256": "acb224b9dd26ae3b1a9e8cca7e11000e591fe57c8fca67a81028991b1f7dfbff",
+      "pinned_sha256": "acb224b9dd26ae3b1a9e8cca7e11000e591fe57c8fca67a81028991b1f7dfbff",
+      "training_root_seed": 90210,
+      "blocks": [
+       0,
+       1000
+      ],
+      "n_hand_histories": 36000,
+      "pvat_version": "0.0.0.dev2"
+     }
+    }
+   },
+   "reference": "fhr3-nlhe6-100bb-pilot-v1",
+   "reference_config_hash": "5f8886e193bc5489"
+  },
+  "fhr3-nlhe6-20bb-rq6-allin-v1": {
+   "estimator_experiment": {
+    "config_hash": "42aa126dec61fe76",
+    "root_seed": 20260928,
+    "schema_version": "fhr3-block-v2",
+    "estimators": {
+     "allin_ev": {
+      "exact_max_combos": 1200,
+      "mc_samples": 200
+     }
+    },
+    "estimator_config_hash": "3e35c82fc077baf4",
+    "estimator_provenance": {
+     "estimators": {
+      "allin_ev": {
+       "method_version": "allin-ev-1",
+       "rng_stream": "KeyedStream('allin-ev', method_version, salt, *hand_key)",
+       "settings": {
+        "exact_max_combos": 1200,
+        "mc_samples": 200,
+        "salt": 0
+       }
+      }
+     },
+     "provenance_version": "fhr3-estimator-provenance-1"
+    },
+    "runs": {
+     "20260929T084713.155814Z-32045-c7b37e": {
+      "git": {
+       "dirty": false,
+       "sha": "ac3cd5f012a707e3beb56abda2b0393969f4df55"
+      },
+      "command": [
+       "simulate",
+       "--config",
+       "configs/rq6/nlhe_6max_20bb_allin.yaml",
+       "--blocks",
+       "0:10000",
+       "--workers",
+       "8"
+      ],
+      "config_hash": "42aa126dec61fe76",
+      "estimator_config_hash": "3e35c82fc077baf4"
+     }
+    },
+    "pairings": {
+     "c0-selfplay-control": {
+      "pairing_hash": "a8faf06a963035ba",
+      "rows": 10000,
+      "chunks": 40,
+      "parquet_sha256": "26f4640be3a45d1346f4ed929ef78b1399838215cb46a0808777aef928b4dd37"
+     },
+     "p1-neutral-vs-loose10": {
+      "pairing_hash": "8271526be0009827",
+      "rows": 10000,
+      "chunks": 40,
+      "parquet_sha256": "0afb021151699c3dd320d5bf3c5730368340e2c95aa6e977a5908cedb86af08d"
+     },
+     "p2-neutral-vs-tight": {
+      "pairing_hash": "7ccf8986402ec53f",
+      "rows": 10000,
+      "chunks": 40,
+      "parquet_sha256": "3677f168e4082963f3d3367f149fb9a07a1a48f39498ec0916583feeba5b9baa"
+     },
+     "p3-aggressive-vs-neutral": {
+      "pairing_hash": "87abe185aa06c57a",
+      "rows": 10000,
+      "chunks": 40,
+      "parquet_sha256": "cd58c7452391dce46d1143df61a6240f7bbb8869280aa6c9533c683e9179db59"
+     }
+    },
+    "value_functions": {}
+   },
+   "reference": "fhr3-nlhe6-20bb-v1",
+   "reference_config_hash": "f2fc15f7420d7414"
+  },
+  "fhr3-aof4-8bb-rq6-allin-v1": {
+   "estimator_experiment": {
+    "config_hash": "1d578975d1023894",
+    "root_seed": 20260928,
+    "schema_version": "fhr3-block-v2",
+    "estimators": {
+     "allin_ev": {
+      "exact_max_combos": 1200,
+      "mc_samples": 200
+     }
+    },
+    "estimator_config_hash": "3e35c82fc077baf4",
+    "estimator_provenance": {
+     "estimators": {
+      "allin_ev": {
+       "method_version": "allin-ev-1",
+       "rng_stream": "KeyedStream('allin-ev', method_version, salt, *hand_key)",
+       "settings": {
+        "exact_max_combos": 1200,
+        "mc_samples": 200,
+        "salt": 0
+       }
+      }
+     },
+     "provenance_version": "fhr3-estimator-provenance-1"
+    },
+    "runs": {
+     "20260929T084912.822590Z-32455-7190a1": {
+      "git": {
+       "dirty": false,
+       "sha": "ac3cd5f012a707e3beb56abda2b0393969f4df55"
+      },
+      "command": [
+       "simulate",
+       "--config",
+       "configs/rq6/aof_4max_8bb_allin.yaml",
+       "--blocks",
+       "0:10000",
+       "--pairing",
+       "c0-selfplay-control",
+       "--workers",
+       "8"
+      ],
+      "config_hash": "1d578975d1023894",
+      "estimator_config_hash": "3e35c82fc077baf4"
+     },
+     "20260929T084937.803793Z-32614-8f5220": {
+      "git": {
+       "dirty": false,
+       "sha": "ac3cd5f012a707e3beb56abda2b0393969f4df55"
+      },
+      "command": [
+       "simulate",
+       "--config",
+       "configs/rq6/aof_4max_8bb_allin.yaml",
+       "--blocks",
+       "0:50000",
+       "--pairing",
+       "p1-prodv2-vs-blend10",
+       "--pairing",
+       "p2-prodv2-vs-heuristic",
+       "--pairing",
+       "p3-aggressive-vs-neutral",
+       "--workers",
+       "8"
+      ],
+      "config_hash": "1d578975d1023894",
+      "estimator_config_hash": "3e35c82fc077baf4"
+     }
+    },
+    "pairings": {
+     "c0-selfplay-control": {
+      "pairing_hash": "7d4398844b0c0598",
+      "rows": 10000,
+      "chunks": 40,
+      "parquet_sha256": "8d3e72d5535634f47dea1063752dab407a85c5bb318d8ff3799c03a8c140c537"
+     },
+     "p1-prodv2-vs-blend10": {
+      "pairing_hash": "329a1eaf30fa8323",
+      "rows": 50000,
+      "chunks": 200,
+      "parquet_sha256": "dd7355e885830144b3a85559c50301741f557636c36e1345525bdf7613277a76"
+     },
+     "p2-prodv2-vs-heuristic": {
+      "pairing_hash": "bbd86aadd189da44",
+      "rows": 50000,
+      "chunks": 200,
+      "parquet_sha256": "60e4b0b532a8923c86c8d2c50cd4a0680c90b9838011f09d88a78db1c27f4697"
+     },
+     "p3-aggressive-vs-neutral": {
+      "pairing_hash": "37dfafddbe7c9ce9",
+      "rows": 50000,
+      "chunks": 200,
+      "parquet_sha256": "cfc9c6e24bc027300e41bcfc520a12e780cc4cf1920ecc95622981cf371d1b83"
+     }
+    },
+    "value_functions": {}
+   },
+   "reference": "fhr3-aof4-8bb-pilot-v1",
+   "reference_config_hash": "de4e24c88c9fbb58"
+  }
+ },
+ "outputs": {
+  "analyze-fhr3-aof4-8bb-rq6-allin-v1.json": "c13d7cac912c34a3e8869aefb859da1293960a9a991fc976b6a57b7cf75ff53d",
+  "analyze-fhr3-aof4-8bb-rq6-allin-v1.txt": "80de1fa0c92cd0817c1ae040b07464bd0e763b9b81d82c0f5555d04c5434109e",
+  "analyze-fhr3-nlhe6-100bb-rq6-v1-fittedvf.json": "b91f5fce16bcd1b34f9f7b4914ce5031b26bbf91badf5769cfbdb194974fe173",
+  "analyze-fhr3-nlhe6-100bb-rq6-v1-fittedvf.txt": "c1ac5e747e4182f2282ae403a69ceb5e713507baecb080ff58cc381e798b3688",
+  "analyze-fhr3-nlhe6-20bb-rq6-allin-v1.json": "396d46e9a00ba0ff61a6ad639a3f340e7da85d120c5eb7346bd93d0772a560a3",
+  "analyze-fhr3-nlhe6-20bb-rq6-allin-v1.txt": "d9ec608e0f13f727b26895aa3ca8c50738d0849e054f05ab682a12b0484b5557",
+  "compare.json": "78fcff9596b509cebe12cca05d4e2f7d3c5acdfe28a07697fd64245ea4ac527c",
+  "compare.txt": "0fbb3e16fef6f3e41b35fa625b1fb5e12e7a13c9730803e26f0ef1dc0e4d6b44",
+  "figures/variance_reduction.csv": "de31632380b247103db15edc57c9064ada299d5ec1bae1292fa8ec0ae0018040",
+  "rq6_summary.csv": "975801015e2d16e5d96335cbe5986e0176954eee1a0dd11c6311152e7f8849d2",
+  "rq6_summary.json": "760ea762b0a7c57c0a4fc9dddd120963993258804caffbf7d3484ead2c76dc50",
+  "validate-aof4-control.json": "dcd76c99d00f5032c86881d784c8f65c981c4d36c749a5a5cfeee47455026850",
+  "validate-aof4.json": "9663e578e1905d67bb18bef814e1488cf6df857098ec1050b7150410d4dd9201",
+  "validate-nlhe6-100bb-control.json": "48892c420bf58be051a744cce334fcafc752b441049e3885b32ad6f4263d6ab4",
+  "validate-nlhe6-100bb.json": "55491e70ca222b6292f4cdec15aefc9fb31a67f3f673ca0fd9e0df6c1d7596e7",
+  "validate-nlhe6-20bb.json": "3efd1f60c8c63befd125779d303ee20660c284dfad0764a6a0230f70b0348320"
+ }
+}

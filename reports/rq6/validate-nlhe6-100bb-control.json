@@ -1,0 +1,22 @@
+[
+  {
+    "pairing_id": "c0-selfplay-control",
+    "rows": 2000,
+    "invalid": 0,
+    "replayed_blocks": [
+      155,
+      173,
+      248,
+      860,
+      889,
+      965,
+      1130,
+      1197,
+      1505,
+      1640
+    ],
+    "ok": true,
+    "problems": [],
+    "notes": []
+  }
+]

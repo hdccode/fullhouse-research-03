@@ -1,0 +1,116 @@
+required samples at 80% power, two-sided alpha 0.05 (normal approx); blocks at fixed d (every config): d=0.005: 313,956, d=0.01: 78,489, d=0.02: 19,623
+
+== c0-selfplay-control
+   config                      blocks  h/blk  BB/100  sigma_D   D=0   skew  exkurt  top1% top.1% allin/h   sd/h    pot  blk/s  B/blk
+   aof/4max/8bb                 10000    8.0   +0.00    0.000  1.00    n/a     n/a    n/a    n/a  0.8095  0.331    6.4   56.0    106
+      sigma_D = 0 (identical play)
+   aof/4max/8bb                 10000    8.0   +0.00    0.000  1.00    n/a     n/a    n/a    n/a  0.8095  0.331    6.4  126.6     98
+      sigma_D = 0 (identical play)
+   nlhe/6max/20bb               10000   12.0   +0.00    0.000  1.00    n/a     n/a    n/a    n/a  0.1157  0.149    5.9   45.7    113
+      sigma_D = 0 (identical play)
+   nlhe/6max/20bb               10000   12.0   +0.00    0.000  1.00    n/a     n/a    n/a    n/a  0.1157  0.149    5.9   68.0     98
+      sigma_D = 0 (identical play)
+   nlhe/6max/100bb               2000   12.0   +0.00    0.000  1.00    n/a     n/a    n/a    n/a  0.0240  0.147    9.7   26.5    117
+      sigma_D = 0 (identical play)
+   nlhe/6max/100bb              10000   12.0   +0.00    0.000  1.00    n/a     n/a    n/a    n/a  0.0251  0.140    9.8   62.4    100
+      sigma_D = 0 (identical play)
+
+== p1-neutral-vs-loose10
+   config                      blocks  h/blk  BB/100  sigma_D   D=0   skew  exkurt  top1% top.1% allin/h   sd/h    pot  blk/s  B/blk
+   nlhe/6max/20bb               10000   12.0   -0.55    3.092  0.87  -0.97    53.6   0.59   0.15  0.1171  0.151    6.0   45.4    116
+      targets (BB/100 -> blocks / played hands): 0.25: 333,446 blk / 4,001,352 h  0.5: 83,362 blk / 1,000,344 h  1: 20,841 blk / 250,092 h  2: 5,211 blk / 62,532 h  5: 834 blk / 10,008 h
+      BB/100 at fixed d 0.005: 0.26, 0.01: 0.52, 0.02: 1.03
+   nlhe/6max/20bb               10000   12.0   -0.55    3.092  0.87  -0.97    53.6   0.59   0.15  0.1171  0.151    6.0   63.2    100
+      targets (BB/100 -> blocks / played hands): 0.25: 333,446 blk / 4,001,352 h  0.5: 83,362 blk / 1,000,344 h  1: 20,841 blk / 250,092 h  2: 5,211 blk / 62,532 h  5: 834 blk / 10,008 h
+      BB/100 at fixed d 0.005: 0.26, 0.01: 0.52, 0.02: 1.03
+   nlhe/6max/100bb              25000   12.0   +0.29    7.699  0.88  -0.12   182.6   0.94   0.27  0.0258  0.141   10.0   21.9    130
+      targets (BB/100 -> blocks / played hands): 0.25: 2,067,947 blk / 24,815,364 h  0.5: 516,987 blk / 6,203,844 h  1: 129,247 blk / 1,550,964 h  2: 32,312 blk / 387,744 h  5: 5,170 blk / 62,040 h
+      BB/100 at fixed d 0.005: 0.64, 0.01: 1.28, 0.02: 2.57
+   nlhe/6max/100bb             250000   12.0   -0.54    7.700  0.87  -1.29   185.6   0.94   0.27  0.0255  0.140   10.1   49.5    102
+      targets (BB/100 -> blocks / played hands): 0.25: 2,068,158 blk / 24,817,896 h  0.5: 517,040 blk / 6,204,480 h  1: 129,260 blk / 1,551,120 h  2: 32,315 blk / 387,780 h  5: 5,171 blk / 62,052 h
+      BB/100 at fixed d 0.005: 0.64, 0.01: 1.28, 0.02: 2.57
+
+== p1-prodv2-vs-blend10
+   config                      blocks  h/blk  BB/100  sigma_D   D=0   skew  exkurt  top1% top.1% allin/h   sd/h    pot  blk/s  B/blk
+   aof/4max/8bb                 50000    8.0   +0.27    1.582  0.95  +0.28    36.2   0.43   0.12  0.8137  0.335    6.4   54.3    108
+      targets (BB/100 -> blocks / played hands): 0.25: 196,471 blk / 1,571,768 h  0.5: 49,118 blk / 392,944 h  1: 12,280 blk / 98,240 h  2: 3,070 blk / 24,560 h  5: 492 blk / 3,936 h
+      BB/100 at fixed d 0.005: 0.20, 0.01: 0.40, 0.02: 0.79
+   aof/4max/8bb                 50000    8.0   +0.27    1.582  0.95  +0.28    36.2   0.43   0.12  0.8137  0.335    6.4   97.1     99
+      targets (BB/100 -> blocks / played hands): 0.25: 196,471 blk / 1,571,768 h  0.5: 49,118 blk / 392,944 h  1: 12,280 blk / 98,240 h  2: 3,070 blk / 24,560 h  5: 492 blk / 3,936 h
+      BB/100 at fixed d 0.005: 0.20, 0.01: 0.40, 0.02: 0.79
+
+== p2-neutral-vs-tight
+   config                      blocks  h/blk  BB/100  sigma_D   D=0   skew  exkurt  top1% top.1% allin/h   sd/h    pot  blk/s  B/blk
+   nlhe/6max/20bb               10000   12.0   +2.86    5.209  0.70  +0.36    24.9   0.33   0.10  0.1121  0.144    5.8   47.8    118
+      targets (BB/100 -> blocks / played hands): 0.25: 946,563 blk / 11,358,756 h  0.5: 236,641 blk / 2,839,692 h  1: 59,161 blk / 709,932 h  2: 14,791 blk / 177,492 h  5: 2,367 blk / 28,404 h
+      BB/100 at fixed d 0.005: 0.43, 0.01: 0.87, 0.02: 1.74
+   nlhe/6max/20bb               10000   12.0   +2.86    5.209  0.70  +0.36    24.9   0.33   0.10  0.1121  0.144    5.8   59.0    102
+      targets (BB/100 -> blocks / played hands): 0.25: 946,563 blk / 11,358,756 h  0.5: 236,641 blk / 2,839,692 h  1: 59,161 blk / 709,932 h  2: 14,791 blk / 177,492 h  5: 2,367 blk / 28,404 h
+      BB/100 at fixed d 0.005: 0.43, 0.01: 0.87, 0.02: 1.74
+   nlhe/6max/100bb              25000   12.0   +1.90   13.252  0.69  -0.77    79.3   0.68   0.16  0.0247  0.135    9.6   20.8    134
+      targets (BB/100 -> blocks / played hands): 0.25: 6,126,089 blk / 73,513,068 h  0.5: 1,531,523 blk / 18,378,276 h  1: 382,881 blk / 4,594,572 h  2: 95,721 blk / 1,148,652 h  5: 15,316 blk / 183,792 h
+      BB/100 at fixed d 0.005: 1.10, 0.01: 2.21, 0.02: 4.42
+   nlhe/6max/100bb             250000   12.0   +1.28   13.012  0.68  +0.49    71.4   0.70   0.16  0.0244  0.134    9.7   47.3    104
+      targets (BB/100 -> blocks / played hands): 0.25: 5,906,542 blk / 70,878,504 h  0.5: 1,476,636 blk / 17,719,632 h  1: 369,159 blk / 4,429,908 h  2: 92,290 blk / 1,107,480 h  5: 14,767 blk / 177,204 h
+      BB/100 at fixed d 0.005: 1.08, 0.01: 2.17, 0.02: 4.34
+
+== p2-prodv2-vs-heuristic
+   config                      blocks  h/blk  BB/100  sigma_D   D=0   skew  exkurt  top1% top.1% allin/h   sd/h    pot  blk/s  B/blk
+   aof/4max/8bb                 50000    8.0   +4.49    4.999  0.60  +0.35     4.6   0.18   0.03  0.8115  0.333    6.4   53.5    113
+      targets (BB/100 -> blocks / played hands): 0.25: 1,961,549 blk / 15,692,392 h  0.5: 490,388 blk / 3,923,104 h  1: 122,597 blk / 980,776 h  2: 30,650 blk / 245,200 h  5: 4,904 blk / 39,232 h
+      BB/100 at fixed d 0.005: 0.62, 0.01: 1.25, 0.02: 2.50
+   aof/4max/8bb                 50000    8.0   +4.49    4.999  0.60  +0.35     4.6   0.18   0.03  0.8115  0.333    6.4   94.3    101
+      targets (BB/100 -> blocks / played hands): 0.25: 1,961,549 blk / 15,692,392 h  0.5: 490,388 blk / 3,923,104 h  1: 122,597 blk / 980,776 h  2: 30,650 blk / 245,200 h  5: 4,904 blk / 39,232 h
+      BB/100 at fixed d 0.005: 0.62, 0.01: 1.25, 0.02: 2.50
+
+== p3-aggressive-vs-neutral
+   config                      blocks  h/blk  BB/100  sigma_D   D=0   skew  exkurt  top1% top.1% allin/h   sd/h    pot  blk/s  B/blk
+   aof/4max/8bb                 50000    8.0   +0.25    2.922  0.79  -0.41     9.8   0.23   0.04  0.8241  0.338    6.5   53.1    110
+      targets (BB/100 -> blocks / played hands): 0.25: 670,331 blk / 5,362,648 h  0.5: 167,583 blk / 1,340,664 h  1: 41,896 blk / 335,168 h  2: 10,474 blk / 83,792 h  5: 1,676 blk / 13,408 h
+      BB/100 at fixed d 0.005: 0.37, 0.01: 0.73, 0.02: 1.46
+   aof/4max/8bb                 50000    8.0   +0.25    2.922  0.79  -0.41     9.8   0.23   0.04  0.8241  0.338    6.5   93.0    100
+      targets (BB/100 -> blocks / played hands): 0.25: 670,331 blk / 5,362,648 h  0.5: 167,583 blk / 1,340,664 h  1: 41,896 blk / 335,168 h  2: 10,474 blk / 83,792 h  5: 1,676 blk / 13,408 h
+      BB/100 at fixed d 0.005: 0.37, 0.01: 0.73, 0.02: 1.46
+   nlhe/6max/20bb               10000   12.0   +2.72    5.394  0.74  +0.00    19.8   0.34   0.09  0.1189  0.148    6.0   47.5    119
+      targets (BB/100 -> blocks / played hands): 0.25: 1,015,117 blk / 12,181,404 h  0.5: 253,780 blk / 3,045,360 h  1: 63,445 blk / 761,340 h  2: 15,862 blk / 190,344 h  5: 2,538 blk / 30,456 h
+      BB/100 at fixed d 0.005: 0.45, 0.01: 0.90, 0.02: 1.80
+   nlhe/6max/20bb               10000   12.0   +2.72    5.394  0.74  +0.00    19.8   0.34   0.09  0.1189  0.148    6.0   56.6    103
+      targets (BB/100 -> blocks / played hands): 0.25: 1,015,117 blk / 12,181,404 h  0.5: 253,780 blk / 3,045,360 h  1: 63,445 blk / 761,340 h  2: 15,862 blk / 190,344 h  5: 2,538 blk / 30,456 h
+      BB/100 at fixed d 0.005: 0.45, 0.01: 0.90, 0.02: 1.80
+   nlhe/6max/100bb              25000   12.0   -0.27   13.739  0.73  +0.18    55.9   0.65   0.15  0.0261  0.138   10.1   20.2    136
+      targets (BB/100 -> blocks / played hands): 0.25: 6,584,801 blk / 79,017,612 h  0.5: 1,646,201 blk / 19,754,412 h  1: 411,551 blk / 4,938,612 h  2: 102,888 blk / 1,234,656 h  5: 16,463 blk / 197,556 h
+      BB/100 at fixed d 0.005: 1.14, 0.01: 2.29, 0.02: 4.58
+   nlhe/6max/100bb             250000   12.0   +0.01   13.776  0.73  +0.01    62.0   0.65   0.16  0.0259  0.137   10.1   47.6    105
+      targets (BB/100 -> blocks / played hands): 0.25: 6,620,679 blk / 79,448,148 h  0.5: 1,655,170 blk / 19,862,040 h  1: 413,793 blk / 4,965,516 h  2: 103,449 blk / 1,241,388 h  5: 16,552 blk / 198,624 h
+      BB/100 at fixed d 0.005: 1.15, 0.01: 2.30, 0.02: 4.59
+
+relations between configs (same pairing id, common block ids; controls omitted):
+   p1-neutral-vs-loose10: nlhe/6max/20bb vs nlhe/6max/20bb: paired; corr(D) +1.000 on 10000 blocks
+   p1-neutral-vs-loose10: nlhe/6max/20bb vs nlhe/6max/100bb: paired; corr(D) +0.740 on 10000 blocks
+   p1-neutral-vs-loose10: nlhe/6max/20bb vs nlhe/6max/100bb: paired; corr(D) +0.740 on 10000 blocks
+   p1-neutral-vs-loose10: nlhe/6max/20bb vs nlhe/6max/100bb: paired; corr(D) +0.740 on 10000 blocks
+   p1-neutral-vs-loose10: nlhe/6max/20bb vs nlhe/6max/100bb: paired; corr(D) +0.740 on 10000 blocks
+   p1-neutral-vs-loose10: nlhe/6max/100bb vs nlhe/6max/100bb: paired; corr(D) +1.000 on 25000 blocks
+   p1-prodv2-vs-blend10: aof/4max/8bb vs aof/4max/8bb: paired; corr(D) +1.000 on 50000 blocks
+   p2-neutral-vs-tight: nlhe/6max/20bb vs nlhe/6max/20bb: paired; corr(D) +1.000 on 10000 blocks
+   p2-neutral-vs-tight: nlhe/6max/20bb vs nlhe/6max/100bb: paired; corr(D) +0.722 on 10000 blocks
+   p2-neutral-vs-tight: nlhe/6max/20bb vs nlhe/6max/100bb: paired; corr(D) +0.722 on 10000 blocks
+   p2-neutral-vs-tight: nlhe/6max/20bb vs nlhe/6max/100bb: paired; corr(D) +0.722 on 10000 blocks
+   p2-neutral-vs-tight: nlhe/6max/20bb vs nlhe/6max/100bb: paired; corr(D) +0.722 on 10000 blocks
+   p2-neutral-vs-tight: nlhe/6max/100bb vs nlhe/6max/100bb: paired; corr(D) +1.000 on 25000 blocks
+   p2-prodv2-vs-heuristic: aof/4max/8bb vs aof/4max/8bb: paired; corr(D) +1.000 on 50000 blocks
+   p3-aggressive-vs-neutral: aof/4max/8bb vs aof/4max/8bb: paired; corr(D) +1.000 on 50000 blocks
+   p3-aggressive-vs-neutral: aof/4max/8bb vs nlhe/6max/20bb: shared seed material only; corr(D) +0.012 on 10000 blocks
+   p3-aggressive-vs-neutral: aof/4max/8bb vs nlhe/6max/20bb: shared seed material only; corr(D) +0.012 on 10000 blocks
+   p3-aggressive-vs-neutral: aof/4max/8bb vs nlhe/6max/100bb: shared seed material only; corr(D) +0.000 on 25000 blocks
+   p3-aggressive-vs-neutral: aof/4max/8bb vs nlhe/6max/100bb: shared seed material only; corr(D) +0.001 on 50000 blocks
+   p3-aggressive-vs-neutral: aof/4max/8bb vs nlhe/6max/20bb: shared seed material only; corr(D) +0.012 on 10000 blocks
+   p3-aggressive-vs-neutral: aof/4max/8bb vs nlhe/6max/20bb: shared seed material only; corr(D) +0.012 on 10000 blocks
+   p3-aggressive-vs-neutral: aof/4max/8bb vs nlhe/6max/100bb: shared seed material only; corr(D) +0.000 on 25000 blocks
+   p3-aggressive-vs-neutral: aof/4max/8bb vs nlhe/6max/100bb: shared seed material only; corr(D) +0.001 on 50000 blocks
+   p3-aggressive-vs-neutral: nlhe/6max/20bb vs nlhe/6max/20bb: paired; corr(D) +1.000 on 10000 blocks
+   p3-aggressive-vs-neutral: nlhe/6max/20bb vs nlhe/6max/100bb: paired; corr(D) +0.688 on 10000 blocks
+   p3-aggressive-vs-neutral: nlhe/6max/20bb vs nlhe/6max/100bb: paired; corr(D) +0.688 on 10000 blocks
+   p3-aggressive-vs-neutral: nlhe/6max/20bb vs nlhe/6max/100bb: paired; corr(D) +0.688 on 10000 blocks
+   p3-aggressive-vs-neutral: nlhe/6max/20bb vs nlhe/6max/100bb: paired; corr(D) +0.688 on 10000 blocks
+   p3-aggressive-vs-neutral: nlhe/6max/100bb vs nlhe/6max/100bb: paired; corr(D) +1.000 on 25000 blocks
