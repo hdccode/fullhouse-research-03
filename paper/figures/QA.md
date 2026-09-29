@@ -10,7 +10,7 @@ collision-free, no text was clipped, and the takeaway was readable without the c
 agree with the canonical reports, using a relative tolerance of 1e-6 because hand counts are
 stored rounded. The build aborts on any failure.
 
-All **148 checks pass**; they are listed in `final/build_manifest.json` together with the
+All **271 checks pass** (148 for F1–F6, 123 for F7); they are listed in `final/build_manifest.json` together with the
 sha256 of every source file.
 
 | figure | checks | against |
@@ -23,6 +23,7 @@ sha256 of every source file.
 | F5 | 17 | `reports/rq6/rq6_summary.csv`, `reports/rq6/deep/rq6_deep.json`. The ≈511k raw-equivalent is derived. |
 | F6a | 18 | `reports/rq7/coverage.csv`, `real_permutations.csv` |
 | F6b | 4 | `reports/rq7/real_orderings.csv`, `deep/real_orderings_sign.csv`. The trajectory ends at 250k and equals the full-corpus mean; the peek stop is at block 204. |
+| F7 | 123 | FHR3A table-size suite. Checks: `reports/table-size` output sha256s = its MANIFEST, and `deep.json` is derived from that MANIFEST. F7a (16 rows): all 4 sizes × p1/p2/p3/median, no NaN or duplicates, 6-max ratios exactly 1; hands ratios and CIs = `figure_data.csv`; median hands/blocks ratios and CIs = `summary.json`; pairing blocks ratios = `summary.csv`; hands ratio = blocks ratio × k/6; 2k hands per block; elasticity = `summary.json` = `claims.json` TS1. F7b: values = `deep.json` = `mechanism.csv`, 3-max indices exactly 1, median 8/3 indices = `mechanism_scaling.csv`. |
 
 Numbers printed inside the figures are formatted from the loaded data, never typed. These
 include:
@@ -55,6 +56,7 @@ The builds are made deterministic by:
 | F4 big pots / stack depth | 183 × 73.9 | 〃 | 〃 | 〃 |
 | F5 variance reduction | 183 × 63.8 | 〃 | 〃 | 〃 |
 | F6 sequential | 183 × 81.8 | 〃 | 〃 | 〃 |
+| F7 table size | 183 × 67.8 | 〃 | 〃 (56 text elements) | 〃 |
 
 Type is Arial throughout:
 * 6.5 pt body;
@@ -87,6 +89,7 @@ deuteranopia (Machado 2009, severity 1).
 | F4a | NLHE 4-max and PLO lie close together | text labels next to each cluster; pairing shapes |
 | F5 | none that matter | rows labelled; AoF and NLHE groups also separated by stripes |
 | F6 | none | methods differ by marker (◆ fixed-N, ✕ peeking, ⬢ CS) and by position; the ribbons differ in lightness as well as hue |
+| F7 | (a) none: all ink/grey, by weight and dash; (b) in grayscale the orange magnitude line and the grey dashed big-pot line are similar greys | (b) solid+◆ vs dashed without markers; every line directly labelled with its value; blue ▼ vs orange ◆ stay distinct under protanopia and deuteranopia |
 
 Colour is never the only encoding:
 * Pairings are always p1 circle, p2 square, p3 triangle, with the marker areas matched.

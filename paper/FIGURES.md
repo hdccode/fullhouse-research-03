@@ -136,6 +136,15 @@ Main text: 6 figures.
   early. The confidence sequence stays valid at a cost of about 1.6–1.7× the fixed-N sample
   for equal power.
 
+## F7: Table size (FHR3A controlled suite)
+
+* **Built:** `final/figure7_table_size.{svg,pdf,png}` from `data/F7a_table_size_burden.csv` and
+  `data/F7b_table_size_mechanism.csv`.
+* **Design and rationale:** `../reports/table-size/figure_plan.md`; caption in
+  `figures/final/captions.md`.
+* The file stays `figure7` in the package. Its place in the revised paper order (Figure 4,
+  after stack depth) is a manuscript decision; the package does not renumber files.
+
 ---
 
 ## Tables

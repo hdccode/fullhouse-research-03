@@ -1,4 +1,7 @@
-"""Figure-ready data for the six main-text figures, derived only from frozen outputs.
+"""Figure-ready data for the paper figures, derived only from frozen outputs.
+
+F1-F6: frozen core / RQ6 / RQ7 reports. F7 (FHR3A controlled table-size suite): the frozen
+reports/table-size primary outputs (MANIFEST.json) and the derived reports/table-size/deep/deep.json.
 
 Usage: .venv/bin/python scripts/paper_figure_data.py  ->  paper/figures/data/F*.csv + SHA256SUMS
 
@@ -17,6 +20,7 @@ import numpy as np
 from scipy import stats as sps
 
 FA, R6, R7 = Path("reports/final-analysis"), Path("reports/rq6"), Path("reports/rq7")
+TS = Path("reports/table-size")
 OUT = Path("paper/figures/data")
 HEADLINE = {"fhr3-aof4-8bb-pilot-v1": "AoF 4-max 8BB", "fhr3-nlhe4-100bb-v2": "NLHE 4-max", "fhr3-nlhe6-100bb-pilot-v1": "NLHE 6-max",
             "fhr3-cp6-100bb-pilot-v1": "Crazy Pineapple", "fhr3-nit6-100bb-pilot-v1": "Nit Game", "fhr3-plo6-100bb-pilot-v1": "PLO",
@@ -139,8 +143,51 @@ def f6() -> None:
     ], "reports/rq7/real_orderings.csv (fhr3-nlhe6-100bb-pilot-v1 p2) + trajectory endpoint")
 
 
+def f7() -> None:
+    """Table-size figure. a: required hands and blocks relative to controlled 6-max (pairings + median,
+    bootstrap CIs); b: per-candidate-seat mechanism indices relative to 3-max."""
+    fd = {(int(r["seats"]), r["series"]): r for r in rows(TS / "figure_data.csv")}
+    sm = {(int(r["seats"]), r["role"]): r for r in rows(TS / "summary.csv")}
+    med = json.loads((TS / "summary.json").read_text())["primary_controlled"]["medians"]
+    out = []
+    for k in (3, 4, 6, 8):
+        for series in (*ROLES, "median"):
+            f = fd[(k, series)]
+            if series == "median":
+                m = med[str(k)]
+                blk, blk_ci = m["blocks_required_1bb100_rel_base"], m["blocks_required_1bb100_rel_base_ci"]
+            else:
+                blk = float(sm[(k, series)]["blocks_required_1bb100_rel_6max"])
+                blk_ci = [float(x) for x in sm[(k, series)]["blocks_required_1bb100_rel_6max_ci"].split(";")]
+            out.append({"seats": k, "series": series, "hands_per_block": int(float(f["hands_per_block"])),
+                        "hands_required": float(f["hands_required"]),
+                        "hands_rel_6max": float(f["hands_rel_6max"]), "hands_rel_6max_lo": float(f["hands_rel_6max_lo"]),
+                        "hands_rel_6max_hi": float(f["hands_rel_6max_hi"]),
+                        "blocks_rel_6max": float(blk), "blocks_rel_6max_lo": float(blk_ci[0]), "blocks_rel_6max_hi": float(blk_ci[1])})
+    write("F7a_table_size_burden.csv", out,
+          "reports/table-size/figure_data.csv (hands) + summary.csv / summary.json medians (blocks); ratios to controlled 6-max, bootstrap 95% CI")
+    mech = json.loads((TS / "deep" / "deep.json").read_text())["mechanism"]
+    q = ("p_seat_diverges", "seat_dev2_given_diverge", "seat_var_mean", "big_blocks_per_played_hand")
+    val = {(r["seats"], r["role"]): r for r in mech}
+    out = []
+    for k in (3, 4, 6, 8):
+        for series in (*ROLES, "median"):
+            row = {"seats": k, "series": series}
+            for name in q:
+                if series == "median":
+                    v = float(np.median([val[(k, r)][name] for r in ROLES]))
+                    v3 = float(np.median([val[(3, r)][name] for r in ROLES]))
+                else:
+                    v, v3 = val[(k, series)][name], val[(3, series)][name]
+                row[name] = v
+                row[f"{name}_index"] = v / v3
+            out.append(row)
+    write("F7b_table_size_mechanism.csv", out,
+          "reports/table-size/deep/deep.json mechanism (per candidate seat; median = median over p1-p3; index = value / 3-max value)")
+
+
 def main() -> None:
-    for f in (f1, f2, f3, f4, f5, f6):
+    for f in (f1, f2, f3, f4, f5, f6, f7):
         f()
     names = sorted(p.name for p in OUT.glob("F*.csv"))
     (OUT / "SHA256SUMS").write_text("".join(f"{hashlib.sha256((OUT / n).read_bytes()).hexdigest()}  {n}\n" for n in names))

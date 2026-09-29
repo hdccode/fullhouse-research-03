@@ -96,3 +96,34 @@ confidence sequence (tuned at 100,000 blocks).
   better. All 250,000 blocks show +1.28 [+0.43, +2.13] for the neutral agent.
 * The confidence sequence never excludes zero and ends at [−0.06, +2.61]. The inset zooms on
   the final 220,000 blocks.
+
+**Figure 7 | Table size changes the cost and character of evaluation.**
+Controlled NLHE 100BB sweep at 3, 4, 6 and 8 seats. Every table size uses the same
+reference-population mixture: each opponent seat, counted relative to the candidate, is 40%
+neutral, 20% tight, 20% loose and 20% aggressive, assigned by a deterministic five-block
+cycle. There are 30,000 matched blocks per pairing.
+
+(a) Played hands (solid) and independent matched blocks (dashed) required to detect 1 BB/100
+(two-sided α = 0.05, 80% power), relative to 6-max.
+* Grey markers are pairings p1–p3 with block-bootstrap 95% CIs. The black line is their
+  median, with its 95% CI band.
+* Numbers under the axis are played hands per matched block.
+* Larger tables need fewer matched blocks but more played hands. The variance of the block
+  difference grows faster than the number of hands per block, but more slowly than its
+  square.
+* The direction is common to all three pairings. The elasticity is a descriptive fit over
+  four table sizes.
+
+(b) Per candidate seat, indices relative to 3-max (log axis), for three quantities:
+* the probability that the A and B outcomes differ;
+* the mean squared difference when they do;
+* the per-seat variance of the difference, which is approximately their product, because
+  cross-seat covariance is negligible.
+
+The dashed grey line is the share of blocks containing a pot of at least one starting stack,
+divided by played hands per block. Lines are medians over p1–p3, and bands span them.
+Differences become rarer but larger when they occur. This is a measured association, not an
+identified causal mechanism.
+
+All values are conditional on the controlled synthetic agent population. They are not
+universal sample requirements.

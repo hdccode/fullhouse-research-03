@@ -1,80 +1,89 @@
 # FHR3A table-size figure plan and paper integration
 
-This is a plan only. No final figure has been rendered, and F1–F6 are unchanged. Claims are in
-`claims.json`; the evidence is in `ANALYSIS.md`.
+**Status: built and frozen.** The figure is `paper/figures/final/figure7_table_size.{svg,pdf,png}`
+(183 × 67.8 mm, 600 dpi). It was built by `paper/figures/fig7.py` through `make_all.py`, from
+`paper/figures/data/F7a_table_size_burden.csv` and `F7b_table_size_mechanism.csv`, with 123
+invariant checks (`sources.f7`). Claims are in `claims.json`; the evidence is in `ANALYSIS.md`;
+the caption is in `paper/figures/final/captions.md`. F1–F6 are byte-identical to the committed
+package.
 
-## 1. One new main figure: "Table size" (two panels, 183 mm × ~70 mm)
+## 1. Final design: "Table size changes the cost and character of evaluation"
 
 The figure uses the existing design system (`paper/figures/style.py`):
-* Arial 6–7 pt, sentence case, bold lowercase panel letters;
+* Arial, 6.5 pt body, 6 pt labels, 5.5 pt notes, 8 pt bold panel letters;
+* sentence-case titles set with `panel_title`;
 * pairing markers p1 ○, p2 □, p3 △ with matched areas;
-* the median drawn in ink (`INK`) with a heavier line;
-* direct labels and no legend boxes where avoidable.
+* direct labels.
 
-All data are NLHE, so the format palette is not used for identity. Pairings are marker shapes in
-mid-grey, and the mechanism quantities in panel b take palette slots 1–4 with direct labels and
-distinct line styles. Colour is never the only encoding.
+All data are NLHE and no format is encoded, so the format palette plays no identity role.
 
-### Panel a: required played hands vs table size
+### Panel a: "larger tables need fewer matched blocks but more played hands"
 
-**Establishes:** TS1, TS2, TS3.
+**Establishes:** TS1–TS3.
 
-* **x axis:** seats (3, 4, 6, 8) on a log axis. Tick labels read "3 / 6 hands per block" and so
-  on, so block size is visible without a second axis.
-* **y axis:** ratio to controlled 6-max on a log axis (0.5–1.5). Every quantity plotted is a
-  unitless ratio, so there is one axis and never a dual axis.
-* **Marks:**
-  * p1/p2/p3: markers, slightly dodged in x, with bootstrap 95% CIs
-    (`figure_data.csv`: `hands_rel_6max`, `_lo`, `_hi`).
-  * Median: a heavy ink line through the median ratios, with its CI band
-    (`series = median`).
-  * Median required-blocks ratio: a thin grey dashed line, directly labelled "matched blocks".
-    It shows blocks falling (1.63 → 0.90) while hands rise.
-  * Reference: a horizontal line at 1, labelled "per-hand invariance (β = 0)".
-* **Direct annotations:**
-  * the absolute median at each k: 3.7M, 4.1M, 4.6M, 5.5M hands;
-  * "hands ∝ k^0.37 [0.25, 0.50]; blocks ∝ k^−0.63".
-* **Why ratios, not absolute hands:** p1 sits about 3× below p2/p3 at every k, so on an
-  absolute axis the shared slope is harder to see. The absolute medians are printed, and the
-  full absolute table goes to the appendix.
+* **x axis:** seats 3, 4, 6, 8 on a **linear** axis. Log was not needed for readability.
+  Played hands per block (6, 8, 12, 16) are printed as a second tick row, labelled
+  "hands/block".
+* **y axis:** one dimensionless axis, "required at 1 BB/100, 80% power (ratio to 6-max)",
+  **linear** from 0.55 to 1.95. There is no second y-axis: both series are ratios, and a thin
+  rule marks 1.0.
+* **Required played hands (the result):**
+  * the median over p1–p3 is a heavy solid ink line (1.8 pt) with a light 95% CI band;
+  * p1/p2/p3 are mid-grey role markers (dodged ±0.16), each with a bootstrap 95% CI bar and a
+    thin connecting trace.
+* **Required matched blocks (the contrast):** the median is a dashed dark-grey line with open
+  markers.
+* **Direct labels:**
+  * "played hands" (bold) and "matched blocks" at the right end, with their 8-max values
+    1.20 and 0.90;
+  * the 3-max values 0.82 and 1.63 at the left end.
+* **Annotation:** "elasticity of played hands in seats +0.37 [0.25, 0.50]", from
+  `summary.json`.
+* **Legend:** pairing markers and "median, 95% CI band" under the heading "played hands (bars:
+  95% CI)". The blocks line is directly labelled instead.
 
-### Panel b: what changes per candidate seat
+### Panel b: "rarer differences, larger when they occur"
 
-**Establishes:** TS4, and explains panel a directly.
+**Establishes:** TS4.
 
-Cross-seat covariance is negligible, so required hands ∝ σ_D²/k ≈ per-seat variance. Per-seat
-variance factors exactly into P(D_s ≠ 0) × E[D_s² given D_s ≠ 0] (the mean is negligible).
-Panel b plots these factors.
+* **x axis:** seats, linear, matching panel a.
+* **y axis:** "index (3-max = 1)" on a **log** axis (0.55–2.6). Here log is justified: halving
+  and doubling look symmetric, and on this axis the variance line is approximately the sum of
+  the other two.
+* **Lines:** medians over p1–p3, each with a light band for the p1–p3 range and a
+  directly labelled right-end value.
+  * per-seat variance: heavy ink with ● markers, ×1.41, bold label;
+  * "size of the difference when A and B differ": orange with ◆, ×2.16;
+  * "chance that A and B differ at a seat": blue with ▼, ×0.69;
+  * "big-pot blocks per played hand": grey, dashed, no markers, no band (context), ×2.18.
+* **Key:** a small note in the empty corner reads "lines: median over p1–p3 / bands: range over
+  p1–p3".
+* **Language:** no causal wording anywhere in the figure.
 
-* **x axis:** seats (log), shared with panel a.
-* **y axis:** index relative to 3-max, log axis (about 0.6–2.4).
-* **Lines:** medians over p1–p3, each with a thin pairing-range band.
-  1. per-seat variance: the quantity behind panel a, ×1.41;
-  2. P(A and B outcomes differ at a seat): ×0.69, falling;
-  3. mean squared difference when they differ: ×2.16;
-  4. stack-sized pots per played hand, as grey dashed context: ×2.18.
-* **Source:** `deep/mechanism.csv`, columns `seat_var_mean`, `p_seat_diverges`,
-  `seat_dev2_given_diverge`, `big_blocks_per_played_hand`.
-* **One-line takeaway in the panel title:** "rarer but larger divergences".
+### Deviations from the requested design, and why
 
-### Rejected alternatives
+* **Panel a uses linear axes.** Log axes were optional, and the linear version reads more
+  directly. The elasticity annotation carries the log-log summary.
+* **Median hands line has no node markers.** At 3 and 8 seats the median equals p2 (and p3 at
+  4), and a median dot would hide that pairing's marker. The pairing markers are drawn above the
+  line, and dominance comes from line weight.
+* **No CI band on the blocks line.** It overlapped the hands band at 3–4 seats and muddied the
+  contrast. The blocks CIs are in `F7a` and the caption covers the definitions.
+* **Wording.** "∝ seats^0.37" was replaced with "elasticity of played hands in seats", because
+  Arial lacks the ∝ glyph and the phrase is plainer.
+* **No "6-max = 1" label.** It collided with the convergence point; the y-axis label states the
+  normalisation.
+* **Big-pot series in panel b.** It is drawn as context only (dashed grey, no band), and
+  all-in incidence and tail concentration are left out, as requested.
 
-* **σ_D vs k:** it duplicates panel a (β_σ = β_hands/2 + 1/2), so it adds no information.
-* **Tail-concentration panel** (top-1% share 0.88 → 0.57): a real result, but secondary. It goes
-  in one sentence plus the F3 caption.
-* **Big-pot frequency × magnitude scatter in the F4a style:** it would echo the stack-depth
-  figure, but the seat decomposition explains panel a exactly, while the scatter only
-  correlates.
-* **A historical 4/6 overlay:** it would mix the controlled and historical designs. The
-  reconciliation stays in text and an appendix table.
+### Rejected alternatives (unchanged from the plan)
 
-### Figure-data export (to add when rendering)
-
-Add `F7a_table_size_hands.csv` (from `reports/table-size/figure_data.csv`) and
-`F7b_table_size_mechanism.csv` (from `reports/table-size/deep/mechanism.csv`) through
-`scripts/paper_figure_data.py`, with sha256 sums. Then add a `fig7.py` to `make_all.py` with the
-same invariant-check pattern: the ratios, elasticity and absolute medians are asserted against
-`summary.json`.
+* **σ_D vs k:** it duplicates panel a.
+* **Tail-concentration panel:** secondary; it goes in one sentence plus a note in the F3
+  caption.
+* **F4a-style frequency × magnitude scatter:** the seat decomposition explains panel a more
+  directly.
+* **A historical 4/6 overlay:** it would mix the controlled and historical designs.
 
 ## 2. Existing figures
 
@@ -86,7 +95,8 @@ same invariant-check pattern: the ratios, elasticity and absolute medians are as
 | F4 big pots / stack depth | **retain unchanged** | Parallel lens to table size; cross-reference it from the new section. |
 | F5 variance reduction | **retain unchanged** | Unaffected. |
 | F6 sequential monitoring | **retain unchanged** | Unaffected. |
-| **new** table-size figure | **add** | Becomes Figure 4 in the order below. |
+| F1 (position) | **keep in main text** | It is the only figure spanning all seven formats, and it anchors §2. The pairing-level detail it lacks lives in F2 (appendix). |
+| **new** table-size figure (`figure7_table_size`) | **add as manuscript Figure 4** | Place it after stack depth (Fig 3 = F4). The package keeps the file name `figure7_*` so that no existing artefact, hash or reference is renumbered; mapping package files to manuscript numbers is a manuscript-assembly step. |
 
 ## 3. Revised FHR3A structure
 

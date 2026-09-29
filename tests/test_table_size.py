@@ -52,7 +52,6 @@ FROZEN_FILES = {
     "reports/final-analysis/MANIFEST.json": "2724469c22276f4d2406e69f0a1d8b2a01e34ad0a50338a2d853a91ca2877ddb",
     "reports/rq6/MANIFEST.json": "aee2b8477ab82270166b3bf8d636103e8145ecc43b3d6829ed9a6a4274653e93",
     "reports/rq7/MANIFEST.json": "3564b2e1bd1f1a10c294496d322d65af3cdce601aaa752ec507d93f86a231d0a",
-    "paper/figures/final/build_manifest.json": "07388a0054b94c6add0760ae8eb0e7b86ece212dc95a3eddf96c0d7f21a221ed",
 }
 
 
@@ -286,6 +285,26 @@ def test_cli_smoke_corpus_valid(k, tmp_path):
 @pytest.mark.parametrize("rel", sorted(FROZEN_FILES))
 def test_frozen_manifests_unchanged(rel):
     assert hashlib.sha256((ROOT / rel).read_bytes()).hexdigest() == FROZEN_FILES[rel]
+
+
+# F1-F6 publication outputs (sha256 prefixes) as frozen in commit 3e28962. Adding F7 legitimately
+# changes build_manifest.json, so the guard pins the F1-F6 output hashes it records instead.
+F1_F6_OUTPUTS = {
+    "figure1_sample_complexity": ("3671778ce6bf", "338b20f6665a", "040066d0a8a0"),
+    "figure2_cost_metrics": ("2f40372eb318", "2d6acc457d85", "0e26dfa155ee"),
+    "figure3_variance_concentration": ("e4c4cd3aa5ad", "162334c5a522", "14750ff82a2b"),
+    "figure4_big_pots_stack_depth": ("cbbde35ce47a", "98d627ffa4b5", "504b088e23d1"),
+    "figure5_variance_reduction": ("ef60decd3ec3", "990ce28e3dc2", "47c89e2611b1"),
+    "figure6_sequential": ("dd8707f7b9bc", "f3111cdebffc", "5bf8764a6114"),
+}
+
+
+def test_f1_f6_figure_outputs_unchanged():
+    out = json.loads((ROOT / "paper/figures/final/build_manifest.json").read_text())["outputs"]
+    for stem, (svg, pdf, png) in F1_F6_OUTPUTS.items():
+        assert (out[stem]["svg"][:12], out[stem]["pdf"][:12], out[stem]["png"][:12]) == (svg, pdf, png), stem
+        for ext, h in zip(("svg", "pdf", "png"), (svg, pdf, png)):
+            assert hashlib.sha256((ROOT / "paper/figures/final" / f"{stem}.{ext}").read_bytes()).hexdigest().startswith(h)
 
 
 # ---------------------------------------------------------------- analysis semantics
