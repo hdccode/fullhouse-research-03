@@ -123,13 +123,27 @@ blocks of every mixed-SHA extension. `src/` is unchanged since a86909d.
   * Treat it as a stress case. No core claim depends on its absolute rank.
 * **Nit.** A block-construction and mechanism case study (see above).
 
-## 4. Next
+## 4. Next: RQ6 / RQ7 (architecture complete, runs are USER-RUN)
 
-* RQ6: `scripts/run_rq6_final.sh`. NLHE6 100BB (raw, all-in EV, fitted MIVAT/AIVAT)
-  at 25k per pairing; 20BB all-in EV at 10k; AoF all-in EV at 50k.
-* RQ7: `scripts/run_rq7_final.sh`.
-* An optional Bomb multiway-aware robustness agent. It is not part of the core
-  campaign.
+* RQ6: `scripts/run_rq6_final.sh`, expanded in `workflow.md` section 3. It covers:
+  * NLHE6 100BB with raw, all-in EV, fitted MIVAT and fitted AIVAT at 25k/pairing;
+  * 20BB with all-in EV at 10k;
+  * AoF with all-in EV at 50k.
+
+  Each setting shares its seed with the frozen raw corpus, so raw D must reproduce it.
+  Analysis: `scripts/analyze_rq6.py`, which uses paired variance ratios with joint
+  block-bootstrap CIs. Correctness gates: `tests/test_rq6.py`.
+* RQ7: `scripts/run_rq7_final.sh`, expanded in `workflow.md` section 4. It covers:
+  * fixed / peek / asymptotic CS on the same streams (`fhr3 rq7-cell`);
+  * null runs for 5 distributions at 2,000 reps;
+  * min-N {50, 1,000, 5,000} for heavy, mild and t3;
+  * non-null d ∈ {0.0177, 0.0089} at 1,000 reps;
+  * 1,000 permutations of NLHE6 p1.
+
+  Analysis: `scripts/analyze_rq7.py`.
+* Both freeze separately into `reports/rq6/MANIFEST.json` and `reports/rq7/MANIFEST.json`
+  (`scripts/freeze_rq_manifest.py`). This manifest stays the core freeze.
+* The Bomb multiway-aware robustness agent remains optional and out of scope.
 
 ## 5. Regenerating and verifying
 

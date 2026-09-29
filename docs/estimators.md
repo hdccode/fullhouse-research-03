@@ -70,3 +70,51 @@ Implement `HandEstimator` (`name`, `needs_decision_log`, `estimate(ctx)` returni
 the candidate's estimated payoff in chips), register it in
 `estimators/__init__.py`, add a Parquet column (schema bump) and a
 mean-preservation test before populating it.
+
+## Provenance and freezing (RQ6)
+
+* `ExperimentConfig.estimator_provenance` expands `estimators:` into settings, method
+  version (`allin-ev-1`, `fhr3-vat-pvat-1` + `vat-features-1`), PVAT version and the RNG
+  stream derivation. `estimator_config_hash` (on every block) hashes this record, and the
+  experiment lock stores it, so a silent change of estimator code, library version, MC
+  sample counts or value-function artifact under the same experiment_id is refused.
+  Raw-only configs keep their historical lock and config hash.
+* Estimator randomness is isolated: all-in EV uses `KeyedStream('allin-ev', version, salt,
+  hand_key)` and VAT flop sampling uses `KeyedStream('vat', salt, hand_key)`. Dealing and
+  agent policies use different streams, so estimator settings never change cards,
+  actions or raw D (tested).
+* `vat-fit` writes a byte-deterministic artifact. It contains features, θ, training root
+  seed and blocks, training/evaluation config hashes, method and PVAT versions, and git SHA.
+  The wall-clock timestamp goes to an unpinned `*.created.json` sidecar. The derived
+  evaluation config pins the artifact's sha256.
+* Refusals: a training seed equal to the evaluation seed (at fit and at load), and an
+  artifact whose bytes differ from the pinned sha256. `scripts/verify_value_function.py`
+  runs these checks before simulating.
+* Training and evaluation are separated by root seed, not block id. Training blocks
+  0..999 under seed 90210 are different deals from evaluation blocks under 20260928.
+* Unbiasedness vs variance reduction: every estimator has E[estimator − raw] = 0 for ANY
+  value function (exactly verified on the toy game; statistically on poker blocks).
+  Value-function quality only changes variance. A poorly fitted value function can
+  *increase* variance and still be unbiased, so the RQ6 analysis reports variance ratios
+  with CIs and flags ratio > 1.
+
+## RQ6 correctness gates (tests/test_rq6.py, test_allin_ev.py, test_vat.py)
+
+* all-in EV equals the PokerKit-played average over every runout for:
+  * turn all-in with side pots;
+  * flop all-in, multiway, with nested side pots and an uncalled bet;
+  * folded dead money with an odd pot and chops (odd-chip rule).
+
+  A river all-in has no runout, and the estimate equals the realized payoff.
+* The toy oracle checks PVAT MIVAT/AIVAT against an independent implementation, covering:
+  * exact unbiasedness;
+  * exact-value-function variance collapse;
+  * a poor value function that stays unbiased;
+  * zero correction at deterministic actions.
+* Self-play is exactly 0 and A/B swap negates every estimator. RQ6 configs reproduce the
+  reference configs' raw D.
+* `scripts/analyze_rq6.py` blocks publication on any of:
+  * raw D ≠ frozen reference;
+  * `raw_estimator_D` ≠ D;
+  * nonzero self-play;
+  * |z(mean(estimator − raw))| > 3.
