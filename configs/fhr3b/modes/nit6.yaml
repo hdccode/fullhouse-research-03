@@ -1,0 +1,7 @@
+# Nit Game: nit-button state persists across the hands of a match (reset_each_hand stacks).
+mode: nit6
+game: {variant: nit_game, player_count: 6, stack_bb: 100, bb_chips: 100, sb_chips: 50, ante_chips: 0, options: {nit_penalty_bb: 5, max_hands: 60}}
+table_size: 6
+stack_policy: reset_each_hand
+agent_family: nit_heuristic
+primary: false

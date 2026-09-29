@@ -1,0 +1,9 @@
+# Correctness-only protocol: tiny field, 4 rounds, 10-hand matches. Never interpret statistically.
+name: smoke
+status: smoke
+table_size: 6
+hands_per_match: 10
+rounds: 4
+qualify_top_k: 2
+stack_policy: persistent_no_rebuy
+initial_order: seeded_shuffle

@@ -1,0 +1,9 @@
+# 4-max All-in-or-Fold 8BB. Natural FHR3 rule is a cash game at 8BB every hand;
+# carrying 8BB stacks across 400 hands would turn a match into a short sit-and-go,
+# so AoF matches use reset_each_hand (documented caveat in docs/fhr3b/ARCHITECTURE.md).
+mode: aof4
+game: {variant: aof, player_count: 4, stack_bb: 8, bb_chips: 100, sb_chips: 50, ante_chips: 0}
+table_size: 4
+stack_policy: reset_each_hand
+agent_family: aof
+primary: true

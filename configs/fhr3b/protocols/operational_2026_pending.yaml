@@ -1,0 +1,23 @@
+# PENDING: the actual 2026 qualifier cannot be reproduced until the facts below are verified.
+# The runner refuses protocols with status: pending.
+name: operational_2026
+status: pending
+table_size: 6
+hands_per_match: 400
+rounds: 40                       # placeholder, UNKNOWN
+qualify_top_k: 64
+stack_policy: persistent_no_rebuy
+initial_order: field_order       # placeholder, UNKNOWN
+source:
+  repository: https://github.com/mbatv/fullhouse-engine
+  commit: a80b26957db5f5515d9273a15d1b73aadf8985db
+  production_equivalence: UNVERIFIED
+unknowns:
+  - "field size N of each qualifier (sources: '300+ bots', '~300 entrants', '500+ entrants'; entrants != bots)"
+  - "number of Swiss rounds per qualifier (schema default 3; one participant reports ~15 matches in qualifier 2)"
+  - "whether two qualifiers (Q1, Q2) were aggregated, reset, or replaced; how the patch window affected standings"
+  - "table handling when N mod 6 != 0: the reference folds 1-5 stragglers into the last table, giving 7-11 seats, but the 2026 engine allows at most 9 (run_match asserts 2 <= n <= 9)"
+  - "round-1 order (reference: input list order; production DB order unknown)"
+  - "whether the leaderboard used cumulative or per-match average chip delta (participants quote averages)"
+  - "timeouts/crashes (auto-fold), disqualifications, and late withdrawals during the event"
+  - "whether the production worker used the reference swiss_pairing unchanged"

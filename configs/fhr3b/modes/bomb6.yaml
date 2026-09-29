@@ -1,0 +1,8 @@
+# Bomb pot: every seat antes 2BB each hand; carried stacks below the ante are undefined
+# in the FHR3 adapter, so matches use reset_each_hand.
+mode: bomb6
+game: {variant: bomb_pot, player_count: 6, stack_bb: 100, bb_chips: 100, sb_chips: 50, ante_chips: 0, options: {ante_bb: 2}}
+table_size: 6
+stack_policy: reset_each_hand
+agent_family: heuristic
+primary: false

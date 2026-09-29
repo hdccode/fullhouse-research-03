@@ -1,0 +1,331 @@
+{
+ "bots": [
+  {
+   "bot_id": "aof4-aggressive-e0",
+   "kind": "aof_heuristic",
+   "meta": {
+    "agent_seed": 0,
+    "archetype": "aggressive",
+    "epsilon": 0.0,
+    "scale_index": 0
+   },
+   "params": {
+    "style": "aggressive"
+   },
+   "version": "aof-heuristic-1.0.0+0b16eb21d5"
+  },
+  {
+   "bot_id": "aof4-aggressive-e3-s3",
+   "kind": "aof_heuristic",
+   "meta": {
+    "agent_seed": 3,
+    "archetype": "aggressive",
+    "epsilon": 0.45,
+    "scale_index": 3
+   },
+   "params": {
+    "overrides": {
+     "call_pct": [
+      0.17383,
+      0.25004,
+      0.13143
+     ],
+     "call_scale": 1.59815,
+     "multi_call_pct": 0.11667,
+     "shove_pct": [
+      0.35783,
+      0.18784,
+      0.88836
+     ],
+     "shove_scale": 0.77964,
+     "temperature": 0.01542
+    },
+    "style": "aggressive"
+   },
+   "version": "aof-heuristic-1.0.0+f18ad6baac"
+  },
+  {
+   "bot_id": "aof4-caller-e2-s3",
+   "kind": "aof_heuristic",
+   "meta": {
+    "agent_seed": 3,
+    "archetype": "caller",
+    "epsilon": 0.25,
+    "scale_index": 2
+   },
+   "params": {
+    "overrides": {
+     "call_pct": [
+      0.12336,
+      0.18369,
+      0.20554
+     ],
+     "call_scale": 1.36888,
+     "multi_call_pct": 0.09136,
+     "shove_pct": [
+      0.30279,
+      0.43099,
+      0.38235
+     ],
+     "shove_scale": 0.89227,
+     "temperature": 0.01891
+    },
+    "style": "neutral"
+   },
+   "version": "aof-heuristic-1.0.0+bfdeeb74f5"
+  },
+  {
+   "bot_id": "aof4-caller-e3-s3",
+   "kind": "aof_heuristic",
+   "meta": {
+    "agent_seed": 3,
+    "archetype": "caller",
+    "epsilon": 0.45,
+    "scale_index": 3
+   },
+   "params": {
+    "overrides": {
+     "call_pct": [
+      0.11221,
+      0.39576,
+      0.15605
+     ],
+     "call_scale": 0.9482,
+     "multi_call_pct": 0.05013,
+     "shove_pct": [
+      0.2162,
+      0.42847,
+      0.68579
+     ],
+     "shove_scale": 0.41581,
+     "temperature": 0.0092
+    },
+    "style": "neutral"
+   },
+   "version": "aof-heuristic-1.0.0+0566cec862"
+  },
+  {
+   "bot_id": "aof4-loose-e1-s0",
+   "kind": "aof_heuristic",
+   "meta": {
+    "agent_seed": 0,
+    "archetype": "loose",
+    "epsilon": 0.1,
+    "scale_index": 1
+   },
+   "params": {
+    "overrides": {
+     "call_pct": [
+      0.18638,
+      0.16229,
+      0.28766
+     ],
+     "call_scale": 1.3273,
+     "multi_call_pct": 0.06885,
+     "shove_pct": [
+      0.30599,
+      0.33767,
+      0.59153
+     ],
+     "shove_scale": 1.28109,
+     "temperature": 0.01681
+    },
+    "style": "loose"
+   },
+   "version": "aof-heuristic-1.0.0+a2ce982712"
+  },
+  {
+   "bot_id": "aof4-loose-e1-s1",
+   "kind": "aof_heuristic",
+   "meta": {
+    "agent_seed": 1,
+    "archetype": "loose",
+    "epsilon": 0.1,
+    "scale_index": 1
+   },
+   "params": {
+    "overrides": {
+     "call_pct": [
+      0.12541,
+      0.18102,
+      0.27508
+     ],
+     "call_scale": 1.33713,
+     "multi_call_pct": 0.05853,
+     "shove_pct": [
+      0.308,
+      0.39698,
+      0.51942
+     ],
+     "shove_scale": 1.15015,
+     "temperature": 0.01423
+    },
+    "style": "loose"
+   },
+   "version": "aof-heuristic-1.0.0+eaadcf1e17"
+  },
+  {
+   "bot_id": "aof4-neutral-e1-s1",
+   "kind": "aof_heuristic",
+   "meta": {
+    "agent_seed": 1,
+    "archetype": "neutral",
+    "epsilon": 0.1,
+    "scale_index": 1
+   },
+   "params": {
+    "overrides": {
+     "call_pct": [
+      0.18668,
+      0.16737,
+      0.24414
+     ],
+     "call_scale": 1.04592,
+     "multi_call_pct": 0.07366,
+     "shove_pct": [
+      0.2734,
+      0.4174,
+      0.49868
+     ],
+     "shove_scale": 0.9363,
+     "temperature": 0.01195
+    },
+    "style": "neutral"
+   },
+   "version": "aof-heuristic-1.0.0+6d7bda7185"
+  },
+  {
+   "bot_id": "aof4-neutral-e2-s2",
+   "kind": "aof_heuristic",
+   "meta": {
+    "agent_seed": 2,
+    "archetype": "neutral",
+    "epsilon": 0.25,
+    "scale_index": 2
+   },
+   "params": {
+    "overrides": {
+     "call_pct": [
+      0.14377,
+      0.16392,
+      0.21051
+     ],
+     "call_scale": 0.92482,
+     "multi_call_pct": 0.05559,
+     "shove_pct": [
+      0.20336,
+      0.5704,
+      0.71491
+     ],
+     "shove_scale": 0.84269,
+     "temperature": 0.01009
+    },
+    "style": "neutral"
+   },
+   "version": "aof-heuristic-1.0.0+09dfa850cd"
+  },
+  {
+   "bot_id": "aof4-policy-e1-s2",
+   "kind": "aof_policy",
+   "meta": {
+    "agent_seed": 2,
+    "archetype": "policy",
+    "epsilon": 0.1,
+    "scale_index": 1
+   },
+   "params": {
+    "blend": 0.12485,
+    "blend_style": "tight",
+    "policy": "production-v2"
+   },
+   "version": "aof-policy-1.0.0+57e43e5bef"
+  },
+  {
+   "bot_id": "aof4-policy_blend_loose-e0",
+   "kind": "aof_policy",
+   "meta": {
+    "agent_seed": 0,
+    "archetype": "policy_blend_loose",
+    "epsilon": 0.0,
+    "scale_index": 0
+   },
+   "params": {
+    "blend": 0.1,
+    "blend_style": "loose",
+    "policy": "production-v2"
+   },
+   "version": "aof-policy-1.0.0+4f36b3ef2d"
+  },
+  {
+   "bot_id": "aof4-shover-e1-s0",
+   "kind": "aof_heuristic",
+   "meta": {
+    "agent_seed": 0,
+    "archetype": "shover",
+    "epsilon": 0.1,
+    "scale_index": 1
+   },
+   "params": {
+    "overrides": {
+     "call_pct": [
+      0.1676,
+      0.18625,
+      0.23636
+     ],
+     "call_scale": 0.86532,
+     "multi_call_pct": 0.08261,
+     "shove_pct": [
+      0.28767,
+      0.40424,
+      0.49397
+     ],
+     "shove_scale": 1.46227,
+     "temperature": 0.0136
+    },
+    "style": "neutral"
+   },
+   "version": "aof-heuristic-1.0.0+1bf2b56a53"
+  },
+  {
+   "bot_id": "aof4-tight-e1-s2",
+   "kind": "aof_heuristic",
+   "meta": {
+    "agent_seed": 2,
+    "archetype": "tight",
+    "epsilon": 0.1,
+    "scale_index": 1
+   },
+   "params": {
+    "overrides": {
+     "call_pct": [
+      0.16592,
+      0.15994,
+      0.33489
+     ],
+     "call_scale": 0.77949,
+     "multi_call_pct": 0.07955,
+     "shove_pct": [
+      0.28771,
+      0.3765,
+      0.57319
+     ],
+     "shove_scale": 0.74085,
+     "temperature": 0.01285
+    },
+    "style": "tight"
+   },
+   "version": "aof-heuristic-1.0.0+c07cda6568"
+  }
+ ],
+ "construction": {
+  "method": "stratified_sample",
+  "n": 12,
+  "pool_hash": "2ad8ba491c1d39a8",
+  "purpose": "correctness only"
+ },
+ "field_hash": "1649e5cb4fa45c6c",
+ "field_id": "aof4-smoke12",
+ "kind": "smoke",
+ "mode": "aof4",
+ "n": 12
+}

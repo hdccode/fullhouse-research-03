@@ -1,0 +1,6 @@
+mode: plo6
+game: {variant: plo, player_count: 6, stack_bb: 100, bb_chips: 100, sb_chips: 50, ante_chips: 0}
+table_size: 6
+stack_policy: persistent_no_rebuy
+agent_family: plo_heuristic
+primary: true

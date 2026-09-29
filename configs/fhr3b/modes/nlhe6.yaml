@@ -1,0 +1,7 @@
+# FHR3B mode: 6-max NLHE 100BB (the 2026 FullHouse production game).
+mode: nlhe6
+game: {variant: nlhe, player_count: 6, stack_bb: 100, bb_chips: 100, sb_chips: 50, ante_chips: 0}
+table_size: 6
+stack_policy: persistent_no_rebuy   # 2026 match rule (sandbox/match.py): carried stacks, no rebuy
+agent_family: heuristic
+primary: true

@@ -1,0 +1,17 @@
+{
+  "repository": "https://github.com/mbatv/fullhouse-engine",
+  "former_name": "https://github.com/uzlez/fullhouse-engine (GitHub redirects to mbatv/fullhouse-engine)",
+  "commit": "a80b26957db5f5515d9273a15d1b73aadf8985db",
+  "commit_date": "2026-05-24T20:39:43+01:00",
+  "retrieved": "2026-09-29",
+  "license": "MIT (LICENSE copied alongside)",
+  "files": {
+    "engine/tournament.py": {"sha256": "9759284729099b98d7e784824fc7ff8705c1fa846c6b8ebede848832e4a2325a", "vendored_as": "reference_tournament.py (byte-identical)"},
+    "engine/game.py": {"sha256": "95c87ade625041f7cc6221d6cc36eac11f89f3f452753b20a402126c31f7e9c2", "vendored_as": null},
+    "sandbox/match.py": {"sha256": "527ce69a451e825f680ad3b8aa92176d795534e87b01e387211d86074de760d3", "vendored_as": null},
+    "db/schema.sql": {"sha256": "9aa015a405f89ec31ad218286c560fc69a42346c6486963781b08f386681b73f", "vendored_as": null},
+    "README.md": {"sha256": "d63a0a5c6560e979e7a52eba159469f58fdd4b1821732e1d2de631cf3b71a5f8", "vendored_as": null},
+    "demo.py": {"sha256": "56a471390e82085f707debc00f06c0c39fc221133151541d99104782ca522012", "vendored_as": null}
+  },
+  "note": "Public canonical reference. Its docstring states the production match queue (BullMQ workers) ships its own copy in a private ops repo, which was not available."
+}

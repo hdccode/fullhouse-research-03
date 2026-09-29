@@ -1,0 +1,66 @@
+# FHR3B experiment matrix. Cells are generated from this file (src/fhr3/tournament/experiments.py);
+# nothing here is hand-expanded. Replication counts come from presets and are NOT part of any
+# cell identity: extending broad -> flagship reuses the same cells and skips finished tournaments.
+lab: lab/lab60_top6.yaml
+primary_modes: [aof4, nlhe6, plo6]
+all_modes: [aof4, nlhe4, nlhe6, cp6, plo6, bomb6, nit6]
+
+presets:              # tournaments per cell (provisional; revise after the runtime pilot)
+  pilot: 8
+  broad: 200
+  flagship: 1000
+
+calibration:
+  pool:               # candidate pool -> field selection (namespace pool-calibration)
+    rounds: 2000      # one round = every bot plays one match at a random table
+    chunk_rounds: 25
+  field_reference:    # mu_field inside each frozen field (namespace field-reference)
+    rounds: 3000
+    chunk_rounds: 25
+  selection:
+    crowded: {n_top: 3, crowd: 12}
+    matchup_gate: {min_ci_lower_cyclic_share: 0.05}
+    n: 60
+
+experiments:
+  smoke:
+    protocol: protocols/smoke.yaml
+    modes: [aof4, nlhe4, nlhe6, cp6, plo6, bomb6, nit6]
+    fields: [smoke12]
+    namespace: smoke
+    replicates: 3
+  pilot:
+    modes: [aof4, nlhe6, plo6]
+    fields: [provisional60]         # runnable before calibration; use crowded_cutoff once it exists
+    namespace: pilot
+  baseline:                         # A: R0 cells; the R sweep is read from their round prefixes
+    modes: [aof4, nlhe6, plo6]
+    fields: [spread, crowded_cutoff, matchup]
+    namespace: publication
+  round_sweep:                      # A: derived from baseline (exact prefix identity, verified by `validate --prefix`)
+    derived_from: baseline
+  budget_sweep:                     # B: fixed R*H, generated from (R0, H0)
+    modes: [aof4, nlhe6, plo6]
+    fields: [crowded_cutoff]
+    namespace: publication
+  schedule_diagnostic:              # C: research-only frozen-schedule counterfactual
+    modes: [nlhe6]
+    fields: [crowded_cutoff]
+    namespace: publication
+    replays_per_source: 4           # J (identity); sources = preset / J
+  swiss_reference:                  # mu_swiss: expected Swiss performance, separate namespace
+    modes: [aof4, nlhe6, plo6]
+    fields: [spread, crowded_cutoff, matchup]
+    namespace: swiss-reference
+  operational_2026:                 # D: pending until the audit's unknowns are resolved
+    protocol: protocols/operational_2026_pending.yaml
+    modes: [nlhe6]
+
+smoke_profile:        # end-to-end correctness run of the whole pipeline (never interpreted)
+  fields: [spread, crowded_cutoff, matchup]   # selected from the pool into <results>/smoke-fields/
+  selection: {n: 12, crowded: {n_top: 1, crowd: 3}, matchup_gate: {min_ci_lower_cyclic_share: 0.05},
+              replays_per_source: 2}
+  calibration:
+    pool_field: pool
+    pool: {rounds: 6, chunk_rounds: 2}
+    field_reference: {rounds: 4, chunk_rounds: 2}

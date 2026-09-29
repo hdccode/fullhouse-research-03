@@ -1,0 +1,185 @@
+"""Experiment matrix -> concrete cells (no hand-written per-cell YAML).
+
+``configs/fhr3b/matrix.yaml`` names experiments, modes, fields, presets and
+profiles; this module resolves them into ``Cell`` objects.
+
+Profiles
+--------
+``publication``  lab60_top6 protocol (R0/H0 from reconstructed_2026), N=60, K=6,
+                 frozen publication fields in configs/fhr3b/fields/<mode>/.
+``pilot``        same protocol, ``provisional60`` fields, namespace ``pilot``
+                 (runtime + Monte Carlo calibration only).
+``smoke``        tiny protocol (configs/fhr3b/protocols/smoke.yaml), 12-bot fields,
+                 namespace ``smoke``; selected smoke fields are written under the
+                 results root, never into configs. Correctness only.
+"""
+
+from __future__ import annotations
+
+from dataclasses import dataclass
+from pathlib import Path
+from typing import Any
+
+import yaml
+
+from fhr3.tournament.calibration import CalibrationSpec
+from fhr3.tournament.cells import Cell
+from fhr3.tournament.fields import FHR3B_CONFIGS, FieldManifest, Mode, load_field, load_mode
+from fhr3.tournament.protocol import (
+    BudgetAllocation,
+    TournamentProtocol,
+    budget_allocations,
+    load_protocol,
+    round_sweep,
+)
+
+PAIRED_NOTE = {
+    "round_sweep": "paired: R<R0 leaderboards are the exact round prefixes of the same R0 tournaments",
+    "budget_sweep": "paired by replicate index: shared tournament seeds, identical round-1 tables and a shared "
+                    "hand-prefix of round-1 chance; tables diverge after round 1",
+    "schedule_diagnostic": "paired by (source, replay): frozen and adaptive replay j share card/decision seeds and "
+                           "round-1 tables; sources are independent",
+    "baseline": "independent across fields and modes (different fields/games); shared seed family",
+    "swiss_reference": "separate namespace from every finite-budget cell",
+}
+
+
+def load_matrix(root: Path = FHR3B_CONFIGS) -> dict[str, Any]:
+    return yaml.safe_load((root / "matrix.yaml").read_text())
+
+
+def _lab_raw(root: Path) -> dict[str, Any]:
+    return yaml.safe_load((root / load_matrix(root)["lab"]).read_text())
+
+
+@dataclass(frozen=True)
+class Profile:
+    name: str
+    base: TournamentProtocol
+    lab_name: str
+    field_size: int | None
+    k: int
+    seed_family: str
+    namespaces: dict[str, str]
+    fields: tuple[str, ...]
+    fields_dir: Path
+    selection: dict[str, Any]
+    calibration: dict[str, Any]
+    config_root: Path = FHR3B_CONFIGS
+
+    @property
+    def r0(self) -> int:
+        return self.base.rounds
+
+    @property
+    def h0(self) -> int:
+        return self.base.hands_per_match
+
+    def protocol(self, mode: Mode, rounds: int | None = None, hands: int | None = None) -> TournamentProtocol:
+        status = "lab" if self.name != "smoke" else "smoke"
+        return self.base.with_(
+            name=self.lab_name, status=status, table_size=mode.table_size, qualify_top_k=self.k,
+            stack_policy=mode.stack_policy, rounds=rounds or self.r0, hands_per_match=hands or self.h0,
+            notes=(f"{self.name} profile derived from {self.base.name}; not a competition format",),
+        )
+
+    # ------------------------------------------------------------ fields
+    def field_path(self, mode: str, field: str) -> Path:
+        dirs = [self.fields_dir / mode, self.config_root / "fields" / mode]
+        names = ("matchup_sensitive", "style_diverse") if field == "matchup" else (field,)
+        for d in dirs:
+            for n in names:
+                if (d / f"{n}.json").exists():
+                    return d / f"{n}.json"
+        return dirs[0] / f"{names[0]}.json"
+
+    def field(self, mode: str, field: str) -> FieldManifest:
+        p = self.field_path(mode, field)
+        if not p.exists():
+            raise FileNotFoundError(f"field {field!r} for {mode} is not frozen yet ({p}); run `fhr3b pools` "
+                                    "(pool/smoke/provisional) or `fhr3b calibrate` + `fhr3b select-fields`")
+        fm = load_field(p)
+        if fm.mode != mode:
+            raise ValueError(f"{p}: field is for mode {fm.mode}")
+        if self.field_size is not None and fm.kind not in ("pool",) and fm.n != self.field_size:
+            raise ValueError(f"{self.name} profile expects N={self.field_size}; {fm.field_id} has {fm.n}")
+        return fm
+
+    # ------------------------------------------------------------ cells
+    def cell(self, mode: str, field: str, experiment: str = "baseline", rounds: int | None = None,
+             hands: int | None = None) -> Cell:
+        m = load_mode(mode, self.config_root)
+        return Cell("adaptive", m, self.protocol(m, rounds, hands), self.field(mode, field), self.seed_family,
+                    self.namespaces[experiment])
+
+    def rounds_sweep(self) -> list[int]:
+        return round_sweep(self.r0)
+
+    def allocations(self) -> list[BudgetAllocation]:
+        return budget_allocations(self.r0, self.h0)
+
+    def budget_cells(self, mode: str, field: str) -> list[tuple[BudgetAllocation, Cell]]:
+        return [(a, self.cell(mode, field, "budget_sweep", a.rounds, a.hands_per_match)) for a in self.allocations()]
+
+    def schedule_cells(self, mode: str, field: str) -> tuple[Cell, Cell, Cell, int]:
+        j = int(self.selection.get("replays_per_source", 4))
+        src = self.cell(mode, field, "schedule_diagnostic")
+        frozen = Cell("frozen_replay", src.mode, src.protocol, src.field, src.seed_family, src.namespace, src, j)
+        adapt = Cell("adaptive_replay", src.mode, src.protocol, src.field, src.seed_family, src.namespace, src, j)
+        return src, frozen, adapt, j
+
+    def swiss_reference_cell(self, mode: str, field: str) -> Cell:
+        return self.cell(mode, field, "swiss_reference")
+
+    def calibration_spec(self, mode: str, stage: str, field: str | None = None) -> CalibrationSpec:
+        m = load_mode(mode, self.config_root)
+        if stage == "pool":
+            fm = load_field(self.field_path(mode, self.calibration["pool_field"]))
+            c, ns = self.calibration["pool"], self.namespaces["pool_calibration"]
+        elif stage == "field":
+            if field is None:
+                raise ValueError("field-reference calibration needs a field")
+            fm = self.field(mode, field)
+            c, ns = self.calibration["field_reference"], self.namespaces["field_reference"]
+        else:
+            raise ValueError("stage must be 'pool' or 'field'")
+        return CalibrationSpec(m, fm, self.h0, m.stack_policy, self.seed_family, ns, int(c["chunk_rounds"]))
+
+    def calibration_rounds(self, stage: str) -> int:
+        return int(self.calibration["pool" if stage == "pool" else "field_reference"]["rounds"])
+
+
+def load_profile(name: str = "publication", results_root: Path | None = None,
+                 config_root: Path = FHR3B_CONFIGS) -> Profile:
+    mx = load_matrix(config_root)
+    lab = _lab_raw(config_root)
+    base = load_protocol(config_root / lab["base_protocol"])
+    sel = dict(mx["calibration"]["selection"]) | {
+        "replays_per_source": mx["experiments"]["schedule_diagnostic"]["replays_per_source"]}
+    cal = {"pool": mx["calibration"]["pool"], "field_reference": mx["calibration"]["field_reference"],
+           "pool_field": "pool"}
+    pub_ns = {"baseline": "publication", "round_sweep": "publication", "budget_sweep": "publication",
+              "schedule_diagnostic": "publication", "swiss_reference": "swiss-reference",
+              "pool_calibration": "pool-calibration", "field_reference": "field-reference"}
+    fields_dir = config_root / "fields"
+    if name == "publication":
+        return Profile(name, base, lab["name"], int(lab["field_size"]), int(lab["qualify_top_k"]),
+                       lab["seed_family"], pub_ns, tuple(mx["experiments"]["baseline"]["fields"]), fields_dir,
+                       sel, cal, config_root)
+    if name == "pilot":
+        ns = {k: "pilot" for k in pub_ns}
+        return Profile(name, base, lab["name"], int(lab["field_size"]), int(lab["qualify_top_k"]),
+                       lab["seed_family"], ns, tuple(mx["experiments"]["pilot"]["fields"]), fields_dir,
+                       sel, cal, config_root)
+    if name == "smoke":
+        sm = mx["smoke_profile"]
+        proto = load_protocol(config_root / mx["experiments"]["smoke"]["protocol"])
+        ns = {k: "smoke" for k in pub_ns} | {"swiss_reference": "test", "field_reference": "test"}
+        sdir = Path(results_root or ".") / "smoke-fields"
+        return Profile(name, proto, "smoke", None, proto.qualify_top_k, lab["seed_family"], ns,
+                       tuple(sm["fields"]), sdir, dict(sm["selection"]), dict(sm["calibration"]), config_root)
+    raise ValueError(f"unknown profile {name!r}")
+
+
+def preset_replicates(preset: str, config_root: Path = FHR3B_CONFIGS) -> int:
+    return int(load_matrix(config_root)["presets"][preset])

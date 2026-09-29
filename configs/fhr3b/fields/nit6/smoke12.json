@@ -1,0 +1,627 @@
+{
+ "bots": [
+  {
+   "bot_id": "nit6-aggressive-e3-s0",
+   "kind": "nit_heuristic",
+   "meta": {
+    "agent_seed": 0,
+    "archetype": "aggressive",
+    "epsilon": 0.45,
+    "scale_index": 3
+   },
+   "params": {
+    "nit_call_shift": 0.0166,
+    "nit_looseness": 1.94127,
+    "overrides": {
+     "aggression": 1.21219,
+     "allin_commit_fraction": 0.65738,
+     "bb_defend_pct": 0.26321,
+     "bet_fraction": 0.55817,
+     "bluff_freq": 0.15865,
+     "call_3bet_pct": 0.07669,
+     "call_4bet_pct": 0.02398,
+     "call_margin": 0.15304,
+     "call_open_pct": 0.10655,
+     "fourbet_mult": 2.76409,
+     "fourbet_pct": 0.01822,
+     "looseness": 1.57095,
+     "multiway_exponent": 0.49056,
+     "open_pct_by_seats_behind": [
+      0.62852,
+      0.39108,
+      0.27934,
+      0.22347,
+      0.19554,
+      0.16761,
+      0.15364,
+      0.13967
+     ],
+     "open_size_bb": 2.0,
+     "postflop_temperature": 0.0253,
+     "preflop_temperature": 0.01949,
+     "raise_pot_fraction": 1.11275,
+     "raise_threshold": 0.95,
+     "sb_open_pct": 0.30864,
+     "semibluff_freq": 0.73042,
+     "threebet_mult": 2.96826,
+     "threebet_pct": 0.06911,
+     "value_threshold": 0.86574
+    },
+    "style": "aggressive"
+   },
+   "version": "nit-heuristic-1.0.0+95fa3cf39e"
+  },
+  {
+   "bot_id": "nit6-aggressive-e3-s1",
+   "kind": "nit_heuristic",
+   "meta": {
+    "agent_seed": 1,
+    "archetype": "aggressive",
+    "epsilon": 0.45,
+    "scale_index": 3
+   },
+   "params": {
+    "nit_call_shift": 0.0258,
+    "nit_looseness": 2.0,
+    "overrides": {
+     "aggression": 1.53624,
+     "allin_commit_fraction": 0.30772,
+     "bb_defend_pct": 0.33832,
+     "bet_fraction": 0.79335,
+     "bluff_freq": 0.07209,
+     "call_3bet_pct": 0.03116,
+     "call_4bet_pct": 0.03079,
+     "call_margin": -0.01851,
+     "call_open_pct": 0.14834,
+     "fourbet_mult": 2.09445,
+     "fourbet_pct": 0.02801,
+     "looseness": 1.3044,
+     "multiway_exponent": 0.349,
+     "open_pct_by_seats_behind": [
+      0.3,
+      0.18667,
+      0.13333,
+      0.10667,
+      0.09333,
+      0.08,
+      0.07333,
+      0.06667
+     ],
+     "open_size_bb": 3.89844,
+     "postflop_temperature": 0.02488,
+     "preflop_temperature": 0.03088,
+     "raise_pot_fraction": 0.46257,
+     "raise_threshold": 0.61465,
+     "sb_open_pct": 0.47525,
+     "semibluff_freq": 0.78156,
+     "threebet_mult": 4.03079,
+     "threebet_pct": 0.07,
+     "value_threshold": 0.95
+    },
+    "style": "aggressive"
+   },
+   "version": "nit-heuristic-1.0.0+124f33b6aa"
+  },
+  {
+   "bot_id": "nit6-loose-e2-s3",
+   "kind": "nit_heuristic",
+   "meta": {
+    "agent_seed": 3,
+    "archetype": "loose",
+    "epsilon": 0.25,
+    "scale_index": 2
+   },
+   "params": {
+    "nit_call_shift": 0.07638,
+    "nit_looseness": 1.41223,
+    "overrides": {
+     "aggression": 0.6637,
+     "allin_commit_fraction": 0.3996,
+     "bb_defend_pct": 0.25229,
+     "bet_fraction": 0.61955,
+     "bluff_freq": 0.0757,
+     "call_3bet_pct": 0.05266,
+     "call_4bet_pct": 0.03227,
+     "call_margin": -0.0674,
+     "call_open_pct": 0.10868,
+     "fourbet_mult": 3.48891,
+     "fourbet_pct": 0.01845,
+     "looseness": 1.31298,
+     "multiway_exponent": 0.57674,
+     "open_pct_by_seats_behind": [
+      0.28826,
+      0.17936,
+      0.12812,
+      0.10249,
+      0.08968,
+      0.07687,
+      0.07046,
+      0.06406
+     ],
+     "open_size_bb": 2.50972,
+     "postflop_temperature": 0.02701,
+     "preflop_temperature": 0.01605,
+     "raise_pot_fraction": 0.86378,
+     "raise_threshold": 0.77946,
+     "sb_open_pct": 0.50555,
+     "semibluff_freq": 0.3727,
+     "threebet_mult": 3.25279,
+     "threebet_pct": 0.03955,
+     "value_threshold": 0.68566
+    },
+    "style": "loose"
+   },
+   "version": "nit-heuristic-1.0.0+be145345b3"
+  },
+  {
+   "bot_id": "nit6-loose-e3-s3",
+   "kind": "nit_heuristic",
+   "meta": {
+    "agent_seed": 3,
+    "archetype": "loose",
+    "epsilon": 0.45,
+    "scale_index": 3
+   },
+   "params": {
+    "nit_call_shift": 0.06543,
+    "nit_looseness": 2.0,
+    "overrides": {
+     "aggression": 1.10233,
+     "allin_commit_fraction": 0.31364,
+     "bb_defend_pct": 0.18866,
+     "bet_fraction": 0.70833,
+     "bluff_freq": 0.10913,
+     "call_3bet_pct": 0.04586,
+     "call_4bet_pct": 0.01263,
+     "call_margin": -0.02859,
+     "call_open_pct": 0.08524,
+     "fourbet_mult": 2.48264,
+     "fourbet_pct": 0.01198,
+     "looseness": 1.00781,
+     "multiway_exponent": 0.41519,
+     "open_pct_by_seats_behind": [
+      0.82468,
+      0.51314,
+      0.36653,
+      0.29322,
+      0.25657,
+      0.21992,
+      0.20159,
+      0.18326
+     ],
+     "open_size_bb": 2.0,
+     "postflop_temperature": 0.04599,
+     "preflop_temperature": 0.01196,
+     "raise_pot_fraction": 0.6686,
+     "raise_threshold": 0.57998,
+     "sb_open_pct": 0.2945,
+     "semibluff_freq": 0.95,
+     "threebet_mult": 4.79269,
+     "threebet_pct": 0.0699,
+     "value_threshold": 0.95
+    },
+    "style": "loose"
+   },
+   "version": "nit-heuristic-1.0.0+a448c2dac8"
+  },
+  {
+   "bot_id": "nit6-maniac-e1-s0",
+   "kind": "nit_heuristic",
+   "meta": {
+    "agent_seed": 0,
+    "archetype": "maniac",
+    "epsilon": 0.1,
+    "scale_index": 1
+   },
+   "params": {
+    "nit_call_shift": 0.02714,
+    "nit_looseness": 1.42501,
+    "overrides": {
+     "aggression": 2.12922,
+     "allin_commit_fraction": 0.46706,
+     "bb_defend_pct": 0.29495,
+     "bet_fraction": 0.95271,
+     "bluff_freq": 0.28784,
+     "call_3bet_pct": 0.0467,
+     "call_4bet_pct": 0.02868,
+     "call_margin": 0.00213,
+     "call_open_pct": 0.11281,
+     "fourbet_mult": 2.37883,
+     "fourbet_pct": 0.0253,
+     "looseness": 1.33508,
+     "multiway_exponent": 0.54508,
+     "open_pct_by_seats_behind": [
+      0.48014,
+      0.29875,
+      0.2134,
+      0.17072,
+      0.14938,
+      0.12804,
+      0.11737,
+      0.1067
+     ],
+     "open_size_bb": 2.02651,
+     "postflop_temperature": 0.03801,
+     "preflop_temperature": 0.01593,
+     "raise_pot_fraction": 0.91741,
+     "raise_threshold": 0.85077,
+     "sb_open_pct": 0.35705,
+     "semibluff_freq": 0.74076,
+     "threebet_mult": 3.01173,
+     "threebet_pct": 0.04366,
+     "value_threshold": 0.68316
+    },
+    "style": "aggressive"
+   },
+   "version": "nit-heuristic-1.0.0+24f5ff6944"
+  },
+  {
+   "bot_id": "nit6-maniac-e3-s1",
+   "kind": "nit_heuristic",
+   "meta": {
+    "agent_seed": 1,
+    "archetype": "maniac",
+    "epsilon": 0.45,
+    "scale_index": 3
+   },
+   "params": {
+    "nit_call_shift": 0.08789,
+    "nit_looseness": 1.0,
+    "overrides": {
+     "aggression": 1.48932,
+     "allin_commit_fraction": 0.43925,
+     "bb_defend_pct": 0.25886,
+     "bet_fraction": 1.5,
+     "bluff_freq": 0.41414,
+     "call_3bet_pct": 0.05576,
+     "call_4bet_pct": 0.03583,
+     "call_margin": 0.14323,
+     "call_open_pct": 0.10512,
+     "fourbet_mult": 2.87905,
+     "fourbet_pct": 0.02632,
+     "looseness": 2.03161,
+     "multiway_exponent": 0.25017,
+     "open_pct_by_seats_behind": [
+      0.42576,
+      0.26492,
+      0.18923,
+      0.15138,
+      0.13246,
+      0.11354,
+      0.10408,
+      0.09461
+     ],
+     "open_size_bb": 3.03147,
+     "postflop_temperature": 0.05365,
+     "preflop_temperature": 0.00921,
+     "raise_pot_fraction": 0.84839,
+     "raise_threshold": 0.95,
+     "sb_open_pct": 0.16257,
+     "semibluff_freq": 0.57353,
+     "threebet_mult": 3.38514,
+     "threebet_pct": 0.0319,
+     "value_threshold": 0.36956
+    },
+    "style": "aggressive"
+   },
+   "version": "nit-heuristic-1.0.0+79e36eddf5"
+  },
+  {
+   "bot_id": "nit6-neutral-e1-s1",
+   "kind": "nit_heuristic",
+   "meta": {
+    "agent_seed": 1,
+    "archetype": "neutral",
+    "epsilon": 0.1,
+    "scale_index": 1
+   },
+   "params": {
+    "nit_call_shift": 0.02646,
+    "nit_looseness": 1.32096,
+    "overrides": {
+     "aggression": 1.06967,
+     "allin_commit_fraction": 0.43407,
+     "bb_defend_pct": 0.28937,
+     "bet_fraction": 0.62515,
+     "bluff_freq": 0.11546,
+     "call_3bet_pct": 0.04748,
+     "call_4bet_pct": 0.02844,
+     "call_margin": 0.00249,
+     "call_open_pct": 0.12778,
+     "fourbet_mult": 2.61142,
+     "fourbet_pct": 0.02166,
+     "looseness": 1.0603,
+     "multiway_exponent": 0.47128,
+     "open_pct_by_seats_behind": [
+      0.58592,
+      0.36457,
+      0.26041,
+      0.20833,
+      0.18229,
+      0.15625,
+      0.14322,
+      0.1302
+     ],
+     "open_size_bb": 2.51101,
+     "postflop_temperature": 0.03555,
+     "preflop_temperature": 0.01471,
+     "raise_pot_fraction": 0.80271,
+     "raise_threshold": 0.95,
+     "sb_open_pct": 0.39122,
+     "semibluff_freq": 0.42237,
+     "threebet_mult": 3.5625,
+     "threebet_pct": 0.04562,
+     "value_threshold": 0.66874
+    },
+    "style": "neutral"
+   },
+   "version": "nit-heuristic-1.0.0+a2d1d6ccc8"
+  },
+  {
+   "bot_id": "nit6-neutral-e2-s3",
+   "kind": "nit_heuristic",
+   "meta": {
+    "agent_seed": 3,
+    "archetype": "neutral",
+    "epsilon": 0.25,
+    "scale_index": 2
+   },
+   "params": {
+    "nit_call_shift": 0.04783,
+    "nit_looseness": 1.63861,
+    "overrides": {
+     "aggression": 0.96304,
+     "allin_commit_fraction": 0.34329,
+     "bb_defend_pct": 0.29694,
+     "bet_fraction": 1.13465,
+     "bluff_freq": 0.11219,
+     "call_3bet_pct": 0.03982,
+     "call_4bet_pct": 0.0329,
+     "call_margin": -0.08036,
+     "call_open_pct": 0.11245,
+     "fourbet_mult": 2.80627,
+     "fourbet_pct": 0.02668,
+     "looseness": 1.34562,
+     "multiway_exponent": 0.46798,
+     "open_pct_by_seats_behind": [
+      0.5783,
+      0.35983,
+      0.25702,
+      0.20562,
+      0.17992,
+      0.15421,
+      0.14136,
+      0.12851
+     ],
+     "open_size_bb": 2.3693,
+     "postflop_temperature": 0.0434,
+     "preflop_temperature": 0.01405,
+     "raise_pot_fraction": 0.72891,
+     "raise_threshold": 0.69103,
+     "sb_open_pct": 0.33724,
+     "semibluff_freq": 0.38747,
+     "threebet_mult": 4.81546,
+     "threebet_pct": 0.06838,
+     "value_threshold": 0.56241
+    },
+    "style": "neutral"
+   },
+   "version": "nit-heuristic-1.0.0+25632e31cf"
+  },
+  {
+   "bot_id": "nit6-nit-e1-s2",
+   "kind": "nit_heuristic",
+   "meta": {
+    "agent_seed": 2,
+    "archetype": "nit",
+    "epsilon": 0.1,
+    "scale_index": 1
+   },
+   "params": {
+    "nit_call_shift": 0.04606,
+    "nit_looseness": 1.27574,
+    "overrides": {
+     "aggression": 0.76764,
+     "allin_commit_fraction": 0.4854,
+     "bb_defend_pct": 0.26089,
+     "bet_fraction": 0.62082,
+     "bluff_freq": 0.04545,
+     "call_3bet_pct": 0.05031,
+     "call_4bet_pct": 0.03049,
+     "call_margin": 0.04974,
+     "call_open_pct": 0.12219,
+     "fourbet_mult": 2.33066,
+     "fourbet_pct": 0.02278,
+     "looseness": 0.57168,
+     "multiway_exponent": 0.42803,
+     "open_pct_by_seats_behind": [
+      0.36103,
+      0.22464,
+      0.16046,
+      0.12837,
+      0.11232,
+      0.09627,
+      0.08825,
+      0.08023
+     ],
+     "open_size_bb": 2.26114,
+     "postflop_temperature": 0.03945,
+     "preflop_temperature": 0.01438,
+     "raise_pot_fraction": 0.86266,
+     "raise_threshold": 0.95,
+     "sb_open_pct": 0.40366,
+     "semibluff_freq": 0.50331,
+     "threebet_mult": 3.14597,
+     "threebet_pct": 0.05152,
+     "value_threshold": 0.60052
+    },
+    "style": "tight"
+   },
+   "version": "nit-heuristic-1.0.0+e690a94825"
+  },
+  {
+   "bot_id": "nit6-station-e2-s0",
+   "kind": "nit_heuristic",
+   "meta": {
+    "agent_seed": 0,
+    "archetype": "station",
+    "epsilon": 0.25,
+    "scale_index": 2
+   },
+   "params": {
+    "nit_call_shift": 0.06369,
+    "nit_looseness": 1.2667,
+    "overrides": {
+     "aggression": 0.41472,
+     "allin_commit_fraction": 0.40731,
+     "bb_defend_pct": 0.27496,
+     "bet_fraction": 0.67427,
+     "bluff_freq": 0.02879,
+     "call_3bet_pct": 0.05913,
+     "call_4bet_pct": 0.02438,
+     "call_margin": -0.0799,
+     "call_open_pct": 0.11575,
+     "fourbet_mult": 2.12536,
+     "fourbet_pct": 0.01798,
+     "looseness": 1.16498,
+     "multiway_exponent": 0.40155,
+     "open_pct_by_seats_behind": [
+      0.53509,
+      0.33294,
+      0.23782,
+      0.19025,
+      0.16647,
+      0.14269,
+      0.1308,
+      0.11891
+     ],
+     "open_size_bb": 3.22868,
+     "postflop_temperature": 0.04064,
+     "preflop_temperature": 0.01087,
+     "raise_pot_fraction": 0.51724,
+     "raise_threshold": 0.95,
+     "sb_open_pct": 0.33058,
+     "semibluff_freq": 0.16376,
+     "threebet_mult": 2.55061,
+     "threebet_pct": 0.03731,
+     "value_threshold": 0.42416
+    },
+    "style": "loose"
+   },
+   "version": "nit-heuristic-1.0.0+490c758729"
+  },
+  {
+   "bot_id": "nit6-tight-e2-s3",
+   "kind": "nit_heuristic",
+   "meta": {
+    "agent_seed": 3,
+    "archetype": "tight",
+    "epsilon": 0.25,
+    "scale_index": 2
+   },
+   "params": {
+    "nit_call_shift": 0.02677,
+    "nit_looseness": 1.26222,
+    "overrides": {
+     "aggression": 1.00862,
+     "allin_commit_fraction": 0.25644,
+     "bb_defend_pct": 0.22858,
+     "bet_fraction": 0.63997,
+     "bluff_freq": 0.10514,
+     "call_3bet_pct": 0.07557,
+     "call_4bet_pct": 0.03062,
+     "call_margin": -0.05601,
+     "call_open_pct": 0.14877,
+     "fourbet_mult": 2.37816,
+     "fourbet_pct": 0.0162,
+     "looseness": 1.13933,
+     "multiway_exponent": 0.35394,
+     "open_pct_by_seats_behind": [
+      0.44822,
+      0.2789,
+      0.19921,
+      0.15937,
+      0.13945,
+      0.11953,
+      0.10957,
+      0.09961
+     ],
+     "open_size_bb": 2.83598,
+     "postflop_temperature": 0.04099,
+     "preflop_temperature": 0.01214,
+     "raise_pot_fraction": 0.85725,
+     "raise_threshold": 0.75045,
+     "sb_open_pct": 0.45836,
+     "semibluff_freq": 0.39781,
+     "threebet_mult": 2.2,
+     "threebet_pct": 0.06209,
+     "value_threshold": 0.45207
+    },
+    "style": "tight"
+   },
+   "version": "nit-heuristic-1.0.0+c83db18d33"
+  },
+  {
+   "bot_id": "nit6-trapper-e3-s1",
+   "kind": "nit_heuristic",
+   "meta": {
+    "agent_seed": 1,
+    "archetype": "trapper",
+    "epsilon": 0.45,
+    "scale_index": 3
+   },
+   "params": {
+    "nit_call_shift": 0.08338,
+    "nit_looseness": 1.66879,
+    "overrides": {
+     "aggression": 0.78734,
+     "allin_commit_fraction": 0.2,
+     "bb_defend_pct": 0.21656,
+     "bet_fraction": 0.47177,
+     "bluff_freq": 0.16155,
+     "call_3bet_pct": 0.0555,
+     "call_4bet_pct": 0.02992,
+     "call_margin": 0.04811,
+     "call_open_pct": 0.08638,
+     "fourbet_mult": 1.8,
+     "fourbet_pct": 0.02393,
+     "looseness": 0.55634,
+     "multiway_exponent": 0.50103,
+     "open_pct_by_seats_behind": [
+      0.49003,
+      0.30491,
+      0.21779,
+      0.17423,
+      0.15245,
+      0.13067,
+      0.11978,
+      0.1089
+     ],
+     "open_size_bb": 2.82035,
+     "postflop_temperature": 0.02479,
+     "preflop_temperature": 0.00946,
+     "raise_pot_fraction": 0.42618,
+     "raise_threshold": 0.54448,
+     "sb_open_pct": 0.70636,
+     "semibluff_freq": 0.6727,
+     "threebet_mult": 4.34548,
+     "threebet_pct": 0.06652,
+     "value_threshold": 0.77409
+    },
+    "style": "neutral"
+   },
+   "version": "nit-heuristic-1.0.0+1a791f0a92"
+  }
+ ],
+ "construction": {
+  "method": "stratified_sample",
+  "n": 12,
+  "pool_hash": "933d87d07a8e1c64",
+  "purpose": "correctness only"
+ },
+ "field_hash": "b5113bed34c6d706",
+ "field_id": "nit6-smoke12",
+ "kind": "smoke",
+ "mode": "nit6",
+ "n": 12
+}

@@ -23,6 +23,7 @@ sequential = ["confseq==0.0.11"]
 
 [project.scripts]
 fhr3 = "fhr3.cli.main:main"
+fhr3b = "fhr3.tournament.cli:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]
