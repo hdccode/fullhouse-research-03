@@ -1,46 +1,57 @@
 #!/usr/bin/env bash
-# RQ6 final: the minimum estimator set (researcher-run; ~15-20 min total at 8 workers).
-#   1. 6-max NLHE 100BB: raw vs all-in EV vs fitted MIVAT vs fitted AIVAT, 25k blocks
-#      per pairing (same root seed as the 250k reference: raw D must equal stored D).
-#   2. 6-max NLHE 20BB: raw vs all-in EV, 10k/pairing (same seed as the 20BB corpus).
-#   3. AoF 4-max 8BB: raw vs all-in EV, 50k/pairing (every contested hand is a
-#      preflop all-in: the all-in EV limit case). 50k matches the raw corpus: the
-#      production-vs-blend gap (+0.27 [-0.07, +0.62] BB/100 raw) is the test case.
-# The prior-value-function 100BB run and the Bomb Pot all-in EV run are not part
-# of the minimum set (see docs/final_status.md).
+# RQ6 final (USER-RUN): raw vs all-in EV vs fitted MIVAT / AIVAT on the SAME matched blocks.
+#   A. NLHE 6-max 100BB  fhr3-nlhe6-100bb-rq6-v1-fittedvf  raw, all-in EV, fitted MIVAT, fitted AIVAT
+#                        25,000 blocks/pairing (+ 2,000 control)       reference fhr3-nlhe6-100bb-pilot-v1
+#   B. NLHE 6-max 20BB   fhr3-nlhe6-20bb-rq6-allin-v1      raw, all-in EV   10,000/pairing (+ control)
+#                                                                       reference fhr3-nlhe6-20bb-v1
+#   C. AoF 4-max 8BB     fhr3-aof4-8bb-rq6-allin-v1        raw, all-in EV   50,000/pairing (+ 10,000 control)
+#                                                                       reference fhr3-aof4-8bb-pilot-v1
+# Every setting uses the reference corpus' root seed, so raw D must reproduce it block for block.
+# Resumable: finished chunks are skipped; the value function is fitted once and then reused
+# (its sha256 is pinned in the derived config); locks refuse incompatible results.
+# Conservative duration at 8 workers: ~25-40 min total (see docs/workflow.md).
 set -euo pipefail
-FHR3=${FHR3:-.venv/bin/fhr3}
+cd "$(git rev-parse --show-toplevel)"
+FHR3=.venv/bin/fhr3
+PY=.venv/bin/python
 W=${WORKERS:-8}
 P3=(--pairing p1-neutral-vs-loose10 --pairing p2-neutral-vs-tight --pairing p3-aggressive-vs-neutral)
-mkdir -p reports/vat reports/rq6
-
-# 1a. frozen value function on separate training blocks (training seed != 20260928)
-$FHR3 vat-fit --config configs/nlhe_6max_100bb_rq6.yaml "${P3[@]}" --blocks 0:1000 \
-    --training-root-seed 90210 --flop-samples 16 --kind aivat \
-    --out reports/vat/nlhe6-100bb-vf.json --write-config configs/nlhe_6max_100bb_rq6_fitted.yaml
-# 1b. evaluate (experiment fhr3-nlhe6-100bb-rq6-v1-fittedvf); control only needs 2k blocks
-$FHR3 simulate --config configs/nlhe_6max_100bb_rq6_fitted.yaml --blocks 0:2000 --pairing c0-selfplay-control --workers "$W"
-$FHR3 simulate --config configs/nlhe_6max_100bb_rq6_fitted.yaml --blocks 0:25000 "${P3[@]}" --workers "$W"
-$FHR3 validate --config configs/nlhe_6max_100bb_rq6_fitted.yaml --blocks 0:25000 "${P3[@]}" --replay 20 \
-    --json reports/rq6/nlhe6-100bb-fitted-validate.json
-$FHR3 analyze results/fhr3-nlhe6-100bb-rq6-v1-fittedvf --bootstrap 2000 --json reports/rq6/nlhe6-100bb-fitted.json \
-    | tee reports/rq6/nlhe6-100bb-fitted.txt
-
-# 2. 20BB all-in EV (experiment fhr3-nlhe6-20bb-rq6-allin-v1)
-scripts/run_pilot.sh configs/rq6/nlhe_6max_20bb_allin.yaml 10000 "$W"
-# 3. AoF all-in EV (experiment fhr3-aof4-8bb-rq6-allin-v1): control 10k, p1-p3 50k
 P3AOF=(--pairing p1-prodv2-vs-blend10 --pairing p2-prodv2-vs-heuristic --pairing p3-aggressive-vs-neutral)
-$FHR3 simulate --config configs/rq6/aof_4max_8bb_allin.yaml --blocks 0:10000 --workers "$W"
-$FHR3 simulate --config configs/rq6/aof_4max_8bb_allin.yaml --blocks 0:50000 "${P3AOF[@]}" --workers "$W"
-$FHR3 validate --config configs/rq6/aof_4max_8bb_allin.yaml --blocks 0:50000 "${P3AOF[@]}" --replay 20 \
-    --json reports/rq6/aof4-allin-validate.json
-$FHR3 analyze results/fhr3-aof4-8bb-rq6-allin-v1 --bootstrap 2000 --json reports/rq6/aof4-allin.json \
-    | tee reports/rq6/aof4-allin.txt
+VF=configs/rq6/vf/nlhe6-100bb-vf.json
+FIT=configs/rq6/nlhe_6max_100bb_fitted.yaml
 
-# raw-D regression (expect "paired; corr(D) +1.000" for every raw row) + variance-reduction table
-$FHR3 compare results/fhr3-nlhe6-100bb-pilot-v1 results/fhr3-nlhe6-100bb-rq6-v1-fittedvf \
-    results/fhr3-nlhe6-20bb-v1 results/fhr3-nlhe6-20bb-rq6-allin-v1 \
-    results/fhr3-aof4-8bb-pilot-v1 results/fhr3-aof4-8bb-rq6-allin-v1 \
-    --json reports/rq6/rq6-compare.json | tee reports/rq6/rq6-compare.txt
-$FHR3 figures results/fhr3-nlhe6-100bb-rq6-v1-fittedvf results/fhr3-nlhe6-20bb-rq6-allin-v1 \
-    results/fhr3-aof4-8bb-rq6-allin-v1 --out reports/rq6/figures --workers "$W"
+echo "== 0. preflight: committed code, RQ6 correctness gates"
+if [ -n "$(git status --porcelain -- src pyproject.toml uv.lock)" ]; then
+  echo "refusing: uncommitted changes in src/, pyproject.toml or uv.lock (run manifests must record a clean SHA)"; exit 1
+fi
+$PY -m pytest -q -p no:cacheprovider tests/test_rq6.py tests/test_allin_ev.py tests/test_vat.py
+
+echo "== 1. value function: fit once on separate training blocks (seed 90210), then verify"
+if [ ! -f "$FIT" ]; then
+  mkdir -p "$(dirname "$VF")"
+  $FHR3 vat-fit --config configs/nlhe_6max_100bb_rq6.yaml "${P3[@]}" --blocks 0:1000 \
+      --training-root-seed 90210 --flop-samples 16 --kind aivat --out "$VF" --write-config "$FIT"
+fi
+$PY scripts/verify_value_function.py "$FIT"
+
+echo "== 2. A: NLHE 6-max 100BB (fitted)"
+$FHR3 simulate --config "$FIT" --blocks 0:2000 --pairing c0-selfplay-control --workers "$W"
+$FHR3 simulate --config "$FIT" --blocks 0:25000 "${P3[@]}" --workers "$W"
+
+echo "== 3. B: NLHE 6-max 20BB all-in EV"
+$FHR3 simulate --config configs/rq6/nlhe_6max_20bb_allin.yaml --blocks 0:10000 --workers "$W"
+
+echo "== 4. C: AoF 4-max 8BB all-in EV"
+$FHR3 simulate --config configs/rq6/aof_4max_8bb_allin.yaml --blocks 0:10000 --pairing c0-selfplay-control --workers "$W"
+$FHR3 simulate --config configs/rq6/aof_4max_8bb_allin.yaml --blocks 0:50000 "${P3AOF[@]}" --workers "$W"
+
+echo "== 5. validate (structure + exact replay incl. estimator columns)"
+mkdir -p reports/rq6
+$FHR3 validate --config "$FIT" --blocks 0:25000 "${P3[@]}" --replay 20 --json reports/rq6/validate-nlhe6-100bb.json
+$FHR3 validate --config "$FIT" --blocks 0:2000 --pairing c0-selfplay-control --replay 10 --json reports/rq6/validate-nlhe6-100bb-control.json
+$FHR3 validate --config configs/rq6/nlhe_6max_20bb_allin.yaml --blocks 0:10000 --replay 20 --json reports/rq6/validate-nlhe6-20bb.json
+$FHR3 validate --config configs/rq6/aof_4max_8bb_allin.yaml --blocks 0:50000 "${P3AOF[@]}" --replay 20 --json reports/rq6/validate-aof4.json
+$FHR3 validate --config configs/rq6/aof_4max_8bb_allin.yaml --blocks 0:10000 --pairing c0-selfplay-control --replay 10 --json reports/rq6/validate-aof4-control.json
+
+echo "== 6. analysis + freeze"
+scripts/analyze_rq6.sh
