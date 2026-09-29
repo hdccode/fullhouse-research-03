@@ -18,6 +18,12 @@ Existing v1 corpora (schema `fhr3-block-v1`) remain readable, analysable and
 replay-validatable, but cannot be *extended* by v2 code (the lock refuses); new
 blocks go under a new experiment_id.
 
+## Status: EMPIRICAL RESEARCH COMPLETE (2026-09-29)
+
+The core, RQ6 and RQ7 results are frozen (three manifests). The writer handoff is in
+`paper/` (see `paper/README.md`). The sections below document how the results were
+produced.
+
 ## Status: final core corpus (frozen)
 
 The core raw simulation campaign is complete. Corpus sizes, integrity checks and

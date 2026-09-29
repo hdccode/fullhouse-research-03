@@ -1,5 +1,11 @@
 # Final core corpus: status and frozen conclusions (internal analysis note)
 
+**EMPIRICAL RESEARCH COMPLETE (2026-09-29).**
+* The core, RQ6 and RQ7 results are frozen, and their manifests verify.
+* The writer handoff is in `paper/`: CLAIMS, NUMBERS, EVIDENCE_MAP, FIGURES, LIMITATIONS,
+  REFERENCES and DRAFT_REVISION_NOTES.
+* No further simulation is planned.
+
 Frozen 2026-09-29. Every number below comes from `reports/final-analysis/`, whose
 exact inputs and outputs are pinned by `reports/final-analysis/MANIFEST.json`
 (`scripts/freeze_manifest.py --verify` checks for drift). Not paper text.
@@ -78,7 +84,7 @@ blocks of every mixed-SHA extension. `src/` is unchanged since a86909d.
   n = 500 for the heaviest tails. Appendix only.
 * **Stack depth.** Paired over common blocks 0-9,999:
   * sigma(20BB)/sigma(100BB) = 0.38 / 0.37 / 0.38, with CIs within 0.34-0.42.
-  * 100BB needs 7.1x / 7.2x / 6.8x the blocks of 20BB (CIs 5.6-8.6x) and 2.1x / 2.1x /
+  * 100BB needs 7.1x / 7.2x / 6.8x the blocks of 20BB (CIs 5.7-8.6x) and 2.1x / 2.1x /
     2.0x those of 50BB (CIs 1.7-2.4x).
   * Measured against the full 250k 100BB sigma instead: 6.2-6.5x and 1.8-2.0x.
   * corr(D) is 0.69-0.74 between 20BB and 100BB, and 0.85-0.90 between 50BB and 100BB.
