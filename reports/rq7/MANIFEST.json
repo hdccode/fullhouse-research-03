@@ -1,0 +1,831 @@
+{
+ "target": "rq7",
+ "analysis_code_git_sha": "ac3cd5f012a707e3beb56abda2b0393969f4df55",
+ "commands": [
+  "scripts/run_rq7_final.sh (expanded in docs/workflow.md)",
+  "scripts/analyze_rq7.sh"
+ ],
+ "cells": {
+  "alt-heavy-n100k": {
+   "design": {
+    "sampler": "bootstrap:results/fhr3-nlhe6-100bb-pilot-v1/p1-neutral-vs-loose10",
+    "true_mean": 0.0682124915335854,
+    "effect_d": 0.008859,
+    "sigma": 7.699795861111344,
+    "reps": 1000,
+    "n_max": 250000,
+    "t_star": 100000.0,
+    "min_n": 200,
+    "fixed_n": 100000,
+    "alpha": 0.05,
+    "seed": 20261007,
+    "checkpoints": [
+     1000,
+     10000,
+     25000,
+     100000,
+     250000
+    ],
+    "engine_version": "fhr3-rq7-engine-1",
+    "asymp_method_version": "fhr3-asympcs-v1"
+   },
+   "design_hash": "1838eabdd70c1db1",
+   "git": {
+    "sha": "ac3cd5f012a707e3beb56abda2b0393969f4df55",
+    "dirty": false
+   }
+  },
+  "alt-heavy-n25k": {
+   "design": {
+    "sampler": "bootstrap:results/fhr3-nlhe6-100bb-pilot-v1/p1-neutral-vs-loose10",
+    "true_mean": 0.1364326828630319,
+    "effect_d": 0.017719,
+    "sigma": 7.699795861111344,
+    "reps": 1000,
+    "n_max": 250000,
+    "t_star": 100000.0,
+    "min_n": 200,
+    "fixed_n": 25000,
+    "alpha": 0.05,
+    "seed": 20261007,
+    "checkpoints": [
+     1000,
+     10000,
+     25000,
+     100000,
+     250000
+    ],
+    "engine_version": "fhr3-rq7-engine-1",
+    "asymp_method_version": "fhr3-asympcs-v1"
+   },
+   "design_hash": "de23c80f708ad975",
+   "git": {
+    "sha": "ac3cd5f012a707e3beb56abda2b0393969f4df55",
+    "dirty": false
+   }
+  },
+  "alt-mild-n100k": {
+   "design": {
+    "sampler": "bootstrap:results/fhr3-plo6-100bb-pilot-v1/p3-aggressive-vs-neutral",
+    "true_mean": 0.2408600922660647,
+    "effect_d": 0.008859,
+    "sigma": 27.18818063732528,
+    "reps": 1000,
+    "n_max": 250000,
+    "t_star": 100000.0,
+    "min_n": 200,
+    "fixed_n": 100000,
+    "alpha": 0.05,
+    "seed": 20261007,
+    "checkpoints": [
+     1000,
+     10000,
+     25000,
+     100000,
+     250000
+    ],
+    "engine_version": "fhr3-rq7-engine-1",
+    "asymp_method_version": "fhr3-asympcs-v1"
+   },
+   "design_hash": "2a650690efe3bef2",
+   "git": {
+    "sha": "ac3cd5f012a707e3beb56abda2b0393969f4df55",
+    "dirty": false
+   }
+  },
+  "alt-mild-n25k": {
+   "design": {
+    "sampler": "bootstrap:results/fhr3-plo6-100bb-pilot-v1/p3-aggressive-vs-neutral",
+    "true_mean": 0.48174737271276663,
+    "effect_d": 0.017719,
+    "sigma": 27.18818063732528,
+    "reps": 1000,
+    "n_max": 250000,
+    "t_star": 100000.0,
+    "min_n": 200,
+    "fixed_n": 25000,
+    "alpha": 0.05,
+    "seed": 20261007,
+    "checkpoints": [
+     1000,
+     10000,
+     25000,
+     100000,
+     250000
+    ],
+    "engine_version": "fhr3-rq7-engine-1",
+    "asymp_method_version": "fhr3-asympcs-v1"
+   },
+   "design_hash": "0dc0ee94de8fabcb",
+   "git": {
+    "sha": "ac3cd5f012a707e3beb56abda2b0393969f4df55",
+    "dirty": false
+   }
+  },
+  "alt-moderate-n100k": {
+   "design": {
+    "sampler": "bootstrap:results/fhr3-cp6-100bb-pilot-v1/p2-neutral-vs-tight",
+    "true_mean": 0.16163656333032048,
+    "effect_d": 0.008859,
+    "sigma": 18.245463746508687,
+    "reps": 1000,
+    "n_max": 250000,
+    "t_star": 100000.0,
+    "min_n": 200,
+    "fixed_n": 100000,
+    "alpha": 0.05,
+    "seed": 20261007,
+    "checkpoints": [
+     1000,
+     10000,
+     25000,
+     100000,
+     250000
+    ],
+    "engine_version": "fhr3-rq7-engine-1",
+    "asymp_method_version": "fhr3-asympcs-v1"
+   },
+   "design_hash": "f65c03b131590c97",
+   "git": {
+    "sha": "ac3cd5f012a707e3beb56abda2b0393969f4df55",
+    "dirty": false
+   }
+  },
+  "alt-moderate-n25k": {
+   "design": {
+    "sampler": "bootstrap:results/fhr3-cp6-100bb-pilot-v1/p2-neutral-vs-tight",
+    "true_mean": 0.3232913721243874,
+    "effect_d": 0.017719,
+    "sigma": 18.245463746508687,
+    "reps": 1000,
+    "n_max": 250000,
+    "t_star": 100000.0,
+    "min_n": 200,
+    "fixed_n": 25000,
+    "alpha": 0.05,
+    "seed": 20261007,
+    "checkpoints": [
+     1000,
+     10000,
+     25000,
+     100000,
+     250000
+    ],
+    "engine_version": "fhr3-rq7-engine-1",
+    "asymp_method_version": "fhr3-asympcs-v1"
+   },
+   "design_hash": "d051c295d6a213f9",
+   "git": {
+    "sha": "ac3cd5f012a707e3beb56abda2b0393969f4df55",
+    "dirty": false
+   }
+  },
+  "alt-normal-n100k": {
+   "design": {
+    "sampler": "normal",
+    "true_mean": 0.008859,
+    "effect_d": 0.008859,
+    "sigma": 1.0,
+    "reps": 1000,
+    "n_max": 250000,
+    "t_star": 100000.0,
+    "min_n": 200,
+    "fixed_n": 100000,
+    "alpha": 0.05,
+    "seed": 20261007,
+    "checkpoints": [
+     1000,
+     10000,
+     25000,
+     100000,
+     250000
+    ],
+    "engine_version": "fhr3-rq7-engine-1",
+    "asymp_method_version": "fhr3-asympcs-v1"
+   },
+   "design_hash": "216a75cf5a6f3e1f",
+   "git": {
+    "sha": "ac3cd5f012a707e3beb56abda2b0393969f4df55",
+    "dirty": false
+   }
+  },
+  "alt-normal-n25k": {
+   "design": {
+    "sampler": "normal",
+    "true_mean": 0.017719,
+    "effect_d": 0.017719,
+    "sigma": 1.0,
+    "reps": 1000,
+    "n_max": 250000,
+    "t_star": 100000.0,
+    "min_n": 200,
+    "fixed_n": 25000,
+    "alpha": 0.05,
+    "seed": 20261007,
+    "checkpoints": [
+     1000,
+     10000,
+     25000,
+     100000,
+     250000
+    ],
+    "engine_version": "fhr3-rq7-engine-1",
+    "asymp_method_version": "fhr3-asympcs-v1"
+   },
+   "design_hash": "147bbce9dd36b218",
+   "git": {
+    "sha": "ac3cd5f012a707e3beb56abda2b0393969f4df55",
+    "dirty": false
+   }
+  },
+  "alt-t3-n100k": {
+   "design": {
+    "sampler": "t3",
+    "true_mean": 0.008859,
+    "effect_d": 0.008859,
+    "sigma": 1.0,
+    "reps": 1000,
+    "n_max": 250000,
+    "t_star": 100000.0,
+    "min_n": 200,
+    "fixed_n": 100000,
+    "alpha": 0.05,
+    "seed": 20261007,
+    "checkpoints": [
+     1000,
+     10000,
+     25000,
+     100000,
+     250000
+    ],
+    "engine_version": "fhr3-rq7-engine-1",
+    "asymp_method_version": "fhr3-asympcs-v1"
+   },
+   "design_hash": "9b76360e52abe571",
+   "git": {
+    "sha": "ac3cd5f012a707e3beb56abda2b0393969f4df55",
+    "dirty": false
+   }
+  },
+  "alt-t3-n25k": {
+   "design": {
+    "sampler": "t3",
+    "true_mean": 0.017719,
+    "effect_d": 0.017719,
+    "sigma": 1.0,
+    "reps": 1000,
+    "n_max": 250000,
+    "t_star": 100000.0,
+    "min_n": 200,
+    "fixed_n": 25000,
+    "alpha": 0.05,
+    "seed": 20261007,
+    "checkpoints": [
+     1000,
+     10000,
+     25000,
+     100000,
+     250000
+    ],
+    "engine_version": "fhr3-rq7-engine-1",
+    "asymp_method_version": "fhr3-asympcs-v1"
+   },
+   "design_hash": "46088928df4e69ef",
+   "git": {
+    "sha": "ac3cd5f012a707e3beb56abda2b0393969f4df55",
+    "dirty": false
+   }
+  },
+  "null-heavy-min1000": {
+   "design": {
+    "sampler": "bootstrap:results/fhr3-nlhe6-100bb-pilot-v1/p1-neutral-vs-loose10",
+    "true_mean": 0.0,
+    "effect_d": null,
+    "sigma": 7.699795861111344,
+    "reps": 2000,
+    "n_max": 250000,
+    "t_star": 100000.0,
+    "min_n": 1000,
+    "fixed_n": 100000,
+    "alpha": 0.05,
+    "seed": 20261007,
+    "checkpoints": [
+     1000,
+     10000,
+     25000,
+     100000,
+     250000
+    ],
+    "engine_version": "fhr3-rq7-engine-1",
+    "asymp_method_version": "fhr3-asympcs-v1"
+   },
+   "design_hash": "ca45eb831a94ae45",
+   "git": {
+    "sha": "ac3cd5f012a707e3beb56abda2b0393969f4df55",
+    "dirty": false
+   }
+  },
+  "null-heavy-min200": {
+   "design": {
+    "sampler": "bootstrap:results/fhr3-nlhe6-100bb-pilot-v1/p1-neutral-vs-loose10",
+    "true_mean": 0.0,
+    "effect_d": null,
+    "sigma": 7.699795861111344,
+    "reps": 2000,
+    "n_max": 250000,
+    "t_star": 100000.0,
+    "min_n": 200,
+    "fixed_n": 100000,
+    "alpha": 0.05,
+    "seed": 20261007,
+    "checkpoints": [
+     1000,
+     10000,
+     25000,
+     100000,
+     250000
+    ],
+    "engine_version": "fhr3-rq7-engine-1",
+    "asymp_method_version": "fhr3-asympcs-v1"
+   },
+   "design_hash": "3bd0a68eea7c0362",
+   "git": {
+    "sha": "ac3cd5f012a707e3beb56abda2b0393969f4df55",
+    "dirty": false
+   }
+  },
+  "null-heavy-min50": {
+   "design": {
+    "sampler": "bootstrap:results/fhr3-nlhe6-100bb-pilot-v1/p1-neutral-vs-loose10",
+    "true_mean": 0.0,
+    "effect_d": null,
+    "sigma": 7.699795861111344,
+    "reps": 2000,
+    "n_max": 250000,
+    "t_star": 100000.0,
+    "min_n": 50,
+    "fixed_n": 100000,
+    "alpha": 0.05,
+    "seed": 20261007,
+    "checkpoints": [
+     1000,
+     10000,
+     25000,
+     100000,
+     250000
+    ],
+    "engine_version": "fhr3-rq7-engine-1",
+    "asymp_method_version": "fhr3-asympcs-v1"
+   },
+   "design_hash": "ade97529d887aad7",
+   "git": {
+    "sha": "ac3cd5f012a707e3beb56abda2b0393969f4df55",
+    "dirty": false
+   }
+  },
+  "null-heavy-min5000": {
+   "design": {
+    "sampler": "bootstrap:results/fhr3-nlhe6-100bb-pilot-v1/p1-neutral-vs-loose10",
+    "true_mean": 0.0,
+    "effect_d": null,
+    "sigma": 7.699795861111344,
+    "reps": 2000,
+    "n_max": 250000,
+    "t_star": 100000.0,
+    "min_n": 5000,
+    "fixed_n": 100000,
+    "alpha": 0.05,
+    "seed": 20261007,
+    "checkpoints": [
+     1000,
+     10000,
+     25000,
+     100000,
+     250000
+    ],
+    "engine_version": "fhr3-rq7-engine-1",
+    "asymp_method_version": "fhr3-asympcs-v1"
+   },
+   "design_hash": "181ebb7c283a79c4",
+   "git": {
+    "sha": "ac3cd5f012a707e3beb56abda2b0393969f4df55",
+    "dirty": false
+   }
+  },
+  "null-mild-min1000": {
+   "design": {
+    "sampler": "bootstrap:results/fhr3-plo6-100bb-pilot-v1/p3-aggressive-vs-neutral",
+    "true_mean": 0.0,
+    "effect_d": null,
+    "sigma": 27.18818063732528,
+    "reps": 2000,
+    "n_max": 250000,
+    "t_star": 100000.0,
+    "min_n": 1000,
+    "fixed_n": 100000,
+    "alpha": 0.05,
+    "seed": 20261007,
+    "checkpoints": [
+     1000,
+     10000,
+     25000,
+     100000,
+     250000
+    ],
+    "engine_version": "fhr3-rq7-engine-1",
+    "asymp_method_version": "fhr3-asympcs-v1"
+   },
+   "design_hash": "781bc52fff7c2232",
+   "git": {
+    "sha": "ac3cd5f012a707e3beb56abda2b0393969f4df55",
+    "dirty": false
+   }
+  },
+  "null-mild-min200": {
+   "design": {
+    "sampler": "bootstrap:results/fhr3-plo6-100bb-pilot-v1/p3-aggressive-vs-neutral",
+    "true_mean": 0.0,
+    "effect_d": null,
+    "sigma": 27.18818063732528,
+    "reps": 2000,
+    "n_max": 250000,
+    "t_star": 100000.0,
+    "min_n": 200,
+    "fixed_n": 100000,
+    "alpha": 0.05,
+    "seed": 20261007,
+    "checkpoints": [
+     1000,
+     10000,
+     25000,
+     100000,
+     250000
+    ],
+    "engine_version": "fhr3-rq7-engine-1",
+    "asymp_method_version": "fhr3-asympcs-v1"
+   },
+   "design_hash": "9273476b242fa11e",
+   "git": {
+    "sha": "ac3cd5f012a707e3beb56abda2b0393969f4df55",
+    "dirty": false
+   }
+  },
+  "null-mild-min50": {
+   "design": {
+    "sampler": "bootstrap:results/fhr3-plo6-100bb-pilot-v1/p3-aggressive-vs-neutral",
+    "true_mean": 0.0,
+    "effect_d": null,
+    "sigma": 27.18818063732528,
+    "reps": 2000,
+    "n_max": 250000,
+    "t_star": 100000.0,
+    "min_n": 50,
+    "fixed_n": 100000,
+    "alpha": 0.05,
+    "seed": 20261007,
+    "checkpoints": [
+     1000,
+     10000,
+     25000,
+     100000,
+     250000
+    ],
+    "engine_version": "fhr3-rq7-engine-1",
+    "asymp_method_version": "fhr3-asympcs-v1"
+   },
+   "design_hash": "bf143160ca691f11",
+   "git": {
+    "sha": "ac3cd5f012a707e3beb56abda2b0393969f4df55",
+    "dirty": false
+   }
+  },
+  "null-mild-min5000": {
+   "design": {
+    "sampler": "bootstrap:results/fhr3-plo6-100bb-pilot-v1/p3-aggressive-vs-neutral",
+    "true_mean": 0.0,
+    "effect_d": null,
+    "sigma": 27.18818063732528,
+    "reps": 2000,
+    "n_max": 250000,
+    "t_star": 100000.0,
+    "min_n": 5000,
+    "fixed_n": 100000,
+    "alpha": 0.05,
+    "seed": 20261007,
+    "checkpoints": [
+     1000,
+     10000,
+     25000,
+     100000,
+     250000
+    ],
+    "engine_version": "fhr3-rq7-engine-1",
+    "asymp_method_version": "fhr3-asympcs-v1"
+   },
+   "design_hash": "c59194673a29fbbb",
+   "git": {
+    "sha": "ac3cd5f012a707e3beb56abda2b0393969f4df55",
+    "dirty": false
+   }
+  },
+  "null-moderate-min200": {
+   "design": {
+    "sampler": "bootstrap:results/fhr3-cp6-100bb-pilot-v1/p2-neutral-vs-tight",
+    "true_mean": 0.0,
+    "effect_d": null,
+    "sigma": 18.245463746508687,
+    "reps": 2000,
+    "n_max": 250000,
+    "t_star": 100000.0,
+    "min_n": 200,
+    "fixed_n": 100000,
+    "alpha": 0.05,
+    "seed": 20261007,
+    "checkpoints": [
+     1000,
+     10000,
+     25000,
+     100000,
+     250000
+    ],
+    "engine_version": "fhr3-rq7-engine-1",
+    "asymp_method_version": "fhr3-asympcs-v1"
+   },
+   "design_hash": "505c3f6583b2b6d2",
+   "git": {
+    "sha": "ac3cd5f012a707e3beb56abda2b0393969f4df55",
+    "dirty": false
+   }
+  },
+  "null-normal-min200": {
+   "design": {
+    "sampler": "normal",
+    "true_mean": 0.0,
+    "effect_d": null,
+    "sigma": 1.0,
+    "reps": 2000,
+    "n_max": 250000,
+    "t_star": 100000.0,
+    "min_n": 200,
+    "fixed_n": 100000,
+    "alpha": 0.05,
+    "seed": 20261007,
+    "checkpoints": [
+     1000,
+     10000,
+     25000,
+     100000,
+     250000
+    ],
+    "engine_version": "fhr3-rq7-engine-1",
+    "asymp_method_version": "fhr3-asympcs-v1"
+   },
+   "design_hash": "4208c0c212266d4c",
+   "git": {
+    "sha": "ac3cd5f012a707e3beb56abda2b0393969f4df55",
+    "dirty": false
+   }
+  },
+  "null-t3-min1000": {
+   "design": {
+    "sampler": "t3",
+    "true_mean": 0.0,
+    "effect_d": null,
+    "sigma": 1.0,
+    "reps": 2000,
+    "n_max": 250000,
+    "t_star": 100000.0,
+    "min_n": 1000,
+    "fixed_n": 100000,
+    "alpha": 0.05,
+    "seed": 20261007,
+    "checkpoints": [
+     1000,
+     10000,
+     25000,
+     100000,
+     250000
+    ],
+    "engine_version": "fhr3-rq7-engine-1",
+    "asymp_method_version": "fhr3-asympcs-v1"
+   },
+   "design_hash": "84023f4ff5125090",
+   "git": {
+    "sha": "ac3cd5f012a707e3beb56abda2b0393969f4df55",
+    "dirty": false
+   }
+  },
+  "null-t3-min200": {
+   "design": {
+    "sampler": "t3",
+    "true_mean": 0.0,
+    "effect_d": null,
+    "sigma": 1.0,
+    "reps": 2000,
+    "n_max": 250000,
+    "t_star": 100000.0,
+    "min_n": 200,
+    "fixed_n": 100000,
+    "alpha": 0.05,
+    "seed": 20261007,
+    "checkpoints": [
+     1000,
+     10000,
+     25000,
+     100000,
+     250000
+    ],
+    "engine_version": "fhr3-rq7-engine-1",
+    "asymp_method_version": "fhr3-asympcs-v1"
+   },
+   "design_hash": "e2be9c2ced1711b2",
+   "git": {
+    "sha": "ac3cd5f012a707e3beb56abda2b0393969f4df55",
+    "dirty": false
+   }
+  },
+  "null-t3-min50": {
+   "design": {
+    "sampler": "t3",
+    "true_mean": 0.0,
+    "effect_d": null,
+    "sigma": 1.0,
+    "reps": 2000,
+    "n_max": 250000,
+    "t_star": 100000.0,
+    "min_n": 50,
+    "fixed_n": 100000,
+    "alpha": 0.05,
+    "seed": 20261007,
+    "checkpoints": [
+     1000,
+     10000,
+     25000,
+     100000,
+     250000
+    ],
+    "engine_version": "fhr3-rq7-engine-1",
+    "asymp_method_version": "fhr3-asympcs-v1"
+   },
+   "design_hash": "cd6ed19d5d8daa2e",
+   "git": {
+    "sha": "ac3cd5f012a707e3beb56abda2b0393969f4df55",
+    "dirty": false
+   }
+  },
+  "null-t3-min5000": {
+   "design": {
+    "sampler": "t3",
+    "true_mean": 0.0,
+    "effect_d": null,
+    "sigma": 1.0,
+    "reps": 2000,
+    "n_max": 250000,
+    "t_star": 100000.0,
+    "min_n": 5000,
+    "fixed_n": 100000,
+    "alpha": 0.05,
+    "seed": 20261007,
+    "checkpoints": [
+     1000,
+     10000,
+     25000,
+     100000,
+     250000
+    ],
+    "engine_version": "fhr3-rq7-engine-1",
+    "asymp_method_version": "fhr3-asympcs-v1"
+   },
+   "design_hash": "873bb210934340cb",
+   "git": {
+    "sha": "ac3cd5f012a707e3beb56abda2b0393969f4df55",
+    "dirty": false
+   }
+  },
+  "perm-nlhe6p1": {
+   "design": {
+    "sampler": "permutation:results/fhr3-nlhe6-100bb-pilot-v1/p1-neutral-vs-loose10",
+    "true_mean": -0.03244864,
+    "effect_d": null,
+    "sigma": 7.699795861111344,
+    "reps": 1000,
+    "n_max": 250000,
+    "t_star": 100000.0,
+    "min_n": 200,
+    "fixed_n": 100000,
+    "alpha": 0.05,
+    "seed": 20261007,
+    "checkpoints": [
+     1000,
+     10000,
+     25000,
+     100000,
+     250000
+    ],
+    "engine_version": "fhr3-rq7-engine-1",
+    "asymp_method_version": "fhr3-asympcs-v1"
+   },
+   "design_hash": "cb98e3a83ecd0375",
+   "git": {
+    "sha": "ac3cd5f012a707e3beb56abda2b0393969f4df55",
+    "dirty": false
+   }
+  }
+ },
+ "source_corpora": {
+  "bootstrap:results/fhr3-nlhe6-100bb-pilot-v1/p1-neutral-vs-loose10": {
+   "pairing_hash": "8271526be0009827",
+   "rows": 250000,
+   "chunks": 1000,
+   "parquet_sha256": "e12ca10bbf23907baa92fa85740939e61e774e6bb0d0a96daf7d0f7e9946964f"
+  },
+  "bootstrap:results/fhr3-plo6-100bb-pilot-v1/p3-aggressive-vs-neutral": {
+   "pairing_hash": "7fecc78f8a8c9a1e",
+   "rows": 50000,
+   "chunks": 200,
+   "parquet_sha256": "19f8659a0148c874888bc1fb55f5531ee90b69692053128205561ced44cb8017"
+  },
+  "bootstrap:results/fhr3-cp6-100bb-pilot-v1/p2-neutral-vs-tight": {
+   "pairing_hash": "80e90ae4c174b4f4",
+   "rows": 100000,
+   "chunks": 400,
+   "parquet_sha256": "efa5c047656b1680fa4e1f4204fc46ac9e2347fbda750cee46f632e63bc929de"
+  },
+  "permutation:results/fhr3-nlhe6-100bb-pilot-v1/p1-neutral-vs-loose10": {
+   "pairing_hash": "8271526be0009827",
+   "rows": 250000,
+   "chunks": 1000,
+   "parquet_sha256": "e12ca10bbf23907baa92fa85740939e61e774e6bb0d0a96daf7d0f7e9946964f"
+  }
+ },
+ "outputs": {
+  "cells/alt-heavy-n100k.csv": "3f22ea40672547097af0b168074ebf0b5eafa93d24d1f77b8a29a7f9d348acd2",
+  "cells/alt-heavy-n100k.json": "ce0cb90268243ad19e9f3ca7243265357d55ea366a4db47b7dc8d5aa722b8a9d",
+  "cells/alt-heavy-n25k.csv": "1ec32c8cbab5ff20b4959fbbfe085c6f52d32aa061d4ae81ad2bf7482e76b474",
+  "cells/alt-heavy-n25k.json": "2c5c84c210b506bf488c67a7688cccf9f6349882545a6b4ffd07c9be53e02721",
+  "cells/alt-mild-n100k.csv": "0fbdfa1de3241a19274d024c5c5133a5a8341c366b4b7bca343a08a496c5b50f",
+  "cells/alt-mild-n100k.json": "eb9d2cde8180bf2722604dacfdc571368bf02ec92170032da62f3df2ee6dc2f3",
+  "cells/alt-mild-n25k.csv": "c93e58277f3a1d26c7e884e0668ceee0fd24e4e0efcb8cdf5feb2ab92f0a06db",
+  "cells/alt-mild-n25k.json": "5e0aae3a718b662fae0e95a1992847d5064e9e55566189c3a8890012bec24f28",
+  "cells/alt-moderate-n100k.csv": "b1e238caa94a0439c5b0b2aabba98aa66275a55b95c232d5c4e12a3aa3c2cd03",
+  "cells/alt-moderate-n100k.json": "9066efe1e5bdd017045b147a393cf55a788bf716894bdbc69120ab9c0ef4ed84",
+  "cells/alt-moderate-n25k.csv": "f186a9f71e5293e014f6c2feb89dbfe3640928f1920dc7e7cb8e835149e19462",
+  "cells/alt-moderate-n25k.json": "6058deed163ab1f75bb2a75d70a37a760f044b656942231fec16d19153a98c1c",
+  "cells/alt-normal-n100k.csv": "852289e2aa5fbc55e2ed106be6a2e6ef0b21f9864db8a7422eb288269d9c0128",
+  "cells/alt-normal-n100k.json": "2cf7b0833f15d5ee041debe0d185ce0a00f132c792583d7d55ee327e7bda44b9",
+  "cells/alt-normal-n25k.csv": "df18d9abff2b90a5e590f8742e9d20a9bbf32be341978dc7e64f7190789fcca3",
+  "cells/alt-normal-n25k.json": "9d1be393d04cf1359b71bffe6ddb933a8a38c1702f32f64921b9bfdabdba0f56",
+  "cells/alt-t3-n100k.csv": "39000ce1bf598bc47a78191f8815c2ba16d78fa1a6d1e9a6db09bc2218d86b82",
+  "cells/alt-t3-n100k.json": "bb403c9176f146443078b0bcaec5405e3c8140464ca103cc902cc07ac1163176",
+  "cells/alt-t3-n25k.csv": "ff1d3c87e7f860163bfcdbda5adc67618f55eb6829eb207e8c302edfed2bca58",
+  "cells/alt-t3-n25k.json": "ae31b50eb7dd23ebbcab6008f1b68d36ba0f0c8caee7088e760269ea6c601383",
+  "cells/null-heavy-min1000.csv": "894950a974366484bc1e0218b9b3f63d04e92a243d5af2a539e816f51ff6a9c6",
+  "cells/null-heavy-min1000.json": "8a5ab99300f5ea941a6f60192fb5b27a1c215496be11773e96a34d553bd0b403",
+  "cells/null-heavy-min200.csv": "824c2f419005c6ad7fa2dac5f9a2ec0b4da613af52a6e4f29141f4a67bbd17e0",
+  "cells/null-heavy-min200.json": "b93614308d788605b87bb095c8166af57e29b1c439ae0bf501e7d0da69a4b6d6",
+  "cells/null-heavy-min50.csv": "36f6182bd12a8697b4113e5aae335e70888683b2a65b2d6d0b1a3f7aa739e0d6",
+  "cells/null-heavy-min50.json": "45dfcb4a677690750873691c3611ba575c03e46234aa90038785b14359ec1cd0",
+  "cells/null-heavy-min5000.csv": "550f375cc9876b19ae2174cb4676dd3ce6bbf01207648dd00c7fca49a0a71581",
+  "cells/null-heavy-min5000.json": "0c07a34d57c02c1eaaf585842194540811779b2aa249f3280b815f1fc18fca55",
+  "cells/null-mild-min1000.csv": "7819c990e926dc2d17a6895fc6463befc0ea19906498420e66958138ef1c6c83",
+  "cells/null-mild-min1000.json": "c3788935ad4cf1b8f73c41820ad708cc4801a527f2630a3c9de5d4a715b2746c",
+  "cells/null-mild-min200.csv": "b8705de3c930fb04f9a89bb89aa6355373776e3853b3c4da04185008cf4ab34a",
+  "cells/null-mild-min200.json": "f12d97dde372af623e5e18e813133cf6d38f86b45b00862fed65e139b54c662a",
+  "cells/null-mild-min50.csv": "611d5a750660ca91e2c91cb33a1b3ce3db9925904148b3b3764fcfa563258ba8",
+  "cells/null-mild-min50.json": "dcd7fb16fa751d417c7d3210c0af89c8b4ee67f6f4cfc5a9132359b1c4251763",
+  "cells/null-mild-min5000.csv": "7ef7cee1fe3cf54f7ad515118d064dc0149e4ff0ac041394b122cc3d1b33c42c",
+  "cells/null-mild-min5000.json": "18e1c1190cb0c891bb4c03e3fa5bad5d48648f1a56b40c1664645ab2776c07e6",
+  "cells/null-moderate-min200.csv": "c72d82493b3e30d43bd5f77b65e28b0a606385355436e4248dc4c68833b01eb5",
+  "cells/null-moderate-min200.json": "e4a0e08c5d59938d937da4046497d81c2c04a419e40309f3e95d819e7311e275",
+  "cells/null-normal-min200.csv": "8789b78f63dda8838a8774dd623c556775d78a032060879de72c31a3708466a4",
+  "cells/null-normal-min200.json": "645f792571c1c6a944ce67923f4749abc090a7fbad5f1ce7cbd1341ca0745379",
+  "cells/null-t3-min1000.csv": "a12209fcad6d40ead79c7dbfae3441800697fb95eb00aae70fbc8d86738ad76d",
+  "cells/null-t3-min1000.json": "a237d7c756432b3db228cc1126a3352b4ea08edd5310f8b837eb928e02c3cc5d",
+  "cells/null-t3-min200.csv": "79f7c9bdc01411129abf719f8ffdfc5544fb24cf0cd34fc68be05f8f96d89bf6",
+  "cells/null-t3-min200.json": "7e61cb491f82de3292e84cb88094713a1850567e84116a4fb6014f76f67c0144",
+  "cells/null-t3-min50.csv": "2a57fdb6f259876f24771c9d4a9f20f5ff5710fd151777816a8398775979b7c0",
+  "cells/null-t3-min50.json": "97ae693ff1d7d10f9674e81914734668140b67372eba2d839a6b03fcc275255d",
+  "cells/null-t3-min5000.csv": "6844d0b230d3169b9b30cada1fbfcb68a1cc87e26c557fb2c093ad2230e6e563",
+  "cells/null-t3-min5000.json": "4bd619af8ac355e2c3eb57528f4bcecb19148c886a95c4b3b3747947e3b64227",
+  "cells/perm-nlhe6p1.csv": "c8c8dd938dd5650e96afd590a2de251e72811bd09ed11c5d816c7cfb58755de9",
+  "cells/perm-nlhe6p1.json": "ef242465bf74c22e84acf003bcb34223fa17764bbdebe7a85f4fd911a8f76dc5",
+  "coverage.csv": "9b946e59cd54b8370c9785ab2ac1d0bb67003c52fdf0ce7e91d69935386359a8",
+  "figures/miscoverage.csv": "644331f1e4f114ed51beaecd4cb4d4289c611fdaca98c739846ce4edf2d0e164",
+  "figures/stopping_cost.csv": "e02f812f005e8b337b87789c485a7b119ee7f38faf5455d6a20efbea1263c62f",
+  "figures/stopping_times.csv": "8b7959c607ce539a4081aa7b096877f70a0b66e1a4709aa7a76f1ab91a23661e",
+  "min_n_sensitivity.csv": "00279e4d4d4ac6fb0f9d60470962a7e08e1daefb3cf386fe6ce44054f7020208",
+  "real_orderings.csv": "106121fc40f1e45008cd9cf105f6ada296438ba598a671c40a73f81b6daee7fa",
+  "real_permutations.csv": "8d7c4c14f32c13cbdf1780e3288e1533fd1a55228f90f326ed7e7411254fc9a9",
+  "sequential-fhr3-aof4-8bb-pilot-v1.json": "04bdb644549913f24006e9dd943473386a0c1c350fb636b6e2cf86e8c51c861d",
+  "sequential-fhr3-bomb6-100bb-pilot-v1.json": "0ede95b904ce9fb8d6bc4e4ac0af7df3605bfc0ae7093301471d212c44ae6e77",
+  "sequential-fhr3-cp6-100bb-pilot-v1.json": "63a58e6d98334cf14a9e33f8018e0bd3ae4408fb07363f08a078a23a71995cfd",
+  "sequential-fhr3-nit6-100bb-pilot-v1.json": "0f2f5de944d1b272436def90008834a15771f4a9e98c44b263400f04b997368f",
+  "sequential-fhr3-nlhe4-100bb-v2.json": "172e3d30a677d052ad48c1cd4676272ebbea257adc1ae43d6e8ecdc201431cc4",
+  "sequential-fhr3-nlhe6-100bb-pilot-v1.json": "5fc78457227789262456b0f10753c70046f5cbcd0915e6c63e7f350a2c059cb8",
+  "sequential-fhr3-nlhe6-20bb-v1.json": "aee8833c6256e51484b85080819e0e026c7166751e1996603cfc21d7e3e399a6",
+  "sequential-fhr3-nlhe6-50bb-v1.json": "cb571d332aee8a8183e637dbb01ce1117c42a32b05ff7fda10ea5b00a3a9c581",
+  "sequential-fhr3-plo6-100bb-pilot-v1.json": "bc53c58d633b80293e12bd4d5c9b70f838fc8eaf4d31446cbcc8f12ea89053cd",
+  "stopping.csv": "36642e78edabe199b3f7ef4f2f6ee40caf5d04c1b40b2e8386cd9f2d3fc28511",
+  "summary.json": "78aa0edc6c611e17ebf2ddd172a369a815539f0e3572099eca76ad2b9e2bb0bd"
+ }
+}

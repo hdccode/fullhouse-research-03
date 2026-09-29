@@ -1,0 +1,20 @@
+{
+ "fixed": {
+  "decisions": 8096,
+  "wrong_sign": 0,
+  "rate": 0.0,
+  "upper95_one_sided": 0.000369957768301134
+ },
+ "peek": {
+  "decisions": 9995,
+  "wrong_sign": 854,
+  "rate": 0.08544272136068035,
+  "upper95_one_sided": 0.09018184512871748
+ },
+ "asymp": {
+  "decisions": 9768,
+  "wrong_sign": 0,
+  "rate": 0.0,
+  "upper95_one_sided": 0.000306641374114064
+ }
+}

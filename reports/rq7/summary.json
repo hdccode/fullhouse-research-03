@@ -1,0 +1,797 @@
+{
+ "engine_version": "fhr3-rq7-engine-1",
+ "asymp_method_version": "fhr3-asympcs-v1",
+ "unit": "matched block; streams are IID block draws (bootstrap/synthetic) or corpus permutations",
+ "asymptotic_note": "asymp coverage is asymptotic (finite variance), not a finite-sample guarantee",
+ "git": {
+  "sha": "ac3cd5f012a707e3beb56abda2b0393969f4df55",
+  "dirty": false
+ },
+ "cells": {
+  "alt-heavy-n100k": {
+   "design": {
+    "sampler": "bootstrap:results/fhr3-nlhe6-100bb-pilot-v1/p1-neutral-vs-loose10",
+    "true_mean": 0.0682124915335854,
+    "effect_d": 0.008859,
+    "sigma": 7.699795861111344,
+    "reps": 1000,
+    "n_max": 250000,
+    "t_star": 100000.0,
+    "min_n": 200,
+    "fixed_n": 100000,
+    "alpha": 0.05,
+    "seed": 20261007,
+    "checkpoints": [
+     1000,
+     10000,
+     25000,
+     100000,
+     250000
+    ],
+    "engine_version": "fhr3-rq7-engine-1",
+    "asymp_method_version": "fhr3-asympcs-v1"
+   },
+   "design_hash": "1838eabdd70c1db1",
+   "wall_s": 8.054566542006796,
+   "git": {
+    "sha": "ac3cd5f012a707e3beb56abda2b0393969f4df55",
+    "dirty": false
+   }
+  },
+  "alt-heavy-n25k": {
+   "design": {
+    "sampler": "bootstrap:results/fhr3-nlhe6-100bb-pilot-v1/p1-neutral-vs-loose10",
+    "true_mean": 0.1364326828630319,
+    "effect_d": 0.017719,
+    "sigma": 7.699795861111344,
+    "reps": 1000,
+    "n_max": 250000,
+    "t_star": 100000.0,
+    "min_n": 200,
+    "fixed_n": 25000,
+    "alpha": 0.05,
+    "seed": 20261007,
+    "checkpoints": [
+     1000,
+     10000,
+     25000,
+     100000,
+     250000
+    ],
+    "engine_version": "fhr3-rq7-engine-1",
+    "asymp_method_version": "fhr3-asympcs-v1"
+   },
+   "design_hash": "de23c80f708ad975",
+   "wall_s": 7.616161167010432,
+   "git": {
+    "sha": "ac3cd5f012a707e3beb56abda2b0393969f4df55",
+    "dirty": false
+   }
+  },
+  "alt-mild-n100k": {
+   "design": {
+    "sampler": "bootstrap:results/fhr3-plo6-100bb-pilot-v1/p3-aggressive-vs-neutral",
+    "true_mean": 0.2408600922660647,
+    "effect_d": 0.008859,
+    "sigma": 27.18818063732528,
+    "reps": 1000,
+    "n_max": 250000,
+    "t_star": 100000.0,
+    "min_n": 200,
+    "fixed_n": 100000,
+    "alpha": 0.05,
+    "seed": 20261007,
+    "checkpoints": [
+     1000,
+     10000,
+     25000,
+     100000,
+     250000
+    ],
+    "engine_version": "fhr3-rq7-engine-1",
+    "asymp_method_version": "fhr3-asympcs-v1"
+   },
+   "design_hash": "2a650690efe3bef2",
+   "wall_s": 8.611929500009865,
+   "git": {
+    "sha": "ac3cd5f012a707e3beb56abda2b0393969f4df55",
+    "dirty": false
+   }
+  },
+  "alt-mild-n25k": {
+   "design": {
+    "sampler": "bootstrap:results/fhr3-plo6-100bb-pilot-v1/p3-aggressive-vs-neutral",
+    "true_mean": 0.48174737271276663,
+    "effect_d": 0.017719,
+    "sigma": 27.18818063732528,
+    "reps": 1000,
+    "n_max": 250000,
+    "t_star": 100000.0,
+    "min_n": 200,
+    "fixed_n": 25000,
+    "alpha": 0.05,
+    "seed": 20261007,
+    "checkpoints": [
+     1000,
+     10000,
+     25000,
+     100000,
+     250000
+    ],
+    "engine_version": "fhr3-rq7-engine-1",
+    "asymp_method_version": "fhr3-asympcs-v1"
+   },
+   "design_hash": "0dc0ee94de8fabcb",
+   "wall_s": 8.281086457980564,
+   "git": {
+    "sha": "ac3cd5f012a707e3beb56abda2b0393969f4df55",
+    "dirty": false
+   }
+  },
+  "alt-moderate-n100k": {
+   "design": {
+    "sampler": "bootstrap:results/fhr3-cp6-100bb-pilot-v1/p2-neutral-vs-tight",
+    "true_mean": 0.16163656333032048,
+    "effect_d": 0.008859,
+    "sigma": 18.245463746508687,
+    "reps": 1000,
+    "n_max": 250000,
+    "t_star": 100000.0,
+    "min_n": 200,
+    "fixed_n": 100000,
+    "alpha": 0.05,
+    "seed": 20261007,
+    "checkpoints": [
+     1000,
+     10000,
+     25000,
+     100000,
+     250000
+    ],
+    "engine_version": "fhr3-rq7-engine-1",
+    "asymp_method_version": "fhr3-asympcs-v1"
+   },
+   "design_hash": "f65c03b131590c97",
+   "wall_s": 8.400042374996701,
+   "git": {
+    "sha": "ac3cd5f012a707e3beb56abda2b0393969f4df55",
+    "dirty": false
+   }
+  },
+  "alt-moderate-n25k": {
+   "design": {
+    "sampler": "bootstrap:results/fhr3-cp6-100bb-pilot-v1/p2-neutral-vs-tight",
+    "true_mean": 0.3232913721243874,
+    "effect_d": 0.017719,
+    "sigma": 18.245463746508687,
+    "reps": 1000,
+    "n_max": 250000,
+    "t_star": 100000.0,
+    "min_n": 200,
+    "fixed_n": 25000,
+    "alpha": 0.05,
+    "seed": 20261007,
+    "checkpoints": [
+     1000,
+     10000,
+     25000,
+     100000,
+     250000
+    ],
+    "engine_version": "fhr3-rq7-engine-1",
+    "asymp_method_version": "fhr3-asympcs-v1"
+   },
+   "design_hash": "d051c295d6a213f9",
+   "wall_s": 7.445035167009337,
+   "git": {
+    "sha": "ac3cd5f012a707e3beb56abda2b0393969f4df55",
+    "dirty": false
+   }
+  },
+  "alt-normal-n100k": {
+   "design": {
+    "sampler": "normal",
+    "true_mean": 0.008859,
+    "effect_d": 0.008859,
+    "sigma": 1.0,
+    "reps": 1000,
+    "n_max": 250000,
+    "t_star": 100000.0,
+    "min_n": 200,
+    "fixed_n": 100000,
+    "alpha": 0.05,
+    "seed": 20261007,
+    "checkpoints": [
+     1000,
+     10000,
+     25000,
+     100000,
+     250000
+    ],
+    "engine_version": "fhr3-rq7-engine-1",
+    "asymp_method_version": "fhr3-asympcs-v1"
+   },
+   "design_hash": "216a75cf5a6f3e1f",
+   "wall_s": 7.4442929169745184,
+   "git": {
+    "sha": "ac3cd5f012a707e3beb56abda2b0393969f4df55",
+    "dirty": false
+   }
+  },
+  "alt-normal-n25k": {
+   "design": {
+    "sampler": "normal",
+    "true_mean": 0.017719,
+    "effect_d": 0.017719,
+    "sigma": 1.0,
+    "reps": 1000,
+    "n_max": 250000,
+    "t_star": 100000.0,
+    "min_n": 200,
+    "fixed_n": 25000,
+    "alpha": 0.05,
+    "seed": 20261007,
+    "checkpoints": [
+     1000,
+     10000,
+     25000,
+     100000,
+     250000
+    ],
+    "engine_version": "fhr3-rq7-engine-1",
+    "asymp_method_version": "fhr3-asympcs-v1"
+   },
+   "design_hash": "147bbce9dd36b218",
+   "wall_s": 10.12924529099837,
+   "git": {
+    "sha": "ac3cd5f012a707e3beb56abda2b0393969f4df55",
+    "dirty": false
+   }
+  },
+  "alt-t3-n100k": {
+   "design": {
+    "sampler": "t3",
+    "true_mean": 0.008859,
+    "effect_d": 0.008859,
+    "sigma": 1.0,
+    "reps": 1000,
+    "n_max": 250000,
+    "t_star": 100000.0,
+    "min_n": 200,
+    "fixed_n": 100000,
+    "alpha": 0.05,
+    "seed": 20261007,
+    "checkpoints": [
+     1000,
+     10000,
+     25000,
+     100000,
+     250000
+    ],
+    "engine_version": "fhr3-rq7-engine-1",
+    "asymp_method_version": "fhr3-asympcs-v1"
+   },
+   "design_hash": "9b76360e52abe571",
+   "wall_s": 8.89890429098159,
+   "git": {
+    "sha": "ac3cd5f012a707e3beb56abda2b0393969f4df55",
+    "dirty": false
+   }
+  },
+  "alt-t3-n25k": {
+   "design": {
+    "sampler": "t3",
+    "true_mean": 0.017719,
+    "effect_d": 0.017719,
+    "sigma": 1.0,
+    "reps": 1000,
+    "n_max": 250000,
+    "t_star": 100000.0,
+    "min_n": 200,
+    "fixed_n": 25000,
+    "alpha": 0.05,
+    "seed": 20261007,
+    "checkpoints": [
+     1000,
+     10000,
+     25000,
+     100000,
+     250000
+    ],
+    "engine_version": "fhr3-rq7-engine-1",
+    "asymp_method_version": "fhr3-asympcs-v1"
+   },
+   "design_hash": "46088928df4e69ef",
+   "wall_s": 9.298917208012426,
+   "git": {
+    "sha": "ac3cd5f012a707e3beb56abda2b0393969f4df55",
+    "dirty": false
+   }
+  },
+  "null-heavy-min1000": {
+   "design": {
+    "sampler": "bootstrap:results/fhr3-nlhe6-100bb-pilot-v1/p1-neutral-vs-loose10",
+    "true_mean": 0.0,
+    "effect_d": null,
+    "sigma": 7.699795861111344,
+    "reps": 2000,
+    "n_max": 250000,
+    "t_star": 100000.0,
+    "min_n": 1000,
+    "fixed_n": 100000,
+    "alpha": 0.05,
+    "seed": 20261007,
+    "checkpoints": [
+     1000,
+     10000,
+     25000,
+     100000,
+     250000
+    ],
+    "engine_version": "fhr3-rq7-engine-1",
+    "asymp_method_version": "fhr3-asympcs-v1"
+   },
+   "design_hash": "ca45eb831a94ae45",
+   "wall_s": 15.378399459004868,
+   "git": {
+    "sha": "ac3cd5f012a707e3beb56abda2b0393969f4df55",
+    "dirty": false
+   }
+  },
+  "null-heavy-min200": {
+   "design": {
+    "sampler": "bootstrap:results/fhr3-nlhe6-100bb-pilot-v1/p1-neutral-vs-loose10",
+    "true_mean": 0.0,
+    "effect_d": null,
+    "sigma": 7.699795861111344,
+    "reps": 2000,
+    "n_max": 250000,
+    "t_star": 100000.0,
+    "min_n": 200,
+    "fixed_n": 100000,
+    "alpha": 0.05,
+    "seed": 20261007,
+    "checkpoints": [
+     1000,
+     10000,
+     25000,
+     100000,
+     250000
+    ],
+    "engine_version": "fhr3-rq7-engine-1",
+    "asymp_method_version": "fhr3-asympcs-v1"
+   },
+   "design_hash": "3bd0a68eea7c0362",
+   "wall_s": 20.90661195901339,
+   "git": {
+    "sha": "ac3cd5f012a707e3beb56abda2b0393969f4df55",
+    "dirty": false
+   }
+  },
+  "null-heavy-min50": {
+   "design": {
+    "sampler": "bootstrap:results/fhr3-nlhe6-100bb-pilot-v1/p1-neutral-vs-loose10",
+    "true_mean": 0.0,
+    "effect_d": null,
+    "sigma": 7.699795861111344,
+    "reps": 2000,
+    "n_max": 250000,
+    "t_star": 100000.0,
+    "min_n": 50,
+    "fixed_n": 100000,
+    "alpha": 0.05,
+    "seed": 20261007,
+    "checkpoints": [
+     1000,
+     10000,
+     25000,
+     100000,
+     250000
+    ],
+    "engine_version": "fhr3-rq7-engine-1",
+    "asymp_method_version": "fhr3-asympcs-v1"
+   },
+   "design_hash": "ade97529d887aad7",
+   "wall_s": 15.287868665996939,
+   "git": {
+    "sha": "ac3cd5f012a707e3beb56abda2b0393969f4df55",
+    "dirty": false
+   }
+  },
+  "null-heavy-min5000": {
+   "design": {
+    "sampler": "bootstrap:results/fhr3-nlhe6-100bb-pilot-v1/p1-neutral-vs-loose10",
+    "true_mean": 0.0,
+    "effect_d": null,
+    "sigma": 7.699795861111344,
+    "reps": 2000,
+    "n_max": 250000,
+    "t_star": 100000.0,
+    "min_n": 5000,
+    "fixed_n": 100000,
+    "alpha": 0.05,
+    "seed": 20261007,
+    "checkpoints": [
+     1000,
+     10000,
+     25000,
+     100000,
+     250000
+    ],
+    "engine_version": "fhr3-rq7-engine-1",
+    "asymp_method_version": "fhr3-asympcs-v1"
+   },
+   "design_hash": "181ebb7c283a79c4",
+   "wall_s": 13.062436332984362,
+   "git": {
+    "sha": "ac3cd5f012a707e3beb56abda2b0393969f4df55",
+    "dirty": false
+   }
+  },
+  "null-mild-min1000": {
+   "design": {
+    "sampler": "bootstrap:results/fhr3-plo6-100bb-pilot-v1/p3-aggressive-vs-neutral",
+    "true_mean": 0.0,
+    "effect_d": null,
+    "sigma": 27.18818063732528,
+    "reps": 2000,
+    "n_max": 250000,
+    "t_star": 100000.0,
+    "min_n": 1000,
+    "fixed_n": 100000,
+    "alpha": 0.05,
+    "seed": 20261007,
+    "checkpoints": [
+     1000,
+     10000,
+     25000,
+     100000,
+     250000
+    ],
+    "engine_version": "fhr3-rq7-engine-1",
+    "asymp_method_version": "fhr3-asympcs-v1"
+   },
+   "design_hash": "781bc52fff7c2232",
+   "wall_s": 12.710152083018329,
+   "git": {
+    "sha": "ac3cd5f012a707e3beb56abda2b0393969f4df55",
+    "dirty": false
+   }
+  },
+  "null-mild-min200": {
+   "design": {
+    "sampler": "bootstrap:results/fhr3-plo6-100bb-pilot-v1/p3-aggressive-vs-neutral",
+    "true_mean": 0.0,
+    "effect_d": null,
+    "sigma": 27.18818063732528,
+    "reps": 2000,
+    "n_max": 250000,
+    "t_star": 100000.0,
+    "min_n": 200,
+    "fixed_n": 100000,
+    "alpha": 0.05,
+    "seed": 20261007,
+    "checkpoints": [
+     1000,
+     10000,
+     25000,
+     100000,
+     250000
+    ],
+    "engine_version": "fhr3-rq7-engine-1",
+    "asymp_method_version": "fhr3-asympcs-v1"
+   },
+   "design_hash": "9273476b242fa11e",
+   "wall_s": 27.80703816600726,
+   "git": {
+    "sha": "ac3cd5f012a707e3beb56abda2b0393969f4df55",
+    "dirty": false
+   }
+  },
+  "null-mild-min50": {
+   "design": {
+    "sampler": "bootstrap:results/fhr3-plo6-100bb-pilot-v1/p3-aggressive-vs-neutral",
+    "true_mean": 0.0,
+    "effect_d": null,
+    "sigma": 27.18818063732528,
+    "reps": 2000,
+    "n_max": 250000,
+    "t_star": 100000.0,
+    "min_n": 50,
+    "fixed_n": 100000,
+    "alpha": 0.05,
+    "seed": 20261007,
+    "checkpoints": [
+     1000,
+     10000,
+     25000,
+     100000,
+     250000
+    ],
+    "engine_version": "fhr3-rq7-engine-1",
+    "asymp_method_version": "fhr3-asympcs-v1"
+   },
+   "design_hash": "bf143160ca691f11",
+   "wall_s": 12.415453875000821,
+   "git": {
+    "sha": "ac3cd5f012a707e3beb56abda2b0393969f4df55",
+    "dirty": false
+   }
+  },
+  "null-mild-min5000": {
+   "design": {
+    "sampler": "bootstrap:results/fhr3-plo6-100bb-pilot-v1/p3-aggressive-vs-neutral",
+    "true_mean": 0.0,
+    "effect_d": null,
+    "sigma": 27.18818063732528,
+    "reps": 2000,
+    "n_max": 250000,
+    "t_star": 100000.0,
+    "min_n": 5000,
+    "fixed_n": 100000,
+    "alpha": 0.05,
+    "seed": 20261007,
+    "checkpoints": [
+     1000,
+     10000,
+     25000,
+     100000,
+     250000
+    ],
+    "engine_version": "fhr3-rq7-engine-1",
+    "asymp_method_version": "fhr3-asympcs-v1"
+   },
+   "design_hash": "c59194673a29fbbb",
+   "wall_s": 13.78777316698688,
+   "git": {
+    "sha": "ac3cd5f012a707e3beb56abda2b0393969f4df55",
+    "dirty": false
+   }
+  },
+  "null-moderate-min200": {
+   "design": {
+    "sampler": "bootstrap:results/fhr3-cp6-100bb-pilot-v1/p2-neutral-vs-tight",
+    "true_mean": 0.0,
+    "effect_d": null,
+    "sigma": 18.245463746508687,
+    "reps": 2000,
+    "n_max": 250000,
+    "t_star": 100000.0,
+    "min_n": 200,
+    "fixed_n": 100000,
+    "alpha": 0.05,
+    "seed": 20261007,
+    "checkpoints": [
+     1000,
+     10000,
+     25000,
+     100000,
+     250000
+    ],
+    "engine_version": "fhr3-rq7-engine-1",
+    "asymp_method_version": "fhr3-asympcs-v1"
+   },
+   "design_hash": "505c3f6583b2b6d2",
+   "wall_s": 18.773204375000205,
+   "git": {
+    "sha": "ac3cd5f012a707e3beb56abda2b0393969f4df55",
+    "dirty": false
+   }
+  },
+  "null-normal-min200": {
+   "design": {
+    "sampler": "normal",
+    "true_mean": 0.0,
+    "effect_d": null,
+    "sigma": 1.0,
+    "reps": 2000,
+    "n_max": 250000,
+    "t_star": 100000.0,
+    "min_n": 200,
+    "fixed_n": 100000,
+    "alpha": 0.05,
+    "seed": 20261007,
+    "checkpoints": [
+     1000,
+     10000,
+     25000,
+     100000,
+     250000
+    ],
+    "engine_version": "fhr3-rq7-engine-1",
+    "asymp_method_version": "fhr3-asympcs-v1"
+   },
+   "design_hash": "4208c0c212266d4c",
+   "wall_s": 25.939963250013534,
+   "git": {
+    "sha": "ac3cd5f012a707e3beb56abda2b0393969f4df55",
+    "dirty": false
+   }
+  },
+  "null-t3-min1000": {
+   "design": {
+    "sampler": "t3",
+    "true_mean": 0.0,
+    "effect_d": null,
+    "sigma": 1.0,
+    "reps": 2000,
+    "n_max": 250000,
+    "t_star": 100000.0,
+    "min_n": 1000,
+    "fixed_n": 100000,
+    "alpha": 0.05,
+    "seed": 20261007,
+    "checkpoints": [
+     1000,
+     10000,
+     25000,
+     100000,
+     250000
+    ],
+    "engine_version": "fhr3-rq7-engine-1",
+    "asymp_method_version": "fhr3-asympcs-v1"
+   },
+   "design_hash": "84023f4ff5125090",
+   "wall_s": 14.172245082998415,
+   "git": {
+    "sha": "ac3cd5f012a707e3beb56abda2b0393969f4df55",
+    "dirty": false
+   }
+  },
+  "null-t3-min200": {
+   "design": {
+    "sampler": "t3",
+    "true_mean": 0.0,
+    "effect_d": null,
+    "sigma": 1.0,
+    "reps": 2000,
+    "n_max": 250000,
+    "t_star": 100000.0,
+    "min_n": 200,
+    "fixed_n": 100000,
+    "alpha": 0.05,
+    "seed": 20261007,
+    "checkpoints": [
+     1000,
+     10000,
+     25000,
+     100000,
+     250000
+    ],
+    "engine_version": "fhr3-rq7-engine-1",
+    "asymp_method_version": "fhr3-asympcs-v1"
+   },
+   "design_hash": "e2be9c2ced1711b2",
+   "wall_s": 21.487989709014073,
+   "git": {
+    "sha": "ac3cd5f012a707e3beb56abda2b0393969f4df55",
+    "dirty": false
+   }
+  },
+  "null-t3-min50": {
+   "design": {
+    "sampler": "t3",
+    "true_mean": 0.0,
+    "effect_d": null,
+    "sigma": 1.0,
+    "reps": 2000,
+    "n_max": 250000,
+    "t_star": 100000.0,
+    "min_n": 50,
+    "fixed_n": 100000,
+    "alpha": 0.05,
+    "seed": 20261007,
+    "checkpoints": [
+     1000,
+     10000,
+     25000,
+     100000,
+     250000
+    ],
+    "engine_version": "fhr3-rq7-engine-1",
+    "asymp_method_version": "fhr3-asympcs-v1"
+   },
+   "design_hash": "cd6ed19d5d8daa2e",
+   "wall_s": 14.338972834026208,
+   "git": {
+    "sha": "ac3cd5f012a707e3beb56abda2b0393969f4df55",
+    "dirty": false
+   }
+  },
+  "null-t3-min5000": {
+   "design": {
+    "sampler": "t3",
+    "true_mean": 0.0,
+    "effect_d": null,
+    "sigma": 1.0,
+    "reps": 2000,
+    "n_max": 250000,
+    "t_star": 100000.0,
+    "min_n": 5000,
+    "fixed_n": 100000,
+    "alpha": 0.05,
+    "seed": 20261007,
+    "checkpoints": [
+     1000,
+     10000,
+     25000,
+     100000,
+     250000
+    ],
+    "engine_version": "fhr3-rq7-engine-1",
+    "asymp_method_version": "fhr3-asympcs-v1"
+   },
+   "design_hash": "873bb210934340cb",
+   "wall_s": 16.632113707979443,
+   "git": {
+    "sha": "ac3cd5f012a707e3beb56abda2b0393969f4df55",
+    "dirty": false
+   }
+  },
+  "perm-nlhe6p1": {
+   "design": {
+    "sampler": "permutation:results/fhr3-nlhe6-100bb-pilot-v1/p1-neutral-vs-loose10",
+    "true_mean": -0.03244864,
+    "effect_d": null,
+    "sigma": 7.699795861111344,
+    "reps": 1000,
+    "n_max": 250000,
+    "t_star": 100000.0,
+    "min_n": 200,
+    "fixed_n": 100000,
+    "alpha": 0.05,
+    "seed": 20261007,
+    "checkpoints": [
+     1000,
+     10000,
+     25000,
+     100000,
+     250000
+    ],
+    "engine_version": "fhr3-rq7-engine-1",
+    "asymp_method_version": "fhr3-asympcs-v1"
+   },
+   "design_hash": "cb98e3a83ecd0375",
+   "wall_s": 8.787368041987065,
+   "git": {
+    "sha": "ac3cd5f012a707e3beb56abda2b0393969f4df55",
+    "dirty": false
+   }
+  }
+ },
+ "source_corpus_fingerprints": {
+  "bootstrap:results/fhr3-nlhe6-100bb-pilot-v1/p1-neutral-vs-loose10": {
+   "pairing_hash": "8271526be0009827",
+   "rows": 250000,
+   "chunks": 1000,
+   "first_chunk": "blocks_000000000_000000250.parquet",
+   "last_chunk": "blocks_000249750_000250000.parquet",
+   "parquet_sha256": "e12ca10bbf23907baa92fa85740939e61e774e6bb0d0a96daf7d0f7e9946964f"
+  },
+  "bootstrap:results/fhr3-plo6-100bb-pilot-v1/p3-aggressive-vs-neutral": {
+   "pairing_hash": "7fecc78f8a8c9a1e",
+   "rows": 50000,
+   "chunks": 200,
+   "first_chunk": "blocks_000000000_000000250.parquet",
+   "last_chunk": "blocks_000049750_000050000.parquet",
+   "parquet_sha256": "19f8659a0148c874888bc1fb55f5531ee90b69692053128205561ced44cb8017"
+  },
+  "bootstrap:results/fhr3-cp6-100bb-pilot-v1/p2-neutral-vs-tight": {
+   "pairing_hash": "80e90ae4c174b4f4",
+   "rows": 100000,
+   "chunks": 400,
+   "first_chunk": "blocks_000000000_000000250.parquet",
+   "last_chunk": "blocks_000099750_000100000.parquet",
+   "parquet_sha256": "efa5c047656b1680fa4e1f4204fc46ac9e2347fbda750cee46f632e63bc929de"
+  },
+  "permutation:results/fhr3-nlhe6-100bb-pilot-v1/p1-neutral-vs-loose10": {
+   "pairing_hash": "8271526be0009827",
+   "rows": 250000,
+   "chunks": 1000,
+   "first_chunk": "blocks_000000000_000000250.parquet",
+   "last_chunk": "blocks_000249750_000250000.parquet",
+   "parquet_sha256": "e12ca10bbf23907baa92fa85740939e61e774e6bb0d0a96daf7d0f7e9946964f"
+  }
+ },
+ "flags_asymp_miscoverage_above_alpha": []
+}

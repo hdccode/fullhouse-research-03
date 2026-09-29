@@ -1,0 +1,227 @@
+[
+  {
+    "method": "asymp",
+    "method_version": "fhr3-asympcs-v1",
+    "alpha": 0.05,
+    "t_star": 100000.0,
+    "min_n": 200,
+    "width_threshold": null,
+    "stopping_time": 10000,
+    "reason": "budget_exhausted",
+    "decision": "none",
+    "interval": [
+      -0.1522304897848105,
+      0.08614448978481049
+    ],
+    "mean": -0.033042999999999996,
+    "n_available": 10000,
+    "valid_for_optional_stopping": true,
+    "experiment_id": "fhr3-nlhe6-20bb-v1",
+    "pairing_id": "p1-neutral-vs-loose10",
+    "played_hands_at_stop": 120000,
+    "interval_bb100": [
+      -2.5371748297468417,
+      1.435741496413508
+    ]
+  },
+  {
+    "method": "fixed",
+    "method_version": "fhr3-asympcs-v1",
+    "alpha": 0.05,
+    "t_star": null,
+    "min_n": 200,
+    "width_threshold": null,
+    "stopping_time": 10000,
+    "reason": "budget_exhausted",
+    "decision": "none",
+    "interval": [
+      -0.09364693179696454,
+      0.027560931796964547
+    ],
+    "mean": -0.033042999999999996,
+    "n_available": 10000,
+    "valid_for_optional_stopping": false,
+    "experiment_id": "fhr3-nlhe6-20bb-v1",
+    "pairing_id": "p1-neutral-vs-loose10",
+    "played_hands_at_stop": 120000,
+    "interval_bb100": [
+      -1.5607821966160758,
+      0.45934886328274244
+    ]
+  },
+  {
+    "method": "peek",
+    "method_version": "fhr3-asympcs-v1",
+    "alpha": 0.05,
+    "t_star": null,
+    "min_n": 200,
+    "width_threshold": null,
+    "stopping_time": 10000,
+    "reason": "budget_exhausted",
+    "decision": "none",
+    "interval": [
+      -0.09364693179696454,
+      0.027560931796964547
+    ],
+    "mean": -0.033042999999999996,
+    "n_available": 10000,
+    "valid_for_optional_stopping": false,
+    "experiment_id": "fhr3-nlhe6-20bb-v1",
+    "pairing_id": "p1-neutral-vs-loose10",
+    "played_hands_at_stop": 120000,
+    "interval_bb100": [
+      -1.5607821966160758,
+      0.45934886328274244
+    ]
+  },
+  {
+    "method": "asymp",
+    "method_version": "fhr3-asympcs-v1",
+    "alpha": 0.05,
+    "t_star": 100000.0,
+    "min_n": 200,
+    "width_threshold": null,
+    "stopping_time": 10000,
+    "reason": "budget_exhausted",
+    "decision": "none",
+    "interval": [
+      -0.02893638205766505,
+      0.3726903820576647
+    ],
+    "mean": 0.171877,
+    "n_available": 10000,
+    "valid_for_optional_stopping": true,
+    "experiment_id": "fhr3-nlhe6-20bb-v1",
+    "pairing_id": "p2-neutral-vs-tight",
+    "played_hands_at_stop": 120000,
+    "interval_bb100": [
+      -0.4822730342944175,
+      6.211506367627745
+    ]
+  },
+  {
+    "method": "fixed",
+    "method_version": "fhr3-asympcs-v1",
+    "alpha": 0.05,
+    "t_star": null,
+    "min_n": 200,
+    "width_threshold": null,
+    "stopping_time": 10000,
+    "reason": "budget_exhausted",
+    "decision": "A>B",
+    "interval": [
+      0.06976829268421335,
+      0.27398570731578625
+    ],
+    "mean": 0.171877,
+    "n_available": 10000,
+    "valid_for_optional_stopping": false,
+    "experiment_id": "fhr3-nlhe6-20bb-v1",
+    "pairing_id": "p2-neutral-vs-tight",
+    "played_hands_at_stop": 120000,
+    "interval_bb100": [
+      1.1628048780702225,
+      4.566428455263105
+    ]
+  },
+  {
+    "method": "peek",
+    "method_version": "fhr3-asympcs-v1",
+    "alpha": 0.05,
+    "t_star": null,
+    "min_n": 200,
+    "width_threshold": null,
+    "stopping_time": 4689,
+    "reason": "excludes_zero",
+    "decision": "A>B",
+    "interval": [
+      0.00010902647471638938,
+      0.30674104816806463
+    ],
+    "mean": 0.15342503732139048,
+    "n_available": 10000,
+    "valid_for_optional_stopping": false,
+    "experiment_id": "fhr3-nlhe6-20bb-v1",
+    "pairing_id": "p2-neutral-vs-tight",
+    "played_hands_at_stop": 56268,
+    "interval_bb100": [
+      0.001817107911939823,
+      5.112350802801077
+    ]
+  },
+  {
+    "method": "asymp",
+    "method_version": "fhr3-asympcs-v1",
+    "alpha": 0.05,
+    "t_star": 100000.0,
+    "min_n": 200,
+    "width_threshold": null,
+    "stopping_time": 10000,
+    "reason": "budget_exhausted",
+    "decision": "none",
+    "interval": [
+      -0.04456017626884462,
+      0.37135617626884426
+    ],
+    "mean": 0.163398,
+    "n_available": 10000,
+    "valid_for_optional_stopping": true,
+    "experiment_id": "fhr3-nlhe6-20bb-v1",
+    "pairing_id": "p3-aggressive-vs-neutral",
+    "played_hands_at_stop": 120000,
+    "interval_bb100": [
+      -0.7426696044807436,
+      6.189269604480738
+    ]
+  },
+  {
+    "method": "fixed",
+    "method_version": "fhr3-asympcs-v1",
+    "alpha": 0.05,
+    "t_star": null,
+    "min_n": 200,
+    "width_threshold": null,
+    "stopping_time": 10000,
+    "reason": "budget_exhausted",
+    "decision": "A>B",
+    "interval": [
+      0.05765633907591562,
+      0.26913966092408403
+    ],
+    "mean": 0.163398,
+    "n_available": 10000,
+    "valid_for_optional_stopping": false,
+    "experiment_id": "fhr3-nlhe6-20bb-v1",
+    "pairing_id": "p3-aggressive-vs-neutral",
+    "played_hands_at_stop": 120000,
+    "interval_bb100": [
+      0.9609389845985937,
+      4.4856610154014005
+    ]
+  },
+  {
+    "method": "peek",
+    "method_version": "fhr3-asympcs-v1",
+    "alpha": 0.05,
+    "t_star": null,
+    "min_n": 200,
+    "width_threshold": null,
+    "stopping_time": 1611,
+    "reason": "excludes_zero",
+    "decision": "A>B",
+    "interval": [
+      0.0016679724775742755,
+      0.5305107984721467
+    ],
+    "mean": 0.26608938547486033,
+    "n_available": 10000,
+    "valid_for_optional_stopping": false,
+    "experiment_id": "fhr3-nlhe6-20bb-v1",
+    "pairing_id": "p3-aggressive-vs-neutral",
+    "played_hands_at_stop": 19332,
+    "interval_bb100": [
+      0.02779954129290459,
+      8.841846641202444
+    ]
+  }
+]
