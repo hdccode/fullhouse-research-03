@@ -82,6 +82,8 @@ class RunManifest:
     matched_protocol_version: str = MATCHED_PROTOCOL_VERSION
     work: dict[str, Any] = field(default_factory=dict)
     summary: dict[str, Any] = field(default_factory=dict)
+    estimator_provenance: dict[str, Any] | None = None
+    estimator_config_hash: str | None = None
 
     def to_dict(self) -> dict[str, Any]:
         return asdict(self)

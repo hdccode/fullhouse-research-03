@@ -121,8 +121,18 @@ class ExperimentConfig:
     raw: Mapping[str, Any] = field(default_factory=dict)
 
     @property
+    def estimator_provenance(self) -> dict[str, Any] | None:
+        """Settings + method/library versions + RNG derivation of every enabled estimator."""
+        if not self.estimators:
+            return None
+        from fhr3.estimators.provenance import estimator_provenance
+
+        return estimator_provenance(self.estimators)
+
+    @property
     def estimator_config_hash(self) -> str | None:
-        return canonical_hash(dict(self.estimators))[:16] if self.estimators else None
+        prov = self.estimator_provenance
+        return canonical_hash(prov)[:16] if prov else None
 
     def environment(self) -> dict[str, Any]:
         return {

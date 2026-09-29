@@ -77,17 +77,17 @@ def _check_or_create_lock(path: Path, expected: dict[str, Any], what: str) -> No
 
 
 def ensure_locks(root: Path, cfg: ExperimentConfig, pairings: list[Pairing]) -> None:
-    _check_or_create_lock(
-        experiment_dir(root, cfg) / "experiment.lock.json",
-        {
-            "config_hash": cfg.config_hash,
-            "environment": cfg.environment(),
-            "schema_version": SCHEMA_VERSION,
-            "matched_protocol_version": MATCHED_PROTOCOL_VERSION,
-            "estimators": dict(cfg.estimators),
-        },
-        "experiment lock",
-    )
+    lock: dict[str, Any] = {
+        "config_hash": cfg.config_hash,
+        "environment": cfg.environment(),
+        "schema_version": SCHEMA_VERSION,
+        "matched_protocol_version": MATCHED_PROTOCOL_VERSION,
+        "estimators": dict(cfg.estimators),
+    }
+    if cfg.estimators:  # raw-only locks are unchanged; estimator runs also pin versions + RNG derivation
+        lock["estimator_provenance"] = cfg.estimator_provenance
+        lock["estimator_config_hash"] = cfg.estimator_config_hash
+    _check_or_create_lock(experiment_dir(root, cfg) / "experiment.lock.json", lock, "experiment lock")
     for p in pairings:
         _check_or_create_lock(
             pairing_dir(root, cfg, p.pairing_id) / "pairing.lock.json",

@@ -16,6 +16,7 @@ from typing import Any
 import numpy as np
 
 from fhr3.configs.experiment import ExperimentConfig, config_from_dict
+from fhr3.estimators.provenance import VAT_METHOD_VERSION, pvat_version
 from fhr3.estimators.vat import FEATURE_VERSION, FEATURES, VATEstimator, fit_theta
 from fhr3.eval.matched import HandContext
 from fhr3.eval.runner import BlockSimulator
@@ -70,10 +71,16 @@ def fit_value_function(
         "blocks": [start, end],
         "n_hand_histories": len(col.terms),
         "in_sample_per_hand_variance": {"raw": raw_var, "fitted": fit_var},
+        "method_version": VAT_METHOD_VERSION,
+        "pvat_version": pvat_version(),
         "git": git_info(),
-        "created_at": now_iso(),
     }
+    # the pinned artifact is a deterministic function of (code, config, training seed,
+    # blocks): refitting reproduces the same bytes and sha256. The wall-clock timestamp
+    # lives in a sidecar that is not pinned.
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(json.dumps(meta, indent=1, sort_keys=True))
     meta["sha256"] = hashlib.sha256(out.read_bytes()).hexdigest()
+    out.with_suffix(".created.json").write_text(json.dumps({"artifact": out.name, "sha256": meta["sha256"],
+                                                            "created_at": now_iso()}, indent=1))
     return meta

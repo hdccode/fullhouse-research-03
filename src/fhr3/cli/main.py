@@ -80,6 +80,8 @@ def cmd_simulate(args: argparse.Namespace) -> int:
         config_hash=cfg.config_hash,
         pairing_hashes={p: cfg.pairing(p).pairing_hash for p in pids},
         work=plan,
+        estimator_provenance=cfg.estimator_provenance,
+        estimator_config_hash=cfg.estimator_config_hash,
     )
     mpath = experiment_dir(results_root, cfg) / "runs" / f"{run_id}.json"
     _write_json_atomic(mpath, manifest.to_dict())
