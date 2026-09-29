@@ -1,3 +1,5 @@
+> **Final figures:** `paper/figures/final/` (build: `paper/figures/README.md`; captions: `final/captions.md`; deviations from this spec: `paper/figures/QA.md`, notably F1 shows median lines only, without ribbons).
+
 # FIGURES and TABLES: final specifications
 
 Figure data is in `paper/figures/data/`, generated from frozen outputs by
@@ -8,7 +10,7 @@ environment from these CSVs.
 
 **Shared encoding:**
 * one colour per format, fixed across F1–F4, colour-blind safe;
-* pairing role by marker shape (p1 ○, p2 △, p3 □);
+* pairing role by marker shape (p1 ○, p2 □, p3 △);
 * methods in F6 by colour (fixed-N grey, naive peeking red/orange, confidence sequence
   blue);
 * log axes are labelled with real values (100k, 1M, 10M), not exponents.

@@ -1,0 +1,15 @@
+# Figure environment (separate from the research uv.lock). Python 3.12.13.
+# Create: uv venv --python 3.12 .venv-figures && VIRTUAL_ENV=$PWD/.venv-figures uv pip install -r paper/figures/requirements.txt
+contourpy==1.4.0
+cycler==0.12.1
+fonttools==4.66.0
+kiwisolver==1.5.1
+matplotlib==3.11.2
+numpy==2.5.3
+packaging==26.3
+pandas==3.0.6
+pillow==12.3.0
+pyparsing==3.3.3
+python-dateutil==2.9.0.post0
+scipy==1.18.1
+six==1.17.0
