@@ -57,14 +57,19 @@ def cells_for(args: argparse.Namespace) -> list[tuple[str, Any]]:
     prof = _profile_for(args)
     exp = args.experiment
     if exp == "operational-2026":
-        from fhr3.tournament.protocol import load_protocol
-        import yaml
+        # Only this historical experiment depends on the 2026 record; the research experiments never do.
+        from fhr3.tournament.historical import load_historical
 
-        path = FHR3B_CONFIGS / E["operational_2026"]["protocol"]
-        raw = yaml.safe_load(path.read_text())
-        proto = load_protocol(path)
-        raise SystemExit(f"operational-2026 is PENDING ({proto.name}, status={proto.status}); unresolved facts:\n  - "
-                         + "\n  - ".join(raw.get("unknowns", [])) + "\nSee docs/fhr3b/2026_protocol_audit.md.")
+        rec = load_historical(FHR3B_CONFIGS)
+        miss = rec.missing()
+        if miss:
+            raise SystemExit(
+                f"operational-2026 is BLOCKED / PENDING: {rec.name} lacks required historical values "
+                f"(UNKNOWN: {', '.join(miss)}).\nUnresolved facts:\n  - " + "\n  - ".join(rec.unknowns)
+                + "\nThe controlled FHR3B experiments (fhr3b_baseline) are not affected. "
+                "See docs/fhr3b/2026_protocol_audit.md.")
+        raise SystemExit(f"historical values supplied ({rec.to_protocol().protocol_hash}); an operational field "
+                         f"of N={rec.required['field_size']} bots must be built before this experiment can run.")
     if exp == "round-sweep":
         raise SystemExit("round-sweep is derived from the baseline cells (exact R-prefixes): run `baseline`, then "
                          "`validate --experiment baseline --prefix N` and `analyse`.")
@@ -95,17 +100,24 @@ def cells_for(args: argparse.Namespace) -> list[tuple[str, Any]]:
 
 # ------------------------------------------------------------------ commands
 def cmd_audit(args: argparse.Namespace) -> int:
+    from fhr3.tournament.historical import load_historical
     from fhr3.tournament.protocol import load_protocol
 
     ref = Path(__file__).resolve().parents[3] / "tests/data/fhr3b/fullhouse_engine_a80b269"
     prov = json.loads((ref / "PROVENANCE.json").read_text())
     got = hashlib.sha256((ref / "reference_tournament.py").read_bytes()).hexdigest()
     want = prov["files"]["engine/tournament.py"]["sha256"]
-    proto = load_protocol(FHR3B_CONFIGS / "protocols/reconstructed_2026.yaml")
-    _p({"audit_doc": "docs/fhr3b/2026_protocol_audit.md", "reference_repository": prov["repository"],
-        "reference_commit": prov["commit"], "vendored_reference_sha256_ok": got == want,
-        "protocol": proto.to_dict() | {"protocol_hash": proto.protocol_hash}, "notes": list(proto.notes),
-        "exact_2026_available": False,
+    rec = load_historical(FHR3B_CONFIGS)
+    base = load_protocol(FHR3B_CONFIGS / "protocols/fhr3b_baseline.yaml")
+    _p({"audit_doc": "docs/fhr3b/2026_protocol_audit.md",
+        "historical_provenance": {"record": rec.name, "record_hash": rec.record_hash,
+                                  "reference_repository": prov["repository"], "reference_commit": prov["commit"],
+                                  "vendored_reference_sha256_ok": got == want,
+                                  "production_equivalence": rec.raw["production_equivalence"],
+                                  "unknown_required_values": rec.missing(),
+                                  "operational_validation": "BLOCKED" if rec.missing() else "unblocked"},
+        "research_baseline": base.to_dict() | {"protocol_hash": base.protocol_hash, "notes": list(base.notes),
+                                               "meaning": "predeclared research design choices; not 2026 settings"},
         "golden_test": "tests/test_fhr3b_swiss.py::test_port_matches_vendored_reference"})
     return 0 if got == want else 1
 

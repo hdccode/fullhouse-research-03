@@ -1,4 +1,4 @@
-"""FullHouse 2026 Swiss pairing, standings and qualification cut (``reconstructed_2026``).
+"""FullHouse-style Swiss pairing, standings and qualification cut (public 2026 engine rule).
 
 Line-for-line port of the public canonical reference
 
@@ -7,9 +7,10 @@ Line-for-line port of the public canonical reference
     sha256 9759284729099b98d7e784824fc7ff8705c1fa846c6b8ebede848832e4a2325a
 
 vendored byte-identically under ``tests/data/fhr3b/fullhouse_engine_a80b269/`` and
-checked by a golden test. That module says the production match queue shipped "its
-own copy in the private ops repo", which is not available, so this is a
-reconstruction, not a verified copy of production (docs/fhr3b/2026_protocol_audit.md).
+checked by a golden test. It is the architectural provenance of the FHR3B research
+baseline (``fhr3b_baseline``). The 2026 production queue shipped "its own copy in the
+private ops repo", which is not available, so this is not a verified copy of production
+(docs/fhr3b/2026_protocol_audit.md).
 
 Reference semantics kept exactly:
 

@@ -25,7 +25,9 @@ from fhr3.tournament.swiss import PAIRING_ALGORITHM, PAIRING_VERSION, TIEBREAKS
 
 STACK_POLICIES = ("persistent_no_rebuy", "reset_each_hand")
 INITIAL_ORDERS = ("seeded_shuffle", "field_order")
-STATUSES = ("reconstructed", "lab", "pending", "smoke")
+# research: FHR3B controlled protocols; smoke: correctness only; historical: built from a
+# *complete* historical record (fhr3.tournament.historical), never from research choices.
+STATUSES = ("research", "smoke", "historical")
 # Variants whose match can carry stacks across hands (see match.py)
 PERSISTENT_OK = frozenset({"nlhe", "plo", "crazy_pineapple"})
 

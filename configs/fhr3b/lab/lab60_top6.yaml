@@ -1,8 +1,7 @@
-# Controlled FHR3B laboratory environment. NOT a proposed FullHouse competition format.
-# 60 bots divide exactly into 4-max and 6-max tables (no stragglers); top 6 = 10% cut.
+# Controlled FHR3B research environment. NOT a proposed FullHouse competition format and
+# NOT the 2026 event. 60 agents divide exactly into 4-max and 6-max tables (no remainder
+# tables); K = 6 (from the protocol) gives a ~10% qualification boundary.
 name: lab60_top6
 field_size: 60
-qualify_top_k: 6
-base_protocol: protocols/reconstructed_2026.yaml   # Swiss rule, scoring, tiebreaks, R0, H0
-# Per mode: table_size and stack_policy come from configs/fhr3b/modes/<mode>.yaml
-seed_family: fhr3b-2026
+protocol: protocols/fhr3b_baseline.yaml   # R0, H0, K, Swiss rule, scoring, tiebreaks
+seed_family: fhr3b-2026                   # seed-namespace label only; carries no historical meaning

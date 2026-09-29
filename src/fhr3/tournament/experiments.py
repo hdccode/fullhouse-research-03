@@ -5,8 +5,10 @@ profiles; this module resolves them into ``Cell`` objects.
 
 Profiles
 --------
-``publication``  lab60_top6 protocol (R0/H0 from reconstructed_2026), N=60, K=6,
-                 frozen publication fields in configs/fhr3b/fields/<mode>/.
+``publication``  the FHR3B research baseline ``fhr3b_baseline`` (R0=40, H0=400, K=6;
+                 predeclared research design choices, not 2026 settings) in the
+                 ``lab60_top6`` environment (N=60), frozen fields in
+                 configs/fhr3b/fields/<mode>/.
 ``pilot``        same protocol, ``provisional60`` fields, namespace ``pilot``
                  (runtime + Monte Carlo calibration only).
 ``smoke``        tiny protocol (configs/fhr3b/protocols/smoke.yaml), 12-bot fields,
@@ -76,11 +78,11 @@ class Profile:
         return self.base.hands_per_match
 
     def protocol(self, mode: Mode, rounds: int | None = None, hands: int | None = None) -> TournamentProtocol:
-        status = "lab" if self.name != "smoke" else "smoke"
+        """The profile's protocol instantiated for a mode (natural table size and stack rule)."""
         return self.base.with_(
-            name=self.lab_name, status=status, table_size=mode.table_size, qualify_top_k=self.k,
-            stack_policy=mode.stack_policy, rounds=rounds or self.r0, hands_per_match=hands or self.h0,
-            notes=(f"{self.name} profile derived from {self.base.name}; not a competition format",),
+            table_size=mode.table_size, qualify_top_k=self.k, stack_policy=mode.stack_policy,
+            rounds=rounds or self.r0, hands_per_match=hands or self.h0,
+            notes=self.base.notes + (f"environment {self.lab_name}; controlled research design, not a competition format",),
         )
 
     # ------------------------------------------------------------ fields
@@ -153,7 +155,9 @@ def load_profile(name: str = "publication", results_root: Path | None = None,
                  config_root: Path = FHR3B_CONFIGS) -> Profile:
     mx = load_matrix(config_root)
     lab = _lab_raw(config_root)
-    base = load_protocol(config_root / lab["base_protocol"])
+    base = load_protocol(config_root / lab["protocol"])
+    if base.status != "research":
+        raise ValueError(f"{lab['protocol']}: the controlled environment needs a research protocol")
     sel = dict(mx["calibration"]["selection"]) | {
         "replays_per_source": mx["experiments"]["schedule_diagnostic"]["replays_per_source"]}
     cal = {"pool": mx["calibration"]["pool"], "field_reference": mx["calibration"]["field_reference"],
@@ -163,12 +167,12 @@ def load_profile(name: str = "publication", results_root: Path | None = None,
               "pool_calibration": "pool-calibration", "field_reference": "field-reference"}
     fields_dir = config_root / "fields"
     if name == "publication":
-        return Profile(name, base, lab["name"], int(lab["field_size"]), int(lab["qualify_top_k"]),
+        return Profile(name, base, lab["name"], int(lab["field_size"]), base.qualify_top_k,
                        lab["seed_family"], pub_ns, tuple(mx["experiments"]["baseline"]["fields"]), fields_dir,
                        sel, cal, config_root)
     if name == "pilot":
         ns = {k: "pilot" for k in pub_ns}
-        return Profile(name, base, lab["name"], int(lab["field_size"]), int(lab["qualify_top_k"]),
+        return Profile(name, base, lab["name"], int(lab["field_size"]), base.qualify_top_k,
                        lab["seed_family"], ns, tuple(mx["experiments"]["pilot"]["fields"]), fields_dir,
                        sel, cal, config_root)
     if name == "smoke":

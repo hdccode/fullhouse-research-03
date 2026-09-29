@@ -8,6 +8,20 @@ field manifest -> round-1 order -> [Swiss tables -> table matches -> chip deltas
                -> final leaderboard -> top-K qualification
 ```
 
+## Protocols: historical provenance vs research baseline
+
+| object | file | runnable | meaning |
+|---|---|---|---|
+| `fhr3b_baseline` | `configs/fhr3b/protocols/fhr3b_baseline.yaml` | yes; every primary experiment | predeclared research design: R0 = 40, H0 = 400, K = 6 (with N = 60 from `lab/lab60_top6.yaml`), seeded round-1 shuffle, raw chip delta, public-engine Swiss rule and tiebreaks |
+| `historical_2026_reconstruction` | `configs/fhr3b/protocols/historical_2026_reconstruction.yaml` | no (a record); loaded by `historical.py` | the audited 2026 facts; unknown historical values are `null`; only Experiment D reads it and it refuses while any is null |
+| `smoke` | `configs/fhr3b/protocols/smoke.yaml` | yes | correctness only |
+
+Per mode, `fhr3b_baseline` takes the mode's natural table size and stack rule, so its per-mode
+protocol hash differs by table size and stack rule. The public 2026 engine is the
+*architectural provenance* of the Swiss rule, the scoring and the match mechanics. It is not
+the source of R0, N, K or the round-1 order. See `docs/fhr3b/2026_protocol_audit.md`,
+section "Historical provenance vs research baseline".
+
 The tournament layer sits on top of FHR3's `GameAdapter`s (PokerKit rules for every mode)
 and `Agent`s. It adds no poker rules and copies no agent logic.
 
@@ -15,7 +29,8 @@ and `Agent`s. It adds no poker rules and copies no agent logic.
 
 | module | role |
 |---|---|
-| `swiss.py` | line-for-line port of the 2026 reference pairing, standings, tiebreaks and cut (golden-tested against the vendored reference) |
+| `historical.py` | loads the historical provenance record; builds a protocol only when every required historical value is supplied |
+| `swiss.py` | line-for-line port of the public 2026 engine's pairing, standings, tiebreaks and cut (golden-tested against the vendored reference) |
 | `protocol.py` | `TournamentProtocol` (table size, H, R, K, stack rule, pairing, stragglers, round-1 order, scoring, tiebreaks, source pin), `protocol_hash`, R-sweep and fixed-budget generators |
 | `match.py` | one table match: `PokerMatchPlayer` (2026 persistent-stack loop or reset-each-hand cash rule, Nit Game rounds), `SyntheticMatchPlayer` (tests), keyed randomness, optional hand logs |
 | `schedule.py` | adaptive Swiss schedule vs research-only frozen schedule; assignment validator |
@@ -49,8 +64,8 @@ and `Agent`s. It adds no poker rules and copies no agent logic.
 
 | mode | table | stack rule | why |
 |---|---|---|---|
-| nlhe6 (production game) | 6 | `persistent_no_rebuy` | the 2026 match rule |
-| nlhe4 | 4 | `persistent_no_rebuy` | 2026 rule at 4-max |
+| nlhe6 (the public engine's game) | 6 | `persistent_no_rebuy` | the public engine's match rule |
+| nlhe4 | 4 | `persistent_no_rebuy` | the same rule at 4-max |
 | plo6 | 6 | `persistent_no_rebuy` | same outer and inner rule as NLHE |
 | cp6 | 6 | `persistent_no_rebuy` | same |
 | aof4 | 4 | `reset_each_hand` | the FHR3 AoF game is 8 BB every hand; carrying 8 BB stacks through 400 hands would make each match a short sit-and-go (a different estimand) |
@@ -157,7 +172,8 @@ and checks it against the stored deltas.
 | `identity_hash` (cell) | engine versions, seed-derivation version, kind, mode, protocol, field hash, seed family, namespace, and for replays the source cell and J |
 | `engine_source_hash` | result-relevant modules (rng, eval/matched, games, agents, tournament engine modules). Recorded in the lock; a mismatch refuses to extend a cell unless `--allow-source-change` is given, and `validate --replay` must then confirm old tournaments still replay exactly |
 | `ANALYSIS_VERSION` | recorded in every report MANIFEST |
-| production source | `protocol.source` pins the 2026 reference repository, commit and file hashes |
+| architectural provenance | `protocol.source` pins the public 2026 engine repository, commit and file hash (`role: architectural provenance only`) |
+| historical record | `historical_2026_reconstruction` record hash (`fhr3b audit`); not part of any research identity |
 
 Replication counts are not part of any identity. Extending broad → flagship reuses the same
 cells, and verified tournaments are skipped.

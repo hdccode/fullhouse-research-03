@@ -1,8 +1,15 @@
-# FullHouse 2026 protocol audit (FHR3B hard gate)
+# FullHouse 2026 protocol audit (historical provenance)
 
 Audit date: 2026-09-29. Outcome: **the exact production tournament code was not found.**
-FHR3B therefore implements `reconstructed_2026`, not `exact_2026`. This document records
-what each protocol fact rests on.
+This document records what each fact about the 2026 qualifier rests on. Its result is the
+historical provenance record `historical_2026_reconstruction`
+(`configs/fhr3b/protocols/historical_2026_reconstruction.yaml`), a record, not a runnable
+protocol. Unknown historical values stay `null` in it.
+
+The audit is **not** the definition of FHR3B's primary experiments. Those use the
+predeclared research baseline `fhr3b_baseline`. See
+[Historical provenance vs research baseline](#historical-provenance-vs-research-baseline)
+below.
 
 ## Classification
 
@@ -52,7 +59,7 @@ Participant reports are never enough to verify a fact. They are listed as eviden
 | `db/schema.sql` | sha256 `9aa015a405f89ec31ad218286c560fc69a42346c6486963781b08f386681b73f` |
 | `README.md` | sha256 `d63a0a5c6560e979e7a52eba159469f58fdd4b1821732e1d2de631cf3b71a5f8` |
 
-**Why this is not `exact_2026`.** The docstring of `engine/tournament.py` says:
+**Why this is a reconstruction, not an exact copy.** The docstring of `engine/tournament.py` says:
 
 > "The production match queue (BullMQ workers) ships its own copy in the private ops
 > repo; this module is the canonical reference for participants."
@@ -104,43 +111,71 @@ There is no organiser source for the qualifier's round count:
 * One participant reports "15 more games played" in qualifier 2.
 * Another describes ~40 Swiss matches of 800 hands, but for the **finals** "Bubble" phase.
 
-**Decision.** The lab baseline uses **R0 = 40**, labelled *provisional*
-(`configs/fhr3b/protocols/reconstructed_2026.yaml`, `notes`). It matches the scale of the
-only multi-round report and gives the intended sweep 5/10/20/30/40. Changing R0 is a
-one-line change, and the sweep and budget generators derive everything from it. Every R
-value gets its own protocol hash. **Confirm R0 with the organisers before publication.**
+**Historical status: UNKNOWN.** This audit makes no estimate of the qualifier's round count.
+The finals report above concerns a different phase and a different match length. It is not
+evidence for the qualifier.
 
-## What `reconstructed_2026` implements
+## Historical provenance vs research baseline
 
-| aspect | implementation | relation to the facts above |
+FHR3B keeps two objects apart:
+
+* **`historical_2026_reconstruction`**: the best-supported record of the 2026 architecture,
+  with every unknown left unknown. It is used only for provenance and for the blocked
+  operational validation.
+* **`fhr3b_baseline`**: a predeclared, reproducible research instantiation of the
+  FullHouse-style Swiss paradigm (`configs/fhr3b/protocols/fhr3b_baseline.yaml`). Its
+  parameters are research design choices, not claims about 2026.
+
+| component | historical evidence | FHR3B research choice |
 |---|---|---|
-| pairing, standings, tiebreaks, cut | line-for-line port (`src/fhr3/tournament/swiss.py`) | a golden test compares it with the vendored reference on 40 random histories |
-| match | `persistent_no_rebuy`: carried stacks, bust-out, early end, the 2026 dealer counter, heads-up dealer = SB | facts 5–7 |
-| score | raw cumulative chip delta | fact 12 |
-| H | 400 | fact 4 |
-| table size | 6 in the NLHE production mode | fact 3 |
-| cut | K = 64 for the 2026 protocol; the lab uses K = 6 (see below) | fact 17 |
-| R | 40, **provisional** | fact 21 |
-| round-1 order | **seeded shuffle** of the field (reconstruction choice) | fact 16: the reference uses input order and the production order is unknown. A fixed arbitrary manifest order would build structure into round 1 (for example, a strength-sorted manifest would seat the strongest bots together). |
-| poker rules | FHR3's PokerKit NLHE, not the 2026 eval7 engine | these are not rule-identical in edge cases (min-raise snapping, auto-fold of invalid actions, odd-chip splits); FHR3 agents always act legally |
-| card randomness | FHR3 keyed BLAKE2b streams | deliberately not the production card sequence |
-| bots | FHR3 stateless synthetic agents | real 2026 bots could model opponents within a match (fact 26) |
+| Swiss architecture (sort by score, consecutive tables) | public 2026 code (fact 9) | retained |
+| raw cumulative chip-delta scoring | supported (fact 12) | retained |
+| tiebreaks | public 2026 code (fact 13) | retained |
+| match mechanics (carried stacks, bust-out, dealer counter) | public 2026 code (facts 5–7) | retained for NLHE / PLO / Crazy Pineapple; per-hand reset for AoF, bomb pot and Nit |
+| 400 hands per match | supported (fact 4) | retained (H0 = 400) |
+| Swiss rounds | **unknown** (fact 21) | **40** (R0, design choice) |
+| field size | **unknown** (fact 22) | **60** |
+| advancement | top 64 historically supported (fact 17) | **top 6** in the controlled field (~10% of 60) |
+| round-one order | **unknown** (fact 16) | seeded shuffle |
+| remainder handling | **unresolved** (fact 24) | avoided: N = 60 divides into 4- and 6-seat tables |
+| poker rules | 2026 eval7 engine | FHR3 PokerKit adapters (edge cases differ: min-raise snapping, auto-fold of invalid actions, odd-chip splits; FHR3 agents always act legally) |
+| card randomness | `random.Random(seed·1000003 + hand)` | FHR3 keyed BLAKE2b streams |
+| bots | real submissions, which could model opponents within a match (fact 26) | FHR3 stateless synthetic agents |
 
-## Operational 2026 validation (Experiment D): PENDING
+Why R0 = 40 in the research baseline:
 
-`configs/fhr3b/protocols/operational_2026_pending.yaml` has `status: pending`. The runner
-refuses it and prints the missing facts:
+* it gives clean prefixes at 5, 10, 20, 30 and 40 rounds;
+* it gives enough opponent exposure for a reliability curve;
+* it is a meaningful high-budget reference point;
+* it allows the exact fixed-budget allocations 10 × 1600, 20 × 800 and 40 × 400;
+* it stays computationally manageable.
 
-* N per qualifier;
-* R per qualifier;
-* how Q1 and Q2 were combined;
-* the table rule for N mod 6 ∈ {4, 5};
-* production round-1 order;
+None of these reasons refers to the 2026 event.
+
+The seeded round-one shuffle is a research choice. A fixed arbitrary manifest order would
+build structure into round 1; for example, a strength-sorted manifest would seat the
+strongest bots together.
+
+## Historical operational validation (Experiment D): BLOCKED
+
+`historical_2026_reconstruction.yaml` lists the required historical values under
+`required:`. All of them are `null` (UNKNOWN):
+
+* qualifier rounds;
+* field size;
+* how Q1, Q2 and the patch window combined;
+* round-one order;
+* remainder handling for N mod 6 ∈ {4, 5};
 * whether standings were cumulative or averaged;
-* incidents: timeouts, disqualifications, withdrawals;
 * whether the production worker's Swiss code equals the reference.
 
-K = 64 is the only verified operational fact. No operational configuration was invented.
+`fhr3b run --experiment operational-2026` refuses and lists them. Only this experiment is
+blocked. Pool calibration, field construction, the baseline, the round and budget sweeps,
+the schedule diagnostic and both long-run references use `fhr3b_baseline` and do not read
+the historical record.
+
+K = 64, H = 400 and the table size of 6 are the only operational parameters with historical
+support. No operational value was invented or filled with a research choice.
 
 ## 2026 real bots (optional validation)
 

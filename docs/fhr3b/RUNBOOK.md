@@ -1,6 +1,11 @@
 # FHR3B runbook
 
 All commands run from `~/fullhouse-research-03b` on branch `research/fhr3b-swiss-baseline`.
+All experiments below run the controlled research protocol `fhr3b_baseline`: N = 60, K = 6,
+R0 = 40, H0 = 400. These are predeclared research design choices, not 2026 settings (see
+`paper/FHR3B_SCOPE.md`). Only `operational-2026` depends on historical facts, and it is
+blocked.
+
 Every simulation step is **resumable**:
 
 * re-running skips digest-verified tournaments and finished calibration chunks;
@@ -25,7 +30,7 @@ Environment knobs for `scripts/run_fhr3b.sh`:
 ## 0. Audit and smoke (cheap)
 
 ```bash
-scripts/run_fhr3b.sh audit     # vendored 2026 reference hash + protocol summary
+scripts/run_fhr3b.sh audit     # historical record (unknowns, reference hash) + research baseline hash
 scripts/run_fhr3b.sh smoke     # every mode + the whole pipeline at 10 hands/match, into results/fhr3b-smoke
 ```
 
@@ -69,7 +74,7 @@ scripts/run_fhr3b.sh round-sweep                # A: derived from baseline prefi
 scripts/run_fhr3b.sh budget-sweep broad         # B: crowded_cutoff, (R0/4 x 4H0), (R0/2 x 2H0); baseline reused
 scripts/run_fhr3b.sh schedule-diagnostic broad  # C: nlhe6 crowded_cutoff; 50 sources x 4 replays (frozen + adaptive)
 scripts/run_fhr3b.sh swiss-reference broad      # mu_swiss, namespace swiss-reference
-scripts/run_fhr3b.sh operational-2026           # D: prints the unresolved facts and exits (PENDING)
+scripts/run_fhr3b.sh operational-2026           # D (historical): BLOCKED; lists the missing historical values
 scripts/run_fhr3b.sh validate                   # independent invariant checks + exact replays
 scripts/run_fhr3b.sh analyse                    # reports/fhr3b/analysis/
 ```

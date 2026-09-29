@@ -50,7 +50,7 @@ case "$STEP" in
     run "$F" calibrate --stage field --root "$ROOT" --profile publication --modes $MODES \
         --fields spread crowded_cutoff matchup --workers "$WORKERS"
     run "$F" field-reference --root "$ROOT" --profile publication --modes $MODES --reports "$REPORTS" ;;
-  pilot)              # runtime + Monte Carlo calibration: 8 full tournaments per primary mode (provisional60)
+  pilot)              # runtime + MC calibration: 8 fhr3b_baseline tournaments per primary mode (provisional60)
     run "$F" run --experiment pilot --root "$ROOT" --modes $MODES --preset pilot --workers "$WORKERS"
     run "$F" validate --experiment pilot --root "$ROOT" --modes $MODES --replay 1 --prefix 1
     run "$F" analyse --root "$ROOT" --profile pilot --modes $MODES --out "$REPORTS/analysis-pilot" ;;
@@ -62,7 +62,7 @@ case "$STEP" in
   round-sweep)        # derived from baseline R-prefixes: verify the identity, then analyse
     run "$F" validate --experiment baseline --root "$ROOT" --modes $MODES --prefix 3
     run "$F" analyse --root "$ROOT" --profile publication --modes $MODES --out "$REPORTS/analysis" ;;
-  operational-2026)
+  operational-2026)   # historical validation: BLOCKED until required historical values are supplied
     run "$F" run --experiment operational-2026 --root "$ROOT" --replicates 1 ;;
   validate)
     for E in baseline budget-sweep schedule-diagnostic swiss-reference; do

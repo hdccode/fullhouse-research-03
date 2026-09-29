@@ -3,7 +3,7 @@
 A schedule is, per round, the list of tables, each a tuple of bot ids in seat order.
 
 * ``AdaptiveSchedule`` recomputes each round's tables from the current standings with
-  the reconstructed 2026 Swiss pairing (the competition rule).
+  the Swiss pairing rule of the public 2026 engine (the FHR3B competition rule).
 * ``FrozenSchedule`` replays the complete table assignment of a source tournament.
   Later results cannot change later opponents. This counterfactual exists only to
   measure path dependence (Experiment C); it is **not** a proposed competition format.

@@ -26,6 +26,7 @@ def test_pipeline_end_to_end(tmp_path, capsys):
     assert main(["analyse", "--root", str(root), "--profile", "smoke", "--modes", "nlhe6", "--out", str(out),
                  "--boot", "50"]) == 0
     summary = json.loads((out / "summary.json").read_text())
+    assert "not 2026" in summary["lab"]["design_status"]
     status = summary["sections"]["status"]
     for f in ("baseline_reliability.csv", "qualification_probabilities.csv", "rank_stability.csv",
               "round_sweep.csv", "budget_allocation.csv", "schedule_diagnostic.csv", "pairwise_inversions.csv"):

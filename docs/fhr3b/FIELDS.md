@@ -48,7 +48,8 @@ Pre-calibration fields (frozen, not for publication inference):
 
 A calibration round is a keyed uniformly random partition of the bots into tables of the
 mode's size (the remainder sits out). Each table plays one match under the same match rules
-as the tournament (H = H0 hands, the mode's stack rule, the 2026 dealer rotation). Then:
+as the research-baseline tournament (H = H0 hands, the mode's stack rule, the public engine's
+dealer rotation). Then:
 
 * `mu_field(i)` = mean chip delta per match at a uniformly random table. Its SE comes from a
   bootstrap over groups of rounds.

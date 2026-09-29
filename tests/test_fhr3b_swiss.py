@@ -1,4 +1,4 @@
-"""FHR3B: reconstructed 2026 Swiss pairing, standings, cut; protocol + sweep generators."""
+"""FHR3B: public-2026-engine Swiss pairing, standings, cut; protocol + sweep generators."""
 
 from __future__ import annotations
 
@@ -104,16 +104,16 @@ def test_pairing_is_stable_for_equal_scores_after_tiebreak_sort():
 
 # ------------------------------------------------------------------ protocol
 def _proto(**kw):
-    base = dict(name="t", status="lab", table_size=6, hands_per_match=400, rounds=40, qualify_top_k=6)
+    base = dict(name="t", status="research", table_size=6, hands_per_match=400, rounds=40, qualify_top_k=6)
     return TournamentProtocol(**(base | kw))
 
 
-def test_reconstructed_protocol_file_is_reconstructed_not_exact():
-    p = load_protocol(CONFIGS / "protocols/reconstructed_2026.yaml")
-    assert p.status == "reconstructed" and p.name == "reconstructed_2026"
-    assert (p.table_size, p.hands_per_match, p.qualify_top_k) == (6, 400, 64)
-    assert p.stack_policy == "persistent_no_rebuy"
+def test_research_baseline_protocol_file():
+    p = load_protocol(CONFIGS / "protocols/fhr3b_baseline.yaml")
+    assert p.status == "research" and p.name == "fhr3b_baseline"
+    assert (p.table_size, p.hands_per_match, p.rounds, p.qualify_top_k) == (6, 400, 40, 6)
     assert p.source["commit"] == "a80b26957db5f5515d9273a15d1b73aadf8985db"
+    assert "provenance" in p.source["role"]
 
 
 @pytest.mark.parametrize("field,value", [("rounds", 39), ("hands_per_match", 800), ("qualify_top_k", 7),

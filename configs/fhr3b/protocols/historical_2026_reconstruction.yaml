@@ -1,0 +1,56 @@
+# HISTORICAL PROVENANCE RECORD: FullHouse 2026 qualifier (historical_2026_reconstruction).
+#
+# This is NOT a runnable research protocol and NOT the FHR3B baseline. It records what the
+# public 2026 engine establishes and what remains unknown. Every classification is in
+# docs/fhr3b/2026_protocol_audit.md. The private production ops implementation (BullMQ
+# workers) was NOT recovered, so this is a reconstruction, never an exact copy.
+#
+# Unknown historical values are null and are never filled with research choices. The
+# historical operational-validation experiment stays blocked until every `required` value
+# is supplied from historical records.
+kind: historical_reconstruction
+name: historical_2026_reconstruction
+production_equivalence: UNVERIFIED   # private ops repo not recovered
+source:
+  repository: https://github.com/mbatv/fullhouse-engine
+  former_name: uzlez/fullhouse-engine
+  commit: a80b26957db5f5515d9273a15d1b73aadf8985db
+  vendored: tests/data/fhr3b/fullhouse_engine_a80b269/reference_tournament.py
+  files:
+    engine/tournament.py: 9759284729099b98d7e784824fc7ff8705c1fa846c6b8ebede848832e4a2325a
+    sandbox/match.py: 527ce69a451e825f680ad3b8aa92176d795534e87b01e387211d86074de760d3
+    engine/game.py: 95c87ade625041f7cc6221d6cc36eac11f89f3f452753b20a402126c31f7e9c2
+    db/schema.sql: 9aa015a405f89ec31ad218286c560fc69a42346c6486963781b08f386681b73f
+    README.md: d63a0a5c6560e979e7a52eba159469f58fdd4b1821732e1d2de631cf3b71a5f8
+
+recovered:   # supported by the public engine / event config / organiser docs
+  game: {variant: nlhe, sb_chips: 50, bb_chips: 100, starting_stack_chips: 10000}   # VERIFIED_FROM_CODE
+  table_size: 6                        # VERIFIED_FROM_CODE + DOCUMENTATION
+  hands_per_match: 400                 # VERIFIED_FROM_CODE + EVENT_CONFIG + DOCUMENTATION
+  qualify_top_k: 64                    # VERIFIED_FROM_CODE + EVENT_CONFIG + DOCUMENTATION
+  stack_policy: persistent_no_rebuy    # VERIFIED_FROM_CODE (sandbox/match.py)
+  scoring: cumulative_chip_delta       # VERIFIED_FROM_CODE
+  pairing: fh2026-reference-swiss      # VERIFIED_FROM_CODE (reference; production copy unverified)
+  tiebreaks: ["cumulative_delta DESC", "matches_played ASC", "best_match_delta DESC", "bot_id ASC"]
+  dealer_rule: fh2026_dealer_counter   # VERIFIED_FROM_CODE
+  seat_order: standings_order          # VERIFIED_FROM_CODE (reference/demo)
+  straggler_rule_in_reference: fold_into_last_table   # VERIFIED_FROM_CODE; inconsistent with the 9-seat engine limit
+
+required:    # historical values needed for operational validation; null = UNKNOWN
+  qualifier_rounds: null
+  field_size: null
+  qualifier_structure: null    # how Q1 / Q2 and the patch window combined
+  round_one_order: null
+  remainder_handling: null     # N mod 6 in {4,5} gives 10-11 seats under the reference; engine allows 9
+  standings_statistic: null    # cumulative vs per-match average (participants quote averages)
+  production_swiss_code: null  # whether the production worker used the reference swiss_pairing unchanged
+
+unknowns:
+  - "qualifier round count: UNKNOWN (DB default total_rounds=3; README 'multiple rounds'; demo 3 rounds; one participant reports ~15 matches in qualifier 2)"
+  - "field size N of each qualifier (sources: '300+ bots', '~300 entrants', '500+ entrants'; entrants != bots)"
+  - "whether two qualifiers (Q1, Q2) were aggregated, reset, or replaced; how the patch window affected standings"
+  - "table handling when N mod 6 != 0: the reference folds 1-5 stragglers into the last table (7-11 seats), but run_match asserts 2 <= n <= 9"
+  - "round-1 order (reference: input list order; production DB order unknown)"
+  - "whether the leaderboard used cumulative or per-match average chip delta"
+  - "timeouts/crashes (auto-fold), disqualifications and late withdrawals during the event"
+  - "finals format (README: single-elimination bracket; website: best of 200 hands; a participant: Swiss 'Bubble' phase then final table)"

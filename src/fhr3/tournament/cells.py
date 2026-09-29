@@ -55,11 +55,9 @@ class Cell:
                 raise ValueError("replay cells need an adaptive source cell and replays_per_source >= 1")
             if self.source.protocol != self.protocol or self.source.field.field_hash != self.field.field_hash:
                 raise ValueError("replay cells use the source's protocol and field")
-        if self.protocol.status == "pending":
-            raise ValueError(f"protocol {self.protocol.name!r} is pending: missing facts must be verified first")
         self.protocol.check_variant(self.mode.game.variant)
-        if self.protocol.table_size != self.mode.table_size and self.protocol.status == "lab":
-            raise ValueError("lab protocols use the mode's natural table size")
+        if self.protocol.table_size != self.mode.table_size and self.protocol.status == "research":
+            raise ValueError("research protocols use the mode's natural table size")
 
     @cached_property
     def identity(self) -> dict[str, Any]:

@@ -125,7 +125,11 @@ def analyse(root: Path, out: Path, modes: Iterable[str] | None = None, n_boot: i
     modes = list(modes or mx["primary_modes"])
     summary: dict[str, Any] = {"analysis_version": ANALYSIS_VERSION, "profile": profile, "results_root": str(root),
                                "sections": {}, "pairing": ex.PAIRED_NOTE,
-                               "lab": {"name": prof.lab_name, "R0": prof.r0, "H0": prof.h0, "K": prof.k,
+                               "lab": {"environment": prof.lab_name, "protocol": prof.base.name,
+                                       "protocol_hash": prof.base.protocol_hash,
+                                       "design_status": "predeclared research design choices; not 2026 FullHouse "
+                                                        "settings (see paper/FHR3B_SCOPE.md)",
+                                       "R0": prof.r0, "H0": prof.h0, "K": prof.k,
                                        "round_sweep": prof.rounds_sweep(),
                                        "allocations": [a.__dict__ | {"budget": a.budget} for a in prof.allocations()]}}
     inputs: list[dict[str, Any]] = []

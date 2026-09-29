@@ -1,0 +1,36 @@
+# FHR3B RESEARCH BASELINE (fhr3b_baseline): a predeclared, reproducible research instantiation
+# of the FullHouse-style adversarial Swiss evaluation paradigm.
+#
+# Every value below is a RESEARCH DESIGN CHOICE. None is a claim about the 2026 FullHouse
+# qualifier. Architectural provenance (Swiss rule, raw chip-delta scoring, tiebreaks, match
+# mechanics) comes from the public 2026 engine; the historical record, with its unknowns, is
+# protocols/historical_2026_reconstruction.yaml.
+#
+# Why R0 = 40 (design rationale, not history): clean prefixes at 5/10/20/30/40 rounds; enough
+# opponent exposure for a reliability curve; a meaningful high-budget reference point; exact
+# fixed-budget allocations 10x1600 / 20x800 / 40x400; computationally manageable.
+# Why H0 = 400: the public engine's match length (retained architecture).
+# Why K = 6: the controlled field has N = 60 agents (lab/lab60_top6.yaml) -> a ~10% boundary.
+name: fhr3b_baseline
+status: research
+table_size: 6                      # per mode: replaced by the mode's natural table size (4 for 4-max)
+hands_per_match: 400               # H0: research choice, retained from the public engine architecture
+rounds: 40                         # R0: predeclared research design choice (NOT the 2026 qualifier round count)
+qualify_top_k: 6                   # K: research choice for the N=60 controlled field
+stack_policy: persistent_no_rebuy  # per mode: replaced by configs/fhr3b/modes/<mode>.yaml
+initial_order: seeded_shuffle      # research choice (historical round-1 order unknown)
+scoring: cumulative_chip_delta     # retained from the public engine
+pairing: fh2026-reference-swiss    # retained from the public engine
+pairing_version: fh2026-reference-swiss-v1
+straggler_rule: fold_into_last_table   # never triggered: N=60 divides into 4- and 6-seat tables
+tiebreaks: ["cumulative_delta DESC", "matches_played ASC", "best_match_delta DESC", "bot_id ASC"]
+seat_order: standings_order
+dealer_rule: fh2026_dealer_counter
+source:
+  role: architectural provenance only; not a historical reconstruction
+  repository: https://github.com/mbatv/fullhouse-engine
+  commit: a80b26957db5f5515d9273a15d1b73aadf8985db
+  engine/tournament.py: 9759284729099b98d7e784824fc7ff8705c1fa846c6b8ebede848832e4a2325a
+notes:
+  - "Research design choices (N=60, K=6, R0=40, H0=400); not 2026 production settings."
+  - "Poker rules are FHR3's PokerKit adapters; stack/dealer/bust mechanics follow the public engine's match loop."

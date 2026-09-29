@@ -1,6 +1,8 @@
 # FHR3B experiment matrix. Cells are generated from this file (src/fhr3/tournament/experiments.py);
 # nothing here is hand-expanded. Replication counts come from presets and are NOT part of any
 # cell identity: extending broad -> flagship reuses the same cells and skips finished tournaments.
+# Primary research environment: fhr3b_baseline protocol (R0=40, H0=400, K=6) on N=60 controlled fields.
+# These are predeclared research design choices, not 2026 FullHouse settings.
 lab: lab/lab60_top6.yaml
 primary_modes: [aof4, nlhe6, plo6]
 all_modes: [aof4, nlhe4, nlhe6, cp6, plo6, bomb6, nit6]
@@ -52,8 +54,8 @@ experiments:
     modes: [aof4, nlhe6, plo6]
     fields: [spread, crowded_cutoff, matchup]
     namespace: swiss-reference
-  operational_2026:                 # D: pending until the audit's unknowns are resolved
-    protocol: protocols/operational_2026_pending.yaml
+  operational_2026:                 # D: historical validation; blocked until required historical values are supplied
+    historical: protocols/historical_2026_reconstruction.yaml
     modes: [nlhe6]
 
 smoke_profile:        # end-to-end correctness run of the whole pipeline (never interpreted)
