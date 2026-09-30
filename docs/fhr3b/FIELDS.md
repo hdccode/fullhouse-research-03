@@ -2,97 +2,141 @@
 
 ## Principle
 
-No bot has a "skill" label. The FHR3 agent families have transparent parameters, but they
-have no credible scalar quality control. So FHR3B builds a **candidate pool**, measures long-run
-balanced performance **empirically**, and selects fields from that measurement with
+No bot has a "skill" label. FHR3B builds a **candidate pool**, measures long-run balanced
+performance and play style **empirically**, and selects fields from those measurements with
 deterministic rules:
 
 ```text
-candidate pool -> balanced calibration -> empirical mu_field -> deterministic selection -> frozen manifest
+candidate pool -> balanced calibration -> behaviour audit (exact replay) -> deterministic selection -> frozen manifest
 ```
+
+Publication modes: **AoF4, NLHE4, NLHE6**. PLO is not part of FHR3B; `plo6` pool files remain
+only as generic engine support.
 
 ## Candidate pools (`configs/fhr3b/fields/<mode>/pool.json`, 96 bots per mode, frozen)
 
-A pool crosses three things:
+A pool crosses:
 
-* **archetypes** (8): strategic styles expressible in each family.
-  * NLHE / PLO / CP / Nit / bomb pot: `neutral, tight, loose, aggressive`, plus four
-    override archetypes: `nit`, `station`, `maniac`, `trapper`.
-  * AoF: four heuristic styles, `shover`, `caller`, the production policy v2 (`policy`), and
-    a loose-blended policy.
-* **perturbation scale** `e0..e3` with ε = 0, 0.10, 0.25, 0.45. e0 is the archetype itself.
-  Larger ε draws larger multiplicative (or additive, for `call_margin`) perturbations of
-  every parameter, bounded to valid ranges. For AoF policy bots, ε sets the heuristic blend.
-* **agent seeds**: 1 / 3 / 4 / 4 per scale, drawn from
+* **archetypes** (8):
+  * NLHE: `neutral, tight, loose, aggressive, nit, station, maniac, trapper`;
+  * AoF: four heuristic styles, `shover`, `caller`, the production policy v2 (`policy`), and a
+    loose-blended policy;
+* **perturbation scale** `e0..e3` (ε = 0, 0.10, 0.25, 0.45): multiplicative or additive
+  perturbations of every parameter, bounded to valid ranges;
+* **agent seeds**: 1 / 3 / 4 / 4 per scale, from
   `KeyedStream("fhr3b-agent-construction", seed_family, family, archetype, scale, seed, param)`.
 
-That gives 8 × 12 = 96 behaviourally distinct bots (checked: unique resolved versions).
-Larger ε tends to move bots away from a tuned archetype, but that is **not** assumed to mean
-"weaker". Strength is measured.
+**NLHE4 and NLHE6 share their 96 parameter vectors (decision D4, locked).** This is
+intentional: the same candidate policies are calibrated independently in 4-max and 6-max,
+which gives a clean controlled format comparison. NLHE4 reuses no NLHE6 calibration or field.
 
-Each manifest entry contains:
-
-* `bot_id, kind, params` (the exact overrides);
-* `version`: implementation + params hash;
-* `meta`: `archetype, scale_index, epsilon, agent_seed`.
-
-The field hash covers the result-relevant part. `validate()` rebuilds every agent and
-checks its version.
-
-Pre-calibration fields (frozen, not for publication inference):
-
-* `smoke12`: stratified by archetype; correctness only.
-* `provisional60`: stratified; for the runtime pilot only.
+Archetype labels are construction labels. **At e2/e3 many bots drift out of their archetype's
+play style** (measured). Selection therefore balances *observed* style, with archetype as a
+secondary constraint.
 
 ## Balanced calibration (`calibration.py`)
 
-A calibration round is a keyed uniformly random partition of the bots into tables of the
-mode's size (the remainder sits out). Each table plays one match under the same match rules
-as the research-baseline tournament (H = H0 hands, the mode's stack rule, the public engine's
-dealer rotation). Then:
+A calibration round is a keyed random partition of the pool into tables of the mode's size.
+Every table plays one match under the research match rule (400 hands; NLHE carried stacks;
+AoF 8 BB reset).
 
-* `mu_field(i)` = mean chip delta per match at a uniformly random table. Its SE comes from a
-  bootstrap over groups of rounds.
-* Matchup: `M[i,j] = E[delta_i | j at the table] − mu_i` (presence effect), and
-  `A = M − Mᵀ`.
-* Hodge split on the complete graph: gradient `r_i − r_j` (transitive strength) plus a cyclic
-  remainder. The expected noise energy in each subspace is subtracted using the per-pair
-  sampling variances. The result is the **debiased cyclic share**, with a round-group
-  bootstrap CI. The count of cyclic sign triads is also reported.
+* `mu_field(i)`: mean chip delta per match at a random table. For selection its SE is the
+  analytic `sd / sqrt(matches)`, which does not depend on bootstrap draws.
+* Presence-effect matchup flow: `M[i,j] = E[delta_i | j at table] − mu_i`. It is used only for
+  *measurement* (split-half reliability, archetype cycle test).
 
-There are two stages, with disjoint namespaces:
+Stages:
 
-1. **Pool calibration** (`pool-calibration`, 2000 rounds by default), used to select fields.
-2. **Field reference** (`field-reference`, 3000 rounds by default). This re-measures
-   mu_field inside each frozen field, because EV is field-relative. It is the balanced
-   reference for the analysis, and it confirms the construction property.
+1. **Pool calibration.** Namespace `pool-calibration`, 2,000 rounds.
+2. **Field reference.** Namespace `field-reference`, 3,000 rounds inside each frozen field.
+   See the review's note on making it matched (duplicate lanes).
 
-## Field selection (`selection.py`, deterministic given the frozen calibration)
+## Behaviour audit (`behaviour.py`, `fhr3b behaviour-audit`)
 
-| field | rule | purpose |
+The first 20 calibration rounds are replayed exactly, with logging proxies around the agents.
+Every replayed match must equal the stored deltas. Recorded per bot:
+
+* VPIP, PFR and 3-bet;
+* fold-to-bet and aggression;
+* all-in propensity and the hand strength of all-ins;
+* VPIP by position and by stack depth;
+* AoF shove and call rates;
+* winnings: showdown vs uncontested.
+
+**Style classes** use the classic four-way taxonomy, with thresholds at the pool medians:
+
+| mode | axes | classes |
 |---|---|---|
-| `spread` | 60 bots at evenly spaced positions of the pool's mu_field ranking | easy to rank |
-| `crowded_cutoff` | the 3 strongest bots, then the tightest window of 12 consecutive bots (smallest mu range) below them, then 45 evenly spaced from below the window. The crowd occupies field ranks 4–15 and straddles the top-6 cut. | a hard qualification boundary |
-| matchup field | greedy backward elimination from the pool, maximising the debiased cyclic share | test the adversarial property |
+| NLHE | VPIP × PFR/VPIP | TA / LA / TP / LP |
+| AoF | call-vs-shove × open-shove | tight/loose caller × frequent/selective shover |
 
-The matchup field is labelled **`matchup_sensitive`** only if the 95% bootstrap lower bound
-of its debiased cyclic share is ≥ 0.05 (`matrix.yaml: matchup_gate`). Otherwise it is written
-as **`style_diverse`** and must not be called non-transitive.
+## Near-duplicates
 
-Every selected manifest records:
+A near-duplicate pair is one whose RMS distance between resolved, normalised parameter vectors
+is **< 0.15** (log scale for positive parameters). That threshold is the ε = 0.10 sibling scale:
+e0–e1 median 0.09–0.10, e1–e1 median 0.12–0.13.
 
-* the calibration id, identity hash and **calibration digest** (sha256 over the chunk files);
-* the selection parameters;
-* for the matchup field, the gate result.
+## Selection v2 (`selection.py`; parameters in `configs/fhr3b/matrix.yaml`)
 
-Selection writes each manifest once and refuses to overwrite a frozen field with different
-content.
+### spread
 
-Crowding and the matchup property are properties of the pool calibration. The field-reference
-report (`reference.json`) records:
+1. **Leaders.** Walk down the ranking; accept a bot only if it is not a near-duplicate of an
+   accepted leader and at most 3 leaders share its archetype. Stop at K = 6.
+2. **Gap constraint.** Every non-leader b must satisfy
+   `mu_b ≤ mu_6 − g·sqrt(se_6² + se_b²)`. The selector seeks a 3 SE qualification gap subject to diversity and coverage constraints, relaxing the threshold only when the stronger requirement would materially degrade field diversity.
+3. **Fill.** The other 54 bots come from 6 equal-count strength strata below the gap, with
+   equal quotas. Each pick favours the least-represented style, then the least-represented
+   archetype, then the largest parameter distance to bots already chosen. No near-duplicates;
+   at most 10 per archetype.
+4. **Relaxation.** If the whole constrained construction (zero near-duplicates, archetype cap,
+   strata) is infeasible, g drops in 0.25 steps. The value used and the achieved gap are
+   recorded.
 
-* the crowd's mu range inside the field;
-* the gap at the cutoff;
-* the Hodge share inside the field.
+3 SE is a target, not an absolute requirement. D1 accepted NLHE6 spread at 2.34 SE (12.2 BB; zero
+near-duplicates; 0 bots within ±5 BB of the cut) rather than degrade diversity.
 
-If these contradict the construction, report it. Do not re-select silently.
+### crowded_cutoff
+
+The rule is unchanged: 3 leaders, then the tightest 12-bot window straddling the cut (field
+ranks 4–15), then evenly spaced fill. `selection.json → crowded_cutoff_diversity_audit`
+records the strategic diversity of the leaders and of the cutoff cluster.
+
+### style_diverse
+
+Replaces `matchup_sensitive` permanently.
+
+* Cells are observed style (4) × pool-strength quintile (5).
+* An integer program (scipy/HiGHS, deterministic) fixes every stratum total at 12 and every
+  style total at 15, minimising `Σ |x − 3|` subject to what the pool can supply.
+* Within each cell the pick balances archetype and parameter distance, with no near-duplicates.
+* If a cell is blocked, a documented fallback takes the nearest-strength eligible substitute.
+* Style–strength association is reported (η²).
+
+## Frozen fields (2026-09-30)
+
+`configs/fhr3b/fields/FROZEN.yaml` is the authority. Publication and pilot runs refuse any
+spread / crowded_cutoff / style_diverse manifest that is not listed there with a matching hash.
+
+| mode | spread | crowded_cutoff | style_diverse |
+|---|---|---|---|
+| AoF4 | `db5912d65a47b215` | `b9709c10c5aef403` | `195ceda2edb24052` |
+| NLHE6 | `16df070db91a53bd` | `a845c2fcf1b2ed33` | `5c83ad4268c37bdc` |
+| NLHE4 | pending (calibration not run) | pending | pending |
+
+Caveats:
+
+* **AoF4 style_diverse:** style and strength are partly confounded; the strongest pool quintile
+  has no tight-aggressive bots.
+* **AoF4 crowded_cutoff** (and the spread top six): the leaders are near-identical
+  production-policy variants (D2 accepted). The cutoff cluster itself is strategically diverse.
+* **NLHE6:** high bust rates are a property of the persistent-stack match rule, not pathology.
+
+## Retired
+
+* The `matchup_sensitive` field.
+* Greedy cyclic-share selection (`calibration.select_matchup`, `subset_share_ci`: kept in the
+  module for provenance, unused).
+* The `matchup_gate`. Its "debiased cyclic share" could exceed 1, and the selected subsets did
+  not replicate out of sample.
+
+v1 candidates are kept under `reports/fhr3b/field-calibration/<mode>/retired_v1/`.

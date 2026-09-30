@@ -7,6 +7,7 @@
         tournaments/t<rep:06d>/
             tables.parquet               one row per (round, table, seat)
             final.parquet                one row per bot
+            lanes.parquet                duplicate matches only: one row per (round, table, lane, bot)
             manifest.json                commit marker: seeds, hashes, ranking, digest
 
 ``manifest.json`` is written last (atomically), so a tournament directory without it
@@ -28,7 +29,7 @@ import pyarrow.parquet as pq
 
 from fhr3.tournament.cells import Cell
 from fhr3.tournament.manifests import engine_source_hash
-from fhr3.tournament.runner import FINAL_COLUMNS, TABLE_COLUMNS, TournamentResult, rows_digest
+from fhr3.tournament.runner import FINAL_COLUMNS, LANE_COLUMNS, TABLE_COLUMNS, TournamentResult, rows_digest
 
 STORE_VERSION = "fhr3b-store-v1"
 TABLE_SCHEMA = pa.schema([
@@ -43,7 +44,13 @@ FINAL_SCHEMA = pa.schema([
     ("final_score", pa.int64()), ("final_rank", pa.int16()), ("qualified", pa.bool_()),
     ("matches_played", pa.int16()), ("best_match_delta", pa.int64()), ("dense_rank", pa.int16()),
 ])
+LANE_SCHEMA = pa.schema([
+    ("tournament_id", pa.string()), ("replicate", pa.int32()), ("round", pa.int16()), ("table_index", pa.int16()),
+    ("lane", pa.int8()), ("bot_id", pa.string()), ("start_seat", pa.int8()), ("chip_delta", pa.int64()),
+    ("hands_played", pa.int32()), ("bust_hand", pa.int32()), ("busted", pa.bool_()),
+])
 assert tuple(TABLE_SCHEMA.names) == TABLE_COLUMNS and tuple(FINAL_SCHEMA.names) == FINAL_COLUMNS
+assert tuple(LANE_SCHEMA.names) == LANE_COLUMNS
 
 
 class IncompatibleCellError(RuntimeError):
@@ -107,6 +114,8 @@ def write_tournament(root: Path, cell: Cell, res: TournamentResult) -> dict[str,
     f_tab = pa.Table.from_pylist(res.final_rows, schema=FINAL_SCHEMA)
     _write_parquet_atomic(d / "tables.parquet", t_tab)
     _write_parquet_atomic(d / "final.parquet", f_tab)
+    if res.lane_rows:  # duplicate matches: compact per-lane outcomes (no hand histories)
+        _write_parquet_atomic(d / "lanes.parquet", pa.Table.from_pylist(res.lane_rows, schema=LANE_SCHEMA))
     man = res.manifest() | {"identity_hash": cell.identity_hash, "store_version": STORE_VERSION}
     write_json_atomic(d / "manifest.json", man)
     return man
@@ -120,6 +129,11 @@ def read_tournament_rows(root: Path, cell: Cell, replicate: int) -> tuple[list[d
     return tables, final, man
 
 
+def read_lane_rows(root: Path, cell: Cell, replicate: int) -> list[dict]:
+    p = tournament_dir(root, cell, replicate) / "lanes.parquet"
+    return pq.read_table(p).to_pylist() if p.exists() else []
+
+
 def verified_complete(root: Path, cell: Cell, replicate: int) -> bool:
     d = tournament_dir(root, cell, replicate)
     if not (d / "manifest.json").exists():
@@ -128,7 +142,8 @@ def verified_complete(root: Path, cell: Cell, replicate: int) -> bool:
         tables, final, man = read_tournament_rows(root, cell, replicate)
     except Exception:
         return False
-    return man.get("identity_hash") == cell.identity_hash and rows_digest(tables, final) == man["digest"]
+    lanes = read_lane_rows(root, cell, replicate)
+    return man.get("identity_hash") == cell.identity_hash and rows_digest(tables, final, lanes) == man["digest"]
 
 
 def completed_replicates(root: Path, cell: Cell, verify: bool = True) -> list[int]:

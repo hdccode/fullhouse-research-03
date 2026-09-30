@@ -36,8 +36,10 @@ and `Agent`s. It adds no poker rules and copies no agent logic.
 | `schedule.py` | adaptive Swiss schedule vs research-only frozen schedule; assignment validator |
 | `runner.py` | `run_tournament` with hard invariant gates; row schemas; analytical digest |
 | `fields.py` | modes (`configs/fhr3b/modes`), candidate pools, immutable field manifests, spread and crowded selection rules |
-| `calibration.py` | balanced field EV (mu_field), presence-effect matchup matrix, Hodge transitive/cyclic split, matchup selection |
-| `selection.py` | deterministic field selection from a frozen pool calibration; field-reference reports |
+| `calibration.py` | balanced field EV (mu_field), presence-effect matchup matrix (the greedy matchup selection it still contains is retired and unused) |
+| `behaviour.py` | behaviour audit: exact replay of calibration rounds with logging proxies; style classes (analysis only) |
+| `diagnostics.py` | resolved-parameter vectors and near-duplicate distances; split-half matchup measurement (analysis only) |
+| `selection.py` | selection v2: spread (gap constraint + diverse stratified fill), crowded_cutoff (+ diversity audit), style_diverse (style × strength integer allocation); field-reference reports |
 | `manifests.py` | seed namespaces, cell identity, engine source hash, analysis version |
 | `cells.py` | `Cell` = one experimental condition (adaptive / frozen_replay / adaptive_replay) |
 | `store.py` | on-disk layout, locks, atomic per-tournament Parquet, verified-completion checks, array loading |
@@ -62,12 +64,48 @@ and `Agent`s. It adds no poker rules and copies no agent logic.
 
 ## Match semantics
 
+Publication modes are **AoF4, NLHE4 and NLHE6**. The other modes remain generic engine support;
+PLO is not part of FHR3B.
+
+**NLHE (locked research baseline, public 2026 match semantics).**
+
+* Every Swiss match starts every bot at 100 BB.
+* Stacks persist between hands, with no rebuys. A bot at zero is out for the rest of the match.
+* Survivors play on with their actual stacks, including short, deep and asymmetric effective
+  stacks.
+* The next Swiss round is a new match, again from 100 BB.
+* The standing is the cumulative chip delta. Match length is 400 hands.
+
+**Within-match history (exposed; public 2026 engine semantics).** Every decision's
+`Observation.extra` carries the following keys:
+
+| key | contents |
+|---|---|
+| `match_history` | rolling tuple of the last 200 actions of *previous* hands of this match, as `(hand, bot_id, street, action, amount)`; the 2026 engine's `MATCH_LOG_MAX_ENTRIES = 200` |
+| `seat_bot_ids` | the bot at each position |
+| `match_hand_index` | the hand number within the match |
+
+Duplicate-lane identity is **never** bot-visible, in either the action request or the history, because lanes are isolated counterfactual matches. The lane appears only in evaluator metadata (match info, replay hand logs, `lanes.parquet`); a regression test checks corresponding lane states are identical.
+
+The current hand's actions are in `Observation.history`. The shipped FHR3 agents are stateless
+and ignore these keys (D5: within-match opponent modelling is under-represented, a stated
+limitation), but history-aware agents can use them.
+
+Exposure is **result-neutral**, verified two ways:
+
+* golden ordinary matches from the pre-change engine (`tests/data/fhr3b/golden_ordinary_matches.json`);
+* an exact replay of 3,840 completed AoF4/NLHE6 calibration match results.
+
+It changed the engine source hash from `389451b27c2264d2` to `9c28d93c20d45ab4`. The frozen
+AoF4/NLHE6 pool calibrations keep the old hash in their locks; NLHE4 calibrates under the new
+one.
+
 | mode | table | stack rule | why |
 |---|---|---|---|
-| nlhe6 (the public engine's game) | 6 | `persistent_no_rebuy` | the public engine's match rule |
-| nlhe4 | 4 | `persistent_no_rebuy` | the same rule at 4-max |
-| plo6 | 6 | `persistent_no_rebuy` | same outer and inner rule as NLHE |
-| cp6 | 6 | `persistent_no_rebuy` | same |
+| nlhe6 (the public engine's game) | 6 | `persistent_no_rebuy` | the public engine's match rule (locked) |
+| nlhe4 | 4 | `persistent_no_rebuy` | the same rule at 4-max (locked) |
+| plo6 (not in FHR3B) | 6 | `persistent_no_rebuy` | generic support only |
+| cp6 | 6 | `persistent_no_rebuy` | generic support |
 | aof4 | 4 | `reset_each_hand` | the FHR3 AoF game is 8 BB every hand; carrying 8 BB stacks through 400 hands would make each match a short sit-and-go (a different estimand) |
 | bomb6 | 6 | `reset_each_hand` | carried stacks below the 2 BB ante are undefined in the adapter |
 | nit6 | 6 | `reset_each_hand` + nit rounds across hands | nit-button state persists within the match; an unfinished round at match end is dropped |
@@ -80,6 +118,71 @@ Position mapping: FHR3 fixed positions (0 = SB, m−1 = button). In hand h the b
 chips, listed in seat order, are `alive`. Position p is `alive[((h mod m) + 1 + p) mod m]`.
 That reproduces the 2026 SB/BB/button for every m ≥ 2. For heads-up, PokerKit's button
 posts the SB, as in the 2026 engine (tested).
+
+## Duplicate play (Experiment D and matched mu_field): IMPLEMENTED
+
+For a k-player table (k = 4 for AoF4/NLHE4, 6 for NLHE6), one duplicate match is k parallel lanes:
+
+* **Same start, same cards.** Every lane starts from the same initial stacks and reads the same
+  keyed chance stream (hand h of every lane gets the same deck).
+* **Seat rotation.** Lane ℓ seats the bots in the base order rotated by ℓ, so every bot occupies
+  every starting seat exactly once. The base order varies from match to match, using a keyed
+  shuffle of the Swiss table, so rotation does not freeze neighbour relationships.
+* **Lane isolation.** Each lane's stack trajectory, busts, early ending and bot state evolve
+  independently. A bot can bust in one lane and survive in another. Nothing leaks between
+  lanes, and stacks are never averaged or merged during play.
+* **Aggregation.** A bot's match result is the sum (or mean) of its final chip deltas across the
+  k lanes, computed after all lanes finish.
+* **Cost accounting.** A duplicate match costs about k ordinary matches. Experiment D compares
+  duplicate and ordinary play at **equal played work** (hands simulated / simulator time), for
+  example k-lane duplicates at H hands against ordinary matches at k·H hands or k× the rounds.
+
+Implementation:
+
+* **Player.** `match.DuplicateMatchPlayer` runs k lanes, each a full
+  `PokerMatchPlayer.play(..., lane=ℓ)`.
+* **Seating.** `match.lane_orders` rotates a keyed base seating
+  (`KeyedStream("fhr3b-duplicate-base", chance, decision, round, table)`).
+* **Isolation.** Each lane has its own agent instances (built by a factory), stacks, busts and
+  history. Decision streams are lane-keyed (`"fhr3b-dup-decision", …, lane, hand, bot, ordinal`);
+  the deck of hand h is shared.
+* **Results.** The match result (the scoring quantity) is the sum of the final lane deltas;
+  `hands_played` counts every lane, and `bust_hand` holds the earliest bust over lanes.
+* **Per-lane persistence.** Duplicate tournaments also write a compact `lanes.parquet`, one row per
+  (round, table, lane, bot): `lane, bot_id, start_seat, chip_delta, hands_played, bust_hand, busted`.
+  It has no hand histories. It is covered by the digest, and validation checks that lanes are
+  zero-sum, that every bot starts in every seat once, and that lane deltas sum to the table delta.
+* **Protocol switch.** `TournamentProtocol.match_format = "duplicate"` turns it on. The field is
+  absent from the hash when ordinary, so existing identities are unchanged.
+* **Matched calibration.** `CalibrationSpec.match_format` does the same for calibration; matched
+  field-reference uses `rounds // k` at equal simulator work.
+* **Experiment D cells.** `Profile.duplicate_cells` pairs the ordinary (R0, H0) cell with two
+  duplicate variants at equal work:
+
+| variant | AoF4 / NLHE4 (4 lanes) | NLHE6 (6 lanes) |
+|---|---|---|
+| fewer rounds | 10 rounds × 400 hands | 7 rounds × 400 hands (+5% work, flagged) |
+| shorter matches | 40 rounds × 100 hands | 40 rounds × 67 hands (+0.5% work, flagged) |
+
+  Seeds are shared. The analysis reports actual simulated hands per tournament and the work
+  ratio (`duplicate_play.csv`).
+
+## Reference rankings
+
+* **`mu_field`**: long-run balanced performance against the controlled field, from **matched**
+  evaluation. `field-reference` plays k-lane duplicate matches at random tables
+  (`matrix.yaml: calibration.field_reference.match_format: duplicate`) inside frozen fields only.
+* **`mu_swiss`**: expected Swiss performance, from many complete tournaments (`swiss-reference`
+  namespace).
+
+The analysis reports, for both, accuracy (`reference_accuracy.csv`: overlap with the reference
+top 6, Kendall tau) and the repeatability metrics.
+
+## Rounds horizon
+
+R0 = 40 is the initial horizon. `fhr3b run --horizon R` creates the R-round cell. Seeds do not
+depend on R, so its first 40 rounds reproduce the 40-round cell exactly, and checkpoints are
+read from prefixes (`round_checkpoints` in `matrix.yaml`: 5 … 40, 60, 80, 120).
 
 ## Randomness and common random numbers
 
@@ -141,6 +244,9 @@ Checked while running (`runner.py`) and again independently from stored rows
 
 These rows give the full schedule, the pre- and post-round standings for every round, and
 the R-prefix leaderboards.
+
+`lanes.parquet` (duplicate matches only): one row per (round, table, lane, bot), as described
+under "Duplicate play".
 
 `final.parquet`, one row per bot:
 

@@ -13,7 +13,7 @@ from fhr3.tournament.historical import HistoricalRecordIncomplete, load_historic
 from fhr3.tournament.protocol import load_protocol
 
 REPO = Path(__file__).resolve().parents[1]
-PRIMARY = ("aof4", "nlhe6", "plo6")
+PRIMARY = ("aof4", "nlhe4", "nlhe6")
 
 
 def test_historical_qualifier_rounds_and_other_facts_remain_unknown():

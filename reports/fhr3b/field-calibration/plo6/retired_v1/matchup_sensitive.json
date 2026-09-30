@@ -1,0 +1,2721 @@
+{
+ "bots": [
+  {
+   "bot_id": "plo6-aggressive-e0",
+   "kind": "plo_heuristic",
+   "meta": {
+    "agent_seed": 0,
+    "archetype": "aggressive",
+    "epsilon": 0.0,
+    "scale_index": 0
+   },
+   "params": {
+    "style": "aggressive"
+   },
+   "version": "plo-heuristic-1.0.0+c36182d781"
+  },
+  {
+   "bot_id": "plo6-aggressive-e1-s0",
+   "kind": "plo_heuristic",
+   "meta": {
+    "agent_seed": 0,
+    "archetype": "aggressive",
+    "epsilon": 0.1,
+    "scale_index": 1
+   },
+   "params": {
+    "overrides": {
+     "aggression": 1.60621,
+     "allin_commit_fraction": 0.46322,
+     "bb_defend_pct": 0.37268,
+     "bet_fraction": 0.82805,
+     "bluff_freq": 0.15322,
+     "call_3bet_pct": 0.10677,
+     "call_4bet_pct": 0.04289,
+     "call_margin": -0.03214,
+     "call_open_pct": 0.19293,
+     "fourbet_mult": 3.27501,
+     "fourbet_pct": 0.0284,
+     "looseness": 1.17513,
+     "multiway_exponent": 0.67078,
+     "open_pct_by_seats_behind": [
+      0.61233,
+      0.41639,
+      0.30617,
+      0.24493,
+      0.22044,
+      0.19595,
+      0.1837,
+      0.17145
+     ],
+     "open_size_bb": 3.48886,
+     "postflop_temperature": 0.03842,
+     "preflop_temperature": 0.02222,
+     "raise_pot_fraction": 0.88017,
+     "raise_threshold": 0.71881,
+     "sb_open_pct": 0.37983,
+     "semibluff_freq": 0.64364,
+     "threebet_mult": 3.89123,
+     "threebet_pct": 0.05303,
+     "value_threshold": 0.61564
+    },
+    "style": "aggressive"
+   },
+   "version": "plo-heuristic-1.0.0+b18537d9cd"
+  },
+  {
+   "bot_id": "plo6-aggressive-e1-s2",
+   "kind": "plo_heuristic",
+   "meta": {
+    "agent_seed": 2,
+    "archetype": "aggressive",
+    "epsilon": 0.1,
+    "scale_index": 1
+   },
+   "params": {
+    "overrides": {
+     "aggression": 1.53824,
+     "allin_commit_fraction": 0.48045,
+     "bb_defend_pct": 0.42163,
+     "bet_fraction": 0.94928,
+     "bluff_freq": 0.13411,
+     "call_3bet_pct": 0.09967,
+     "call_4bet_pct": 0.04034,
+     "call_margin": 0.00707,
+     "call_open_pct": 0.18497,
+     "fourbet_mult": 2.69565,
+     "fourbet_pct": 0.02252,
+     "looseness": 1.45617,
+     "multiway_exponent": 0.66449,
+     "open_pct_by_seats_behind": [
+      0.42174,
+      0.28678,
+      0.21087,
+      0.16869,
+      0.15182,
+      0.13496,
+      0.12652,
+      0.11809
+     ],
+     "open_size_bb": 4.22917,
+     "postflop_temperature": 0.03319,
+     "preflop_temperature": 0.02156,
+     "raise_pot_fraction": 0.87987,
+     "raise_threshold": 0.87362,
+     "sb_open_pct": 0.32806,
+     "semibluff_freq": 0.61872,
+     "threebet_mult": 3.91288,
+     "threebet_pct": 0.05681,
+     "value_threshold": 0.65735
+    },
+    "style": "aggressive"
+   },
+   "version": "plo-heuristic-1.0.0+d8a60dad9a"
+  },
+  {
+   "bot_id": "plo6-aggressive-e2-s1",
+   "kind": "plo_heuristic",
+   "meta": {
+    "agent_seed": 1,
+    "archetype": "aggressive",
+    "epsilon": 0.25,
+    "scale_index": 2
+   },
+   "params": {
+    "overrides": {
+     "aggression": 1.40354,
+     "allin_commit_fraction": 0.40651,
+     "bb_defend_pct": 0.36326,
+     "bet_fraction": 0.87864,
+     "bluff_freq": 0.11994,
+     "call_3bet_pct": 0.1105,
+     "call_4bet_pct": 0.03511,
+     "call_margin": 0.06255,
+     "call_open_pct": 0.14065,
+     "fourbet_mult": 2.75835,
+     "fourbet_pct": 0.02894,
+     "looseness": 0.61725,
+     "multiway_exponent": 0.42711,
+     "open_pct_by_seats_behind": [
+      0.59461,
+      0.40434,
+      0.29731,
+      0.23784,
+      0.21406,
+      0.19028,
+      0.17838,
+      0.16649
+     ],
+     "open_size_bb": 2.87751,
+     "postflop_temperature": 0.03619,
+     "preflop_temperature": 0.01289,
+     "raise_pot_fraction": 0.91887,
+     "raise_threshold": 0.48474,
+     "sb_open_pct": 0.52593,
+     "semibluff_freq": 0.82506,
+     "threebet_mult": 3.79554,
+     "threebet_pct": 0.05746,
+     "value_threshold": 0.95
+    },
+    "style": "aggressive"
+   },
+   "version": "plo-heuristic-1.0.0+aaed1c9938"
+  },
+  {
+   "bot_id": "plo6-aggressive-e2-s2",
+   "kind": "plo_heuristic",
+   "meta": {
+    "agent_seed": 2,
+    "archetype": "aggressive",
+    "epsilon": 0.25,
+    "scale_index": 2
+   },
+   "params": {
+    "overrides": {
+     "aggression": 1.76035,
+     "allin_commit_fraction": 0.3334,
+     "bb_defend_pct": 0.32025,
+     "bet_fraction": 0.58872,
+     "bluff_freq": 0.14525,
+     "call_3bet_pct": 0.12751,
+     "call_4bet_pct": 0.04793,
+     "call_margin": -0.0485,
+     "call_open_pct": 0.20121,
+     "fourbet_mult": 2.32825,
+     "fourbet_pct": 0.02107,
+     "looseness": 1.2136,
+     "multiway_exponent": 0.55062,
+     "open_pct_by_seats_behind": [
+      0.59529,
+      0.4048,
+      0.29764,
+      0.23812,
+      0.2143,
+      0.19049,
+      0.17859,
+      0.16668
+     ],
+     "open_size_bb": 2.25668,
+     "postflop_temperature": 0.047,
+     "preflop_temperature": 0.02369,
+     "raise_pot_fraction": 1.48799,
+     "raise_threshold": 0.72804,
+     "sb_open_pct": 0.48705,
+     "semibluff_freq": 0.66994,
+     "threebet_mult": 4.04263,
+     "threebet_pct": 0.05013,
+     "value_threshold": 0.77071
+    },
+    "style": "aggressive"
+   },
+   "version": "plo-heuristic-1.0.0+d5d0969409"
+  },
+  {
+   "bot_id": "plo6-aggressive-e2-s3",
+   "kind": "plo_heuristic",
+   "meta": {
+    "agent_seed": 3,
+    "archetype": "aggressive",
+    "epsilon": 0.25,
+    "scale_index": 2
+   },
+   "params": {
+    "overrides": {
+     "aggression": 1.74836,
+     "allin_commit_fraction": 0.39676,
+     "bb_defend_pct": 0.53966,
+     "bet_fraction": 0.88238,
+     "bluff_freq": 0.09658,
+     "call_3bet_pct": 0.06699,
+     "call_4bet_pct": 0.05263,
+     "call_margin": -0.05472,
+     "call_open_pct": 0.14213,
+     "fourbet_mult": 3.48036,
+     "fourbet_pct": 0.01535,
+     "looseness": 1.50531,
+     "multiway_exponent": 0.62265,
+     "open_pct_by_seats_behind": [
+      0.34765,
+      0.2364,
+      0.17382,
+      0.13906,
+      0.12515,
+      0.11125,
+      0.10429,
+      0.09734
+     ],
+     "open_size_bb": 2.84972,
+     "postflop_temperature": 0.06893,
+     "preflop_temperature": 0.0152,
+     "raise_pot_fraction": 0.80125,
+     "raise_threshold": 0.76368,
+     "sb_open_pct": 0.2938,
+     "semibluff_freq": 0.49374,
+     "threebet_mult": 3.9549,
+     "threebet_pct": 0.07529,
+     "value_threshold": 0.57071
+    },
+    "style": "aggressive"
+   },
+   "version": "plo-heuristic-1.0.0+5b3029089e"
+  },
+  {
+   "bot_id": "plo6-aggressive-e3-s0",
+   "kind": "plo_heuristic",
+   "meta": {
+    "agent_seed": 0,
+    "archetype": "aggressive",
+    "epsilon": 0.45,
+    "scale_index": 3
+   },
+   "params": {
+    "overrides": {
+     "aggression": 1.15044,
+     "allin_commit_fraction": 0.50802,
+     "bb_defend_pct": 0.88844,
+     "bet_fraction": 0.61466,
+     "bluff_freq": 0.06031,
+     "call_3bet_pct": 0.09556,
+     "call_4bet_pct": 0.02424,
+     "call_margin": 0.03714,
+     "call_open_pct": 0.22092,
+     "fourbet_mult": 3.70147,
+     "fourbet_pct": 0.04043,
+     "looseness": 0.97324,
+     "multiway_exponent": 0.63901,
+     "open_pct_by_seats_behind": [
+      0.27133,
+      0.1845,
+      0.13566,
+      0.10853,
+      0.09768,
+      0.08682,
+      0.0814,
+      0.07597
+     ],
+     "open_size_bb": 3.10118,
+     "postflop_temperature": 0.03962,
+     "preflop_temperature": 0.01121,
+     "raise_pot_fraction": 1.17629,
+     "raise_threshold": 0.76561,
+     "sb_open_pct": 0.31374,
+     "semibluff_freq": 0.95,
+     "threebet_mult": 5.0,
+     "threebet_pct": 0.06198,
+     "value_threshold": 0.95
+    },
+    "style": "aggressive"
+   },
+   "version": "plo-heuristic-1.0.0+b8a0951a5a"
+  },
+  {
+   "bot_id": "plo6-aggressive-e3-s1",
+   "kind": "plo_heuristic",
+   "meta": {
+    "agent_seed": 1,
+    "archetype": "aggressive",
+    "epsilon": 0.45,
+    "scale_index": 3
+   },
+   "params": {
+    "overrides": {
+     "aggression": 2.85482,
+     "allin_commit_fraction": 0.29792,
+     "bb_defend_pct": 0.68584,
+     "bet_fraction": 0.30883,
+     "bluff_freq": 0.20666,
+     "call_3bet_pct": 0.05931,
+     "call_4bet_pct": 0.0522,
+     "call_margin": 0.07533,
+     "call_open_pct": 0.17688,
+     "fourbet_mult": 2.84391,
+     "fourbet_pct": 0.03048,
+     "looseness": 2.26782,
+     "multiway_exponent": 0.45466,
+     "open_pct_by_seats_behind": [
+      0.45411,
+      0.30879,
+      0.22705,
+      0.18164,
+      0.16348,
+      0.14531,
+      0.13623,
+      0.12715
+     ],
+     "open_size_bb": 5.0,
+     "postflop_temperature": 0.03743,
+     "preflop_temperature": 0.01174,
+     "raise_pot_fraction": 0.79546,
+     "raise_threshold": 0.74516,
+     "sb_open_pct": 0.38412,
+     "semibluff_freq": 0.83369,
+     "threebet_mult": 3.98623,
+     "threebet_pct": 0.05924,
+     "value_threshold": 0.95
+    },
+    "style": "aggressive"
+   },
+   "version": "plo-heuristic-1.0.0+66832b4443"
+  },
+  {
+   "bot_id": "plo6-aggressive-e3-s2",
+   "kind": "plo_heuristic",
+   "meta": {
+    "agent_seed": 2,
+    "archetype": "aggressive",
+    "epsilon": 0.45,
+    "scale_index": 3
+   },
+   "params": {
+    "overrides": {
+     "aggression": 3.0,
+     "allin_commit_fraction": 0.2846,
+     "bb_defend_pct": 0.20798,
+     "bet_fraction": 0.59994,
+     "bluff_freq": 0.19404,
+     "call_3bet_pct": 0.1425,
+     "call_4bet_pct": 0.03965,
+     "call_margin": -0.04215,
+     "call_open_pct": 0.15504,
+     "fourbet_mult": 2.38149,
+     "fourbet_pct": 0.0195,
+     "looseness": 1.16948,
+     "multiway_exponent": 0.5186,
+     "open_pct_by_seats_behind": [
+      0.92941,
+      0.632,
+      0.4647,
+      0.37176,
+      0.33459,
+      0.29741,
+      0.27882,
+      0.26023
+     ],
+     "open_size_bb": 2.36769,
+     "postflop_temperature": 0.02369,
+     "preflop_temperature": 0.05323,
+     "raise_pot_fraction": 1.5,
+     "raise_threshold": 0.84303,
+     "sb_open_pct": 0.66149,
+     "semibluff_freq": 0.7396,
+     "threebet_mult": 5.0,
+     "threebet_pct": 0.07756,
+     "value_threshold": 0.45911
+    },
+    "style": "aggressive"
+   },
+   "version": "plo-heuristic-1.0.0+7f7233b437"
+  },
+  {
+   "bot_id": "plo6-aggressive-e3-s3",
+   "kind": "plo_heuristic",
+   "meta": {
+    "agent_seed": 3,
+    "archetype": "aggressive",
+    "epsilon": 0.45,
+    "scale_index": 3
+   },
+   "params": {
+    "overrides": {
+     "aggression": 2.01478,
+     "allin_commit_fraction": 0.34318,
+     "bb_defend_pct": 0.76301,
+     "bet_fraction": 0.83352,
+     "bluff_freq": 0.13776,
+     "call_3bet_pct": 0.08782,
+     "call_4bet_pct": 0.04787,
+     "call_margin": 0.03746,
+     "call_open_pct": 0.1143,
+     "fourbet_mult": 1.8,
+     "fourbet_pct": 0.05499,
+     "looseness": 0.3,
+     "multiway_exponent": 0.94363,
+     "open_pct_by_seats_behind": [
+      0.52892,
+      0.35967,
+      0.26446,
+      0.21157,
+      0.19041,
+      0.16926,
+      0.15868,
+      0.1481
+     ],
+     "open_size_bb": 2.63647,
+     "postflop_temperature": 0.04119,
+     "preflop_temperature": 0.0141,
+     "raise_pot_fraction": 0.55818,
+     "raise_threshold": 0.95,
+     "sb_open_pct": 0.3252,
+     "semibluff_freq": 0.41487,
+     "threebet_mult": 2.57217,
+     "threebet_pct": 0.06365,
+     "value_threshold": 0.54671
+    },
+    "style": "aggressive"
+   },
+   "version": "plo-heuristic-1.0.0+34dcbe3495"
+  },
+  {
+   "bot_id": "plo6-loose-e0",
+   "kind": "plo_heuristic",
+   "meta": {
+    "agent_seed": 0,
+    "archetype": "loose",
+    "epsilon": 0.0,
+    "scale_index": 0
+   },
+   "params": {
+    "style": "loose"
+   },
+   "version": "plo-heuristic-1.0.0+2f8cfd593a"
+  },
+  {
+   "bot_id": "plo6-loose-e1-s1",
+   "kind": "plo_heuristic",
+   "meta": {
+    "agent_seed": 1,
+    "archetype": "loose",
+    "epsilon": 0.1,
+    "scale_index": 1
+   },
+   "params": {
+    "overrides": {
+     "aggression": 0.91018,
+     "allin_commit_fraction": 0.44584,
+     "bb_defend_pct": 0.33612,
+     "bet_fraction": 0.66079,
+     "bluff_freq": 0.06941,
+     "call_3bet_pct": 0.09652,
+     "call_4bet_pct": 0.04394,
+     "call_margin": -0.029,
+     "call_open_pct": 0.18927,
+     "fourbet_mult": 2.88105,
+     "fourbet_pct": 0.02578,
+     "looseness": 1.24608,
+     "multiway_exponent": 0.61955,
+     "open_pct_by_seats_behind": [
+      0.50918,
+      0.34624,
+      0.25459,
+      0.20367,
+      0.1833,
+      0.16294,
+      0.15275,
+      0.14257
+     ],
+     "open_size_bb": 3.41628,
+     "postflop_temperature": 0.03906,
+     "preflop_temperature": 0.02369,
+     "raise_pot_fraction": 1.03232,
+     "raise_threshold": 0.9213,
+     "sb_open_pct": 0.31399,
+     "semibluff_freq": 0.51993,
+     "threebet_mult": 3.77122,
+     "threebet_pct": 0.04996,
+     "value_threshold": 0.75405
+    },
+    "style": "loose"
+   },
+   "version": "plo-heuristic-1.0.0+007c077607"
+  },
+  {
+   "bot_id": "plo6-loose-e1-s2",
+   "kind": "plo_heuristic",
+   "meta": {
+    "agent_seed": 2,
+    "archetype": "loose",
+    "epsilon": 0.1,
+    "scale_index": 1
+   },
+   "params": {
+    "overrides": {
+     "aggression": 0.92927,
+     "allin_commit_fraction": 0.46572,
+     "bb_defend_pct": 0.40468,
+     "bet_fraction": 0.82964,
+     "bluff_freq": 0.06471,
+     "call_3bet_pct": 0.09961,
+     "call_4bet_pct": 0.03978,
+     "call_margin": -0.03121,
+     "call_open_pct": 0.15575,
+     "fourbet_mult": 3.00422,
+     "fourbet_pct": 0.02594,
+     "looseness": 1.51882,
+     "multiway_exponent": 0.58989,
+     "open_pct_by_seats_behind": [
+      0.5512,
+      0.37481,
+      0.2756,
+      0.22048,
+      0.19843,
+      0.17638,
+      0.16536,
+      0.15434
+     ],
+     "open_size_bb": 3.63146,
+     "postflop_temperature": 0.03739,
+     "preflop_temperature": 0.02004,
+     "raise_pot_fraction": 1.04808,
+     "raise_threshold": 0.78077,
+     "sb_open_pct": 0.42851,
+     "semibluff_freq": 0.56517,
+     "threebet_mult": 3.72835,
+     "threebet_pct": 0.06075,
+     "value_threshold": 0.60613
+    },
+    "style": "loose"
+   },
+   "version": "plo-heuristic-1.0.0+b8955d974d"
+  },
+  {
+   "bot_id": "plo6-loose-e2-s2",
+   "kind": "plo_heuristic",
+   "meta": {
+    "agent_seed": 2,
+    "archetype": "loose",
+    "epsilon": 0.25,
+    "scale_index": 2
+   },
+   "params": {
+    "overrides": {
+     "aggression": 0.89953,
+     "allin_commit_fraction": 0.55206,
+     "bb_defend_pct": 0.48883,
+     "bet_fraction": 1.12407,
+     "bluff_freq": 0.0475,
+     "call_3bet_pct": 0.08686,
+     "call_4bet_pct": 0.02392,
+     "call_margin": 0.05997,
+     "call_open_pct": 0.15909,
+     "fourbet_mult": 2.32424,
+     "fourbet_pct": 0.02892,
+     "looseness": 0.8663,
+     "multiway_exponent": 0.57292,
+     "open_pct_by_seats_behind": [
+      0.50046,
+      0.34031,
+      0.25023,
+      0.20018,
+      0.18017,
+      0.16015,
+      0.15014,
+      0.14013
+     ],
+     "open_size_bb": 2.37123,
+     "postflop_temperature": 0.03852,
+     "preflop_temperature": 0.02849,
+     "raise_pot_fraction": 0.63217,
+     "raise_threshold": 0.95,
+     "sb_open_pct": 0.29536,
+     "semibluff_freq": 0.8338,
+     "threebet_mult": 2.60704,
+     "threebet_pct": 0.04538,
+     "value_threshold": 0.83524
+    },
+    "style": "loose"
+   },
+   "version": "plo-heuristic-1.0.0+b77a185373"
+  },
+  {
+   "bot_id": "plo6-loose-e3-s0",
+   "kind": "plo_heuristic",
+   "meta": {
+    "agent_seed": 0,
+    "archetype": "loose",
+    "epsilon": 0.45,
+    "scale_index": 3
+   },
+   "params": {
+    "overrides": {
+     "aggression": 2.40286,
+     "allin_commit_fraction": 0.34555,
+     "bb_defend_pct": 0.48142,
+     "bet_fraction": 0.43168,
+     "bluff_freq": 0.04959,
+     "call_3bet_pct": 0.08871,
+     "call_4bet_pct": 0.04507,
+     "call_margin": 0.03394,
+     "call_open_pct": 0.25189,
+     "fourbet_mult": 2.21487,
+     "fourbet_pct": 0.02443,
+     "looseness": 1.09993,
+     "multiway_exponent": 0.58865,
+     "open_pct_by_seats_behind": [
+      0.95,
+      0.8023,
+      0.58993,
+      0.47194,
+      0.42475,
+      0.37755,
+      0.35396,
+      0.33036
+     ],
+     "open_size_bb": 2.88767,
+     "postflop_temperature": 0.03021,
+     "preflop_temperature": 0.01768,
+     "raise_pot_fraction": 1.5,
+     "raise_threshold": 0.95,
+     "sb_open_pct": 0.54157,
+     "semibluff_freq": 0.75726,
+     "threebet_mult": 3.82711,
+     "threebet_pct": 0.1205,
+     "value_threshold": 0.39996
+    },
+    "style": "loose"
+   },
+   "version": "plo-heuristic-1.0.0+7ec2378368"
+  },
+  {
+   "bot_id": "plo6-loose-e3-s1",
+   "kind": "plo_heuristic",
+   "meta": {
+    "agent_seed": 1,
+    "archetype": "loose",
+    "epsilon": 0.45,
+    "scale_index": 3
+   },
+   "params": {
+    "overrides": {
+     "aggression": 0.98132,
+     "allin_commit_fraction": 0.2,
+     "bb_defend_pct": 0.41151,
+     "bet_fraction": 0.40927,
+     "bluff_freq": 0.11215,
+     "call_3bet_pct": 0.08935,
+     "call_4bet_pct": 0.08903,
+     "call_margin": -0.07647,
+     "call_open_pct": 0.238,
+     "fourbet_mult": 2.69514,
+     "fourbet_pct": 0.03112,
+     "looseness": 1.38717,
+     "multiway_exponent": 0.56005,
+     "open_pct_by_seats_behind": [
+      0.36867,
+      0.2507,
+      0.18434,
+      0.14747,
+      0.13272,
+      0.11798,
+      0.1106,
+      0.10323
+     ],
+     "open_size_bb": 4.00638,
+     "postflop_temperature": 0.02658,
+     "preflop_temperature": 0.0317,
+     "raise_pot_fraction": 0.57576,
+     "raise_threshold": 0.76539,
+     "sb_open_pct": 0.32908,
+     "semibluff_freq": 0.43189,
+     "threebet_mult": 5.0,
+     "threebet_pct": 0.108,
+     "value_threshold": 0.38512
+    },
+    "style": "loose"
+   },
+   "version": "plo-heuristic-1.0.0+6f71316f69"
+  },
+  {
+   "bot_id": "plo6-loose-e3-s3",
+   "kind": "plo_heuristic",
+   "meta": {
+    "agent_seed": 3,
+    "archetype": "loose",
+    "epsilon": 0.45,
+    "scale_index": 3
+   },
+   "params": {
+    "overrides": {
+     "aggression": 0.65802,
+     "allin_commit_fraction": 0.4107,
+     "bb_defend_pct": 0.57697,
+     "bet_fraction": 1.20818,
+     "bluff_freq": 0.04589,
+     "call_3bet_pct": 0.07754,
+     "call_4bet_pct": 0.0382,
+     "call_margin": -0.00671,
+     "call_open_pct": 0.12395,
+     "fourbet_mult": 4.0,
+     "fourbet_pct": 0.02649,
+     "looseness": 1.03218,
+     "multiway_exponent": 0.6254,
+     "open_pct_by_seats_behind": [
+      0.78116,
+      0.53119,
+      0.39058,
+      0.31246,
+      0.28122,
+      0.24997,
+      0.23435,
+      0.21873
+     ],
+     "open_size_bb": 2.0,
+     "postflop_temperature": 0.05038,
+     "preflop_temperature": 0.00971,
+     "raise_pot_fraction": 0.63429,
+     "raise_threshold": 0.42653,
+     "sb_open_pct": 0.24976,
+     "semibluff_freq": 0.49076,
+     "threebet_mult": 5.0,
+     "threebet_pct": 0.03186,
+     "value_threshold": 0.81413
+    },
+    "style": "loose"
+   },
+   "version": "plo-heuristic-1.0.0+3733d6368c"
+  },
+  {
+   "bot_id": "plo6-maniac-e0",
+   "kind": "plo_heuristic",
+   "meta": {
+    "agent_seed": 0,
+    "archetype": "maniac",
+    "epsilon": 0.0,
+    "scale_index": 0
+   },
+   "params": {
+    "overrides": {
+     "aggression": 1.9,
+     "bet_fraction": 0.9,
+     "bluff_freq": 0.28,
+     "looseness": 1.6,
+     "semibluff_freq": 0.8
+    },
+    "style": "aggressive"
+   },
+   "version": "plo-heuristic-1.0.0+d62d6ee3b7"
+  },
+  {
+   "bot_id": "plo6-maniac-e1-s1",
+   "kind": "plo_heuristic",
+   "meta": {
+    "agent_seed": 1,
+    "archetype": "maniac",
+    "epsilon": 0.1,
+    "scale_index": 1
+   },
+   "params": {
+    "overrides": {
+     "aggression": 1.8329,
+     "allin_commit_fraction": 0.4401,
+     "bb_defend_pct": 0.41358,
+     "bet_fraction": 0.98375,
+     "bluff_freq": 0.28285,
+     "call_3bet_pct": 0.08946,
+     "call_4bet_pct": 0.04017,
+     "call_margin": 0.01052,
+     "call_open_pct": 0.18168,
+     "fourbet_mult": 2.81026,
+     "fourbet_pct": 0.02814,
+     "looseness": 1.38083,
+     "multiway_exponent": 0.58701,
+     "open_pct_by_seats_behind": [
+      0.50749,
+      0.34509,
+      0.25374,
+      0.203,
+      0.1827,
+      0.1624,
+      0.15225,
+      0.1421
+     ],
+     "open_size_bb": 3.08754,
+     "postflop_temperature": 0.03529,
+     "preflop_temperature": 0.01934,
+     "raise_pot_fraction": 1.03759,
+     "raise_threshold": 0.87701,
+     "sb_open_pct": 0.37532,
+     "semibluff_freq": 0.80985,
+     "threebet_mult": 3.13231,
+     "threebet_pct": 0.06515,
+     "value_threshold": 0.5304
+    },
+    "style": "aggressive"
+   },
+   "version": "plo-heuristic-1.0.0+67491e52e1"
+  },
+  {
+   "bot_id": "plo6-maniac-e1-s2",
+   "kind": "plo_heuristic",
+   "meta": {
+    "agent_seed": 2,
+    "archetype": "maniac",
+    "epsilon": 0.1,
+    "scale_index": 1
+   },
+   "params": {
+    "overrides": {
+     "aggression": 1.85292,
+     "allin_commit_fraction": 0.46647,
+     "bb_defend_pct": 0.34573,
+     "bet_fraction": 0.97302,
+     "bluff_freq": 0.315,
+     "call_3bet_pct": 0.08417,
+     "call_4bet_pct": 0.0384,
+     "call_margin": -0.0416,
+     "call_open_pct": 0.17099,
+     "fourbet_mult": 2.94698,
+     "fourbet_pct": 0.02247,
+     "looseness": 1.84003,
+     "multiway_exponent": 0.69129,
+     "open_pct_by_seats_behind": [
+      0.6142,
+      0.41765,
+      0.3071,
+      0.24568,
+      0.22111,
+      0.19654,
+      0.18426,
+      0.17198
+     ],
+     "open_size_bb": 3.84732,
+     "postflop_temperature": 0.04418,
+     "preflop_temperature": 0.02049,
+     "raise_pot_fraction": 0.9496,
+     "raise_threshold": 0.73079,
+     "sb_open_pct": 0.40745,
+     "semibluff_freq": 0.78532,
+     "threebet_mult": 3.34874,
+     "threebet_pct": 0.05245,
+     "value_threshold": 0.65617
+    },
+    "style": "aggressive"
+   },
+   "version": "plo-heuristic-1.0.0+0e8db9b47f"
+  },
+  {
+   "bot_id": "plo6-maniac-e2-s3",
+   "kind": "plo_heuristic",
+   "meta": {
+    "agent_seed": 3,
+    "archetype": "maniac",
+    "epsilon": 0.25,
+    "scale_index": 2
+   },
+   "params": {
+    "overrides": {
+     "aggression": 1.6565,
+     "allin_commit_fraction": 0.41439,
+     "bb_defend_pct": 0.34663,
+     "bet_fraction": 0.97233,
+     "bluff_freq": 0.1879,
+     "call_3bet_pct": 0.09657,
+     "call_4bet_pct": 0.04431,
+     "call_margin": 0.06007,
+     "call_open_pct": 0.17658,
+     "fourbet_mult": 2.49832,
+     "fourbet_pct": 0.02299,
+     "looseness": 0.95132,
+     "multiway_exponent": 0.49378,
+     "open_pct_by_seats_behind": [
+      0.55698,
+      0.37875,
+      0.27849,
+      0.22279,
+      0.20051,
+      0.17823,
+      0.16709,
+      0.15595
+     ],
+     "open_size_bb": 4.37637,
+     "postflop_temperature": 0.04141,
+     "preflop_temperature": 0.01928,
+     "raise_pot_fraction": 1.17704,
+     "raise_threshold": 0.95,
+     "sb_open_pct": 0.31556,
+     "semibluff_freq": 0.6722,
+     "threebet_mult": 3.79829,
+     "threebet_pct": 0.04518,
+     "value_threshold": 0.91406
+    },
+    "style": "aggressive"
+   },
+   "version": "plo-heuristic-1.0.0+275a70eb0c"
+  },
+  {
+   "bot_id": "plo6-maniac-e3-s0",
+   "kind": "plo_heuristic",
+   "meta": {
+    "agent_seed": 0,
+    "archetype": "maniac",
+    "epsilon": 0.45,
+    "scale_index": 3
+   },
+   "params": {
+    "overrides": {
+     "aggression": 2.41643,
+     "allin_commit_fraction": 0.2,
+     "bb_defend_pct": 0.22914,
+     "bet_fraction": 0.87323,
+     "bluff_freq": 0.27045,
+     "call_3bet_pct": 0.09614,
+     "call_4bet_pct": 0.02201,
+     "call_margin": 0.02928,
+     "call_open_pct": 0.47342,
+     "fourbet_mult": 3.02307,
+     "fourbet_pct": 0.02858,
+     "looseness": 2.21754,
+     "multiway_exponent": 0.47426,
+     "open_pct_by_seats_behind": [
+      0.33274,
+      0.22626,
+      0.16637,
+      0.1331,
+      0.11979,
+      0.10648,
+      0.09982,
+      0.09317
+     ],
+     "open_size_bb": 3.08599,
+     "postflop_temperature": 0.01807,
+     "preflop_temperature": 0.02731,
+     "raise_pot_fraction": 0.9421,
+     "raise_threshold": 0.64765,
+     "sb_open_pct": 0.37311,
+     "semibluff_freq": 0.74413,
+     "threebet_mult": 3.05426,
+     "threebet_pct": 0.05745,
+     "value_threshold": 0.95
+    },
+    "style": "aggressive"
+   },
+   "version": "plo-heuristic-1.0.0+78a550b183"
+  },
+  {
+   "bot_id": "plo6-maniac-e3-s1",
+   "kind": "plo_heuristic",
+   "meta": {
+    "agent_seed": 1,
+    "archetype": "maniac",
+    "epsilon": 0.45,
+    "scale_index": 3
+   },
+   "params": {
+    "overrides": {
+     "aggression": 2.68329,
+     "allin_commit_fraction": 0.41647,
+     "bb_defend_pct": 0.40807,
+     "bet_fraction": 0.68188,
+     "bluff_freq": 0.1883,
+     "call_3bet_pct": 0.11561,
+     "call_4bet_pct": 0.01751,
+     "call_margin": 0.08799,
+     "call_open_pct": 0.26886,
+     "fourbet_mult": 4.0,
+     "fourbet_pct": 0.02661,
+     "looseness": 1.44104,
+     "multiway_exponent": 0.56748,
+     "open_pct_by_seats_behind": [
+      0.55963,
+      0.38055,
+      0.27981,
+      0.22385,
+      0.20147,
+      0.17908,
+      0.16789,
+      0.1567
+     ],
+     "open_size_bb": 5.0,
+     "postflop_temperature": 0.0279,
+     "preflop_temperature": 0.02253,
+     "raise_pot_fraction": 0.87809,
+     "raise_threshold": 0.92425,
+     "sb_open_pct": 0.55329,
+     "semibluff_freq": 0.61113,
+     "threebet_mult": 2.2,
+     "threebet_pct": 0.06548,
+     "value_threshold": 0.86449
+    },
+    "style": "aggressive"
+   },
+   "version": "plo-heuristic-1.0.0+b7d6d744ec"
+  },
+  {
+   "bot_id": "plo6-maniac-e3-s2",
+   "kind": "plo_heuristic",
+   "meta": {
+    "agent_seed": 2,
+    "archetype": "maniac",
+    "epsilon": 0.45,
+    "scale_index": 3
+   },
+   "params": {
+    "overrides": {
+     "aggression": 1.31294,
+     "allin_commit_fraction": 0.56084,
+     "bb_defend_pct": 0.29043,
+     "bet_fraction": 1.30252,
+     "bluff_freq": 0.39773,
+     "call_3bet_pct": 0.04816,
+     "call_4bet_pct": 0.03706,
+     "call_margin": -0.02726,
+     "call_open_pct": 0.24394,
+     "fourbet_mult": 4.0,
+     "fourbet_pct": 0.01089,
+     "looseness": 0.9596,
+     "multiway_exponent": 0.61761,
+     "open_pct_by_seats_behind": [
+      0.31776,
+      0.21607,
+      0.15888,
+      0.1271,
+      0.11439,
+      0.10168,
+      0.09533,
+      0.08897
+     ],
+     "open_size_bb": 3.58401,
+     "postflop_temperature": 0.0315,
+     "preflop_temperature": 0.01245,
+     "raise_pot_fraction": 1.16463,
+     "raise_threshold": 0.67639,
+     "sb_open_pct": 0.15898,
+     "semibluff_freq": 0.54726,
+     "threebet_mult": 4.47063,
+     "threebet_pct": 0.07179,
+     "value_threshold": 0.95
+    },
+    "style": "aggressive"
+   },
+   "version": "plo-heuristic-1.0.0+e6fb908ca8"
+  },
+  {
+   "bot_id": "plo6-neutral-e0",
+   "kind": "plo_heuristic",
+   "meta": {
+    "agent_seed": 0,
+    "archetype": "neutral",
+    "epsilon": 0.0,
+    "scale_index": 0
+   },
+   "params": {
+    "style": "neutral"
+   },
+   "version": "plo-heuristic-1.0.0+016040e162"
+  },
+  {
+   "bot_id": "plo6-neutral-e1-s0",
+   "kind": "plo_heuristic",
+   "meta": {
+    "agent_seed": 0,
+    "archetype": "neutral",
+    "epsilon": 0.1,
+    "scale_index": 1
+   },
+   "params": {
+    "overrides": {
+     "aggression": 1.03539,
+     "allin_commit_fraction": 0.40747,
+     "bb_defend_pct": 0.38952,
+     "bet_fraction": 0.74669,
+     "bluff_freq": 0.09805,
+     "call_3bet_pct": 0.10439,
+     "call_4bet_pct": 0.02882,
+     "call_margin": 0.01627,
+     "call_open_pct": 0.16897,
+     "fourbet_mult": 3.00246,
+     "fourbet_pct": 0.02178,
+     "looseness": 0.93414,
+     "multiway_exponent": 0.54208,
+     "open_pct_by_seats_behind": [
+      0.50711,
+      0.34484,
+      0.25356,
+      0.20285,
+      0.18256,
+      0.16228,
+      0.15213,
+      0.14199
+     ],
+     "open_size_bb": 3.47497,
+     "postflop_temperature": 0.04272,
+     "preflop_temperature": 0.02139,
+     "raise_pot_fraction": 1.2159,
+     "raise_threshold": 0.76358,
+     "sb_open_pct": 0.45949,
+     "semibluff_freq": 0.50191,
+     "threebet_mult": 3.84653,
+     "threebet_pct": 0.05361,
+     "value_threshold": 0.568
+    },
+    "style": "neutral"
+   },
+   "version": "plo-heuristic-1.0.0+f4f3852226"
+  },
+  {
+   "bot_id": "plo6-neutral-e1-s2",
+   "kind": "plo_heuristic",
+   "meta": {
+    "agent_seed": 2,
+    "archetype": "neutral",
+    "epsilon": 0.1,
+    "scale_index": 1
+   },
+   "params": {
+    "overrides": {
+     "aggression": 1.13681,
+     "allin_commit_fraction": 0.42114,
+     "bb_defend_pct": 0.40343,
+     "bet_fraction": 0.74548,
+     "bluff_freq": 0.08474,
+     "call_3bet_pct": 0.08542,
+     "call_4bet_pct": 0.03704,
+     "call_margin": -0.00927,
+     "call_open_pct": 0.20251,
+     "fourbet_mult": 2.85876,
+     "fourbet_pct": 0.02429,
+     "looseness": 1.0822,
+     "multiway_exponent": 0.52961,
+     "open_pct_by_seats_behind": [
+      0.46805,
+      0.31827,
+      0.23402,
+      0.18722,
+      0.1685,
+      0.14977,
+      0.14041,
+      0.13105
+     ],
+     "open_size_bb": 2.7632,
+     "postflop_temperature": 0.03523,
+     "preflop_temperature": 0.01758,
+     "raise_pot_fraction": 1.08856,
+     "raise_threshold": 0.90137,
+     "sb_open_pct": 0.40795,
+     "semibluff_freq": 0.47978,
+     "threebet_mult": 4.7006,
+     "threebet_pct": 0.05853,
+     "value_threshold": 0.56155
+    },
+    "style": "neutral"
+   },
+   "version": "plo-heuristic-1.0.0+cb3292e97d"
+  },
+  {
+   "bot_id": "plo6-neutral-e2-s0",
+   "kind": "plo_heuristic",
+   "meta": {
+    "agent_seed": 0,
+    "archetype": "neutral",
+    "epsilon": 0.25,
+    "scale_index": 2
+   },
+   "params": {
+    "overrides": {
+     "aggression": 1.72149,
+     "allin_commit_fraction": 0.40303,
+     "bb_defend_pct": 0.38223,
+     "bet_fraction": 0.87742,
+     "bluff_freq": 0.08464,
+     "call_3bet_pct": 0.0952,
+     "call_4bet_pct": 0.02609,
+     "call_margin": 0.06102,
+     "call_open_pct": 0.16349,
+     "fourbet_mult": 1.8,
+     "fourbet_pct": 0.02104,
+     "looseness": 0.83812,
+     "multiway_exponent": 0.61893,
+     "open_pct_by_seats_behind": [
+      0.47308,
+      0.3217,
+      0.23654,
+      0.18923,
+      0.17031,
+      0.15139,
+      0.14192,
+      0.13246
+     ],
+     "open_size_bb": 2.80466,
+     "postflop_temperature": 0.02449,
+     "preflop_temperature": 0.01536,
+     "raise_pot_fraction": 1.33671,
+     "raise_threshold": 0.55541,
+     "sb_open_pct": 0.33731,
+     "semibluff_freq": 0.34264,
+     "threebet_mult": 4.69056,
+     "threebet_pct": 0.039,
+     "value_threshold": 0.74017
+    },
+    "style": "neutral"
+   },
+   "version": "plo-heuristic-1.0.0+d5ffe3c980"
+  },
+  {
+   "bot_id": "plo6-neutral-e2-s2",
+   "kind": "plo_heuristic",
+   "meta": {
+    "agent_seed": 2,
+    "archetype": "neutral",
+    "epsilon": 0.25,
+    "scale_index": 2
+   },
+   "params": {
+    "overrides": {
+     "aggression": 1.53345,
+     "allin_commit_fraction": 0.32091,
+     "bb_defend_pct": 0.25761,
+     "bet_fraction": 0.79322,
+     "bluff_freq": 0.06365,
+     "call_3bet_pct": 0.11195,
+     "call_4bet_pct": 0.03807,
+     "call_margin": 0.0503,
+     "call_open_pct": 0.14564,
+     "fourbet_mult": 2.65986,
+     "fourbet_pct": 0.02735,
+     "looseness": 0.75037,
+     "multiway_exponent": 0.41495,
+     "open_pct_by_seats_behind": [
+      0.69046,
+      0.46951,
+      0.34523,
+      0.27618,
+      0.24857,
+      0.22095,
+      0.20714,
+      0.19333
+     ],
+     "open_size_bb": 3.08034,
+     "postflop_temperature": 0.03192,
+     "preflop_temperature": 0.01833,
+     "raise_pot_fraction": 1.0839,
+     "raise_threshold": 0.68235,
+     "sb_open_pct": 0.26111,
+     "semibluff_freq": 0.48764,
+     "threebet_mult": 4.07486,
+     "threebet_pct": 0.05978,
+     "value_threshold": 0.49618
+    },
+    "style": "neutral"
+   },
+   "version": "plo-heuristic-1.0.0+efd442206f"
+  },
+  {
+   "bot_id": "plo6-neutral-e2-s3",
+   "kind": "plo_heuristic",
+   "meta": {
+    "agent_seed": 3,
+    "archetype": "neutral",
+    "epsilon": 0.25,
+    "scale_index": 2
+   },
+   "params": {
+    "overrides": {
+     "aggression": 0.66424,
+     "allin_commit_fraction": 0.46644,
+     "bb_defend_pct": 0.52432,
+     "bet_fraction": 0.53994,
+     "bluff_freq": 0.10208,
+     "call_3bet_pct": 0.09769,
+     "call_4bet_pct": 0.04168,
+     "call_margin": -0.00406,
+     "call_open_pct": 0.1507,
+     "fourbet_mult": 3.41135,
+     "fourbet_pct": 0.02826,
+     "looseness": 0.86288,
+     "multiway_exponent": 0.39097,
+     "open_pct_by_seats_behind": [
+      0.31491,
+      0.21414,
+      0.15745,
+      0.12596,
+      0.11337,
+      0.10077,
+      0.09447,
+      0.08817
+     ],
+     "open_size_bb": 4.47627,
+     "postflop_temperature": 0.03399,
+     "preflop_temperature": 0.02698,
+     "raise_pot_fraction": 1.12773,
+     "raise_threshold": 0.84486,
+     "sb_open_pct": 0.28806,
+     "semibluff_freq": 0.43817,
+     "threebet_mult": 3.17823,
+     "threebet_pct": 0.06311,
+     "value_threshold": 0.83599
+    },
+    "style": "neutral"
+   },
+   "version": "plo-heuristic-1.0.0+9b96712dd5"
+  },
+  {
+   "bot_id": "plo6-neutral-e3-s2",
+   "kind": "plo_heuristic",
+   "meta": {
+    "agent_seed": 2,
+    "archetype": "neutral",
+    "epsilon": 0.45,
+    "scale_index": 3
+   },
+   "params": {
+    "overrides": {
+     "aggression": 1.22699,
+     "allin_commit_fraction": 0.30006,
+     "bb_defend_pct": 0.25269,
+     "bet_fraction": 1.19187,
+     "bluff_freq": 0.11772,
+     "call_3bet_pct": 0.15585,
+     "call_4bet_pct": 0.02025,
+     "call_margin": -0.04797,
+     "call_open_pct": 0.21587,
+     "fourbet_mult": 2.41666,
+     "fourbet_pct": 0.00781,
+     "looseness": 0.90345,
+     "multiway_exponent": 0.63695,
+     "open_pct_by_seats_behind": [
+      0.15148,
+      0.103,
+      0.07574,
+      0.06059,
+      0.05453,
+      0.04847,
+      0.04544,
+      0.04241
+     ],
+     "open_size_bb": 3.38188,
+     "postflop_temperature": 0.04809,
+     "preflop_temperature": 0.0367,
+     "raise_pot_fraction": 1.42599,
+     "raise_threshold": 0.80403,
+     "sb_open_pct": 0.54434,
+     "semibluff_freq": 0.33376,
+     "threebet_mult": 5.0,
+     "threebet_pct": 0.04793,
+     "value_threshold": 0.50909
+    },
+    "style": "neutral"
+   },
+   "version": "plo-heuristic-1.0.0+8207f0b4f5"
+  },
+  {
+   "bot_id": "plo6-neutral-e3-s3",
+   "kind": "plo_heuristic",
+   "meta": {
+    "agent_seed": 3,
+    "archetype": "neutral",
+    "epsilon": 0.45,
+    "scale_index": 3
+   },
+   "params": {
+    "overrides": {
+     "aggression": 0.92923,
+     "allin_commit_fraction": 0.81411,
+     "bb_defend_pct": 0.92105,
+     "bet_fraction": 0.83905,
+     "bluff_freq": 0.09748,
+     "call_3bet_pct": 0.13163,
+     "call_4bet_pct": 0.027,
+     "call_margin": -0.00482,
+     "call_open_pct": 0.1124,
+     "fourbet_mult": 2.02032,
+     "fourbet_pct": 0.02412,
+     "looseness": 1.36039,
+     "multiway_exponent": 0.35989,
+     "open_pct_by_seats_behind": [
+      0.45487,
+      0.30931,
+      0.22744,
+      0.18195,
+      0.16375,
+      0.14556,
+      0.13646,
+      0.12736
+     ],
+     "open_size_bb": 4.88937,
+     "postflop_temperature": 0.05797,
+     "preflop_temperature": 0.03138,
+     "raise_pot_fraction": 0.52087,
+     "raise_threshold": 0.41029,
+     "sb_open_pct": 0.25634,
+     "semibluff_freq": 0.63892,
+     "threebet_mult": 2.20038,
+     "threebet_pct": 0.10261,
+     "value_threshold": 0.32617
+    },
+    "style": "neutral"
+   },
+   "version": "plo-heuristic-1.0.0+3f31e13821"
+  },
+  {
+   "bot_id": "plo6-nit-e0",
+   "kind": "plo_heuristic",
+   "meta": {
+    "agent_seed": 0,
+    "archetype": "nit",
+    "epsilon": 0.0,
+    "scale_index": 0
+   },
+   "params": {
+    "overrides": {
+     "aggression": 0.8,
+     "bluff_freq": 0.04,
+     "call_margin": 0.06,
+     "looseness": 0.55
+    },
+    "style": "tight"
+   },
+   "version": "plo-heuristic-1.0.0+f4fdbb32bc"
+  },
+  {
+   "bot_id": "plo6-nit-e1-s0",
+   "kind": "plo_heuristic",
+   "meta": {
+    "agent_seed": 0,
+    "archetype": "nit",
+    "epsilon": 0.1,
+    "scale_index": 1
+   },
+   "params": {
+    "overrides": {
+     "aggression": 0.78245,
+     "allin_commit_fraction": 0.49013,
+     "bb_defend_pct": 0.38977,
+     "bet_fraction": 0.74712,
+     "bluff_freq": 0.04248,
+     "call_3bet_pct": 0.10206,
+     "call_4bet_pct": 0.03824,
+     "call_margin": 0.02087,
+     "call_open_pct": 0.20573,
+     "fourbet_mult": 3.01863,
+     "fourbet_pct": 0.02365,
+     "looseness": 0.53958,
+     "multiway_exponent": 0.64112,
+     "open_pct_by_seats_behind": [
+      0.43726,
+      0.29734,
+      0.21863,
+      0.17491,
+      0.15741,
+      0.13992,
+      0.13118,
+      0.12243
+     ],
+     "open_size_bb": 3.68679,
+     "postflop_temperature": 0.04121,
+     "preflop_temperature": 0.01815,
+     "raise_pot_fraction": 1.15839,
+     "raise_threshold": 0.92283,
+     "sb_open_pct": 0.46975,
+     "semibluff_freq": 0.50796,
+     "threebet_mult": 3.90106,
+     "threebet_pct": 0.05458,
+     "value_threshold": 0.64542
+    },
+    "style": "tight"
+   },
+   "version": "plo-heuristic-1.0.0+76f77245dc"
+  },
+  {
+   "bot_id": "plo6-nit-e1-s1",
+   "kind": "plo_heuristic",
+   "meta": {
+    "agent_seed": 1,
+    "archetype": "nit",
+    "epsilon": 0.1,
+    "scale_index": 1
+   },
+   "params": {
+    "overrides": {
+     "aggression": 0.72111,
+     "allin_commit_fraction": 0.41133,
+     "bb_defend_pct": 0.40484,
+     "bet_fraction": 0.75466,
+     "bluff_freq": 0.03505,
+     "call_3bet_pct": 0.10407,
+     "call_4bet_pct": 0.04082,
+     "call_margin": 0.08911,
+     "call_open_pct": 0.18079,
+     "fourbet_mult": 3.45515,
+     "fourbet_pct": 0.02729,
+     "looseness": 0.5837,
+     "multiway_exponent": 0.53784,
+     "open_pct_by_seats_behind": [
+      0.46381,
+      0.31539,
+      0.23191,
+      0.18553,
+      0.16697,
+      0.14842,
+      0.13914,
+      0.12987
+     ],
+     "open_size_bb": 4.69637,
+     "postflop_temperature": 0.04018,
+     "preflop_temperature": 0.02391,
+     "raise_pot_fraction": 1.03006,
+     "raise_threshold": 0.93558,
+     "sb_open_pct": 0.39166,
+     "semibluff_freq": 0.4826,
+     "threebet_mult": 3.61515,
+     "threebet_pct": 0.07171,
+     "value_threshold": 0.64997
+    },
+    "style": "tight"
+   },
+   "version": "plo-heuristic-1.0.0+37fcec061d"
+  },
+  {
+   "bot_id": "plo6-nit-e2-s0",
+   "kind": "plo_heuristic",
+   "meta": {
+    "agent_seed": 0,
+    "archetype": "nit",
+    "epsilon": 0.25,
+    "scale_index": 2
+   },
+   "params": {
+    "overrides": {
+     "aggression": 0.53961,
+     "allin_commit_fraction": 0.28317,
+     "bb_defend_pct": 0.42294,
+     "bet_fraction": 0.79018,
+     "bluff_freq": 0.0318,
+     "call_3bet_pct": 0.06688,
+     "call_4bet_pct": 0.03271,
+     "call_margin": -0.00958,
+     "call_open_pct": 0.17357,
+     "fourbet_mult": 3.74615,
+     "fourbet_pct": 0.03923,
+     "looseness": 0.5055,
+     "multiway_exponent": 0.75502,
+     "open_pct_by_seats_behind": [
+      0.3967,
+      0.26975,
+      0.19835,
+      0.15868,
+      0.14281,
+      0.12694,
+      0.11901,
+      0.11107
+     ],
+     "open_size_bb": 2.29699,
+     "postflop_temperature": 0.02597,
+     "preflop_temperature": 0.01787,
+     "raise_pot_fraction": 1.00625,
+     "raise_threshold": 0.95,
+     "sb_open_pct": 0.50633,
+     "semibluff_freq": 0.35327,
+     "threebet_mult": 4.1272,
+     "threebet_pct": 0.06703,
+     "value_threshold": 0.63593
+    },
+    "style": "tight"
+   },
+   "version": "plo-heuristic-1.0.0+ab9eb389ec"
+  },
+  {
+   "bot_id": "plo6-nit-e2-s1",
+   "kind": "plo_heuristic",
+   "meta": {
+    "agent_seed": 1,
+    "archetype": "nit",
+    "epsilon": 0.25,
+    "scale_index": 2
+   },
+   "params": {
+    "overrides": {
+     "aggression": 0.78777,
+     "allin_commit_fraction": 0.37519,
+     "bb_defend_pct": 0.53362,
+     "bet_fraction": 0.70551,
+     "bluff_freq": 0.04738,
+     "call_3bet_pct": 0.08903,
+     "call_4bet_pct": 0.03534,
+     "call_margin": 0.17997,
+     "call_open_pct": 0.15601,
+     "fourbet_mult": 3.69175,
+     "fourbet_pct": 0.02022,
+     "looseness": 0.45724,
+     "multiway_exponent": 0.8117,
+     "open_pct_by_seats_behind": [
+      0.81064,
+      0.55124,
+      0.40532,
+      0.32426,
+      0.29183,
+      0.25941,
+      0.24319,
+      0.22698
+     ],
+     "open_size_bb": 3.80477,
+     "postflop_temperature": 0.06543,
+     "preflop_temperature": 0.0174,
+     "raise_pot_fraction": 1.01485,
+     "raise_threshold": 0.8711,
+     "sb_open_pct": 0.31449,
+     "semibluff_freq": 0.3403,
+     "threebet_mult": 5.0,
+     "threebet_pct": 0.05917,
+     "value_threshold": 0.72386
+    },
+    "style": "tight"
+   },
+   "version": "plo-heuristic-1.0.0+58313bf091"
+  },
+  {
+   "bot_id": "plo6-nit-e2-s2",
+   "kind": "plo_heuristic",
+   "meta": {
+    "agent_seed": 2,
+    "archetype": "nit",
+    "epsilon": 0.25,
+    "scale_index": 2
+   },
+   "params": {
+    "overrides": {
+     "aggression": 0.84389,
+     "allin_commit_fraction": 0.44684,
+     "bb_defend_pct": 0.37099,
+     "bet_fraction": 1.00116,
+     "bluff_freq": 0.03887,
+     "call_3bet_pct": 0.09523,
+     "call_4bet_pct": 0.05885,
+     "call_margin": 0.02044,
+     "call_open_pct": 0.28696,
+     "fourbet_mult": 2.40999,
+     "fourbet_pct": 0.02454,
+     "looseness": 0.93691,
+     "multiway_exponent": 0.61521,
+     "open_pct_by_seats_behind": [
+      0.52251,
+      0.35531,
+      0.26126,
+      0.209,
+      0.1881,
+      0.1672,
+      0.15675,
+      0.1463
+     ],
+     "open_size_bb": 4.12533,
+     "postflop_temperature": 0.03713,
+     "preflop_temperature": 0.0261,
+     "raise_pot_fraction": 0.93406,
+     "raise_threshold": 0.81122,
+     "sb_open_pct": 0.50381,
+     "semibluff_freq": 0.49262,
+     "threebet_mult": 2.76369,
+     "threebet_pct": 0.05607,
+     "value_threshold": 0.65857
+    },
+    "style": "tight"
+   },
+   "version": "plo-heuristic-1.0.0+9fe4d445ea"
+  },
+  {
+   "bot_id": "plo6-nit-e2-s3",
+   "kind": "plo_heuristic",
+   "meta": {
+    "agent_seed": 3,
+    "archetype": "nit",
+    "epsilon": 0.25,
+    "scale_index": 2
+   },
+   "params": {
+    "overrides": {
+     "aggression": 1.18883,
+     "allin_commit_fraction": 0.65601,
+     "bb_defend_pct": 0.44436,
+     "bet_fraction": 0.81744,
+     "bluff_freq": 0.02809,
+     "call_3bet_pct": 0.0815,
+     "call_4bet_pct": 0.04816,
+     "call_margin": 0.1179,
+     "call_open_pct": 0.18629,
+     "fourbet_mult": 2.85057,
+     "fourbet_pct": 0.02298,
+     "looseness": 0.44774,
+     "multiway_exponent": 0.63004,
+     "open_pct_by_seats_behind": [
+      0.61586,
+      0.41879,
+      0.30793,
+      0.24634,
+      0.22171,
+      0.19708,
+      0.18476,
+      0.17244
+     ],
+     "open_size_bb": 2.20185,
+     "postflop_temperature": 0.03022,
+     "preflop_temperature": 0.01705,
+     "raise_pot_fraction": 0.71851,
+     "raise_threshold": 0.95,
+     "sb_open_pct": 0.25196,
+     "semibluff_freq": 0.33662,
+     "threebet_mult": 2.32343,
+     "threebet_pct": 0.04193,
+     "value_threshold": 0.57618
+    },
+    "style": "tight"
+   },
+   "version": "plo-heuristic-1.0.0+89103c8648"
+  },
+  {
+   "bot_id": "plo6-nit-e3-s1",
+   "kind": "plo_heuristic",
+   "meta": {
+    "agent_seed": 1,
+    "archetype": "nit",
+    "epsilon": 0.45,
+    "scale_index": 3
+   },
+   "params": {
+    "overrides": {
+     "aggression": 0.31705,
+     "allin_commit_fraction": 0.39089,
+     "bb_defend_pct": 0.1748,
+     "bet_fraction": 0.77582,
+     "bluff_freq": 0.03978,
+     "call_3bet_pct": 0.09279,
+     "call_4bet_pct": 0.09807,
+     "call_margin": 0.00781,
+     "call_open_pct": 0.14104,
+     "fourbet_mult": 3.82286,
+     "fourbet_pct": 0.01869,
+     "looseness": 0.52167,
+     "multiway_exponent": 0.55413,
+     "open_pct_by_seats_behind": [
+      0.85733,
+      0.58298,
+      0.42866,
+      0.34293,
+      0.30864,
+      0.27434,
+      0.2572,
+      0.24005
+     ],
+     "open_size_bb": 5.0,
+     "postflop_temperature": 0.0269,
+     "preflop_temperature": 0.01203,
+     "raise_pot_fraction": 1.5,
+     "raise_threshold": 0.68052,
+     "sb_open_pct": 0.22947,
+     "semibluff_freq": 0.95,
+     "threebet_mult": 5.0,
+     "threebet_pct": 0.07242,
+     "value_threshold": 0.95
+    },
+    "style": "tight"
+   },
+   "version": "plo-heuristic-1.0.0+c57a1f24f5"
+  },
+  {
+   "bot_id": "plo6-nit-e3-s3",
+   "kind": "plo_heuristic",
+   "meta": {
+    "agent_seed": 3,
+    "archetype": "nit",
+    "epsilon": 0.45,
+    "scale_index": 3
+   },
+   "params": {
+    "overrides": {
+     "aggression": 0.89752,
+     "allin_commit_fraction": 0.2983,
+     "bb_defend_pct": 0.41554,
+     "bet_fraction": 0.42771,
+     "bluff_freq": 0.05475,
+     "call_3bet_pct": 0.04634,
+     "call_4bet_pct": 0.03142,
+     "call_margin": 0.10445,
+     "call_open_pct": 0.14786,
+     "fourbet_mult": 2.3382,
+     "fourbet_pct": 0.01512,
+     "looseness": 0.38046,
+     "multiway_exponent": 1.00949,
+     "open_pct_by_seats_behind": [
+      0.2926,
+      0.19896,
+      0.1463,
+      0.11704,
+      0.10533,
+      0.09363,
+      0.08778,
+      0.08193
+     ],
+     "open_size_bb": 2.0,
+     "postflop_temperature": 0.05221,
+     "preflop_temperature": 0.02294,
+     "raise_pot_fraction": 1.5,
+     "raise_threshold": 0.84629,
+     "sb_open_pct": 0.51452,
+     "semibluff_freq": 0.30703,
+     "threebet_mult": 2.2,
+     "threebet_pct": 0.05295,
+     "value_threshold": 0.43347
+    },
+    "style": "tight"
+   },
+   "version": "plo-heuristic-1.0.0+e18e049286"
+  },
+  {
+   "bot_id": "plo6-station-e0",
+   "kind": "plo_heuristic",
+   "meta": {
+    "agent_seed": 0,
+    "archetype": "station",
+    "epsilon": 0.0,
+    "scale_index": 0
+   },
+   "params": {
+    "overrides": {
+     "aggression": 0.6,
+     "bluff_freq": 0.02,
+     "call_margin": -0.08,
+     "looseness": 1.3,
+     "semibluff_freq": 0.2
+    },
+    "style": "loose"
+   },
+   "version": "plo-heuristic-1.0.0+8544be58a7"
+  },
+  {
+   "bot_id": "plo6-station-e3-s1",
+   "kind": "plo_heuristic",
+   "meta": {
+    "agent_seed": 1,
+    "archetype": "station",
+    "epsilon": 0.45,
+    "scale_index": 3
+   },
+   "params": {
+    "overrides": {
+     "aggression": 0.64645,
+     "allin_commit_fraction": 0.41884,
+     "bb_defend_pct": 0.17343,
+     "bet_fraction": 1.31154,
+     "bluff_freq": 0.03504,
+     "call_3bet_pct": 0.19313,
+     "call_4bet_pct": 0.028,
+     "call_margin": -0.06728,
+     "call_open_pct": 0.14809,
+     "fourbet_mult": 4.0,
+     "fourbet_pct": 0.03899,
+     "looseness": 1.08544,
+     "multiway_exponent": 0.76217,
+     "open_pct_by_seats_behind": [
+      0.53717,
+      0.36528,
+      0.26859,
+      0.21487,
+      0.19338,
+      0.17189,
+      0.16115,
+      0.15041
+     ],
+     "open_size_bb": 2.06695,
+     "postflop_temperature": 0.019,
+     "preflop_temperature": 0.01259,
+     "raise_pot_fraction": 1.5,
+     "raise_threshold": 0.95,
+     "sb_open_pct": 0.49834,
+     "semibluff_freq": 0.29786,
+     "threebet_mult": 2.2,
+     "threebet_pct": 0.07241,
+     "value_threshold": 0.84493
+    },
+    "style": "loose"
+   },
+   "version": "plo-heuristic-1.0.0+f70d02a06f"
+  },
+  {
+   "bot_id": "plo6-station-e3-s2",
+   "kind": "plo_heuristic",
+   "meta": {
+    "agent_seed": 2,
+    "archetype": "station",
+    "epsilon": 0.45,
+    "scale_index": 3
+   },
+   "params": {
+    "overrides": {
+     "aggression": 0.33245,
+     "allin_commit_fraction": 0.4548,
+     "bb_defend_pct": 0.45325,
+     "bet_fraction": 0.76371,
+     "bluff_freq": 0.02346,
+     "call_3bet_pct": 0.06127,
+     "call_4bet_pct": 0.03448,
+     "call_margin": -0.04988,
+     "call_open_pct": 0.1482,
+     "fourbet_mult": 2.40003,
+     "fourbet_pct": 0.02212,
+     "looseness": 0.62225,
+     "multiway_exponent": 0.29682,
+     "open_pct_by_seats_behind": [
+      0.43937,
+      0.29877,
+      0.21968,
+      0.17575,
+      0.15817,
+      0.1406,
+      0.13181,
+      0.12302
+     ],
+     "open_size_bb": 5.0,
+     "postflop_temperature": 0.05555,
+     "preflop_temperature": 0.01154,
+     "raise_pot_fraction": 0.88898,
+     "raise_threshold": 0.5125,
+     "sb_open_pct": 0.29628,
+     "semibluff_freq": 0.30971,
+     "threebet_mult": 4.68879,
+     "threebet_pct": 0.0473,
+     "value_threshold": 0.65822
+    },
+    "style": "loose"
+   },
+   "version": "plo-heuristic-1.0.0+58cedb9736"
+  },
+  {
+   "bot_id": "plo6-tight-e0",
+   "kind": "plo_heuristic",
+   "meta": {
+    "agent_seed": 0,
+    "archetype": "tight",
+    "epsilon": 0.0,
+    "scale_index": 0
+   },
+   "params": {
+    "style": "tight"
+   },
+   "version": "plo-heuristic-1.0.0+36f83a774d"
+  },
+  {
+   "bot_id": "plo6-tight-e1-s1",
+   "kind": "plo_heuristic",
+   "meta": {
+    "agent_seed": 1,
+    "archetype": "tight",
+    "epsilon": 0.1,
+    "scale_index": 1
+   },
+   "params": {
+    "overrides": {
+     "aggression": 0.92142,
+     "allin_commit_fraction": 0.35642,
+     "bb_defend_pct": 0.4049,
+     "bet_fraction": 0.80816,
+     "bluff_freq": 0.0887,
+     "call_3bet_pct": 0.08082,
+     "call_4bet_pct": 0.03494,
+     "call_margin": 0.0135,
+     "call_open_pct": 0.1811,
+     "fourbet_mult": 2.69235,
+     "fourbet_pct": 0.02883,
+     "looseness": 0.75618,
+     "multiway_exponent": 0.56211,
+     "open_pct_by_seats_behind": [
+      0.46019,
+      0.31293,
+      0.23009,
+      0.18408,
+      0.16567,
+      0.14726,
+      0.13806,
+      0.12885
+     ],
+     "open_size_bb": 3.31147,
+     "postflop_temperature": 0.04513,
+     "preflop_temperature": 0.01874,
+     "raise_pot_fraction": 1.10201,
+     "raise_threshold": 0.79298,
+     "sb_open_pct": 0.49215,
+     "semibluff_freq": 0.54177,
+     "threebet_mult": 3.66677,
+     "threebet_pct": 0.05243,
+     "value_threshold": 0.70033
+    },
+    "style": "tight"
+   },
+   "version": "plo-heuristic-1.0.0+7ec154b228"
+  },
+  {
+   "bot_id": "plo6-tight-e1-s2",
+   "kind": "plo_heuristic",
+   "meta": {
+    "agent_seed": 2,
+    "archetype": "tight",
+    "epsilon": 0.1,
+    "scale_index": 1
+   },
+   "params": {
+    "overrides": {
+     "aggression": 0.8819,
+     "allin_commit_fraction": 0.44251,
+     "bb_defend_pct": 0.35947,
+     "bet_fraction": 0.69109,
+     "bluff_freq": 0.0922,
+     "call_3bet_pct": 0.09221,
+     "call_4bet_pct": 0.03795,
+     "call_margin": 0.04618,
+     "call_open_pct": 0.15247,
+     "fourbet_mult": 2.85285,
+     "fourbet_pct": 0.02237,
+     "looseness": 0.68105,
+     "multiway_exponent": 0.64542,
+     "open_pct_by_seats_behind": [
+      0.47714,
+      0.32446,
+      0.23857,
+      0.19086,
+      0.17177,
+      0.15269,
+      0.14314,
+      0.1336
+     ],
+     "open_size_bb": 3.79235,
+     "postflop_temperature": 0.03575,
+     "preflop_temperature": 0.01892,
+     "raise_pot_fraction": 0.90548,
+     "raise_threshold": 0.79879,
+     "sb_open_pct": 0.38763,
+     "semibluff_freq": 0.44424,
+     "threebet_mult": 3.91734,
+     "threebet_pct": 0.0612,
+     "value_threshold": 0.5808
+    },
+    "style": "tight"
+   },
+   "version": "plo-heuristic-1.0.0+5917fadd16"
+  },
+  {
+   "bot_id": "plo6-tight-e2-s1",
+   "kind": "plo_heuristic",
+   "meta": {
+    "agent_seed": 1,
+    "archetype": "tight",
+    "epsilon": 0.25,
+    "scale_index": 2
+   },
+   "params": {
+    "overrides": {
+     "aggression": 0.86108,
+     "allin_commit_fraction": 0.56678,
+     "bb_defend_pct": 0.28697,
+     "bet_fraction": 0.4412,
+     "bluff_freq": 0.08086,
+     "call_3bet_pct": 0.08777,
+     "call_4bet_pct": 0.03321,
+     "call_margin": -0.03291,
+     "call_open_pct": 0.23142,
+     "fourbet_mult": 3.13471,
+     "fourbet_pct": 0.04854,
+     "looseness": 0.71313,
+     "multiway_exponent": 0.65082,
+     "open_pct_by_seats_behind": [
+      0.63579,
+      0.43234,
+      0.31789,
+      0.25432,
+      0.22888,
+      0.20345,
+      0.19074,
+      0.17802
+     ],
+     "open_size_bb": 2.39744,
+     "postflop_temperature": 0.04781,
+     "preflop_temperature": 0.01518,
+     "raise_pot_fraction": 0.90157,
+     "raise_threshold": 0.76659,
+     "sb_open_pct": 0.3212,
+     "semibluff_freq": 0.61021,
+     "threebet_mult": 3.62431,
+     "threebet_pct": 0.07988,
+     "value_threshold": 0.60282
+    },
+    "style": "tight"
+   },
+   "version": "plo-heuristic-1.0.0+928676e4d7"
+  },
+  {
+   "bot_id": "plo6-tight-e2-s3",
+   "kind": "plo_heuristic",
+   "meta": {
+    "agent_seed": 3,
+    "archetype": "tight",
+    "epsilon": 0.25,
+    "scale_index": 2
+   },
+   "params": {
+    "overrides": {
+     "aggression": 1.02553,
+     "allin_commit_fraction": 0.53325,
+     "bb_defend_pct": 0.32448,
+     "bet_fraction": 0.70822,
+     "bluff_freq": 0.06025,
+     "call_3bet_pct": 0.09854,
+     "call_4bet_pct": 0.03426,
+     "call_margin": 0.02018,
+     "call_open_pct": 0.25802,
+     "fourbet_mult": 2.85338,
+     "fourbet_pct": 0.02652,
+     "looseness": 0.7939,
+     "multiway_exponent": 0.45715,
+     "open_pct_by_seats_behind": [
+      0.50155,
+      0.34106,
+      0.25078,
+      0.20062,
+      0.18056,
+      0.1605,
+      0.15047,
+      0.14043
+     ],
+     "open_size_bb": 4.35306,
+     "postflop_temperature": 0.06023,
+     "preflop_temperature": 0.02168,
+     "raise_pot_fraction": 0.93373,
+     "raise_threshold": 0.91143,
+     "sb_open_pct": 0.28401,
+     "semibluff_freq": 0.43448,
+     "threebet_mult": 5.0,
+     "threebet_pct": 0.0709,
+     "value_threshold": 0.80096
+    },
+    "style": "tight"
+   },
+   "version": "plo-heuristic-1.0.0+e58b96c2f3"
+  },
+  {
+   "bot_id": "plo6-tight-e3-s0",
+   "kind": "plo_heuristic",
+   "meta": {
+    "agent_seed": 0,
+    "archetype": "tight",
+    "epsilon": 0.45,
+    "scale_index": 3
+   },
+   "params": {
+    "overrides": {
+     "aggression": 0.55408,
+     "allin_commit_fraction": 0.66754,
+     "bb_defend_pct": 0.30721,
+     "bet_fraction": 0.79928,
+     "bluff_freq": 0.18811,
+     "call_3bet_pct": 0.12046,
+     "call_4bet_pct": 0.02898,
+     "call_margin": 0.09316,
+     "call_open_pct": 0.14321,
+     "fourbet_mult": 4.0,
+     "fourbet_pct": 0.01907,
+     "looseness": 0.78742,
+     "multiway_exponent": 0.58912,
+     "open_pct_by_seats_behind": [
+      0.85132,
+      0.5789,
+      0.42566,
+      0.34053,
+      0.30647,
+      0.27242,
+      0.25539,
+      0.23837
+     ],
+     "open_size_bb": 2.6676,
+     "postflop_temperature": 0.04394,
+     "preflop_temperature": 0.01955,
+     "raise_pot_fraction": 1.21019,
+     "raise_threshold": 0.66573,
+     "sb_open_pct": 0.77426,
+     "semibluff_freq": 0.6993,
+     "threebet_mult": 2.73446,
+     "threebet_pct": 0.06156,
+     "value_threshold": 0.95
+    },
+    "style": "tight"
+   },
+   "version": "plo-heuristic-1.0.0+d033af0682"
+  },
+  {
+   "bot_id": "plo6-trapper-e0",
+   "kind": "plo_heuristic",
+   "meta": {
+    "agent_seed": 0,
+    "archetype": "trapper",
+    "epsilon": 0.0,
+    "scale_index": 0
+   },
+   "params": {
+    "overrides": {
+     "aggression": 0.7,
+     "bluff_freq": 0.04,
+     "call_margin": -0.02,
+     "raise_threshold": 0.92,
+     "value_threshold": 0.7
+    },
+    "style": "neutral"
+   },
+   "version": "plo-heuristic-1.0.0+4a840dda07"
+  },
+  {
+   "bot_id": "plo6-trapper-e1-s0",
+   "kind": "plo_heuristic",
+   "meta": {
+    "agent_seed": 0,
+    "archetype": "trapper",
+    "epsilon": 0.1,
+    "scale_index": 1
+   },
+   "params": {
+    "overrides": {
+     "aggression": 0.76102,
+     "allin_commit_fraction": 0.39869,
+     "bb_defend_pct": 0.40208,
+     "bet_fraction": 0.73806,
+     "bluff_freq": 0.04614,
+     "call_3bet_pct": 0.1024,
+     "call_4bet_pct": 0.0406,
+     "call_margin": -0.02264,
+     "call_open_pct": 0.19242,
+     "fourbet_mult": 3.40223,
+     "fourbet_pct": 0.0252,
+     "looseness": 0.99858,
+     "multiway_exponent": 0.65974,
+     "open_pct_by_seats_behind": [
+      0.49843,
+      0.33893,
+      0.24922,
+      0.19937,
+      0.17944,
+      0.1595,
+      0.14953,
+      0.13956
+     ],
+     "open_size_bb": 3.17742,
+     "postflop_temperature": 0.04193,
+     "preflop_temperature": 0.02377,
+     "raise_pot_fraction": 1.08248,
+     "raise_threshold": 0.95,
+     "sb_open_pct": 0.46732,
+     "semibluff_freq": 0.49452,
+     "threebet_mult": 3.21256,
+     "threebet_pct": 0.07006,
+     "value_threshold": 0.68062
+    },
+    "style": "neutral"
+   },
+   "version": "plo-heuristic-1.0.0+636a594ad5"
+  },
+  {
+   "bot_id": "plo6-trapper-e1-s1",
+   "kind": "plo_heuristic",
+   "meta": {
+    "agent_seed": 1,
+    "archetype": "trapper",
+    "epsilon": 0.1,
+    "scale_index": 1
+   },
+   "params": {
+    "overrides": {
+     "aggression": 0.65939,
+     "allin_commit_fraction": 0.41618,
+     "bb_defend_pct": 0.3766,
+     "bet_fraction": 0.76549,
+     "bluff_freq": 0.0447,
+     "call_3bet_pct": 0.11105,
+     "call_4bet_pct": 0.04254,
+     "call_margin": -0.00254,
+     "call_open_pct": 0.18164,
+     "fourbet_mult": 3.05283,
+     "fourbet_pct": 0.02286,
+     "looseness": 0.99751,
+     "multiway_exponent": 0.61242,
+     "open_pct_by_seats_behind": [
+      0.51365,
+      0.34929,
+      0.25683,
+      0.20546,
+      0.18492,
+      0.16437,
+      0.1541,
+      0.14382
+     ],
+     "open_size_bb": 3.40511,
+     "postflop_temperature": 0.03937,
+     "preflop_temperature": 0.01929,
+     "raise_pot_fraction": 1.05115,
+     "raise_threshold": 0.89585,
+     "sb_open_pct": 0.38026,
+     "semibluff_freq": 0.42639,
+     "threebet_mult": 3.18854,
+     "threebet_pct": 0.05458,
+     "value_threshold": 0.7949
+    },
+    "style": "neutral"
+   },
+   "version": "plo-heuristic-1.0.0+4d054ab680"
+  },
+  {
+   "bot_id": "plo6-trapper-e1-s2",
+   "kind": "plo_heuristic",
+   "meta": {
+    "agent_seed": 2,
+    "archetype": "trapper",
+    "epsilon": 0.1,
+    "scale_index": 1
+   },
+   "params": {
+    "overrides": {
+     "aggression": 0.66884,
+     "allin_commit_fraction": 0.46385,
+     "bb_defend_pct": 0.40921,
+     "bet_fraction": 0.78843,
+     "bluff_freq": 0.03719,
+     "call_3bet_pct": 0.09474,
+     "call_4bet_pct": 0.03895,
+     "call_margin": -0.03808,
+     "call_open_pct": 0.20121,
+     "fourbet_mult": 2.94554,
+     "fourbet_pct": 0.03237,
+     "looseness": 1.11464,
+     "multiway_exponent": 0.73628,
+     "open_pct_by_seats_behind": [
+      0.47012,
+      0.31968,
+      0.23506,
+      0.18805,
+      0.16924,
+      0.15044,
+      0.14104,
+      0.13163
+     ],
+     "open_size_bb": 3.31575,
+     "postflop_temperature": 0.0485,
+     "preflop_temperature": 0.01914,
+     "raise_pot_fraction": 1.0184,
+     "raise_threshold": 0.95,
+     "sb_open_pct": 0.413,
+     "semibluff_freq": 0.49578,
+     "threebet_mult": 3.68882,
+     "threebet_pct": 0.06319,
+     "value_threshold": 0.67012
+    },
+    "style": "neutral"
+   },
+   "version": "plo-heuristic-1.0.0+11a8510cee"
+  },
+  {
+   "bot_id": "plo6-trapper-e2-s0",
+   "kind": "plo_heuristic",
+   "meta": {
+    "agent_seed": 0,
+    "archetype": "trapper",
+    "epsilon": 0.25,
+    "scale_index": 2
+   },
+   "params": {
+    "overrides": {
+     "aggression": 0.58581,
+     "allin_commit_fraction": 0.35422,
+     "bb_defend_pct": 0.36955,
+     "bet_fraction": 1.16033,
+     "bluff_freq": 0.04764,
+     "call_3bet_pct": 0.09285,
+     "call_4bet_pct": 0.05541,
+     "call_margin": -0.10057,
+     "call_open_pct": 0.19566,
+     "fourbet_mult": 4.0,
+     "fourbet_pct": 0.02318,
+     "looseness": 0.7496,
+     "multiway_exponent": 0.64426,
+     "open_pct_by_seats_behind": [
+      0.71353,
+      0.4852,
+      0.35676,
+      0.28541,
+      0.25687,
+      0.22833,
+      0.21406,
+      0.19979
+     ],
+     "open_size_bb": 2.6125,
+     "postflop_temperature": 0.02456,
+     "preflop_temperature": 0.02011,
+     "raise_pot_fraction": 0.6519,
+     "raise_threshold": 0.84885,
+     "sb_open_pct": 0.53565,
+     "semibluff_freq": 0.51175,
+     "threebet_mult": 3.67836,
+     "threebet_pct": 0.0695,
+     "value_threshold": 0.75847
+    },
+    "style": "neutral"
+   },
+   "version": "plo-heuristic-1.0.0+7b64570b16"
+  },
+  {
+   "bot_id": "plo6-trapper-e2-s1",
+   "kind": "plo_heuristic",
+   "meta": {
+    "agent_seed": 1,
+    "archetype": "trapper",
+    "epsilon": 0.25,
+    "scale_index": 2
+   },
+   "params": {
+    "overrides": {
+     "aggression": 1.39615,
+     "allin_commit_fraction": 0.60817,
+     "bb_defend_pct": 0.41052,
+     "bet_fraction": 0.56662,
+     "bluff_freq": 0.03775,
+     "call_3bet_pct": 0.11336,
+     "call_4bet_pct": 0.06048,
+     "call_margin": -0.037,
+     "call_open_pct": 0.18184,
+     "fourbet_mult": 3.21231,
+     "fourbet_pct": 0.03377,
+     "looseness": 0.73204,
+     "multiway_exponent": 0.532,
+     "open_pct_by_seats_behind": [
+      0.77172,
+      0.52477,
+      0.38586,
+      0.30869,
+      0.27782,
+      0.24695,
+      0.23152,
+      0.21608
+     ],
+     "open_size_bb": 3.46957,
+     "postflop_temperature": 0.03252,
+     "preflop_temperature": 0.01757,
+     "raise_pot_fraction": 1.03508,
+     "raise_threshold": 0.57161,
+     "sb_open_pct": 0.72821,
+     "semibluff_freq": 0.46214,
+     "threebet_mult": 2.93112,
+     "threebet_pct": 0.05126,
+     "value_threshold": 0.95
+    },
+    "style": "neutral"
+   },
+   "version": "plo-heuristic-1.0.0+875aa691e3"
+  },
+  {
+   "bot_id": "plo6-trapper-e2-s2",
+   "kind": "plo_heuristic",
+   "meta": {
+    "agent_seed": 2,
+    "archetype": "trapper",
+    "epsilon": 0.25,
+    "scale_index": 2
+   },
+   "params": {
+    "overrides": {
+     "aggression": 0.85736,
+     "allin_commit_fraction": 0.37091,
+     "bb_defend_pct": 0.27147,
+     "bet_fraction": 1.03744,
+     "bluff_freq": 0.04605,
+     "call_3bet_pct": 0.1302,
+     "call_4bet_pct": 0.03883,
+     "call_margin": -0.02175,
+     "call_open_pct": 0.17394,
+     "fourbet_mult": 2.73207,
+     "fourbet_pct": 0.02055,
+     "looseness": 1.17267,
+     "multiway_exponent": 0.44269,
+     "open_pct_by_seats_behind": [
+      0.47813,
+      0.32513,
+      0.23906,
+      0.19125,
+      0.17213,
+      0.153,
+      0.14344,
+      0.13388
+     ],
+     "open_size_bb": 3.41121,
+     "postflop_temperature": 0.0274,
+     "preflop_temperature": 0.01832,
+     "raise_pot_fraction": 0.97322,
+     "raise_threshold": 0.95,
+     "sb_open_pct": 0.50059,
+     "semibluff_freq": 0.89617,
+     "threebet_mult": 3.86258,
+     "threebet_pct": 0.08085,
+     "value_threshold": 0.56365
+    },
+    "style": "neutral"
+   },
+   "version": "plo-heuristic-1.0.0+d2f8db3135"
+  },
+  {
+   "bot_id": "plo6-trapper-e2-s3",
+   "kind": "plo_heuristic",
+   "meta": {
+    "agent_seed": 3,
+    "archetype": "trapper",
+    "epsilon": 0.25,
+    "scale_index": 2
+   },
+   "params": {
+    "overrides": {
+     "aggression": 0.51935,
+     "allin_commit_fraction": 0.44491,
+     "bb_defend_pct": 0.45695,
+     "bet_fraction": 0.82796,
+     "bluff_freq": 0.03876,
+     "call_3bet_pct": 0.10358,
+     "call_4bet_pct": 0.03366,
+     "call_margin": -0.05313,
+     "call_open_pct": 0.10616,
+     "fourbet_mult": 4.0,
+     "fourbet_pct": 0.0215,
+     "looseness": 0.80112,
+     "multiway_exponent": 0.62757,
+     "open_pct_by_seats_behind": [
+      0.44203,
+      0.30058,
+      0.22101,
+      0.17681,
+      0.15913,
+      0.14145,
+      0.13261,
+      0.12377
+     ],
+     "open_size_bb": 2.43056,
+     "postflop_temperature": 0.03645,
+     "preflop_temperature": 0.02293,
+     "raise_pot_fraction": 0.9279,
+     "raise_threshold": 0.77017,
+     "sb_open_pct": 0.27826,
+     "semibluff_freq": 0.46344,
+     "threebet_mult": 3.12835,
+     "threebet_pct": 0.0677,
+     "value_threshold": 0.95
+    },
+    "style": "neutral"
+   },
+   "version": "plo-heuristic-1.0.0+adc8108940"
+  },
+  {
+   "bot_id": "plo6-trapper-e3-s0",
+   "kind": "plo_heuristic",
+   "meta": {
+    "agent_seed": 0,
+    "archetype": "trapper",
+    "epsilon": 0.45,
+    "scale_index": 3
+   },
+   "params": {
+    "overrides": {
+     "aggression": 0.51678,
+     "allin_commit_fraction": 0.45688,
+     "bb_defend_pct": 0.42633,
+     "bet_fraction": 0.49223,
+     "bluff_freq": 0.02755,
+     "call_3bet_pct": 0.21545,
+     "call_4bet_pct": 0.02331,
+     "call_margin": 0.10067,
+     "call_open_pct": 0.41762,
+     "fourbet_mult": 4.0,
+     "fourbet_pct": 0.01087,
+     "looseness": 1.01773,
+     "multiway_exponent": 0.44851,
+     "open_pct_by_seats_behind": [
+      0.44169,
+      0.30035,
+      0.22085,
+      0.17668,
+      0.15901,
+      0.14134,
+      0.13251,
+      0.12367
+     ],
+     "open_size_bb": 3.19761,
+     "postflop_temperature": 0.02751,
+     "preflop_temperature": 0.00993,
+     "raise_pot_fraction": 1.23038,
+     "raise_threshold": 0.95,
+     "sb_open_pct": 0.36756,
+     "semibluff_freq": 0.95,
+     "threebet_mult": 5.0,
+     "threebet_pct": 0.03566,
+     "value_threshold": 0.8402
+    },
+    "style": "neutral"
+   },
+   "version": "plo-heuristic-1.0.0+38fc075b79"
+  },
+  {
+   "bot_id": "plo6-trapper-e3-s2",
+   "kind": "plo_heuristic",
+   "meta": {
+    "agent_seed": 2,
+    "archetype": "trapper",
+    "epsilon": 0.45,
+    "scale_index": 3
+   },
+   "params": {
+    "overrides": {
+     "aggression": 0.54276,
+     "allin_commit_fraction": 0.33621,
+     "bb_defend_pct": 0.32864,
+     "bet_fraction": 0.78447,
+     "bluff_freq": 0.04527,
+     "call_3bet_pct": 0.1355,
+     "call_4bet_pct": 0.03437,
+     "call_margin": 0.10041,
+     "call_open_pct": 0.15976,
+     "fourbet_mult": 1.99331,
+     "fourbet_pct": 0.0099,
+     "looseness": 0.68774,
+     "multiway_exponent": 0.74538,
+     "open_pct_by_seats_behind": [
+      0.41735,
+      0.2838,
+      0.20868,
+      0.16694,
+      0.15025,
+      0.13355,
+      0.12521,
+      0.11686
+     ],
+     "open_size_bb": 3.85108,
+     "postflop_temperature": 0.02627,
+     "preflop_temperature": 0.01843,
+     "raise_pot_fraction": 0.80791,
+     "raise_threshold": 0.95,
+     "sb_open_pct": 0.37117,
+     "semibluff_freq": 0.19934,
+     "threebet_mult": 2.37783,
+     "threebet_pct": 0.01876,
+     "value_threshold": 0.69423
+    },
+    "style": "neutral"
+   },
+   "version": "plo-heuristic-1.0.0+778880dbdc"
+  }
+ ],
+ "construction": {
+  "calibration_digest": "d5ad3550c4577757d3027b686a0093c8",
+  "calibration_id": "plo6.plo6-pool.H400.pool-calibration.db9a212f",
+  "calibration_identity_hash": "db9a212fabc2b4c3",
+  "calibration_round_groups": 80,
+  "cyclic_triads": {
+   "cyclic_fraction": 0.2564289888953828,
+   "cyclic_triads": 8775,
+   "triads": 34220
+  },
+  "gate": {
+   "ci": [
+    0.9924520566294428,
+    1.0116738672234502
+   ],
+   "passed": true,
+   "statistic": "debiased cyclic share (95% bootstrap lower bound)",
+   "threshold": 0.05,
+   "value": 2.479971191099541
+  },
+  "method": "greedy max debiased cyclic share",
+  "n": 60,
+  "pool_hash": "d046ca004b2a2056",
+  "selection_version": "fhr3b-selection-v1"
+ },
+ "field_hash": "4364ecbf4bacb6a9",
+ "field_id": "plo6-matchup_sensitive",
+ "kind": "matchup_sensitive",
+ "mode": "plo6",
+ "n": 60
+}

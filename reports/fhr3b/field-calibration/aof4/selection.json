@@ -1,0 +1,294 @@
+{
+ "calibration_digest": "59e52dd9a5f63db197d7696f09b99a3d",
+ "calibration_id": "aof4.aof4-pool.H400.pool-calibration.351766c0",
+ "calibration_identity_hash": "351766c02ad1bcaa",
+ "calibration_round_groups": 80,
+ "crowded_cutoff_diversity_audit": {
+  "cutoff_cluster": {
+   "archetypes": {
+    "aggressive": 1,
+    "caller": 2,
+    "loose": 3,
+    "neutral": 2,
+    "shover": 2,
+    "tight": 2
+   },
+   "ids": [
+    "aof4-tight-e3-s0",
+    "aof4-loose-e2-s1",
+    "aof4-aggressive-e0",
+    "aof4-tight-e3-s1",
+    "aof4-neutral-e2-s0",
+    "aof4-neutral-e1-s2",
+    "aof4-shover-e0",
+    "aof4-shover-e3-s1",
+    "aof4-loose-e2-s2",
+    "aof4-loose-e2-s3",
+    "aof4-caller-e1-s0",
+    "aof4-caller-e1-s1"
+   ],
+   "median_param_distance": 0.27155616808609445,
+   "near_duplicate_pairs": 3,
+   "pairs": 66,
+   "styles": {
+    "LA": 5,
+    "LP": 4,
+    "TA": 2,
+    "TP": 1
+   }
+  },
+  "leaders": {
+   "archetypes": {
+    "policy": 1,
+    "policy_blend_loose": 2
+   },
+   "ids": [
+    "aof4-policy-e0",
+    "aof4-policy_blend_loose-e1-s1",
+    "aof4-policy_blend_loose-e1-s2"
+   ],
+   "median_param_distance": 0.07524000000000008,
+   "near_duplicate_pairs": 1,
+   "pairs": 3,
+   "styles": {
+    "LP": 3
+   }
+  }
+ },
+ "fields": {
+  "crowded_cutoff": {
+   "archetype_counts": {
+    "aggressive": 10,
+    "caller": 10,
+    "loose": 6,
+    "neutral": 10,
+    "policy": 1,
+    "policy_blend_loose": 2,
+    "shover": 10,
+    "tight": 11
+   },
+   "field_hash": "b9709c10c5aef403",
+   "field_id": "aof4-crowded_cutoff",
+   "gap_k_k1_bb": 0.07542999999999989,
+   "gap_k_k1_se": 0.03156603403223639,
+   "mu_max_bb": 22.97715,
+   "mu_min_bb": -38.3425,
+   "mu_sd_bb": 11.12413582902222,
+   "n": 60,
+   "n_within_5bb_of_cut": 19,
+   "near_duplicate_pairs": 35,
+   "path": "/Users/henry/fullhouse-research-03b/configs/fhr3b/fields/aof4/crowded_cutoff.json",
+   "style_counts": {
+    "LA": 7,
+    "LP": 18,
+    "TA": 19,
+    "TP": 16
+   },
+   "style_strength_eta2": 0.20299093310925387,
+   "top_k": [
+    "aof4-policy-e0",
+    "aof4-policy_blend_loose-e1-s1",
+    "aof4-policy_blend_loose-e1-s2",
+    "aof4-tight-e3-s0",
+    "aof4-loose-e2-s1",
+    "aof4-aggressive-e0"
+   ]
+  },
+  "spread": {
+   "archetype_counts": {
+    "aggressive": 8,
+    "caller": 10,
+    "loose": 9,
+    "neutral": 7,
+    "policy": 5,
+    "policy_blend_loose": 3,
+    "shover": 9,
+    "tight": 9
+   },
+   "field_hash": "db5912d65a47b215",
+   "field_id": "aof4-spread",
+   "gap_k_k1_bb": 6.566609999999999,
+   "gap_k_k1_se": 2.893935644282032,
+   "mu_max_bb": 22.97715,
+   "mu_min_bb": -38.3425,
+   "mu_sd_bb": 12.578566687888294,
+   "n": 60,
+   "n_within_5bb_of_cut": 5,
+   "near_duplicate_pairs": 0,
+   "path": "/Users/henry/fullhouse-research-03b/configs/fhr3b/fields/aof4/spread.json",
+   "style_counts": {
+    "LA": 14,
+    "LP": 16,
+    "TA": 15,
+    "TP": 15
+   },
+   "style_strength_eta2": 0.1262666309349127,
+   "top_k": [
+    "aof4-policy-e0",
+    "aof4-policy_blend_loose-e1-s1",
+    "aof4-policy_blend_loose-e0",
+    "aof4-policy_blend_loose-e3-s0",
+    "aof4-policy-e1-s0",
+    "aof4-policy-e2-s2"
+   ]
+  },
+  "style_diverse": {
+   "archetype_counts": {
+    "aggressive": 7,
+    "caller": 8,
+    "loose": 8,
+    "neutral": 6,
+    "policy": 8,
+    "policy_blend_loose": 6,
+    "shover": 9,
+    "tight": 8
+   },
+   "field_hash": "195ceda2edb24052",
+   "field_id": "aof4-style_diverse",
+   "gap_k_k1_bb": 0.6975399999999983,
+   "gap_k_k1_se": 0.2976227196129806,
+   "mu_max_bb": 22.97715,
+   "mu_min_bb": -38.3425,
+   "mu_sd_bb": 13.110862745485077,
+   "n": 60,
+   "n_within_5bb_of_cut": 11,
+   "near_duplicate_pairs": 0,
+   "path": "/Users/henry/fullhouse-research-03b/configs/fhr3b/fields/aof4/style_diverse.json",
+   "style_counts": {
+    "LA": 18,
+    "LP": 14,
+    "TA": 15,
+    "TP": 13
+   },
+   "style_strength_eta2": 0.11172780102745997,
+   "top_k": [
+    "aof4-policy-e0",
+    "aof4-policy_blend_loose-e1-s0",
+    "aof4-policy_blend_loose-e0",
+    "aof4-policy_blend_loose-e3-s0",
+    "aof4-policy-e1-s0",
+    "aof4-policy-e2-s2"
+   ]
+  }
+ },
+ "measured_not_selected": {
+  "archetype_cycle": {
+   "archetypes": [
+    "aggressive",
+    "caller",
+    "loose",
+    "neutral",
+    "policy",
+    "policy_blend_loose",
+    "shover",
+    "tight"
+   ],
+   "cyc_rms_bb": 1.9879379076458688,
+   "cyclic_matrix_bb": [
+    [
+     0.0,
+     -2.131,
+     -1.298,
+     0.421,
+     1.345,
+     0.769,
+     -0.176,
+     1.07
+    ],
+    [
+     2.131,
+     0.0,
+     0.971,
+     -0.071,
+     -4.331,
+     -2.095,
+     5.95,
+     -2.555
+    ],
+    [
+     1.298,
+     -0.971,
+     0.0,
+     -0.613,
+     -1.527,
+     -1.953,
+     2.736,
+     1.031
+    ],
+    [
+     -0.421,
+     0.071,
+     0.613,
+     -0.0,
+     1.246,
+     -0.178,
+     -2.496,
+     1.166
+    ],
+    [
+     -1.345,
+     4.331,
+     1.527,
+     -1.246,
+     -0.0,
+     -0.259,
+     -1.602,
+     -1.407
+    ],
+    [
+     -0.769,
+     2.095,
+     1.953,
+     0.178,
+     0.259,
+     -0.0,
+     -0.484,
+     -3.232
+    ],
+    [
+     0.176,
+     -5.95,
+     -2.736,
+     2.496,
+     1.602,
+     0.484,
+     0.0,
+     3.927
+    ],
+    [
+     -1.07,
+     2.555,
+     -1.031,
+     -1.166,
+     1.407,
+     3.232,
+     -3.927,
+     0.0
+    ]
+   ],
+   "grad_rms_bb": 4.539842554896508,
+   "perm_null_q95": 0.391077936281731,
+   "perm_p": 0.0,
+   "r_cyclic": 0.7229592583932181,
+   "r_gradient": 0.9977429760937674,
+   "role": "measured outcome; never a field-selection criterion"
+  },
+  "pool_splithalf": {
+   "cyc_energy_per_pair": 231749.8705159947,
+   "grad_energy_per_pair": 321764.13159247156,
+   "r_cyclic": 0.045307957800980236,
+   "r_gradient": 0.9663774405711163,
+   "r_mu": 0.9730769892049187,
+   "r_null_se": 0.014965432360392486
+  }
+ },
+ "mode": "aof4",
+ "near_dup_threshold": 0.15,
+ "pool_hash": "2ad8ba491c1d39a8",
+ "selection_version": "fhr3b-selection-v2",
+ "style_classes": {
+  "path": "reports/fhr3b/field-calibration/aof4/behaviour.csv",
+  "sha256": "db0418341688c9d5ceb536540606e17f8b03989810196f4b5327fc3e3ce61ade",
+  "source": "behaviour audit (exact replay)"
+ }
+}

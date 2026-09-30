@@ -24,6 +24,7 @@ from fhr3.configs.experiment import canonical_hash
 from fhr3.tournament.swiss import PAIRING_ALGORITHM, PAIRING_VERSION, TIEBREAKS
 
 STACK_POLICIES = ("persistent_no_rebuy", "reset_each_hand")
+MATCH_FORMATS = ("ordinary", "duplicate")
 INITIAL_ORDERS = ("seeded_shuffle", "field_order")
 # research: FHR3B controlled protocols; smoke: correctness only; historical: built from a
 # *complete* historical record (fhr3.tournament.historical), never from research choices.
@@ -49,6 +50,7 @@ class TournamentProtocol:
     tiebreaks: tuple[str, ...] = TIEBREAKS
     seat_order: str = "standings_order"
     dealer_rule: str = "fh2026_dealer_counter"
+    match_format: str = "ordinary"  # "duplicate": k-lane duplicate matches (match.DuplicateMatchPlayer)
     source: Mapping[str, Any] = field(default_factory=dict)
     notes: tuple[str, ...] = ()
 
@@ -57,6 +59,8 @@ class TournamentProtocol:
             raise ValueError(f"status must be one of {STATUSES}")
         if self.stack_policy not in STACK_POLICIES:
             raise ValueError(f"stack_policy must be one of {STACK_POLICIES}")
+        if self.match_format not in MATCH_FORMATS:
+            raise ValueError(f"match_format must be one of {MATCH_FORMATS}")
         if self.initial_order not in INITIAL_ORDERS:
             raise ValueError(f"initial_order must be one of {INITIAL_ORDERS}")
         if self.scoring != "cumulative_chip_delta":
@@ -75,6 +79,8 @@ class TournamentProtocol:
         d["tiebreaks"] = list(self.tiebreaks)
         d["source"] = dict(self.source)
         d.pop("notes")
+        if d["match_format"] == "ordinary":  # absent for ordinary play: pre-existing hashes unchanged
+            d.pop("match_format")
         return d
 
     @property
@@ -153,3 +159,27 @@ def budget_allocations(r0: int, h0: int, divisors: tuple[int, ...] = (4, 2, 1)) 
             h = round(budget / r)
             out.append(BudgetAllocation(r, h, label, r * h == budget))
     return out
+
+
+@dataclass(frozen=True)
+class DuplicateAllocation:
+    """Experiment D: duplicate play at (approximately) equal simulator work to (R0, H0) ordinary play."""
+
+    label: str
+    rounds: int
+    hands_per_lane: int
+    lanes: int
+    exact: bool  # lanes * rounds * hands_per_lane == R0 * H0 exactly
+
+    @property
+    def work_per_table(self) -> int:
+        return self.lanes * self.rounds * self.hands_per_lane
+
+
+def duplicate_allocations(r0: int, h0: int, lanes: int) -> list[DuplicateAllocation]:
+    """Equal-work duplicate variants: fewer rounds at full match length, or full rounds at H0/k hands."""
+    budget = r0 * h0
+    r = max(1, round(r0 / lanes))
+    h = max(1, round(h0 / lanes))
+    return [DuplicateAllocation("dup_fewer_rounds", r, h0, lanes, lanes * r * h0 == budget),
+            DuplicateAllocation("dup_shorter_matches", r0, h, lanes, lanes * r0 * h == budget)]

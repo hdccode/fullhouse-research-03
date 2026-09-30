@@ -1,0 +1,22 @@
+# FHR3B frozen research fields. Publication/pilot runs of spread, crowded_cutoff and style_diverse
+# refuse any field manifest that is not listed here with a matching field_hash
+# (src/fhr3/tournament/experiments.py: Profile.field). Selection writes candidates; freezing is an
+# explicit human decision recorded in this file.
+approved: 2026-09-30
+approved_by: Henry (review of reports/fhr3b/field-calibration/FIELD_CALIBRATION_REVIEW.md; decisions D1-D5)
+selection_version: fhr3b-selection-v2
+fields:
+  aof4:
+    spread: db5912d65a47b215            # gap 6.6 BB = 2.89 SE (target 3, diversity-constrained); zero near-duplicates
+    crowded_cutoff: b9709c10c5aef403
+    style_diverse: 195ceda2edb24052
+  nlhe6:
+    spread: 16df070db91a53bd            # D1: gap 12.2 BB = 2.34 SE accepted; zero near-duplicates; 0 bots within +-5 BB of cut
+    crowded_cutoff: a845c2fcf1b2ed33
+    style_diverse: 5c83ad4268c37bdc
+  # nlhe4: pending (pool calibration not yet run)
+caveats:
+  - "AoF4 style_diverse: style and strength are partly confounded; the strongest pool quintile contains no tight-aggressive bots."
+  - "AoF4 crowded_cutoff (and spread top six): leaders are near-identical production-policy variants (D2 accepted); the cutoff cluster itself is strategically diverse."
+  - "NLHE6: high bust rates are a property of the persistent-stack match rule, not pathology."
+  - "All agents are stateless synthetic policies; within-match opponent modelling is under-represented (D5)."

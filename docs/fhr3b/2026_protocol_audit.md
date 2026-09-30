@@ -131,9 +131,9 @@ FHR3B keeps two objects apart:
 | Swiss architecture (sort by score, consecutive tables) | public 2026 code (fact 9) | retained |
 | raw cumulative chip-delta scoring | supported (fact 12) | retained |
 | tiebreaks | public 2026 code (fact 13) | retained |
-| match mechanics (carried stacks, bust-out, dealer counter) | public 2026 code (facts 5–7) | retained for NLHE / PLO / Crazy Pineapple; per-hand reset for AoF, bomb pot and Nit |
+| match mechanics (carried stacks, bust-out, dealer counter) | public 2026 code (facts 5–7) | retained for NLHE (publication modes NLHE4 and NLHE6); per-hand reset for AoF |
 | 400 hands per match | supported (fact 4) | retained (H0 = 400) |
-| Swiss rounds | **unknown** (fact 21) | **40** (R0, design choice) |
+| Swiss rounds | **unknown** (fact 21) | **40** (initial research horizon; extendable) |
 | field size | **unknown** (fact 22) | **60** |
 | advancement | top 64 historically supported (fact 17) | **top 6** in the controlled field (~10% of 60) |
 | round-one order | **unknown** (fact 16) | seeded shuffle |
@@ -156,7 +156,7 @@ The seeded round-one shuffle is a research choice. A fixed arbitrary manifest or
 build structure into round 1; for example, a strength-sorted manifest would seat the
 strongest bots together.
 
-## Historical operational validation (Experiment D): BLOCKED
+## Historical operational validation (Experiment H): BLOCKED
 
 `historical_2026_reconstruction.yaml` lists the required historical values under
 `required:`. All of them are `null` (UNKNOWN):

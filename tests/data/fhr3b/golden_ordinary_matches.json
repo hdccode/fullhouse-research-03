@@ -1,0 +1,70 @@
+{
+ "aof4": {
+  "deltas": {
+   "aof4-aggressive-e2-s1": -1250,
+   "aof4-aggressive-e2-s2": 3500,
+   "aof4-aggressive-e2-s3": 100,
+   "aof4-aggressive-e3-s0": -2350
+  },
+  "hands": 60,
+  "seats": [
+   "aof4-aggressive-e2-s1",
+   "aof4-aggressive-e2-s2",
+   "aof4-aggressive-e2-s3",
+   "aof4-aggressive-e3-s0"
+  ]
+ },
+ "nit6": {
+  "deltas": {
+   "nit6-aggressive-e2-s1": 8385,
+   "nit6-aggressive-e2-s2": -24465,
+   "nit6-aggressive-e2-s3": 35942,
+   "nit6-aggressive-e3-s0": -10876,
+   "nit6-aggressive-e3-s1": -12880,
+   "nit6-aggressive-e3-s2": 3894
+  },
+  "hands": 60,
+  "seats": [
+   "nit6-aggressive-e2-s1",
+   "nit6-aggressive-e2-s2",
+   "nit6-aggressive-e2-s3",
+   "nit6-aggressive-e3-s0",
+   "nit6-aggressive-e3-s1",
+   "nit6-aggressive-e3-s2"
+  ]
+ },
+ "nlhe4": {
+  "deltas": {
+   "nlhe4-aggressive-e2-s1": -4124,
+   "nlhe4-aggressive-e2-s2": -10000,
+   "nlhe4-aggressive-e2-s3": -10000,
+   "nlhe4-aggressive-e3-s0": 24124
+  },
+  "hands": 60,
+  "seats": [
+   "nlhe4-aggressive-e2-s1",
+   "nlhe4-aggressive-e2-s2",
+   "nlhe4-aggressive-e2-s3",
+   "nlhe4-aggressive-e3-s0"
+  ]
+ },
+ "nlhe6": {
+  "deltas": {
+   "nlhe6-aggressive-e2-s1": 4053,
+   "nlhe6-aggressive-e2-s2": -10000,
+   "nlhe6-aggressive-e2-s3": 8891,
+   "nlhe6-aggressive-e3-s0": 9785,
+   "nlhe6-aggressive-e3-s1": -10000,
+   "nlhe6-aggressive-e3-s2": -2729
+  },
+  "hands": 60,
+  "seats": [
+   "nlhe6-aggressive-e2-s1",
+   "nlhe6-aggressive-e2-s2",
+   "nlhe6-aggressive-e2-s3",
+   "nlhe6-aggressive-e3-s0",
+   "nlhe6-aggressive-e3-s1",
+   "nlhe6-aggressive-e3-s2"
+  ]
+ }
+}

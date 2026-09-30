@@ -1,151 +1,138 @@
 # FHR3B runbook
 
-All commands run from `~/fullhouse-research-03b` on branch `research/fhr3b-swiss-baseline`.
-All experiments below run the controlled research protocol `fhr3b_baseline`: N = 60, K = 6,
-R0 = 40, H0 = 400. These are predeclared research design choices, not 2026 settings (see
-`paper/FHR3B_SCOPE.md`). Only `operational-2026` depends on historical facts, and it is
-blocked.
+Branch `research/fhr3b-swiss-baseline`, worktree `~/fullhouse-research-03b`.
 
-Every simulation step is **resumable**:
+All experiments use the controlled research protocol `fhr3b_baseline`:
 
-* re-running skips digest-verified tournaments and finished calibration chunks;
-* results from a different configuration are refused;
-* changing only the replication count or preset extends the same cells.
+* N = 60, K = 6, H0 = 400;
+* R0 = 40 as the *initial* horizon;
+* publication modes AoF4, NLHE4, NLHE6.
+
+These are research design choices, not 2026 settings (`paper/FHR3B_SCOPE.md`). Only
+`operational-2026` (historical validation H) depends on historical facts, and it is blocked.
+
+Every simulation step is **resumable**. Re-running skips digest-verified tournaments and
+finished calibration chunks, refuses results from a different configuration, and extends the
+same cells when only the preset changes.
 
 ```bash
 uv venv --python 3.12 .venv && uv pip install --python .venv/bin/python -e ".[dev]"
-.venv/bin/python -m pytest              # FHR3A + FHR3B tests
+.venv/bin/python -m pytest                     # FHR3A + FHR3B tests
 ```
 
-Environment knobs for `scripts/run_fhr3b.sh`:
+Knobs for `scripts/run_fhr3b.sh`:
 
 | variable | default |
 |---|---|
 | `WORKERS` | 8 |
 | `ROOT` | `results/fhr3b` |
 | `REPORTS` | `reports/fhr3b` |
-| `MODES` | `aof4 nlhe6 plo6` |
-| `SCHEDULE_MODES` | from `matrix.yaml`: nlhe6 |
+| `MODES` | `aof4 nlhe4 nlhe6` |
+| `SCHEDULE_MODES` | from the matrix: nlhe6 |
 
 ## 0. Audit and smoke (cheap)
 
 ```bash
 scripts/run_fhr3b.sh audit     # historical record (unknowns, reference hash) + research baseline hash
-scripts/run_fhr3b.sh smoke     # every mode + the whole pipeline at 10 hands/match, into results/fhr3b-smoke
+scripts/run_fhr3b.sh smoke     # every mode + whole pipeline at 10 hands/match (results/fhr3b-smoke); never interpreted
 ```
 
-Smoke numbers are never interpreted.
+## Locked execution order (2026-09-30)
 
-## 1. Field calibration (cost: hours)
+| step | what | status |
+|---|---|---|
+| 1 | Freeze the AoF4 and NLHE6 fields (`configs/fhr3b/fields/FROZEN.yaml`) | done, pending commit |
+| 2 | Implement and test duplicate lanes + within-match history | done (`tests/test_fhr3b_duplicate.py`) |
+| 3 | Prepare NLHE4 calibration (same 96 parameter vectors as NLHE6; D4) | done |
+| 4 | **Run NLHE4 pool calibration** | next, after review of this package |
+| 5 | NLHE4 behaviour audit + field selection | cheap |
+| 6 | Review, then freeze the NLHE4 fields (add hashes to `FROZEN.yaml`) | human |
+| 7 | Matched field-reference (duplicate lanes), all modes × 3 frozen fields | expensive |
+| 8 | Inspect reference quality before any Swiss tournament pilot | human |
+
+## 1. NLHE4 pool calibration (step 4; expensive)
 
 ```bash
-scripts/run_fhr3b.sh calibrate-fields   # pool calibration, then select spread / crowded_cutoff / matchup
-# writes configs/fhr3b/fields/<mode>/{spread,crowded_cutoff,matchup_sensitive|style_diverse}.json (immutable)
-#        reports/fhr3b/field-calibration/<mode>/{pool_bots.csv,pool_matchup_matrix.csv,selection.json}
-git add configs/fhr3b/fields reports/fhr3b/field-calibration && git commit -m "FHR3B: freeze fields"
-scripts/run_fhr3b.sh field-reference    # mu_field inside each frozen field
+MODES=nlhe4 scripts/run_fhr3b.sh calibrate-pool
+# = .venv/bin/fhr3b calibrate --stage pool --profile publication --modes nlhe4 --workers 8
 ```
 
-Review `selection.json` before step 3. Check the matchup gate result and whether the crowd is
-really crowded in `reference.json`.
+* **Size:** 96 bots, 2,000 rounds, 24 four-max tables per round, 400 hands per match: 19.2M hands.
+* **Cost (estimate):** ≈ 3.6 core-hours at the measured 1,470 hands/s/core. That is ≈ 1–1.5 h wall
+  at 8 workers (AoF4's equal-size run took 68 min), or up to ≈ 3 h on a shared machine.
+* **Engine hash:** it runs under engine source hash `9c28d93c20d45ab4`. The history-exposure change
+  is proven result-neutral against the AoF4/NLHE6 calibrations, which ran under `389451b27c2264d2`.
 
-## 2. Runtime pilot (cost: about 15–30 min wall at 8 workers)
+Steps 5–6 (minutes):
 
 ```bash
-scripts/run_fhr3b.sh pilot     # 8 full tournaments (N=60, R0, H0) per primary mode, provisional60 fields
+MODES=nlhe4 scripts/run_fhr3b.sh behaviour-audit
+MODES=nlhe4 scripts/run_fhr3b.sh select-fields      # candidates -> configs/fhr3b/fields/nlhe4/
+.venv/bin/python scripts/fhr3b_calibration_review.py && .venv-figures/bin/python scripts/fhr3b_calibration_figures.py
+# review, then add the three nlhe4 hashes to configs/fhr3b/fields/FROZEN.yaml
 ```
 
-The pilot runs before or after field calibration. It gives:
-
-* the measured wall time per tournament, in `results/fhr3b/<cell>/runs/*.json`;
-* Monte Carlo spread, in `reports/fhr3b/analysis-pilot/summary.json` under
-  `monte_carlo.approx_tournaments_for_target`.
-
-Use both to fix the publication presets before step 3.
-
-## 3. Publication experiments (cost: see estimates)
-
-The preset is `pilot` (8), `broad` (200) or `flagship` (1000) tournaments per cell. Start with
-`broad`, analyse, then extend the same cells with `flagship` if the MC intervals are too wide.
+## 2. Matched field reference (step 7; expensive)
 
 ```bash
-scripts/run_fhr3b.sh baseline broad             # A: R0 cells, 3 modes x 3 fields
-scripts/run_fhr3b.sh round-sweep                # A: derived from baseline prefixes; verifies identity, analyses
-scripts/run_fhr3b.sh budget-sweep broad         # B: crowded_cutoff, (R0/4 x 4H0), (R0/2 x 2H0); baseline reused
-scripts/run_fhr3b.sh schedule-diagnostic broad  # C: nlhe6 crowded_cutoff; 50 sources x 4 replays (frozen + adaptive)
-scripts/run_fhr3b.sh swiss-reference broad      # mu_swiss, namespace swiss-reference
-scripts/run_fhr3b.sh operational-2026           # D (historical): BLOCKED; lists the missing historical values
-scripts/run_fhr3b.sh validate                   # independent invariant checks + exact replays
-scripts/run_fhr3b.sh analyse                    # reports/fhr3b/analysis/
+scripts/run_fhr3b.sh field-reference   # k-lane duplicate matches inside each FROZEN field
 ```
 
-Equivalent direct CLI:
+* **Rounds:** 3,000 ordinary-equivalent, run as 750 rounds × 4 lanes (AoF4, NLHE4) or 500 rounds
+  × 6 lanes (NLHE6).
+* **Cost:** the same simulator work as the unmatched design, ≈ 30–35 core-hours for 3 modes × 3
+  fields (≈ 8 h wall).
+* **Guard:** it refuses unfrozen fields.
+
+## 3. Runtime pilot (≈ 15–30 min)
 
 ```bash
-.venv/bin/fhr3b plan   --experiment baseline --modes aof4 nlhe6 plo6            # cells, hashes, completion
-.venv/bin/fhr3b run    --experiment baseline --modes nlhe6 --fields crowded_cutoff --preset broad --workers 8
-.venv/bin/fhr3b run    --experiment baseline --modes nlhe6 --range 200:400 --workers 8   # explicit extension
-.venv/bin/fhr3b validate --experiment baseline --modes nlhe6 --replay 5 --prefix 3
-.venv/bin/fhr3b replay-hands --experiment baseline --mode nlhe6 --field crowded_cutoff --replicate 0 --round 7 --table 2
-.venv/bin/fhr3b analyse --modes aof4 nlhe6 plo6 --out reports/fhr3b/analysis
+scripts/run_fhr3b.sh pilot     # 8 full tournaments per mode on provisional60 fields
 ```
 
-Several machines can run disjoint `--range` slices into separate roots. Merge by copying the
-`tournaments/tNNNNNN` directories: the cell ids and locks are identical.
+## 4. Publication experiments (after review)
 
-## Expected outputs
+Presets are `pilot` (8), `broad` (200) and `flagship` (1000) tournaments per cell. Extend only the
+cells whose Monte Carlo intervals miss their targets.
 
-| path | contents |
-|---|---|
-| `results/fhr3b/<cell_id>/` | `cell.lock.json`, `runs/`, `tournaments/tNNNNNN/{tables,final}.parquet + manifest.json` |
-| `results/fhr3b/calibration/<calib_id>/` | `calibration.lock.json`, `chunks/c_*.parquet` |
-| `reports/fhr3b/field-calibration/<mode>/` | pool calibration + `selection.json`; `<field_id>/reference.json` |
-| `reports/fhr3b/analysis/` | the CSV/JSON files below |
-
-Files in `reports/fhr3b/analysis/`:
-
-* `baseline_reliability.csv`, `qualification_probabilities.csv`, `rank_stability.csv`
-* `round_sweep.csv`, `budget_allocation.csv`, `schedule_diagnostic.csv`
-* `pairwise_inversions.csv`, `pairwise_inversions_binned.csv`, `field_references.csv`
-* `figure_data/fig1..fig5*.csv`
-* `summary.json`, `MANIFEST.json`
+```bash
+scripts/run_fhr3b.sh baseline broad             # A: 40-round cells; 5/10/20/30/40 read from prefixes
+scripts/run_fhr3b.sh round-sweep                # A: verify prefix identity + analyse (no new simulation)
+.venv/bin/fhr3b run --experiment baseline --horizon 80 --preset broad --workers 8   # A: only if still improving at 40
+scripts/run_fhr3b.sh budget-sweep broad         # B: 10x1600, 20x800 (40x400 = baseline, reused)
+scripts/run_fhr3b.sh schedule-diagnostic broad  # C: nlhe6 crowded_cutoff; 50 sources x 4 replays
+scripts/run_fhr3b.sh duplicate-play broad       # D: ordinary vs 2 duplicate variants at equal work (paired seeds)
+scripts/run_fhr3b.sh swiss-reference broad      # mu_swiss
+scripts/run_fhr3b.sh operational-2026           # H (historical): blocked, lists the missing facts
+scripts/run_fhr3b.sh validate
+scripts/run_fhr3b.sh analyse                    # reports/fhr3b/analysis/ (incl. reference_accuracy.csv)
+```
 
 ## Runtime estimates
 
-These are **estimates**, from 2-round, H=400, N=60 runs on this machine (single process,
-2026-09-29), scaled linearly. FHR3 throughput notes say 8 workers give about 3.5–4.5× on the
-4P+4E laptop; 4× is assumed below.
+Estimates are from measured single-process throughput on this machine, with 8 workers assumed to
+give about 4×.
 
-| mode | measured hands/s/core | one full lab tournament (R0=40, H0=400, N=60) |
+| mode | hands/s/core | one 40-round tournament (N = 60) |
 |---|---|---|
-| nlhe6 | ~1,375 | ≤ 160k hands, ~1.9 core-min |
-| plo6 | ~1,090 | ≤ 160k hands, ~2.5 core-min |
-| aof4 | ~1,410 | 240k hands, ~2.8 core-min |
+| AoF4 | ~1,410 | 240k hands, ~2.8 core-min |
+| NLHE4 | ~1,470 | ≤ 240k hands, ~2.7 core-min |
+| NLHE6 | ~940–1,375 | ≤ 160k hands, ~2–3 core-min |
 
-Busts shorten persistent-stack matches, by about 3% for NLHE and 9% for PLO.
+Planning numbers, for 3 modes × 3 fields:
 
-| workload | core-hours | wall at 8 workers (~4×) |
+| workload | core-hours | wall at 8 workers |
 |---|---|---|
-| pool calibration, 3 modes × 2000 rounds | ~10 | ~2.5 h |
-| field reference, 3 modes × 3 fields × 3000 rounds | ~27 | ~7 h |
-| pilot, 8 tournaments × 3 modes | ~1 | ~15 min |
-| baseline broad (200 × 9 cells) | ~72 | ~18 h |
-| baseline flagship (1000 × 9 cells) | ~360 | ~90 h |
-| budget sweep broad (2 extra cells × 3 modes × 200) | ~48 | ~12 h |
-| schedule diagnostic broad (2 × 200, nlhe6) | ~13 | ~3 h |
-| swiss reference (200 × 9 cells) | ~72 | ~18 h |
-
-The R sweep costs nothing: it reuses the baseline prefixes.
-
-Given these costs, flagship for every cell is probably unnecessary. Extend only the cells
-whose MC intervals miss the targets in `summary.json`.
+| baseline broad (200 tournaments per cell) | ~75 | ~19 h |
+| baseline flagship (1000 per cell) | — | ~95 h |
+| swiss-reference broad | ~75 | ~19 h |
+| budget sweep (2 extra cells per mode) | ~50 | ~12 h |
+| field reference (3,000 rounds) | ~30–35 | ~8 h |
 
 ## Failure handling
 
-* **Interrupted run.** Re-run the same command. Incomplete tournaments have no manifest and
-  are recomputed.
-* **`result-relevant source changed`.** Code under the engine source hash changed. Do not use
-  `--allow-source-change` unless the change cannot affect results. Afterwards run
-  `validate --replay N` to prove that old tournaments still replay exactly.
-* **`field ... not frozen yet`.** Run `calibrate-fields` first. Before that, only
-  smoke/provisional fields exist.
+* **Interrupted run.** Re-run the same command.
+* **`result-relevant source changed`.** Code under the engine source hash changed (current hash
+  `389451b27c2264d2`, which matches every pool-calibration lock). Use `--allow-source-change`
+  only for provably result-neutral changes, then run `validate --replay`.
+* **`field ... not frozen yet`.** Run the field steps first.

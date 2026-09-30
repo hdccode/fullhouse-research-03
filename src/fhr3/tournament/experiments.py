@@ -5,8 +5,8 @@ profiles; this module resolves them into ``Cell`` objects.
 
 Profiles
 --------
-``publication``  the FHR3B research baseline ``fhr3b_baseline`` (R0=40, H0=400, K=6;
-                 predeclared research design choices, not 2026 settings) in the
+``publication``  the FHR3B research baseline ``fhr3b_baseline`` (initial horizon R0=40,
+                 H0=400, K=6; predeclared research design choices, not 2026 settings) in the
                  ``lab60_top6`` environment (N=60), frozen fields in
                  configs/fhr3b/fields/<mode>/.
 ``pilot``        same protocol, ``provisional60`` fields, namespace ``pilot``
@@ -31,12 +31,20 @@ from fhr3.tournament.protocol import (
     BudgetAllocation,
     TournamentProtocol,
     budget_allocations,
+    duplicate_allocations,
     load_protocol,
     round_sweep,
 )
 
+RESEARCH_FIELDS = ("spread", "crowded_cutoff", "style_diverse")
+
+
+class FieldNotFrozenError(RuntimeError):
+    pass
+
+
 PAIRED_NOTE = {
-    "round_sweep": "paired: R<R0 leaderboards are the exact round prefixes of the same R0 tournaments",
+    "round_sweep": "paired: checkpoint leaderboards are exact round prefixes of the same horizon tournaments",
     "budget_sweep": "paired by replicate index: shared tournament seeds, identical round-1 tables and a shared "
                     "hand-prefix of round-1 chance; tables diverge after round 1",
     "schedule_diagnostic": "paired by (source, replay): frozen and adaptive replay j share card/decision seeds and "
@@ -68,6 +76,7 @@ class Profile:
     selection: dict[str, Any]
     calibration: dict[str, Any]
     config_root: Path = FHR3B_CONFIGS
+    round_checkpoints: tuple[int, ...] = ()
 
     @property
     def r0(self) -> int:
@@ -88,12 +97,18 @@ class Profile:
     # ------------------------------------------------------------ fields
     def field_path(self, mode: str, field: str) -> Path:
         dirs = [self.fields_dir / mode, self.config_root / "fields" / mode]
-        names = ("matchup_sensitive", "style_diverse") if field == "matchup" else (field,)
+        names = (field,)
         for d in dirs:
             for n in names:
                 if (d / f"{n}.json").exists():
                     return d / f"{n}.json"
         return dirs[0] / f"{names[0]}.json"
+
+    def frozen_hash(self, mode: str, field: str) -> str | None:
+        reg = self.config_root / "fields" / "FROZEN.yaml"
+        if not reg.exists():
+            return None
+        return (yaml.safe_load(reg.read_text()).get("fields") or {}).get(mode, {}).get(field)
 
     def field(self, mode: str, field: str) -> FieldManifest:
         p = self.field_path(mode, field)
@@ -105,6 +120,13 @@ class Profile:
             raise ValueError(f"{p}: field is for mode {fm.mode}")
         if self.field_size is not None and fm.kind not in ("pool",) and fm.n != self.field_size:
             raise ValueError(f"{self.name} profile expects N={self.field_size}; {fm.field_id} has {fm.n}")
+        if self.name in ("publication", "pilot") and field in RESEARCH_FIELDS:
+            want = self.frozen_hash(mode, field)
+            if want is None:
+                raise FieldNotFrozenError(f"{mode}/{field} is a candidate, not frozen: review it and add its hash "
+                                          "to configs/fhr3b/fields/FROZEN.yaml")
+            if want != fm.field_hash:
+                raise FieldNotFrozenError(f"{p}: field_hash {fm.field_hash} != frozen {want}")
         return fm
 
     # ------------------------------------------------------------ cells
@@ -115,7 +137,18 @@ class Profile:
                     self.namespaces[experiment])
 
     def rounds_sweep(self) -> list[int]:
+        """Initial-horizon checkpoints derived from R0 (5/10/20/30/40 for R0 = 40)."""
         return round_sweep(self.r0)
+
+    def checkpoints_for(self, horizon: int) -> list[int]:
+        """Prefix checkpoints read from a tournament cell with ``horizon`` rounds.
+
+        R0 is an initial horizon, not a sufficient length: longer horizons add the configured
+        extension checkpoints (60 / 80 / 120) up to the cell's own length.
+        """
+        base = [r for r in self.rounds_sweep() if r <= horizon]
+        ext = [r for r in self.round_checkpoints if self.r0 < r <= horizon]
+        return sorted(set(base + ext + [horizon]))
 
     def allocations(self) -> list[BudgetAllocation]:
         return budget_allocations(self.r0, self.h0)
@@ -145,10 +178,28 @@ class Profile:
             c, ns = self.calibration["field_reference"], self.namespaces["field_reference"]
         else:
             raise ValueError("stage must be 'pool' or 'field'")
-        return CalibrationSpec(m, fm, self.h0, m.stack_policy, self.seed_family, ns, int(c["chunk_rounds"]))
+        return CalibrationSpec(m, fm, self.h0, m.stack_policy, self.seed_family, ns, int(c["chunk_rounds"]),
+                               match_format=str(c.get("match_format", "ordinary")))
 
-    def calibration_rounds(self, stage: str) -> int:
-        return int(self.calibration["pool" if stage == "pool" else "field_reference"]["rounds"])
+    def calibration_rounds(self, stage: str, mode: str | None = None) -> int:
+        """Configured rounds; duplicate (matched) calibration divides by the lane count (equal simulator work)."""
+        c = self.calibration["pool" if stage == "pool" else "field_reference"]
+        rounds = int(c["rounds"])
+        if c.get("match_format", "ordinary") == "duplicate" and mode is not None:
+            rounds = max(1, rounds // load_mode(mode, self.config_root).table_size)
+        return rounds
+
+    def duplicate_cells(self, mode: str, field: str) -> list[tuple[str, Cell]]:
+        """Experiment D: ordinary (R0, H0) vs duplicate variants at equal simulator work (paired seeds)."""
+        m = load_mode(mode, self.config_root)
+        out = [("ordinary", self.cell(mode, field, "duplicate_play"))]
+        for a in duplicate_allocations(self.r0, self.h0, m.table_size):
+            proto = self.protocol(m, a.rounds, a.hands_per_lane).with_(match_format="duplicate")
+            out.append((f"{a.label} R{a.rounds}xH{a.hands_per_lane}x{a.lanes}lanes"
+                        f"{'' if a.exact else ' (approx. equal work)'}",
+                        Cell("adaptive", m, proto, self.field(mode, field), self.seed_family,
+                             self.namespaces["duplicate_play"])))
+        return out
 
 
 def load_profile(name: str = "publication", results_root: Path | None = None,
@@ -163,18 +214,18 @@ def load_profile(name: str = "publication", results_root: Path | None = None,
     cal = {"pool": mx["calibration"]["pool"], "field_reference": mx["calibration"]["field_reference"],
            "pool_field": "pool"}
     pub_ns = {"baseline": "publication", "round_sweep": "publication", "budget_sweep": "publication",
-              "schedule_diagnostic": "publication", "swiss_reference": "swiss-reference",
+              "schedule_diagnostic": "publication", "duplicate_play": "publication", "swiss_reference": "swiss-reference",
               "pool_calibration": "pool-calibration", "field_reference": "field-reference"}
     fields_dir = config_root / "fields"
     if name == "publication":
         return Profile(name, base, lab["name"], int(lab["field_size"]), base.qualify_top_k,
                        lab["seed_family"], pub_ns, tuple(mx["experiments"]["baseline"]["fields"]), fields_dir,
-                       sel, cal, config_root)
+                       sel, cal, config_root, tuple(mx.get("round_checkpoints", ())))
     if name == "pilot":
         ns = {k: "pilot" for k in pub_ns}
         return Profile(name, base, lab["name"], int(lab["field_size"]), base.qualify_top_k,
                        lab["seed_family"], ns, tuple(mx["experiments"]["pilot"]["fields"]), fields_dir,
-                       sel, cal, config_root)
+                       sel, cal, config_root, tuple(mx.get("round_checkpoints", ())))
     if name == "smoke":
         sm = mx["smoke_profile"]
         proto = load_protocol(config_root / mx["experiments"]["smoke"]["protocol"])

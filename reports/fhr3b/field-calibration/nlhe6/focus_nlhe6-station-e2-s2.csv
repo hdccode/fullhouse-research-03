@@ -1,0 +1,27 @@
+bot,street,position,players,hole,board,preflop_pct,stack_bb,to_call_bb,pot_bb,action
+nlhe6-station-e2-s2,3,BTN,5,Ts Qh,9h 9s Jd 6h 8h,0.796,21.3,19.61,53.56,br
+nlhe6-station-e2-s2,2,MP,5,9s 9c,Qc 2h 8d 9d,0.936,7.7,0.0,15.49,br
+nlhe6-station-e2-s2,3,BTN,2,Qd Jd,Jh Kd 9h 6c 8d,0.943,49.2,56.97,141.89,cc
+nlhe6-station-e2-s2,3,SB,5,Th 8h,2h 7c Ts 5d 5h,0.837,15.3,57.07,170.38,cc
+nlhe6-station-e2-s2,3,EP,6,Kc Kh,Qh 8s Ts 9h 3d,0.993,82.7,61.6,158.54,cc
+nlhe6-station-e2-s2,2,BB,3,Ks As,2d 3s 4h 5c,0.985,138.0,30.01,76.26,br
+nlhe6-station-e2-s2,3,SB,3,9c Ts,Qc 7s Kc As Js,0.775,119.5,184.68,289.98,cc
+nlhe6-station-e2-s2,2,MP,6,Td Qc,Kh Jd 7s Jc,0.796,87.7,9.95,24.37,br
+nlhe6-station-e2-s2,3,BB,6,8c 8d,Jc 8h Ah 6c 6s,0.895,105.4,0.0,91.07,br
+nlhe6-station-e2-s2,3,EP,6,8s 8c,Js 7s Ad Ah As,0.895,95.4,80.38,128.88,cc
+nlhe6-station-e2-s2,0,BB,5,Ks Kd,,0.993,104.8,5.85,20.97,br
+nlhe6-station-e2-s2,2,SB,5,Jc Jd,Ac Jh 8h 3c,0.981,102.3,11.34,39.7,br
+nlhe6-station-e2-s2,3,BTN,4,3h Th,Qh 6h Jh 4s Ah,0.258,277.4,25.32,56.94,br
+nlhe6-station-e2-s2,2,BTN,5,9h 9d,Kd 4c Ks Kc,0.936,87.2,23.67,43.59,br
+nlhe6-station-e2-s2,0,BB,5,Ks Kh,,0.993,167.3,6.18,20.3,br
+nlhe6-station-e2-s2,3,BB,5,5d 3d,2c 4d 5s Ah Ad,0.588,54.7,0.0,87.0,br
+nlhe6-station-e2-s2,0,SB,6,Ad Qd,,0.977,76.6,129.8,166.01,cc
+nlhe6-station-e2-s2,3,SB,6,9h Ad,9s 7d 7s Tc 6h,0.741,68.7,78.15,139.75,cc
+nlhe6-station-e2-s2,0,MP,5,Jh As,,0.929,1.8,2.18,3.68,cc
+nlhe6-station-e2-s2,3,MP,5,3c 3s,2c As 3d Td Ad,0.577,97.0,24.52,56.18,br
+nlhe6-station-e2-s2,3,MP,5,Td Ks,Th Ah 2s 8c Tc,0.808,16.2,34.1,74.98,cc
+nlhe6-station-e2-s2,3,SB,5,Ac 2c,Qs 2h Qc Jc Qd,0.87,70.3,19.59,37.41,br
+nlhe6-station-e2-s2,3,SB,6,7c 7h,Ts 7d 9c 2h 5c,0.827,38.2,0.0,115.84,br
+nlhe6-station-e2-s2,3,SB,5,9h 8c,Tc Ac Jc 6c Ks,0.766,91.0,0.0,57.94,br
+nlhe6-station-e2-s2,3,BB,6,Qh Qc,4s 2h 4c 5h 4d,0.989,76.0,45.14,158.36,cc
+nlhe6-station-e2-s2,3,MP,5,Tc 9c,Qh Ac 8d 6c Js,0.902,57.1,0.0,57.8,br

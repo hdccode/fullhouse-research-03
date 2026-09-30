@@ -1,0 +1,31 @@
+{
+ "mode": "aof4",
+ "profile": "publication",
+ "calib_id": "aof4.aof4-pool.H400.pool-calibration.351766c0",
+ "rounds_replayed": [
+  0,
+  1,
+  2,
+  3,
+  4,
+  5,
+  6,
+  7,
+  8,
+  9,
+  10,
+  11,
+  12,
+  13,
+  14,
+  15,
+  16,
+  17,
+  18,
+  19
+ ],
+ "matches_replayed": 480,
+ "bot_match_results_verified": 1920,
+ "replay_matches_stored_deltas": true,
+ "behaviour_csv_sha256": "db0418341688c9d5ceb536540606e17f8b03989810196f4b5327fc3e3ce61ade"
+}

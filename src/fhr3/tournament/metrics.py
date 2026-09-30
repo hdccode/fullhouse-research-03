@@ -219,3 +219,26 @@ def monte_carlo_advice(est: Estimate, target_half_width: float) -> dict[str, Any
     return {"ci_half_width": half, "target_half_width": target_half_width,
             "extension_needed": bool(half > target_half_width) if math.isfinite(half) else True,
             "approx_tournaments_for_target": math.ceil(need) if math.isfinite(need) else None}
+
+
+def accuracy_vs_reference(rank: np.ndarray, reference: np.ndarray, k_cut: int,
+                          weights: np.ndarray | None = None, b: int = 1000, seed: int = 20260929) -> dict[str, Estimate]:
+    """Accuracy of finite tournaments against a long-run reference (mu_field or mu_swiss).
+
+    ``reference_topk_overlap``: expected |finite top-K intersect reference top-K|;
+    ``reference_changed``: K minus that; ``reference_kendall_tau``: rank agreement with the
+    reference ordering. Tournaments are the bootstrap units.
+    """
+    m = rank.shape[0]
+    ref_rank = (-reference).argsort(kind="stable").argsort() + 1
+    ref_top = ref_rank <= k_cut
+    overlap = ((rank <= k_cut) & ref_top[None, :]).sum(1).astype(float)
+    tau = kendall_matrix(np.vstack([ref_rank[None, :], rank]))[0, 1:]
+    ws = weights if weights is not None else bootstrap_weights(m, b, seed)
+
+    def mean(x: np.ndarray):
+        return lambda w: float(x.mean() if w is None else (w @ x) / w.sum())
+
+    return {"reference_topk_overlap": bootstrap(mean(overlap), m, weights=ws),
+            "reference_changed": bootstrap(mean(k_cut - overlap), m, weights=ws),
+            "reference_kendall_tau": bootstrap(mean(tau), m, weights=ws)}

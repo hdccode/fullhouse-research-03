@@ -29,7 +29,7 @@ from fhr3.tournament.fields import (
 DEFAULT_ROOT = Path("results/fhr3b")
 DEFAULT_REPORTS = Path("reports/fhr3b")
 EXPERIMENTS = ("smoke", "pilot", "baseline", "round-sweep", "budget-sweep", "schedule-diagnostic",
-               "swiss-reference", "operational-2026")
+               "duplicate-play", "swiss-reference", "operational-2026")
 
 
 def _p(obj: Any) -> None:
@@ -83,12 +83,15 @@ def cells_for(args: argparse.Namespace) -> list[tuple[str, Any]]:
             if exp == "smoke":
                 out.append((f"smoke {mode}", prof.cell(mode, field if args.fields else "smoke12", "baseline")))
             elif exp in ("pilot", "baseline"):
-                out.append((f"{exp} {mode}/{field}", prof.cell(mode, field, "baseline")))
+                out.append((f"{exp} {mode}/{field}", prof.cell(mode, field, "baseline", getattr(args, "horizon", None))))
             elif exp == "swiss-reference":
-                out.append((f"swiss-reference {mode}/{field}", prof.swiss_reference_cell(mode, field)))
+                out.append((f"swiss-reference {mode}/{field}",
+                            prof.cell(mode, field, "swiss_reference", getattr(args, "horizon", None))))
             elif exp == "budget-sweep":
                 for alloc, c in prof.budget_cells(mode, field):
                     out.append((f"budget {mode}/{field} {alloc.label} R{alloc.rounds}xH{alloc.hands_per_match}", c))
+            elif exp == "duplicate-play":
+                out += [(f"duplicate {mode}/{field} {label}", c) for label, c in prof.duplicate_cells(mode, field)]
             elif exp == "schedule-diagnostic":
                 src, frozen, adapt, j = prof.schedule_cells(mode, field)
                 out += [(f"schedule-source {mode}/{field}", src), (f"frozen {mode}/{field}", frozen),
@@ -139,12 +142,12 @@ def cmd_pools(args: argparse.Namespace) -> int:
 def cmd_calibrate(args: argparse.Namespace) -> int:
     from fhr3.tournament.calibration import run_calibration
 
-    prof = ex.load_profile(args.profile, Path(args.root))
+    prof = ex.load_profile(args.profile or "publication", Path(args.root))
     for m in args.modes:
         fields = args.fields if args.stage == "field" else [None]
         for f in fields:
             spec = prof.calibration_spec(m, args.stage, f)
-            rounds = args.rounds or prof.calibration_rounds(args.stage)
+            rounds = args.rounds or prof.calibration_rounds(args.stage, m)
             _p(run_calibration(spec, Path(args.root), rounds, args.workers, args.allow_source_change))
     return 0
 
@@ -152,19 +155,30 @@ def cmd_calibrate(args: argparse.Namespace) -> int:
 def cmd_select(args: argparse.Namespace) -> int:
     from fhr3.tournament.selection import select_fields
 
-    prof = ex.load_profile(args.profile, Path(args.root))
+    prof = ex.load_profile(args.profile or "publication", Path(args.root))
     reports = Path(args.reports) if args.reports else _reports_for(args)
     for m in args.modes:
         s = select_fields(Path(args.root), prof, m, reports, n_boot=args.boot)
-        _p({"mode": m, "fields": {k: v["field_hash"] for k, v in s["fields"].items()},
-            "matchup_label": s["matchup_label"], "gate": s["matchup_gate"]})
+        _p({"mode": m, "fields": {k: {"field_hash": v["field_hash"], "gap_k_k1_se": round(v["gap_k_k1_se"], 2),
+                                      "near_duplicate_pairs": v["near_duplicate_pairs"],
+                                      "style_counts": v["style_counts"]} for k, v in s["fields"].items()}})
+    return 0
+
+
+def cmd_behaviour_audit(args: argparse.Namespace) -> int:
+    from fhr3.tournament.behaviour import run_behaviour_audit
+
+    reports = Path(args.reports) if args.reports else _reports_for(args)
+    rounds = args.rounds or int(ex.load_matrix()["calibration"]["behaviour_audit"]["rounds"])
+    for m in args.modes:
+        _p(run_behaviour_audit(Path(args.root), args.profile or "publication", m, reports, rounds, args.workers))
     return 0
 
 
 def cmd_field_reference(args: argparse.Namespace) -> int:
     from fhr3.tournament.selection import field_reference_report
 
-    prof = ex.load_profile(args.profile, Path(args.root))
+    prof = ex.load_profile(args.profile or "publication", Path(args.root))
     reports = Path(args.reports) if args.reports else _reports_for(args)
     for m in args.modes:
         for f in args.fields or list(prof.fields):
@@ -238,7 +252,7 @@ def cmd_validate(args: argparse.Namespace) -> int:
             res |= check_replay(root, c, reps[: args.replay])
         if args.prefix and c.kind == "adaptive" and label.split()[0] in ("baseline", "pilot", "smoke"):
             res["prefix"] = [verify_prefix(root, c, r, reps[: args.prefix])
-                             for r in prof.rounds_sweep() if r < c.protocol.rounds]
+                             for r in prof.checkpoints_for(c.protocol.rounds) if r < c.protocol.rounds]
         _p(res)
     return 0 if ok else 1
 
@@ -253,7 +267,7 @@ def cmd_analyse(args: argparse.Namespace) -> int:
     profile = args.profile or "publication"
     out = Path(args.out) if args.out else (
         Path(args.root) / "smoke-reports" / "analysis" if profile == "smoke" else DEFAULT_REPORTS / f"analysis-{profile}")
-    s = analyse(Path(args.root), out, args.modes, n_boot=args.boot, profile=profile)
+    s = analyse(Path(args.root), out, args.modes, n_boot=args.boot, profile=profile, horizon=args.horizon)
     _p({"out": str(out), "status": s["sections"].get("status"), "inputs": len(s["inputs"])})
     return 0
 
@@ -281,6 +295,8 @@ def build_parser() -> argparse.ArgumentParser:
         p.add_argument("--fields", nargs="+")
         if experiment:
             p.add_argument("--experiment", required=True, choices=EXPERIMENTS)
+            p.add_argument("--horizon", type=int, default=None,
+                           help="rounds for baseline/swiss-reference cells (default R0 = 40, the initial horizon)")
 
     p = sub.add_parser("audit", help="verify the vendored 2026 reference and print the protocol")
     p.set_defaults(fn=cmd_audit)
@@ -294,6 +310,12 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--workers", type=int, default=1)
     p.add_argument("--allow-source-change", action="store_true")
     p.set_defaults(fn=cmd_calibrate)
+    p = sub.add_parser("behaviour-audit", help="exact replay of calibration rounds -> behaviour + style classes")
+    common(p, experiment=False)
+    p.add_argument("--reports")
+    p.add_argument("--rounds", type=int)
+    p.add_argument("--workers", type=int, default=8)
+    p.set_defaults(fn=cmd_behaviour_audit)
     for name, fn in (("select-fields", cmd_select), ("field-reference", cmd_field_reference)):
         p = sub.add_parser(name)
         common(p, experiment=False)
@@ -325,6 +347,7 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--modes", nargs="+")
     p.add_argument("--out")
     p.add_argument("--boot", type=int, default=1000)
+    p.add_argument("--horizon", type=int, default=None)
     p.set_defaults(fn=cmd_analyse)
     p = sub.add_parser("replay-hands", help="regenerate hand-level records of one stored table match")
     p.add_argument("--root", default=str(DEFAULT_ROOT))

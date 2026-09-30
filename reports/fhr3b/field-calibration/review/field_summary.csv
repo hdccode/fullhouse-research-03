@@ -1,0 +1,7 @@
+mode,field,field_hash,field_id,gap_k_k1_bb,gap_k_k1_se,mu_max_bb,mu_min_bb,mu_sd_bb,n,n_within_5bb_of_cut,near_duplicate_pairs,style_strength_eta2,measured_r_cyclic,measured_r_cyclic_null_se,leaders_mean_bust_rate
+aof4,spread,db5912d65a47b215,aof4-spread,6.56661,2.89394,22.9772,-38.3425,12.5786,60,5,0,0.126267,0.102082,0.0241755,0
+aof4,crowded_cutoff,b9709c10c5aef403,aof4-crowded_cutoff,0.07543,0.031566,22.9772,-38.3425,11.1241,60,19,35,0.202991,0.0601597,0.0241755,0
+aof4,style_diverse,195ceda2edb24052,aof4-style_diverse,0.69754,0.297623,22.9772,-38.3425,13.1109,60,11,0,0.111728,0.0962714,0.0241755,0
+nlhe6,spread,16df070db91a53bd,nlhe6-spread,12.1792,2.34029,55.0352,-41.0031,20.9552,60,0,0,0.0331047,0.0299114,0.0241755,0.549917
+nlhe6,crowded_cutoff,a845c2fcf1b2ed33,nlhe6-crowded_cutoff,0.00634,0.00109654,55.0352,-53.3222,20.6044,60,20,29,0.078542,0.0296492,0.0241755,0.567583
+nlhe6,style_diverse,5c83ad4268c37bdc,nlhe6-style_diverse,1.71752,0.31217,55.0352,-49.4434,21.6958,60,5,0,0.031205,0.00762135,0.0241755,0.551167

@@ -91,7 +91,7 @@ def field_reference(root: Path, prof: ex.Profile, mode: str, field: str) -> dict
         return None
     res = analyse_calibration(tabs, sorted(spec.field.bot_ids), n_boot=200)
     return {"bots": res["bots"], "mu": res["mu"], "se": res["se"], "calib_id": spec.calib_id,
-            "hodge": res["hodge"], "n_groups": res["rounds_groups"]}
+            "n_groups": res["rounds_groups"]}
 
 
 def swiss_reference(root: Path, prof: ex.Profile, mode: str, field: str) -> dict[str, Any] | None:
@@ -117,7 +117,7 @@ def pick_reference(fr: dict | None, sr: dict | None, bots: Sequence[str]) -> tup
 
 # ------------------------------------------------------------------ main
 def analyse(root: Path, out: Path, modes: Iterable[str] | None = None, n_boot: int = 1000,
-            min_tournaments: int = 2, profile: str = "publication") -> dict[str, Any]:
+            min_tournaments: int = 2, profile: str = "publication", horizon: int | None = None) -> dict[str, Any]:
     root, out = Path(root), Path(out)
     prof = ex.load_profile(profile, root)
     mx = ex.load_matrix(prof.config_root)
@@ -130,11 +130,13 @@ def analyse(root: Path, out: Path, modes: Iterable[str] | None = None, n_boot: i
                                        "design_status": "predeclared research design choices; not 2026 FullHouse "
                                                         "settings (see paper/FHR3B_SCOPE.md)",
                                        "R0": prof.r0, "H0": prof.h0, "K": prof.k,
-                                       "round_sweep": prof.rounds_sweep(),
+                                       "round_sweep": prof.checkpoints_for(horizon or prof.r0),
+                                       "horizon": horizon or prof.r0,
+                                       "horizon_status": "initial research horizon; not assumed sufficient",
                                        "allocations": [a.__dict__ | {"budget": a.budget} for a in prof.allocations()]}}
     inputs: list[dict[str, Any]] = []
     base_rows, q_rows, rank_rows, sweep_rows, fig2_rows, inv_rows, inv_bin_rows = [], [], [], [], [], [], []
-    budget_rows, sched_rows, ref_rows = [], [], []
+    budget_rows, sched_rows, ref_rows, acc_rows, dup_rows = [], [], [], [], []
     fields = list(prof.fields)
 
     for mode in modes:
@@ -142,7 +144,7 @@ def analyse(root: Path, out: Path, modes: Iterable[str] | None = None, n_boot: i
             fr = field_reference(root, prof, mode, field)
             sr = swiss_reference(root, prof, mode, field)
             ref_rows.extend(_reference_rows(mode, field, fr, sr, summary))
-            cell = _try(prof.cell, mode, field, "baseline")
+            cell = _try(prof.cell, mode, field, "baseline", horizon)
             if cell is None:
                 continue
             reps = _existing(root, cell)
@@ -169,9 +171,7 @@ def analyse(root: Path, out: Path, modes: Iterable[str] | None = None, n_boot: i
                                          "q95_rank": np.quantile(r, 0.95),
                                          "mean_final_score": a["final_score"][:, i].mean()})
             # A: round sweep from exact R-prefixes, paired (shared weights)
-            for rr in prof.rounds_sweep():
-                if rr > cell.protocol.rounds:
-                    continue
+            for rr in prof.checkpoints_for(cell.protocol.rounds):
                 rk = a["round_rank"][:, rr - 1, :]
                 qual = rk <= a["K"]
                 est_r = mt.rerun_stability(rk, qual, a["K"], weights=ws)
@@ -182,6 +182,11 @@ def analyse(root: Path, out: Path, modes: Iterable[str] | None = None, n_boot: i
                         fig2_rows.append(info | {"R_prefix": rr, "reference": ref[0]} | row)
             if ref is not None:
                 name, mu, se = ref
+                for rname, rref in (("mu_field", fr), ("mu_swiss", sr)):  # accuracy against BOTH references
+                    if rref is not None and list(rref["bots"]) == list(a["bots"]):
+                        acc = mt.accuracy_vs_reference(a["final_rank"], np.asarray(rref["mu"], float), a["K"],
+                                                       weights=ws)
+                        acc_rows.append(info | {"reference": rname} | mt.estimates_to_row(acc))
                 for row in mt.pairwise_inversions(a["final_rank"], mu, se, a["bots"]):
                     inv_rows.append(info | {"reference": name} | row)
                 gaps = np.abs(mu[:, None] - mu[None, :])[np.triu_indices(len(mu), 1)]
@@ -208,6 +213,29 @@ def analyse(root: Path, out: Path, modes: Iterable[str] | None = None, n_boot: i
                     "allocation": alloc.label, "budget_hands_per_bot": alloc.budget, "budget_exact": alloc.exact,
                     "n_common_replicates": len(common)} | mt.estimates_to_row(est))
 
+        # D: ordinary vs duplicate play at (approximately) equal simulator work, paired by replicate
+        if mode in E.get("duplicate_play", {}).get("modes", []):
+            for field in E["duplicate_play"]["fields"]:
+                cells = _try(prof.duplicate_cells, mode, field)
+                if not cells:
+                    continue
+                reps_by = {lab: set(_existing(root, c)) for lab, c in cells}
+                common = sorted(set.intersection(*reps_by.values())) if reps_by else []
+                if len(common) < min_tournaments:
+                    continue
+                ws = mt.bootstrap_weights(len(common), n_boot, seed=20261002)
+                work0 = None
+                for lab, c in cells:
+                    inputs.append(_input(root, c, common, "duplicate_play"))
+                    a = load_cell_arrays(root, c, common)
+                    work = float(np.mean([_hands(root, c, r) for r in common]))
+                    work0 = work0 or work
+                    est = mt.rerun_stability(a["final_rank"], a["qualified"], a["K"], weights=ws)
+                    dup_rows.append(_cell_info("duplicate_play", c) | {
+                        "variant": lab, "match_format": c.protocol.match_format,
+                        "hands_simulated_per_tournament": work, "work_ratio_vs_ordinary": work / work0,
+                        "n_common_replicates": len(common)} | mt.estimates_to_row(est))
+
         # C: schedule diagnostic
         if mode in E["schedule_diagnostic"]["modes"]:
             for field in E["schedule_diagnostic"]["fields"]:
@@ -226,10 +254,12 @@ def analyse(root: Path, out: Path, modes: Iterable[str] | None = None, n_boot: i
         "rank_stability.csv": (rank_rows, CELL_COLS),
         "round_sweep.csv": (sweep_rows, CELL_COLS),
         "budget_allocation.csv": (budget_rows, CELL_COLS),
+        "duplicate_play.csv": (dup_rows, CELL_COLS),
         "schedule_diagnostic.csv": (sched_rows, None),
         "pairwise_inversions.csv": (inv_rows, CELL_COLS),
         "pairwise_inversions_binned.csv": (inv_bin_rows, CELL_COLS),
         "field_references.csv": (ref_rows, None),
+        "reference_accuracy.csv": (acc_rows, CELL_COLS),
         "figure_data/fig1_round_sweep.csv": (sweep_rows, CELL_COLS),
         "figure_data/fig2_cutoff_p_qualify_by_R.csv": (fig2_rows, CELL_COLS),
         "figure_data/fig3_budget_allocation.csv": (budget_rows, CELL_COLS),
@@ -264,6 +294,12 @@ def _input(root: Path, cell: Cell, reps: Sequence[int], experiment: str) -> dict
             "engine_source_hash": src_hash}
 
 
+def _hands(root: Path, cell: Cell, rep: int) -> int:
+    from fhr3.tournament.store import tournament_dir
+
+    return int(json.loads((tournament_dir(root, cell, rep) / "manifest.json").read_text())["hands_played"])
+
+
 def _write_manifest(out: Path, inputs: list[dict[str, Any]]) -> None:
     files = {}
     for p in sorted(out.rglob("*")):
@@ -294,7 +330,7 @@ def _reference_rows(mode: str, field: str, fr: dict | None, sr: dict | None, sum
         rows.append(row)
     key = f"{mode}/{field}"
     sec = summary["sections"].setdefault("references", {})
-    sec[key] = {"field_reference": fr and {"calib_id": fr["calib_id"], "hodge": fr["hodge"]},
+    sec[key] = {"field_reference": fr and {"calib_id": fr["calib_id"], "n_groups": fr["n_groups"]},
                 "swiss_reference": sr and {"cell_id": sr["cell_id"], "n_tournaments": sr["n"]}}
     if fr is not None and sr is not None and list(fr["bots"]) == list(sr["bots"]):
         mu_f, mu_s = np.asarray(fr["mu"]), np.asarray(sr["mu"])

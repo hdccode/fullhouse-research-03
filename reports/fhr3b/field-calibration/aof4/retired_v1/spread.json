@@ -1,0 +1,1571 @@
+{
+ "bots": [
+  {
+   "bot_id": "aof4-aggressive-e2-s1",
+   "kind": "aof_heuristic",
+   "meta": {
+    "agent_seed": 1,
+    "archetype": "aggressive",
+    "epsilon": 0.25,
+    "scale_index": 2
+   },
+   "params": {
+    "overrides": {
+     "call_pct": [
+      0.16114,
+      0.16207,
+      0.25054
+     ],
+     "call_scale": 1.2133,
+     "multi_call_pct": 0.06081,
+     "shove_pct": [
+      0.24167,
+      0.53194,
+      0.42483
+     ],
+     "shove_scale": 1.68077,
+     "temperature": 0.01256
+    },
+    "style": "aggressive"
+   },
+   "version": "aof-heuristic-1.0.0+f88e27587d"
+  },
+  {
+   "bot_id": "aof4-aggressive-e2-s2",
+   "kind": "aof_heuristic",
+   "meta": {
+    "agent_seed": 2,
+    "archetype": "aggressive",
+    "epsilon": 0.25,
+    "scale_index": 2
+   },
+   "params": {
+    "overrides": {
+     "call_pct": [
+      0.18949,
+      0.22996,
+      0.25212
+     ],
+     "call_scale": 0.85597,
+     "multi_call_pct": 0.05705,
+     "shove_pct": [
+      0.36901,
+      0.33661,
+      0.51954
+     ],
+     "shove_scale": 0.90162,
+     "temperature": 0.01873
+    },
+    "style": "aggressive"
+   },
+   "version": "aof-heuristic-1.0.0+421761dd42"
+  },
+  {
+   "bot_id": "aof4-aggressive-e3-s1",
+   "kind": "aof_heuristic",
+   "meta": {
+    "agent_seed": 1,
+    "archetype": "aggressive",
+    "epsilon": 0.45,
+    "scale_index": 3
+   },
+   "params": {
+    "overrides": {
+     "call_pct": [
+      0.09575,
+      0.15991,
+      0.27447
+     ],
+     "call_scale": 1.09777,
+     "multi_call_pct": 0.05689,
+     "shove_pct": [
+      0.17579,
+      0.95,
+      0.82492
+     ],
+     "shove_scale": 1.84028,
+     "temperature": 0.01443
+    },
+    "style": "aggressive"
+   },
+   "version": "aof-heuristic-1.0.0+86304a5a6c"
+  },
+  {
+   "bot_id": "aof4-caller-e0",
+   "kind": "aof_heuristic",
+   "meta": {
+    "agent_seed": 0,
+    "archetype": "caller",
+    "epsilon": 0.0,
+    "scale_index": 0
+   },
+   "params": {
+    "overrides": {
+     "call_scale": 1.5,
+     "shove_scale": 0.8
+    },
+    "style": "neutral"
+   },
+   "version": "aof-heuristic-1.0.0+7d7999e977"
+  },
+  {
+   "bot_id": "aof4-caller-e1-s1",
+   "kind": "aof_heuristic",
+   "meta": {
+    "agent_seed": 1,
+    "archetype": "caller",
+    "epsilon": 0.1,
+    "scale_index": 1
+   },
+   "params": {
+    "overrides": {
+     "call_pct": [
+      0.14797,
+      0.17803,
+      0.26266
+     ],
+     "call_scale": 1.36233,
+     "multi_call_pct": 0.07369,
+     "shove_pct": [
+      0.31202,
+      0.43589,
+      0.52945
+     ],
+     "shove_scale": 0.79879,
+     "temperature": 0.01747
+    },
+    "style": "neutral"
+   },
+   "version": "aof-heuristic-1.0.0+abde913b1b"
+  },
+  {
+   "bot_id": "aof4-caller-e2-s2",
+   "kind": "aof_heuristic",
+   "meta": {
+    "agent_seed": 2,
+    "archetype": "caller",
+    "epsilon": 0.25,
+    "scale_index": 2
+   },
+   "params": {
+    "overrides": {
+     "call_pct": [
+      0.16864,
+      0.19619,
+      0.2711
+     ],
+     "call_scale": 1.47166,
+     "multi_call_pct": 0.08577,
+     "shove_pct": [
+      0.30258,
+      0.45203,
+      0.4782
+     ],
+     "shove_scale": 0.45819,
+     "temperature": 0.0189
+    },
+    "style": "neutral"
+   },
+   "version": "aof-heuristic-1.0.0+8a5ddbbabe"
+  },
+  {
+   "bot_id": "aof4-caller-e2-s3",
+   "kind": "aof_heuristic",
+   "meta": {
+    "agent_seed": 3,
+    "archetype": "caller",
+    "epsilon": 0.25,
+    "scale_index": 2
+   },
+   "params": {
+    "overrides": {
+     "call_pct": [
+      0.12336,
+      0.18369,
+      0.20554
+     ],
+     "call_scale": 1.36888,
+     "multi_call_pct": 0.09136,
+     "shove_pct": [
+      0.30279,
+      0.43099,
+      0.38235
+     ],
+     "shove_scale": 0.89227,
+     "temperature": 0.01891
+    },
+    "style": "neutral"
+   },
+   "version": "aof-heuristic-1.0.0+bfdeeb74f5"
+  },
+  {
+   "bot_id": "aof4-caller-e3-s0",
+   "kind": "aof_heuristic",
+   "meta": {
+    "agent_seed": 0,
+    "archetype": "caller",
+    "epsilon": 0.45,
+    "scale_index": 3
+   },
+   "params": {
+    "overrides": {
+     "call_pct": [
+      0.09322,
+      0.24448,
+      0.37037
+     ],
+     "call_scale": 2.5,
+     "multi_call_pct": 0.07026,
+     "shove_pct": [
+      0.35724,
+      0.34548,
+      0.45859
+     ],
+     "shove_scale": 0.85,
+     "temperature": 0.01379
+    },
+    "style": "neutral"
+   },
+   "version": "aof-heuristic-1.0.0+9199c3dde3"
+  },
+  {
+   "bot_id": "aof4-caller-e3-s1",
+   "kind": "aof_heuristic",
+   "meta": {
+    "agent_seed": 1,
+    "archetype": "caller",
+    "epsilon": 0.45,
+    "scale_index": 3
+   },
+   "params": {
+    "overrides": {
+     "call_pct": [
+      0.28416,
+      0.47585,
+      0.49199
+     ],
+     "call_scale": 1.38739,
+     "multi_call_pct": 0.05595,
+     "shove_pct": [
+      0.41567,
+      0.45325,
+      0.91642
+     ],
+     "shove_scale": 1.25785,
+     "temperature": 0.01407
+    },
+    "style": "neutral"
+   },
+   "version": "aof-heuristic-1.0.0+3c0c2cd654"
+  },
+  {
+   "bot_id": "aof4-caller-e3-s2",
+   "kind": "aof_heuristic",
+   "meta": {
+    "agent_seed": 2,
+    "archetype": "caller",
+    "epsilon": 0.45,
+    "scale_index": 3
+   },
+   "params": {
+    "overrides": {
+     "call_pct": [
+      0.07201,
+      0.18453,
+      0.1441
+     ],
+     "call_scale": 2.19079,
+     "multi_call_pct": 0.10974,
+     "shove_pct": [
+      0.2161,
+      0.35498,
+      0.8115
+     ],
+     "shove_scale": 1.05423,
+     "temperature": 0.01097
+    },
+    "style": "neutral"
+   },
+   "version": "aof-heuristic-1.0.0+daf5506271"
+  },
+  {
+   "bot_id": "aof4-caller-e3-s3",
+   "kind": "aof_heuristic",
+   "meta": {
+    "agent_seed": 3,
+    "archetype": "caller",
+    "epsilon": 0.45,
+    "scale_index": 3
+   },
+   "params": {
+    "overrides": {
+     "call_pct": [
+      0.11221,
+      0.39576,
+      0.15605
+     ],
+     "call_scale": 0.9482,
+     "multi_call_pct": 0.05013,
+     "shove_pct": [
+      0.2162,
+      0.42847,
+      0.68579
+     ],
+     "shove_scale": 0.41581,
+     "temperature": 0.0092
+    },
+    "style": "neutral"
+   },
+   "version": "aof-heuristic-1.0.0+0566cec862"
+  },
+  {
+   "bot_id": "aof4-loose-e1-s0",
+   "kind": "aof_heuristic",
+   "meta": {
+    "agent_seed": 0,
+    "archetype": "loose",
+    "epsilon": 0.1,
+    "scale_index": 1
+   },
+   "params": {
+    "overrides": {
+     "call_pct": [
+      0.18638,
+      0.16229,
+      0.28766
+     ],
+     "call_scale": 1.3273,
+     "multi_call_pct": 0.06885,
+     "shove_pct": [
+      0.30599,
+      0.33767,
+      0.59153
+     ],
+     "shove_scale": 1.28109,
+     "temperature": 0.01681
+    },
+    "style": "loose"
+   },
+   "version": "aof-heuristic-1.0.0+a2ce982712"
+  },
+  {
+   "bot_id": "aof4-loose-e1-s1",
+   "kind": "aof_heuristic",
+   "meta": {
+    "agent_seed": 1,
+    "archetype": "loose",
+    "epsilon": 0.1,
+    "scale_index": 1
+   },
+   "params": {
+    "overrides": {
+     "call_pct": [
+      0.12541,
+      0.18102,
+      0.27508
+     ],
+     "call_scale": 1.33713,
+     "multi_call_pct": 0.05853,
+     "shove_pct": [
+      0.308,
+      0.39698,
+      0.51942
+     ],
+     "shove_scale": 1.15015,
+     "temperature": 0.01423
+    },
+    "style": "loose"
+   },
+   "version": "aof-heuristic-1.0.0+eaadcf1e17"
+  },
+  {
+   "bot_id": "aof4-loose-e2-s0",
+   "kind": "aof_heuristic",
+   "meta": {
+    "agent_seed": 0,
+    "archetype": "loose",
+    "epsilon": 0.25,
+    "scale_index": 2
+   },
+   "params": {
+    "overrides": {
+     "call_pct": [
+      0.17158,
+      0.16929,
+      0.19249
+     ],
+     "call_scale": 1.24089,
+     "multi_call_pct": 0.06785,
+     "shove_pct": [
+      0.19532,
+      0.52893,
+      0.56784
+     ],
+     "shove_scale": 1.42152,
+     "temperature": 0.01289
+    },
+    "style": "loose"
+   },
+   "version": "aof-heuristic-1.0.0+abb3838ba2"
+  },
+  {
+   "bot_id": "aof4-loose-e2-s1",
+   "kind": "aof_heuristic",
+   "meta": {
+    "agent_seed": 1,
+    "archetype": "loose",
+    "epsilon": 0.25,
+    "scale_index": 2
+   },
+   "params": {
+    "overrides": {
+     "call_pct": [
+      0.21408,
+      0.1624,
+      0.32795
+     ],
+     "call_scale": 1.1897,
+     "multi_call_pct": 0.06375,
+     "shove_pct": [
+      0.23518,
+      0.32163,
+      0.55877
+     ],
+     "shove_scale": 1.14047,
+     "temperature": 0.01154
+    },
+    "style": "loose"
+   },
+   "version": "aof-heuristic-1.0.0+193b1c1d5e"
+  },
+  {
+   "bot_id": "aof4-loose-e2-s2",
+   "kind": "aof_heuristic",
+   "meta": {
+    "agent_seed": 2,
+    "archetype": "loose",
+    "epsilon": 0.25,
+    "scale_index": 2
+   },
+   "params": {
+    "overrides": {
+     "call_pct": [
+      0.21153,
+      0.16545,
+      0.32305
+     ],
+     "call_scale": 1.45908,
+     "multi_call_pct": 0.06162,
+     "shove_pct": [
+      0.27914,
+      0.49316,
+      0.66491
+     ],
+     "shove_scale": 1.54232,
+     "temperature": 0.01664
+    },
+    "style": "loose"
+   },
+   "version": "aof-heuristic-1.0.0+982dffcd12"
+  },
+  {
+   "bot_id": "aof4-loose-e2-s3",
+   "kind": "aof_heuristic",
+   "meta": {
+    "agent_seed": 3,
+    "archetype": "loose",
+    "epsilon": 0.25,
+    "scale_index": 2
+   },
+   "params": {
+    "overrides": {
+     "call_pct": [
+      0.17772,
+      0.23079,
+      0.34546
+     ],
+     "call_scale": 1.21836,
+     "multi_call_pct": 0.08554,
+     "shove_pct": [
+      0.20036,
+      0.56759,
+      0.44633
+     ],
+     "shove_scale": 1.2093,
+     "temperature": 0.01319
+    },
+    "style": "loose"
+   },
+   "version": "aof-heuristic-1.0.0+869f806791"
+  },
+  {
+   "bot_id": "aof4-loose-e3-s1",
+   "kind": "aof_heuristic",
+   "meta": {
+    "agent_seed": 1,
+    "archetype": "loose",
+    "epsilon": 0.45,
+    "scale_index": 3
+   },
+   "params": {
+    "overrides": {
+     "call_pct": [
+      0.0953,
+      0.26599,
+      0.28567
+     ],
+     "call_scale": 1.62183,
+     "multi_call_pct": 0.14295,
+     "shove_pct": [
+      0.11217,
+      0.18872,
+      0.59347
+     ],
+     "shove_scale": 1.95901,
+     "temperature": 0.01857
+    },
+    "style": "loose"
+   },
+   "version": "aof-heuristic-1.0.0+7630a49c6c"
+  },
+  {
+   "bot_id": "aof4-loose-e3-s2",
+   "kind": "aof_heuristic",
+   "meta": {
+    "agent_seed": 2,
+    "archetype": "loose",
+    "epsilon": 0.45,
+    "scale_index": 3
+   },
+   "params": {
+    "overrides": {
+     "call_pct": [
+      0.15763,
+      0.09157,
+      0.20338
+     ],
+     "call_scale": 1.84407,
+     "multi_call_pct": 0.07573,
+     "shove_pct": [
+      0.30788,
+      0.3919,
+      0.53203
+     ],
+     "shove_scale": 1.15884,
+     "temperature": 0.01672
+    },
+    "style": "loose"
+   },
+   "version": "aof-heuristic-1.0.0+4e6ff4a453"
+  },
+  {
+   "bot_id": "aof4-neutral-e1-s0",
+   "kind": "aof_heuristic",
+   "meta": {
+    "agent_seed": 0,
+    "archetype": "neutral",
+    "epsilon": 0.1,
+    "scale_index": 1
+   },
+   "params": {
+    "overrides": {
+     "call_pct": [
+      0.17208,
+      0.19407,
+      0.26302
+     ],
+     "call_scale": 0.99675,
+     "multi_call_pct": 0.06555,
+     "shove_pct": [
+      0.2661,
+      0.41927,
+      0.5831
+     ],
+     "shove_scale": 0.94466,
+     "temperature": 0.01573
+    },
+    "style": "neutral"
+   },
+   "version": "aof-heuristic-1.0.0+7cd5d9a352"
+  },
+  {
+   "bot_id": "aof4-neutral-e1-s2",
+   "kind": "aof_heuristic",
+   "meta": {
+    "agent_seed": 2,
+    "archetype": "neutral",
+    "epsilon": 0.1,
+    "scale_index": 1
+   },
+   "params": {
+    "overrides": {
+     "call_pct": [
+      0.1403,
+      0.16753,
+      0.28627
+     ],
+     "call_scale": 1.09493,
+     "multi_call_pct": 0.06719,
+     "shove_pct": [
+      0.21534,
+      0.40468,
+      0.5346
+     ],
+     "shove_scale": 0.99424,
+     "temperature": 0.01573
+    },
+    "style": "neutral"
+   },
+   "version": "aof-heuristic-1.0.0+9be3f7d0c1"
+  },
+  {
+   "bot_id": "aof4-neutral-e2-s1",
+   "kind": "aof_heuristic",
+   "meta": {
+    "agent_seed": 1,
+    "archetype": "neutral",
+    "epsilon": 0.25,
+    "scale_index": 2
+   },
+   "params": {
+    "overrides": {
+     "call_pct": [
+      0.14399,
+      0.17193,
+      0.23996
+     ],
+     "call_scale": 1.06601,
+     "multi_call_pct": 0.07364,
+     "shove_pct": [
+      0.37136,
+      0.37314,
+      0.53386
+     ],
+     "shove_scale": 1.18473,
+     "temperature": 0.01483
+    },
+    "style": "neutral"
+   },
+   "version": "aof-heuristic-1.0.0+b7f58ca2d8"
+  },
+  {
+   "bot_id": "aof4-neutral-e2-s2",
+   "kind": "aof_heuristic",
+   "meta": {
+    "agent_seed": 2,
+    "archetype": "neutral",
+    "epsilon": 0.25,
+    "scale_index": 2
+   },
+   "params": {
+    "overrides": {
+     "call_pct": [
+      0.14377,
+      0.16392,
+      0.21051
+     ],
+     "call_scale": 0.92482,
+     "multi_call_pct": 0.05559,
+     "shove_pct": [
+      0.20336,
+      0.5704,
+      0.71491
+     ],
+     "shove_scale": 0.84269,
+     "temperature": 0.01009
+    },
+    "style": "neutral"
+   },
+   "version": "aof-heuristic-1.0.0+09dfa850cd"
+  },
+  {
+   "bot_id": "aof4-neutral-e2-s3",
+   "kind": "aof_heuristic",
+   "meta": {
+    "agent_seed": 3,
+    "archetype": "neutral",
+    "epsilon": 0.25,
+    "scale_index": 2
+   },
+   "params": {
+    "overrides": {
+     "call_pct": [
+      0.18923,
+      0.23436,
+      0.25173
+     ],
+     "call_scale": 0.92624,
+     "multi_call_pct": 0.06187,
+     "shove_pct": [
+      0.24982,
+      0.55334,
+      0.56595
+     ],
+     "shove_scale": 1.41499,
+     "temperature": 0.01219
+    },
+    "style": "neutral"
+   },
+   "version": "aof-heuristic-1.0.0+303b0de772"
+  },
+  {
+   "bot_id": "aof4-neutral-e3-s0",
+   "kind": "aof_heuristic",
+   "meta": {
+    "agent_seed": 0,
+    "archetype": "neutral",
+    "epsilon": 0.45,
+    "scale_index": 3
+   },
+   "params": {
+    "overrides": {
+     "call_pct": [
+      0.15742,
+      0.20833,
+      0.08877
+     ],
+     "call_scale": 0.8138,
+     "multi_call_pct": 0.08759,
+     "shove_pct": [
+      0.16649,
+      0.19284,
+      0.93892
+     ],
+     "shove_scale": 1.08586,
+     "temperature": 0.01494
+    },
+    "style": "neutral"
+   },
+   "version": "aof-heuristic-1.0.0+825745e245"
+  },
+  {
+   "bot_id": "aof4-neutral-e3-s1",
+   "kind": "aof_heuristic",
+   "meta": {
+    "agent_seed": 1,
+    "archetype": "neutral",
+    "epsilon": 0.45,
+    "scale_index": 3
+   },
+   "params": {
+    "overrides": {
+     "call_pct": [
+      0.17867,
+      0.10181,
+      0.12366
+     ],
+     "call_scale": 0.77559,
+     "multi_call_pct": 0.08416,
+     "shove_pct": [
+      0.30145,
+      0.30616,
+      0.87734
+     ],
+     "shove_scale": 1.03479,
+     "temperature": 0.01408
+    },
+    "style": "neutral"
+   },
+   "version": "aof-heuristic-1.0.0+ed96cc571e"
+  },
+  {
+   "bot_id": "aof4-neutral-e3-s2",
+   "kind": "aof_heuristic",
+   "meta": {
+    "agent_seed": 2,
+    "archetype": "neutral",
+    "epsilon": 0.45,
+    "scale_index": 3
+   },
+   "params": {
+    "overrides": {
+     "call_pct": [
+      0.23097,
+      0.15878,
+      0.1934
+     ],
+     "call_scale": 0.94582,
+     "multi_call_pct": 0.15799,
+     "shove_pct": [
+      0.17662,
+      0.65747,
+      0.9196
+     ],
+     "shove_scale": 0.45965,
+     "temperature": 0.02331
+    },
+    "style": "neutral"
+   },
+   "version": "aof-heuristic-1.0.0+2c7c668a56"
+  },
+  {
+   "bot_id": "aof4-neutral-e3-s3",
+   "kind": "aof_heuristic",
+   "meta": {
+    "agent_seed": 3,
+    "archetype": "neutral",
+    "epsilon": 0.45,
+    "scale_index": 3
+   },
+   "params": {
+    "overrides": {
+     "call_pct": [
+      0.35916,
+      0.21467,
+      0.28424
+     ],
+     "call_scale": 0.46219,
+     "multi_call_pct": 0.06355,
+     "shove_pct": [
+      0.27721,
+      0.64856,
+      0.95
+     ],
+     "shove_scale": 1.24338,
+     "temperature": 0.012
+    },
+    "style": "neutral"
+   },
+   "version": "aof-heuristic-1.0.0+10bab34829"
+  },
+  {
+   "bot_id": "aof4-policy-e0",
+   "kind": "aof_policy",
+   "meta": {
+    "agent_seed": 0,
+    "archetype": "policy",
+    "epsilon": 0.0,
+    "scale_index": 0
+   },
+   "params": {
+    "blend": 0.001,
+    "blend_style": "tight",
+    "policy": "production-v2"
+   },
+   "version": "aof-policy-1.0.0+28f1ecc5e0"
+  },
+  {
+   "bot_id": "aof4-policy-e1-s0",
+   "kind": "aof_policy",
+   "meta": {
+    "agent_seed": 0,
+    "archetype": "policy",
+    "epsilon": 0.1,
+    "scale_index": 1
+   },
+   "params": {
+    "blend": 0.10725,
+    "blend_style": "tight",
+    "policy": "production-v2"
+   },
+   "version": "aof-policy-1.0.0+f2cb640b74"
+  },
+  {
+   "bot_id": "aof4-policy-e1-s1",
+   "kind": "aof_policy",
+   "meta": {
+    "agent_seed": 1,
+    "archetype": "policy",
+    "epsilon": 0.1,
+    "scale_index": 1
+   },
+   "params": {
+    "blend": 0.12172,
+    "blend_style": "tight",
+    "policy": "production-v2"
+   },
+   "version": "aof-policy-1.0.0+48aa0f8c56"
+  },
+  {
+   "bot_id": "aof4-policy-e2-s0",
+   "kind": "aof_policy",
+   "meta": {
+    "agent_seed": 0,
+    "archetype": "policy",
+    "epsilon": 0.25,
+    "scale_index": 2
+   },
+   "params": {
+    "blend": 0.30832,
+    "blend_style": "tight",
+    "policy": "production-v2"
+   },
+   "version": "aof-policy-1.0.0+2d13867266"
+  },
+  {
+   "bot_id": "aof4-policy-e2-s1",
+   "kind": "aof_policy",
+   "meta": {
+    "agent_seed": 1,
+    "archetype": "policy",
+    "epsilon": 0.25,
+    "scale_index": 2
+   },
+   "params": {
+    "blend": 0.25632,
+    "blend_style": "tight",
+    "policy": "production-v2"
+   },
+   "version": "aof-policy-1.0.0+b2ef5e6f95"
+  },
+  {
+   "bot_id": "aof4-policy-e2-s2",
+   "kind": "aof_policy",
+   "meta": {
+    "agent_seed": 2,
+    "archetype": "policy",
+    "epsilon": 0.25,
+    "scale_index": 2
+   },
+   "params": {
+    "blend": 0.19566,
+    "blend_style": "tight",
+    "policy": "production-v2"
+   },
+   "version": "aof-policy-1.0.0+13f4b6166a"
+  },
+  {
+   "bot_id": "aof4-policy-e3-s0",
+   "kind": "aof_policy",
+   "meta": {
+    "agent_seed": 0,
+    "archetype": "policy",
+    "epsilon": 0.45,
+    "scale_index": 3
+   },
+   "params": {
+    "blend": 0.34113,
+    "blend_style": "tight",
+    "policy": "production-v2"
+   },
+   "version": "aof-policy-1.0.0+618967acd2"
+  },
+  {
+   "bot_id": "aof4-policy-e3-s1",
+   "kind": "aof_policy",
+   "meta": {
+    "agent_seed": 1,
+    "archetype": "policy",
+    "epsilon": 0.45,
+    "scale_index": 3
+   },
+   "params": {
+    "blend": 0.4057,
+    "blend_style": "tight",
+    "policy": "production-v2"
+   },
+   "version": "aof-policy-1.0.0+5cdc5a314e"
+  },
+  {
+   "bot_id": "aof4-policy-e3-s3",
+   "kind": "aof_policy",
+   "meta": {
+    "agent_seed": 3,
+    "archetype": "policy",
+    "epsilon": 0.45,
+    "scale_index": 3
+   },
+   "params": {
+    "blend": 0.36234,
+    "blend_style": "tight",
+    "policy": "production-v2"
+   },
+   "version": "aof-policy-1.0.0+c072648ce5"
+  },
+  {
+   "bot_id": "aof4-policy_blend_loose-e1-s0",
+   "kind": "aof_policy",
+   "meta": {
+    "agent_seed": 0,
+    "archetype": "policy_blend_loose",
+    "epsilon": 0.1,
+    "scale_index": 1
+   },
+   "params": {
+    "blend": 0.208,
+    "blend_style": "loose",
+    "policy": "production-v2"
+   },
+   "version": "aof-policy-1.0.0+c021981873"
+  },
+  {
+   "bot_id": "aof4-policy_blend_loose-e1-s2",
+   "kind": "aof_policy",
+   "meta": {
+    "agent_seed": 2,
+    "archetype": "policy_blend_loose",
+    "epsilon": 0.1,
+    "scale_index": 1
+   },
+   "params": {
+    "blend": 0.1765,
+    "blend_style": "loose",
+    "policy": "production-v2"
+   },
+   "version": "aof-policy-1.0.0+78340f965e"
+  },
+  {
+   "bot_id": "aof4-policy_blend_loose-e2-s1",
+   "kind": "aof_policy",
+   "meta": {
+    "agent_seed": 1,
+    "archetype": "policy_blend_loose",
+    "epsilon": 0.25,
+    "scale_index": 2
+   },
+   "params": {
+    "blend": 0.32142,
+    "blend_style": "loose",
+    "policy": "production-v2"
+   },
+   "version": "aof-policy-1.0.0+571e170045"
+  },
+  {
+   "bot_id": "aof4-policy_blend_loose-e2-s2",
+   "kind": "aof_policy",
+   "meta": {
+    "agent_seed": 2,
+    "archetype": "policy_blend_loose",
+    "epsilon": 0.25,
+    "scale_index": 2
+   },
+   "params": {
+    "blend": 0.38127,
+    "blend_style": "loose",
+    "policy": "production-v2"
+   },
+   "version": "aof-policy-1.0.0+914a06d045"
+  },
+  {
+   "bot_id": "aof4-policy_blend_loose-e3-s0",
+   "kind": "aof_policy",
+   "meta": {
+    "agent_seed": 0,
+    "archetype": "policy_blend_loose",
+    "epsilon": 0.45,
+    "scale_index": 3
+   },
+   "params": {
+    "blend": 0.4697,
+    "blend_style": "loose",
+    "policy": "production-v2"
+   },
+   "version": "aof-policy-1.0.0+6173f9d112"
+  },
+  {
+   "bot_id": "aof4-policy_blend_loose-e3-s1",
+   "kind": "aof_policy",
+   "meta": {
+    "agent_seed": 1,
+    "archetype": "policy_blend_loose",
+    "epsilon": 0.45,
+    "scale_index": 3
+   },
+   "params": {
+    "blend": 0.65864,
+    "blend_style": "loose",
+    "policy": "production-v2"
+   },
+   "version": "aof-policy-1.0.0+1b00830443"
+  },
+  {
+   "bot_id": "aof4-policy_blend_loose-e3-s3",
+   "kind": "aof_policy",
+   "meta": {
+    "agent_seed": 3,
+    "archetype": "policy_blend_loose",
+    "epsilon": 0.45,
+    "scale_index": 3
+   },
+   "params": {
+    "blend": 0.4409,
+    "blend_style": "loose",
+    "policy": "production-v2"
+   },
+   "version": "aof-policy-1.0.0+09bd65cf92"
+  },
+  {
+   "bot_id": "aof4-shover-e0",
+   "kind": "aof_heuristic",
+   "meta": {
+    "agent_seed": 0,
+    "archetype": "shover",
+    "epsilon": 0.0,
+    "scale_index": 0
+   },
+   "params": {
+    "overrides": {
+     "call_scale": 0.8,
+     "shove_scale": 1.5
+    },
+    "style": "neutral"
+   },
+   "version": "aof-heuristic-1.0.0+cddbfcebd6"
+  },
+  {
+   "bot_id": "aof4-shover-e1-s0",
+   "kind": "aof_heuristic",
+   "meta": {
+    "agent_seed": 0,
+    "archetype": "shover",
+    "epsilon": 0.1,
+    "scale_index": 1
+   },
+   "params": {
+    "overrides": {
+     "call_pct": [
+      0.1676,
+      0.18625,
+      0.23636
+     ],
+     "call_scale": 0.86532,
+     "multi_call_pct": 0.08261,
+     "shove_pct": [
+      0.28767,
+      0.40424,
+      0.49397
+     ],
+     "shove_scale": 1.46227,
+     "temperature": 0.0136
+    },
+    "style": "neutral"
+   },
+   "version": "aof-heuristic-1.0.0+1bf2b56a53"
+  },
+  {
+   "bot_id": "aof4-shover-e1-s1",
+   "kind": "aof_heuristic",
+   "meta": {
+    "agent_seed": 1,
+    "archetype": "shover",
+    "epsilon": 0.1,
+    "scale_index": 1
+   },
+   "params": {
+    "overrides": {
+     "call_pct": [
+      0.16217,
+      0.19426,
+      0.28024
+     ],
+     "call_scale": 0.71373,
+     "multi_call_pct": 0.07567,
+     "shove_pct": [
+      0.28861,
+      0.41927,
+      0.57901
+     ],
+     "shove_scale": 1.53394,
+     "temperature": 0.01518
+    },
+    "style": "neutral"
+   },
+   "version": "aof-heuristic-1.0.0+3d09cb6198"
+  },
+  {
+   "bot_id": "aof4-shover-e1-s2",
+   "kind": "aof_heuristic",
+   "meta": {
+    "agent_seed": 2,
+    "archetype": "shover",
+    "epsilon": 0.1,
+    "scale_index": 1
+   },
+   "params": {
+    "overrides": {
+     "call_pct": [
+      0.15832,
+      0.1752,
+      0.26069
+     ],
+     "call_scale": 0.6209,
+     "multi_call_pct": 0.08116,
+     "shove_pct": [
+      0.27301,
+      0.46049,
+      0.52826
+     ],
+     "shove_scale": 1.54905,
+     "temperature": 0.01368
+    },
+    "style": "neutral"
+   },
+   "version": "aof-heuristic-1.0.0+c88366520d"
+  },
+  {
+   "bot_id": "aof4-shover-e2-s0",
+   "kind": "aof_heuristic",
+   "meta": {
+    "agent_seed": 0,
+    "archetype": "shover",
+    "epsilon": 0.25,
+    "scale_index": 2
+   },
+   "params": {
+    "overrides": {
+     "call_pct": [
+      0.10133,
+      0.13519,
+      0.25904
+     ],
+     "call_scale": 0.64698,
+     "multi_call_pct": 0.06454,
+     "shove_pct": [
+      0.32245,
+      0.33267,
+      0.64409
+     ],
+     "shove_scale": 1.81317,
+     "temperature": 0.01852
+    },
+    "style": "neutral"
+   },
+   "version": "aof-heuristic-1.0.0+4bd66b874d"
+  },
+  {
+   "bot_id": "aof4-shover-e2-s3",
+   "kind": "aof_heuristic",
+   "meta": {
+    "agent_seed": 3,
+    "archetype": "shover",
+    "epsilon": 0.25,
+    "scale_index": 2
+   },
+   "params": {
+    "overrides": {
+     "call_pct": [
+      0.10142,
+      0.17579,
+      0.18463
+     ],
+     "call_scale": 0.8384,
+     "multi_call_pct": 0.06568,
+     "shove_pct": [
+      0.23479,
+      0.48302,
+      0.6429
+     ],
+     "shove_scale": 1.0955,
+     "temperature": 0.01976
+    },
+    "style": "neutral"
+   },
+   "version": "aof-heuristic-1.0.0+6fe680d205"
+  },
+  {
+   "bot_id": "aof4-shover-e3-s3",
+   "kind": "aof_heuristic",
+   "meta": {
+    "agent_seed": 3,
+    "archetype": "shover",
+    "epsilon": 0.45,
+    "scale_index": 3
+   },
+   "params": {
+    "overrides": {
+     "call_pct": [
+      0.12881,
+      0.19716,
+      0.18585
+     ],
+     "call_scale": 0.32572,
+     "multi_call_pct": 0.03387,
+     "shove_pct": [
+      0.21426,
+      0.75917,
+      0.84024
+     ],
+     "shove_scale": 1.04125,
+     "temperature": 0.01338
+    },
+    "style": "neutral"
+   },
+   "version": "aof-heuristic-1.0.0+db3836d502"
+  },
+  {
+   "bot_id": "aof4-tight-e1-s0",
+   "kind": "aof_heuristic",
+   "meta": {
+    "agent_seed": 0,
+    "archetype": "tight",
+    "epsilon": 0.1,
+    "scale_index": 1
+   },
+   "params": {
+    "overrides": {
+     "call_pct": [
+      0.1554,
+      0.16166,
+      0.25559
+     ],
+     "call_scale": 0.64935,
+     "multi_call_pct": 0.06869,
+     "shove_pct": [
+      0.30204,
+      0.44341,
+      0.5286
+     ],
+     "shove_scale": 0.81995,
+     "temperature": 0.01508
+    },
+    "style": "tight"
+   },
+   "version": "aof-heuristic-1.0.0+e8f40df0e7"
+  },
+  {
+   "bot_id": "aof4-tight-e1-s1",
+   "kind": "aof_heuristic",
+   "meta": {
+    "agent_seed": 1,
+    "archetype": "tight",
+    "epsilon": 0.1,
+    "scale_index": 1
+   },
+   "params": {
+    "overrides": {
+     "call_pct": [
+      0.16151,
+      0.17871,
+      0.2594
+     ],
+     "call_scale": 0.71368,
+     "multi_call_pct": 0.07657,
+     "shove_pct": [
+      0.31145,
+      0.35745,
+      0.52456
+     ],
+     "shove_scale": 0.6554,
+     "temperature": 0.0177
+    },
+    "style": "tight"
+   },
+   "version": "aof-heuristic-1.0.0+4eff2eea3a"
+  },
+  {
+   "bot_id": "aof4-tight-e2-s0",
+   "kind": "aof_heuristic",
+   "meta": {
+    "agent_seed": 0,
+    "archetype": "tight",
+    "epsilon": 0.25,
+    "scale_index": 2
+   },
+   "params": {
+    "overrides": {
+     "call_pct": [
+      0.14088,
+      0.17535,
+      0.20987
+     ],
+     "call_scale": 0.91221,
+     "multi_call_pct": 0.04765,
+     "shove_pct": [
+      0.24994,
+      0.42319,
+      0.60562
+     ],
+     "shove_scale": 0.68636,
+     "temperature": 0.01218
+    },
+    "style": "tight"
+   },
+   "version": "aof-heuristic-1.0.0+573b4a622d"
+  },
+  {
+   "bot_id": "aof4-tight-e2-s1",
+   "kind": "aof_heuristic",
+   "meta": {
+    "agent_seed": 1,
+    "archetype": "tight",
+    "epsilon": 0.25,
+    "scale_index": 2
+   },
+   "params": {
+    "overrides": {
+     "call_pct": [
+      0.10922,
+      0.20817,
+      0.36809
+     ],
+     "call_scale": 0.91366,
+     "multi_call_pct": 0.05959,
+     "shove_pct": [
+      0.30124,
+      0.39584,
+      0.73637
+     ],
+     "shove_scale": 0.51794,
+     "temperature": 0.01191
+    },
+    "style": "tight"
+   },
+   "version": "aof-heuristic-1.0.0+48b4602647"
+  },
+  {
+   "bot_id": "aof4-tight-e2-s2",
+   "kind": "aof_heuristic",
+   "meta": {
+    "agent_seed": 2,
+    "archetype": "tight",
+    "epsilon": 0.25,
+    "scale_index": 2
+   },
+   "params": {
+    "overrides": {
+     "call_pct": [
+      0.1414,
+      0.21676,
+      0.24034
+     ],
+     "call_scale": 1.16477,
+     "multi_call_pct": 0.05154,
+     "shove_pct": [
+      0.28724,
+      0.5422,
+      0.72002
+     ],
+     "shove_scale": 0.76235,
+     "temperature": 0.02166
+    },
+    "style": "tight"
+   },
+   "version": "aof-heuristic-1.0.0+b0302ee98f"
+  },
+  {
+   "bot_id": "aof4-tight-e2-s3",
+   "kind": "aof_heuristic",
+   "meta": {
+    "agent_seed": 3,
+    "archetype": "tight",
+    "epsilon": 0.25,
+    "scale_index": 2
+   },
+   "params": {
+    "overrides": {
+     "call_pct": [
+      0.19703,
+      0.2446,
+      0.24744
+     ],
+     "call_scale": 0.66936,
+     "multi_call_pct": 0.06212,
+     "shove_pct": [
+      0.19638,
+      0.38027,
+      0.81938
+     ],
+     "shove_scale": 1.09023,
+     "temperature": 0.01793
+    },
+    "style": "tight"
+   },
+   "version": "aof-heuristic-1.0.0+3b57515748"
+  },
+  {
+   "bot_id": "aof4-tight-e3-s0",
+   "kind": "aof_heuristic",
+   "meta": {
+    "agent_seed": 0,
+    "archetype": "tight",
+    "epsilon": 0.45,
+    "scale_index": 3
+   },
+   "params": {
+    "overrides": {
+     "call_pct": [
+      0.2915,
+      0.14062,
+      0.27811
+     ],
+     "call_scale": 1.12685,
+     "multi_call_pct": 0.05951,
+     "shove_pct": [
+      0.25294,
+      0.3631,
+      0.85511
+     ],
+     "shove_scale": 1.1613,
+     "temperature": 0.02103
+    },
+    "style": "tight"
+   },
+   "version": "aof-heuristic-1.0.0+45c7a9b120"
+  },
+  {
+   "bot_id": "aof4-tight-e3-s1",
+   "kind": "aof_heuristic",
+   "meta": {
+    "agent_seed": 1,
+    "archetype": "tight",
+    "epsilon": 0.45,
+    "scale_index": 3
+   },
+   "params": {
+    "overrides": {
+     "call_pct": [
+      0.27032,
+      0.17816,
+      0.60472
+     ],
+     "call_scale": 0.70924,
+     "multi_call_pct": 0.0378,
+     "shove_pct": [
+      0.22455,
+      0.2573,
+      0.95
+     ],
+     "shove_scale": 1.18024,
+     "temperature": 0.01342
+    },
+    "style": "tight"
+   },
+   "version": "aof-heuristic-1.0.0+2f3aca2b5e"
+  },
+  {
+   "bot_id": "aof4-tight-e3-s2",
+   "kind": "aof_heuristic",
+   "meta": {
+    "agent_seed": 2,
+    "archetype": "tight",
+    "epsilon": 0.45,
+    "scale_index": 3
+   },
+   "params": {
+    "overrides": {
+     "call_pct": [
+      0.25899,
+      0.43582,
+      0.12677
+     ],
+     "call_scale": 1.17083,
+     "multi_call_pct": 0.1362,
+     "shove_pct": [
+      0.36399,
+      0.45549,
+      0.5893
+     ],
+     "shove_scale": 0.68555,
+     "temperature": 0.02111
+    },
+    "style": "tight"
+   },
+   "version": "aof-heuristic-1.0.0+18233a06ce"
+  }
+ ],
+ "construction": {
+  "calibration_digest": "59e52dd9a5f63db197d7696f09b99a3d",
+  "calibration_id": "aof4.aof4-pool.H400.pool-calibration.351766c0",
+  "calibration_identity_hash": "351766c02ad1bcaa",
+  "calibration_round_groups": 80,
+  "method": "evenly spaced mu_field ranks",
+  "n": 60,
+  "pool_hash": "2ad8ba491c1d39a8",
+  "selection_version": "fhr3b-selection-v1"
+ },
+ "field_hash": "7b4ec8fb07f49f81",
+ "field_id": "aof4-spread",
+ "kind": "spread",
+ "mode": "aof4",
+ "n": 60
+}

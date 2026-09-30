@@ -29,11 +29,36 @@ Randomness is keyed, never sequential:
 
 so hand ``h`` of a match does not depend on the match length (length-nested matches
 share their chance prefix) and nothing depends on process placement.
+
+Within-match history (public 2026 engine semantics: a rolling action log of the match)
+is exposed to every decision through ``Observation.extra``:
+
+    match_history     rolling tuple of the last MATCH_HISTORY_MAX_ENTRIES actions of
+                      *previous* hands of this match: (hand, bot_id, street, action, amount);
+                      the current hand's actions are in ``Observation.history``
+    seat_bot_ids      bot id at each position of the current hand
+    match_hand_index  hand number within the match
+
+Duplicate-lane identity is never bot-visible (neither in the action request nor in the
+match history): lanes are isolated counterfactual matches and a contestant must not be
+able to condition on the lane. The lane lives only in evaluator metadata (MatchResult.info,
+replay hand logs, per-lane tournament rows).
+
+The shipped FHR3 agents are stateless and ignore it (Nit reads only its own key);
+history-aware agents can use it. Exposure does not change any existing result.
+
+Duplicate matches (``DuplicateMatchPlayer``, Experiment D and matched mu_field)
+duplicate the *whole* match into k = table-size lanes: identical initial stacks, the
+same chance stream (deck of hand h), a cyclic rotation of a keyed base seating so every
+bot starts in every seat exactly once, independent stacks / busts / history / agent
+instances per lane, lane-keyed decision streams, and aggregation of chip deltas only
+after every lane has finished.
 """
 
 from __future__ import annotations
 
 import math
+from collections import deque
 from collections.abc import Callable, Mapping, Sequence
 from dataclasses import dataclass, field, replace
 from typing import Any, Protocol
@@ -45,6 +70,7 @@ from fhr3.games.base import STANDARD_DECK, GameAdapter, GameConfig
 from fhr3.rng import DecisionRNG, KeyedStream, derive_seed
 
 MATCH_ENGINE_VERSION = "fhr3b-match-v1"
+MATCH_HISTORY_MAX_ENTRIES = 200  # public 2026 engine: MATCH_LOG_MAX_ENTRIES
 
 
 @dataclass(frozen=True)
@@ -113,8 +139,12 @@ class PokerMatchPlayer:
         return a
 
     def play(self, key: MatchKey, seat_order: Sequence[str], hands: int,
-             hand_log: list[dict[str, Any]] | None = None) -> MatchResult:
-        """``hand_log`` (replay/inspection only) receives one record per hand played."""
+             hand_log: list[dict[str, Any]] | None = None, lane: int | None = None) -> MatchResult:
+        """``hand_log`` (replay/inspection only) receives one record per hand played.
+
+        ``lane`` (duplicate matches only) keys the decision streams and is *not* exposed to
+        agents; ordinary matches use the unchanged ordinary keys.
+        """
         seat_order = list(seat_order)
         if len(set(seat_order)) != len(seat_order):
             raise ValueError("a bot cannot sit twice at one table")
@@ -129,6 +159,7 @@ class PokerMatchPlayer:
         buttons = {b: False for b in seat_order}
         nit_round_hands, nit_rounds, nit_truncated = 0, 0, 0
         played = 0
+        history: deque[tuple[Any, ...]] = deque(maxlen=MATCH_HISTORY_MAX_ENTRIES)
         for h in range(hands):
             alive = [b for b in seat_order if stacks[b] > 0] if self.persistent else seat_order
             m = len(alive)
@@ -141,17 +172,22 @@ class PokerMatchPlayer:
             agents = [self.agents[b] for b in pos]
 
             def rng_for(acting: int, ordinal: int, _h: int = h, _pos: list[str] = pos) -> DecisionRNG:
-                return DecisionRNG("fhr3b-decision", key.decision_seed, key.round, key.table, _h, _pos[acting], ordinal)
+                if lane is None:
+                    return DecisionRNG("fhr3b-decision", key.decision_seed, key.round, key.table, _h, _pos[acting],
+                                       ordinal)
+                return DecisionRNG("fhr3b-dup-decision", key.decision_seed, key.round, key.table, lane, _h,
+                                   _pos[acting], ordinal)
 
-            public = None
+            public: dict[str, Any] = {"match_history": tuple(history), "seat_bot_ids": tuple(pos),
+                                      "match_hand_index": h}
             if self.nit:
-                public = {
+                public |= {
                     "nit_buttons": tuple(buttons[b] for b in pos),
                     "nit_hand_index": nit_round_hands,
                     "nit_penalty_bb": self.nit_penalty_bb,
                 }
             if self.persistent:
-                hand = adapter.new_hand(deal, starting_stacks=[stacks[b] for b in pos])
+                hand = adapter.new_hand(deal, starting_stacks=[stacks[b] for b in pos], public_info=public)
                 outcome, _ = _play_prepared(hand, agents, rng_for, self.timer)
             else:
                 outcome, _ = play_hand(adapter, deal, agents, rng_for, self.timer, public_info=public)
@@ -163,6 +199,8 @@ class PokerMatchPlayer:
                                  "starting_stacks": list(outcome.starting_stacks), "board": list(outcome.board),
                                  "pot": outcome.total_pot, "showdown": outcome.went_to_showdown,
                                  "decisions": outcome.decision_count})
+            for rec in outcome.history:
+                history.append((h, pos[rec.seat], rec.street, rec.kind.value, rec.amount))
             for p, b in enumerate(pos):
                 score[b] += pay[p]
                 if self.persistent:
@@ -211,6 +249,62 @@ def _play_prepared(hand: Any, agents: Sequence[Agent], rng_for: Callable[[int, i
             return self._h
 
     return play_hand(_Pre(hand), None, agents, rng_for, timer)  # type: ignore[arg-type]
+
+
+# ------------------------------------------------------------------ duplicate matches
+def lane_orders(key: MatchKey, seat_order: Sequence[str]) -> list[list[str]]:
+    """k lane seatings: cyclic rotations of a keyed base seating (varies per match).
+
+    Lane l seat i holds base[(i + l) mod k], so across the k lanes every bot starts in
+    every seat exactly once; the base order is a keyed shuffle of the Swiss/calibration
+    table, so neighbour relationships vary from match to match.
+    """
+    base = KeyedStream("fhr3b-duplicate-base", key.chance_seed, key.decision_seed, key.round,
+                       key.table).shuffle(sorted(seat_order))
+    k = len(base)
+    return [[base[(i + lane) % k] for i in range(k)] for lane in range(k)]
+
+
+class DuplicateMatchPlayer:
+    """k-lane duplicate of a whole match (k = number of bots seated).
+
+    Every lane is a complete, independent match (``PokerMatchPlayer.play`` with its own
+    agent instances, stacks, busts and match history) on the same chance stream. Nothing
+    is merged during play; a bot's result is the sum of its final lane chip deltas.
+    ``hands_played`` counts all lanes (simulator work).
+    """
+
+    zero_sum = True
+
+    def __init__(self, game: GameConfig, stack_policy: str, agent_factory: Callable[[], Mapping[str, Agent]],
+                 max_lanes: int = 10) -> None:
+        self.game, self.stack_policy = game, stack_policy
+        # one player (hence one set of agent instances) per lane: no shared agent state
+        self.lanes = [PokerMatchPlayer(game, stack_policy, agent_factory()) for _ in range(max_lanes)]
+
+    def play(self, key: MatchKey, seat_order: Sequence[str], hands: int,
+             hand_log: list[dict[str, Any]] | None = None) -> MatchResult:
+        orders = lane_orders(key, seat_order)
+        if len(orders) > len(self.lanes):
+            raise ValueError(f"table of {len(orders)} exceeds {len(self.lanes)} lanes")
+        totals = {b: 0 for b in seat_order}
+        lanes_info, played, first_bust = [], 0, {b: -1 for b in seat_order}
+        for lane, order in enumerate(orders):
+            log: list[dict[str, Any]] | None = [] if hand_log is not None else None
+            res = self.lanes[lane].play(key, order, hands, hand_log=log, lane=lane)
+            if sum(res.deltas.values()) != 0:
+                raise ChipConservationError(f"match {key} lane {lane}: not zero-sum")
+            for b, d in res.deltas.items():
+                totals[b] += d
+                bh = res.bust_hand.get(b, -1)
+                if bh >= 0 and (first_bust[b] < 0 or bh < first_bust[b]):
+                    first_bust[b] = bh
+            played += res.hands_played
+            lanes_info.append({"lane": lane, "seat_order": order, "deltas": dict(res.deltas),
+                               "hands_played": res.hands_played, "bust_hand": dict(res.bust_hand)})
+            if hand_log is not None:
+                hand_log.extend({"lane": lane} | r for r in log)
+        return MatchResult(totals, played, first_bust, {"duplicate_lanes": lanes_info})
 
 
 # ------------------------------------------------------------------ synthetic model

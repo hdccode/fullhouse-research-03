@@ -25,7 +25,7 @@ from fhr3.tournament.cells import Cell
 from fhr3.tournament.match import MatchKey
 from fhr3.tournament.runner import TournamentResult, initial_order, rows_digest, run_tournament
 from fhr3.tournament.schedule import schedule_from_rows, validate_assignment
-from fhr3.tournament.store import read_tournament_rows
+from fhr3.tournament.store import read_lane_rows, read_tournament_rows
 from fhr3.tournament.swiss import compute_standings, initial_standings, positional_ranks, swiss_pairing
 
 
@@ -38,12 +38,33 @@ def _fail(msg: str) -> None:
 
 
 def validate_tournament_rows(cell: Cell, replicate: int, tables: Sequence[dict], final: Sequence[dict],
-                             manifest: dict[str, Any], source_schedule: Any = None) -> None:
+                             manifest: dict[str, Any], source_schedule: Any = None,
+                             lanes: Sequence[dict] = ()) -> None:
     p = cell.protocol
     bots = sorted(cell.field.bot_ids)
     spec = cell.tournament_spec(replicate, source_schedule if cell.kind == "frozen_replay" else None)
-    if rows_digest(tables, final) != manifest["digest"]:
+    if rows_digest(tables, final, lanes) != manifest["digest"]:
         _fail("digest mismatch")
+    if p.match_format == "duplicate":
+        if not lanes:
+            _fail("duplicate tournament without per-lane rows")
+        groups: dict[tuple[int, int], list[dict]] = {}
+        for ln in lanes:
+            groups.setdefault((ln["round"], ln["table_index"]), []).append(ln)
+        for (rnd, t), rows_ in groups.items():
+            bots_ = sorted({ln["bot_id"] for ln in rows_})
+            k = len(bots_)
+            if sorted({ln["lane"] for ln in rows_}) != list(range(k)):
+                _fail(f"round {rnd} table {t}: lane count != table size")
+            for lane in range(k):
+                lr = [ln for ln in rows_ if ln["lane"] == lane]
+                if sum(ln["chip_delta"] for ln in lr) != 0 or sorted(ln["start_seat"] for ln in lr) != list(range(k)):
+                    _fail(f"round {rnd} table {t} lane {lane}: not zero-sum or seats incomplete")
+            for b in bots_:
+                if sorted(ln["start_seat"] for ln in rows_ if ln["bot_id"] == b) != list(range(k)):
+                    _fail(f"round {rnd} table {t}: {b} does not start in every seat exactly once")
+    elif lanes:
+        _fail("ordinary tournament with lane rows")
     rounds = sorted({r["round"] for r in tables})
     if rounds != list(range(1, p.rounds + 1)):
         _fail(f"round count {len(rounds)} != R={p.rounds}")
@@ -97,7 +118,8 @@ def validate_cell(root: Path, cell: Cell, replicates: Sequence[int]) -> dict[str
     checked = 0
     for rep in replicates:
         tables, final, man = read_tournament_rows(root, cell, rep)
-        validate_tournament_rows(cell, rep, tables, final, man, _schedule_for(cell, Path(root), rep))
+        validate_tournament_rows(cell, rep, tables, final, man, _schedule_for(cell, Path(root), rep),
+                                 read_lane_rows(root, cell, rep))
         checked += 1
     return {"cell_id": cell.cell_id, "validated": checked}
 

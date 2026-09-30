@@ -1,0 +1,36 @@
+bot,street,position,players,hole,board,preflop_pct,stack_bb,to_call_bb,pot_bb,action
+nlhe6-neutral-e1-s0,1,MP,6,Ac Jc,3c 8c 9c,0.965,73.8,27.88,79.69,br
+nlhe6-neutral-e1-s0,2,BTN,6,8d Ad,9s 2d Jd 4h,0.888,93.9,9.33,22.11,br
+nlhe6-neutral-e1-s0,2,SB,3,As Kh,7h Qd 6d 4h,0.971,46.4,0.0,46.52,br
+nlhe6-neutral-e1-s0,2,SB,5,Kd As,2s 8c Ad Ac,0.971,90.5,42.09,82.0,br
+nlhe6-neutral-e1-s0,0,SB,4,Qc Qs,,0.989,266.8,7.14,22.6,br
+nlhe6-neutral-e1-s0,3,SB,3,Ac 4c,7h 8s 8c Ah 8d,0.876,288.9,26.85,58.33,br
+nlhe6-neutral-e1-s0,3,EP,6,Jh Th,4c 4d Qd 9s 8h,0.94,23.6,0.0,37.02,br
+nlhe6-neutral-e1-s0,3,SB,6,Kh 7h,Ah Tc Jh 5s Ts,0.668,13.3,0.0,27.26,br
+nlhe6-neutral-e1-s0,0,BTN,6,Kc Qc,,0.962,110.7,10.0,26.88,br
+nlhe6-neutral-e1-s0,3,BTN,6,7s 7h,As 8d 4h 4s 6d,0.827,21.0,0.0,34.0,br
+nlhe6-neutral-e1-s0,1,MP,6,As Kd,Ah 9s Ac,0.971,86.9,40.54,74.65,br
+nlhe6-neutral-e1-s0,2,BB,3,Ah 7s,Ad 5h 7d Qs,0.722,332.7,54.38,100.14,br
+nlhe6-neutral-e1-s0,1,BTN,6,Qh Kc,Jh Js 9d,0.917,67.7,65.96,119.04,cc
+nlhe6-neutral-e1-s0,2,SB,4,Jh Qh,Ks Th 5h 3c,0.943,57.3,0.0,42.1,br
+nlhe6-neutral-e1-s0,0,SB,6,Th Ts,,0.959,10.9,2.1,4.1,br
+nlhe6-neutral-e1-s0,0,BTN,6,Jh Js,,0.981,6.9,2.66,4.16,br
+nlhe6-neutral-e1-s0,3,BB,3,3h Ah,3d 7c 2h 5h 7h,0.873,52.0,0.0,74.36,br
+nlhe6-neutral-e1-s0,2,SB,3,Ac 4c,Ah Jd Kh 4h,0.876,197.8,220.84,372.1,cc
+nlhe6-neutral-e1-s0,3,BTN,6,Qc Kh,4d 6d 6s Kd Ah,0.917,57.5,0.0,59.81,br
+nlhe6-neutral-e1-s0,2,BB,6,Th 9c,Tc Ks Js 7d,0.775,80.5,63.76,156.56,cc
+nlhe6-neutral-e1-s0,1,MP,6,Ac Ad,8d 3c Tc,0.998,40.8,0.0,29.92,br
+nlhe6-neutral-e1-s0,1,MP,6,Ts 9s,Ac 7h 8d,0.902,104.6,136.8,190.97,cc
+nlhe6-neutral-e1-s0,0,BB,6,Jd Js,,0.981,1.1,1.0,3.0,cc
+nlhe6-neutral-e1-s0,0,BB,6,8c 9s,,0.766,1.6,1.0,3.0,cc
+nlhe6-neutral-e1-s0,1,BB,6,7s 9c,6d 6s 3s,0.623,0.5,3.46,8.52,cc
+nlhe6-neutral-e1-s0,0,MP,6,As Kc,,0.971,96.0,84.18,116.32,cc
+nlhe6-neutral-e1-s0,0,SB,6,As Ah,,0.998,189.8,16.94,66.1,br
+nlhe6-neutral-e1-s0,2,BB,5,9h Qc,9s 4s 7c 7h,0.647,59.9,0.0,42.32,br
+nlhe6-neutral-e1-s0,2,SB,4,Qh Kd,9h 2c Ks 6s,0.917,29.5,24.34,51.6,cc
+nlhe6-neutral-e1-s0,2,BTN,5,Kh As,2d Qh Ks 5s,0.971,164.8,21.56,52.8,br
+nlhe6-neutral-e1-s0,0,BB,3,Qh Qs,,0.989,344.1,5.78,20.32,br
+nlhe6-neutral-e1-s0,3,MP,4,Jd Jh,6s Qh 6h As Js,0.981,61.2,0.0,110.94,br
+nlhe6-neutral-e1-s0,0,BB,3,Ac Jc,,0.965,8.2,1.19,3.19,br
+nlhe6-neutral-e1-s0,0,BB,3,Ad Ks,,0.971,9.4,1.19,3.19,br
+nlhe6-neutral-e1-s0,1,BB,3,Tc Jh,7c 9d 5h,0.843,9.0,3.38,7.76,br

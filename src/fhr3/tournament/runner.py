@@ -42,6 +42,10 @@ TABLE_COLUMNS = (
     "pre_score", "pre_rank", "match_seed", "chip_delta", "hands_played", "bust_hand",
     "post_score", "post_rank", "post_best_match_delta",
 )
+LANE_COLUMNS = (  # duplicate matches only: compact per-lane outcome of every seated bot
+    "tournament_id", "replicate", "round", "table_index", "lane", "bot_id", "start_seat", "chip_delta",
+    "hands_played", "bust_hand", "busted",
+)
 FINAL_COLUMNS = (
     "tournament_id", "replicate", "bot_id", "final_score", "final_rank", "qualified",
     "matches_played", "best_match_delta", "dense_rank",
@@ -77,6 +81,7 @@ class TournamentResult:
     hands_played: int
     runtime_s: float
     digest: str = ""
+    lane_rows: list[dict[str, Any]] = field(default_factory=list)
     extra: dict[str, Any] = field(default_factory=dict)
 
     @property
@@ -107,10 +112,18 @@ class TournamentResult:
         } | self.extra
 
 
-def rows_digest(table_rows: Sequence[dict[str, Any]], final_rows: Sequence[dict[str, Any]]) -> str:
-    """Hash of the analytical content (row values only; runtime/metadata excluded)."""
+def rows_digest(table_rows: Sequence[dict[str, Any]], final_rows: Sequence[dict[str, Any]],
+                lane_rows: Sequence[dict[str, Any]] = ()) -> str:
+    """Hash of the analytical content (row values only; runtime/metadata excluded).
+
+    Lane rows (duplicate matches) are hashed only when present, so ordinary digests are
+    unchanged.
+    """
     h = hashlib.sha256()
-    for rows, cols in ((table_rows, TABLE_COLUMNS), (final_rows, FINAL_COLUMNS)):
+    sections = [(table_rows, TABLE_COLUMNS), (final_rows, FINAL_COLUMNS)]
+    if lane_rows:
+        sections.append((lane_rows, LANE_COLUMNS))
+    for rows, cols in sections:
         for r in rows:
             h.update(json.dumps([r[c] for c in cols], separators=(",", ":")).encode())
             h.update(b"\n")
@@ -147,6 +160,7 @@ def run_tournament(spec: TournamentSpec, player: MatchPlayer) -> TournamentResul
     standings: list[Standing] = initial_standings(initial_order(spec))
     all_results: list[tuple[str, int]] = []
     table_rows: list[dict[str, Any]] = []
+    lane_rows: list[dict[str, Any]] = []
     used_schedule: list[list[list[str]]] = []
     hands_total = 0
     for rnd in range(1, p.rounds + 1):
@@ -167,6 +181,16 @@ def run_tournament(spec: TournamentSpec, player: MatchPlayer) -> TournamentResul
             if player.zero_sum and sum(res.deltas.values()) != 0:
                 raise TournamentInvariantError(f"round {rnd} table {t_idx}: chip deltas do not sum to zero")
             hands_total += res.hands_played
+            for ln in res.info.get("duplicate_lanes", ()):
+                if sum(ln["deltas"].values()) != 0:
+                    raise TournamentInvariantError(f"round {rnd} table {t_idx} lane {ln['lane']}: not zero-sum")
+                for start_seat, b in enumerate(ln["seat_order"]):
+                    bh = int(ln["bust_hand"].get(b, -1))
+                    lane_rows.append({
+                        "tournament_id": spec.tournament_id, "replicate": spec.replicate, "round": rnd,
+                        "table_index": t_idx, "lane": ln["lane"], "bot_id": b, "start_seat": start_seat,
+                        "chip_delta": int(ln["deltas"][b]), "hands_played": int(ln["hands_played"]),
+                        "bust_hand": bh, "busted": bh >= 0})
             for seat, b in enumerate(seat_order):
                 if b in round_delta:
                     raise TournamentInvariantError(f"round {rnd}: {b} scored twice")
@@ -216,7 +240,14 @@ def run_tournament(spec: TournamentSpec, player: MatchPlayer) -> TournamentResul
         })
     if compute_standings(all_results) != standings:
         raise TournamentInvariantError("final standings not reproducible from scores")
+    if lane_rows:  # lane-summed score is the scoring quantity; lanes must add up to it
+        by: dict[tuple[int, int, str], int] = {}
+        for ln in lane_rows:
+            k = (ln["round"], ln["table_index"], ln["bot_id"])
+            by[k] = by.get(k, 0) + ln["chip_delta"]
+        if any(by[(r["round"], r["table_index"], r["bot_id"])] != r["chip_delta"] for r in table_rows):
+            raise TournamentInvariantError("lane deltas do not sum to the table chip delta")
     res = TournamentResult(spec, table_rows, final_rows, used_schedule, hands_total,
-                           time.perf_counter() - t0)
-    res.digest = rows_digest(table_rows, final_rows)
+                           time.perf_counter() - t0, lane_rows=lane_rows)
+    res.digest = rows_digest(table_rows, final_rows, lane_rows)
     return res

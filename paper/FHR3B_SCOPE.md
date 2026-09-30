@@ -1,94 +1,128 @@
-# FHR3B scope
+# FHR3B scope (locked design)
 
-FHR3B studies the reliability of a FullHouse-style adversarial Swiss evaluation system.
+**Question.** How should FullHouse spend a finite simulation budget so that a Swiss-style
+poker-bot competition reliably identifies the strongest agents?
 
-The public 2026 FullHouse engine provides the architectural provenance for the tournament
-design. Incomplete production records make an exact historical reconstruction impossible.
-The primary experiments therefore use a frozen, controlled research protocol,
-**`fhr3b_baseline`**:
+The object of study is the whole tournament mechanism. One independent observation is one
+complete tournament replication:
 
-* 60 agents;
-* top 6 qualify;
-* 40 Swiss rounds;
-* 400-hand matches;
-* raw cumulative chip-delta scoring.
+```text
+field -> tables -> poker outcomes -> cumulative standings -> standings-dependent Swiss reassignment
+      -> further rounds -> final leaderboard -> top-6 qualification set
+```
 
-These parameters are research design choices. They are not claims about undocumented 2026
-production settings.
+FHR3B is about the reliability of that mechanism. The lower-level question of pairwise
+evaluation variance belongs to FHR3A, which is a separate note; FHR3B does not change its
+manuscript, figures F1–F6, claims or corpora.
 
-## Three separate things
+## Research baseline (`fhr3b_baseline`, `lab60_top6`)
 
-| | what it is | where |
+| parameter | value | status |
 |---|---|---|
-| **Historical provenance** | `historical_2026_reconstruction`: what the public 2026 engine (`mbatv/fullhouse-engine@a80b269`) establishes, with every unknown left unknown. The 2026 qualifier's round count and field size are UNKNOWN. | `docs/fhr3b/2026_protocol_audit.md`, `configs/fhr3b/protocols/historical_2026_reconstruction.yaml` |
-| **Controlled research experiment** | `fhr3b_baseline` in the `lab60_top6` environment. All primary results (A, B, C, `mu_field`, `mu_swiss`) come from it. | `configs/fhr3b/protocols/fhr3b_baseline.yaml`, `configs/fhr3b/lab/lab60_top6.yaml` |
-| **Optional historical operational validation** | Experiment D. Blocked until the missing historical values are supplied from records; never filled with research choices. | `fhr3b run --experiment operational-2026` |
+| field size N | 60 bots | research design choice |
+| qualifiers K | top 6 (~10%) | research design choice |
+| rounds | **40 is the initial horizon**; checkpoints 5, 10, 20, 30, 40 | a starting point, **not** an assumption that 40 rounds suffice. If reliability is still improving at 40, the experiment extends to 60, 80, 120 or further (`fhr3b run --horizon R`) |
+| hands per match | 400 | retained from the public 2026 engine |
+| round 1 | deterministic seeded shuffle | research design choice |
+| later rounds | standings-dependent Swiss assignment | public 2026 engine rule |
+| score | raw cumulative chip delta; public 2026 tiebreaks | public 2026 engine rule |
+| publication modes | **AoF4, NLHE4, NLHE6** | PLO is removed from FHR3B |
 
-## Research question and experiments
+The public 2026 FullHouse engine is architectural provenance only. N, K, the 40-round
+horizon and the round-1 order are research choices, not 2026 settings. The historical record,
+with its unknowns, is `historical_2026_reconstruction`
+(`docs/fhr3b/2026_protocol_audit.md`). The historical operational validation (H) stays
+blocked until its missing values are supplied.
 
-The primary question: **how quickly does a FullHouse-style Swiss leaderboard, and especially
-its qualification boundary, stabilise as more play is added?** It is not "how many rounds
-did FullHouse 2026 need?".
+## Match semantics
 
-* **A. Rounds.** Standings after 5, 10, 20, 30 and 40 rounds. These are exact prefixes of the
-  40-round research-baseline tournaments.
-* **B. Fixed poker volume.** Each bot plays the same number of hands, allocated as 10 × 1600,
-  20 × 800 or 40 × 400. Is evaluation more reliable when that volume is spread over more
-  Swiss opponents, or spent measuring each matchup more precisely?
-* **C. Path dependence.** Adaptive Swiss against a research-only frozen-schedule
-  counterfactual. This is a diagnostic of feedback amplification, not an additive variance
-  decomposition and not a proposed format.
+**NLHE4 and NLHE6** follow the public 2026 match rule:
 
-## Commitments
+* every Swiss match starts every bot at 100 BB;
+* stacks persist between hands within the match, with no rebuys;
+* a bot at zero is out for the rest of the match, and survivors play on with their actual
+  stacks, including short, deep and asymmetric effective stacks;
+* each new Swiss round is a new match, starting again at 100 BB;
+* the standing is the cumulative chip delta over matches.
 
-1. **Object of study.** Whole-field Swiss ranking reliability: bots at tables, raw outcomes,
-   cumulative standings, standings-dependent pairing, final leaderboard, top-K cut. It is not
-   a pairwise candidate-versus-reference benchmark.
-2. **Unit.** One independent observation is one complete tournament. Hands, matches and
-   rounds are never replicates. All uncertainty is computed over tournaments; for C it is
-   computed over independent source schedules.
-3. **Primary reliability notion: repeatability.** How similar are the leaderboard and the
-   qualifying set when the same field replays the same protocol under fresh randomness? The
-   measures are:
-   * top-K overlap and changed qualifiers;
-   * per-bot P(qualify);
-   * rank correlations and mean absolute rank change;
-   * cutoff curves;
-   * pairwise inversions.
+Dynamic stack management is therefore part of the measured skill. Busting is not treated as a
+defect in itself.
 
-   No "true ranking" is required.
-4. **References are diagnostics.** Balanced field EV (`mu_field`) and expected Swiss
-   performance (`mu_swiss`) are research references, never production scores. Neither is
-   assumed to be the true ranking. A difference between their orderings is reported as a
-   finding.
-5. **Scoring.** Raw cumulative chip delta with the public engine's tiebreaks is the only
-   ranking rule.
-6. **Not implemented:**
-   * opponent-strength adjustment, Elo or latent-strength ranking;
-   * variance-reduced scoring (all-in EV, MIVAT, AIVAT);
-   * confidence-aware qualification;
-   * a fixed-reference replacement for Swiss.
-7. **`lab60_top6` is a controlled research environment,** not a proposed FullHouse format.
-   N = 60 divides into 4-max and 6-max tables, so no remainder tables arise. K = 6 gives a
-   ~10% qualification boundary.
-8. **Why R0 = 40:**
-   * clean prefixes at 5 / 10 / 20 / 30 / 40;
-   * enough opponent exposure for the reliability curve;
-   * a meaningful high-budget reference point;
-   * the exact budget allocations of B;
-   * computationally manageable.
+**AoF4** keeps its format rule: every hand at 8 BB (reset each hand).
 
-   H0 = 400 retains the public engine's match length.
-9. **FHR3A stays separate.** FHR3A is an empirical note on the anatomy of evaluation noise in
-   matched pairwise comparisons. FHR3B changes none of its manuscript, figures F1–F6, claims
-   or corpora.
+## Reference rankings (diagnostics, never scores)
 
-## Caveats any write-up must state
+* **`mu_field`**: long-run expected performance against the controlled field, estimated by
+  matched k-lane duplicate evaluation. It gives the static strength hierarchy.
+* **`mu_swiss`**: long-run expected performance under the Swiss process itself, estimated from
+  many complete tournaments.
 
-* The bots are synthetic, stateless FHR3 agents. Real 2026 bots could adapt to opponents
-  within a match.
-* Poker uses FHR3's PokerKit adapters, not the 2026 engine. Rules differ in rare edge cases.
-* Match rules differ by mode group: carried stacks for NLHE, PLO and CP; per-hand reset for
-  AoF, bomb pot and Nit. Cross-mode results compare whole formats.
-* All numbers are conditional on the constructed fields and on the research protocol.
-  They say nothing directly about the 2026 event's reliability.
+Neither is "true poker skill". Finite tournaments are assessed for **accuracy** against each
+reference and for **repeatability** across independent replications. Disagreement between the
+two references is a finding in its own right.
+
+## Experiments
+
+* **A. Rounds to reliability.** Qualification and ranking reliability at 5, 10, 20, 30 and 40
+  rounds. These are exact prefixes of the same tournaments, extended beyond 40 if needed.
+* **B. Fixed total poker budget.** 10 × 1600, 20 × 800 and 40 × 400 hands per bot. Is compute
+  better spent on more Swiss opponents or on more precision within each match?
+* **C. Adaptive Swiss vs frozen schedule.** A diagnostic of how early poker noise is amplified
+  through result → standings → future opponents → future results. It is not an additive
+  variance decomposition, and not necessarily a proposed format.
+* **D. Ordinary vs duplicate play at equal simulator cost.** A k-player table becomes k
+  duplicate lanes:
+  * the same initial stacks and the same chance stream;
+  * bots rotated cyclically so each occupies every seat once;
+  * independent stack trajectories and bot state in every lane, with no information passing
+    between lanes;
+  * per-bot chip deltas aggregated only after the whole match.
+
+  The comparison normalises by played work. The question is whether FullHouse should spend
+  compute on duplicate trajectories or on more ordinary poker, not whether duplication reduces
+  variance in isolation. **Status: implemented (not yet run).** The same construction provides
+  the matched `mu_field`.
+
+## Metrics
+
+* **Primary (qualification):**
+  * expected number of changed qualifiers;
+  * expected top-6 overlap;
+  * per-bot P(qualify);
+  * number of bots with ambiguous qualification.
+* **Supporting:**
+  * Kendall tau;
+  * Spearman correlation;
+  * mean absolute rank displacement;
+  * pairwise inversion probability against the reference strength gap;
+  * top-6 overlap with the reference top 6 (accuracy).
+
+All uncertainty is computed over tournaments. Hands, matches and rounds are never replicates.
+
+## Controlled fields
+
+| field | purpose |
+|---|---|
+| `spread` | broad strength distribution with a separated rank-6/rank-7 boundary |
+| `crowded_cutoff` | several genuinely similar bots, of different strategies, straddling the boundary |
+| `style_diverse` | deliberate balance of observed style across strength strata |
+
+Non-transitive (matchup) structure is **measured, never selected on**. The former
+`matchup_sensitive` field and its gate are retired.
+
+The bots are synthetic experimental instruments: transparent, stateless FHR3 policy families.
+They are not models of human professionals. Selection rules and the realism audit are in
+`docs/fhr3b/FIELDS.md` and `reports/fhr3b/field-calibration/FIELD_CALIBRATION_REVIEW.md`.
+
+## Caveats every write-up must state
+
+* **Stateless agents (D5).** Within-match opponent modelling is under-represented. The match
+  runner exposes the rolling previous-hand history, as the public 2026 engine does, but the
+  shipped FHR3 agents condition only on the current hand's observation (including all stacks).
+* **Weak stack-depth adaptation.** In the replay audit, NLHE preflop VPIP is flat across stack
+  depth; only all-in propensity rises when short. Stack skill is expressed mainly through
+  commitment thresholds and pot odds.
+* **Rule differences across modes.** AoF resets stacks every hand; NLHE carries them.
+  Cross-mode contrasts compare whole formats.
+* **Conditional results.** Every result is conditional on the constructed fields and on the
+  research protocol. None of it describes the 2026 event directly.

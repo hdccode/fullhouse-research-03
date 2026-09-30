@@ -21,7 +21,7 @@ from typing import Any
 
 from fhr3.agents import build_agent
 from fhr3.tournament.fields import FieldManifest, Mode, field_from_dict, game_from_dict
-from fhr3.tournament.match import MATCH_ENGINE_VERSION, PokerMatchPlayer
+from fhr3.tournament.match import MATCH_ENGINE_VERSION, DuplicateMatchPlayer, PokerMatchPlayer
 from fhr3.tournament.manifests import (
     cell_identity,
     identity_hash,
@@ -78,7 +78,8 @@ class Cell:
     def cell_id(self) -> str:
         p = self.protocol
         kind = {"adaptive": "swiss", "frozen_replay": "frozen", "adaptive_replay": "adaptrep"}[self.kind]
-        return (f"{self.mode.mode}.{self.field.field_id}.{p.name}.R{p.rounds}H{p.hands_per_match}K{p.qualify_top_k}"
+        fmt = "dup" if p.match_format == "duplicate" else ""
+        return (f"{self.mode.mode}.{self.field.field_id}.{p.name}.R{p.rounds}H{p.hands_per_match}K{p.qualify_top_k}{fmt}"
                 f".{kind}.{self.namespace}.{self.identity_hash[:8]}")
 
     def source_index(self, replicate: int) -> tuple[int, int]:
@@ -109,8 +110,12 @@ class Cell:
 
             return SyntheticMatchPlayer(self.synthetic["strength"], self.synthetic.get("noise_sd", 100.0),
                                         self.synthetic.get("edge"))
-        agents = {b: build_agent(spec) for b, spec in self.field.specs().items()}
-        return PokerMatchPlayer(self.mode.game, self.protocol.stack_policy, agents)
+        specs = self.field.specs()
+        if self.protocol.match_format == "duplicate":
+            return DuplicateMatchPlayer(self.mode.game, self.protocol.stack_policy,
+                                        lambda: {b: build_agent(s) for b, s in specs.items()})
+        return PokerMatchPlayer(self.mode.game, self.protocol.stack_policy,
+                                {b: build_agent(s) for b, s in specs.items()})
 
     # ------------------------------------------------------------ (de)serialisation for workers/locks
     def to_dict(self) -> dict[str, Any]:

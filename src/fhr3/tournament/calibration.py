@@ -40,7 +40,13 @@ from fhr3.agents import build_agent
 from fhr3.rng import KeyedStream, derive_seed
 from fhr3.tournament.fields import FieldManifest, Mode, field_from_dict, game_from_dict
 from fhr3.tournament.manifests import check_namespace, engine_source_hash, identity_hash
-from fhr3.tournament.match import MATCH_ENGINE_VERSION, MatchKey, PokerMatchPlayer, SyntheticMatchPlayer
+from fhr3.tournament.match import (
+    MATCH_ENGINE_VERSION,
+    DuplicateMatchPlayer,
+    MatchKey,
+    PokerMatchPlayer,
+    SyntheticMatchPlayer,
+)
 
 CALIBRATION_VERSION = "fhr3b-calibration-v1"
 ROW_SCHEMA = pa.schema([("round", pa.int32()), ("table_index", pa.int16()), ("seat", pa.int8()),
@@ -58,20 +64,25 @@ class CalibrationSpec:
     namespace: str  # pool-calibration | field-reference | test
     chunk_rounds: int = 25
     synthetic: dict[str, Any] | None = None
+    match_format: str = "ordinary"  # "duplicate": matched k-lane matches (equal-work rounds set by the caller)
 
     def __post_init__(self) -> None:
         check_namespace(self.namespace)
+        if self.match_format not in ("ordinary", "duplicate"):
+            raise ValueError("match_format must be ordinary or duplicate")
 
     @cached_property
     def identity(self) -> dict[str, Any]:
         return {"calibration_version": CALIBRATION_VERSION, "match_engine_version": MATCH_ENGINE_VERSION,
                 "mode": self.mode.to_dict(), "field_hash": self.field.field_hash, "H": self.hands_per_match,
                 "stack_policy": self.stack_policy, "seed_family": self.seed_family, "namespace": self.namespace,
-                "chunk_rounds": self.chunk_rounds, "synthetic": self.synthetic}
+                "chunk_rounds": self.chunk_rounds, "synthetic": self.synthetic} | (
+                    {"match_format": self.match_format} if self.match_format != "ordinary" else {})
 
     @property
     def calib_id(self) -> str:
-        return (f"{self.mode.mode}.{self.field.field_id}.H{self.hands_per_match}.{self.namespace}"
+        fmt = ".dup" if self.match_format == "duplicate" else ""
+        return (f"{self.mode.mode}.{self.field.field_id}.H{self.hands_per_match}{fmt}.{self.namespace}"
                 f".{identity_hash(self.identity)[:8]}")
 
     @property
@@ -88,14 +99,17 @@ class CalibrationSpec:
         if self.synthetic is not None:
             return SyntheticMatchPlayer(self.synthetic["strength"], self.synthetic.get("noise_sd", 100.0),
                                         self.synthetic.get("edge"))
-        agents = {b: build_agent(s) for b, s in self.field.specs().items()}
-        return PokerMatchPlayer(self.mode.game, self.stack_policy, agents)
+        specs = self.field.specs()
+        if self.match_format == "duplicate":
+            return DuplicateMatchPlayer(self.mode.game, self.stack_policy,
+                                        lambda: {b: build_agent(s) for b, s in specs.items()})
+        return PokerMatchPlayer(self.mode.game, self.stack_policy, {b: build_agent(s) for b, s in specs.items()})
 
     def to_dict(self) -> dict[str, Any]:
         return {"mode": self.mode.to_dict() | {"primary": self.mode.primary}, "field": self.field.to_dict(),
                 "hands_per_match": self.hands_per_match, "stack_policy": self.stack_policy,
                 "seed_family": self.seed_family, "namespace": self.namespace, "chunk_rounds": self.chunk_rounds,
-                "synthetic": self.synthetic}
+                "synthetic": self.synthetic, "match_format": self.match_format}
 
 
 def spec_from_dict(d: dict[str, Any]) -> CalibrationSpec:
@@ -103,7 +117,8 @@ def spec_from_dict(d: dict[str, Any]) -> CalibrationSpec:
     mode = Mode(m["mode"], game_from_dict(m["game"]), int(m["table_size"]), m["stack_policy"],
                 m["agent_family"], bool(m.get("primary", False)))
     return CalibrationSpec(mode, field_from_dict(d["field"]), int(d["hands_per_match"]), d["stack_policy"],
-                           d["seed_family"], d["namespace"], int(d.get("chunk_rounds", 25)), d.get("synthetic"))
+                           d["seed_family"], d["namespace"], int(d.get("chunk_rounds", 25)), d.get("synthetic"),
+                           d.get("match_format", "ordinary"))
 
 
 def play_rounds(spec: CalibrationSpec, start: int, end: int, player: Any) -> list[dict[str, Any]]:

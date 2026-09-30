@@ -1,0 +1,73 @@
+{
+ "calibration_digest": "4159e79f7c395b203cd8e5cc50df2ec2",
+ "calibration_id": "nlhe6.nlhe6-pool.H400.pool-calibration.4d3e14b6",
+ "calibration_identity_hash": "4d3e14b653e156fb",
+ "calibration_round_groups": 80,
+ "fields": {
+  "crowded_cutoff": {
+   "field_hash": "a845c2fcf1b2ed33",
+   "field_id": "nlhe6-crowded_cutoff",
+   "hodge_on_pool_data": {
+    "cyclic": 8625954082.059092,
+    "cyclic_share_debiased": 0.8401258146709024,
+    "cyclic_share_raw": 0.94141993595435,
+    "gradient": 536751903.4633655,
+    "noise": 7334613579.282295,
+    "total": 9162705985.522457
+   },
+   "path": "/Users/henry/fullhouse-research-03b/configs/fhr3b/fields/nlhe6/crowded_cutoff.json"
+  },
+  "matchup_sensitive": {
+   "field_hash": "b5b1e9c8f555b21f",
+   "field_id": "nlhe6-matchup_sensitive",
+   "hodge_on_pool_data": {
+    "cyclic": 7729416451.899604,
+    "cyclic_share_debiased": 1.890276483995356,
+    "cyclic_share_raw": 0.9849158384254881,
+    "gradient": 118377390.319492,
+    "noise": 7692732976.616028,
+    "total": 7847793842.219096
+   },
+   "path": "/Users/henry/fullhouse-research-03b/configs/fhr3b/fields/nlhe6/matchup_sensitive.json"
+  },
+  "spread": {
+   "field_hash": "3d255a75e590763b",
+   "field_id": "nlhe6-spread",
+   "hodge_on_pool_data": {
+    "cyclic": 9079499800.612623,
+    "cyclic_share_debiased": 0.8161522892776066,
+    "cyclic_share_raw": 0.9406792860414138,
+    "gradient": 572567524.9273735,
+    "noise": 7985569069.622519,
+    "total": 9652067325.539997
+   },
+   "path": "/Users/henry/fullhouse-research-03b/configs/fhr3b/fields/nlhe6/spread.json"
+  }
+ },
+ "matchup_gate": {
+  "ci": [
+   0.9911942061086794,
+   1.0106230341598477
+  ],
+  "passed": true,
+  "threshold": 0.05,
+  "value": 1.890276483995356
+ },
+ "matchup_label": "matchup_sensitive",
+ "mode": "nlhe6",
+ "pool_hash": "479125f8aa79e5a6",
+ "pool_hodge": {
+  "bootstrap_groups": 80,
+  "cyclic": 23373514355.089935,
+  "cyclic_share_debiased": 0.7811910163211689,
+  "cyclic_share_debiased_ci": [
+   0.9502752357029011,
+   0.970270509031074
+  ],
+  "cyclic_share_raw": 0.9435504646725649,
+  "gradient": 1398360844.1884804,
+  "noise": 20315366990.665558,
+  "total": 24771875199.278416
+ },
+ "selection_version": "fhr3b-selection-v1"
+}

@@ -1,0 +1,31 @@
+{
+ "mode": "nlhe6",
+ "profile": "publication",
+ "calib_id": "nlhe6.nlhe6-pool.H400.pool-calibration.4d3e14b6",
+ "rounds_replayed": [
+  0,
+  1,
+  2,
+  3,
+  4,
+  5,
+  6,
+  7,
+  8,
+  9,
+  10,
+  11,
+  12,
+  13,
+  14,
+  15,
+  16,
+  17,
+  18,
+  19
+ ],
+ "matches_replayed": 320,
+ "bot_match_results_verified": 1920,
+ "replay_matches_stored_deltas": true,
+ "behaviour_csv_sha256": "6f7b46c95504b2544450f74d18aa8bc553cf3b4aadb27bee3582c70a37ba4124"
+}
