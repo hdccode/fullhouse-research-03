@@ -2,7 +2,7 @@
 # refuse any field manifest that is not listed here with a matching field_hash
 # (src/fhr3/tournament/experiments.py: Profile.field). Selection writes candidates; freezing is an
 # explicit human decision recorded in this file.
-approved: 2026-09-30
+approved: 2026-09-30   # AoF4 (NLHE4 / NLHE6 frozen 2026-10-01)
 approved_by: Henry (review of reports/fhr3b/field-calibration/FIELD_CALIBRATION_REVIEW.md; decisions D1-D5)
 selection_version: fhr3b-selection-v2
 fields:
@@ -10,8 +10,16 @@ fields:
     spread: db5912d65a47b215            # gap 6.6 BB = 2.89 SE (target 3, diversity-constrained); zero near-duplicates
     crowded_cutoff: b9709c10c5aef403
     style_diverse: 195ceda2edb24052
-  # nlhe6: pending re-calibration on fhr3b_heuristic (pool a867bd18d6033233); previous freeze REVOKED below
-  # nlhe4: pending re-calibration on fhr3b_heuristic (pool c9b0ffb56855a62d)
+  # NLHE: fhr3b_heuristic (corrected heads-up roles); frozen 2026-10-01 after
+  # reports/fhr3b/field-calibration/NLHE_RECALIBRATION_REVIEW.md. Earlier NLHE6 freeze REVOKED below.
+  nlhe4:                                # pool c9b0ffb56855a62d; calibration nlhe4.nlhe4-pool.H400.pool-calibration.9880eebd
+    spread: 9321903d179be927            # gap 15.1 BB = 3.08 SE; zero near-duplicates
+    crowded_cutoff: b08787fc63ec0aeb
+    style_diverse: c673f69cff5facc5     # see NLHE4 style_diverse caveat
+  nlhe6:                                # pool a867bd18d6033233; calibration nlhe6.nlhe6-pool.H400.pool-calibration.aadd073b
+    spread: ff0f2b07fc210f62            # gap 16.8 BB = 3.06 SE; zero near-duplicates
+    crowded_cutoff: afbffedfc3706d84
+    style_diverse: ad7d6596ef1c8c3e
 
 # Revoked / invalid field and pool hashes: refused by publication and pilot runs even if re-listed above.
 revoked:
@@ -29,5 +37,6 @@ revoked:
 caveats:
   - "AoF4 style_diverse: style and strength are partly confounded; the strongest pool quintile contains no tight-aggressive bots."
   - "AoF4 crowded_cutoff (and spread top six): leaders are near-identical production-policy variants (D2 accepted); the cutoff cluster itself is strategically diverse."
-  - "NLHE: high bust rates are a property of the persistent-stack match rule, not pathology (re-check after re-calibration)."
+  - "NLHE: high bust rates are a property of the persistent-stack match rule, not pathology (confirmed after re-calibration)."
+  - "NLHE4 style_diverse: observed style is balanced across the selected field, but style is correlated with strength in the underlying corrected NLHE4 pool (eta^2 = 0.28), so style and strength cannot be fully separated in that environment."
   - "All agents are stateless synthetic policies; within-match opponent modelling is under-represented (D5)."

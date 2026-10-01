@@ -1,0 +1,34 @@
+bot,street,position,players,hole,board,preflop_pct,stack_bb,to_call_bb,pot_bb,action
+nlhe6-trapper-e3-s3,3,MP,6,9d 9h,9c Ts 3s 8d 6c,0.936,76.0,0.0,58.41,br
+nlhe6-trapper-e3-s3,0,MP,6,Qh Ks,,0.917,6.1,1.0,1.5,br
+nlhe6-trapper-e3-s3,2,EP,6,Kc Jc,8s Ts Kh 2c,0.946,67.6,67.64,133.86,cc
+nlhe6-trapper-e3-s3,1,BB,4,Qd Qh,6c 8c 3s,0.989,12.5,0.0,12.7,br
+nlhe6-trapper-e3-s3,3,BB,4,2c Ac,7c 3h 5s Kh 4d,0.87,30.6,27.45,56.99,cc
+nlhe6-trapper-e3-s3,3,EP,5,Td 9s,Qd 9c 3d 5s 3c,0.775,27.1,33.02,74.34,cc
+nlhe6-trapper-e3-s3,1,EP,5,Js Qs,9d Jh Ts,0.943,80.5,16.07,29.59,br
+nlhe6-trapper-e3-s3,1,SB,2,Th 9h,Jh 4h 7h,0.902,325.8,55.99,125.01,br
+nlhe6-trapper-e3-s3,0,SB,5,Qc Qd,,0.989,79.3,26.62,88.47,br
+nlhe6-trapper-e3-s3,0,EP,5,Ah Qc,,0.952,1.2,1.0,1.5,br
+nlhe6-trapper-e3-s3,0,BB,5,4d 5d,,0.747,1.5,2.05,4.55,cc
+nlhe6-trapper-e3-s3,3,BB,5,8d Qd,Ad Th 8h Qc 4s,0.641,42.4,0.0,53.84,br
+nlhe6-trapper-e3-s3,0,BB,4,Jh Ah,,0.965,111.6,143.02,227.38,cc
+nlhe6-trapper-e3-s3,0,MP,5,Jd Js,,0.981,10.0,3.97,5.47,br
+nlhe6-trapper-e3-s3,1,EP,5,Kc Ts,Qh 8c As,0.808,12.7,0.0,8.43,br
+nlhe6-trapper-e3-s3,3,BTN,5,Ks Qh,5d Ts Jh 6c As,0.917,9.7,0.0,28.78,br
+nlhe6-trapper-e3-s3,2,EP,5,Qh Ac,5d Qc 3s 4h,0.952,8.3,113.44,163.16,cc
+nlhe6-trapper-e3-s3,2,BB,4,Ks Kh,4s 7s Jh 3d,0.993,73.8,0.0,85.21,br
+nlhe6-trapper-e3-s3,3,BTN,6,5h 8h,2h 7c Jh Qh 6c,0.517,35.1,153.12,313.25,cc
+nlhe6-trapper-e3-s3,3,EP,5,Jd Qh,Js 3h Qd 9d Ac,0.855,6.4,0.0,43.44,br
+nlhe6-trapper-e3-s3,2,BTN,4,3c 3d,Ad 3h As 5s,0.577,123.9,26.96,66.26,br
+nlhe6-trapper-e3-s3,1,EP,6,9c 8h,4c 5d 7h,0.766,97.2,11.22,27.32,br
+nlhe6-trapper-e3-s3,0,SB,2,Qd Qh,,0.989,457.7,4.82,16.88,br
+nlhe6-trapper-e3-s3,2,SB,6,7c 7d,3d 9d 6d 3c,0.827,49.5,48.75,120.09,cc
+nlhe6-trapper-e3-s3,3,SB,4,9h Ah,Ks 9d Tc Kd 8c,0.891,26.9,27.08,60.9,cc
+nlhe6-trapper-e3-s3,2,BTN,6,Td Js,Ad Qh Ks Kd,0.843,29.3,0.0,62.69,br
+nlhe6-trapper-e3-s3,3,BB,3,Tc Jd,Kd 7d 5d Jh 3d,0.843,81.3,125.44,215.14,cc
+nlhe6-trapper-e3-s3,3,SB,4,Ah Qc,Th 5c 2d 3d 4h,0.952,27.5,19.4,47.24,cc
+nlhe6-trapper-e3-s3,3,SB,4,Qs 8s,7d Th Jh 9d 7s,0.641,32.9,25.59,64.55,cc
+nlhe6-trapper-e3-s3,3,SB,6,9d 9h,Ac 2h 7h 2s 2c,0.936,74.0,96.54,152.57,cc
+nlhe6-trapper-e3-s3,2,BTN,4,6h 6s,6d Kd 7h 3c,0.753,34.1,0.0,22.19,br
+nlhe6-trapper-e3-s3,3,MP,4,Tc Td,Th 9d Qd 2c Qc,0.959,78.8,0.0,49.32,br
+nlhe6-trapper-e3-s3,3,SB,4,Jh Qc,2s Jd Td Kc Tc,0.855,35.1,37.04,89.3,cc

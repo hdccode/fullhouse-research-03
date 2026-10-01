@@ -1,0 +1,296 @@
+{
+ "calibration_digest": "719f0ad8d2f71d4e9e3e9f0e91af2869",
+ "calibration_id": "nlhe4.nlhe4-pool.H400.pool-calibration.9880eebd",
+ "calibration_identity_hash": "9880eebda8423d26",
+ "calibration_round_groups": 80,
+ "crowded_cutoff_diversity_audit": {
+  "cutoff_cluster": {
+   "archetypes": {
+    "loose": 1,
+    "maniac": 4,
+    "neutral": 3,
+    "station": 2,
+    "tight": 1,
+    "trapper": 1
+   },
+   "ids": [
+    "nlhe4-tight-e2-s3",
+    "nlhe4-neutral-e1-s2",
+    "nlhe4-neutral-e1-s1",
+    "nlhe4-station-e1-s0",
+    "nlhe4-station-e0",
+    "nlhe4-maniac-e2-s3",
+    "nlhe4-maniac-e3-s2",
+    "nlhe4-maniac-e1-s0",
+    "nlhe4-trapper-e1-s1",
+    "nlhe4-loose-e2-s3",
+    "nlhe4-neutral-e2-s3",
+    "nlhe4-maniac-e3-s0"
+   ],
+   "median_param_distance": 0.38126957864089217,
+   "near_duplicate_pairs": 1,
+   "pairs": 66,
+   "styles": {
+    "LA": 3,
+    "LP": 2,
+    "TA": 5,
+    "TP": 2
+   }
+  },
+  "leaders": {
+   "archetypes": {
+    "maniac": 1,
+    "station": 1,
+    "tight": 1
+   },
+   "ids": [
+    "nlhe4-maniac-e2-s2",
+    "nlhe4-station-e2-s2",
+    "nlhe4-tight-e3-s2"
+   ],
+   "median_param_distance": 0.5941598342618257,
+   "near_duplicate_pairs": 0,
+   "pairs": 3,
+   "styles": {
+    "LA": 1,
+    "LP": 2
+   }
+  }
+ },
+ "fields": {
+  "crowded_cutoff": {
+   "archetype_counts": {
+    "aggressive": 2,
+    "loose": 4,
+    "maniac": 12,
+    "neutral": 6,
+    "nit": 10,
+    "station": 8,
+    "tight": 10,
+    "trapper": 8
+   },
+   "field_hash": "b08787fc63ec0aeb",
+   "field_id": "nlhe4-crowded_cutoff",
+   "gap_k_k1_bb": 0.2145399999999995,
+   "gap_k_k1_se": 0.04597539996894953,
+   "mu_max_bb": 62.23393,
+   "mu_min_bb": -62.743535,
+   "mu_sd_bb": 21.780761024246804,
+   "n": 60,
+   "n_within_5bb_of_cut": 12,
+   "near_duplicate_pairs": 29,
+   "path": "/Users/henry/fullhouse-research-03b/configs/fhr3b/fields/nlhe4/crowded_cutoff.json",
+   "style_counts": {
+    "LA": 14,
+    "LP": 7,
+    "TA": 15,
+    "TP": 24
+   },
+   "style_strength_eta2": 0.24660516457442305,
+   "top_k": [
+    "nlhe4-maniac-e2-s2",
+    "nlhe4-station-e2-s2",
+    "nlhe4-tight-e3-s2",
+    "nlhe4-tight-e2-s3",
+    "nlhe4-neutral-e1-s2",
+    "nlhe4-neutral-e1-s1"
+   ]
+  },
+  "spread": {
+   "archetype_counts": {
+    "aggressive": 5,
+    "loose": 6,
+    "maniac": 9,
+    "neutral": 7,
+    "nit": 8,
+    "station": 6,
+    "tight": 9,
+    "trapper": 10
+   },
+   "field_hash": "9321903d179be927",
+   "field_id": "nlhe4-spread",
+   "gap_k_k1_bb": 15.090324999999998,
+   "gap_k_k1_se": 3.0836042012610494,
+   "mu_max_bb": 62.23393,
+   "mu_min_bb": -62.743535,
+   "mu_sd_bb": 24.379327910895803,
+   "n": 60,
+   "n_within_5bb_of_cut": 0,
+   "near_duplicate_pairs": 0,
+   "path": "/Users/henry/fullhouse-research-03b/configs/fhr3b/fields/nlhe4/spread.json",
+   "style_counts": {
+    "LA": 17,
+    "LP": 9,
+    "TA": 15,
+    "TP": 19
+   },
+   "style_strength_eta2": 0.25305699012051824,
+   "top_k": [
+    "nlhe4-maniac-e2-s2",
+    "nlhe4-station-e2-s2",
+    "nlhe4-tight-e3-s2",
+    "nlhe4-trapper-e3-s3",
+    "nlhe4-trapper-e2-s2",
+    "nlhe4-loose-e1-s1"
+   ]
+  },
+  "style_diverse": {
+   "archetype_counts": {
+    "aggressive": 7,
+    "loose": 7,
+    "maniac": 7,
+    "neutral": 8,
+    "nit": 7,
+    "station": 8,
+    "tight": 8,
+    "trapper": 8
+   },
+   "field_hash": "c673f69cff5facc5",
+   "field_id": "nlhe4-style_diverse",
+   "gap_k_k1_bb": 0.06186000000000291,
+   "gap_k_k1_se": 0.012190127077002734,
+   "mu_max_bb": 62.23393,
+   "mu_min_bb": -62.743535,
+   "mu_sd_bb": 25.172591811142215,
+   "n": 60,
+   "n_within_5bb_of_cut": 10,
+   "near_duplicate_pairs": 0,
+   "path": "/Users/henry/fullhouse-research-03b/configs/fhr3b/fields/nlhe4/style_diverse.json",
+   "style_counts": {
+    "LA": 16,
+    "LP": 15,
+    "TA": 14,
+    "TP": 15
+   },
+   "style_strength_eta2": 0.25769786637261877,
+   "top_k": [
+    "nlhe4-maniac-e2-s2",
+    "nlhe4-station-e2-s2",
+    "nlhe4-tight-e3-s2",
+    "nlhe4-trapper-e3-s3",
+    "nlhe4-station-e2-s1",
+    "nlhe4-nit-e3-s1"
+   ]
+  }
+ },
+ "measured_not_selected": {
+  "archetype_cycle": {
+   "archetypes": [
+    "aggressive",
+    "loose",
+    "maniac",
+    "neutral",
+    "nit",
+    "station",
+    "tight",
+    "trapper"
+   ],
+   "cyc_rms_bb": 2.3632984886745056,
+   "cyclic_matrix_bb": [
+    [
+     0.0,
+     -0.796,
+     -4.664,
+     -1.298,
+     5.451,
+     -3.001,
+     2.955,
+     1.353
+    ],
+    [
+     0.796,
+     0.0,
+     -6.732,
+     1.073,
+     -2.931,
+     5.338,
+     -0.197,
+     2.653
+    ],
+    [
+     4.664,
+     6.732,
+     -0.0,
+     -4.436,
+     3.278,
+     0.097,
+     -4.477,
+     -5.857
+    ],
+    [
+     1.298,
+     -1.073,
+     4.436,
+     0.0,
+     -1.341,
+     -1.282,
+     1.543,
+     -3.58
+    ],
+    [
+     -5.451,
+     2.931,
+     -3.278,
+     1.341,
+     -0.0,
+     2.27,
+     1.474,
+     0.713
+    ],
+    [
+     3.001,
+     -5.338,
+     -0.097,
+     1.282,
+     -2.27,
+     0.0,
+     0.107,
+     3.315
+    ],
+    [
+     -2.955,
+     0.197,
+     4.477,
+     -1.543,
+     -1.474,
+     -0.107,
+     0.0,
+     1.404
+    ],
+    [
+     -1.353,
+     -2.653,
+     5.857,
+     3.58,
+     -0.713,
+     -3.315,
+     -1.404,
+     0.0
+    ]
+   ],
+   "grad_rms_bb": 4.813906906348231,
+   "perm_null_q95": 0.4183948701159159,
+   "perm_p": 0.08,
+   "r_cyclic": 0.3610636326381127,
+   "r_gradient": 0.9880124233065009,
+   "role": "measured outcome; never a field-selection criterion"
+  },
+  "pool_splithalf": {
+   "cyc_energy_per_pair": 1432074.7637837224,
+   "grad_energy_per_pair": 1107593.222366885,
+   "r_cyclic": 0.08147724168327486,
+   "r_gradient": 0.9618266537920958,
+   "r_mu": 0.9718332514461859,
+   "r_null_se": 0.014965432360392486
+  }
+ },
+ "mode": "nlhe4",
+ "near_dup_threshold": 0.15,
+ "pool_hash": "c9b0ffb56855a62d",
+ "selection_version": "fhr3b-selection-v2",
+ "style_classes": {
+  "path": "reports/fhr3b/field-calibration/nlhe4/behaviour.csv",
+  "sha256": "07a1f6e46e60e96c25b965137199e38d9c3091ab604e1498dbe378f34acd4483",
+  "source": "behaviour audit (exact replay)"
+ }
+}

@@ -162,9 +162,10 @@ def test_old_nlhe_freezes_revoked_and_aof_untouched(tmp_path):
               "e95024951ef40186", "289e4bdb8c9f99bc", "0a9914d3f074b147", "e1d187eb0b4551c2"):
         assert h in rev
     frozen = yaml.safe_load((FHR3B_CONFIGS / "fields/FROZEN.yaml").read_text())["fields"]
-    assert set(frozen) == {"aof4"}
+    assert set(frozen) == {"aof4", "nlhe4", "nlhe6"}
     assert frozen["aof4"] == {"spread": "db5912d65a47b215", "crowded_cutoff": "b9709c10c5aef403",
                               "style_diverse": "195ceda2edb24052"}
+    assert not set(rev) & {h for m in frozen.values() for h in m.values()}  # nothing frozen is revoked
     # even a deliberate re-listing of a revoked field is refused
     root = tmp_path / "cfg"
     shutil.copytree(FHR3B_CONFIGS, root)
@@ -194,3 +195,40 @@ def test_retired_calibrations_marked():
         if d.name.endswith(("698094ac", "4d3e14b6")):
             assert (d / "RETIRED.txt").exists()
     assert json.loads((RETIRED / "nlhe6/spread.json").read_text())["field_hash"] == "16df070db91a53bd"
+
+
+FROZEN_9 = {
+    "aof4": {"spread": "db5912d65a47b215", "crowded_cutoff": "b9709c10c5aef403", "style_diverse": "195ceda2edb24052"},
+    "nlhe4": {"spread": "9321903d179be927", "crowded_cutoff": "b08787fc63ec0aeb", "style_diverse": "c673f69cff5facc5"},
+    "nlhe6": {"spread": "ff0f2b07fc210f62", "crowded_cutoff": "afbffedfc3706d84", "style_diverse": "ad7d6596ef1c8c3e"},
+}
+
+
+@pytest.mark.parametrize("mode", sorted(FROZEN_9))
+def test_all_nine_frozen_fields_accepted(mode):
+    prof = load_profile("publication")
+    for f, h in FROZEN_9[mode].items():
+        fm = prof.field(mode, f)
+        assert fm.field_hash == h and fm.n == 60
+        fm.validate()  # every bot rebuilds to its recorded version
+        if mode.startswith("nlhe"):
+            assert {b["kind"] for b in fm.bots} == {"fhr3b_heuristic"}
+    assert load_profile("pilot").field(mode, "spread").field_hash == FROZEN_9[mode]["spread"]
+
+
+def test_every_revoked_hash_is_rejected(tmp_path):
+    """Each retired NLHE manifest is refused even when deliberately re-listed as frozen."""
+    names = {"16df070db91a53bd": ("nlhe6", "spread"), "a845c2fcf1b2ed33": ("nlhe6", "crowded_cutoff"),
+             "5c83ad4268c37bdc": ("nlhe6", "style_diverse"), "e95024951ef40186": ("nlhe4", "spread"),
+             "289e4bdb8c9f99bc": ("nlhe4", "crowded_cutoff"), "0a9914d3f074b147": ("nlhe4", "style_diverse")}
+    for h, (mode, f) in names.items():
+        root = tmp_path / h
+        shutil.copytree(FHR3B_CONFIGS, root)
+        shutil.copy(RETIRED / f"{mode}/{f}.json", root / f"fields/{mode}/{f}.json")
+        reg = yaml.safe_load((root / "fields/FROZEN.yaml").read_text())
+        reg["fields"][mode][f] = h
+        (root / "fields/FROZEN.yaml").write_text(yaml.safe_dump(reg))
+        with pytest.raises(FieldNotFrozenError, match="REVOKED"):
+            load_profile("publication", config_root=root).field(mode, f)
+    caveats = " ".join(yaml.safe_load((FHR3B_CONFIGS / "fields/FROZEN.yaml").read_text())["caveats"])
+    assert "eta^2 = 0.28" in caveats

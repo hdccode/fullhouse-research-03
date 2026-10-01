@@ -310,13 +310,710 @@
    },
    "split_half_r_mu": 0.9730769892049187,
    "tournament_se_mean_per_match_bb": 11.789368202443303
+  },
+  "nlhe4": {
+   "archetype_cycle": {
+    "archetypes": [
+     "aggressive",
+     "loose",
+     "maniac",
+     "neutral",
+     "nit",
+     "station",
+     "tight",
+     "trapper"
+    ],
+    "cyc_rms_bb": 2.3632984886745056,
+    "cyclic_matrix_bb": [
+     [
+      0.0,
+      -0.796,
+      -4.664,
+      -1.298,
+      5.451,
+      -3.001,
+      2.955,
+      1.353
+     ],
+     [
+      0.796,
+      0.0,
+      -6.732,
+      1.073,
+      -2.931,
+      5.338,
+      -0.197,
+      2.653
+     ],
+     [
+      4.664,
+      6.732,
+      -0.0,
+      -4.436,
+      3.278,
+      0.097,
+      -4.477,
+      -5.857
+     ],
+     [
+      1.298,
+      -1.073,
+      4.436,
+      0.0,
+      -1.341,
+      -1.282,
+      1.543,
+      -3.58
+     ],
+     [
+      -5.451,
+      2.931,
+      -3.278,
+      1.341,
+      -0.0,
+      2.27,
+      1.474,
+      0.713
+     ],
+     [
+      3.001,
+      -5.338,
+      -0.097,
+      1.282,
+      -2.27,
+      0.0,
+      0.107,
+      3.315
+     ],
+     [
+      -2.955,
+      0.197,
+      4.477,
+      -1.543,
+      -1.474,
+      -0.107,
+      0.0,
+      1.404
+     ],
+     [
+      -1.353,
+      -2.653,
+      5.857,
+      3.58,
+      -0.713,
+      -3.315,
+      -1.404,
+      0.0
+     ]
+    ],
+    "grad_rms_bb": 4.813906906348231,
+    "perm_null_q95": 0.4183948701159159,
+    "perm_p": 0.08,
+    "r_cyclic": 0.3610636326381127,
+    "r_gradient": 0.9880124233065009,
+    "role": "measured outcome; never a field-selection criterion"
+   },
+   "bots_with_clipped_params": 51,
+   "calib_id": "nlhe4.nlhe4-pool.H400.pool-calibration.9880eebd",
+   "calibration_digest": "719f0ad8d2f71d4e9e3e9f0e91af2869",
+   "calibration_identity_hash": "9880eebda8423d26",
+   "crowded_cutoff_diversity_audit": {
+    "cutoff_cluster": {
+     "archetypes": {
+      "loose": 1,
+      "maniac": 4,
+      "neutral": 3,
+      "station": 2,
+      "tight": 1,
+      "trapper": 1
+     },
+     "ids": [
+      "nlhe4-tight-e2-s3",
+      "nlhe4-neutral-e1-s2",
+      "nlhe4-neutral-e1-s1",
+      "nlhe4-station-e1-s0",
+      "nlhe4-station-e0",
+      "nlhe4-maniac-e2-s3",
+      "nlhe4-maniac-e3-s2",
+      "nlhe4-maniac-e1-s0",
+      "nlhe4-trapper-e1-s1",
+      "nlhe4-loose-e2-s3",
+      "nlhe4-neutral-e2-s3",
+      "nlhe4-maniac-e3-s0"
+     ],
+     "median_param_distance": 0.38126957864089217,
+     "near_duplicate_pairs": 1,
+     "pairs": 66,
+     "styles": {
+      "LA": 3,
+      "LP": 2,
+      "TA": 5,
+      "TP": 2
+     }
+    },
+    "leaders": {
+     "archetypes": {
+      "maniac": 1,
+      "station": 1,
+      "tight": 1
+     },
+     "ids": [
+      "nlhe4-maniac-e2-s2",
+      "nlhe4-station-e2-s2",
+      "nlhe4-tight-e3-s2"
+     ],
+     "median_param_distance": 0.5941598342618257,
+     "near_duplicate_pairs": 0,
+     "pairs": 3,
+     "styles": {
+      "LA": 1,
+      "LP": 2
+     }
+    }
+   },
+   "digest_matches_selection": true,
+   "engine_source_hash_at_run": "5f5019c69316d098",
+   "engine_source_hash_matches_now": true,
+   "fields": {
+    "crowded_cutoff": {
+     "archetype_counts": {
+      "aggressive": 2,
+      "loose": 4,
+      "maniac": 12,
+      "neutral": 6,
+      "nit": 10,
+      "station": 8,
+      "tight": 10,
+      "trapper": 8
+     },
+     "field_hash": "b08787fc63ec0aeb",
+     "field_id": "nlhe4-crowded_cutoff",
+     "gap_k_k1_bb": 0.2145399999999995,
+     "gap_k_k1_se": 0.04597539996894953,
+     "leaders_clipped": {
+      "nlhe4-tight-e3-s2": [
+       "open_size_bb",
+       "raise_threshold",
+       "threebet_mult"
+      ]
+     },
+     "leaders_mean_bust_rate": 0.5016666666666666,
+     "measured_r_cyclic": 0.07568792784053827,
+     "measured_r_cyclic_null_se": 0.024175473851486187,
+     "mu_max_bb": 62.23393,
+     "mu_min_bb": -62.743535,
+     "mu_sd_bb": 21.780761024246804,
+     "n": 60,
+     "n_within_5bb_of_cut": 12,
+     "near_duplicate_pairs": 29,
+     "style_counts": {
+      "LA": 14,
+      "LP": 7,
+      "TA": 15,
+      "TP": 24
+     },
+     "style_strength_eta2": 0.24660516457442305,
+     "top_k": [
+      "nlhe4-maniac-e2-s2",
+      "nlhe4-station-e2-s2",
+      "nlhe4-tight-e3-s2",
+      "nlhe4-tight-e2-s3",
+      "nlhe4-neutral-e1-s2",
+      "nlhe4-neutral-e1-s1"
+     ]
+    },
+    "spread": {
+     "archetype_counts": {
+      "aggressive": 5,
+      "loose": 6,
+      "maniac": 9,
+      "neutral": 7,
+      "nit": 8,
+      "station": 6,
+      "tight": 9,
+      "trapper": 10
+     },
+     "field_hash": "9321903d179be927",
+     "field_id": "nlhe4-spread",
+     "gap_k_k1_bb": 15.090324999999998,
+     "gap_k_k1_se": 3.0836042012610494,
+     "leaders_clipped": {
+      "nlhe4-tight-e3-s2": [
+       "open_size_bb",
+       "raise_threshold",
+       "threebet_mult"
+      ],
+      "nlhe4-trapper-e3-s3": [
+       "fourbet_mult",
+       "raise_threshold"
+      ]
+     },
+     "leaders_mean_bust_rate": 0.5119166666666667,
+     "measured_r_cyclic": 0.07598361837701839,
+     "measured_r_cyclic_null_se": 0.024175473851486187,
+     "mu_max_bb": 62.23393,
+     "mu_min_bb": -62.743535,
+     "mu_sd_bb": 24.379327910895803,
+     "n": 60,
+     "n_within_5bb_of_cut": 0,
+     "near_duplicate_pairs": 0,
+     "style_counts": {
+      "LA": 17,
+      "LP": 9,
+      "TA": 15,
+      "TP": 19
+     },
+     "style_strength_eta2": 0.25305699012051824,
+     "top_k": [
+      "nlhe4-maniac-e2-s2",
+      "nlhe4-station-e2-s2",
+      "nlhe4-tight-e3-s2",
+      "nlhe4-trapper-e3-s3",
+      "nlhe4-trapper-e2-s2",
+      "nlhe4-loose-e1-s1"
+     ]
+    },
+    "style_diverse": {
+     "archetype_counts": {
+      "aggressive": 7,
+      "loose": 7,
+      "maniac": 7,
+      "neutral": 8,
+      "nit": 7,
+      "station": 8,
+      "tight": 8,
+      "trapper": 8
+     },
+     "field_hash": "c673f69cff5facc5",
+     "field_id": "nlhe4-style_diverse",
+     "gap_k_k1_bb": 0.06186000000000291,
+     "gap_k_k1_se": 0.012190127077002734,
+     "leaders_clipped": {
+      "nlhe4-nit-e3-s1": [
+       "call_margin",
+       "open_size_bb",
+       "threebet_mult"
+      ],
+      "nlhe4-tight-e3-s2": [
+       "open_size_bb",
+       "raise_threshold",
+       "threebet_mult"
+      ],
+      "nlhe4-trapper-e3-s3": [
+       "fourbet_mult",
+       "raise_threshold"
+      ]
+     },
+     "leaders_mean_bust_rate": 0.508,
+     "measured_r_cyclic": 0.13774592623955106,
+     "measured_r_cyclic_null_se": 0.024175473851486187,
+     "mu_max_bb": 62.23393,
+     "mu_min_bb": -62.743535,
+     "mu_sd_bb": 25.172591811142215,
+     "n": 60,
+     "n_within_5bb_of_cut": 10,
+     "near_duplicate_pairs": 0,
+     "style_counts": {
+      "LA": 16,
+      "LP": 15,
+      "TA": 14,
+      "TP": 15
+     },
+     "style_strength_eta2": 0.25769786637261877,
+     "top_k": [
+      "nlhe4-maniac-e2-s2",
+      "nlhe4-station-e2-s2",
+      "nlhe4-tight-e3-s2",
+      "nlhe4-trapper-e3-s3",
+      "nlhe4-station-e2-s1",
+      "nlhe4-nit-e3-s1"
+     ]
+    }
+   },
+   "matches_ending_early": 0.40097916666666666,
+   "matches_per_bot": 2000,
+   "median_bust_rate": 0.54575,
+   "median_se_bb": 3.1017425897440223,
+   "pool_hash": "c9b0ffb56855a62d",
+   "pool_mu_sd_bb": 23.46964923427719,
+   "random_subset_r_cyclic": {
+    "mean": 0.08089940117633097,
+    "q025": 0.04090288732897738,
+    "q975": 0.12227646547210812
+   },
+   "rounds": 2000,
+   "spearman_mu_vs_bust": -0.16001682114034227,
+   "spearman_mu_vs_n_clipped": -0.23117499469980712,
+   "spec": {
+    "chunk_rounds": 25,
+    "hands_per_match": 400,
+    "namespace": "pool-calibration",
+    "seed_family": "fhr3b-2026",
+    "stack_policy": "persistent_no_rebuy"
+   },
+   "split_half_r_mu": 0.9718332514461859,
+   "tournament_se_mean_per_match_bb": 21.932632187031214
+  },
+  "nlhe6": {
+   "archetype_cycle": {
+    "archetypes": [
+     "aggressive",
+     "loose",
+     "maniac",
+     "neutral",
+     "nit",
+     "station",
+     "tight",
+     "trapper"
+    ],
+    "cyc_rms_bb": 0.0,
+    "cyclic_matrix_bb": [
+     [
+      -0.0,
+      1.52,
+      0.684,
+      1.996,
+      -0.185,
+      -1.59,
+      -0.87,
+      -1.555
+     ],
+     [
+      -1.52,
+      -0.0,
+      1.103,
+      -2.034,
+      -2.957,
+      2.528,
+      1.073,
+      1.806
+     ],
+     [
+      -0.684,
+      -1.103,
+      -0.0,
+      0.643,
+      4.874,
+      0.526,
+      -0.63,
+      -3.626
+     ],
+     [
+      -1.996,
+      2.034,
+      -0.643,
+      0.0,
+      0.301,
+      -0.9,
+      0.499,
+      0.706
+     ],
+     [
+      0.185,
+      2.957,
+      -4.874,
+      -0.301,
+      -0.0,
+      -0.281,
+      2.157,
+      0.156
+     ],
+     [
+      1.59,
+      -2.528,
+      -0.526,
+      0.9,
+      0.281,
+      0.0,
+      -2.252,
+      2.536
+     ],
+     [
+      0.87,
+      -1.073,
+      0.63,
+      -0.499,
+      -2.157,
+      2.252,
+      -0.0,
+      -0.023
+     ],
+     [
+      1.555,
+      -1.806,
+      3.626,
+      -0.706,
+      -0.156,
+      -2.536,
+      0.023,
+      -0.0
+     ]
+    ],
+    "grad_rms_bb": 1.989293940118152,
+    "perm_null_q95": 0.36808705848892914,
+    "perm_p": 0.585,
+    "r_cyclic": -0.04412193538826593,
+    "r_gradient": 0.986617654498127,
+    "role": "measured outcome; never a field-selection criterion"
+   },
+   "bots_with_clipped_params": 51,
+   "calib_id": "nlhe6.nlhe6-pool.H400.pool-calibration.aadd073b",
+   "calibration_digest": "ddafa0952d49cccd4e39917e782e47e9",
+   "calibration_identity_hash": "aadd073b27bcd600",
+   "crowded_cutoff_diversity_audit": {
+    "cutoff_cluster": {
+     "archetypes": {
+      "aggressive": 3,
+      "loose": 2,
+      "maniac": 2,
+      "neutral": 1,
+      "station": 1,
+      "tight": 2,
+      "trapper": 1
+     },
+     "ids": [
+      "nlhe6-maniac-e2-s3",
+      "nlhe6-neutral-e1-s1",
+      "nlhe6-aggressive-e2-s0",
+      "nlhe6-loose-e3-s2",
+      "nlhe6-aggressive-e1-s0",
+      "nlhe6-loose-e3-s1",
+      "nlhe6-tight-e2-s3",
+      "nlhe6-aggressive-e1-s1",
+      "nlhe6-trapper-e0",
+      "nlhe6-tight-e1-s2",
+      "nlhe6-station-e1-s2",
+      "nlhe6-maniac-e3-s2"
+     ],
+     "median_param_distance": 0.41911821137084565,
+     "near_duplicate_pairs": 3,
+     "pairs": 66,
+     "styles": {
+      "LA": 2,
+      "LP": 1,
+      "TA": 5,
+      "TP": 4
+     }
+    },
+    "leaders": {
+     "archetypes": {
+      "maniac": 1,
+      "station": 1,
+      "trapper": 1
+     },
+     "ids": [
+      "nlhe6-maniac-e2-s2",
+      "nlhe6-station-e2-s2",
+      "nlhe6-trapper-e3-s3"
+     ],
+     "median_param_distance": 0.4350367025057058,
+     "near_duplicate_pairs": 0,
+     "pairs": 3,
+     "styles": {
+      "LA": 2,
+      "LP": 1
+     }
+    }
+   },
+   "digest_matches_selection": true,
+   "engine_source_hash_at_run": "5f5019c69316d098",
+   "engine_source_hash_matches_now": true,
+   "fields": {
+    "crowded_cutoff": {
+     "archetype_counts": {
+      "aggressive": 4,
+      "loose": 6,
+      "maniac": 12,
+      "neutral": 6,
+      "nit": 7,
+      "station": 7,
+      "tight": 9,
+      "trapper": 9
+     },
+     "field_hash": "afbffedfc3706d84",
+     "field_id": "nlhe6-crowded_cutoff",
+     "gap_k_k1_bb": 0.08934999999999782,
+     "gap_k_k1_se": 0.016119002361826482,
+     "leaders_clipped": {
+      "nlhe6-aggressive-e2-s0": [
+       "fourbet_mult",
+       "open_size_bb",
+       "threebet_mult"
+      ],
+      "nlhe6-maniac-e2-s3": [
+       "allin_commit_fraction",
+       "raise_threshold"
+      ],
+      "nlhe6-trapper-e3-s3": [
+       "fourbet_mult",
+       "raise_threshold"
+      ]
+     },
+     "leaders_mean_bust_rate": 0.5609166666666666,
+     "measured_r_cyclic": 0.05327465675641228,
+     "measured_r_cyclic_null_se": 0.024175473851486187,
+     "mu_max_bb": 54.208055,
+     "mu_min_bb": -57.266980000000004,
+     "mu_sd_bb": 22.011544419899348,
+     "n": 60,
+     "n_within_5bb_of_cut": 16,
+     "near_duplicate_pairs": 22,
+     "style_counts": {
+      "LA": 15,
+      "LP": 10,
+      "TA": 15,
+      "TP": 20
+     },
+     "style_strength_eta2": 0.023448106231130476,
+     "top_k": [
+      "nlhe6-maniac-e2-s2",
+      "nlhe6-station-e2-s2",
+      "nlhe6-trapper-e3-s3",
+      "nlhe6-maniac-e2-s3",
+      "nlhe6-neutral-e1-s1",
+      "nlhe6-aggressive-e2-s0"
+     ]
+    },
+    "spread": {
+     "archetype_counts": {
+      "aggressive": 6,
+      "loose": 7,
+      "maniac": 9,
+      "neutral": 6,
+      "nit": 8,
+      "station": 8,
+      "tight": 8,
+      "trapper": 8
+     },
+     "field_hash": "ff0f2b07fc210f62",
+     "field_id": "nlhe6-spread",
+     "gap_k_k1_bb": 16.795749999999998,
+     "gap_k_k1_se": 3.057196022858669,
+     "leaders_clipped": {
+      "nlhe6-nit-e3-s1": [
+       "call_margin",
+       "open_size_bb",
+       "threebet_mult"
+      ],
+      "nlhe6-station-e2-s3": [
+       "fourbet_mult",
+       "open_size_bb",
+       "raise_threshold"
+      ],
+      "nlhe6-trapper-e3-s3": [
+       "fourbet_mult",
+       "raise_threshold"
+      ]
+     },
+     "leaders_mean_bust_rate": 0.5645000000000001,
+     "measured_r_cyclic": 0.06705541044851084,
+     "measured_r_cyclic_null_se": 0.024175473851486187,
+     "mu_max_bb": 54.208055,
+     "mu_min_bb": -57.266980000000004,
+     "mu_sd_bb": 23.8073743813319,
+     "n": 60,
+     "n_within_5bb_of_cut": 0,
+     "near_duplicate_pairs": 0,
+     "style_counts": {
+      "LA": 17,
+      "LP": 12,
+      "TA": 13,
+      "TP": 18
+     },
+     "style_strength_eta2": 0.03308633228030809,
+     "top_k": [
+      "nlhe6-maniac-e2-s2",
+      "nlhe6-station-e2-s2",
+      "nlhe6-trapper-e3-s3",
+      "nlhe6-nit-e3-s1",
+      "nlhe6-neutral-e1-s0",
+      "nlhe6-station-e2-s3"
+     ]
+    },
+    "style_diverse": {
+     "archetype_counts": {
+      "aggressive": 6,
+      "loose": 7,
+      "maniac": 7,
+      "neutral": 8,
+      "nit": 7,
+      "station": 9,
+      "tight": 8,
+      "trapper": 8
+     },
+     "field_hash": "ad7d6596ef1c8c3e",
+     "field_id": "nlhe6-style_diverse",
+     "gap_k_k1_bb": 2.8668399999999963,
+     "gap_k_k1_se": 0.479555889598771,
+     "leaders_clipped": {
+      "nlhe6-nit-e3-s1": [
+       "call_margin",
+       "open_size_bb",
+       "threebet_mult"
+      ],
+      "nlhe6-station-e2-s3": [
+       "fourbet_mult",
+       "open_size_bb",
+       "raise_threshold"
+      ],
+      "nlhe6-trapper-e3-s3": [
+       "fourbet_mult",
+       "raise_threshold"
+      ]
+     },
+     "leaders_mean_bust_rate": 0.5663333333333334,
+     "measured_r_cyclic": 0.02158351504110765,
+     "measured_r_cyclic_null_se": 0.024175473851486187,
+     "mu_max_bb": 54.208055,
+     "mu_min_bb": -51.87350000000001,
+     "mu_sd_bb": 23.409141404722114,
+     "n": 60,
+     "n_within_5bb_of_cut": 6,
+     "near_duplicate_pairs": 0,
+     "style_counts": {
+      "LA": 17,
+      "LP": 13,
+      "TA": 13,
+      "TP": 17
+     },
+     "style_strength_eta2": 0.032046171207267,
+     "top_k": [
+      "nlhe6-maniac-e2-s2",
+      "nlhe6-station-e2-s2",
+      "nlhe6-trapper-e3-s3",
+      "nlhe6-nit-e3-s1",
+      "nlhe6-station-e2-s3",
+      "nlhe6-neutral-e2-s1"
+     ]
+    }
+   },
+   "matches_ending_early": 0.188875,
+   "matches_per_bot": 2000,
+   "median_bust_rate": 0.59625,
+   "median_se_bb": 3.597501001921918,
+   "pool_hash": "a867bd18d6033233",
+   "pool_mu_sd_bb": 22.586039576098116,
+   "random_subset_r_cyclic": {
+    "mean": 0.004196524596196468,
+    "q025": -0.032493189372850985,
+    "q975": 0.03577987243020057
+   },
+   "rounds": 2000,
+   "spearman_mu_vs_bust": -0.22033289028429584,
+   "spearman_mu_vs_n_clipped": -0.28996593483726746,
+   "spec": {
+    "chunk_rounds": 25,
+    "hands_per_match": 400,
+    "namespace": "pool-calibration",
+    "seed_family": "fhr3b-2026",
+    "stack_policy": "persistent_no_rebuy"
+   },
+   "split_half_r_mu": 0.953107427297667,
+   "tournament_se_mean_per_match_bb": 25.43817353784387
   }
  },
  "n_random_subsets": 300,
- "not_calibrated": [
-  "nlhe4",
-  "nlhe6"
- ],
+ "not_calibrated": [],
  "protocol": {
   "H0": 400,
   "K": 6,

@@ -1,0 +1,297 @@
+{
+ "calibration_digest": "ddafa0952d49cccd4e39917e782e47e9",
+ "calibration_id": "nlhe6.nlhe6-pool.H400.pool-calibration.aadd073b",
+ "calibration_identity_hash": "aadd073b27bcd600",
+ "calibration_round_groups": 80,
+ "crowded_cutoff_diversity_audit": {
+  "cutoff_cluster": {
+   "archetypes": {
+    "aggressive": 3,
+    "loose": 2,
+    "maniac": 2,
+    "neutral": 1,
+    "station": 1,
+    "tight": 2,
+    "trapper": 1
+   },
+   "ids": [
+    "nlhe6-maniac-e2-s3",
+    "nlhe6-neutral-e1-s1",
+    "nlhe6-aggressive-e2-s0",
+    "nlhe6-loose-e3-s2",
+    "nlhe6-aggressive-e1-s0",
+    "nlhe6-loose-e3-s1",
+    "nlhe6-tight-e2-s3",
+    "nlhe6-aggressive-e1-s1",
+    "nlhe6-trapper-e0",
+    "nlhe6-tight-e1-s2",
+    "nlhe6-station-e1-s2",
+    "nlhe6-maniac-e3-s2"
+   ],
+   "median_param_distance": 0.41911821137084565,
+   "near_duplicate_pairs": 3,
+   "pairs": 66,
+   "styles": {
+    "LA": 2,
+    "LP": 1,
+    "TA": 5,
+    "TP": 4
+   }
+  },
+  "leaders": {
+   "archetypes": {
+    "maniac": 1,
+    "station": 1,
+    "trapper": 1
+   },
+   "ids": [
+    "nlhe6-maniac-e2-s2",
+    "nlhe6-station-e2-s2",
+    "nlhe6-trapper-e3-s3"
+   ],
+   "median_param_distance": 0.4350367025057058,
+   "near_duplicate_pairs": 0,
+   "pairs": 3,
+   "styles": {
+    "LA": 2,
+    "LP": 1
+   }
+  }
+ },
+ "fields": {
+  "crowded_cutoff": {
+   "archetype_counts": {
+    "aggressive": 4,
+    "loose": 6,
+    "maniac": 12,
+    "neutral": 6,
+    "nit": 7,
+    "station": 7,
+    "tight": 9,
+    "trapper": 9
+   },
+   "field_hash": "afbffedfc3706d84",
+   "field_id": "nlhe6-crowded_cutoff",
+   "gap_k_k1_bb": 0.08934999999999782,
+   "gap_k_k1_se": 0.016119002361826482,
+   "mu_max_bb": 54.208055,
+   "mu_min_bb": -57.266980000000004,
+   "mu_sd_bb": 22.011544419899348,
+   "n": 60,
+   "n_within_5bb_of_cut": 16,
+   "near_duplicate_pairs": 22,
+   "path": "/Users/henry/fullhouse-research-03b/configs/fhr3b/fields/nlhe6/crowded_cutoff.json",
+   "style_counts": {
+    "LA": 15,
+    "LP": 10,
+    "TA": 15,
+    "TP": 20
+   },
+   "style_strength_eta2": 0.023448106231130476,
+   "top_k": [
+    "nlhe6-maniac-e2-s2",
+    "nlhe6-station-e2-s2",
+    "nlhe6-trapper-e3-s3",
+    "nlhe6-maniac-e2-s3",
+    "nlhe6-neutral-e1-s1",
+    "nlhe6-aggressive-e2-s0"
+   ]
+  },
+  "spread": {
+   "archetype_counts": {
+    "aggressive": 6,
+    "loose": 7,
+    "maniac": 9,
+    "neutral": 6,
+    "nit": 8,
+    "station": 8,
+    "tight": 8,
+    "trapper": 8
+   },
+   "field_hash": "ff0f2b07fc210f62",
+   "field_id": "nlhe6-spread",
+   "gap_k_k1_bb": 16.795749999999998,
+   "gap_k_k1_se": 3.057196022858669,
+   "mu_max_bb": 54.208055,
+   "mu_min_bb": -57.266980000000004,
+   "mu_sd_bb": 23.8073743813319,
+   "n": 60,
+   "n_within_5bb_of_cut": 0,
+   "near_duplicate_pairs": 0,
+   "path": "/Users/henry/fullhouse-research-03b/configs/fhr3b/fields/nlhe6/spread.json",
+   "style_counts": {
+    "LA": 17,
+    "LP": 12,
+    "TA": 13,
+    "TP": 18
+   },
+   "style_strength_eta2": 0.03308633228030809,
+   "top_k": [
+    "nlhe6-maniac-e2-s2",
+    "nlhe6-station-e2-s2",
+    "nlhe6-trapper-e3-s3",
+    "nlhe6-nit-e3-s1",
+    "nlhe6-neutral-e1-s0",
+    "nlhe6-station-e2-s3"
+   ]
+  },
+  "style_diverse": {
+   "archetype_counts": {
+    "aggressive": 6,
+    "loose": 7,
+    "maniac": 7,
+    "neutral": 8,
+    "nit": 7,
+    "station": 9,
+    "tight": 8,
+    "trapper": 8
+   },
+   "field_hash": "ad7d6596ef1c8c3e",
+   "field_id": "nlhe6-style_diverse",
+   "gap_k_k1_bb": 2.8668399999999963,
+   "gap_k_k1_se": 0.479555889598771,
+   "mu_max_bb": 54.208055,
+   "mu_min_bb": -51.87350000000001,
+   "mu_sd_bb": 23.409141404722114,
+   "n": 60,
+   "n_within_5bb_of_cut": 6,
+   "near_duplicate_pairs": 0,
+   "path": "/Users/henry/fullhouse-research-03b/configs/fhr3b/fields/nlhe6/style_diverse.json",
+   "style_counts": {
+    "LA": 17,
+    "LP": 13,
+    "TA": 13,
+    "TP": 17
+   },
+   "style_strength_eta2": 0.032046171207267,
+   "top_k": [
+    "nlhe6-maniac-e2-s2",
+    "nlhe6-station-e2-s2",
+    "nlhe6-trapper-e3-s3",
+    "nlhe6-nit-e3-s1",
+    "nlhe6-station-e2-s3",
+    "nlhe6-neutral-e2-s1"
+   ]
+  }
+ },
+ "measured_not_selected": {
+  "archetype_cycle": {
+   "archetypes": [
+    "aggressive",
+    "loose",
+    "maniac",
+    "neutral",
+    "nit",
+    "station",
+    "tight",
+    "trapper"
+   ],
+   "cyc_rms_bb": 0.0,
+   "cyclic_matrix_bb": [
+    [
+     -0.0,
+     1.52,
+     0.684,
+     1.996,
+     -0.185,
+     -1.59,
+     -0.87,
+     -1.555
+    ],
+    [
+     -1.52,
+     -0.0,
+     1.103,
+     -2.034,
+     -2.957,
+     2.528,
+     1.073,
+     1.806
+    ],
+    [
+     -0.684,
+     -1.103,
+     -0.0,
+     0.643,
+     4.874,
+     0.526,
+     -0.63,
+     -3.626
+    ],
+    [
+     -1.996,
+     2.034,
+     -0.643,
+     0.0,
+     0.301,
+     -0.9,
+     0.499,
+     0.706
+    ],
+    [
+     0.185,
+     2.957,
+     -4.874,
+     -0.301,
+     -0.0,
+     -0.281,
+     2.157,
+     0.156
+    ],
+    [
+     1.59,
+     -2.528,
+     -0.526,
+     0.9,
+     0.281,
+     0.0,
+     -2.252,
+     2.536
+    ],
+    [
+     0.87,
+     -1.073,
+     0.63,
+     -0.499,
+     -2.157,
+     2.252,
+     -0.0,
+     -0.023
+    ],
+    [
+     1.555,
+     -1.806,
+     3.626,
+     -0.706,
+     -0.156,
+     -2.536,
+     0.023,
+     -0.0
+    ]
+   ],
+   "grad_rms_bb": 1.989293940118152,
+   "perm_null_q95": 0.36808705848892914,
+   "perm_p": 0.585,
+   "r_cyclic": -0.04412193538826593,
+   "r_gradient": 0.986617654498127,
+   "role": "measured outcome; never a field-selection criterion"
+  },
+  "pool_splithalf": {
+   "cyc_energy_per_pair": 52164.60069820013,
+   "grad_energy_per_pair": 350342.3570840939,
+   "r_cyclic": 0.004409339833452588,
+   "r_gradient": 0.9304024241408559,
+   "r_mu": 0.953107427297667,
+   "r_null_se": 0.014965432360392486
+  }
+ },
+ "mode": "nlhe6",
+ "near_dup_threshold": 0.15,
+ "pool_hash": "a867bd18d6033233",
+ "selection_version": "fhr3b-selection-v2",
+ "style_classes": {
+  "path": "reports/fhr3b/field-calibration/nlhe6/behaviour.csv",
+  "sha256": "65d2c15d971bb1fa9b06a079826338d6a56c29d5ee40b409deb37a67e00598ad",
+  "source": "behaviour audit (exact replay)"
+ }
+}

@@ -1,2 +1,4 @@
 mode,median_bust_rate,spearman_mu_vs_bust,matches_ending_early,bots_with_clipped_params,spearman_mu_vs_n_clipped
 aof4,0,,0,2,-0.247396
+nlhe4,0.54575,-0.160017,0.400979,51,-0.231175
+nlhe6,0.59625,-0.220333,0.188875,51,-0.289966

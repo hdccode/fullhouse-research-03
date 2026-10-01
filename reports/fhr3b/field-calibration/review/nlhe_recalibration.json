@@ -1,0 +1,1355 @@
+{
+ "modes": {
+  "nlhe4": {
+   "calib_id": "nlhe4.nlhe4-pool.H400.pool-calibration.9880eebd",
+   "pool_hash": "c9b0ffb56855a62d",
+   "fields": {
+    "spread": {
+     "field_hash": "9321903d179be927",
+     "gap_bb": 15.090324999999998,
+     "gap_se": 3.0836042012610494,
+     "near_dup_total": 0,
+     "near_dup_ranks_4_15": 0,
+     "styles": {
+      "LA": 17,
+      "LP": 9,
+      "TA": 15,
+      "TP": 19
+     },
+     "archetypes": {
+      "aggressive": 5,
+      "loose": 6,
+      "maniac": 9,
+      "neutral": 7,
+      "nit": 8,
+      "station": 6,
+      "tight": 9,
+      "trapper": 10
+     },
+     "eta2": 0.25305699012051824,
+     "within_5bb": 0,
+     "mu_range": [
+      -62.743535,
+      62.23393
+     ],
+     "construction": {
+      "achieved_gap_se": 3.0836042012610494,
+      "gap_se_constraint": 3.0,
+      "gap_se_target": 3.0
+     }
+    },
+    "crowded_cutoff": {
+     "field_hash": "b08787fc63ec0aeb",
+     "gap_bb": 0.2145399999999995,
+     "gap_se": 0.04597539996894953,
+     "near_dup_total": 29,
+     "near_dup_ranks_4_15": 1,
+     "styles": {
+      "LA": 14,
+      "LP": 7,
+      "TA": 15,
+      "TP": 24
+     },
+     "archetypes": {
+      "aggressive": 2,
+      "loose": 4,
+      "maniac": 12,
+      "neutral": 6,
+      "nit": 10,
+      "station": 8,
+      "tight": 10,
+      "trapper": 8
+     },
+     "eta2": 0.24660516457442305,
+     "within_5bb": 12,
+     "mu_range": [
+      -62.743535,
+      62.23393
+     ],
+     "construction": {}
+    },
+    "style_diverse": {
+     "field_hash": "c673f69cff5facc5",
+     "gap_bb": 0.06186000000000291,
+     "gap_se": 0.012190127077002734,
+     "near_dup_total": 0,
+     "near_dup_ranks_4_15": 0,
+     "styles": {
+      "LA": 16,
+      "LP": 15,
+      "TA": 14,
+      "TP": 15
+     },
+     "archetypes": {
+      "aggressive": 7,
+      "loose": 7,
+      "maniac": 7,
+      "neutral": 8,
+      "nit": 7,
+      "station": 8,
+      "tight": 8,
+      "trapper": 8
+     },
+     "eta2": 0.25769786637261877,
+     "within_5bb": 10,
+     "mu_range": [
+      -62.743535,
+      62.23393
+     ],
+     "construction": {
+      "style_slack": 0
+     }
+    }
+   },
+   "crowded": {
+    "top15": [
+     {
+      "rank": 1,
+      "bot": "nlhe4-maniac-e2-s2",
+      "mu": 62.2339,
+      "se": 3.94261,
+      "style": "LA",
+      "archetype": "maniac",
+      "vpip": 0.64922,
+      "pfr": 0.56499,
+      "threebet": 0.26846,
+      "fold_to_bet": 0.59844
+     },
+     {
+      "rank": 2,
+      "bot": "nlhe4-station-e2-s2",
+      "mu": 53.1432,
+      "se": 3.68617,
+      "style": "LP",
+      "archetype": "station",
+      "vpip": 0.52982,
+      "pfr": 0.39634,
+      "threebet": 0.050668,
+      "fold_to_bet": 0.50567
+     },
+     {
+      "rank": 3,
+      "bot": "nlhe4-tight-e3-s2",
+      "mu": 39.9718,
+      "se": 3.76097,
+      "style": "LP",
+      "archetype": "tight",
+      "vpip": 0.59761,
+      "pfr": 0.40181,
+      "threebet": 0.032028,
+      "fold_to_bet": 0.49658
+     },
+     {
+      "rank": 4,
+      "bot": "nlhe4-tight-e2-s3",
+      "mu": 11.5552,
+      "se": 3.09553,
+      "style": "TA",
+      "archetype": "tight",
+      "vpip": 0.34698,
+      "pfr": 0.30093,
+      "threebet": 0.054676,
+      "fold_to_bet": 0.3659
+     },
+     {
+      "rank": 5,
+      "bot": "nlhe4-neutral-e1-s2",
+      "mu": 10.3394,
+      "se": 3.12896,
+      "style": "TP",
+      "archetype": "neutral",
+      "vpip": 0.33528,
+      "pfr": 0.26312,
+      "threebet": 0.04495,
+      "fold_to_bet": 0.40733
+     },
+     {
+      "rank": 6,
+      "bot": "nlhe4-neutral-e1-s1",
+      "mu": 9.23734,
+      "se": 3.2028,
+      "style": "TA",
+      "archetype": "neutral",
+      "vpip": 0.28302,
+      "pfr": 0.22748,
+      "threebet": 0.039068,
+      "fold_to_bet": 0.48085
+     },
+     {
+      "rank": 7,
+      "bot": "nlhe4-station-e1-s0",
+      "mu": 9.0228,
+      "se": 3.39534,
+      "style": "LP",
+      "archetype": "station",
+      "vpip": 0.38545,
+      "pfr": 0.26581,
+      "threebet": 0.035048,
+      "fold_to_bet": 0.2747
+     },
+     {
+      "rank": 8,
+      "bot": "nlhe4-station-e0",
+      "mu": 8.98673,
+      "se": 3.32368,
+      "style": "LP",
+      "archetype": "station",
+      "vpip": 0.38947,
+      "pfr": 0.2818,
+      "threebet": 0.035957,
+      "fold_to_bet": 0.24081
+     },
+     {
+      "rank": 9,
+      "bot": "nlhe4-maniac-e2-s3",
+      "mu": 8.96028,
+      "se": 2.95068,
+      "style": "TA",
+      "archetype": "maniac",
+      "vpip": 0.35088,
+      "pfr": 0.30777,
+      "threebet": 0.10478,
+      "fold_to_bet": 0.51662
+     },
+     {
+      "rank": 10,
+      "bot": "nlhe4-maniac-e3-s2",
+      "mu": 8.76291,
+      "se": 3.34879,
+      "style": "TA",
+      "archetype": "maniac",
+      "vpip": 0.34846,
+      "pfr": 0.29556,
+      "threebet": 0.031073,
+      "fold_to_bet": 0.57736
+     },
+     {
+      "rank": 11,
+      "bot": "nlhe4-maniac-e1-s0",
+      "mu": 8.73629,
+      "se": 3.66537,
+      "style": "LA",
+      "archetype": "maniac",
+      "vpip": 0.45685,
+      "pfr": 0.36959,
+      "threebet": 0.1041,
+      "fold_to_bet": 0.40265
+     },
+     {
+      "rank": 12,
+      "bot": "nlhe4-trapper-e1-s1",
+      "mu": 8.25512,
+      "se": 3.04759,
+      "style": "TP",
+      "archetype": "trapper",
+      "vpip": 0.30087,
+      "pfr": 0.23224,
+      "threebet": 0.033683,
+      "fold_to_bet": 0.37097
+     },
+     {
+      "rank": 13,
+      "bot": "nlhe4-loose-e2-s3",
+      "mu": 7.55401,
+      "se": 3.66073,
+      "style": "LA",
+      "archetype": "loose",
+      "vpip": 0.39951,
+      "pfr": 0.32452,
+      "threebet": 0.056999,
+      "fold_to_bet": 0.46269
+     },
+     {
+      "rank": 14,
+      "bot": "nlhe4-neutral-e2-s3",
+      "mu": 7.18748,
+      "se": 2.81079,
+      "style": "TA",
+      "archetype": "neutral",
+      "vpip": 0.30022,
+      "pfr": 0.24339,
+      "threebet": 0.035138,
+      "fold_to_bet": 0.54571
+     },
+     {
+      "rank": 15,
+      "bot": "nlhe4-maniac-e3-s0",
+      "mu": 7.09048,
+      "se": 3.58525,
+      "style": "LA",
+      "archetype": "maniac",
+      "vpip": 0.63575,
+      "pfr": 0.54607,
+      "threebet": 0.16993,
+      "fold_to_bet": 0.42857
+     }
+    ],
+    "leaders": [
+     "nlhe4-maniac-e2-s2",
+     "nlhe4-station-e2-s2",
+     "nlhe4-tight-e3-s2"
+    ],
+    "leader_distances": [
+     0.594,
+     0.684,
+     0.582
+    ],
+    "cluster_range_bb": 4.464719999999999,
+    "cluster_sd_bb": 1.2663188121576026,
+    "cluster_mean_se_bb": 3.2787822695260407,
+    "cluster_true_sd_bb": 0.0,
+    "heldout_half_ranges_bb": [
+     12.429120000000001,
+     9.87457
+    ],
+    "pure_noise_range_expectation_bb": 15.116288632840854,
+    "cluster_styles": {
+     "TA": 5,
+     "TP": 2,
+     "LP": 2,
+     "LA": 3
+    },
+    "cluster_archetypes": {
+     "tight": 1,
+     "neutral": 3,
+     "station": 2,
+     "maniac": 4,
+     "trapper": 1,
+     "loose": 1
+    },
+    "cluster_median_param_distance": 0.38126957864089217,
+    "cluster_ranges": {
+     "vpip": [
+      0.28302,
+      0.63575
+     ],
+     "pfr": [
+      0.22748,
+      0.54607
+     ],
+     "threebet": [
+      0.031073,
+      0.16993
+     ],
+     "post_fold_to_bet": [
+      0.24081,
+      0.57736
+     ]
+    },
+    "near_dup_pairs_1_15": [
+     [
+      "nlhe4-station-e1-s0",
+      "nlhe4-station-e0",
+      0.091
+     ]
+    ]
+   },
+   "realism": {
+    "vpip_range": [
+     0.10982,
+     0.75321
+    ],
+    "vpip_median": 0.36186,
+    "vpip_by_position": {
+     "SB": 0.27343,
+     "BB": 0.30322000000000005,
+     "MP": 0.33524,
+     "BTN": 0.463455
+    },
+    "pfr_median": 0.28234000000000004,
+    "threebet_median": 0.0492665,
+    "postflop_aggression_median": 1.88685,
+    "fold_to_bet_median": 0.39795,
+    "preflop_allin_rate_median": 0.0015723999999999998,
+    "preflop_allin_hand_pct_median": 0.91847,
+    "vpip_by_stack": [
+     0.36335,
+     0.353345,
+     0.362985,
+     0.38514
+    ],
+    "allin_by_stack": [
+     0.018958,
+     0.0,
+     0.0007867799999999999,
+     0.0
+    ],
+    "median_bust": 0.54575,
+    "spearman_mu_bust": -0.16001682114034227,
+    "early_ended": 0.40097916666666666,
+    "clipped_bots": 51,
+    "spearman_mu_clipped": -0.23117499469980712,
+    "split_half_r_mu": 0.9718332514461859,
+    "median_se_bb": 3.1017425897440223,
+    "pool_sd_bb": 23.46964923427719,
+    "top5": [
+     {
+      "bot": "maniac-e2-s2",
+      "mu": 62.23393,
+      "bust": 0.4955,
+      "vpip": 0.64922,
+      "pfr": 0.56499,
+      "threebet": 0.26846,
+      "uncontested_bb100": 32.964,
+      "showdown_bb100": -5.2684,
+      "style": "LA",
+      "clipped": []
+     },
+     {
+      "bot": "station-e2-s2",
+      "mu": 53.14317,
+      "bust": 0.458,
+      "vpip": 0.52982,
+      "pfr": 0.39634,
+      "threebet": 0.050668,
+      "uncontested_bb100": -3.5275,
+      "showdown_bb100": 16.214,
+      "style": "LP",
+      "clipped": []
+     },
+     {
+      "bot": "tight-e3-s2",
+      "mu": 39.9718,
+      "bust": 0.534,
+      "vpip": 0.59761,
+      "pfr": 0.40181,
+      "threebet": 0.032028,
+      "uncontested_bb100": 21.786,
+      "showdown_bb100": -10.004,
+      "style": "LP",
+      "clipped": [
+       "open_size_bb",
+       "raise_threshold",
+       "threebet_mult"
+      ]
+     },
+     {
+      "bot": "trapper-e3-s3",
+      "mu": 37.1208,
+      "bust": 0.4275,
+      "vpip": 0.55132,
+      "pfr": 0.4396,
+      "threebet": 0.087572,
+      "uncontested_bb100": -4.3686,
+      "showdown_bb100": 25.053,
+      "style": "LA",
+      "clipped": [
+       "fourbet_mult",
+       "raise_threshold"
+      ]
+     },
+     {
+      "bot": "trapper-e2-s2",
+      "mu": 32.185405,
+      "bust": 0.6125,
+      "vpip": 0.72163,
+      "pfr": 0.58389,
+      "threebet": 0.06648,
+      "uncontested_bb100": 38.346,
+      "showdown_bb100": -42.788,
+      "style": "LA",
+      "clipped": []
+     }
+    ]
+   },
+   "hu_new": {
+    "hu_hand_share": 0.4529491220171094,
+    "hands_by_players": {
+     "2": 0.4529491220171094,
+     "3": 0.3211516333983691,
+     "4": 0.22589924458452149
+    },
+    "hu_button_first_in": {
+     "br": 0.420666040757718,
+     "f": 0.579333959242282
+    },
+    "hu_bb_vs_raise": {
+     "cc": 0.28869633714060655,
+     "f": 0.6457923066824209,
+     "br": 0.06551135617697257
+    },
+    "n_button": 18107,
+    "n_bb": 7617,
+    "replayed_bot_matches": 480
+   },
+   "hu_old": {
+    "hu_hand_share": 0.5280637016896484,
+    "hands_by_players": {
+     "2": 0.5280637016896484,
+     "3": 0.277054875811916,
+     "4": 0.1948814224984355
+    },
+    "hu_button_first_in": {
+     "br": 0.12238976747987414,
+     "f": 0.8776102325201258
+    },
+    "hu_bb_vs_raise": {
+     "f": 0.8704507512520868,
+     "cc": 0.06477462437395659,
+     "br": 0.06477462437395659
+    },
+    "n_button": 24471,
+    "n_bb": 2995,
+    "replayed_bot_matches": 480
+   },
+   "before_after": {
+    "spearman": 0.9764243081931633,
+    "kendall": 0.8771929824561402,
+    "top6_overlap": 5,
+    "top6_new": [
+     "loose-e1-s1",
+     "maniac-e2-s2",
+     "station-e2-s2",
+     "tight-e3-s2",
+     "trapper-e2-s2",
+     "trapper-e3-s3"
+    ],
+    "top6_old": [
+     "aggressive-e3-s3",
+     "loose-e1-s1",
+     "maniac-e2-s2",
+     "station-e2-s2",
+     "trapper-e2-s2",
+     "trapper-e3-s3"
+    ],
+    "largest_rank_changes": [
+     [
+      "tight-e3-s2",
+      22,
+      3
+     ],
+     [
+      "aggressive-e3-s0",
+      32,
+      14
+     ],
+     [
+      "neutral-e3-s3",
+      31,
+      15
+     ],
+     [
+      "aggressive-e3-s3",
+      4,
+      18
+     ],
+     [
+      "trapper-e3-s1",
+      75,
+      88
+     ]
+    ],
+    "largest_ev_gains": [
+     [
+      "tight-e3-s2",
+      14.3,
+      40.0
+     ],
+     [
+      "aggressive-e3-s0",
+      9.6,
+      24.9
+     ],
+     [
+      "neutral-e3-s3",
+      10.4,
+      24.9
+     ],
+     [
+      "station-e2-s2",
+      40.2,
+      53.1
+     ],
+     [
+      "station-e2-s3",
+      17.4,
+      29.9
+     ]
+    ],
+    "largest_ev_losses": [
+     [
+      "trapper-e3-s1",
+      -14.9,
+      -29.7
+     ],
+     [
+      "maniac-e3-s1",
+      -9.3,
+      -23.6
+     ],
+     [
+      "loose-e3-s0",
+      -9.8,
+      -24.1
+     ],
+     [
+      "station-e3-s3",
+      -24.7,
+      -38.9
+     ],
+     [
+      "trapper-e3-s0",
+      -13.9,
+      -24.5
+     ]
+    ],
+    "n_abs_z_gt_3": 10,
+    "ev_change_by_archetype": {
+     "aggressive": 3.13560625,
+     "loose": 1.1086491666666667,
+     "maniac": -2.53193375,
+     "neutral": 1.5050891666666668,
+     "nit": -3.955204583333332,
+     "station": 1.3333649999999988,
+     "tight": 0.6294474999999999,
+     "trapper": -1.2250187499999992
+    },
+    "ev_change_by_new_style": {
+     "LA": 1.883176607142858,
+     "LP": 3.5667549999999997,
+     "TA": -0.9964112499999995,
+     "TP": -3.7191364285714283
+    },
+    "median_bust_old": 0.4755,
+    "median_bust_new": 0.54575,
+    "early_ended_old": 0.11916666666666667,
+    "early_ended_new": 0.40097916666666666,
+    "style_changes": 20,
+    "pool_sd_old": 18.62297497594017,
+    "pool_sd_new": 23.46964923427719
+   }
+  },
+  "nlhe6": {
+   "calib_id": "nlhe6.nlhe6-pool.H400.pool-calibration.aadd073b",
+   "pool_hash": "a867bd18d6033233",
+   "fields": {
+    "spread": {
+     "field_hash": "ff0f2b07fc210f62",
+     "gap_bb": 16.795749999999998,
+     "gap_se": 3.057196022858669,
+     "near_dup_total": 0,
+     "near_dup_ranks_4_15": 0,
+     "styles": {
+      "LA": 17,
+      "LP": 12,
+      "TA": 13,
+      "TP": 18
+     },
+     "archetypes": {
+      "aggressive": 6,
+      "loose": 7,
+      "maniac": 9,
+      "neutral": 6,
+      "nit": 8,
+      "station": 8,
+      "tight": 8,
+      "trapper": 8
+     },
+     "eta2": 0.03308633228030809,
+     "within_5bb": 0,
+     "mu_range": [
+      -57.266980000000004,
+      54.208055
+     ],
+     "construction": {
+      "achieved_gap_se": 3.0571960228586694,
+      "gap_se_constraint": 3.0,
+      "gap_se_target": 3.0
+     }
+    },
+    "crowded_cutoff": {
+     "field_hash": "afbffedfc3706d84",
+     "gap_bb": 0.08934999999999782,
+     "gap_se": 0.016119002361826482,
+     "near_dup_total": 22,
+     "near_dup_ranks_4_15": 3,
+     "styles": {
+      "LA": 15,
+      "LP": 10,
+      "TA": 15,
+      "TP": 20
+     },
+     "archetypes": {
+      "aggressive": 4,
+      "loose": 6,
+      "maniac": 12,
+      "neutral": 6,
+      "nit": 7,
+      "station": 7,
+      "tight": 9,
+      "trapper": 9
+     },
+     "eta2": 0.023448106231130476,
+     "within_5bb": 16,
+     "mu_range": [
+      -57.266980000000004,
+      54.208055
+     ],
+     "construction": {}
+    },
+    "style_diverse": {
+     "field_hash": "ad7d6596ef1c8c3e",
+     "gap_bb": 2.8668399999999963,
+     "gap_se": 0.479555889598771,
+     "near_dup_total": 0,
+     "near_dup_ranks_4_15": 0,
+     "styles": {
+      "LA": 17,
+      "LP": 13,
+      "TA": 13,
+      "TP": 17
+     },
+     "archetypes": {
+      "aggressive": 6,
+      "loose": 7,
+      "maniac": 7,
+      "neutral": 8,
+      "nit": 7,
+      "station": 9,
+      "tight": 8,
+      "trapper": 8
+     },
+     "eta2": 0.032046171207267,
+     "within_5bb": 6,
+     "mu_range": [
+      -51.87350000000001,
+      54.208055
+     ],
+     "construction": {
+      "style_slack": 0
+     }
+    }
+   },
+   "crowded": {
+    "top15": [
+     {
+      "rank": 1,
+      "bot": "nlhe6-maniac-e2-s2",
+      "mu": 54.2081,
+      "se": 4.74193,
+      "style": "LA",
+      "archetype": "maniac",
+      "vpip": 0.57483,
+      "pfr": 0.51179,
+      "threebet": 0.26721,
+      "fold_to_bet": 0.55916
+     },
+     {
+      "rank": 2,
+      "bot": "nlhe6-station-e2-s2",
+      "mu": 52.7453,
+      "se": 4.50657,
+      "style": "LP",
+      "archetype": "station",
+      "vpip": 0.49275,
+      "pfr": 0.3663,
+      "threebet": 0.045274,
+      "fold_to_bet": 0.4832
+     },
+     {
+      "rank": 3,
+      "bot": "nlhe6-trapper-e3-s3",
+      "mu": 38.4525,
+      "se": 3.96609,
+      "style": "LA",
+      "archetype": "trapper",
+      "vpip": 0.48244,
+      "pfr": 0.3828,
+      "threebet": 0.08536,
+      "fold_to_bet": 0.55198
+     },
+     {
+      "rank": 4,
+      "bot": "nlhe6-maniac-e2-s3",
+      "mu": 12.4364,
+      "se": 3.53186,
+      "style": "LA",
+      "archetype": "maniac",
+      "vpip": 0.33023,
+      "pfr": 0.29583,
+      "threebet": 0.11261,
+      "fold_to_bet": 0.41825
+     },
+     {
+      "rank": 5,
+      "bot": "nlhe6-neutral-e1-s1",
+      "mu": 12.3722,
+      "se": 3.71517,
+      "style": "TP",
+      "archetype": "neutral",
+      "vpip": 0.23657,
+      "pfr": 0.17933,
+      "threebet": 0.048575,
+      "fold_to_bet": 0.49254
+     },
+     {
+      "rank": 6,
+      "bot": "nlhe6-aggressive-e2-s0",
+      "mu": 12.012,
+      "se": 3.91606,
+      "style": "TP",
+      "archetype": "aggressive",
+      "vpip": 0.3106,
+      "pfr": 0.22645,
+      "threebet": 0.047154,
+      "fold_to_bet": 0.40599
+     },
+     {
+      "rank": 7,
+      "bot": "nlhe6-loose-e3-s2",
+      "mu": 11.9227,
+      "se": 3.92509,
+      "style": "LP",
+      "archetype": "loose",
+      "vpip": 0.60385,
+      "pfr": 0.45205,
+      "threebet": 0.1,
+      "fold_to_bet": 0.61069
+     },
+     {
+      "rank": 8,
+      "bot": "nlhe6-aggressive-e1-s0",
+      "mu": 11.7917,
+      "se": 3.49704,
+      "style": "TA",
+      "archetype": "aggressive",
+      "vpip": 0.26008,
+      "pfr": 0.20873,
+      "threebet": 0.058692,
+      "fold_to_bet": 0.49693
+     },
+     {
+      "rank": 9,
+      "bot": "nlhe6-loose-e3-s1",
+      "mu": 11.6967,
+      "se": 4.73782,
+      "style": "LA",
+      "archetype": "loose",
+      "vpip": 0.53964,
+      "pfr": 0.50693,
+      "threebet": 0.29416,
+      "fold_to_bet": 0.34728
+     },
+     {
+      "rank": 10,
+      "bot": "nlhe6-tight-e2-s3",
+      "mu": 11.4785,
+      "se": 3.60346,
+      "style": "TA",
+      "archetype": "tight",
+      "vpip": 0.2677,
+      "pfr": 0.21496,
+      "threebet": 0.043053,
+      "fold_to_bet": 0.39233
+     },
+     {
+      "rank": 11,
+      "bot": "nlhe6-aggressive-e1-s1",
+      "mu": 10.5987,
+      "se": 3.87037,
+      "style": "TA",
+      "archetype": "aggressive",
+      "vpip": 0.2977,
+      "pfr": 0.23006,
+      "threebet": 0.073309,
+      "fold_to_bet": 0.37047
+     },
+     {
+      "rank": 12,
+      "bot": "nlhe6-trapper-e0",
+      "mu": 10.1727,
+      "se": 3.35936,
+      "style": "TP",
+      "archetype": "trapper",
+      "vpip": 0.25762,
+      "pfr": 0.18798,
+      "threebet": 0.032746,
+      "fold_to_bet": 0.4032
+     },
+     {
+      "rank": 13,
+      "bot": "nlhe6-tight-e1-s2",
+      "mu": 9.8746,
+      "se": 3.36653,
+      "style": "TA",
+      "archetype": "tight",
+      "vpip": 0.22164,
+      "pfr": 0.17077,
+      "threebet": 0.034034,
+      "fold_to_bet": 0.49699
+     },
+     {
+      "rank": 14,
+      "bot": "nlhe6-station-e1-s2",
+      "mu": 9.63972,
+      "se": 3.82563,
+      "style": "TP",
+      "archetype": "station",
+      "vpip": 0.30816,
+      "pfr": 0.22029,
+      "threebet": 0.032049,
+      "fold_to_bet": 0.25859
+     },
+     {
+      "rank": 15,
+      "bot": "nlhe6-maniac-e3-s2",
+      "mu": 9.5864,
+      "se": 3.9329,
+      "style": "TA",
+      "archetype": "maniac",
+      "vpip": 0.30706,
+      "pfr": 0.25777,
+      "threebet": 0.035734,
+      "fold_to_bet": 0.55952
+     }
+    ],
+    "leaders": [
+     "nlhe6-maniac-e2-s2",
+     "nlhe6-station-e2-s2",
+     "nlhe6-trapper-e3-s3"
+    ],
+    "leader_distances": [
+     0.594,
+     0.421,
+     0.435
+    ],
+    "cluster_range_bb": 2.8500000000000014,
+    "cluster_sd_bb": 1.0835469190327915,
+    "cluster_mean_se_bb": 3.790132658189552,
+    "cluster_true_sd_bb": 0.0,
+    "heldout_half_ranges_bb": [
+     8.1055,
+     11.111309999999998
+    ],
+    "pure_noise_range_expectation_bb": 17.473785847399824,
+    "cluster_styles": {
+     "LA": 2,
+     "TP": 4,
+     "LP": 1,
+     "TA": 5
+    },
+    "cluster_archetypes": {
+     "maniac": 2,
+     "neutral": 1,
+     "aggressive": 3,
+     "loose": 2,
+     "tight": 2,
+     "trapper": 1,
+     "station": 1
+    },
+    "cluster_median_param_distance": 0.41911821137084565,
+    "cluster_ranges": {
+     "vpip": [
+      0.22164,
+      0.60385
+     ],
+     "pfr": [
+      0.17077,
+      0.50693
+     ],
+     "threebet": [
+      0.032049,
+      0.29416
+     ],
+     "post_fold_to_bet": [
+      0.25859,
+      0.61069
+     ]
+    },
+    "near_dup_pairs_1_15": [
+     [
+      "nlhe6-neutral-e1-s1",
+      "nlhe6-tight-e1-s2",
+      0.128
+     ],
+     [
+      "nlhe6-aggressive-e1-s0",
+      "nlhe6-aggressive-e1-s1",
+      0.143
+     ],
+     [
+      "nlhe6-aggressive-e1-s0",
+      "nlhe6-tight-e1-s2",
+      0.147
+     ]
+    ]
+   },
+   "realism": {
+    "vpip_range": [
+     0.097512,
+     0.70652
+    ],
+    "vpip_median": 0.32395,
+    "vpip_by_position": {
+     "SB": 0.22938999999999998,
+     "BB": 0.30351,
+     "EP": 0.21432,
+     "MP": 0.27569,
+     "BTN": 0.42211
+    },
+    "pfr_median": 0.236125,
+    "threebet_median": 0.046905,
+    "postflop_aggression_median": 1.89425,
+    "fold_to_bet_median": 0.39922,
+    "preflop_allin_rate_median": 0.0020294500000000004,
+    "preflop_allin_hand_pct_median": 0.938295,
+    "vpip_by_stack": [
+     0.30279,
+     0.29612499999999997,
+     0.287205,
+     0.34909
+    ],
+    "allin_by_stack": [
+     0.021128,
+     0.0013947,
+     0.000961595,
+     0.00047246
+    ],
+    "median_bust": 0.59625,
+    "spearman_mu_bust": -0.22033289028429584,
+    "early_ended": 0.188875,
+    "clipped_bots": 51,
+    "spearman_mu_clipped": -0.28996593483726746,
+    "split_half_r_mu": 0.953107427297667,
+    "median_se_bb": 3.597501001921918,
+    "pool_sd_bb": 22.586039576098116,
+    "top5": [
+     {
+      "bot": "maniac-e2-s2",
+      "mu": 54.208055,
+      "bust": 0.588,
+      "vpip": 0.57483,
+      "pfr": 0.51179,
+      "threebet": 0.26721,
+      "uncontested_bb100": 40.322,
+      "showdown_bb100": -31.627,
+      "style": "LA",
+      "clipped": []
+     },
+     {
+      "bot": "station-e2-s2",
+      "mu": 52.74528,
+      "bust": 0.5455,
+      "vpip": 0.49275,
+      "pfr": 0.3663,
+      "threebet": 0.045274,
+      "uncontested_bb100": 2.0444,
+      "showdown_bb100": 34.408,
+      "style": "LP",
+      "clipped": []
+     },
+     {
+      "bot": "trapper-e3-s3",
+      "mu": 38.45249,
+      "bust": 0.502,
+      "vpip": 0.48244,
+      "pfr": 0.3828,
+      "threebet": 0.08536,
+      "uncontested_bb100": -10.981,
+      "showdown_bb100": 22.679,
+      "style": "LA",
+      "clipped": [
+       "fourbet_mult",
+       "raise_threshold"
+      ]
+     },
+     {
+      "bot": "nit-e3-s1",
+      "mu": 36.964095,
+      "bust": 0.5895,
+      "vpip": 0.32272,
+      "pfr": 0.16445,
+      "threebet": 0.0098958,
+      "uncontested_bb100": -10.217,
+      "showdown_bb100": 11.692,
+      "style": "TP",
+      "clipped": [
+       "call_margin",
+       "open_size_bb",
+       "threebet_mult"
+      ]
+     },
+     {
+      "bot": "neutral-e1-s0",
+      "mu": 35.689095,
+      "bust": 0.5805,
+      "vpip": 0.35641,
+      "pfr": 0.27545,
+      "threebet": 0.062587,
+      "uncontested_bb100": 2.0622,
+      "showdown_bb100": -0.21769,
+      "style": "LA",
+      "clipped": []
+     }
+    ]
+   },
+   "hu_new": {
+    "hu_hand_share": 0.20256969216541154,
+    "hands_by_players": {
+     "2": 0.20256969216541154,
+     "3": 0.2466970537719646,
+     "4": 0.2688928524243625,
+     "5": 0.16303342581582772,
+     "6": 0.11880697582243362
+    },
+    "hu_button_first_in": {
+     "f": 0.5734550790803848,
+     "br": 0.4265449209196152
+    },
+    "hu_bb_vs_raise": {
+     "f": 0.6494648318042814,
+     "br": 0.06842507645259939,
+     "cc": 0.28211009174311924
+    },
+    "n_button": 6133,
+    "n_bb": 2616,
+    "replayed_bot_matches": 480
+   },
+   "hu_old": {
+    "hu_hand_share": 0.2331660525981451,
+    "hands_by_players": {
+     "2": 0.2331660525981451,
+     "3": 0.2372316097065176,
+     "4": 0.25857578452547325,
+     "5": 0.1567780459916148,
+     "6": 0.11424850717824928
+    },
+    "hu_button_first_in": {
+     "f": 0.8803977659719384,
+     "br": 0.11960223402806157
+    },
+    "hu_bb_vs_raise": {
+     "f": 0.876993166287016,
+     "cc": 0.06150341685649203,
+     "br": 0.06150341685649203
+    },
+    "n_button": 7341,
+    "n_bb": 878,
+    "replayed_bot_matches": 480
+   },
+   "before_after": {
+    "spearman": 0.9908301682040151,
+    "kendall": 0.932017543859649,
+    "top6_overlap": 5,
+    "top6_new": [
+     "maniac-e2-s2",
+     "neutral-e1-s0",
+     "nit-e3-s1",
+     "station-e2-s2",
+     "station-e2-s3",
+     "trapper-e3-s3"
+    ],
+    "top6_old": [
+     "aggressive-e3-s3",
+     "maniac-e2-s2",
+     "neutral-e1-s0",
+     "nit-e3-s1",
+     "station-e2-s2",
+     "trapper-e3-s3"
+    ],
+    "largest_rank_changes": [
+     [
+      "station-e0",
+      39,
+      27
+     ],
+     [
+      "tight-e2-s3",
+      25,
+      36
+     ],
+     [
+      "loose-e3-s2",
+      44,
+      33
+     ],
+     [
+      "tight-e3-s2",
+      36,
+      25
+     ],
+     [
+      "station-e1-s0",
+      31,
+      42
+     ]
+    ],
+    "largest_ev_gains": [
+     [
+      "station-e2-s3",
+      24.8,
+      31.8
+     ],
+     [
+      "nit-e3-s1",
+      30.7,
+      37.0
+     ],
+     [
+      "aggressive-e3-s0",
+      12.5,
+      18.3
+     ],
+     [
+      "neutral-e3-s3",
+      12.0,
+      17.6
+     ],
+     [
+      "station-e2-s2",
+      47.9,
+      52.7
+     ]
+    ],
+    "largest_ev_losses": [
+     [
+      "aggressive-e2-s1",
+      -32.4,
+      -38.3
+     ],
+     [
+      "maniac-e3-s1",
+      -32.0,
+      -37.4
+     ],
+     [
+      "loose-e3-s0",
+      -23.8,
+      -28.0
+     ],
+     [
+      "station-e3-s2",
+      -34.0,
+      -38.3
+     ],
+     [
+      "trapper-e3-s0",
+      -8.6,
+      -12.7
+     ]
+    ],
+    "n_abs_z_gt_3": 0,
+    "ev_change_by_archetype": {
+     "aggressive": 0.7145324999999995,
+     "loose": 0.5282995833333342,
+     "maniac": -2.0397904166666665,
+     "neutral": 0.780359166666666,
+     "nit": -0.8508237500000001,
+     "station": 0.916886666666667,
+     "tight": -0.07456749999999963,
+     "trapper": 0.025103749999999536
+    },
+    "ev_change_by_new_style": {
+     "LA": 0.09638266666666677,
+     "LP": 1.053491388888889,
+     "TA": -0.4034599999999997,
+     "TP": -0.4864015000000004
+    },
+    "median_bust_old": 0.577,
+    "median_bust_new": 0.59625,
+    "early_ended_old": 0.05478125,
+    "early_ended_new": 0.188875,
+    "style_changes": 4,
+    "pool_sd_old": 20.758623210343693,
+    "pool_sd_new": 22.586039576098116
+   }
+  }
+ },
+ "cross_format": {
+  "spearman": 0.94816874660879,
+  "kendall": 0.800877192982456,
+  "top6_overlap": 3,
+  "top6_nlhe4": [
+   "loose-e1-s1",
+   "maniac-e2-s2",
+   "station-e2-s2",
+   "tight-e3-s2",
+   "trapper-e2-s2",
+   "trapper-e3-s3"
+  ],
+  "top6_nlhe6": [
+   "maniac-e2-s2",
+   "neutral-e1-s0",
+   "nit-e3-s1",
+   "station-e2-s2",
+   "station-e2-s3",
+   "trapper-e3-s3"
+  ],
+  "largest_4max_gains": [
+   [
+    "tight-e3-s2",
+    40.0,
+    14.7,
+    3,
+    25
+   ],
+   [
+    "maniac-e3-s0",
+    7.1,
+    -12.7,
+    44,
+    69
+   ],
+   [
+    "station-e3-s0",
+    17.1,
+    -1.5,
+    25,
+    55
+   ],
+   [
+    "maniac-e3-s1",
+    -23.6,
+    -37.4,
+    77,
+    90
+   ],
+   [
+    "station-e2-s1",
+    30.1,
+    18.5,
+    7,
+    17
+   ]
+  ],
+  "largest_4max_losses": [
+   [
+    "tight-e1-s0",
+    -11.8,
+    6.1,
+    63,
+    47
+   ],
+   [
+    "nit-e2-s2",
+    -36.5,
+    -20.3,
+    90,
+    79
+   ],
+   [
+    "nit-e2-s3",
+    -42.0,
+    -30.1,
+    94,
+    83
+   ],
+   [
+    "trapper-e3-s0",
+    -24.5,
+    -12.7,
+    81,
+    70
+   ],
+   [
+    "nit-e3-s0",
+    -62.7,
+    -51.9,
+    96,
+    95
+   ]
+  ],
+  "rank_change_gt_30": 0,
+  "style_changes": 21
+ }
+}

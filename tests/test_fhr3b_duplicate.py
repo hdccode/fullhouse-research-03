@@ -274,9 +274,8 @@ def test_history_exposure_is_result_neutral():
 # ------------------------------------------------------------------ frozen fields
 def test_frozen_fields_enforced():
     prof = load_profile("publication")
-    for mode in ("aof4",):
+    for mode in ("aof4", "nlhe4", "nlhe6"):
         for f in ("spread", "crowded_cutoff", "style_diverse"):
             assert prof.field(mode, f).field_hash == prof.frozen_hash(mode, f)
-    for mode in ("nlhe4", "nlhe6"):  # NLHE fields await re-calibration on fhr3b_heuristic
-        with pytest.raises((FieldNotFrozenError, FileNotFoundError)):
-            prof.field(mode, "spread")
+    with pytest.raises((FieldNotFrozenError, FileNotFoundError)):
+        prof.field("plo6", "spread")  # PLO is not part of FHR3B
