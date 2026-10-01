@@ -1,5 +1,18 @@
 # Matched mu_field reference: pre-launch plan (NOT run)
 
+> **FHR #4 rescoping (2026-10-01).** The core publication study runs `mu_field` for **NLHE6
+> only**: the three frozen fields at **250 matched rounds per field** initially. That is
+> 250 × 10 tables × 6 lanes × 400 = 6M scheduled hands per field, 18M in total.
+>
+> * **Budget scope:** the 250 rounds are core-scoped (`core_fhr4.field_reference`). There is no
+>   global default; a non-core AoF4/NLHE4 reference needs `--allow-noncore` and an explicit
+>   `--rounds`.
+> * **Extension:** to 500 rounds, appending rounds 250–499 to the same calibration ids.
+> * **Unchanged:** the design, estimator, uncertainty, lane validation and CRN coupling below.
+> * **Superseded:** the AoF4/NLHE4 rows and the 3,000-ordinary-equivalent budget.
+>
+> Command, cost and ids: `docs/fhr3b/FHR4_CORE.md`.
+
 Status: review decisions 2–5 have been implemented. Decision 1 keeps the shared seed. The
 stage has **not** been run.
 
@@ -7,10 +20,8 @@ stage has **not** been run.
 * Fields: the 9 frozen fields in `configs/fhr3b/fields/FROZEN.yaml`, unchanged.
 
 ```bash
-scripts/run_fhr3b.sh field-reference    # NOT YET RUN; awaiting the launch instruction
-# = fhr3b calibrate --stage field --profile publication --modes aof4 nlhe4 nlhe6 \
-#        --fields spread crowded_cutoff style_diverse --workers 8
-#   then fhr3b field-reference --profile publication --modes ... (reports, cheap; --boot 1000)
+scripts/run_fhr4_core.sh field-reference    # NOT YET RUN; awaiting the launch instruction
+# = fhr3b core field-reference --workers 8   (NLHE6 x 3 frozen fields, 250 matched rounds, then reports)
 ```
 
 ## 1. Design

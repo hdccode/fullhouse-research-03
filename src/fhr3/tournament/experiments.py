@@ -50,6 +50,10 @@ PAIRED_NOTE = {
     "schedule_diagnostic": "paired by (source, replay): frozen and adaptive replay j share card/decision seeds and "
                            "round-1 tables; sources are independent",
     "baseline": "independent across fields and modes (different fields/games); shared seed family",
+    "frozen_schedule": "paired by replicate: frozen replicate r replays the complete table schedule of baseline "
+                       "tournament r with fresh cards/decisions (same round-1 tables); replicates are independent",
+    "duplicate_play": "paired by replicate index: shared tournament seeds (round-1 tables); work is reported as "
+                      "scheduled and actually played hands, never assumed equal",
     "swiss_reference": "separate namespace from every finite-budget cell",
 }
 
@@ -165,8 +169,9 @@ class Profile:
     def budget_cells(self, mode: str, field: str) -> list[tuple[BudgetAllocation, Cell]]:
         return [(a, self.cell(mode, field, "budget_sweep", a.rounds, a.hands_per_match)) for a in self.allocations()]
 
-    def schedule_cells(self, mode: str, field: str) -> tuple[Cell, Cell, Cell, int]:
-        j = int(self.selection.get("replays_per_source", 4))
+    def schedule_cells(self, mode: str, field: str, j: int | None = None) -> tuple[Cell, Cell, Cell, int]:
+        """(source, frozen replay, adaptive replay, J). The source is the baseline cell (same namespace)."""
+        j = int(j if j is not None else self.selection.get("replays_per_source", 4))
         src = self.cell(mode, field, "schedule_diagnostic")
         frozen = Cell("frozen_replay", src.mode, src.protocol, src.field, src.seed_family, src.namespace, src, j)
         adapt = Cell("adaptive_replay", src.mode, src.protocol, src.field, src.seed_family, src.namespace, src, j)
@@ -193,8 +198,19 @@ class Profile:
                                match_format=str(c.get("match_format", "ordinary")))
 
     def calibration_rounds(self, stage: str, mode: str | None = None) -> int:
-        """Configured rounds; duplicate (matched) calibration divides by the lane count (equal simulator work)."""
+        """Configured rounds. ``matched_rounds`` is taken as is; an ordinary-equivalent ``rounds`` for a
+        duplicate calibration is divided by the lane count (equal simulator work).
+
+        The publication field reference has NO default: the FHR #4 core scopes its own budget
+        (``core_fhr4.field_reference``, see core.core_field_rounds) and every other caller must pass
+        the matched rounds explicitly.
+        """
         c = self.calibration["pool" if stage == "pool" else "field_reference"]
+        if "matched_rounds" in c:
+            return int(c["matched_rounds"])
+        if "rounds" not in c:
+            raise ValueError(f"{self.name}: no default {stage} calibration rounds; pass the matched rounds "
+                             "explicitly (--rounds) or use the scoped `fhr3b core field-reference`")
         rounds = int(c["rounds"])
         if c.get("match_format", "ordinary") == "duplicate" and mode is not None:
             rounds = max(1, rounds // load_mode(mode, self.config_root).table_size)
@@ -225,7 +241,8 @@ def load_profile(name: str = "publication", results_root: Path | None = None,
     cal = {"pool": mx["calibration"]["pool"], "field_reference": mx["calibration"]["field_reference"],
            "pool_field": "pool"}
     pub_ns = {"baseline": "publication", "round_sweep": "publication", "budget_sweep": "publication",
-              "schedule_diagnostic": "publication", "duplicate_play": "publication", "swiss_reference": "swiss-reference",
+              "schedule_diagnostic": "publication", "frozen_schedule": "publication", "duplicate_play": "publication",
+              "swiss_reference": "swiss-reference",
               "pool_calibration": "pool-calibration", "field_reference": "field-reference"}
     fields_dir = config_root / "fields"
     if name == "publication":

@@ -2,24 +2,30 @@
 # FHR3B convenience wrapper. Every simulation step is resumable: re-running skips
 # digest-verified tournaments and finished calibration chunks.
 #
+# The FullHouse Research #4 CORE publication study has its own launcher, scripts/run_fhr4_core.sh
+# (NLHE6 only). This wrapper keeps the general per-experiment steps; under the publication profile the
+# CLI refuses non-core modes (--allow-noncore; a non-core field reference also needs an explicit --rounds),
+# >50 tournaments per cell, >100 mu_swiss tournaments per field or a horizon > 40 (--extend), and
+# >250 mu_field rounds (--extend).
+#
 #   scripts/run_fhr3b.sh <step> [preset]
 #
 # steps: audit | smoke | calibrate-pool | behaviour-audit | select-fields | calibrate-fields |
 #        field-reference | pilot | baseline | round-sweep | budget-sweep | schedule-diagnostic |
 #        duplicate-play | swiss-reference | operational-2026 | validate | analyse | status | all-publication
-# preset (baseline/budget/schedule/swiss-reference): pilot | broad | flagship (default broad)
+# preset (baseline/budget/schedule/swiss-reference): pilot (8) | core (50; default)
 #
-# Environment: WORKERS (default 8), ROOT (default results/fhr3b), MODES (default "aof4 nlhe4 nlhe6"),
+# Environment: WORKERS (default 8), ROOT (default results/fhr3b), MODES (default "nlhe6"),
 #              REPORTS (default reports/fhr3b), PY (default .venv/bin), SCHEDULE_MODES (default: matrix).
 set -euo pipefail
 cd "$(dirname "$0")/.."
 
 STEP="${1:-}"
-PRESET="${2:-broad}"
+PRESET="${2:-core}"
 WORKERS="${WORKERS:-8}"
 ROOT="${ROOT:-results/fhr3b}"
 REPORTS="${REPORTS:-reports/fhr3b}"
-MODES="${MODES:-aof4 nlhe4 nlhe6}"
+MODES="${MODES:-nlhe6}"
 BIN="${PY:-.venv/bin}"
 F="$BIN/fhr3b"
 
@@ -55,7 +61,7 @@ case "$STEP" in
     "$0" calibrate-pool
     "$0" behaviour-audit
     "$0" select-fields ;;
-  field-reference)    # mu_field inside each frozen field (namespace field-reference)
+  field-reference)    # mu_field inside each frozen field (namespace field-reference); 250 matched rounds
     run "$F" calibrate --stage field --root "$ROOT" --profile publication --modes $MODES \
         --fields spread crowded_cutoff style_diverse --workers "$WORKERS"
     run "$F" field-reference --root "$ROOT" --profile publication --modes $MODES --reports "$REPORTS" ;;
@@ -63,8 +69,10 @@ case "$STEP" in
     run "$F" run --experiment pilot --root "$ROOT" --modes $MODES --preset pilot --workers "$WORKERS"
     run "$F" validate --experiment pilot --root "$ROOT" --modes $MODES --replay 1 --prefix 1
     run "$F" analyse --root "$ROOT" --profile pilot --modes $MODES --out "$REPORTS/analysis-pilot" ;;
-  baseline|budget-sweep|swiss-reference)
+  baseline|budget-sweep)
     run "$F" run --experiment "$STEP" --root "$ROOT" --modes $MODES --preset "$PRESET" --workers "$WORKERS" ;;
+  swiss-reference)    # mu_swiss: 100 tournaments per field (preset swiss_reference)
+    run "$F" run --experiment swiss-reference --root "$ROOT" --modes $MODES --preset swiss_reference --workers "$WORKERS" ;;
   schedule-diagnostic)   # modes from configs/fhr3b/matrix.yaml (nlhe6) unless SCHEDULE_MODES is set
     run "$F" run --experiment schedule-diagnostic --root "$ROOT" ${SCHEDULE_MODES:+--modes $SCHEDULE_MODES} \
         --preset "$PRESET" --workers "$WORKERS" ;;
@@ -85,17 +93,9 @@ case "$STEP" in
     for E in baseline budget-sweep schedule-diagnostic swiss-reference; do
       run "$F" status --experiment "$E" --root "$ROOT" --modes $MODES || true
     done ;;
-  all-publication)    # EXPENSIVE (days of CPU at flagship). Resumable; run steps separately if unsure.
-    echo "all-publication with preset=$PRESET: this is the full publication workload." >&2
-    "$0" calibrate-fields
-    "$0" field-reference
-    "$0" baseline "$PRESET"
-    "$0" budget-sweep "$PRESET"
-    "$0" schedule-diagnostic "$PRESET"
-    "$0" swiss-reference "$PRESET"
-    "$0" round-sweep
-    "$0" validate
-    "$0" analyse ;;
+  all-publication)    # retired: the publication study is scripts/run_fhr4_core.sh (plan first)
+    echo "all-publication is retired. Use scripts/run_fhr4_core.sh plan, then field-reference and matrix." >&2
+    exit 2 ;;
   *)
     sed -n '2,15p' "$0"; exit 2 ;;
 esac

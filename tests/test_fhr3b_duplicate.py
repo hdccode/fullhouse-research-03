@@ -207,7 +207,13 @@ def test_matched_calibration_rounds_and_ids():
     prof = load_profile("publication")
     spec = prof.calibration_spec("aof4", "field", "crowded_cutoff")  # frozen field
     assert spec.match_format == "duplicate" and ".dup." in spec.calib_id
-    assert prof.calibration_rounds("field", "nlhe6") == 500 and prof.calibration_rounds("field", "aof4") == 750
+    # FHR #4: the 250 matched rounds are CORE-scoped; no global default a non-core run could inherit
+    from fhr3.tournament.core import core_field_rounds
+
+    assert core_field_rounds(prof) == 250
+    for mode in ("nlhe6", "aof4", "nlhe4"):
+        with pytest.raises(ValueError, match="explicitly"):
+            prof.calibration_rounds("field", mode)
     assert prof.calibration_spec("aof4", "pool").calib_id == "aof4.aof4-pool.H400.pool-calibration.351766c0"
     six = load_mode("nlhe6")
     small = CalibrationSpec(six, load_field(FHR3B_CONFIGS / "fields/nlhe6/smoke12.json"), 8,

@@ -116,7 +116,8 @@ def test_candidate_fields_reproduce_from_frozen_calibration(mode, tmp_path):
 # ------------------------------------------------------------------ locked design
 def test_matrix_locks_modes_fields_and_retires_matchup():
     mx = load_matrix()
-    assert mx["primary_modes"] == ["aof4", "nlhe4", "nlhe6"]
+    assert mx["primary_modes"] == ["nlhe6"]  # FHR #4 core scope
+    assert mx["provenance_modes"] == ["aof4", "nlhe4"]  # frozen, provenance only
     for name, ex in mx["experiments"].items():
         if name not in ("smoke",):
             assert "plo6" not in ex.get("modes", []), name
@@ -172,6 +173,6 @@ def test_accuracy_vs_reference_exact():
 def test_locked_scope_language():
     scope = (REPO / "paper/FHR3B_SCOPE.md").read_text()
     assert "initial horizon" in scope and "not** an assumption that 40 rounds suffice" in scope
-    assert "AoF4, NLHE4, NLHE6" in scope and "PLO is removed" in scope
+    assert "NLHE6 only" in scope and "PLO is removed" in scope
     lab = yaml.safe_load((FHR3B_CONFIGS / "lab/lab60_top6.yaml").read_text())
     assert lab["field_size"] == 60

@@ -1,8 +1,16 @@
-"""``fhr3b``: FHR3B Swiss tournament reliability experiments.
+"""``fhr3b``: FHR3B Swiss tournament reliability experiments (publicly FullHouse Research #4).
 
 Every simulation command is resumable: completed, digest-verified tournaments (and
 calibration chunks) are skipped, and results from a different configuration are
 refused. See docs/fhr3b/RUNBOOK.md for the order of operations.
+
+The core publication study is ``fhr3b core {plan,field-reference,matrix,swiss-reference}``
+(NLHE6 only; configs/fhr3b/matrix.yaml: core_fhr4). Under the publication profile every
+simulation command refuses work outside the core scope unless asked explicitly:
+non-core modes need ``--allow-noncore`` (and, for a field reference, an explicit
+``--rounds``: the FHR #4 budget is never inherited); more than the initial replicates
+(50 per cell, 100 per field for mu_swiss) or matched rounds (250), or a horizon beyond
+R0, need ``--extend``.
 """
 
 from __future__ import annotations
@@ -28,8 +36,8 @@ from fhr3.tournament.fields import (
 
 DEFAULT_ROOT = Path("results/fhr3b")
 DEFAULT_REPORTS = Path("reports/fhr3b")
-EXPERIMENTS = ("smoke", "pilot", "baseline", "round-sweep", "budget-sweep", "schedule-diagnostic",
-               "duplicate-play", "swiss-reference", "operational-2026")
+EXPERIMENTS = ("smoke", "pilot", "core", "baseline", "round-sweep", "budget-sweep", "frozen-schedule",
+               "schedule-diagnostic", "duplicate-play", "swiss-reference", "operational-2026")
 
 
 def _p(obj: Any) -> None:
@@ -41,7 +49,7 @@ def _replicates(args: argparse.Namespace, default: int) -> range:
         a, _, b = args.range.partition(":")
         return range(int(a or 0), int(b))
     n = args.replicates if args.replicates is not None else (
-        ex.preset_replicates(args.preset) if args.preset else default)
+        ex.preset_replicates(args.preset) if getattr(args, "preset", None) else default)
     return range(n)
 
 
@@ -73,6 +81,15 @@ def cells_for(args: argparse.Namespace) -> list[tuple[str, Any]]:
     if exp == "round-sweep":
         raise SystemExit("round-sweep is derived from the baseline cells (exact R-prefixes): run `baseline`, then "
                          "`validate --experiment baseline --prefix N` and `analyse`.")
+    if exp == "core":
+        from fhr3.tournament import core
+
+        if args.modes and list(args.modes) != list(mx["core_fhr4"]["modes"]):
+            raise SystemExit(f"core is {mx['core_fhr4']['modes']} only; got --modes {args.modes}")
+        try:
+            return [(cc.label, cc.cell) for cc in core.core_cells(prof, args.fields, getattr(args, "cells", None))]
+        except core.CoreScopeError as e:
+            raise SystemExit(str(e)) from e
     key = exp.replace("-", "_")
     modes = args.modes or E.get(key, {}).get("modes") or mx["primary_modes"]
     fields = args.fields or (list(prof.fields) if exp in ("baseline", "swiss-reference") else
@@ -92,6 +109,9 @@ def cells_for(args: argparse.Namespace) -> list[tuple[str, Any]]:
                     out.append((f"budget {mode}/{field} {alloc.label} R{alloc.rounds}xH{alloc.hands_per_match}", c))
             elif exp == "duplicate-play":
                 out += [(f"duplicate {mode}/{field} {label}", c) for label, c in prof.duplicate_cells(mode, field)]
+            elif exp == "frozen-schedule":  # core C: adaptive baseline vs frozen replay (J = 1)
+                src, frozen, _, _ = prof.schedule_cells(mode, field, int(E["frozen_schedule"]["replays_per_source"]))
+                out += [(f"baseline {mode}/{field}", src), (f"frozen {mode}/{field}", frozen)]
             elif exp == "schedule-diagnostic":
                 src, frozen, adapt, j = prof.schedule_cells(mode, field)
                 out += [(f"schedule-source {mode}/{field}", src), (f"frozen {mode}/{field}", frozen),
@@ -99,6 +119,78 @@ def cells_for(args: argparse.Namespace) -> list[tuple[str, Any]]:
             else:
                 raise SystemExit(f"unknown experiment {exp}")
     return out
+
+
+# ------------------------------------------------------------------ publication guards
+def _core_cfg() -> dict[str, Any]:
+    return ex.load_matrix()["core_fhr4"]
+
+
+def _guard_modes(args: argparse.Namespace, prof: ex.Profile, modes: list[str]) -> None:
+    core_modes = _core_cfg()["modes"]
+    extra = sorted(set(modes) - set(core_modes))
+    if prof.name == "publication" and extra and not getattr(args, "allow_noncore", False):
+        raise SystemExit(f"{extra} are outside the FHR #4 core scope ({core_modes}); their fields stay frozen for "
+                         "provenance. Pass --allow-noncore only for a deliberate, separately planned study.")
+
+
+def _guard_replicates(args: argparse.Namespace, prof: ex.Profile, reps: range) -> None:
+    if prof.name != "publication":
+        return
+    cfg = _core_cfg()
+    init = int(cfg["swiss_reference"]["replicates_initial"] if getattr(args, "experiment", None) == "swiss-reference"
+               else cfg["replicates_initial"])
+    if reps.stop > init and not getattr(args, "extend", False):
+        raise SystemExit(f"replicates {reps.start}..{reps.stop - 1} go beyond the initial {init} per cell. Extensions "
+                         f"are per cell and append-only: e.g. --range {init}:{2 * init} --extend (tournaments "
+                         f"0..{init - 1} are verified and skipped, never recomputed).")
+
+
+def _guard_horizon(args: argparse.Namespace, prof: ex.Profile) -> None:
+    h = getattr(args, "horizon", None)
+    if prof.name == "publication" and h is not None and h > prof.r0 and not getattr(args, "extend", False):
+        hz = _core_cfg()["horizon_extensions"]
+        raise SystemExit(f"--horizon {h} is a long-horizon extension ({hz['horizons']}), disabled by default "
+                         f"(enabled: {hz['enabled']}). Run it only if the qualification metrics have not "
+                         "stabilised at 40 rounds, with --extend.")
+
+
+def _guard_swiss_reference(prof: ex.Profile) -> None:
+    sw = _core_cfg()["swiss_reference"]
+    if prof.name == "publication" and not sw.get("enabled", False):
+        raise SystemExit("mu_swiss (swiss-reference) publication execution is DISABLED pending its initial budget "
+                         f"(options {sw['replicate_options']} reps/field; see `fhr3b core plan`). Set "
+                         "core_fhr4.swiss_reference.enabled: true in configs/fhr3b/matrix.yaml to enable it.")
+
+
+def _field_rounds(args: argparse.Namespace, prof: ex.Profile, mode: str) -> int:
+    """Matched rounds for a field reference: explicit --rounds, else the core-scoped budget for core modes.
+
+    Non-core modes (AoF4, NLHE4, ...) never inherit the FHR #4 budget: they must pass --rounds.
+    """
+    if args.rounds:
+        return int(args.rounds)
+    if prof.name != "publication":
+        return prof.calibration_rounds("field", mode)
+    if mode in _core_cfg()["modes"]:
+        return int(_core_cfg()["field_reference"]["matched_rounds_initial"])
+    raise SystemExit(f"{mode} is outside the FHR #4 core: its field-reference budget is not defaulted. Pass the "
+                     "matched rounds explicitly with --rounds (a separately designed study).")
+
+
+def _guard_field_rounds(args: argparse.Namespace, prof: ex.Profile, rounds: int, mode: str = "nlhe6") -> None:
+    if prof.name != "publication":
+        return
+    chunk = int(prof.calibration["field_reference"]["chunk_rounds"])
+    if rounds % chunk:
+        raise SystemExit(f"field-reference rounds must be a multiple of chunk_rounds={chunk} so later extensions "
+                         "append whole chunks")
+    if mode not in _core_cfg()["modes"]:
+        return  # explicit, separately planned non-core budget (already behind --allow-noncore)
+    init = int(_core_cfg()["field_reference"]["matched_rounds_initial"])
+    if rounds > init and not getattr(args, "extend", False):
+        raise SystemExit(f"{rounds} matched rounds go beyond the initial {init} per field; an extension appends "
+                         f"rounds {init}..{rounds - 1} (the first {init} are never repeated). Pass --extend.")
 
 
 # ------------------------------------------------------------------ commands
@@ -143,11 +235,17 @@ def cmd_calibrate(args: argparse.Namespace) -> int:
     from fhr3.tournament.calibration import run_calibration
 
     prof = ex.load_profile(args.profile or "publication", Path(args.root))
+    if args.stage == "field":
+        _guard_modes(args, prof, args.modes)
     for m in args.modes:
         fields = args.fields if args.stage == "field" else [None]
         for f in fields:
             spec = prof.calibration_spec(m, args.stage, f)
-            rounds = args.rounds or prof.calibration_rounds(args.stage, m)
+            if args.stage == "field":
+                rounds = _field_rounds(args, prof, m)
+                _guard_field_rounds(args, prof, rounds, m)
+            else:
+                rounds = args.rounds or prof.calibration_rounds(args.stage, m)
             _p(run_calibration(spec, Path(args.root), rounds, args.workers, args.allow_source_change))
     return 0
 
@@ -221,8 +319,29 @@ def cmd_run(args: argparse.Namespace) -> int:
         reps = _replicates(args, 0)
     root = Path(args.root)
     prof = _profile_for(args)
-    for label, c in cells_for(args):
+    if args.experiment == "swiss-reference":
+        _guard_swiss_reference(prof)
+    _guard_horizon(args, prof)
+    cells = cells_for(args)
+    _guard_modes(args, prof, sorted({c.mode.mode for _, c in cells}))
+    if args.experiment != "schedule-diagnostic":
+        _guard_replicates(args, prof, reps)
+    run_ids = {c.identity_hash for _, c in cells}
+    for label, c in cells:  # frozen replicate r replays source tournament r: it must exist or run first
+        if c.kind == "frozen_replay" and c.source is not None and c.source.identity_hash not in run_ids:
+            from fhr3.tournament.store import completed_replicates
+
+            src_done = set(completed_replicates(root, c.source, verify=False))
+            srcs = set(reps) if args.experiment in ("core", "frozen-schedule") else {c.source_index(r)[0] for r in reps}
+            need = srcs - src_done
+            if need:
+                raise SystemExit(f"[{label}] needs source tournaments {sorted(need)[:5]}... of {c.source.cell_id}; "
+                                 "run the baseline cell first")
+    for label, c in cells:
         this = reps
+        if c.kind == "frozen_replay" and args.experiment in ("core", "frozen-schedule"):
+            # reps = SOURCE tournaments; the frozen cell holds J replays of each (J = 1 in the initial core)
+            this = range(reps.start * c.replays_per_source, reps.stop * c.replays_per_source)
         if args.experiment == "schedule-diagnostic":
             # reps = tournaments per replay sub-cell; sources are the independent units
             j = int(prof.selection["replays_per_source"])
@@ -232,6 +351,64 @@ def cmd_run(args: argparse.Namespace) -> int:
         run = run_cell(c, root, this, args.workers, args.allow_source_change, progress=not args.quiet)
         print(f"[{label}] ran {run['ran']} (skipped {run['skipped_completed']}) in {run['wall_s']}s", flush=True)
     return 0
+
+
+def _core_args(args: argparse.Namespace, **kw: Any) -> argparse.Namespace:
+    base = dict(root=args.root, profile=args.profile, modes=None, fields=args.fields, experiment="core",
+                horizon=None, cells=getattr(args, "cells", None), workers=args.workers,
+                allow_source_change=args.allow_source_change, quiet=args.quiet, extend=args.extend,
+                allow_noncore=False, preset=None, replicates=args.replicates, range=args.range)
+    return argparse.Namespace(**(base | kw))
+
+
+def cmd_core(args: argparse.Namespace) -> int:
+    """FullHouse Research #4 core study: plan (no simulation), field-reference, matrix, swiss-reference."""
+    from fhr3.tournament import core
+
+    prof = ex.load_profile(args.profile or "publication", Path(args.root))
+    cfg = core.core_config(prof)
+    try:
+        core.check_scope(prof, cfg)
+    except core.CoreScopeError as e:
+        raise SystemExit(f"core scope check failed: {e}") from e
+    reps = _replicates(args, int(cfg["replicates_initial"]))
+    if args.action == "plan":
+        sw = range(*map(int, args.swiss_range.split(":"))) if args.swiss_range else None
+        plan = core.build_plan(prof, Path(args.root), workers=args.workers, rate=args.rate, replicates=reps,
+                               mu_field_rounds=args.rounds, fields=args.fields, keys=args.cells, swiss_replicates=sw,
+                               reports=Path(args.reports) if args.reports else _reports_for(args))
+        if args.json:
+            Path(args.json).parent.mkdir(parents=True, exist_ok=True)
+            Path(args.json).write_text(json.dumps(plan, indent=1, sort_keys=True, default=str) + "\n")
+        print(core.format_plan(plan))
+        if args.json:
+            print(f"\nplan written to {args.json}")
+        return 0
+    if args.action == "field-reference":
+        from fhr3.tournament.calibration import run_calibration
+        from fhr3.tournament.selection import field_reference_report
+
+        rounds = args.rounds or core.core_field_rounds(prof)  # publication: the core-scoped 250
+        _guard_field_rounds(args, prof, rounds)
+        reports = Path(args.reports) if args.reports else _reports_for(args)
+        for m in cfg["modes"]:
+            for f in args.fields or list(cfg["fields"]):
+                spec = prof.calibration_spec(m, "field", f)
+                print(f"[mu_field {m}/{f}] {spec.calib_id}: matched rounds 0..{rounds - 1}", flush=True)
+                _p(run_calibration(spec, Path(args.root), rounds, args.workers, args.allow_source_change,
+                                   progress=not args.quiet))
+                if not args.no_report:
+                    _p(field_reference_report(Path(args.root), prof, m, f, reports, n_boot=args.boot))
+        return 0
+    if args.action == "matrix":
+        return cmd_run(_core_args(args, range=args.range or f"{reps.start}:{reps.stop}", replicates=None))
+    if args.action == "swiss-reference":
+        _guard_swiss_reference(prof)
+        sw = _replicates(args, core.swiss_initial(prof))  # default: the initial 100 per field
+        return cmd_run(_core_args(args, experiment="swiss-reference", modes=list(cfg["modes"]),
+                                  fields=args.fields or list(cfg["fields"]), cells=None,
+                                  range=f"{sw.start}:{sw.stop}", replicates=None))
+    raise SystemExit(f"unknown core action {args.action}")
 
 
 def cmd_validate(args: argparse.Namespace) -> int:
@@ -309,6 +486,8 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--rounds", type=int)
     p.add_argument("--workers", type=int, default=1)
     p.add_argument("--allow-source-change", action="store_true")
+    p.add_argument("--extend", action="store_true", help="allow field-reference rounds beyond the initial stage")
+    p.add_argument("--allow-noncore", action="store_true", help="allow modes outside the FHR #4 core scope")
     p.set_defaults(fn=cmd_calibrate)
     p = sub.add_parser("behaviour-audit", help="exact replay of calibration rounds -> behaviour + style classes")
     common(p, experiment=False)
@@ -329,13 +508,38 @@ def build_parser() -> argparse.ArgumentParser:
     p = sub.add_parser("run", help="run an experiment's tournaments (resumable)")
     common(p)
     g = p.add_mutually_exclusive_group()
-    g.add_argument("--preset", choices=("pilot", "broad", "flagship"))
+    g.add_argument("--preset", choices=("pilot", "core", "swiss_reference"))
     g.add_argument("--replicates", type=int)
     g.add_argument("--range", help="replicate range a:b")
     p.add_argument("--workers", type=int, default=1)
     p.add_argument("--allow-source-change", action="store_true")
     p.add_argument("--quiet", action="store_true")
+    p.add_argument("--extend", action="store_true", help="allow replicates / horizon beyond the core initial stage")
+    p.add_argument("--allow-noncore", action="store_true", help="allow modes outside the FHR #4 core scope")
+    p.add_argument("--cells", nargs="+", help="core cells only (experiment core)")
     p.set_defaults(fn=cmd_run)
+    p = sub.add_parser("core", help="FullHouse Research #4 core study (NLHE6): plan | field-reference | matrix | "
+                                    "swiss-reference")
+    p.add_argument("action", choices=("plan", "field-reference", "matrix", "swiss-reference"))
+    p.add_argument("--root", default=str(DEFAULT_ROOT), help="results root (default results/fhr3b)")
+    p.add_argument("--profile", choices=("publication", "smoke"), default=None)
+    p.add_argument("--fields", nargs="+", help="subset of the core fields (default: all three)")
+    p.add_argument("--cells", nargs="+", help="subset of the six core cells (e.g. baseline frozen_schedule)")
+    g = p.add_mutually_exclusive_group()
+    g.add_argument("--replicates", type=int, help="tournaments per cell: 0..N-1 (default: core replicates_initial)")
+    g.add_argument("--range", help="replicate range a:b (extensions: e.g. 50:100 with --extend)")
+    p.add_argument("--rounds", type=int, help="mu_field matched rounds per field (default: core initial, 250)")
+    p.add_argument("--extend", action="store_true", help="allow work beyond the initial stage (append-only)")
+    p.add_argument("--workers", type=int, default=8)
+    p.add_argument("--rate", type=float, default=None, help="plan: hands/s on --workers (default: measured)")
+    p.add_argument("--json", help="plan: also write the machine-readable plan here")
+    p.add_argument("--swiss-range", help="plan: mu_swiss replicate range a:b (default 0:100)")
+    p.add_argument("--reports")
+    p.add_argument("--boot", type=int, default=1000)
+    p.add_argument("--no-report", action="store_true", help="field-reference: skip the (cheap) report step")
+    p.add_argument("--allow-source-change", action="store_true")
+    p.add_argument("--quiet", action="store_true")
+    p.set_defaults(fn=cmd_core)
     p = sub.add_parser("validate", help="independent invariant checks, exact replay, R-prefix identity")
     common(p)
     p.add_argument("--replay", type=int, default=0, help="replay the first N tournaments exactly")

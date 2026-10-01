@@ -1,12 +1,23 @@
-# FHR3B runbook
+# FHR3B runbook (publicly FullHouse Research #4)
 
 Branch `research/fhr3b-swiss-baseline`, worktree `~/fullhouse-research-03b`.
+
+> **Core publication study (2026-10-01 rescoping): NLHE6 only.** It covers the three frozen
+> fields and six unique cells per field, with 50 tournaments per cell, 250 `mu_field` rounds per
+> field and 100 `mu_swiss` tournaments per field initially. That is 211.32M scheduled hands in
+> total. Its launch plan, exact commands and cost are in
+> **`docs/fhr3b/FHR4_CORE.md`**, and the launcher is `scripts/run_fhr4_core.sh`. Run
+> `fhr3b core plan` before anything expensive. Two things below are now history or general
+> capability and are not part of the core:
+>
+> * AoF4 and NLHE4, which stay frozen for provenance;
+> * the 200/1000 replication presets, which are retired.
 
 All experiments use the controlled research protocol `fhr3b_baseline`:
 
 * N = 60, K = 6, H0 = 400;
 * R0 = 40 as the *initial* horizon;
-* publication modes AoF4, NLHE4, NLHE6.
+* core publication mode NLHE6 (AoF4/NLHE4 frozen, not in the core matrix).
 
 These are research design choices, not 2026 settings (`paper/FHR3B_SCOPE.md`). Only
 `operational-2026` (historical validation H) depends on historical facts, and it is blocked.
@@ -27,7 +38,7 @@ Knobs for `scripts/run_fhr3b.sh`:
 | `WORKERS` | 8 |
 | `ROOT` | `results/fhr3b` |
 | `REPORTS` | `reports/fhr3b` |
-| `MODES` | `aof4 nlhe4 nlhe6` |
+| `MODES` | `nlhe6` |
 | `SCHEDULE_MODES` | from the matrix: nlhe6 |
 
 ## 0. Audit and smoke (cheap)
@@ -47,8 +58,8 @@ scripts/run_fhr3b.sh smoke     # every mode + whole pipeline at 10 hands/match (
 | 4 | **Re-run NLHE4 and NLHE6 pool calibration** on the new pools | next (expensive) |
 | 5 | Behaviour audit + selection for NLHE4 and NLHE6 | cheap |
 | 6 | Review and freeze both NLHE modes (add hashes to `FROZEN.yaml`) | human |
-| 7 | Matched field-reference (duplicate lanes) for 3 modes × 3 frozen fields | expensive |
-| 8 | Inspect reference quality before any Swiss tournament pilot | human |
+| 7 | ~~Matched field-reference for 3 modes × 3 frozen fields~~ superseded: NLHE6 × 3 fields, 250 matched rounds (`FHR4_CORE.md`) | expensive, not yet run |
+| 8 | FHR #4 core matrix: 18 unique NLHE6 cells × 50 tournaments (`FHR4_CORE.md`) | expensive, not yet run |
 
 ## 1. NLHE pool calibration (step 4; expensive)
 
@@ -80,13 +91,15 @@ MODES="nlhe4 nlhe6" scripts/run_fhr3b.sh select-fields
 ## 2. Matched field reference (step 7; expensive)
 
 ```bash
-scripts/run_fhr3b.sh field-reference   # k-lane duplicate matches inside each FROZEN field
+scripts/run_fhr4_core.sh field-reference   # = fhr3b core field-reference: NLHE6 x 3 frozen fields
 ```
 
-* **Rounds:** 3,000 ordinary-equivalent, run as 750 × 4 lanes (AoF4, NLHE4) or 500 × 6 lanes
-  (NLHE6).
-* **Cost:** ≈ 133M played hands; ≈ 8 h wall at 8 workers (up to ≈ 13 h if NLHE6 runs at its
-  slowest observed rate). Storage ≈ 12 MB (rows + per-lane outcomes).
+* **Rounds:** 250 matched rounds per NLHE6 field (6 lanes × 400 hands). That is 6M scheduled
+  table-hands per field and 18M in total. (Earlier plan, superseded: 3,000
+  ordinary-equivalent rounds, i.e. 500 × 6 for NLHE6 and 750 × 4 for AoF4/NLHE4.)
+* **Extension to 500:** `--rounds 500 --extend` appends rounds 250–499 to the same calibration
+  ids.
+* **Cost:** ≈ 17M played hands; ≈ 1.4 h wall at 8 workers.
 * **Outputs:** `calibration/<id>/{calibration.lock.json, chunks/, lanes/}`; reports
   `field-calibration/<mode>/<field_id>/{reference_bots.csv, reference.json}`.
 * **Guard:** refuses unfrozen or revoked fields.
@@ -97,22 +110,23 @@ scripts/run_fhr3b.sh field-reference   # k-lane duplicate matches inside each FR
 scripts/run_fhr3b.sh pilot     # 8 full tournaments per mode on provisional60 fields
 ```
 
-## 4. Publication experiments (after review)
+## 4. Publication experiments (FHR #4 core; after review)
 
-Presets are `pilot` (8), `broad` (200) and `flagship` (1000) tournaments per cell. Extend only the
-cells whose Monte Carlo intervals miss their targets.
+The publication matrix is `fhr3b core matrix`: 18 unique NLHE6 cells serving A–D, with 50
+tournaments per cell. See `docs/fhr3b/FHR4_CORE.md`.
+
+* **Presets:** `pilot` (8) and `core` (50). The former `broad` (200) and `flagship` (1000)
+  presets are retired.
+* **Extensions:** per cell, append-only (`--range 50:100 --extend`), and only where the primary
+  qualification metrics are still too uncertain.
 
 ```bash
-scripts/run_fhr3b.sh baseline broad             # A: 40-round cells; 5/10/20/30/40 read from prefixes
-scripts/run_fhr3b.sh round-sweep                # A: verify prefix identity + analyse (no new simulation)
-.venv/bin/fhr3b run --experiment baseline --horizon 80 --preset broad --workers 8   # A: only if still improving at 40
-scripts/run_fhr3b.sh budget-sweep broad         # B: 10x1600, 20x800 (40x400 = baseline, reused)
-scripts/run_fhr3b.sh schedule-diagnostic broad  # C: nlhe6 crowded_cutoff; 50 sources x 4 replays
-scripts/run_fhr3b.sh duplicate-play broad       # D: ordinary vs 2 duplicate variants at equal work (paired seeds)
-scripts/run_fhr3b.sh swiss-reference broad      # mu_swiss
-scripts/run_fhr3b.sh operational-2026           # H (historical): blocked, lists the missing facts
-scripts/run_fhr3b.sh validate
-scripts/run_fhr3b.sh analyse                    # reports/fhr3b/analysis/ (incl. reference_accuracy.csv)
+scripts/run_fhr4_core.sh plan       # no simulation: exactly what would run, and its cost
+scripts/run_fhr4_core.sh matrix     # A (prefixes of the baseline) + B + C (frozen J=1) + D, deduplicated
+scripts/run_fhr4_core.sh validate
+scripts/run_fhr4_core.sh analyse    # reports/fhr3b/analysis-fhr4-core/
+scripts/run_fhr4_core.sh swiss-reference             # mu_swiss: 100 per field (extend per field: --range 100:200 --extend)
+scripts/run_fhr3b.sh operational-2026                 # H (historical): blocked, lists the missing facts
 ```
 
 ## Runtime estimates
@@ -126,15 +140,18 @@ give about 4×.
 | NLHE4 | ~1,470 | ≤ 240k hands, ~2.7 core-min |
 | NLHE6 | ~940–1,375 | ≤ 160k hands, ~2–3 core-min |
 
-Planning numbers, for 3 modes × 3 fields:
+Current planning numbers come from `fhr3b core plan` (`docs/fhr3b/FHR4_CORE.md`), using the
+measured 8-worker NLHE6 rate of ≈ 4,260 h/s:
 
-| workload | core-hours | wall at 8 workers |
-|---|---|---|
-| baseline broad (200 tournaments per cell) | ~75 | ~19 h |
-| baseline flagship (1000 per cell) | — | ~95 h |
-| swiss-reference broad | ~75 | ~19 h |
-| budget sweep (2 extra cells per mode) | ~50 | ~12 h |
-| field reference (3,000 ordinary-equivalent rounds, matched) | ~30–60 | ~8–13 h |
+| workload | wall at 8 workers |
+|---|---|
+| `mu_field`, 3 × 250 matched rounds | ≈ 1.4 h |
+| core matrix, 18 cells × 50 | ≈ 9.3 h |
+| combined | ≈ 10.7 h |
+| `mu_swiss`, 3 × 100 | ≈ 3.1 h |
+| initial programme (211.32M scheduled) | ≈ 13.8 h (≈ 45.6 h at the slow 1,289 h/s) |
+
+The earlier 3-mode `broad`/`flagship` estimates are superseded.
 
 ## Failure handling
 

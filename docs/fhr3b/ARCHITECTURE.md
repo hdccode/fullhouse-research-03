@@ -1,4 +1,9 @@
-# FHR3B architecture
+# FHR3B architecture (publicly FullHouse Research #4)
+
+> The core publication scope is NLHE6 only (`paper/FHR3B_SCOPE.md`, `docs/fhr3b/FHR4_CORE.md`).
+> `core.py` resolves it into six unique cells per field. AoF4 and NLHE4 remain supported and
+> frozen but are outside the core matrix. The public 2026 engine semantics below are a research
+> reference, not a declaration of the 2027 competition format.
 
 FHR3B simulates **whole Swiss tournaments**. One statistical unit is one complete
 tournament replication:
@@ -47,6 +52,7 @@ and `Agent`s. It adds no poker rules and copies no agent logic.
 | `batch.py` | resumable multiprocess execution of a cell |
 | `replay.py` | independent re-validation from stored rows, exact replay, hand-log regeneration, R-prefix verification |
 | `experiments.py` | matrix and profiles (publication / pilot / smoke) resolved to cells |
+| `core.py` | FHR #4 core scope: six unique cells per field (deduplicated by identity hash), work accounting, `fhr3b core plan` (no simulation) |
 | `metrics.py` | repeatability metrics, bootstrap, Wilson intervals, inversions, cutoff curves |
 | `analysis.py` | stored results to the report tree (CSV/JSON + MANIFEST) |
 | `cli.py` | `fhr3b` entry point |
@@ -65,8 +71,8 @@ and `Agent`s. It adds no poker rules and copies no agent logic.
 
 ## Match semantics
 
-Publication modes are **AoF4, NLHE4 and NLHE6**. The other modes remain generic engine support;
-PLO is not part of FHR3B.
+The core publication mode is **NLHE6**. AoF4 and NLHE4 keep frozen fields, but they are not in
+the core matrix. The other modes remain generic engine support; PLO is not part of FHR3B.
 
 **NLHE (locked research baseline, public 2026 match semantics).**
 
@@ -185,7 +191,8 @@ top 6, Kendall tau) and the repeatability metrics.
 
 ## Rounds horizon
 
-R0 = 40 is the initial horizon. `fhr3b run --horizon R` creates the R-round cell. Seeds do not
+R0 = 40 is the initial horizon. `fhr3b run --horizon R --extend` creates the R-round cell. Long
+horizons are disabled by default: `core_fhr4.horizon_extensions`. Seeds do not
 depend on R, so its first 40 rounds reproduce the 40-round cell exactly, and checkpoints are
 read from prefixes (`round_checkpoints` in `matrix.yaml`: 5 … 40, 60, 80, 120).
 
@@ -286,8 +293,8 @@ and checks it against the stored deltas.
 | architectural provenance | `protocol.source` pins the public 2026 engine repository, commit and file hash (`role: architectural provenance only`) |
 | historical record | `historical_2026_reconstruction` record hash (`fhr3b audit`); not part of any research identity |
 
-Replication counts are not part of any identity. Extending broad → flagship reuses the same
-cells, and verified tournaments are skipped.
+Replication counts are not part of any identity. Extending a cell (e.g. 50 → 100 with
+`--range 50:100 --extend`) reuses the same cell, and verified tournaments are skipped.
 
 ## Resumability
 

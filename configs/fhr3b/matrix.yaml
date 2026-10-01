@@ -1,25 +1,32 @@
 # FHR3B experiment matrix. Cells are generated from this file (src/fhr3/tournament/experiments.py);
-# nothing here is hand-expanded. Replication counts come from presets and are NOT part of any
-# cell identity: extending broad -> flagship reuses the same cells and skips finished tournaments.
+# nothing here is hand-expanded. Replication counts are NOT part of any cell identity: extending a
+# cell (e.g. 50 -> 100 tournaments) reuses the same cell and skips finished tournaments.
 #
 # Locked question: how should FullHouse spend a finite simulation budget so that a Swiss-style
 # poker-bot competition reliably identifies the strongest agents? The unit is one complete
 # tournament. Research environment: fhr3b_baseline (N=60, K=6, H0=400) with R0=40 as the INITIAL
 # horizon, not an assumed sufficient length. These are predeclared research design choices, not
 # 2026 FullHouse settings.
+#
+# Publicly this study is FullHouse Research #4; the internal `fhr3b` identifiers are kept.
+# The CORE publication scope is the `core_fhr4` block below (NLHE6 only). AoF4 and NLHE4 stay
+# frozen and provenance-supported but are not part of the core matrix.
 lab: lab/lab60_top6.yaml
-primary_modes: [aof4, nlhe4, nlhe6]        # PLO removed from FHR3B (plo6.yaml kept only as generic engine support)
+primary_modes: [nlhe6]                     # FHR #4 core scope; the default for every command
+provenance_modes: [aof4, nlhe4]            # frozen fields kept valid; NOT in the core publication matrix
+                                           # (PLO removed from FHR3B; plo6.yaml kept only as generic engine support)
 all_modes: [aof4, nlhe4, nlhe6, cp6, plo6, bomb6, nit6]
 
 # Rounds-to-reliability checkpoints (Experiment A). The baseline cell runs to its horizon; shorter
-# checkpoints are exact prefixes. A horizon beyond 40 (`fhr3b run --horizon 80`) is a new cell whose first
-# 40 rounds reproduce the 40-round cell exactly (seeds do not depend on R; `validate --prefix`).
+# checkpoints are exact prefixes. A horizon beyond 40 (`fhr3b run --horizon 80 --extend`) is a new cell
+# whose first 40 rounds reproduce the 40-round cell exactly (seeds do not depend on R; `validate --prefix`).
+# 60/80/120 are capability only: disabled by default (core_fhr4.horizon_extensions).
 round_checkpoints: [5, 10, 20, 30, 40, 60, 80, 120]
 
-presets:              # tournaments per cell (provisional; revise after the runtime pilot)
-  pilot: 8
-  broad: 200
-  flagship: 1000
+presets:              # tournaments per cell. The former broad (200) / flagship (1000) presets are retired:
+  pilot: 8            # larger counts are per-cell extensions (`--range 50:100 --extend`), never a preset.
+  core: 50            # FHR #4 core matrix, per unique cell
+  swiss_reference: 100   # FHR #4 mu_swiss, per field (extension 100 -> 200 per field with --extend)
 
 calibration:
   pool:               # candidate pool -> field selection (namespace pool-calibration)
@@ -27,8 +34,10 @@ calibration:
     chunk_rounds: 25
   field_reference:    # mu_field inside each FROZEN field (namespace field-reference): MATCHED evaluation
     match_format: duplicate   # k-lane duplicate matches (4 lanes AoF4/NLHE4, 6 lanes NLHE6)
-    rounds: 3000              # ordinary-equivalent rounds; duplicate runs rounds // lanes (equal simulator work)
-    chunk_rounds: 10          # bootstrap unit: 75 groups (AoF4/NLHE4), 50 groups (NLHE6)
+    # No global round count: the FHR #4 core requests its own (core_fhr4.field_reference); any other
+    # (non-core) field reference must pass --rounds <matched rounds> explicitly. The pre-FHR #4 plan
+    # was 3000 ordinary-equivalent rounds (750 matched for AoF4/NLHE4, 500 for NLHE6); it is not a default.
+    chunk_rounds: 10          # bootstrap unit (25 groups at 250 rounds); extensions must be multiples of it
   behaviour_audit:    # exact replay of the first calibration rounds -> observed style classes
     rounds: 20
   selection:          # src/fhr3/tournament/selection.py (selection v2)
@@ -46,37 +55,90 @@ experiments:
     namespace: smoke
     replicates: 3
   pilot:
-    modes: [aof4, nlhe4, nlhe6]
+    modes: [nlhe6]
     fields: [provisional60]         # runnable before calibration; use crowded_cutoff once it exists
     namespace: pilot
   baseline:                         # A: horizon cells; checkpoints are read from their round prefixes
-    modes: [aof4, nlhe4, nlhe6]
+    modes: [nlhe6]
     fields: [spread, crowded_cutoff, style_diverse]
     namespace: publication
   round_sweep:                      # A: derived from baseline (exact prefix identity, verified by `validate --prefix`)
     derived_from: baseline
-  budget_sweep:                     # B: fixed R*H, generated from (R0, H0): 10x1600, 20x800, 40x400
-    modes: [aof4, nlhe4, nlhe6]
-    fields: [crowded_cutoff]
+  budget_sweep:                     # B: fixed R*H, generated from (R0, H0): 10x1600, 20x800, 40x400 (= baseline)
+    modes: [nlhe6]
+    fields: [spread, crowded_cutoff, style_diverse]
     namespace: publication
-  schedule_diagnostic:              # C: frozen-schedule diagnostic of Swiss feedback amplification
+  frozen_schedule:                  # C (core): adaptive baseline vs frozen replay of each baseline schedule
+    modes: [nlhe6]
+    fields: [spread, crowded_cutoff, style_diverse]
+    namespace: publication
+    replays_per_source: 1           # J (identity): frozen replicate r replays baseline tournament r once.
+                                    # J > 1 is a later precision extension (a NEW cell); analysis then
+                                    # clusters by source tournament.
+  schedule_diagnostic:              # C (supplementary, NOT core): within-source frozen vs adaptive replays
     modes: [nlhe6]
     fields: [crowded_cutoff]
     namespace: publication
-    replays_per_source: 4           # J (identity); sources = preset / J
+    replays_per_source: 4           # J (identity); sources = replicates / J
   duplicate_play:                   # D: ordinary vs k-lane duplicate matches at EQUAL simulator work (paired seeds)
     status: implemented             # match.DuplicateMatchPlayer; variants from protocol.duplicate_allocations
-    modes: [aof4, nlhe4, nlhe6]
-    fields: [crowded_cutoff]
+    modes: [nlhe6]
+    fields: [spread, crowded_cutoff, style_diverse]
     namespace: publication
     lanes: table_size               # 4 (AoF4, NLHE4) / 6 (NLHE6)
-  swiss_reference:                  # mu_swiss: expected Swiss performance, separate namespace
-    modes: [aof4, nlhe4, nlhe6]
+  swiss_reference:                  # mu_swiss: expected Swiss performance, separate namespace (gated: core_fhr4)
+    modes: [nlhe6]
     fields: [spread, crowded_cutoff, style_diverse]
     namespace: swiss-reference
   operational_2026:                 # H: historical validation; blocked until required historical values are supplied
     historical: protocols/historical_2026_reconstruction.yaml
     modes: [nlhe6]
+
+# ------------------------------------------------------------------ FullHouse Research #4 core scope
+# The publication command (`fhr3b core matrix`, `fhr3b core field-reference`) reads ONLY this block.
+# `fhr3b core plan` prints exactly what would run (no simulation). Precision-driven compute
+# allocation: every cell starts at `replicates_initial`; a cell is extended only where uncertainty in
+# the PRIMARY qualification metrics is still consequential (never "run until significant").
+core_fhr4:
+  public_name: "FullHouse Research #4"
+  modes: [nlhe6]
+  fields:                            # frozen field hashes (must equal fields/FROZEN.yaml)
+    spread: ff0f2b07fc210f62
+    crowded_cutoff: afbffedfc3706d84
+    style_diverse: ad7d6596ef1c8c3e
+  cells:                             # the six UNIQUE tournament cells per field (src/fhr3/tournament/core.py)
+    - baseline                       # adaptive ordinary 40x400: A (all prefixes), B, C (adaptive arm), D (ordinary arm)
+    - budget_half_rounds             # B: 20 x 800
+    - budget_quarter_rounds          # B: 10 x 1600
+    - frozen_schedule                # C: frozen replay (J = 1) of baseline schedule r, fresh poker randomness
+    - dup_fewer_rounds               # D: 6-lane duplicate, round(40/6) = 7 rounds x 400 hands
+    - dup_shorter_matches            # D: 6-lane duplicate, 40 rounds x round(400/6) = 67 hands
+  round_prefixes: [5, 10, 20, 30, 40]   # A: read from the baseline trajectories (no extra simulation)
+  replicates_initial: 50             # complete tournaments per unique cell; extension = --range 50:N --extend
+  field_reference:                   # core-scoped: the ONLY default mu_field budget in the repo
+    matched_rounds_initial: 250      # per NLHE6 field: 250 x 10 tables x 6 lanes x 400 = 6M scheduled hands
+    matched_rounds_extension: 500    # supported append-only extension target (rounds 250..499); needs --extend
+  horizon_extensions:
+    enabled: false                   # 60/80/120-round cells only if qualification metrics have not stabilised
+    horizons: [60, 80, 120]
+  swiss_reference:                   # mu_swiss (long-run expected final performance under adaptive Swiss)
+    enabled: true                    # approved 2026-10-01 at 100 reps/field; NOT yet run
+    replicates_initial: 100          # complete tournaments per field
+    replicates_extension: 200        # per-field, append-only (--range 100:200 --extend), decided after review
+    replicate_options: [50, 100, 200]   # planning table only
+  throughput:                        # planning only (fhr3b core plan); measured, see docs/fhr3b/FHR4_CORE.md
+    nlhe6_hands_per_s_8_workers: 4260    # steady state of the 8-worker NLHE6 pool calibration (2026-10-01)
+    nlhe6_hands_per_s_8_workers_slow: 1289   # same run end to end, incl. two machine stalls (pessimistic)
+    played_ratio:                    # played / scheduled hands per match (early termination by busts)
+      "67": 0.9998                   # exact: prefix of 32,000 stored H=400 pool matches
+      "400": 0.9433                  # 32,000 pool matches
+      "800": 0.831                   # 30 round-1 matches (smoke measurement; rough)
+      "1600": 0.602                  # 30 round-1 matches (smoke measurement; rough)
+    bytes_per_tournament: {ordinary_R40: 60000, ordinary_R10: 25000, lanes_per_row: 5}
+  out_of_scope:                      # documented exclusions; the core commands refuse them
+    - AoF4 / NLHE4 full matrices (frozen, provenance only)
+    - Crazy Pineapple and AoF4 operational ranking-budget studies (later, separate)
+    - retired / revoked fields
 
 smoke_profile:        # end-to-end correctness run of the whole pipeline (never interpreted)
   fields: [spread, crowded_cutoff, style_diverse]   # selected from the pool into <results>/smoke-fields/

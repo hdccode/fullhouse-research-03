@@ -1,0 +1,1086 @@
+{
+ "assumptions": {
+  "hands_per_s": 4260.0,
+  "hands_per_s_slow": 1289.0,
+  "played_ratio": {
+   "1600": 0.602,
+   "400": 0.9433,
+   "67": 0.9998,
+   "800": 0.831
+  },
+  "wall_note": "ideal = total played / rate; waves = cells run one after another, each in ceil(tasks / workers) waves of equal tasks (resume-safe, the actual runner)",
+  "workers": 8
+ },
+ "field_reference": [
+  {
+   "calib_id": "nlhe6.nlhe6-spread.H400.dup.field-reference.3cea71b5",
+   "chunk_rounds": 10,
+   "chunks_to_run": 25,
+   "expected_played_to_run": 5659800.0,
+   "field": "spread",
+   "field_hash": "ff0f2b07fc210f62",
+   "hands_per_lane": 400,
+   "lanes": 6,
+   "matched_rounds_on_disk": 0,
+   "matched_rounds_target": 250,
+   "matched_rounds_to_run": 250,
+   "mode": "nlhe6",
+   "path": "results/fhr3b/calibration/nlhe6.nlhe6-spread.H400.dup.field-reference.3cea71b5",
+   "report": "reports/fhr3b/field-calibration/nlhe6/nlhe6-spread/",
+   "scheduled_hands_target": 6000000,
+   "scheduled_hands_to_run": 6000000,
+   "stage": "initial",
+   "tables_per_round": 10,
+   "wall_h": {
+    "ideal": 0.3690532081377152,
+    "waves": 0.47238810641627543
+   }
+  },
+  {
+   "calib_id": "nlhe6.nlhe6-crowded_cutoff.H400.dup.field-reference.7d2640ae",
+   "chunk_rounds": 10,
+   "chunks_to_run": 25,
+   "expected_played_to_run": 5659800.0,
+   "field": "crowded_cutoff",
+   "field_hash": "afbffedfc3706d84",
+   "hands_per_lane": 400,
+   "lanes": 6,
+   "matched_rounds_on_disk": 0,
+   "matched_rounds_target": 250,
+   "matched_rounds_to_run": 250,
+   "mode": "nlhe6",
+   "path": "results/fhr3b/calibration/nlhe6.nlhe6-crowded_cutoff.H400.dup.field-reference.7d2640ae",
+   "report": "reports/fhr3b/field-calibration/nlhe6/nlhe6-crowded_cutoff/",
+   "scheduled_hands_target": 6000000,
+   "scheduled_hands_to_run": 6000000,
+   "stage": "initial",
+   "tables_per_round": 10,
+   "wall_h": {
+    "ideal": 0.3690532081377152,
+    "waves": 0.47238810641627543
+   }
+  },
+  {
+   "calib_id": "nlhe6.nlhe6-style_diverse.H400.dup.field-reference.0caf92cc",
+   "chunk_rounds": 10,
+   "chunks_to_run": 25,
+   "expected_played_to_run": 5659800.0,
+   "field": "style_diverse",
+   "field_hash": "ad7d6596ef1c8c3e",
+   "hands_per_lane": 400,
+   "lanes": 6,
+   "matched_rounds_on_disk": 0,
+   "matched_rounds_target": 250,
+   "matched_rounds_to_run": 250,
+   "mode": "nlhe6",
+   "path": "results/fhr3b/calibration/nlhe6.nlhe6-style_diverse.H400.dup.field-reference.0caf92cc",
+   "report": "reports/fhr3b/field-calibration/nlhe6/nlhe6-style_diverse/",
+   "scheduled_hands_target": 6000000,
+   "scheduled_hands_to_run": 6000000,
+   "stage": "initial",
+   "tables_per_round": 10,
+   "wall_h": {
+    "ideal": 0.3690532081377152,
+    "waves": 0.47238810641627543
+   }
+  }
+ ],
+ "matrix": [
+  {
+   "H": 400,
+   "K": 6,
+   "N": 60,
+   "R": 40,
+   "cell": "baseline",
+   "cell_id": "nlhe6.nlhe6-spread.fhr3b_baseline.R40H400K6.swiss.publication.b5f3d314",
+   "completed": 0,
+   "exact_equal_work": true,
+   "expected_played_per_tournament": 150928.0,
+   "expected_played_to_run": 7546400.0,
+   "experiments": [
+    "A",
+    "B",
+    "C",
+    "D"
+   ],
+   "field": "spread",
+   "field_hash": "ff0f2b07fc210f62",
+   "identity_hash": "b5f3d314643cee9e",
+   "kind": "adaptive",
+   "lanes": 1,
+   "match_format": "ordinary",
+   "missing_source_tournaments": [],
+   "mode": "nlhe6",
+   "path": "results/fhr3b/nlhe6.nlhe6-spread.fhr3b_baseline.R40H400K6.swiss.publication.b5f3d314",
+   "replays_per_source": null,
+   "replicates": [
+    0,
+    50
+   ],
+   "scheduled_hands_per_tournament": 160000,
+   "scheduled_hands_to_run": 8000000,
+   "scheduled_work_ratio_vs_baseline": 1.0,
+   "source_cell": null,
+   "stage": "initial",
+   "to_run": 50,
+   "wall_h": {
+    "ideal": 0.49207094418362024,
+    "waves": 0.5511194574856547
+   }
+  },
+  {
+   "H": 400,
+   "K": 6,
+   "N": 60,
+   "R": 40,
+   "cell": "baseline",
+   "cell_id": "nlhe6.nlhe6-crowded_cutoff.fhr3b_baseline.R40H400K6.swiss.publication.7f40559c",
+   "completed": 0,
+   "exact_equal_work": true,
+   "expected_played_per_tournament": 150928.0,
+   "expected_played_to_run": 7546400.0,
+   "experiments": [
+    "A",
+    "B",
+    "C",
+    "D"
+   ],
+   "field": "crowded_cutoff",
+   "field_hash": "afbffedfc3706d84",
+   "identity_hash": "7f40559c7f018346",
+   "kind": "adaptive",
+   "lanes": 1,
+   "match_format": "ordinary",
+   "missing_source_tournaments": [],
+   "mode": "nlhe6",
+   "path": "results/fhr3b/nlhe6.nlhe6-crowded_cutoff.fhr3b_baseline.R40H400K6.swiss.publication.7f40559c",
+   "replays_per_source": null,
+   "replicates": [
+    0,
+    50
+   ],
+   "scheduled_hands_per_tournament": 160000,
+   "scheduled_hands_to_run": 8000000,
+   "scheduled_work_ratio_vs_baseline": 1.0,
+   "source_cell": null,
+   "stage": "initial",
+   "to_run": 50,
+   "wall_h": {
+    "ideal": 0.49207094418362024,
+    "waves": 0.5511194574856547
+   }
+  },
+  {
+   "H": 400,
+   "K": 6,
+   "N": 60,
+   "R": 40,
+   "cell": "baseline",
+   "cell_id": "nlhe6.nlhe6-style_diverse.fhr3b_baseline.R40H400K6.swiss.publication.4cb85cc5",
+   "completed": 0,
+   "exact_equal_work": true,
+   "expected_played_per_tournament": 150928.0,
+   "expected_played_to_run": 7546400.0,
+   "experiments": [
+    "A",
+    "B",
+    "C",
+    "D"
+   ],
+   "field": "style_diverse",
+   "field_hash": "ad7d6596ef1c8c3e",
+   "identity_hash": "4cb85cc564098ce9",
+   "kind": "adaptive",
+   "lanes": 1,
+   "match_format": "ordinary",
+   "missing_source_tournaments": [],
+   "mode": "nlhe6",
+   "path": "results/fhr3b/nlhe6.nlhe6-style_diverse.fhr3b_baseline.R40H400K6.swiss.publication.4cb85cc5",
+   "replays_per_source": null,
+   "replicates": [
+    0,
+    50
+   ],
+   "scheduled_hands_per_tournament": 160000,
+   "scheduled_hands_to_run": 8000000,
+   "scheduled_work_ratio_vs_baseline": 1.0,
+   "source_cell": null,
+   "stage": "initial",
+   "to_run": 50,
+   "wall_h": {
+    "ideal": 0.49207094418362024,
+    "waves": 0.5511194574856547
+   }
+  },
+  {
+   "H": 800,
+   "K": 6,
+   "N": 60,
+   "R": 20,
+   "cell": "budget_half_rounds",
+   "cell_id": "nlhe6.nlhe6-spread.fhr3b_baseline.R20H800K6.swiss.publication.06c3c2d5",
+   "completed": 0,
+   "exact_equal_work": true,
+   "expected_played_per_tournament": 132960.0,
+   "expected_played_to_run": 6648000.0,
+   "experiments": [
+    "B"
+   ],
+   "field": "spread",
+   "field_hash": "ff0f2b07fc210f62",
+   "identity_hash": "06c3c2d5da357828",
+   "kind": "adaptive",
+   "lanes": 1,
+   "match_format": "ordinary",
+   "missing_source_tournaments": [],
+   "mode": "nlhe6",
+   "path": "results/fhr3b/nlhe6.nlhe6-spread.fhr3b_baseline.R20H800K6.swiss.publication.06c3c2d5",
+   "replays_per_source": null,
+   "replicates": [
+    0,
+    50
+   ],
+   "scheduled_hands_per_tournament": 160000,
+   "scheduled_hands_to_run": 8000000,
+   "scheduled_work_ratio_vs_baseline": 1.0,
+   "source_cell": null,
+   "stage": "initial",
+   "to_run": 50,
+   "wall_h": {
+    "ideal": 0.433489827856025,
+    "waves": 0.4855086071987481
+   }
+  },
+  {
+   "H": 800,
+   "K": 6,
+   "N": 60,
+   "R": 20,
+   "cell": "budget_half_rounds",
+   "cell_id": "nlhe6.nlhe6-crowded_cutoff.fhr3b_baseline.R20H800K6.swiss.publication.ed78ee35",
+   "completed": 0,
+   "exact_equal_work": true,
+   "expected_played_per_tournament": 132960.0,
+   "expected_played_to_run": 6648000.0,
+   "experiments": [
+    "B"
+   ],
+   "field": "crowded_cutoff",
+   "field_hash": "afbffedfc3706d84",
+   "identity_hash": "ed78ee35a86b0c93",
+   "kind": "adaptive",
+   "lanes": 1,
+   "match_format": "ordinary",
+   "missing_source_tournaments": [],
+   "mode": "nlhe6",
+   "path": "results/fhr3b/nlhe6.nlhe6-crowded_cutoff.fhr3b_baseline.R20H800K6.swiss.publication.ed78ee35",
+   "replays_per_source": null,
+   "replicates": [
+    0,
+    50
+   ],
+   "scheduled_hands_per_tournament": 160000,
+   "scheduled_hands_to_run": 8000000,
+   "scheduled_work_ratio_vs_baseline": 1.0,
+   "source_cell": null,
+   "stage": "initial",
+   "to_run": 50,
+   "wall_h": {
+    "ideal": 0.433489827856025,
+    "waves": 0.4855086071987481
+   }
+  },
+  {
+   "H": 800,
+   "K": 6,
+   "N": 60,
+   "R": 20,
+   "cell": "budget_half_rounds",
+   "cell_id": "nlhe6.nlhe6-style_diverse.fhr3b_baseline.R20H800K6.swiss.publication.36235c3a",
+   "completed": 0,
+   "exact_equal_work": true,
+   "expected_played_per_tournament": 132960.0,
+   "expected_played_to_run": 6648000.0,
+   "experiments": [
+    "B"
+   ],
+   "field": "style_diverse",
+   "field_hash": "ad7d6596ef1c8c3e",
+   "identity_hash": "36235c3a091044fb",
+   "kind": "adaptive",
+   "lanes": 1,
+   "match_format": "ordinary",
+   "missing_source_tournaments": [],
+   "mode": "nlhe6",
+   "path": "results/fhr3b/nlhe6.nlhe6-style_diverse.fhr3b_baseline.R20H800K6.swiss.publication.36235c3a",
+   "replays_per_source": null,
+   "replicates": [
+    0,
+    50
+   ],
+   "scheduled_hands_per_tournament": 160000,
+   "scheduled_hands_to_run": 8000000,
+   "scheduled_work_ratio_vs_baseline": 1.0,
+   "source_cell": null,
+   "stage": "initial",
+   "to_run": 50,
+   "wall_h": {
+    "ideal": 0.433489827856025,
+    "waves": 0.4855086071987481
+   }
+  },
+  {
+   "H": 1600,
+   "K": 6,
+   "N": 60,
+   "R": 10,
+   "cell": "budget_quarter_rounds",
+   "cell_id": "nlhe6.nlhe6-spread.fhr3b_baseline.R10H1600K6.swiss.publication.42ee3c9c",
+   "completed": 0,
+   "exact_equal_work": true,
+   "expected_played_per_tournament": 96320.0,
+   "expected_played_to_run": 4816000.0,
+   "experiments": [
+    "B"
+   ],
+   "field": "spread",
+   "field_hash": "ff0f2b07fc210f62",
+   "identity_hash": "42ee3c9c618222df",
+   "kind": "adaptive",
+   "lanes": 1,
+   "match_format": "ordinary",
+   "missing_source_tournaments": [],
+   "mode": "nlhe6",
+   "path": "results/fhr3b/nlhe6.nlhe6-spread.fhr3b_baseline.R10H1600K6.swiss.publication.42ee3c9c",
+   "replays_per_source": null,
+   "replicates": [
+    0,
+    50
+   ],
+   "scheduled_hands_per_tournament": 160000,
+   "scheduled_hands_to_run": 8000000,
+   "scheduled_work_ratio_vs_baseline": 1.0,
+   "source_cell": null,
+   "stage": "initial",
+   "to_run": 50,
+   "wall_h": {
+    "ideal": 0.3140323422013563,
+    "waves": 0.351716223265519
+   }
+  },
+  {
+   "H": 1600,
+   "K": 6,
+   "N": 60,
+   "R": 10,
+   "cell": "budget_quarter_rounds",
+   "cell_id": "nlhe6.nlhe6-crowded_cutoff.fhr3b_baseline.R10H1600K6.swiss.publication.614bb63e",
+   "completed": 0,
+   "exact_equal_work": true,
+   "expected_played_per_tournament": 96320.0,
+   "expected_played_to_run": 4816000.0,
+   "experiments": [
+    "B"
+   ],
+   "field": "crowded_cutoff",
+   "field_hash": "afbffedfc3706d84",
+   "identity_hash": "614bb63eddf72822",
+   "kind": "adaptive",
+   "lanes": 1,
+   "match_format": "ordinary",
+   "missing_source_tournaments": [],
+   "mode": "nlhe6",
+   "path": "results/fhr3b/nlhe6.nlhe6-crowded_cutoff.fhr3b_baseline.R10H1600K6.swiss.publication.614bb63e",
+   "replays_per_source": null,
+   "replicates": [
+    0,
+    50
+   ],
+   "scheduled_hands_per_tournament": 160000,
+   "scheduled_hands_to_run": 8000000,
+   "scheduled_work_ratio_vs_baseline": 1.0,
+   "source_cell": null,
+   "stage": "initial",
+   "to_run": 50,
+   "wall_h": {
+    "ideal": 0.3140323422013563,
+    "waves": 0.351716223265519
+   }
+  },
+  {
+   "H": 1600,
+   "K": 6,
+   "N": 60,
+   "R": 10,
+   "cell": "budget_quarter_rounds",
+   "cell_id": "nlhe6.nlhe6-style_diverse.fhr3b_baseline.R10H1600K6.swiss.publication.f4bb4d9f",
+   "completed": 0,
+   "exact_equal_work": true,
+   "expected_played_per_tournament": 96320.0,
+   "expected_played_to_run": 4816000.0,
+   "experiments": [
+    "B"
+   ],
+   "field": "style_diverse",
+   "field_hash": "ad7d6596ef1c8c3e",
+   "identity_hash": "f4bb4d9f895185fc",
+   "kind": "adaptive",
+   "lanes": 1,
+   "match_format": "ordinary",
+   "missing_source_tournaments": [],
+   "mode": "nlhe6",
+   "path": "results/fhr3b/nlhe6.nlhe6-style_diverse.fhr3b_baseline.R10H1600K6.swiss.publication.f4bb4d9f",
+   "replays_per_source": null,
+   "replicates": [
+    0,
+    50
+   ],
+   "scheduled_hands_per_tournament": 160000,
+   "scheduled_hands_to_run": 8000000,
+   "scheduled_work_ratio_vs_baseline": 1.0,
+   "source_cell": null,
+   "stage": "initial",
+   "to_run": 50,
+   "wall_h": {
+    "ideal": 0.3140323422013563,
+    "waves": 0.351716223265519
+   }
+  },
+  {
+   "H": 400,
+   "K": 6,
+   "N": 60,
+   "R": 40,
+   "cell": "frozen_schedule",
+   "cell_id": "nlhe6.nlhe6-spread.fhr3b_baseline.R40H400K6.frozen.publication.04eefd47",
+   "completed": 0,
+   "exact_equal_work": true,
+   "expected_played_per_tournament": 150928.0,
+   "expected_played_to_run": 7546400.0,
+   "experiments": [
+    "C"
+   ],
+   "field": "spread",
+   "field_hash": "ff0f2b07fc210f62",
+   "identity_hash": "04eefd47c173f5ea",
+   "kind": "frozen_replay",
+   "lanes": 1,
+   "match_format": "ordinary",
+   "missing_source_tournaments": [],
+   "mode": "nlhe6",
+   "path": "results/fhr3b/nlhe6.nlhe6-spread.fhr3b_baseline.R40H400K6.frozen.publication.04eefd47",
+   "replays_per_source": 1,
+   "replicates": [
+    0,
+    50
+   ],
+   "scheduled_hands_per_tournament": 160000,
+   "scheduled_hands_to_run": 8000000,
+   "scheduled_work_ratio_vs_baseline": 1.0,
+   "source_cell": "nlhe6.nlhe6-spread.fhr3b_baseline.R40H400K6.swiss.publication.b5f3d314",
+   "stage": "initial",
+   "to_run": 50,
+   "wall_h": {
+    "ideal": 0.49207094418362024,
+    "waves": 0.5511194574856547
+   }
+  },
+  {
+   "H": 400,
+   "K": 6,
+   "N": 60,
+   "R": 40,
+   "cell": "frozen_schedule",
+   "cell_id": "nlhe6.nlhe6-crowded_cutoff.fhr3b_baseline.R40H400K6.frozen.publication.85cba4b8",
+   "completed": 0,
+   "exact_equal_work": true,
+   "expected_played_per_tournament": 150928.0,
+   "expected_played_to_run": 7546400.0,
+   "experiments": [
+    "C"
+   ],
+   "field": "crowded_cutoff",
+   "field_hash": "afbffedfc3706d84",
+   "identity_hash": "85cba4b82f72d067",
+   "kind": "frozen_replay",
+   "lanes": 1,
+   "match_format": "ordinary",
+   "missing_source_tournaments": [],
+   "mode": "nlhe6",
+   "path": "results/fhr3b/nlhe6.nlhe6-crowded_cutoff.fhr3b_baseline.R40H400K6.frozen.publication.85cba4b8",
+   "replays_per_source": 1,
+   "replicates": [
+    0,
+    50
+   ],
+   "scheduled_hands_per_tournament": 160000,
+   "scheduled_hands_to_run": 8000000,
+   "scheduled_work_ratio_vs_baseline": 1.0,
+   "source_cell": "nlhe6.nlhe6-crowded_cutoff.fhr3b_baseline.R40H400K6.swiss.publication.7f40559c",
+   "stage": "initial",
+   "to_run": 50,
+   "wall_h": {
+    "ideal": 0.49207094418362024,
+    "waves": 0.5511194574856547
+   }
+  },
+  {
+   "H": 400,
+   "K": 6,
+   "N": 60,
+   "R": 40,
+   "cell": "frozen_schedule",
+   "cell_id": "nlhe6.nlhe6-style_diverse.fhr3b_baseline.R40H400K6.frozen.publication.c99bd91a",
+   "completed": 0,
+   "exact_equal_work": true,
+   "expected_played_per_tournament": 150928.0,
+   "expected_played_to_run": 7546400.0,
+   "experiments": [
+    "C"
+   ],
+   "field": "style_diverse",
+   "field_hash": "ad7d6596ef1c8c3e",
+   "identity_hash": "c99bd91a658d6722",
+   "kind": "frozen_replay",
+   "lanes": 1,
+   "match_format": "ordinary",
+   "missing_source_tournaments": [],
+   "mode": "nlhe6",
+   "path": "results/fhr3b/nlhe6.nlhe6-style_diverse.fhr3b_baseline.R40H400K6.frozen.publication.c99bd91a",
+   "replays_per_source": 1,
+   "replicates": [
+    0,
+    50
+   ],
+   "scheduled_hands_per_tournament": 160000,
+   "scheduled_hands_to_run": 8000000,
+   "scheduled_work_ratio_vs_baseline": 1.0,
+   "source_cell": "nlhe6.nlhe6-style_diverse.fhr3b_baseline.R40H400K6.swiss.publication.4cb85cc5",
+   "stage": "initial",
+   "to_run": 50,
+   "wall_h": {
+    "ideal": 0.49207094418362024,
+    "waves": 0.5511194574856547
+   }
+  },
+  {
+   "H": 400,
+   "K": 6,
+   "N": 60,
+   "R": 7,
+   "cell": "dup_fewer_rounds",
+   "cell_id": "nlhe6.nlhe6-spread.fhr3b_baseline.R7H400K6dup.swiss.publication.2b40b831",
+   "completed": 0,
+   "exact_equal_work": false,
+   "expected_played_per_tournament": 158474.4,
+   "expected_played_to_run": 7923720.0,
+   "experiments": [
+    "D"
+   ],
+   "field": "spread",
+   "field_hash": "ff0f2b07fc210f62",
+   "identity_hash": "2b40b8319c8378e5",
+   "kind": "adaptive",
+   "lanes": 6,
+   "match_format": "duplicate",
+   "missing_source_tournaments": [],
+   "mode": "nlhe6",
+   "path": "results/fhr3b/nlhe6.nlhe6-spread.fhr3b_baseline.R7H400K6dup.swiss.publication.2b40b831",
+   "replays_per_source": null,
+   "replicates": [
+    0,
+    50
+   ],
+   "scheduled_hands_per_tournament": 168000,
+   "scheduled_hands_to_run": 8400000,
+   "scheduled_work_ratio_vs_baseline": 1.05,
+   "source_cell": null,
+   "stage": "initial",
+   "to_run": 50,
+   "wall_h": {
+    "ideal": 0.5166744913928013,
+    "waves": 0.5786754303599374
+   }
+  },
+  {
+   "H": 400,
+   "K": 6,
+   "N": 60,
+   "R": 7,
+   "cell": "dup_fewer_rounds",
+   "cell_id": "nlhe6.nlhe6-crowded_cutoff.fhr3b_baseline.R7H400K6dup.swiss.publication.30e72800",
+   "completed": 0,
+   "exact_equal_work": false,
+   "expected_played_per_tournament": 158474.4,
+   "expected_played_to_run": 7923720.0,
+   "experiments": [
+    "D"
+   ],
+   "field": "crowded_cutoff",
+   "field_hash": "afbffedfc3706d84",
+   "identity_hash": "30e72800b7cc65dc",
+   "kind": "adaptive",
+   "lanes": 6,
+   "match_format": "duplicate",
+   "missing_source_tournaments": [],
+   "mode": "nlhe6",
+   "path": "results/fhr3b/nlhe6.nlhe6-crowded_cutoff.fhr3b_baseline.R7H400K6dup.swiss.publication.30e72800",
+   "replays_per_source": null,
+   "replicates": [
+    0,
+    50
+   ],
+   "scheduled_hands_per_tournament": 168000,
+   "scheduled_hands_to_run": 8400000,
+   "scheduled_work_ratio_vs_baseline": 1.05,
+   "source_cell": null,
+   "stage": "initial",
+   "to_run": 50,
+   "wall_h": {
+    "ideal": 0.5166744913928013,
+    "waves": 0.5786754303599374
+   }
+  },
+  {
+   "H": 400,
+   "K": 6,
+   "N": 60,
+   "R": 7,
+   "cell": "dup_fewer_rounds",
+   "cell_id": "nlhe6.nlhe6-style_diverse.fhr3b_baseline.R7H400K6dup.swiss.publication.137478d3",
+   "completed": 0,
+   "exact_equal_work": false,
+   "expected_played_per_tournament": 158474.4,
+   "expected_played_to_run": 7923720.0,
+   "experiments": [
+    "D"
+   ],
+   "field": "style_diverse",
+   "field_hash": "ad7d6596ef1c8c3e",
+   "identity_hash": "137478d3f7e7cf48",
+   "kind": "adaptive",
+   "lanes": 6,
+   "match_format": "duplicate",
+   "missing_source_tournaments": [],
+   "mode": "nlhe6",
+   "path": "results/fhr3b/nlhe6.nlhe6-style_diverse.fhr3b_baseline.R7H400K6dup.swiss.publication.137478d3",
+   "replays_per_source": null,
+   "replicates": [
+    0,
+    50
+   ],
+   "scheduled_hands_per_tournament": 168000,
+   "scheduled_hands_to_run": 8400000,
+   "scheduled_work_ratio_vs_baseline": 1.05,
+   "source_cell": null,
+   "stage": "initial",
+   "to_run": 50,
+   "wall_h": {
+    "ideal": 0.5166744913928013,
+    "waves": 0.5786754303599374
+   }
+  },
+  {
+   "H": 67,
+   "K": 6,
+   "N": 60,
+   "R": 40,
+   "cell": "dup_shorter_matches",
+   "cell_id": "nlhe6.nlhe6-spread.fhr3b_baseline.R40H67K6dup.swiss.publication.bdd7506c",
+   "completed": 0,
+   "exact_equal_work": false,
+   "expected_played_per_tournament": 160767.84,
+   "expected_played_to_run": 8038392.0,
+   "experiments": [
+    "D"
+   ],
+   "field": "spread",
+   "field_hash": "ff0f2b07fc210f62",
+   "identity_hash": "bdd7506c4050876d",
+   "kind": "adaptive",
+   "lanes": 6,
+   "match_format": "duplicate",
+   "missing_source_tournaments": [],
+   "mode": "nlhe6",
+   "path": "results/fhr3b/nlhe6.nlhe6-spread.fhr3b_baseline.R40H67K6dup.swiss.publication.bdd7506c",
+   "replays_per_source": null,
+   "replicates": [
+    0,
+    50
+   ],
+   "scheduled_hands_per_tournament": 160800,
+   "scheduled_hands_to_run": 8040000,
+   "scheduled_work_ratio_vs_baseline": 1.005,
+   "source_cell": null,
+   "stage": "initial",
+   "to_run": 50,
+   "wall_h": {
+    "ideal": 0.524151799687011,
+    "waves": 0.5870500156494523
+   }
+  },
+  {
+   "H": 67,
+   "K": 6,
+   "N": 60,
+   "R": 40,
+   "cell": "dup_shorter_matches",
+   "cell_id": "nlhe6.nlhe6-crowded_cutoff.fhr3b_baseline.R40H67K6dup.swiss.publication.6f076fbf",
+   "completed": 0,
+   "exact_equal_work": false,
+   "expected_played_per_tournament": 160767.84,
+   "expected_played_to_run": 8038392.0,
+   "experiments": [
+    "D"
+   ],
+   "field": "crowded_cutoff",
+   "field_hash": "afbffedfc3706d84",
+   "identity_hash": "6f076fbfe16c6fa9",
+   "kind": "adaptive",
+   "lanes": 6,
+   "match_format": "duplicate",
+   "missing_source_tournaments": [],
+   "mode": "nlhe6",
+   "path": "results/fhr3b/nlhe6.nlhe6-crowded_cutoff.fhr3b_baseline.R40H67K6dup.swiss.publication.6f076fbf",
+   "replays_per_source": null,
+   "replicates": [
+    0,
+    50
+   ],
+   "scheduled_hands_per_tournament": 160800,
+   "scheduled_hands_to_run": 8040000,
+   "scheduled_work_ratio_vs_baseline": 1.005,
+   "source_cell": null,
+   "stage": "initial",
+   "to_run": 50,
+   "wall_h": {
+    "ideal": 0.524151799687011,
+    "waves": 0.5870500156494523
+   }
+  },
+  {
+   "H": 67,
+   "K": 6,
+   "N": 60,
+   "R": 40,
+   "cell": "dup_shorter_matches",
+   "cell_id": "nlhe6.nlhe6-style_diverse.fhr3b_baseline.R40H67K6dup.swiss.publication.f222bed2",
+   "completed": 0,
+   "exact_equal_work": false,
+   "expected_played_per_tournament": 160767.84,
+   "expected_played_to_run": 8038392.0,
+   "experiments": [
+    "D"
+   ],
+   "field": "style_diverse",
+   "field_hash": "ad7d6596ef1c8c3e",
+   "identity_hash": "f222bed2c5367409",
+   "kind": "adaptive",
+   "lanes": 6,
+   "match_format": "duplicate",
+   "missing_source_tournaments": [],
+   "mode": "nlhe6",
+   "path": "results/fhr3b/nlhe6.nlhe6-style_diverse.fhr3b_baseline.R40H67K6dup.swiss.publication.f222bed2",
+   "replays_per_source": null,
+   "replicates": [
+    0,
+    50
+   ],
+   "scheduled_hands_per_tournament": 160800,
+   "scheduled_hands_to_run": 8040000,
+   "scheduled_work_ratio_vs_baseline": 1.005,
+   "source_cell": null,
+   "stage": "initial",
+   "to_run": 50,
+   "wall_h": {
+    "ideal": 0.524151799687011,
+    "waves": 0.5870500156494523
+   }
+  }
+ ],
+ "profile": "publication",
+ "results_root": "results/fhr3b",
+ "scope": {
+  "H0": 400,
+  "K": 6,
+  "N": 60,
+  "R0": 40,
+  "fields": {
+   "crowded_cutoff": "afbffedfc3706d84",
+   "spread": "ff0f2b07fc210f62",
+   "style_diverse": "ad7d6596ef1c8c3e"
+  },
+  "horizon_extensions": {
+   "enabled": false,
+   "horizons": [
+    60,
+    80,
+    120
+   ]
+  },
+  "modes": [
+   "nlhe6"
+  ],
+  "out_of_scope": [
+   "AoF4 / NLHE4 full matrices (frozen, provenance only)",
+   "Crazy Pineapple and AoF4 operational ranking-budget studies (later, separate)",
+   "retired / revoked fields"
+  ],
+  "round_prefixes": [
+   5,
+   10,
+   20,
+   30,
+   40
+  ],
+  "unique_cells_per_field": [
+   "baseline",
+   "budget_half_rounds",
+   "budget_quarter_rounds",
+   "frozen_schedule",
+   "dup_fewer_rounds",
+   "dup_shorter_matches"
+  ]
+ },
+ "simulates": false,
+ "study": "FullHouse Research #4",
+ "swiss_reference": {
+  "cells": {
+   "crowded_cutoff": "nlhe6.nlhe6-crowded_cutoff.fhr3b_baseline.R40H400K6.swiss.swiss-reference.bc25b57b",
+   "spread": "nlhe6.nlhe6-spread.fhr3b_baseline.R40H400K6.swiss.swiss-reference.2d98a8cd",
+   "style_diverse": "nlhe6.nlhe6-style_diverse.fhr3b_baseline.R40H400K6.swiss.swiss-reference.77d62182"
+  },
+  "enabled": true,
+  "namespace": "swiss-reference",
+  "options": {
+   "100": {
+    "expected_played": 45278400.0,
+    "scheduled_hands": 48000000,
+    "storage_mb": 18.0,
+    "tournaments": 300,
+    "wall_h": {
+     "ideal": 2.9524256651017216,
+     "waves": 3.070522691705791
+    }
+   },
+   "200": {
+    "expected_played": 90556800.0,
+    "scheduled_hands": 96000000,
+    "storage_mb": 36.0,
+    "tournaments": 600,
+    "wall_h": {
+     "ideal": 5.904851330203443,
+     "waves": 5.904851330203443
+    }
+   },
+   "50": {
+    "expected_played": 22639200.0,
+    "scheduled_hands": 24000000,
+    "storage_mb": 9.0,
+    "tournaments": 150,
+    "wall_h": {
+     "ideal": 1.4762128325508608,
+     "waves": 1.6533583724569643
+    }
+   }
+  },
+  "precision": {
+   "available": true,
+   "basis": "reports/fhr3b/field-calibration/nlhe6/pool_bots.csv",
+   "fields": {
+    "crowded_cutoff": {
+     "median_sd_per_match_bb": 155.6,
+     "mu_field_250_se_bot_bb_if_no_duplicate_variance_reduction": 4.017574724465827,
+     "options": {
+      "100": {
+       "cutoff_gap_over_pair_se": 0.025680292260874205,
+       "se_bot_bb_per_match": 2.460252019610999,
+       "se_pair_diff_bb": 3.4793217729896733
+      },
+      "200": {
+       "cutoff_gap_over_pair_se": 0.03631741760103314,
+       "se_bot_bb_per_match": 1.7396608864948362,
+       "se_pair_diff_bb": 2.460252019610999
+      },
+      "50": {
+       "cutoff_gap_over_pair_se": 0.01815870880051657,
+       "se_bot_bb_per_match": 3.4793217729896724,
+       "se_pair_diff_bb": 4.920504039221998
+      }
+     },
+     "pool_cutoff_gap_bb": 0.08934999999999782
+    },
+    "spread": {
+     "median_sd_per_match_bb": 156.368,
+     "mu_field_250_se_bot_bb_if_no_duplicate_variance_reduction": 4.037404399198409,
+     "options": {
+      "100": {
+       "cutoff_gap_over_pair_se": 4.803596481772753,
+       "se_bot_bb_per_match": 2.4723951658260455,
+       "se_pair_diff_bb": 3.496494775056871
+      },
+      "200": {
+       "cutoff_gap_over_pair_se": 6.79331129269071,
+       "se_bot_bb_per_match": 1.7482473875284354,
+       "se_pair_diff_bb": 2.472395165826046
+      },
+      "50": {
+       "cutoff_gap_over_pair_se": 3.396655646345355,
+       "se_bot_bb_per_match": 3.496494775056871,
+       "se_pair_diff_bb": 4.944790331652092
+      }
+     },
+     "pool_cutoff_gap_bb": 16.795749999999998
+    },
+    "style_diverse": {
+     "median_sd_per_match_bb": 161.111,
+     "mu_field_250_se_bot_bb_if_no_duplicate_variance_reduction": 4.159868132605488,
+     "options": {
+      "100": {
+       "cutoff_gap_over_pair_se": 0.7957804396491225,
+       "se_bot_bb_per_match": 2.5473885805369387,
+       "se_pair_diff_bb": 3.602551479229686
+      },
+      "200": {
+       "cutoff_gap_over_pair_se": 1.1254034904230132,
+       "se_bot_bb_per_match": 1.8012757396148429,
+       "se_pair_diff_bb": 2.5473885805369387
+      },
+      "50": {
+       "cutoff_gap_over_pair_se": 0.5627017452115066,
+       "se_bot_bb_per_match": 3.6025514792296858,
+       "se_pair_diff_bb": 5.0947771610738775
+      }
+     },
+     "pool_cutoff_gap_bb": 2.8668399999999963
+    }
+   },
+   "r0": 40
+  },
+  "replicates_extension": 200,
+  "replicates_initial": 100,
+  "rows": [
+   {
+    "H": 400,
+    "R": 40,
+    "cell_id": "nlhe6.nlhe6-spread.fhr3b_baseline.R40H400K6.swiss.swiss-reference.2d98a8cd",
+    "completed": 0,
+    "expected_played_to_run": 15092800.0,
+    "field": "spread",
+    "field_hash": "ff0f2b07fc210f62",
+    "identity_hash": "2d98a8cd02d68ee2",
+    "mode": "nlhe6",
+    "namespace": "swiss-reference",
+    "path": "results/fhr3b/nlhe6.nlhe6-spread.fhr3b_baseline.R40H400K6.swiss.swiss-reference.2d98a8cd",
+    "replicates": [
+     0,
+     100
+    ],
+    "scheduled_hands_per_tournament": 160000,
+    "scheduled_hands_to_run": 16000000,
+    "stage": "initial",
+    "to_run": 100,
+    "wall_h": {
+     "ideal": 0.9841418883672405,
+     "waves": 1.0235075639019302
+    }
+   },
+   {
+    "H": 400,
+    "R": 40,
+    "cell_id": "nlhe6.nlhe6-crowded_cutoff.fhr3b_baseline.R40H400K6.swiss.swiss-reference.bc25b57b",
+    "completed": 0,
+    "expected_played_to_run": 15092800.0,
+    "field": "crowded_cutoff",
+    "field_hash": "afbffedfc3706d84",
+    "identity_hash": "bc25b57b88439e56",
+    "mode": "nlhe6",
+    "namespace": "swiss-reference",
+    "path": "results/fhr3b/nlhe6.nlhe6-crowded_cutoff.fhr3b_baseline.R40H400K6.swiss.swiss-reference.bc25b57b",
+    "replicates": [
+     0,
+     100
+    ],
+    "scheduled_hands_per_tournament": 160000,
+    "scheduled_hands_to_run": 16000000,
+    "stage": "initial",
+    "to_run": 100,
+    "wall_h": {
+     "ideal": 0.9841418883672405,
+     "waves": 1.0235075639019302
+    }
+   },
+   {
+    "H": 400,
+    "R": 40,
+    "cell_id": "nlhe6.nlhe6-style_diverse.fhr3b_baseline.R40H400K6.swiss.swiss-reference.77d62182",
+    "completed": 0,
+    "expected_played_to_run": 15092800.0,
+    "field": "style_diverse",
+    "field_hash": "ad7d6596ef1c8c3e",
+    "identity_hash": "77d62182a8907e1a",
+    "mode": "nlhe6",
+    "namespace": "swiss-reference",
+    "path": "results/fhr3b/nlhe6.nlhe6-style_diverse.fhr3b_baseline.R40H400K6.swiss.swiss-reference.77d62182",
+    "replicates": [
+     0,
+     100
+    ],
+    "scheduled_hands_per_tournament": 160000,
+    "scheduled_hands_to_run": 16000000,
+    "stage": "initial",
+    "to_run": 100,
+    "wall_h": {
+     "ideal": 0.9841418883672405,
+     "waves": 1.0235075639019302
+    }
+   }
+  ]
+ },
+ "totals": {
+  "matrix": {
+   "expected_played": 127556736.0,
+   "scheduled_hands": 145320000.0,
+   "slow_rate_wall_h_ideal": 27.488306180501688,
+   "slow_rate_wall_h_waves": 30.786902922161886,
+   "storage_mb": 54.0,
+   "tournaments": 900,
+   "wall_h_ideal": 8.317471048513303,
+   "wall_h_waves": 9.3155675743349
+  },
+  "mu_field": {
+   "expected_played": 16979400.0,
+   "scheduled_hands": 18000000.0,
+   "slow_rate_wall_h_ideal": 3.6590380139643135,
+   "slow_rate_wall_h_waves": 4.683568657874321,
+   "wall_h_ideal": 1.1071596244131456,
+   "wall_h_waves": 1.4171643192488264
+  },
+  "mu_field_plus_matrix": {
+   "expected_played": 144536136.0,
+   "scheduled_hands": 163320000.0,
+   "slow_rate_wall_h_ideal": 31.147344194466,
+   "slow_rate_wall_h_waves": 35.470471580036204,
+   "wall_h_ideal": 9.42463067292645,
+   "wall_h_waves": 10.732731893583725
+  },
+  "mu_swiss": {
+   "expected_played": 45278400.0,
+   "scheduled_hands": 48000000.0,
+   "slow_rate_wall_h_ideal": 9.757434703904837,
+   "slow_rate_wall_h_waves": 10.14773209206103,
+   "storage_mb": 18.0,
+   "tournaments": 300,
+   "wall_h_ideal": 2.9524256651017216,
+   "wall_h_waves": 3.070522691705791
+  },
+  "programme": {
+   "expected_played": 189814536.0,
+   "scheduled_hands": 211320000.0,
+   "slow_rate_wall_h_ideal": 40.904778898370836,
+   "slow_rate_wall_h_waves": 45.61820367209723,
+   "wall_h_ideal": 12.37705633802817,
+   "wall_h_waves": 13.803254585289515
+  }
+ }
+}

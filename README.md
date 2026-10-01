@@ -58,6 +58,7 @@ whose configuration disagrees with existing results is refused.
 | `docs/agents.md` | agent definitions and versioning |
 | `docs/extending.md` | adding variants, agents, estimators |
 | `docs/assumptions.md` | assumptions that could affect the paper |
+| `docs/fhr3b/FHR4_CORE.md` | FullHouse Research #4 core study (NLHE6): unique cells, budgets, `fhr3b core plan`, launch commands |
 | `docs/table_size.md` | FHR3A controlled table-size suite (NLHE 100BB 3/4/6/8 seats, one scheduled opponent population): design, runbook, caveats |
 
 ## Guardrails
