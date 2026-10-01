@@ -63,8 +63,16 @@ from fhr3.tournament.calibration import (
     calibration_digest,
     load_calibration,
     matchup_rows,
+    verify_calibration_lanes,
 )
-from fhr3.tournament.diagnostics import SplitHalf, archetype_cycle_test, crosshalf, param_distance, param_vectors
+from fhr3.tournament.diagnostics import (
+    SplitHalf,
+    archetype_cycle_test,
+    crosshalf,
+    param_distance,
+    param_vectors,
+    reference_rank_diagnostics,
+)
 from fhr3.tournament.experiments import Profile
 from fhr3.tournament.fields import FieldManifest, select_crowded, subset, write_field_immutable
 from fhr3.tournament.manifests import identity_hash
@@ -338,30 +346,55 @@ def select_fields(root: Path, prof: Profile, mode: str, reports: Path, n_boot: i
 
 
 def field_reference_report(root: Path, prof: Profile, mode: str, field: str, reports: Path,
-                           n_boot: int = 300) -> dict[str, Any]:
-    """mu_field inside a frozen field + split-half reliability (no selection statistics)."""
+                           n_boot: int = 1000) -> dict[str, Any]:
+    """mu_field (ordinary-match scale) inside a frozen field + robustness diagnostics (no selection statistics)."""
     spec = prof.calibration_spec(mode, "field", field)
     tabs = load_calibration(root, spec)
     if not tabs:
         raise FileNotFoundError(f"no field-reference calibration for {mode}/{field}")
+    n_lane_chunks = verify_calibration_lanes(root, spec)
     fm: FieldManifest = spec.field
     bots = sorted(fm.bot_ids)
-    res = analyse_calibration(tabs, bots, n_boot=n_boot)
+    lanes = spec.lanes
+    res = analyse_calibration(tabs, bots, n_boot=n_boot, lanes=lanes)
     rep = reports / "field-calibration" / mode / fm.field_id
-    _csv(rep / "reference_bots.csv", bot_rows(res, fm))
+    rank = reference_rank_diagnostics(res["mu"], res["boot_mu"], prof.k)
+    rows = bot_rows(res, fm)
+    pb = {b: i for i, b in enumerate(bots)}
+    for r in rows:
+        i = pb[r["bot_id"]]
+        r |= {"rank_lo95": rank["per_bot"]["rank_lo95"][i], "rank_hi95": rank["per_bot"]["rank_hi95"][i],
+              "p_top_k": rank["per_bot"]["p_top_k"][i]}
+    _csv(rep / "reference_bots.csv", rows)
     order = np.argsort(-res["mu"], kind="stable")
     mu_sorted = res["mu"][order]
     k = prof.k
     groups = res["groups"]
+    sh = crosshalf(SplitHalf(groups[0::2]), SplitHalf(groups[1::2]), list(range(len(bots))))
+    for e in ("cyc_energy_per_pair", "grad_energy_per_pair"):  # stored lane sums -> reported scale
+        sh[e] /= lanes * lanes
     out = {"mode": mode, "field_id": fm.field_id, "field_hash": fm.field_hash, "calib_id": spec.calib_id,
            "calibration_digest": calibration_digest(root, spec),
+           "match_format": spec.match_format, "lanes": lanes, "lane_chunks_verified": n_lane_chunks,
+           "scale": "mu_field = mean(lane_sum) / lanes: chips per ordinary-equivalent H-hand match",
+           "uncertainty": {"primary_se": "analytic sd / sqrt(matches), per bot",
+                           "bootstrap": f"joint resampling of {res['rounds_groups']} round groups "
+                                        f"({spec.chunk_rounds} rounds each) over the complete bot vector"},
+           "coupling": "common random numbers: every field reference in this namespace shares one seed; "
+                       "cross-field estimates are correlated and must not be analysed as independent",
            "gap_at_cutoff_bb": float(mu_sorted[k - 1] - mu_sorted[k]) / BB if len(bots) > k else None,
            "median_se_bb": float(np.median(res["se"])) / BB,
-           "splithalf": crosshalf(SplitHalf(groups[0::2]), SplitHalf(groups[1::2]), list(range(len(bots)))),
+           "median_se_bootstrap_bb": float(np.median(res["se_boot"])) / BB,
+           "ranking_robustness": {(kk + "_bb" if kk.startswith("gap_") else kk):
+                                  (v / BB if kk == "gap_at_cutoff" else
+                                   [x / BB for x in v] if kk.startswith("gap_") else v)
+                                  for kk, v in rank.items() if kk != "per_bot"},
+           "splithalf": sh,
            "archetype_cycle": archetype_cycle_test(groups, [m["archetype"] for m in
                                                             (dict((b["bot_id"], b["meta"]) for b in fm.bots)[x]
                                                              for x in bots)],
-                                                   np.random.Generator(np.random.PCG64(20260930)))}
+                                                   np.random.Generator(np.random.PCG64(20260930)),
+                                                   scale=1.0 / lanes) | {"role": "descriptive; computed once"}}
     if fm.kind == "crowded_cutoff":
         c = fm.construction
         lo_r, hi_r = int(c["n_top"]), int(c["n_top"]) + int(c["crowd"])

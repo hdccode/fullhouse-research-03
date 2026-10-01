@@ -10,14 +10,29 @@ seats, so
     mu_field(i) = E[ chip delta of i per match | uniformly random table ]
 
 is i's long-run balanced field EV in chips per H-hand match. Rounds are independent
-units (analysis bootstraps over round *groups*).
+units: the primary per-bot SE is analytic (sd / sqrt(matches)); a bootstrap over round
+*groups* that resamples the complete bot vector jointly (cross-bot covariance kept) feeds
+ranking / gap / robustness diagnostics only.
+
+Matched (duplicate) calibration plays every table as k lanes (k = table size) and stores
+the lane-summed delta per bot. The reported reference is on the ordinary-match scale,
+
+    mu_field = mean(lane_sum) / k,
+
+with the raw ``mu_field_lane_sum`` kept for provenance. Compact per-lane outcomes (no hand
+histories) are persisted beside every chunk under ``lanes/`` and validated: each lane is
+zero-sum, every bot starts in every seat exactly once per duplicate match, the lane count
+equals the mode's table size, and lane deltas add up exactly to the stored lane sum.
+
+Common random numbers: the seed depends on (seed_family, namespace) only, so every field
+reference in one namespace reads the same chance/decision streams for a given
+(round, table, hand). Cross-field reference estimates are therefore *coupled* (correlated),
+not independent replications, and must not be analysed under an independence assumption.
 
 Matchup structure: ``M[i, j] = E[delta_i | j at the table] - mu_i`` (presence effect)
-and its antisymmetric part ``A = M - M^T``. On the complete graph ``A`` splits
-orthogonally (Hodge) into a gradient part ``r_i - r_j`` (transitive strength) and a
-cyclic remainder. Noise inflates both parts; its expectation is removed using the
-per-pair sampling variances. The *debiased cyclic share* is the matchup-sensitivity
-statistic used by the field gate.
+and its antisymmetric part ``A = M - M^T``. ``hodge`` / ``subset_hodge`` (the retired v1
+matchup gate) remain available for provenance only; ``analyse_calibration`` no longer
+computes them.
 
 Seeds: ``derive_seed("fhr3b-calibration", seed_family, namespace)`` with namespace
 ``pool-calibration`` or ``field-reference`` (disjoint from tournaments).
@@ -49,9 +64,17 @@ from fhr3.tournament.match import (
 )
 
 CALIBRATION_VERSION = "fhr3b-calibration-v1"
+LANE_STORE_VERSION = "fhr3b-calibration-lanes-v1"  # duplicate calibrations only (identity key)
 ROW_SCHEMA = pa.schema([("round", pa.int32()), ("table_index", pa.int16()), ("seat", pa.int8()),
                         ("table_size", pa.int8()), ("bot_id", pa.string()), ("chip_delta", pa.int64()),
                         ("hands_played", pa.int32())])
+LANE_SCHEMA = pa.schema([("round", pa.int32()), ("table_index", pa.int16()), ("lane", pa.int8()),
+                         ("bot_id", pa.string()), ("start_seat", pa.int8()), ("chip_delta", pa.int64()),
+                         ("hands_played", pa.int32()), ("bust_hand", pa.int32()), ("busted", pa.bool_())])
+
+
+class CalibrationLaneError(AssertionError):
+    pass
 
 
 @dataclass(frozen=True)
@@ -77,7 +100,13 @@ class CalibrationSpec:
                 "mode": self.mode.to_dict(), "field_hash": self.field.field_hash, "H": self.hands_per_match,
                 "stack_policy": self.stack_policy, "seed_family": self.seed_family, "namespace": self.namespace,
                 "chunk_rounds": self.chunk_rounds, "synthetic": self.synthetic} | (
-                    {"match_format": self.match_format} if self.match_format != "ordinary" else {})
+                    {"match_format": self.match_format, "lane_store": LANE_STORE_VERSION}
+                    if self.match_format != "ordinary" else {})
+
+    @property
+    def lanes(self) -> int:
+        """Duplicate lanes per match (= table size); 1 for ordinary calibration."""
+        return self.mode.table_size if self.match_format == "duplicate" else 1
 
     @property
     def calib_id(self) -> str:
@@ -121,7 +150,9 @@ def spec_from_dict(d: dict[str, Any]) -> CalibrationSpec:
                            d.get("match_format", "ordinary"))
 
 
-def play_rounds(spec: CalibrationSpec, start: int, end: int, player: Any) -> list[dict[str, Any]]:
+def play_rounds(spec: CalibrationSpec, start: int, end: int, player: Any,
+                lane_rows: list[dict[str, Any]] | None = None) -> list[dict[str, Any]]:
+    """Calibration rows of rounds [start, end); duplicate matches also append per-lane rows to ``lane_rows``."""
     chance = derive_seed("fhr3b-calibration-chance", spec.seed)
     decision = derive_seed("fhr3b-calibration-decision", spec.seed)
     rows = []
@@ -133,7 +164,60 @@ def play_rounds(spec: CalibrationSpec, start: int, end: int, player: Any) -> lis
             for s, b in enumerate(seat_order):
                 rows.append({"round": r, "table_index": t, "seat": s, "table_size": len(seat_order), "bot_id": b,
                              "chip_delta": int(res.deltas[b]), "hands_played": res.hands_played})
+            if lane_rows is not None:
+                for ln in res.info.get("duplicate_lanes", ()):
+                    for start_seat, b in enumerate(ln["seat_order"]):
+                        bh = int(ln["bust_hand"].get(b, -1))
+                        lane_rows.append({"round": r, "table_index": t, "lane": ln["lane"], "bot_id": b,
+                                          "start_seat": start_seat, "chip_delta": int(ln["deltas"][b]),
+                                          "hands_played": int(ln["hands_played"]), "bust_hand": bh,
+                                          "busted": bh >= 0})
     return rows
+
+
+def validate_lane_rows(rows: Sequence[dict[str, Any]], lane_rows: Sequence[dict[str, Any]], lanes: int) -> None:
+    """Per-lane invariants of a duplicate calibration chunk (raises CalibrationLaneError)."""
+
+    def fail(msg: str) -> None:
+        raise CalibrationLaneError(msg)
+
+    tables: dict[tuple[int, int], dict[str, dict[str, Any]]] = {}
+    for x in rows:
+        tables.setdefault((int(x["round"]), int(x["table_index"])), {})[x["bot_id"]] = x
+    by: dict[tuple[int, int], list[dict[str, Any]]] = {}
+    for ln in lane_rows:
+        by.setdefault((int(ln["round"]), int(ln["table_index"])), []).append(ln)
+    if set(by) != set(tables):
+        fail("lane rows do not cover exactly the calibration tables")
+    for (r, t), members in tables.items():
+        lr = by[(r, t)]
+        k = len(members)
+        if k != lanes:
+            fail(f"round {r} table {t}: table size {k} != lane count {lanes}")
+        if sorted({int(ln["lane"]) for ln in lr}) != list(range(lanes)) or len(lr) != lanes * k:
+            fail(f"round {r} table {t}: lane count does not match mode ({lanes})")
+        lane_hands = {}
+        for lane in range(lanes):
+            one = [ln for ln in lr if int(ln["lane"]) == lane]
+            if sorted(ln["bot_id"] for ln in one) != sorted(members):
+                fail(f"round {r} table {t} lane {lane}: seated bots differ from the table")
+            if sum(int(ln["chip_delta"]) for ln in one) != 0:
+                fail(f"round {r} table {t} lane {lane}: not zero-sum")
+            if sorted(int(ln["start_seat"]) for ln in one) != list(range(k)):
+                fail(f"round {r} table {t} lane {lane}: start seats incomplete")
+            if len({int(ln["hands_played"]) for ln in one}) != 1:
+                fail(f"round {r} table {t} lane {lane}: inconsistent hands_played")
+            lane_hands[lane] = int(one[0]["hands_played"])
+            if any(bool(ln["busted"]) != (int(ln["bust_hand"]) >= 0) for ln in one):
+                fail(f"round {r} table {t} lane {lane}: busted flag disagrees with bust_hand")
+        for b, row in members.items():
+            mine = [ln for ln in lr if ln["bot_id"] == b]
+            if sorted(int(ln["start_seat"]) for ln in mine) != list(range(k)):
+                fail(f"round {r} table {t}: {b} does not start in every seat exactly once")
+            if sum(int(ln["chip_delta"]) for ln in mine) != int(row["chip_delta"]):
+                fail(f"round {r} table {t}: {b} lane deltas do not sum to the stored lane-summed delta")
+            if sum(lane_hands.values()) != int(row["hands_played"]):
+                fail(f"round {r} table {t}: lane hands do not sum to the stored hands_played")
 
 
 # ------------------------------------------------------------------ storage + execution
@@ -145,6 +229,19 @@ def _chunk_path(root: Path, spec: CalibrationSpec, a: int, b: int) -> Path:
     return calib_dir(root, spec) / "chunks" / f"c_{a:07d}_{b:07d}.parquet"
 
 
+def _lane_path(root: Path, spec: CalibrationSpec, a: int, b: int) -> Path:
+    return calib_dir(root, spec) / "lanes" / f"l_{a:07d}_{b:07d}.parquet"
+
+
+def _write_atomic(p: Path, table: pa.Table) -> None:
+    import os
+
+    p.parent.mkdir(parents=True, exist_ok=True)
+    tmp = p.with_suffix(f".parquet.tmp{os.getpid()}")
+    pq.write_table(table, tmp, compression="zstd")
+    os.replace(tmp, p)
+
+
 _W: dict[str, Any] = {}
 
 
@@ -154,16 +251,15 @@ def _init(d: dict[str, Any], root: str) -> None:
 
 
 def _work(ab: tuple[int, int]) -> int:
-    import os
-
     a, b = ab
     spec, root = _W["spec"], _W["root"]
-    rows = play_rounds(spec, a, b, _W["player"])
-    p = _chunk_path(root, spec, a, b)
-    p.parent.mkdir(parents=True, exist_ok=True)
-    tmp = p.with_suffix(f".parquet.tmp{os.getpid()}")
-    pq.write_table(pa.Table.from_pylist(rows, schema=ROW_SCHEMA), tmp, compression="zstd")
-    os.replace(tmp, p)
+    dup = spec.match_format == "duplicate"
+    lane_rows: list[dict[str, Any]] | None = [] if dup else None
+    rows = play_rounds(spec, a, b, _W["player"], lane_rows)
+    if dup:  # validate, then write lanes first: the chunk file is the completion marker
+        validate_lane_rows(rows, lane_rows, spec.lanes)
+        _write_atomic(_lane_path(root, spec, a, b), pa.Table.from_pylist(lane_rows, schema=LANE_SCHEMA))
+    _write_atomic(_chunk_path(root, spec, a, b), pa.Table.from_pylist(rows, schema=ROW_SCHEMA))
     return len(rows)
 
 
@@ -191,6 +287,10 @@ def run_calibration(spec: CalibrationSpec, root: Path, rounds: int, workers: int
     c = spec.chunk_rounds
     units = [(a, min(a + c, rounds)) for a in range(0, rounds, c)]
     todo = [u for u in units if not _chunk_path(root, spec, *u).exists()]
+    if spec.match_format == "duplicate":
+        missing = [u for u in units if u not in todo and not _lane_path(root, spec, *u).exists()]
+        if missing:
+            raise RuntimeError(f"{d}: chunks without per-lane rows {missing[:3]}")
     if workers <= 1:
         _init(spec.to_dict(), str(root))
         for i, u in enumerate(todo, 1):
@@ -206,6 +306,21 @@ def run_calibration(spec: CalibrationSpec, root: Path, rounds: int, workers: int
                 if progress:
                     print(f"  {spec.calib_id} chunk {i}/{len(todo)}", flush=True)
     return {"calib_id": spec.calib_id, "chunks_total": len(units), "chunks_run": len(todo)}
+
+
+def verify_calibration_lanes(root: Path, spec: CalibrationSpec) -> int:
+    """Re-validate every stored chunk of a duplicate calibration against its per-lane rows."""
+    if spec.match_format != "duplicate":
+        return 0
+    n = 0
+    for f in sorted((calib_dir(root, spec) / "chunks").glob("c_*.parquet")):
+        _, a, b = f.stem.split("_")
+        lp = _lane_path(root, spec, int(a), int(b))
+        if not lp.exists():
+            raise CalibrationLaneError(f"{f.name}: per-lane rows missing")
+        validate_lane_rows(pq.read_table(f).to_pylist(), pq.read_table(lp).to_pylist(), spec.lanes)
+        n += 1
+    return n
 
 
 def load_calibration(root: Path, spec: CalibrationSpec, max_rounds: int | None = None) -> list[pa.Table]:
@@ -311,29 +426,32 @@ def cyclic_triads(a: np.ndarray) -> dict[str, float]:
 
 
 def analyse_calibration(tables: Sequence[pa.Table], bots: Sequence[str], n_boot: int = 300,
-                        seed: int = 20260929) -> dict[str, Any]:
+                        seed: int = 20260929, lanes: int = 1) -> dict[str, Any]:
+    """Per-bot reference strength on the ordinary-match scale.
+
+    ``mu`` = mean stored delta / ``lanes`` (``lanes`` = k for matched calibration, so the
+    k-lane sum becomes ordinary-match-equivalent); ``mu_lane_sum`` keeps the raw mean.
+    ``se`` is the analytic sd / sqrt(matches) (primary). ``boot_mu`` (n_boot x P) comes from
+    resampling round groups with ONE weight vector for the whole bot vector, so cross-bot
+    covariance is preserved; it is for ranking / gap / robustness diagnostics, and
+    ``se_boot`` is reported only as a check. ``M``/``var_M`` are on the same scale as ``mu``.
+    """
     groups = [group_stats(t, bots) for t in tables]
     tot = _combine(groups)
-    mu, m, var_m = _matchup(tot)
-    a = m - m.T
-    var_a = var_m + var_m.T
-    sd = np.sqrt(np.maximum(tot.ss / tot.n - mu * mu, 0))
+    mu_raw, m, var_m = _matchup(tot)
+    sd_raw = np.sqrt(np.maximum(tot.ss / tot.n - mu_raw * mu_raw, 0))
+    sc = 1.0 / lanes
+    n_arr = np.stack([g.n for g in groups])
+    s_arr = np.stack([g.s for g in groups])
     rng = np.random.Generator(np.random.PCG64(seed))
-    boot_mu, boot_share = [], []
-    for _ in range(n_boot):
-        w = rng.multinomial(len(groups), np.full(len(groups), 1 / len(groups))).astype(float)
-        c = _combine(groups, w)
-        bmu, bm, bvar = _matchup(c)
-        boot_mu.append(bmu)
-        boot_share.append(hodge(bm - bm.T, bvar + bvar.T)["cyclic_share_debiased"])
-    boot_mu_a = np.array(boot_mu)
-    se = boot_mu_a.std(axis=0, ddof=1) if n_boot > 1 else sd / np.sqrt(tot.n)
-    shares = np.array([x for x in boot_share if np.isfinite(x)])
-    h = hodge(a, var_a)
-    h |= {"cyclic_share_debiased_ci": [float(np.quantile(shares, 0.025)), float(np.quantile(shares, 0.975))]
-          if len(shares) > 10 else [np.nan, np.nan], "bootstrap_groups": len(groups)}
-    return {"bots": list(bots), "mu": mu, "se": se, "sd": sd, "n_matches": tot.n, "M": m, "var_M": var_m,
-            "pair_n": tot.pn, "hodge": h, "rounds_groups": len(groups), "groups": groups}
+    w = rng.multinomial(len(groups), np.full(len(groups), 1 / len(groups)), size=n_boot).astype(float)
+    with np.errstate(invalid="ignore", divide="ignore"):
+        boot_mu = (w @ s_arr) / (w @ n_arr) * sc
+    se_boot = boot_mu.std(axis=0, ddof=1) if n_boot > 1 else np.full(len(bots), np.nan)
+    return {"bots": list(bots), "lanes": lanes, "mu": mu_raw * sc, "mu_lane_sum": mu_raw,
+            "se": sd_raw / np.sqrt(tot.n) * sc, "se_boot": se_boot, "sd": sd_raw * sc, "sd_lane_sum": sd_raw,
+            "n_matches": tot.n, "M": m * sc, "var_M": var_m * sc * sc, "pair_n": tot.pn, "boot_mu": boot_mu,
+            "rounds_groups": len(groups), "groups": groups}
 
 
 def subset_share_ci(res: dict[str, Any], ids: Sequence[str], n_boot: int = 300,
@@ -361,6 +479,8 @@ def calibration_digest(root: Path, spec: CalibrationSpec) -> str:
 
     h = hashlib.sha256()
     for f in sorted((calib_dir(root, spec) / "chunks").glob("c_*.parquet")):
+        h.update(f.name.encode() + b"\0" + f.read_bytes())
+    for f in sorted((calib_dir(root, spec) / "lanes").glob("l_*.parquet")):  # duplicate only; none for pool
         h.update(f.name.encode() + b"\0" + f.read_bytes())
     return h.hexdigest()[:32]
 
@@ -393,10 +513,14 @@ def bot_rows(res: dict[str, Any], field: FieldManifest) -> list[dict[str, Any]]:
     rows = []
     for rank, i in enumerate(order, 1):
         b = res["bots"][i]
-        rows.append({"bot_id": b, "reference_rank": rank, "mu_field": float(res["mu"][i]),
-                     "se": float(res["se"][i]), "ci_lo": float(res["mu"][i] - 1.96 * res["se"][i]),
-                     "ci_hi": float(res["mu"][i] + 1.96 * res["se"][i]), "sd_per_match": float(res["sd"][i]),
-                     "n_matches": int(res["n_matches"][i])} | {f"meta_{k}": v for k, v in meta.get(b, {}).items()})
+        row = {"bot_id": b, "reference_rank": rank, "mu_field": float(res["mu"][i]),
+               "se": float(res["se"][i]), "ci_lo": float(res["mu"][i] - 1.96 * res["se"][i]),
+               "ci_hi": float(res["mu"][i] + 1.96 * res["se"][i]), "sd_per_match": float(res["sd"][i]),
+               "n_matches": int(res["n_matches"][i])}
+        if res.get("lanes", 1) > 1:  # matched calibration: provenance of the k-lane sum
+            row |= {"lanes": int(res["lanes"]), "mu_field_lane_sum": float(res["mu_lane_sum"][i]),
+                    "sd_lane_sum": float(res["sd_lane_sum"][i]), "se_bootstrap": float(res["se_boot"][i])}
+        rows.append(row | {f"meta_{k}": v for k, v in meta.get(b, {}).items()})
     return rows
 
 

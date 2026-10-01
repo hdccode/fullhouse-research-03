@@ -279,3 +279,115 @@ def test_frozen_fields_enforced():
             assert prof.field(mode, f).field_hash == prof.frozen_hash(mode, f)
     with pytest.raises((FieldNotFrozenError, FileNotFoundError)):
         prof.field("plo6", "spread")  # PLO is not part of FHR3B
+
+
+# ------------------------------------------------------------------ matched field-reference calibration
+def _small_dup_calibration(tmp_path, rounds=2):
+    from fhr3.tournament.calibration import run_calibration
+
+    six = load_mode("nlhe6")
+    spec = CalibrationSpec(six, load_field(FHR3B_CONFIGS / "fields/nlhe6/smoke12.json"), 8,
+                           six.stack_policy, "fam", "test", chunk_rounds=1, match_format="duplicate")
+    run_calibration(spec, tmp_path, rounds, progress=False)
+    return spec
+
+
+def test_field_reference_identity_and_new_calibration_ids():
+    prof = load_profile("publication")
+    assert prof.calibration["field_reference"]["chunk_rounds"] == 10
+    ids = {(m, f): prof.calibration_spec(m, "field", f).calib_id
+           for m in ("aof4", "nlhe4", "nlhe6") for f in ("spread", "crowded_cutoff", "style_diverse")}
+    assert ids == {
+        ("aof4", "spread"): "aof4.aof4-spread.H400.dup.field-reference.70adb060",
+        ("aof4", "crowded_cutoff"): "aof4.aof4-crowded_cutoff.H400.dup.field-reference.92afa17b",
+        ("aof4", "style_diverse"): "aof4.aof4-style_diverse.H400.dup.field-reference.fefb1197",
+        ("nlhe4", "spread"): "nlhe4.nlhe4-spread.H400.dup.field-reference.8f9817e4",
+        ("nlhe4", "crowded_cutoff"): "nlhe4.nlhe4-crowded_cutoff.H400.dup.field-reference.b4a51d13",
+        ("nlhe4", "style_diverse"): "nlhe4.nlhe4-style_diverse.H400.dup.field-reference.43a9f572",
+        ("nlhe6", "spread"): "nlhe6.nlhe6-spread.H400.dup.field-reference.3cea71b5",
+        ("nlhe6", "crowded_cutoff"): "nlhe6.nlhe6-crowded_cutoff.H400.dup.field-reference.7d2640ae",
+        ("nlhe6", "style_diverse"): "nlhe6.nlhe6-style_diverse.H400.dup.field-reference.0caf92cc",
+    }
+    for m, k in (("aof4", 4), ("nlhe4", 4), ("nlhe6", 6)):
+        assert prof.calibration_spec(m, "field", "spread").lanes == k
+    # pool calibration (ordinary) identities are untouched by the lane store
+    assert prof.calibration_spec("aof4", "pool").calib_id == "aof4.aof4-pool.H400.pool-calibration.351766c0"
+    assert prof.calibration_spec("aof4", "pool").lanes == 1
+
+
+def test_matched_calibration_persists_and_validates_lanes(tmp_path):
+    import pyarrow.parquet as pq
+
+    from fhr3.tournament.calibration import calib_dir, calibration_digest, verify_calibration_lanes
+
+    spec = _small_dup_calibration(tmp_path)
+    d = calib_dir(tmp_path, spec)
+    lanes = sorted((d / "lanes").glob("l_*.parquet"))
+    assert len(lanes) == 2 and verify_calibration_lanes(tmp_path, spec) == 2
+    rows = pq.read_table(lanes[0]).to_pylist()
+    assert set(rows[0]) == {"round", "table_index", "lane", "bot_id", "start_seat", "chip_delta", "hands_played",
+                            "bust_hand", "busted"}
+    assert len(rows) == 2 * 6 * 6  # 12 bots -> 2 tables x 6 lanes x 6 seats
+    before = calibration_digest(tmp_path, spec)
+    lanes[1].unlink()
+    assert calibration_digest(tmp_path, spec) != before  # lane files are part of the calibration digest
+
+
+def _tamper(rows, lanes):
+    import copy
+
+    return copy.deepcopy(rows), copy.deepcopy(lanes)
+
+
+def test_lane_validation_rejects_every_broken_invariant():
+    from fhr3.tournament.calibration import CalibrationLaneError, validate_lane_rows
+
+    six = load_mode("nlhe6")
+    spec = CalibrationSpec(six, load_field(FHR3B_CONFIGS / "fields/nlhe6/smoke12.json"), 8,
+                           six.stack_policy, "fam", "test", match_format="duplicate")
+    lanes: list = []
+    rows = play_rounds(spec, 0, 1, spec.make_player(), lanes)
+    validate_lane_rows(rows, lanes, 6)
+    r, ln = _tamper(rows, lanes)  # one lane not zero-sum (and aggregate broken)
+    ln[0]["chip_delta"] += 1
+    with pytest.raises(CalibrationLaneError):
+        validate_lane_rows(r, ln, 6)
+    r, ln = _tamper(rows, lanes)  # zero-sum but no longer aggregates to the stored lane sum
+    a, b = [x for x in ln if x["table_index"] == 0 and x["lane"] == 0][:2]
+    a["chip_delta"] += 5
+    b["chip_delta"] -= 5
+    with pytest.raises(CalibrationLaneError, match="lane-summed"):
+        validate_lane_rows(r, ln, 6)
+    r, ln = _tamper(rows, lanes)  # a bot starts in the same seat twice
+    x, y = [z for z in ln if z["table_index"] == 0 and z["lane"] == 0][:2]
+    x["start_seat"], y["start_seat"] = y["start_seat"], x["start_seat"]
+    first = next(z for z in ln if z["table_index"] == 0 and z["lane"] == 1 and z["bot_id"] == x["bot_id"])
+    other = next(z for z in ln if z["table_index"] == 0 and z["lane"] == 1 and z["start_seat"] == x["start_seat"])
+    first["start_seat"], other["start_seat"] = other["start_seat"], first["start_seat"]
+    with pytest.raises(CalibrationLaneError):
+        validate_lane_rows(r, ln, 6)
+    r, ln = _tamper(rows, lanes)  # a lane missing
+    ln = [z for z in ln if not (z["table_index"] == 0 and z["lane"] == 5)]
+    with pytest.raises(CalibrationLaneError, match="lane count"):
+        validate_lane_rows(r, ln, 6)
+    with pytest.raises(CalibrationLaneError, match="lane count"):  # lane count must match the mode
+        validate_lane_rows(rows, lanes, 4)
+
+
+def test_mu_field_is_normalised_and_bootstrap_is_joint(tmp_path):
+    import numpy as np
+
+    from fhr3.tournament.calibration import analyse_calibration, load_calibration
+    from fhr3.tournament.diagnostics import reference_rank_diagnostics
+
+    spec = _small_dup_calibration(tmp_path, rounds=3)
+    bots = sorted(spec.field.bot_ids)
+    res = analyse_calibration(load_calibration(tmp_path, spec), bots, n_boot=50, lanes=spec.lanes)
+    assert res["lanes"] == 6
+    assert np.allclose(res["mu"] * 6, res["mu_lane_sum"]) and np.allclose(res["sd"] * 6, res["sd_lane_sum"])
+    assert np.allclose(res["se"], res["sd"] / np.sqrt(res["n_matches"]))  # analytic primary SE
+    # joint resampling of round groups keeps the zero-sum coupling across the bot vector
+    assert res["boot_mu"].shape == (50, 12) and np.allclose(res["boot_mu"].sum(1), 0, atol=1e-9)
+    diag = reference_rank_diagnostics(res["mu"], res["boot_mu"], 2)
+    assert 0 <= diag["p_same_top_k_set"] <= 1 and len(diag["per_bot"]["p_top_k"]) == 12
+    assert abs(sum(diag["per_bot"]["p_top_k"]) - 2) < 1e-9

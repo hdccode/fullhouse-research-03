@@ -173,6 +173,10 @@ Implementation:
 * **`mu_field`**: long-run balanced performance against the controlled field, from **matched**
   evaluation. `field-reference` plays k-lane duplicate matches at random tables
   (`matrix.yaml: calibration.field_reference.match_format: duplicate`) inside frozen fields only.
+  Reported on the ordinary-match scale, `mu_field = mean(lane_sum) / k`; every ranking,
+  comparison and accuracy metric uses this normalised value. Per-lane outcomes are stored under
+  `calibration/<id>/lanes/` and re-validated before use. The nine field references share one
+  seed (common random numbers), so they are coupled, not independent replications.
 * **`mu_swiss`**: expected Swiss performance, from many complete tournaments (`swiss-reference`
   namespace).
 

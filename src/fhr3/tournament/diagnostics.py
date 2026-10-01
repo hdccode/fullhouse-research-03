@@ -145,8 +145,12 @@ def archetype_flow(half: SplitHalf, n_bots: int, lab: np.ndarray, k: int) -> np.
 
 
 def archetype_cycle_test(groups: Sequence[Any], archetype_of: Sequence[str], rng: np.random.Generator,
-                         n_perm: int = 200) -> dict[str, Any]:
-    """Style-level non-transitivity: split-half r of the archetype cyclic flow vs a label-permutation null."""
+                         n_perm: int = 200, scale: float = 1.0) -> dict[str, Any]:
+    """Style-level non-transitivity: split-half r of the archetype cyclic flow vs a label-permutation null.
+
+    Computed once from completed data (descriptive). ``scale`` converts stored deltas to the
+    reported scale (1/k for matched lane sums); correlations are scale-free.
+    """
     archs = sorted(set(archetype_of))
     lab = np.array([archs.index(x) for x in archetype_of])
     k, n = len(archs), len(archetype_of)
@@ -163,7 +167,43 @@ def archetype_cycle_test(groups: Sequence[Any], archetype_of: Sequence[str], rng
     npairs = len(ca)
     return {"archetypes": archs, "r_cyclic": r, "r_gradient": float(np.corrcoef(ga, gb)[0, 1]),
             "perm_null_q95": float(np.quantile(null, 0.95)), "perm_p": float(np.mean(np.array(null) >= r)),
-            "cyc_rms_bb": math.sqrt(max(float(ca @ cb) / npairs, 0)) / 100,
-            "grad_rms_bb": math.sqrt(max(float(ga @ gb) / npairs, 0)) / 100,
-            "cyclic_matrix_bb": (cyc_full / 100).round(3).tolist(),
+            "cyc_rms_bb": scale * math.sqrt(max(float(ca @ cb) / npairs, 0)) / 100,
+            "grad_rms_bb": scale * math.sqrt(max(float(ga @ gb) / npairs, 0)) / 100,
+            "cyclic_matrix_bb": (scale * cyc_full / 100).round(3).tolist(),
             "role": "measured outcome; never a field-selection criterion"}
+
+
+# ------------------------------------------------------------------ reference ranking robustness
+def reference_rank_diagnostics(mu: np.ndarray, boot_mu: np.ndarray, k: int) -> dict[str, Any]:
+    """Ranking / cutoff robustness of a reference from a JOINT round-group bootstrap.
+
+    ``boot_mu`` (B x P) must come from resampling round groups with one weight vector for
+    the whole bot vector (cross-bot covariance kept). Per-bot rank intervals and top-k
+    probabilities are diagnostics of the ordering, not independent per-bot inferences.
+    """
+    mu = np.asarray(mu, float)
+    boot_mu = np.asarray(boot_mu, float)
+    b, p = boot_mu.shape
+    order = np.argsort(-mu, kind="stable")
+    top = set(order[:k].tolist())
+    ranks = np.argsort(np.argsort(-boot_mu, axis=1, kind="stable"), axis=1, kind="stable") + 1
+    in_top = ranks <= k
+    same_top = float(np.mean([set(np.flatnonzero(row).tolist()) == top for row in in_top]))
+    i_k, i_k1 = int(order[k - 1]), int(order[k])  # point-estimate k-th and (k+1)-th bots
+    pair_gap = boot_mu[:, i_k] - boot_mu[:, i_k1]
+    srt = -np.sort(-boot_mu, axis=1)
+    os_gap = srt[:, k - 1] - srt[:, k]
+    rho = [float(np.corrcoef(np.argsort(np.argsort(-mu)), np.argsort(np.argsort(-row)))[0, 1]) for row in boot_mu]
+    return {
+        "bootstrap_resamples": b, "k": k,
+        "p_same_top_k_set": same_top,
+        "gap_at_cutoff": float(mu[i_k] - mu[i_k1]),
+        "gap_at_cutoff_pair_ci95": [float(np.quantile(pair_gap, 0.025)), float(np.quantile(pair_gap, 0.975))],
+        "p_cutoff_pair_order_reversed": float(np.mean(pair_gap < 0)),
+        "gap_order_statistic_ci95": [float(np.quantile(os_gap, 0.025)), float(np.quantile(os_gap, 0.975))],
+        "spearman_point_vs_bootstrap_median": float(np.median(rho)),
+        "per_bot": {"rank_lo95": np.quantile(ranks, 0.025, axis=0).tolist(),
+                    "rank_hi95": np.quantile(ranks, 0.975, axis=0).tolist(),
+                    "p_top_k": in_top.mean(0).tolist()},
+        "role": "ranking/gap robustness from a joint round-group bootstrap; primary per-bot SE is analytic",
+    }

@@ -28,7 +28,7 @@ calibration:
   field_reference:    # mu_field inside each FROZEN field (namespace field-reference): MATCHED evaluation
     match_format: duplicate   # k-lane duplicate matches (4 lanes AoF4/NLHE4, 6 lanes NLHE6)
     rounds: 3000              # ordinary-equivalent rounds; duplicate runs rounds // lanes (equal simulator work)
-    chunk_rounds: 25
+    chunk_rounds: 10          # bootstrap unit: 75 groups (AoF4/NLHE4), 50 groups (NLHE6)
   behaviour_audit:    # exact replay of the first calibration rounds -> observed style classes
     rounds: 20
   selection:          # src/fhr3/tournament/selection.py (selection v2)
@@ -86,4 +86,4 @@ smoke_profile:        # end-to-end correctness run of the whole pipeline (never 
   calibration:
     pool_field: pool
     pool: {rounds: 6, chunk_rounds: 2}
-    field_reference: {rounds: 4, chunk_rounds: 2}
+    field_reference: {match_format: duplicate, rounds: 12, chunk_rounds: 1}   # 3 matched rounds (2 for NLHE6)

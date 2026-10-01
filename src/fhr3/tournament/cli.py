@@ -320,7 +320,7 @@ def build_parser() -> argparse.ArgumentParser:
         p = sub.add_parser(name)
         common(p, experiment=False)
         p.add_argument("--reports")
-        p.add_argument("--boot", type=int, default=300)
+        p.add_argument("--boot", type=int, default=1000 if name == "field-reference" else 300)
         p.set_defaults(fn=fn)
     for name, fn in (("plan", cmd_plan), ("status", cmd_status)):
         p = sub.add_parser(name)

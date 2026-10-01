@@ -54,8 +54,13 @@ AoF 8 BB reset).
 Stages:
 
 1. **Pool calibration.** Namespace `pool-calibration`, 2,000 rounds.
-2. **Field reference.** Namespace `field-reference`, 3,000 rounds inside each frozen field.
-   See the review's note on making it matched (duplicate lanes).
+2. **Field reference.** Namespace `field-reference`, inside each frozen field. Matched (k-lane
+   duplicate) play at 3,000 ordinary-equivalent rounds: 750 × 4 lanes (AoF4/NLHE4), 500 × 6 lanes
+   (NLHE6). Reported `mu_field = mean(lane_sum) / k` (ordinary-match scale; raw
+   `mu_field_lane_sum` kept). Primary SE analytic; joint round-group bootstrap (10-round groups)
+   for ranking/gap robustness only. Per-lane outcomes persisted and validated. All field
+   references share one seed (common random numbers): cross-field estimates are correlated.
+   Plan: `FIELD_REFERENCE_PLAN.md`.
 
 ## Behaviour audit (`behaviour.py`, `fhr3b behaviour-audit`)
 

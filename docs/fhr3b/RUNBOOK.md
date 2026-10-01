@@ -85,7 +85,10 @@ scripts/run_fhr3b.sh field-reference   # k-lane duplicate matches inside each FR
 
 * **Rounds:** 3,000 ordinary-equivalent, run as 750 × 4 lanes (AoF4, NLHE4) or 500 × 6 lanes
   (NLHE6).
-* **Cost:** ≈ 30–35 core-hours (≈ 8 h wall).
+* **Cost:** ≈ 133M played hands; ≈ 8 h wall at 8 workers (up to ≈ 13 h if NLHE6 runs at its
+  slowest observed rate). Storage ≈ 12 MB (rows + per-lane outcomes).
+* **Outputs:** `calibration/<id>/{calibration.lock.json, chunks/, lanes/}`; reports
+  `field-calibration/<mode>/<field_id>/{reference_bots.csv, reference.json}`.
 * **Guard:** refuses unfrozen or revoked fields.
 
 ## 3. Runtime pilot (≈ 15–30 min)
@@ -131,7 +134,7 @@ Planning numbers, for 3 modes × 3 fields:
 | baseline flagship (1000 per cell) | — | ~95 h |
 | swiss-reference broad | ~75 | ~19 h |
 | budget sweep (2 extra cells per mode) | ~50 | ~12 h |
-| field reference (3,000 rounds) | ~30–35 | ~8 h |
+| field reference (3,000 ordinary-equivalent rounds, matched) | ~30–60 | ~8–13 h |
 
 ## Failure handling
 

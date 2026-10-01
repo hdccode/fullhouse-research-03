@@ -26,7 +26,7 @@ import numpy as np
 
 from fhr3.tournament import experiments as ex
 from fhr3.tournament import metrics as mt
-from fhr3.tournament.calibration import analyse_calibration, calib_dir, load_calibration
+from fhr3.tournament.calibration import analyse_calibration, calib_dir, load_calibration, verify_calibration_lanes
 from fhr3.tournament.cells import Cell
 from fhr3.tournament.manifests import ANALYSIS_VERSION
 from fhr3.tournament.store import cell_dir, completed_replicates, load_cell_arrays
@@ -89,9 +89,11 @@ def field_reference(root: Path, prof: ex.Profile, mode: str, field: str) -> dict
     tabs = load_calibration(root, spec)
     if not tabs:
         return None
-    res = analyse_calibration(tabs, sorted(spec.field.bot_ids), n_boot=200)
-    return {"bots": res["bots"], "mu": res["mu"], "se": res["se"], "calib_id": spec.calib_id,
-            "n_groups": res["rounds_groups"]}
+    verify_calibration_lanes(root, spec)
+    # normalised to the ordinary-match scale (lane sum / k); rankings, comparisons and accuracy use this
+    res = analyse_calibration(tabs, sorted(spec.field.bot_ids), n_boot=200, lanes=spec.lanes)
+    return {"bots": res["bots"], "mu": res["mu"], "se": res["se"], "mu_lane_sum": res["mu_lane_sum"],
+            "lanes": res["lanes"], "calib_id": spec.calib_id, "n_groups": res["rounds_groups"]}
 
 
 def swiss_reference(root: Path, prof: ex.Profile, mode: str, field: str) -> dict[str, Any] | None:
@@ -323,14 +325,17 @@ def _reference_rows(mode: str, field: str, fr: dict | None, sr: dict | None, sum
     for i, b in enumerate(bots):
         row: dict[str, Any] = {"mode": mode, "field": field, "bot_id": b}
         if fr is not None:
-            row |= {"mu_field": fr["mu"][i], "mu_field_se": fr["se"][i], "mu_field_rank": int(fr_rank[i])}
+            row |= {"mu_field": fr["mu"][i], "mu_field_se": fr["se"][i], "mu_field_rank": int(fr_rank[i]),
+                    "mu_field_lane_sum": fr["mu_lane_sum"][i], "mu_field_lanes": fr["lanes"]}
         if sr is not None:
             row |= {"mu_swiss": sr["mu"][i], "mu_swiss_se": sr["se"][i], "mu_swiss_rank": int(sr_rank[i]),
                     "swiss_mean_rank": sr["mean_rank"][i], "swiss_p_qualify": sr["p_qualify"][i]}
         rows.append(row)
     key = f"{mode}/{field}"
     sec = summary["sections"].setdefault("references", {})
-    sec[key] = {"field_reference": fr and {"calib_id": fr["calib_id"], "n_groups": fr["n_groups"]},
+    sec[key] = {"field_reference": fr and {"calib_id": fr["calib_id"], "n_groups": fr["n_groups"],
+                                           "lanes": fr["lanes"], "scale": "lane_sum / lanes (ordinary-match)",
+                                           "coupling": "common random numbers across fields (not independent)"},
                 "swiss_reference": sr and {"cell_id": sr["cell_id"], "n_tournaments": sr["n"]}}
     if fr is not None and sr is not None and list(fr["bots"]) == list(sr["bots"]):
         mu_f, mu_s = np.asarray(fr["mu"]), np.asarray(sr["mu"])

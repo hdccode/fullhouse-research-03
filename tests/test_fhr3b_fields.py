@@ -14,6 +14,7 @@ from fhr3.tournament.calibration import (
     hodge,
     load_calibration,
     run_calibration,
+    subset_hodge,
 )
 from fhr3.tournament.fields import (
     FHR3B_CONFIGS,
@@ -120,7 +121,7 @@ def test_calibration_recovers_strength_order(tmp_path):
     run_calibration(spec, tmp_path, 200, progress=False)
     res = analyse_calibration(load_calibration(tmp_path, spec), ids, n_boot=20)
     assert list(np.argsort(res["mu"])) == list(range(12))
-    assert res["hodge"]["cyclic_share_debiased"] < 0.2  # transitive by construction
+    assert subset_hodge(res, ids)["cyclic_share_debiased"] < 0.2  # transitive by construction
 
 
 def test_calibration_detects_cyclic_matchups(tmp_path):
@@ -134,7 +135,7 @@ def test_calibration_detects_cyclic_matchups(tmp_path):
     spec = _synthetic_spec(edge=edge)
     run_calibration(spec, tmp_path, 200, progress=False)
     res = analyse_calibration(load_calibration(tmp_path, spec), ids, n_boot=20)
-    assert res["hodge"]["cyclic_share_debiased"] > 0.8
+    assert subset_hodge(res, ids)["cyclic_share_debiased"] > 0.8
 
 
 def test_hodge_pure_gradient_and_pure_cycle():
