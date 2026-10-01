@@ -19,7 +19,7 @@ from dataclasses import dataclass
 from functools import cached_property
 from typing import Any
 
-from fhr3.agents import build_agent
+from fhr3.tournament.agents import build_agent
 from fhr3.tournament.fields import FieldManifest, Mode, field_from_dict, game_from_dict
 from fhr3.tournament.match import MATCH_ENGINE_VERSION, DuplicateMatchPlayer, PokerMatchPlayer
 from fhr3.tournament.manifests import (

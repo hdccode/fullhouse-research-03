@@ -1,0 +1,31 @@
+{
+ "mode": "nlhe4",
+ "profile": "publication",
+ "calib_id": "nlhe4.nlhe4-pool.H400.pool-calibration.698094ac",
+ "rounds_replayed": [
+  0,
+  1,
+  2,
+  3,
+  4,
+  5,
+  6,
+  7,
+  8,
+  9,
+  10,
+  11,
+  12,
+  13,
+  14,
+  15,
+  16,
+  17,
+  18,
+  19
+ ],
+ "matches_replayed": 480,
+ "bot_match_results_verified": 1920,
+ "replay_matches_stored_deltas": true,
+ "behaviour_csv_sha256": "645c967d08c97b8ed3002e859963a077f0e1bcd9ab9356568ee3298d180e83b6"
+}

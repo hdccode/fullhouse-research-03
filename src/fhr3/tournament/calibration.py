@@ -36,7 +36,7 @@ import numpy as np
 import pyarrow as pa
 import pyarrow.parquet as pq
 
-from fhr3.agents import build_agent
+from fhr3.tournament.agents import build_agent
 from fhr3.rng import KeyedStream, derive_seed
 from fhr3.tournament.fields import FieldManifest, Mode, field_from_dict, game_from_dict
 from fhr3.tournament.manifests import check_namespace, engine_source_hash, identity_hash

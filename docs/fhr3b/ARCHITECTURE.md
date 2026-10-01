@@ -29,6 +29,7 @@ and `Agent`s. It adds no poker rules and copies no agent logic.
 
 | module | role |
 |---|---|
+| `agents.py` | FHR3B-local agent registry; `fhr3b_heuristic` = FHR3A heuristic with correct heads-up blind roles (FHR3A agent code untouched) |
 | `historical.py` | loads the historical provenance record; builds a protocol only when every required historical value is supplied |
 | `swiss.py` | line-for-line port of the public 2026 engine's pairing, standings, tiebreaks and cut (golden-tested against the vendored reference) |
 | `protocol.py` | `TournamentProtocol` (table size, H, R, K, stack rule, pairing, stragglers, round-1 order, scoring, tiebreaks, source pin), `protocol_hash`, R-sweep and fixed-budget generators |
@@ -96,7 +97,7 @@ Exposure is **result-neutral**, verified two ways:
 * golden ordinary matches from the pre-change engine (`tests/data/fhr3b/golden_ordinary_matches.json`);
 * an exact replay of 3,840 completed AoF4/NLHE6 calibration match results.
 
-It changed the engine source hash from `389451b27c2264d2` to `9c28d93c20d45ab4`. The frozen
+It changed the engine source hash from `389451b27c2264d2` to `5f5019c69316d098`. The frozen
 AoF4/NLHE6 pool calibrations keep the old hash in their locks; NLHE4 calibrates under the new
 one.
 

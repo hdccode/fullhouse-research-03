@@ -1,5 +1,10 @@
 # FHR3B field-calibration review, selection v2 (locked design)
 
+> **2026-10-01: all NLHE results in this review are INVALID.** The FHR3A heuristic family
+> misread heads-up blind roles (see `retired_hu_role_bug/`). The NLHE6 freeze is revoked. The
+> NLHE pools are regenerated on `fhr3b_heuristic`, with the same parameter vectors, and await
+> re-calibration. The AoF4 sections remain valid and AoF4 stays frozen.
+
 Status: **review package; nothing committed; no field frozen.** Date: 2026-09-30. Supersedes the
 v1 review; v1 candidates are under `<mode>/retired_v1/`.
 

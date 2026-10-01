@@ -111,6 +111,8 @@ Non-transitive (matchup) structure is **measured, never selected on**. The forme
 `matchup_sensitive` field and its gate are retired.
 
 The bots are synthetic experimental instruments: transparent, stateless FHR3 policy families.
+For NLHE, FHR3B uses `fhr3b_heuristic`, the FHR3A heuristic with correct heads-up blind roles. The
+FHR3A family misread heads-up roles, which persistent-stack busts make common (23–53% of hands).
 They are not models of human professionals. Selection rules and the realism audit are in
 `docs/fhr3b/FIELDS.md` and `reports/fhr3b/field-calibration/FIELD_CALIBRATION_REVIEW.md`.
 

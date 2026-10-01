@@ -95,11 +95,14 @@ def test_param_distance_zero_for_self_inf_across_kinds():
     assert 0 < param_distance(v, "aof4-neutral-e0", "aof4-neutral-e1-s0") < 0.2
 
 
-@pytest.mark.skipif(not (REPO / "results/fhr3b/calibration").exists(), reason="pool calibration not present")
-@pytest.mark.parametrize("mode", ["aof4", "nlhe6"])
+@pytest.mark.parametrize("mode", ["aof4", "nlhe4", "nlhe6"])
 def test_candidate_fields_reproduce_from_frozen_calibration(mode, tmp_path):
     """Selection v2 is a pure function of the calibration chunks + behaviour audit."""
+    from fhr3.tournament.calibration import calib_dir
+
     prof = load_profile("publication")
+    if not (calib_dir(REPO / "results/fhr3b", prof.calibration_spec(mode, "pool")) / "chunks").exists():
+        pytest.skip(f"{mode}: current pool calibration not run")
     inp = S.Inputs(REPO / "results/fhr3b", prof, mode, REPO / "reports/fhr3b", n_boot=20)
     sel = prof.selection
     spread, _ = S.select_spread(inp, 60, 6, sel["spread"] | {"near_dup": sel["near_dup"]})

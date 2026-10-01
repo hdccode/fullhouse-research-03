@@ -37,39 +37,44 @@ scripts/run_fhr3b.sh audit     # historical record (unknowns, reference hash) + 
 scripts/run_fhr3b.sh smoke     # every mode + whole pipeline at 10 hands/match (results/fhr3b-smoke); never interpreted
 ```
 
-## Locked execution order (2026-09-30)
+## Execution order (updated 2026-10-01: heads-up-role fix)
 
 | step | what | status |
 |---|---|---|
-| 1 | Freeze the AoF4 and NLHE6 fields (`configs/fhr3b/fields/FROZEN.yaml`) | done, pending commit |
-| 2 | Implement and test duplicate lanes + within-match history | done (`tests/test_fhr3b_duplicate.py`) |
-| 3 | Prepare NLHE4 calibration (same 96 parameter vectors as NLHE6; D4) | done |
-| 4 | **Run NLHE4 pool calibration** | next, after review of this package |
-| 5 | NLHE4 behaviour audit + field selection | cheap |
-| 6 | Review, then freeze the NLHE4 fields (add hashes to `FROZEN.yaml`) | human |
-| 7 | Matched field-reference (duplicate lanes), all modes × 3 frozen fields | expensive |
+| 1 | AoF4 fields frozen (`FROZEN.yaml`) | done; unaffected |
+| 2 | Duplicate lanes + within-match history | done |
+| 3 | Heads-up-role fix (`fhr3b_heuristic`); old NLHE pools, calibrations and fields retired; the NLHE6 freeze revoked | done |
+| 4 | **Re-run NLHE4 and NLHE6 pool calibration** on the new pools | next (expensive) |
+| 5 | Behaviour audit + selection for NLHE4 and NLHE6 | cheap |
+| 6 | Review and freeze both NLHE modes (add hashes to `FROZEN.yaml`) | human |
+| 7 | Matched field-reference (duplicate lanes) for 3 modes × 3 frozen fields | expensive |
 | 8 | Inspect reference quality before any Swiss tournament pilot | human |
 
-## 1. NLHE4 pool calibration (step 4; expensive)
+## 1. NLHE pool calibration (step 4; expensive)
 
 ```bash
-MODES=nlhe4 scripts/run_fhr3b.sh calibrate-pool
-# = .venv/bin/fhr3b calibrate --stage pool --profile publication --modes nlhe4 --workers 8
+MODES="nlhe4 nlhe6" scripts/run_fhr3b.sh calibrate-pool
+# = .venv/bin/fhr3b calibrate --stage pool --profile publication --modes nlhe4 nlhe6 --workers 8
 ```
 
-* **Size:** 96 bots, 2,000 rounds, 24 four-max tables per round, 400 hands per match: 19.2M hands.
-* **Cost (estimate):** ≈ 3.6 core-hours at the measured 1,470 hands/s/core. That is ≈ 1–1.5 h wall
-  at 8 workers (AoF4's equal-size run took 68 min), or up to ≈ 3 h on a shared machine.
-* **Engine hash:** it runs under engine source hash `9c28d93c20d45ab4`. The history-exposure change
-  is proven result-neutral against the AoF4/NLHE6 calibrations, which ran under `389451b27c2264d2`.
+* **New calibration ids:** `nlhe4.nlhe4-pool.H400.pool-calibration.9880eebd` and
+  `nlhe6.nlhe6-pool.H400.pool-calibration.aadd073b`. They cannot collide with the retired runs,
+  which keep a `RETIRED.txt` marker.
+* **NLHE4:** 19.2M hands, ≈ 1–1.5 h wall at 8 workers.
+* **NLHE6:** 12.8M hands, ≈ 1–1.5 h, or up to ≈ 3.4 h on a shared machine (the earlier observed
+  run).
+* **Hand count:** corrected heads-up play is longer (fewer folds), so hands per match can rise
+  slightly.
+* **Engine hash:** `5f5019c69316d098`. The AoF4 frozen calibration is proven result-neutral under
+  it by exact replay.
 
-Steps 5–6 (minutes):
+Then (minutes):
 
 ```bash
-MODES=nlhe4 scripts/run_fhr3b.sh behaviour-audit
-MODES=nlhe4 scripts/run_fhr3b.sh select-fields      # candidates -> configs/fhr3b/fields/nlhe4/
+MODES="nlhe4 nlhe6" scripts/run_fhr3b.sh behaviour-audit
+MODES="nlhe4 nlhe6" scripts/run_fhr3b.sh select-fields
 .venv/bin/python scripts/fhr3b_calibration_review.py && .venv-figures/bin/python scripts/fhr3b_calibration_figures.py
-# review, then add the three nlhe4 hashes to configs/fhr3b/fields/FROZEN.yaml
+# review; then add the six NLHE hashes to configs/fhr3b/fields/FROZEN.yaml
 ```
 
 ## 2. Matched field reference (step 7; expensive)
@@ -78,11 +83,10 @@ MODES=nlhe4 scripts/run_fhr3b.sh select-fields      # candidates -> configs/fhr3
 scripts/run_fhr3b.sh field-reference   # k-lane duplicate matches inside each FROZEN field
 ```
 
-* **Rounds:** 3,000 ordinary-equivalent, run as 750 rounds × 4 lanes (AoF4, NLHE4) or 500 rounds
-  × 6 lanes (NLHE6).
-* **Cost:** the same simulator work as the unmatched design, ≈ 30–35 core-hours for 3 modes × 3
-  fields (≈ 8 h wall).
-* **Guard:** it refuses unfrozen fields.
+* **Rounds:** 3,000 ordinary-equivalent, run as 750 × 4 lanes (AoF4, NLHE4) or 500 × 6 lanes
+  (NLHE6).
+* **Cost:** ≈ 30–35 core-hours (≈ 8 h wall).
+* **Guard:** refuses unfrozen or revoked fields.
 
 ## 3. Runtime pilot (≈ 15–30 min)
 

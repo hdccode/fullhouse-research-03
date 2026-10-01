@@ -10,13 +10,24 @@ fields:
     spread: db5912d65a47b215            # gap 6.6 BB = 2.89 SE (target 3, diversity-constrained); zero near-duplicates
     crowded_cutoff: b9709c10c5aef403
     style_diverse: 195ceda2edb24052
-  nlhe6:
-    spread: 16df070db91a53bd            # D1: gap 12.2 BB = 2.34 SE accepted; zero near-duplicates; 0 bots within +-5 BB of cut
-    crowded_cutoff: a845c2fcf1b2ed33
-    style_diverse: 5c83ad4268c37bdc
-  # nlhe4: pending (pool calibration not yet run)
+  # nlhe6: pending re-calibration on fhr3b_heuristic (pool a867bd18d6033233); previous freeze REVOKED below
+  # nlhe4: pending re-calibration on fhr3b_heuristic (pool c9b0ffb56855a62d)
+
+# Revoked / invalid field and pool hashes: refused by publication and pilot runs even if re-listed above.
+revoked:
+  reason: "heads-up-role bug in the FHR3A heuristic family (configs/fhr3b/fields/retired/hu-role-bug/README.md)"
+  date: 2026-10-01
+  hashes:
+    16df070db91a53bd: nlhe6 spread (was frozen)
+    a845c2fcf1b2ed33: nlhe6 crowded_cutoff (was frozen)
+    5c83ad4268c37bdc: nlhe6 style_diverse (was frozen)
+    479125f8aa79e5a6: nlhe6 pool (heuristic)
+    e95024951ef40186: nlhe4 spread candidate (never frozen)
+    289e4bdb8c9f99bc: nlhe4 crowded_cutoff candidate (never frozen)
+    0a9914d3f074b147: nlhe4 style_diverse candidate (never frozen)
+    e1d187eb0b4551c2: nlhe4 pool (heuristic)
 caveats:
   - "AoF4 style_diverse: style and strength are partly confounded; the strongest pool quintile contains no tight-aggressive bots."
   - "AoF4 crowded_cutoff (and spread top six): leaders are near-identical production-policy variants (D2 accepted); the cutoff cluster itself is strategically diverse."
-  - "NLHE6: high bust rates are a property of the persistent-stack match rule, not pathology."
+  - "NLHE: high bust rates are a property of the persistent-stack match rule, not pathology (re-check after re-calibration)."
   - "All agents are stateless synthetic policies; within-match opponent modelling is under-represented (D5)."

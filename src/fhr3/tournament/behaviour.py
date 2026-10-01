@@ -34,7 +34,7 @@ from pathlib import Path
 import numpy as np
 import pyarrow.parquet as pq
 
-from fhr3.agents import build_agent
+from fhr3.tournament.agents import build_agent
 from fhr3.agents.features import preflop_percentile
 from fhr3.games.base import ActionKind, LegalActions
 from fhr3.rng import derive_seed

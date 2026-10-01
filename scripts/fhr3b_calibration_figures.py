@@ -306,7 +306,9 @@ def main() -> None:
     for stale in OUT.glob("fig_c3_matchup_evidence.*"):
         stale.unlink()
     hashes = {"fig_c1_field_structure": fig1(b, review, modes), "fig_c2_boundary_zoom": fig2(b, review, modes),
-              "fig_c3_realism": fig3(review, strengths), "fig_c4_field_composition": fig4(strengths, boundary, modes)}
+              "fig_c4_field_composition": fig4(strengths, boundary, modes)}
+    if {"aof4", "nlhe6"} <= set(modes):  # realism panel needs both (NLHE awaits re-calibration)
+        hashes["fig_c3_realism"] = fig3(review, strengths)
     (OUT / "SHA256SUMS.json").write_text(json.dumps(hashes, indent=1, sort_keys=True) + "\n")
     print(json.dumps({k: v["png"][:12] for k, v in hashes.items()}))
 

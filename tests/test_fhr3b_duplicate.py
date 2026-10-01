@@ -8,7 +8,7 @@ from pathlib import Path
 
 import pytest
 
-from fhr3.agents import build_agent
+from fhr3.tournament.agents import build_agent
 from fhr3.tournament.batch import run_cell
 from fhr3.tournament.calibration import CalibrationSpec, play_rounds
 from fhr3.tournament.cells import Cell
@@ -205,12 +205,13 @@ def test_duplicate_tournament_persists_lanes_validates_and_replays(tmp_path):
 
 def test_matched_calibration_rounds_and_ids():
     prof = load_profile("publication")
-    spec = prof.calibration_spec("nlhe6", "field", "crowded_cutoff")
+    spec = prof.calibration_spec("aof4", "field", "crowded_cutoff")  # frozen field
     assert spec.match_format == "duplicate" and ".dup." in spec.calib_id
     assert prof.calibration_rounds("field", "nlhe6") == 500 and prof.calibration_rounds("field", "aof4") == 750
-    assert prof.calibration_spec("nlhe6", "pool").calib_id == "nlhe6.nlhe6-pool.H400.pool-calibration.4d3e14b6"
-    small = CalibrationSpec(spec.mode, load_field(FHR3B_CONFIGS / "fields/nlhe6/smoke12.json"), 8,
-                            spec.stack_policy, "fam", "test", match_format="duplicate")
+    assert prof.calibration_spec("aof4", "pool").calib_id == "aof4.aof4-pool.H400.pool-calibration.351766c0"
+    six = load_mode("nlhe6")
+    small = CalibrationSpec(six, load_field(FHR3B_CONFIGS / "fields/nlhe6/smoke12.json"), 8,
+                            six.stack_policy, "fam", "test", match_format="duplicate")
     rows = play_rounds(small, 0, 1, small.make_player())
     assert len(rows) == 12 and sum(r["chip_delta"] for r in rows) == 0
     assert all(r["hands_played"] <= 8 * 6 for r in rows)
@@ -247,10 +248,24 @@ def test_history_window_is_capped():
 
 
 def test_history_exposure_is_result_neutral():
-    """Golden ordinary matches captured from the pre-history engine (commit ff746c4)."""
+    """Golden ordinary matches captured from the pre-history engine (commit ff746c4).
+
+    They were captured with the FHR3A heuristic NLHE pools, now retired (heads-up-role bug),
+    so the retired pool specs are used for NLHE.
+    """
+    from fhr3.agents import build_agent as fhr3a_build_agent
+
     golden = json.loads(GOLDEN.read_text())
+    retired = FHR3B_CONFIGS / "fields/retired/hu-role-bug"
     for mode, g in golden.items():
-        m, specs = _pool(mode)
+        m = load_mode(mode)
+        if (retired / mode / "pool.json").exists():
+            specs = load_field(retired / mode / "pool.json").specs()
+            res = PokerMatchPlayer(m.game, m.stack_policy, {b: fhr3a_build_agent(specs[b]) for b in g["seats"]}).play(
+                MatchKey(11, 22, 3, 1), g["seats"], 60)
+            assert res.deltas == g["deltas"] and res.hands_played == g["hands"], mode
+            continue
+        _, specs = _pool(mode)
         res = PokerMatchPlayer(m.game, m.stack_policy, {b: build_agent(specs[b]) for b in g["seats"]}).play(
             MatchKey(11, 22, 3, 1), g["seats"], 60)
         assert res.deltas == g["deltas"] and res.hands_played == g["hands"], mode
@@ -259,8 +274,9 @@ def test_history_exposure_is_result_neutral():
 # ------------------------------------------------------------------ frozen fields
 def test_frozen_fields_enforced():
     prof = load_profile("publication")
-    for mode in ("aof4", "nlhe6"):
+    for mode in ("aof4",):
         for f in ("spread", "crowded_cutoff", "style_diverse"):
             assert prof.field(mode, f).field_hash == prof.frozen_hash(mode, f)
-    with pytest.raises((FieldNotFrozenError, FileNotFoundError)):
-        prof.field("nlhe4", "spread")
+    for mode in ("nlhe4", "nlhe6"):  # NLHE fields await re-calibration on fhr3b_heuristic
+        with pytest.raises((FieldNotFrozenError, FileNotFoundError)):
+            prof.field(mode, "spread")

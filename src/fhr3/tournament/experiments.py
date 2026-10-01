@@ -104,6 +104,12 @@ class Profile:
                     return d / f"{n}.json"
         return dirs[0] / f"{names[0]}.json"
 
+    def revoked_hashes(self) -> dict[str, str]:
+        reg = self.config_root / "fields" / "FROZEN.yaml"
+        if not reg.exists():
+            return {}
+        return dict(((yaml.safe_load(reg.read_text()).get("revoked") or {}).get("hashes") or {}))
+
     def frozen_hash(self, mode: str, field: str) -> str | None:
         reg = self.config_root / "fields" / "FROZEN.yaml"
         if not reg.exists():
@@ -120,6 +126,9 @@ class Profile:
             raise ValueError(f"{p}: field is for mode {fm.mode}")
         if self.field_size is not None and fm.kind not in ("pool",) and fm.n != self.field_size:
             raise ValueError(f"{self.name} profile expects N={self.field_size}; {fm.field_id} has {fm.n}")
+        if self.name in ("publication", "pilot") and fm.field_hash in self.revoked_hashes():
+            raise FieldNotFrozenError(f"{p}: field_hash {fm.field_hash} is REVOKED "
+                                      f"({self.revoked_hashes()[fm.field_hash]}); see FROZEN.yaml")
         if self.name in ("publication", "pilot") and field in RESEARCH_FIELDS:
             want = self.frozen_hash(mode, field)
             if want is None:
@@ -170,6 +179,8 @@ class Profile:
         m = load_mode(mode, self.config_root)
         if stage == "pool":
             fm = load_field(self.field_path(mode, self.calibration["pool_field"]))
+            if self.name in ("publication", "pilot") and fm.field_hash in self.revoked_hashes():
+                raise FieldNotFrozenError(f"{mode} pool {fm.field_hash} is REVOKED; see FROZEN.yaml")
             c, ns = self.calibration["pool"], self.namespaces["pool_calibration"]
         elif stage == "field":
             if field is None:

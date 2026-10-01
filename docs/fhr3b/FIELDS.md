@@ -26,6 +26,12 @@ A pool crosses:
 * **agent seeds**: 1 / 3 / 4 / 4 per scale, from
   `KeyedStream("fhr3b-agent-construction", seed_family, family, archetype, scale, seed, param)`.
 
+**NLHE agent family: `fhr3b_heuristic`** (`src/fhr3/tournament/agents.py`). This is the FHR3A
+`heuristic` policy with corrected heads-up blind roles: the button/SB acts first and opens with
+the small-blind range, and the BB defends with `bb_defend_pct`. Multiway decisions are
+identical to FHR3A's (tested), and FHR3A code is untouched. The previous FHR3A-heuristic NLHE
+pools, calibrations and fields are retired (`configs/fhr3b/fields/retired/hu-role-bug/`).
+
 **NLHE4 and NLHE6 share their 96 parameter vectors (decision D4, locked).** This is
 intentional: the same candidate policies are calibrated independently in 4-max and 6-max,
 which gives a clean controlled format comparison. NLHE4 reuses no NLHE6 calibration or field.
@@ -120,8 +126,12 @@ spread / crowded_cutoff / style_diverse manifest that is not listed there with a
 | mode | spread | crowded_cutoff | style_diverse |
 |---|---|---|---|
 | AoF4 | `db5912d65a47b215` | `b9709c10c5aef403` | `195ceda2edb24052` |
-| NLHE6 | `16df070db91a53bd` | `a845c2fcf1b2ed33` | `5c83ad4268c37bdc` |
-| NLHE4 | pending (calibration not run) | pending | pending |
+| NLHE6 | **pending re-calibration** (pool `a867bd18d6033233`) | pending | pending |
+| NLHE4 | **pending re-calibration** (pool `c9b0ffb56855a62d`) | pending | pending |
+
+The earlier NLHE6 freeze (`16df070d…`, `a845c2fc…`, `5c83ad42…`) and the NLHE4 candidates are
+**revoked** because of the heads-up-role bug. They are listed under `revoked:` in `FROZEN.yaml`
+and refused by publication and pilot runs even if someone re-lists them.
 
 Caveats:
 

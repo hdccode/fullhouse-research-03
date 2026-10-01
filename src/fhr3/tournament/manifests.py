@@ -45,7 +45,7 @@ RESULT_SOURCES = (
     "rng.py", "eval/matched.py", "games/*.py", "agents/*.py", "agents/data/*.json",
     "tournament/swiss.py", "tournament/protocol.py", "tournament/match.py",
     "tournament/runner.py", "tournament/schedule.py", "tournament/fields.py",
-    "tournament/calibration.py", "tournament/manifests.py", "tournament/cells.py",
+    "tournament/calibration.py", "tournament/manifests.py", "tournament/cells.py", "tournament/agents.py",
 )
 
 

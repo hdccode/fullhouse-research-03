@@ -29,7 +29,8 @@ from typing import Any
 
 import yaml
 
-from fhr3.agents import AgentSpec, build_agent
+from fhr3.agents import AgentSpec
+from fhr3.tournament.agents import build_agent
 from fhr3.agents.aof import AOF_STYLES, AoFStyle
 from fhr3.agents.heuristic import STYLES, StyleParams
 from fhr3.agents.plo import PLO_STYLES
@@ -125,11 +126,13 @@ AOF_ARCHETYPES: dict[str, tuple[str, dict[str, Any]]] = {
 }
 FAMILY_KIND = {
     "heuristic": "heuristic",
+    "fhr3b_heuristic": "fhr3b_heuristic",  # FHR3B-local: FHR3A heuristic with correct heads-up blind roles
     "plo_heuristic": "plo_heuristic",
     "cp_heuristic": "cp_heuristic",
     "nit_heuristic": "nit_heuristic",
     "aof": None,  # per-archetype
 }
+PERTURBATION_KEY_FAMILY = {"fhr3b_heuristic": "heuristic"}
 # scale index -> (epsilon, number of agent seeds). Index 0 is the archetype itself.
 PERTURBATION_SCALES: tuple[tuple[float, int], ...] = ((0.0, 1), (0.10, 3), (0.25, 4), (0.45, 4))
 
@@ -246,7 +249,10 @@ def generate_pool(mode: Mode, seed_family: str = DEFAULT_SEED_FAMILY) -> list[Po
         for si, (eps, n_seeds) in enumerate(PERTURBATION_SCALES):
             for seed in range(n_seeds):
                 bot_id = f"{mode.mode}-{arch}-e{si}" + (f"-s{seed}" if eps > 0 else "")
-                key = ("fhr3b-agent-construction", seed_family, mode.agent_family, arch, si, seed)
+                # perturbation key family: fhr3b_heuristic draws exactly the FHR3A-heuristic
+                # parameter vectors (same 96 candidate policies; only state interpretation differs)
+                key = ("fhr3b-agent-construction", seed_family, PERTURBATION_KEY_FAMILY.get(
+                    mode.agent_family, mode.agent_family), arch, si, seed)
                 out.append(PoolBot(bot_id, _spec_for(mode, bot_id, arch, eps, key), arch, si, eps, seed))
     versions = [build_agent(b.spec).version for b in out]
     if len(set(versions)) != len(versions):

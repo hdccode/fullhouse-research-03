@@ -23,7 +23,8 @@ from typing import Any
 
 import numpy as np
 
-from fhr3.agents import AgentSpec, build_agent
+from fhr3.agents import AgentSpec
+from fhr3.tournament.agents import build_agent
 
 ADDITIVE_SCALE = {"call_margin": 0.05, "nit_call_shift": 0.03}
 

@@ -2,7 +2,7 @@
  "bots": [
   {
    "bot_id": "nlhe6-aggressive-e0",
-   "kind": "heuristic",
+   "kind": "fhr3b_heuristic",
    "meta": {
     "agent_seed": 0,
     "archetype": "aggressive",
@@ -12,11 +12,11 @@
    "params": {
     "style": "aggressive"
    },
-   "version": "heuristic-1.0.0+dee8f8572d"
+   "version": "fhr3b-heuristic-1.0.0+dee8f8572d"
   },
   {
    "bot_id": "nlhe6-aggressive-e1-s0",
-   "kind": "heuristic",
+   "kind": "fhr3b_heuristic",
    "meta": {
     "agent_seed": 0,
     "archetype": "aggressive",
@@ -61,11 +61,11 @@
     },
     "style": "aggressive"
    },
-   "version": "heuristic-1.0.0+2abeab89be"
+   "version": "fhr3b-heuristic-1.0.0+2abeab89be"
   },
   {
    "bot_id": "nlhe6-aggressive-e1-s2",
-   "kind": "heuristic",
+   "kind": "fhr3b_heuristic",
    "meta": {
     "agent_seed": 2,
     "archetype": "aggressive",
@@ -110,11 +110,11 @@
     },
     "style": "aggressive"
    },
-   "version": "heuristic-1.0.0+81ecfc8550"
+   "version": "fhr3b-heuristic-1.0.0+81ecfc8550"
   },
   {
    "bot_id": "nlhe6-aggressive-e2-s2",
-   "kind": "heuristic",
+   "kind": "fhr3b_heuristic",
    "meta": {
     "agent_seed": 2,
     "archetype": "aggressive",
@@ -159,11 +159,11 @@
     },
     "style": "aggressive"
    },
-   "version": "heuristic-1.0.0+be06e12a35"
+   "version": "fhr3b-heuristic-1.0.0+be06e12a35"
   },
   {
    "bot_id": "nlhe6-aggressive-e2-s3",
-   "kind": "heuristic",
+   "kind": "fhr3b_heuristic",
    "meta": {
     "agent_seed": 3,
     "archetype": "aggressive",
@@ -208,11 +208,11 @@
     },
     "style": "aggressive"
    },
-   "version": "heuristic-1.0.0+0ea6bc0933"
+   "version": "fhr3b-heuristic-1.0.0+0ea6bc0933"
   },
   {
    "bot_id": "nlhe6-aggressive-e3-s1",
-   "kind": "heuristic",
+   "kind": "fhr3b_heuristic",
    "meta": {
     "agent_seed": 1,
     "archetype": "aggressive",
@@ -257,11 +257,11 @@
     },
     "style": "aggressive"
    },
-   "version": "heuristic-1.0.0+7da953850b"
+   "version": "fhr3b-heuristic-1.0.0+7da953850b"
   },
   {
    "bot_id": "nlhe6-aggressive-e3-s2",
-   "kind": "heuristic",
+   "kind": "fhr3b_heuristic",
    "meta": {
     "agent_seed": 2,
     "archetype": "aggressive",
@@ -306,11 +306,11 @@
     },
     "style": "aggressive"
    },
-   "version": "heuristic-1.0.0+8d4f2fe31c"
+   "version": "fhr3b-heuristic-1.0.0+8d4f2fe31c"
   },
   {
    "bot_id": "nlhe6-aggressive-e3-s3",
-   "kind": "heuristic",
+   "kind": "fhr3b_heuristic",
    "meta": {
     "agent_seed": 3,
     "archetype": "aggressive",
@@ -355,11 +355,11 @@
     },
     "style": "aggressive"
    },
-   "version": "heuristic-1.0.0+638b8cd7e5"
+   "version": "fhr3b-heuristic-1.0.0+638b8cd7e5"
   },
   {
    "bot_id": "nlhe6-loose-e1-s0",
-   "kind": "heuristic",
+   "kind": "fhr3b_heuristic",
    "meta": {
     "agent_seed": 0,
     "archetype": "loose",
@@ -404,11 +404,11 @@
     },
     "style": "loose"
    },
-   "version": "heuristic-1.0.0+b3a1a30c32"
+   "version": "fhr3b-heuristic-1.0.0+b3a1a30c32"
   },
   {
    "bot_id": "nlhe6-loose-e1-s1",
-   "kind": "heuristic",
+   "kind": "fhr3b_heuristic",
    "meta": {
     "agent_seed": 1,
     "archetype": "loose",
@@ -453,11 +453,11 @@
     },
     "style": "loose"
    },
-   "version": "heuristic-1.0.0+5502c6862f"
+   "version": "fhr3b-heuristic-1.0.0+5502c6862f"
   },
   {
    "bot_id": "nlhe6-loose-e1-s2",
-   "kind": "heuristic",
+   "kind": "fhr3b_heuristic",
    "meta": {
     "agent_seed": 2,
     "archetype": "loose",
@@ -502,11 +502,11 @@
     },
     "style": "loose"
    },
-   "version": "heuristic-1.0.0+5605797c09"
+   "version": "fhr3b-heuristic-1.0.0+5605797c09"
   },
   {
    "bot_id": "nlhe6-loose-e2-s0",
-   "kind": "heuristic",
+   "kind": "fhr3b_heuristic",
    "meta": {
     "agent_seed": 0,
     "archetype": "loose",
@@ -551,11 +551,11 @@
     },
     "style": "loose"
    },
-   "version": "heuristic-1.0.0+ef72cae8de"
+   "version": "fhr3b-heuristic-1.0.0+ef72cae8de"
   },
   {
    "bot_id": "nlhe6-loose-e2-s1",
-   "kind": "heuristic",
+   "kind": "fhr3b_heuristic",
    "meta": {
     "agent_seed": 1,
     "archetype": "loose",
@@ -600,11 +600,11 @@
     },
     "style": "loose"
    },
-   "version": "heuristic-1.0.0+6287a8a677"
+   "version": "fhr3b-heuristic-1.0.0+6287a8a677"
   },
   {
    "bot_id": "nlhe6-loose-e3-s0",
-   "kind": "heuristic",
+   "kind": "fhr3b_heuristic",
    "meta": {
     "agent_seed": 0,
     "archetype": "loose",
@@ -649,11 +649,11 @@
     },
     "style": "loose"
    },
-   "version": "heuristic-1.0.0+ed42a4f105"
+   "version": "fhr3b-heuristic-1.0.0+ed42a4f105"
   },
   {
    "bot_id": "nlhe6-loose-e3-s1",
-   "kind": "heuristic",
+   "kind": "fhr3b_heuristic",
    "meta": {
     "agent_seed": 1,
     "archetype": "loose",
@@ -698,11 +698,11 @@
     },
     "style": "loose"
    },
-   "version": "heuristic-1.0.0+d5b1c7b611"
+   "version": "fhr3b-heuristic-1.0.0+d5b1c7b611"
   },
   {
    "bot_id": "nlhe6-loose-e3-s3",
-   "kind": "heuristic",
+   "kind": "fhr3b_heuristic",
    "meta": {
     "agent_seed": 3,
     "archetype": "loose",
@@ -747,11 +747,11 @@
     },
     "style": "loose"
    },
-   "version": "heuristic-1.0.0+dab43791dc"
+   "version": "fhr3b-heuristic-1.0.0+dab43791dc"
   },
   {
    "bot_id": "nlhe6-maniac-e0",
-   "kind": "heuristic",
+   "kind": "fhr3b_heuristic",
    "meta": {
     "agent_seed": 0,
     "archetype": "maniac",
@@ -768,11 +768,11 @@
     },
     "style": "aggressive"
    },
-   "version": "heuristic-1.0.0+74966e88c8"
+   "version": "fhr3b-heuristic-1.0.0+74966e88c8"
   },
   {
    "bot_id": "nlhe6-maniac-e1-s1",
-   "kind": "heuristic",
+   "kind": "fhr3b_heuristic",
    "meta": {
     "agent_seed": 1,
     "archetype": "maniac",
@@ -817,11 +817,11 @@
     },
     "style": "aggressive"
    },
-   "version": "heuristic-1.0.0+ec6e340fcd"
+   "version": "fhr3b-heuristic-1.0.0+ec6e340fcd"
   },
   {
    "bot_id": "nlhe6-maniac-e2-s0",
-   "kind": "heuristic",
+   "kind": "fhr3b_heuristic",
    "meta": {
     "agent_seed": 0,
     "archetype": "maniac",
@@ -866,11 +866,11 @@
     },
     "style": "aggressive"
    },
-   "version": "heuristic-1.0.0+e9ca9eefb1"
+   "version": "fhr3b-heuristic-1.0.0+e9ca9eefb1"
   },
   {
    "bot_id": "nlhe6-maniac-e2-s1",
-   "kind": "heuristic",
+   "kind": "fhr3b_heuristic",
    "meta": {
     "agent_seed": 1,
     "archetype": "maniac",
@@ -915,11 +915,11 @@
     },
     "style": "aggressive"
    },
-   "version": "heuristic-1.0.0+fdd39e7a41"
+   "version": "fhr3b-heuristic-1.0.0+fdd39e7a41"
   },
   {
    "bot_id": "nlhe6-maniac-e3-s0",
-   "kind": "heuristic",
+   "kind": "fhr3b_heuristic",
    "meta": {
     "agent_seed": 0,
     "archetype": "maniac",
@@ -964,11 +964,11 @@
     },
     "style": "aggressive"
    },
-   "version": "heuristic-1.0.0+36ba68f390"
+   "version": "fhr3b-heuristic-1.0.0+36ba68f390"
   },
   {
    "bot_id": "nlhe6-maniac-e3-s1",
-   "kind": "heuristic",
+   "kind": "fhr3b_heuristic",
    "meta": {
     "agent_seed": 1,
     "archetype": "maniac",
@@ -1013,11 +1013,11 @@
     },
     "style": "aggressive"
    },
-   "version": "heuristic-1.0.0+60088b680a"
+   "version": "fhr3b-heuristic-1.0.0+60088b680a"
   },
   {
    "bot_id": "nlhe6-maniac-e3-s2",
-   "kind": "heuristic",
+   "kind": "fhr3b_heuristic",
    "meta": {
     "agent_seed": 2,
     "archetype": "maniac",
@@ -1062,11 +1062,11 @@
     },
     "style": "aggressive"
    },
-   "version": "heuristic-1.0.0+e711403cbf"
+   "version": "fhr3b-heuristic-1.0.0+e711403cbf"
   },
   {
    "bot_id": "nlhe6-maniac-e3-s3",
-   "kind": "heuristic",
+   "kind": "fhr3b_heuristic",
    "meta": {
     "agent_seed": 3,
     "archetype": "maniac",
@@ -1111,11 +1111,11 @@
     },
     "style": "aggressive"
    },
-   "version": "heuristic-1.0.0+fadcaf3149"
+   "version": "fhr3b-heuristic-1.0.0+fadcaf3149"
   },
   {
    "bot_id": "nlhe6-neutral-e0",
-   "kind": "heuristic",
+   "kind": "fhr3b_heuristic",
    "meta": {
     "agent_seed": 0,
     "archetype": "neutral",
@@ -1125,11 +1125,11 @@
    "params": {
     "style": "neutral"
    },
-   "version": "heuristic-1.0.0+29fb750a9a"
+   "version": "fhr3b-heuristic-1.0.0+29fb750a9a"
   },
   {
    "bot_id": "nlhe6-neutral-e1-s2",
-   "kind": "heuristic",
+   "kind": "fhr3b_heuristic",
    "meta": {
     "agent_seed": 2,
     "archetype": "neutral",
@@ -1174,11 +1174,11 @@
     },
     "style": "neutral"
    },
-   "version": "heuristic-1.0.0+583a578b2a"
+   "version": "fhr3b-heuristic-1.0.0+583a578b2a"
   },
   {
    "bot_id": "nlhe6-neutral-e2-s0",
-   "kind": "heuristic",
+   "kind": "fhr3b_heuristic",
    "meta": {
     "agent_seed": 0,
     "archetype": "neutral",
@@ -1223,11 +1223,11 @@
     },
     "style": "neutral"
    },
-   "version": "heuristic-1.0.0+f6b2f0a3ea"
+   "version": "fhr3b-heuristic-1.0.0+f6b2f0a3ea"
   },
   {
    "bot_id": "nlhe6-neutral-e2-s1",
-   "kind": "heuristic",
+   "kind": "fhr3b_heuristic",
    "meta": {
     "agent_seed": 1,
     "archetype": "neutral",
@@ -1272,11 +1272,11 @@
     },
     "style": "neutral"
    },
-   "version": "heuristic-1.0.0+8d7f7fb4f1"
+   "version": "fhr3b-heuristic-1.0.0+8d7f7fb4f1"
   },
   {
    "bot_id": "nlhe6-neutral-e2-s2",
-   "kind": "heuristic",
+   "kind": "fhr3b_heuristic",
    "meta": {
     "agent_seed": 2,
     "archetype": "neutral",
@@ -1321,11 +1321,11 @@
     },
     "style": "neutral"
    },
-   "version": "heuristic-1.0.0+bab2163042"
+   "version": "fhr3b-heuristic-1.0.0+bab2163042"
   },
   {
    "bot_id": "nlhe6-neutral-e2-s3",
-   "kind": "heuristic",
+   "kind": "fhr3b_heuristic",
    "meta": {
     "agent_seed": 3,
     "archetype": "neutral",
@@ -1370,11 +1370,11 @@
     },
     "style": "neutral"
    },
-   "version": "heuristic-1.0.0+1f683a3829"
+   "version": "fhr3b-heuristic-1.0.0+1f683a3829"
   },
   {
    "bot_id": "nlhe6-neutral-e3-s0",
-   "kind": "heuristic",
+   "kind": "fhr3b_heuristic",
    "meta": {
     "agent_seed": 0,
     "archetype": "neutral",
@@ -1419,11 +1419,11 @@
     },
     "style": "neutral"
    },
-   "version": "heuristic-1.0.0+a1969c9d50"
+   "version": "fhr3b-heuristic-1.0.0+a1969c9d50"
   },
   {
    "bot_id": "nlhe6-neutral-e3-s2",
-   "kind": "heuristic",
+   "kind": "fhr3b_heuristic",
    "meta": {
     "agent_seed": 2,
     "archetype": "neutral",
@@ -1468,11 +1468,11 @@
     },
     "style": "neutral"
    },
-   "version": "heuristic-1.0.0+61c5a58c73"
+   "version": "fhr3b-heuristic-1.0.0+61c5a58c73"
   },
   {
    "bot_id": "nlhe6-nit-e0",
-   "kind": "heuristic",
+   "kind": "fhr3b_heuristic",
    "meta": {
     "agent_seed": 0,
     "archetype": "nit",
@@ -1488,11 +1488,11 @@
     },
     "style": "tight"
    },
-   "version": "heuristic-1.0.0+378dda8233"
+   "version": "fhr3b-heuristic-1.0.0+378dda8233"
   },
   {
    "bot_id": "nlhe6-nit-e1-s1",
-   "kind": "heuristic",
+   "kind": "fhr3b_heuristic",
    "meta": {
     "agent_seed": 1,
     "archetype": "nit",
@@ -1537,11 +1537,11 @@
     },
     "style": "tight"
    },
-   "version": "heuristic-1.0.0+13d1dc437b"
+   "version": "fhr3b-heuristic-1.0.0+13d1dc437b"
   },
   {
    "bot_id": "nlhe6-nit-e1-s2",
-   "kind": "heuristic",
+   "kind": "fhr3b_heuristic",
    "meta": {
     "agent_seed": 2,
     "archetype": "nit",
@@ -1586,11 +1586,11 @@
     },
     "style": "tight"
    },
-   "version": "heuristic-1.0.0+06e1217160"
+   "version": "fhr3b-heuristic-1.0.0+06e1217160"
   },
   {
    "bot_id": "nlhe6-nit-e2-s2",
-   "kind": "heuristic",
+   "kind": "fhr3b_heuristic",
    "meta": {
     "agent_seed": 2,
     "archetype": "nit",
@@ -1635,11 +1635,11 @@
     },
     "style": "tight"
    },
-   "version": "heuristic-1.0.0+eca7d02ecc"
+   "version": "fhr3b-heuristic-1.0.0+eca7d02ecc"
   },
   {
    "bot_id": "nlhe6-nit-e2-s3",
-   "kind": "heuristic",
+   "kind": "fhr3b_heuristic",
    "meta": {
     "agent_seed": 3,
     "archetype": "nit",
@@ -1684,11 +1684,11 @@
     },
     "style": "tight"
    },
-   "version": "heuristic-1.0.0+93d69e884e"
+   "version": "fhr3b-heuristic-1.0.0+93d69e884e"
   },
   {
    "bot_id": "nlhe6-nit-e3-s1",
-   "kind": "heuristic",
+   "kind": "fhr3b_heuristic",
    "meta": {
     "agent_seed": 1,
     "archetype": "nit",
@@ -1733,11 +1733,11 @@
     },
     "style": "tight"
    },
-   "version": "heuristic-1.0.0+8ef38e6af3"
+   "version": "fhr3b-heuristic-1.0.0+8ef38e6af3"
   },
   {
    "bot_id": "nlhe6-nit-e3-s2",
-   "kind": "heuristic",
+   "kind": "fhr3b_heuristic",
    "meta": {
     "agent_seed": 2,
     "archetype": "nit",
@@ -1782,11 +1782,11 @@
     },
     "style": "tight"
    },
-   "version": "heuristic-1.0.0+3430b834bc"
+   "version": "fhr3b-heuristic-1.0.0+3430b834bc"
   },
   {
    "bot_id": "nlhe6-station-e0",
-   "kind": "heuristic",
+   "kind": "fhr3b_heuristic",
    "meta": {
     "agent_seed": 0,
     "archetype": "station",
@@ -1803,11 +1803,11 @@
     },
     "style": "loose"
    },
-   "version": "heuristic-1.0.0+002bed1a0c"
+   "version": "fhr3b-heuristic-1.0.0+002bed1a0c"
   },
   {
    "bot_id": "nlhe6-station-e2-s1",
-   "kind": "heuristic",
+   "kind": "fhr3b_heuristic",
    "meta": {
     "agent_seed": 1,
     "archetype": "station",
@@ -1852,11 +1852,11 @@
     },
     "style": "loose"
    },
-   "version": "heuristic-1.0.0+ff2f9c6374"
+   "version": "fhr3b-heuristic-1.0.0+ff2f9c6374"
   },
   {
    "bot_id": "nlhe6-station-e2-s2",
-   "kind": "heuristic",
+   "kind": "fhr3b_heuristic",
    "meta": {
     "agent_seed": 2,
     "archetype": "station",
@@ -1901,11 +1901,11 @@
     },
     "style": "loose"
    },
-   "version": "heuristic-1.0.0+c9f2924b86"
+   "version": "fhr3b-heuristic-1.0.0+c9f2924b86"
   },
   {
    "bot_id": "nlhe6-station-e2-s3",
-   "kind": "heuristic",
+   "kind": "fhr3b_heuristic",
    "meta": {
     "agent_seed": 3,
     "archetype": "station",
@@ -1950,11 +1950,11 @@
     },
     "style": "loose"
    },
-   "version": "heuristic-1.0.0+f51395b51d"
+   "version": "fhr3b-heuristic-1.0.0+f51395b51d"
   },
   {
    "bot_id": "nlhe6-station-e3-s1",
-   "kind": "heuristic",
+   "kind": "fhr3b_heuristic",
    "meta": {
     "agent_seed": 1,
     "archetype": "station",
@@ -1999,11 +1999,11 @@
     },
     "style": "loose"
    },
-   "version": "heuristic-1.0.0+6983d7208a"
+   "version": "fhr3b-heuristic-1.0.0+6983d7208a"
   },
   {
    "bot_id": "nlhe6-station-e3-s2",
-   "kind": "heuristic",
+   "kind": "fhr3b_heuristic",
    "meta": {
     "agent_seed": 2,
     "archetype": "station",
@@ -2048,11 +2048,11 @@
     },
     "style": "loose"
    },
-   "version": "heuristic-1.0.0+7dc1b13c4a"
+   "version": "fhr3b-heuristic-1.0.0+7dc1b13c4a"
   },
   {
    "bot_id": "nlhe6-station-e3-s3",
-   "kind": "heuristic",
+   "kind": "fhr3b_heuristic",
    "meta": {
     "agent_seed": 3,
     "archetype": "station",
@@ -2097,11 +2097,11 @@
     },
     "style": "loose"
    },
-   "version": "heuristic-1.0.0+204ab440ed"
+   "version": "fhr3b-heuristic-1.0.0+204ab440ed"
   },
   {
    "bot_id": "nlhe6-tight-e1-s0",
-   "kind": "heuristic",
+   "kind": "fhr3b_heuristic",
    "meta": {
     "agent_seed": 0,
     "archetype": "tight",
@@ -2146,11 +2146,11 @@
     },
     "style": "tight"
    },
-   "version": "heuristic-1.0.0+37ec257358"
+   "version": "fhr3b-heuristic-1.0.0+37ec257358"
   },
   {
    "bot_id": "nlhe6-tight-e1-s1",
-   "kind": "heuristic",
+   "kind": "fhr3b_heuristic",
    "meta": {
     "agent_seed": 1,
     "archetype": "tight",
@@ -2195,11 +2195,11 @@
     },
     "style": "tight"
    },
-   "version": "heuristic-1.0.0+133cd6f044"
+   "version": "fhr3b-heuristic-1.0.0+133cd6f044"
   },
   {
    "bot_id": "nlhe6-tight-e1-s2",
-   "kind": "heuristic",
+   "kind": "fhr3b_heuristic",
    "meta": {
     "agent_seed": 2,
     "archetype": "tight",
@@ -2244,11 +2244,11 @@
     },
     "style": "tight"
    },
-   "version": "heuristic-1.0.0+346a70391b"
+   "version": "fhr3b-heuristic-1.0.0+346a70391b"
   },
   {
    "bot_id": "nlhe6-tight-e2-s1",
-   "kind": "heuristic",
+   "kind": "fhr3b_heuristic",
    "meta": {
     "agent_seed": 1,
     "archetype": "tight",
@@ -2293,11 +2293,11 @@
     },
     "style": "tight"
    },
-   "version": "heuristic-1.0.0+d8452838c4"
+   "version": "fhr3b-heuristic-1.0.0+d8452838c4"
   },
   {
    "bot_id": "nlhe6-tight-e2-s2",
-   "kind": "heuristic",
+   "kind": "fhr3b_heuristic",
    "meta": {
     "agent_seed": 2,
     "archetype": "tight",
@@ -2342,11 +2342,11 @@
     },
     "style": "tight"
    },
-   "version": "heuristic-1.0.0+5587d4914b"
+   "version": "fhr3b-heuristic-1.0.0+5587d4914b"
   },
   {
    "bot_id": "nlhe6-tight-e3-s1",
-   "kind": "heuristic",
+   "kind": "fhr3b_heuristic",
    "meta": {
     "agent_seed": 1,
     "archetype": "tight",
@@ -2391,11 +2391,11 @@
     },
     "style": "tight"
    },
-   "version": "heuristic-1.0.0+a2d49002b0"
+   "version": "fhr3b-heuristic-1.0.0+a2d49002b0"
   },
   {
    "bot_id": "nlhe6-tight-e3-s3",
-   "kind": "heuristic",
+   "kind": "fhr3b_heuristic",
    "meta": {
     "agent_seed": 3,
     "archetype": "tight",
@@ -2440,11 +2440,11 @@
     },
     "style": "tight"
    },
-   "version": "heuristic-1.0.0+70427bae51"
+   "version": "fhr3b-heuristic-1.0.0+70427bae51"
   },
   {
    "bot_id": "nlhe6-trapper-e0",
-   "kind": "heuristic",
+   "kind": "fhr3b_heuristic",
    "meta": {
     "agent_seed": 0,
     "archetype": "trapper",
@@ -2461,11 +2461,11 @@
     },
     "style": "neutral"
    },
-   "version": "heuristic-1.0.0+c41e9296bd"
+   "version": "fhr3b-heuristic-1.0.0+c41e9296bd"
   },
   {
    "bot_id": "nlhe6-trapper-e1-s0",
-   "kind": "heuristic",
+   "kind": "fhr3b_heuristic",
    "meta": {
     "agent_seed": 0,
     "archetype": "trapper",
@@ -2510,11 +2510,11 @@
     },
     "style": "neutral"
    },
-   "version": "heuristic-1.0.0+394ac56627"
+   "version": "fhr3b-heuristic-1.0.0+394ac56627"
   },
   {
    "bot_id": "nlhe6-trapper-e1-s1",
-   "kind": "heuristic",
+   "kind": "fhr3b_heuristic",
    "meta": {
     "agent_seed": 1,
     "archetype": "trapper",
@@ -2559,11 +2559,11 @@
     },
     "style": "neutral"
    },
-   "version": "heuristic-1.0.0+d0f3e8a3ae"
+   "version": "fhr3b-heuristic-1.0.0+d0f3e8a3ae"
   },
   {
    "bot_id": "nlhe6-trapper-e2-s1",
-   "kind": "heuristic",
+   "kind": "fhr3b_heuristic",
    "meta": {
     "agent_seed": 1,
     "archetype": "trapper",
@@ -2608,11 +2608,11 @@
     },
     "style": "neutral"
    },
-   "version": "heuristic-1.0.0+e703fbbbe0"
+   "version": "fhr3b-heuristic-1.0.0+e703fbbbe0"
   },
   {
    "bot_id": "nlhe6-trapper-e2-s2",
-   "kind": "heuristic",
+   "kind": "fhr3b_heuristic",
    "meta": {
     "agent_seed": 2,
     "archetype": "trapper",
@@ -2657,11 +2657,11 @@
     },
     "style": "neutral"
    },
-   "version": "heuristic-1.0.0+22e348f0bf"
+   "version": "fhr3b-heuristic-1.0.0+22e348f0bf"
   },
   {
    "bot_id": "nlhe6-trapper-e2-s3",
-   "kind": "heuristic",
+   "kind": "fhr3b_heuristic",
    "meta": {
     "agent_seed": 3,
     "archetype": "trapper",
@@ -2706,11 +2706,11 @@
     },
     "style": "neutral"
    },
-   "version": "heuristic-1.0.0+c2d148580d"
+   "version": "fhr3b-heuristic-1.0.0+c2d148580d"
   },
   {
    "bot_id": "nlhe6-trapper-e3-s3",
-   "kind": "heuristic",
+   "kind": "fhr3b_heuristic",
    "meta": {
     "agent_seed": 3,
     "archetype": "trapper",
@@ -2755,16 +2755,16 @@
     },
     "style": "neutral"
    },
-   "version": "heuristic-1.0.0+5cb606bf62"
+   "version": "fhr3b-heuristic-1.0.0+5cb606bf62"
   }
  ],
  "construction": {
   "method": "stratified_sample",
   "n": 60,
-  "pool_hash": "479125f8aa79e5a6",
+  "pool_hash": "a867bd18d6033233",
   "purpose": "runtime pilot before calibration; not a publication field"
  },
- "field_hash": "66d3da5d89093d91",
+ "field_hash": "8df56feb8eac4fe0",
  "field_id": "nlhe6-provisional60",
  "kind": "provisional",
  "mode": "nlhe6",

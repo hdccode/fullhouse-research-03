@@ -2,7 +2,7 @@
  "bots": [
   {
    "bot_id": "nlhe6-aggressive-e1-s2",
-   "kind": "heuristic",
+   "kind": "fhr3b_heuristic",
    "meta": {
     "agent_seed": 2,
     "archetype": "aggressive",
@@ -47,11 +47,11 @@
     },
     "style": "aggressive"
    },
-   "version": "heuristic-1.0.0+81ecfc8550"
+   "version": "fhr3b-heuristic-1.0.0+81ecfc8550"
   },
   {
    "bot_id": "nlhe6-aggressive-e2-s2",
-   "kind": "heuristic",
+   "kind": "fhr3b_heuristic",
    "meta": {
     "agent_seed": 2,
     "archetype": "aggressive",
@@ -96,11 +96,11 @@
     },
     "style": "aggressive"
    },
-   "version": "heuristic-1.0.0+be06e12a35"
+   "version": "fhr3b-heuristic-1.0.0+be06e12a35"
   },
   {
    "bot_id": "nlhe6-loose-e2-s2",
-   "kind": "heuristic",
+   "kind": "fhr3b_heuristic",
    "meta": {
     "agent_seed": 2,
     "archetype": "loose",
@@ -145,11 +145,11 @@
     },
     "style": "loose"
    },
-   "version": "heuristic-1.0.0+23f135b7d6"
+   "version": "fhr3b-heuristic-1.0.0+23f135b7d6"
   },
   {
    "bot_id": "nlhe6-loose-e3-s1",
-   "kind": "heuristic",
+   "kind": "fhr3b_heuristic",
    "meta": {
     "agent_seed": 1,
     "archetype": "loose",
@@ -194,11 +194,11 @@
     },
     "style": "loose"
    },
-   "version": "heuristic-1.0.0+d5b1c7b611"
+   "version": "fhr3b-heuristic-1.0.0+d5b1c7b611"
   },
   {
    "bot_id": "nlhe6-maniac-e2-s0",
-   "kind": "heuristic",
+   "kind": "fhr3b_heuristic",
    "meta": {
     "agent_seed": 0,
     "archetype": "maniac",
@@ -243,11 +243,11 @@
     },
     "style": "aggressive"
    },
-   "version": "heuristic-1.0.0+e9ca9eefb1"
+   "version": "fhr3b-heuristic-1.0.0+e9ca9eefb1"
   },
   {
    "bot_id": "nlhe6-maniac-e3-s3",
-   "kind": "heuristic",
+   "kind": "fhr3b_heuristic",
    "meta": {
     "agent_seed": 3,
     "archetype": "maniac",
@@ -292,11 +292,11 @@
     },
     "style": "aggressive"
    },
-   "version": "heuristic-1.0.0+fadcaf3149"
+   "version": "fhr3b-heuristic-1.0.0+fadcaf3149"
   },
   {
    "bot_id": "nlhe6-neutral-e2-s0",
-   "kind": "heuristic",
+   "kind": "fhr3b_heuristic",
    "meta": {
     "agent_seed": 0,
     "archetype": "neutral",
@@ -341,11 +341,11 @@
     },
     "style": "neutral"
    },
-   "version": "heuristic-1.0.0+f6b2f0a3ea"
+   "version": "fhr3b-heuristic-1.0.0+f6b2f0a3ea"
   },
   {
    "bot_id": "nlhe6-neutral-e3-s2",
-   "kind": "heuristic",
+   "kind": "fhr3b_heuristic",
    "meta": {
     "agent_seed": 2,
     "archetype": "neutral",
@@ -390,11 +390,11 @@
     },
     "style": "neutral"
    },
-   "version": "heuristic-1.0.0+61c5a58c73"
+   "version": "fhr3b-heuristic-1.0.0+61c5a58c73"
   },
   {
    "bot_id": "nlhe6-nit-e0",
-   "kind": "heuristic",
+   "kind": "fhr3b_heuristic",
    "meta": {
     "agent_seed": 0,
     "archetype": "nit",
@@ -410,11 +410,11 @@
     },
     "style": "tight"
    },
-   "version": "heuristic-1.0.0+378dda8233"
+   "version": "fhr3b-heuristic-1.0.0+378dda8233"
   },
   {
    "bot_id": "nlhe6-station-e3-s1",
-   "kind": "heuristic",
+   "kind": "fhr3b_heuristic",
    "meta": {
     "agent_seed": 1,
     "archetype": "station",
@@ -459,11 +459,11 @@
     },
     "style": "loose"
    },
-   "version": "heuristic-1.0.0+6983d7208a"
+   "version": "fhr3b-heuristic-1.0.0+6983d7208a"
   },
   {
    "bot_id": "nlhe6-tight-e3-s1",
-   "kind": "heuristic",
+   "kind": "fhr3b_heuristic",
    "meta": {
     "agent_seed": 1,
     "archetype": "tight",
@@ -508,11 +508,11 @@
     },
     "style": "tight"
    },
-   "version": "heuristic-1.0.0+a2d49002b0"
+   "version": "fhr3b-heuristic-1.0.0+a2d49002b0"
   },
   {
    "bot_id": "nlhe6-trapper-e3-s2",
-   "kind": "heuristic",
+   "kind": "fhr3b_heuristic",
    "meta": {
     "agent_seed": 2,
     "archetype": "trapper",
@@ -557,16 +557,16 @@
     },
     "style": "neutral"
    },
-   "version": "heuristic-1.0.0+b82456baad"
+   "version": "fhr3b-heuristic-1.0.0+b82456baad"
   }
  ],
  "construction": {
   "method": "stratified_sample",
   "n": 12,
-  "pool_hash": "479125f8aa79e5a6",
+  "pool_hash": "a867bd18d6033233",
   "purpose": "correctness only"
  },
- "field_hash": "a0e99468862fd1be",
+ "field_hash": "8207384cfc8a4be3",
  "field_id": "nlhe6-smoke12",
  "kind": "smoke",
  "mode": "nlhe6",

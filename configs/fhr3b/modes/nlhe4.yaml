@@ -2,5 +2,5 @@ mode: nlhe4
 game: {variant: nlhe, player_count: 4, stack_bb: 100, bb_chips: 100, sb_chips: 50, ante_chips: 0}
 table_size: 4
 stack_policy: persistent_no_rebuy
-agent_family: heuristic
+agent_family: fhr3b_heuristic   # FHR3A heuristic + correct heads-up blind roles (src/fhr3/tournament/agents.py)
 primary: false
