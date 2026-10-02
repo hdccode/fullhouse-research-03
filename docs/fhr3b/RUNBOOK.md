@@ -7,7 +7,9 @@ Branch `research/fhr3b-swiss-baseline`, worktree `~/fullhouse-research-03b`.
 > field and 100 `mu_swiss` tournaments per field initially. That is 211.32M scheduled hands in
 > total. Its launch plan, exact commands and cost are in
 > **`docs/fhr3b/FHR4_CORE.md`**, and the launcher is `scripts/run_fhr4_core.sh`. Run
-> `fhr3b core plan` before anything expensive. Two things below are now history or general
+> `fhr3b core plan` before anything expensive. The pre-registered analysis plan (round-level
+> `mu_field` bootstrap, qualification regret, reference uncertainty, extension rules) is in
+> `paper/FHR3B_SCOPE.md`. Two things below are now history or general
 > capability and are not part of the core:
 >
 > * AoF4 and NLHE4, which stay frozen for provenance;

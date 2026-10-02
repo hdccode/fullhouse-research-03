@@ -94,7 +94,7 @@
    "cell": "baseline",
    "cell_id": "nlhe6.nlhe6-spread.fhr3b_baseline.R40H400K6.swiss.publication.b5f3d314",
    "completed": 0,
-   "exact_equal_work": true,
+   "exact_equal_scheduled_work": true,
    "expected_played_per_tournament": 150928.0,
    "expected_played_to_run": 7546400.0,
    "experiments": [
@@ -136,7 +136,7 @@
    "cell": "baseline",
    "cell_id": "nlhe6.nlhe6-crowded_cutoff.fhr3b_baseline.R40H400K6.swiss.publication.7f40559c",
    "completed": 0,
-   "exact_equal_work": true,
+   "exact_equal_scheduled_work": true,
    "expected_played_per_tournament": 150928.0,
    "expected_played_to_run": 7546400.0,
    "experiments": [
@@ -178,7 +178,7 @@
    "cell": "baseline",
    "cell_id": "nlhe6.nlhe6-style_diverse.fhr3b_baseline.R40H400K6.swiss.publication.4cb85cc5",
    "completed": 0,
-   "exact_equal_work": true,
+   "exact_equal_scheduled_work": true,
    "expected_played_per_tournament": 150928.0,
    "expected_played_to_run": 7546400.0,
    "experiments": [
@@ -220,7 +220,7 @@
    "cell": "budget_half_rounds",
    "cell_id": "nlhe6.nlhe6-spread.fhr3b_baseline.R20H800K6.swiss.publication.06c3c2d5",
    "completed": 0,
-   "exact_equal_work": true,
+   "exact_equal_scheduled_work": true,
    "expected_played_per_tournament": 132960.0,
    "expected_played_to_run": 6648000.0,
    "experiments": [
@@ -259,7 +259,7 @@
    "cell": "budget_half_rounds",
    "cell_id": "nlhe6.nlhe6-crowded_cutoff.fhr3b_baseline.R20H800K6.swiss.publication.ed78ee35",
    "completed": 0,
-   "exact_equal_work": true,
+   "exact_equal_scheduled_work": true,
    "expected_played_per_tournament": 132960.0,
    "expected_played_to_run": 6648000.0,
    "experiments": [
@@ -298,7 +298,7 @@
    "cell": "budget_half_rounds",
    "cell_id": "nlhe6.nlhe6-style_diverse.fhr3b_baseline.R20H800K6.swiss.publication.36235c3a",
    "completed": 0,
-   "exact_equal_work": true,
+   "exact_equal_scheduled_work": true,
    "expected_played_per_tournament": 132960.0,
    "expected_played_to_run": 6648000.0,
    "experiments": [
@@ -337,7 +337,7 @@
    "cell": "budget_quarter_rounds",
    "cell_id": "nlhe6.nlhe6-spread.fhr3b_baseline.R10H1600K6.swiss.publication.42ee3c9c",
    "completed": 0,
-   "exact_equal_work": true,
+   "exact_equal_scheduled_work": true,
    "expected_played_per_tournament": 96320.0,
    "expected_played_to_run": 4816000.0,
    "experiments": [
@@ -376,7 +376,7 @@
    "cell": "budget_quarter_rounds",
    "cell_id": "nlhe6.nlhe6-crowded_cutoff.fhr3b_baseline.R10H1600K6.swiss.publication.614bb63e",
    "completed": 0,
-   "exact_equal_work": true,
+   "exact_equal_scheduled_work": true,
    "expected_played_per_tournament": 96320.0,
    "expected_played_to_run": 4816000.0,
    "experiments": [
@@ -415,7 +415,7 @@
    "cell": "budget_quarter_rounds",
    "cell_id": "nlhe6.nlhe6-style_diverse.fhr3b_baseline.R10H1600K6.swiss.publication.f4bb4d9f",
    "completed": 0,
-   "exact_equal_work": true,
+   "exact_equal_scheduled_work": true,
    "expected_played_per_tournament": 96320.0,
    "expected_played_to_run": 4816000.0,
    "experiments": [
@@ -454,7 +454,7 @@
    "cell": "frozen_schedule",
    "cell_id": "nlhe6.nlhe6-spread.fhr3b_baseline.R40H400K6.frozen.publication.04eefd47",
    "completed": 0,
-   "exact_equal_work": true,
+   "exact_equal_scheduled_work": true,
    "expected_played_per_tournament": 150928.0,
    "expected_played_to_run": 7546400.0,
    "experiments": [
@@ -493,7 +493,7 @@
    "cell": "frozen_schedule",
    "cell_id": "nlhe6.nlhe6-crowded_cutoff.fhr3b_baseline.R40H400K6.frozen.publication.85cba4b8",
    "completed": 0,
-   "exact_equal_work": true,
+   "exact_equal_scheduled_work": true,
    "expected_played_per_tournament": 150928.0,
    "expected_played_to_run": 7546400.0,
    "experiments": [
@@ -532,7 +532,7 @@
    "cell": "frozen_schedule",
    "cell_id": "nlhe6.nlhe6-style_diverse.fhr3b_baseline.R40H400K6.frozen.publication.c99bd91a",
    "completed": 0,
-   "exact_equal_work": true,
+   "exact_equal_scheduled_work": true,
    "expected_played_per_tournament": 150928.0,
    "expected_played_to_run": 7546400.0,
    "experiments": [
@@ -571,7 +571,7 @@
    "cell": "dup_fewer_rounds",
    "cell_id": "nlhe6.nlhe6-spread.fhr3b_baseline.R7H400K6dup.swiss.publication.2b40b831",
    "completed": 0,
-   "exact_equal_work": false,
+   "exact_equal_scheduled_work": false,
    "expected_played_per_tournament": 158474.4,
    "expected_played_to_run": 7923720.0,
    "experiments": [
@@ -610,7 +610,7 @@
    "cell": "dup_fewer_rounds",
    "cell_id": "nlhe6.nlhe6-crowded_cutoff.fhr3b_baseline.R7H400K6dup.swiss.publication.30e72800",
    "completed": 0,
-   "exact_equal_work": false,
+   "exact_equal_scheduled_work": false,
    "expected_played_per_tournament": 158474.4,
    "expected_played_to_run": 7923720.0,
    "experiments": [
@@ -649,7 +649,7 @@
    "cell": "dup_fewer_rounds",
    "cell_id": "nlhe6.nlhe6-style_diverse.fhr3b_baseline.R7H400K6dup.swiss.publication.137478d3",
    "completed": 0,
-   "exact_equal_work": false,
+   "exact_equal_scheduled_work": false,
    "expected_played_per_tournament": 158474.4,
    "expected_played_to_run": 7923720.0,
    "experiments": [
@@ -688,7 +688,7 @@
    "cell": "dup_shorter_matches",
    "cell_id": "nlhe6.nlhe6-spread.fhr3b_baseline.R40H67K6dup.swiss.publication.bdd7506c",
    "completed": 0,
-   "exact_equal_work": false,
+   "exact_equal_scheduled_work": false,
    "expected_played_per_tournament": 160767.84,
    "expected_played_to_run": 8038392.0,
    "experiments": [
@@ -727,7 +727,7 @@
    "cell": "dup_shorter_matches",
    "cell_id": "nlhe6.nlhe6-crowded_cutoff.fhr3b_baseline.R40H67K6dup.swiss.publication.6f076fbf",
    "completed": 0,
-   "exact_equal_work": false,
+   "exact_equal_scheduled_work": false,
    "expected_played_per_tournament": 160767.84,
    "expected_played_to_run": 8038392.0,
    "experiments": [
@@ -766,7 +766,7 @@
    "cell": "dup_shorter_matches",
    "cell_id": "nlhe6.nlhe6-style_diverse.fhr3b_baseline.R40H67K6dup.swiss.publication.f222bed2",
    "completed": 0,
-   "exact_equal_work": false,
+   "exact_equal_scheduled_work": false,
    "expected_played_per_tournament": 160767.84,
    "expected_played_to_run": 8038392.0,
    "experiments": [

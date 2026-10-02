@@ -80,7 +80,7 @@ experiments:
     fields: [crowded_cutoff]
     namespace: publication
     replays_per_source: 4           # J (identity); sources = replicates / J
-  duplicate_play:                   # D: ordinary vs k-lane duplicate matches at EQUAL simulator work (paired seeds)
+  duplicate_play:                   # D: ordinary vs k-lane duplicate PACKAGES at ~equal SCHEDULED work (paired seeds)
     status: implemented             # match.DuplicateMatchPlayer; variants from protocol.duplicate_allocations
     modes: [nlhe6]
     fields: [spread, crowded_cutoff, style_diverse]
@@ -126,6 +126,31 @@ core_fhr4:
     replicates_initial: 100          # complete tournaments per field
     replicates_extension: 200        # per-field, append-only (--range 100:200 --extend), decided after review
     replicate_options: [50, 100, 200]   # planning table only
+  extension_rules:                   # PRE-REGISTERED 2026-10-01, before any publication result exists.
+                                     # Evaluated by `fhr3b core field-reference` (reference.json) and
+                                     # `fhr3b analyse` (summary.json -> extension_rules); never executed
+                                     # automatically. Every extension is append-only and explicit (--extend).
+    mu_field:                        # 250 -> 500 matched rounds, per field, from the joint ROUND bootstrap
+      spread:                        # extend if either holds
+        p_same_top_k_set_below: 0.95
+        p_rank6_rank7_reversal_above: 0.05
+      crowded_cutoff:                # NOT for reordering inside the designed crowd (ranks 4-15)
+        leader_p_top_k_below: 0.95   # any of the 3 designed leaders (construction.top_ids)
+        outside_p_top_k_above: 0.10  # any bot outside leaders + designed crowd (construction.crowd_ids)
+      style_diverse:                 # a perfectly certain top six is not required
+        top_ranks: 4                 # point-estimate ranks 1..4 with P(top-6) below:
+        top_p_top_k_below: 0.90
+        low_rank_from: 10            # point-estimate rank >= 10 with P(top-6) above:
+        low_p_top_k_above: 0.10
+    matrix:                          # 50 -> 100 tournaments, per unique cell / contrast (never all cells)
+      qualifier_half_width_above: 0.30   # 95% MC CI half-width of E[changed qualifiers] or E[top-6 overlap]
+      contrast_inconclusive_span: 0.25   # paired contrast CI spans both -0.25 and +0.25 qualifiers
+      regret: report_only            # mean qualification regret CI reported; no regret threshold pre-registered
+    mu_swiss:                        # 100 -> 200 tournaments, per field
+      p_qualify_band: [0.10, 0.90]   # decision-relevant boundary bots (crowded_cutoff: designed crowd excluded)
+      half_width_above: 0.10         # 95% Wilson half-width. NB: at n = 100 the maximum possible is 0.096,
+                                     # so this clause cannot fire at 100 reps (see FHR4_CORE.md section 6)
+      manual_clause: reference uncertainty prevents interpretation of the main tournament results
   throughput:                        # planning only (fhr3b core plan); measured, see docs/fhr3b/FHR4_CORE.md
     nlhe6_hands_per_s_8_workers: 4260    # steady state of the 8-worker NLHE6 pool calibration (2026-10-01)
     nlhe6_hands_per_s_8_workers_slow: 1289   # same run end to end, incl. two machine stalls (pessimistic)

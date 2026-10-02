@@ -44,7 +44,7 @@ case "$STEP" in
     run "$F" select-fields "${SM[@]}" --boot 50
     run "$F" calibrate --stage field "${SM[@]}" --fields spread crowded_cutoff style_diverse --workers "$WORKERS"
     run "$F" field-reference "${SM[@]}" --boot 30
-    for E in baseline budget-sweep schedule-diagnostic duplicate-play swiss-reference; do
+    for E in baseline budget-sweep frozen-schedule schedule-diagnostic duplicate-play swiss-reference; do
       run "$F" run --experiment "$E" "${SM[@]}" --replicates 6 --workers "$WORKERS" --quiet
     done
     run "$F" validate --experiment baseline "${SM[@]}" --replay 2 --prefix 2 > "$S/validate-pipeline.json"
@@ -79,7 +79,7 @@ case "$STEP" in
   round-sweep)        # derived from baseline R-prefixes: verify the identity, then analyse
     run "$F" validate --experiment baseline --root "$ROOT" --modes $MODES --prefix 3
     run "$F" analyse --root "$ROOT" --profile publication --modes $MODES --out "$REPORTS/analysis" ;;
-  duplicate-play)     # Experiment D: ordinary vs k-lane duplicate at equal simulator work (EXPENSIVE)
+  duplicate-play)     # Experiment D: ordinary vs duplicate packages at ~equal scheduled work (EXPENSIVE)
     run "$F" run --experiment duplicate-play --root "$ROOT" --modes $MODES --preset "$PRESET" --workers "$WORKERS" ;;
   operational-2026)   # historical validation: BLOCKED until required historical values are supplied
     run "$F" run --experiment operational-2026 --root "$ROOT" --replicates 1 ;;

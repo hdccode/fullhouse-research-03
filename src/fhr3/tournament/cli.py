@@ -400,6 +400,13 @@ def cmd_core(args: argparse.Namespace) -> int:
                 if not args.no_report:
                     _p(field_reference_report(Path(args.root), prof, m, f, reports, n_boot=args.boot))
         return 0
+    if args.action == "field-diversity":
+        from fhr3.tournament.field_diversity import field_diversity, write_field_diversity
+
+        reports = Path(args.reports) if args.reports else _reports_for(args)
+        res = field_diversity(prof, cfg["modes"][0], args.fields or list(cfg["fields"]), reports)
+        _p({k: str(v) for k, v in write_field_diversity(res, reports).items()})
+        return 0
     if args.action == "matrix":
         return cmd_run(_core_args(args, range=args.range or f"{reps.start}:{reps.stop}", replicates=None))
     if args.action == "swiss-reference":
@@ -519,8 +526,8 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--cells", nargs="+", help="core cells only (experiment core)")
     p.set_defaults(fn=cmd_run)
     p = sub.add_parser("core", help="FullHouse Research #4 core study (NLHE6): plan | field-reference | matrix | "
-                                    "swiss-reference")
-    p.add_argument("action", choices=("plan", "field-reference", "matrix", "swiss-reference"))
+                                    "swiss-reference | field-diversity (no simulation)")
+    p.add_argument("action", choices=("plan", "field-reference", "matrix", "swiss-reference", "field-diversity"))
     p.add_argument("--root", default=str(DEFAULT_ROOT), help="results root (default results/fhr3b)")
     p.add_argument("--profile", choices=("publication", "smoke"), default=None)
     p.add_argument("--fields", nargs="+", help="subset of the core fields (default: all three)")

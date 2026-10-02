@@ -71,28 +71,40 @@ poker are novel.
 
 | work | what we take from it | what we do not claim |
 |---|---|---|
-| Sziklai, Biró & Csató (2022), *The efficacy of tournament designs*, Computers & Operations Research, doi:10.1016/j.cor.2022.105821 | Tournament design as the allocation of limited comparison resources under noisy outcomes, judged by how well a design recovers the underlying ranking. **Experiment B** is the poker analogue: at fixed simulator work, is compute better spent on more opponents (Swiss rounds) or on longer matches? | That their pairwise-comparison findings transfer automatically to six-player poker tables with persistent stacks. |
+| Sziklai, Biró & Csató (2022), *The efficacy of tournament designs*, Computers & Operations Research, doi:10.1016/j.cor.2022.105821 | Tournament design as the allocation of limited comparison resources under noisy outcomes, judged by how well a design recovers the underlying ranking. **Experiment B** is the poker analogue: given the same maximum scheduled poker budget, should simulation be allocated across more Swiss opponents or longer matches? | That their pairwise-comparison findings transfer automatically to six-player poker tables with persistent stacks. |
 | Hua, C. (May 2017), *The Swiss Tournament Model*, Wharton Research Scholars undergraduate thesis, The Wharton School, University of Pennsylvania | Motivation for judging a Swiss event by **partial-ranking / top-k recovery**, not only by whole-ranking correlation. Our competition-specific top-k metrics are top-6 overlap, expected changed qualifiers and P(qualify). | Novelty of top-k evaluation. |
 | The Annual Computer Poker Competition literature, e.g. Bard, N., Hawkin, J., Rubin, J. & Zinkevich, M. (2013), *The Annual Computer Poker Competition*, AI Magazine 34(2), 112–114, doi:10.1609/aimag.v34i2.2474 | **Duplicate poker** is established computer-poker methodology, including multiplayer events that duplicate cards with cyclic seat rotation. **Experiment D** asks a different question: whether *whole persistent-match* duplication improves *qualifier reliability per unit of actual simulator work*. | That duplicate poker, or multiplayer seat/card duplication, is new. |
 | Davidson, Archibald & Bowling (2013), *Baseline: Practical Control Variates for Agent Evaluation in Zero-Sum Domains*, AAMAS 2013 | Together with AIVAT, the general problem of extracting more information per simulated hand. | — |
 | Burch, Schmid, Moravčík, Morrill & Bowling (2018), *AIVAT: A New Variance Reduction Technique for Agent Evaluation in Imperfect Information Games*, AAAI 32(1), doi:10.1609/aaai.v32i1.11481 | FHR #3 studied estimator-level variance reduction. FHR #4 asks whether better *evaluation design* improves the competition's actual *selection outcome*. | — |
 
-## Reference rankings (diagnostics, never scores)
+## Reference rankings (estimated diagnostics, never scores)
 
-* **`mu_field`**: long-run expected performance against the controlled field.
+Both references are **finite-sample estimates**, not oracle labels. Neither is universal poker
+skill.
+
+* **`mu_field`**: long-run expected performance against random partitions of the controlled
+  field under the specified match semantics.
   * Estimated by matched evaluation: six whole-match duplicate lanes, 400 hands per lane,
     cyclic seats and common chance streams.
   * Tables are random field partitions, independent of Swiss standings.
-  * Reported on the ordinary-match scale (lane sum / 6).
-  * Analytic SE is primary; a 10-round grouped joint bootstrap feeds the ranking and gap
-    diagnostics.
+  * Reported on the ordinary-match-equivalent scale (lane sum / 6).
+  * **Analytic SE is primary** (sd / √rounds per bot).
+  * **Bootstrap unit: one complete matched round.** All 250 rounds are resampled jointly across
+    the whole 60-bot vector, with one weight vector per resample, which keeps within-round
+    covariance and the zero-sum structure. That gives 250 units rather than 25 blocks. Rounds
+    are independent by construction (keyed partitions, decks and decisions; stateless agents;
+    fresh stacks). The 2,000-round NLHE6 pool calibration shows no serial dependence:
+    * lag-1 autocorrelation 0.004, inside the ±0.0046 band;
+    * 10-round block variance ratio 1.00.
+
+    The 10-round chunk is a storage unit only.
+  * The joint resamples feed the ranking, gap, top-6 and reference-uncertainty diagnostics.
   * Common random numbers couple the three field references; they are not independent
     replications.
   * 250 matched rounds per field initially, extendable to 500 without repeating the first 250.
-* **`mu_swiss`**: long-run expected final performance under adaptive Swiss, estimated from
-  **100 complete tournaments per field** in the separate `swiss-reference` namespace. After that
-  run, each field is judged separately for whether 200 is warranted; an extension appends
-  tournaments 100–199 without recomputing the first 100. Primary reference outputs:
+* **`mu_swiss`**: long-run expected outcome under the specified adaptive Swiss mechanism,
+  estimated from **100 complete tournaments per field** in the separate `swiss-reference`
+  namespace. Extending a field to 200 appends tournaments 100–199. Primary reference outputs:
   * per-bot P(qualify) with Wilson intervals;
   * expected final score, total and per match, with SE;
   * expected top-6 overlap against `mu_field` (and, flagged as in-sample, against `mu_swiss`);
@@ -103,9 +115,32 @@ poker are novel.
   In `crowded_cutoff` and `style_diverse` the rank-6/rank-7 ordering is not expected to become
   clean. That ambiguity is part of the experimental object.
 
-Neither is "true poker skill". Finite tournaments are assessed for **accuracy** against each
-reference and for **repeatability** across independent replications. Disagreement between the
-two references is a finding in its own right.
+**Interpretation.**
+
+* **Disagreement between the references** is scientifically interesting: multiplayer,
+  non-transitive games need not admit one context-free scalar ranking.
+* **Accuracy against `mu_swiss`** measures convergence, repeatability and how well a finite
+  tournament approximates the Swiss mechanism; it is not independent normative fairness.
+
+### Reference uncertainty
+
+The paper keeps two things apart: **disagreement with a reference point estimate**, and
+**uncertainty in the reference itself**.
+
+* **Operational summaries** use the point-estimate ranking.
+* **Reference-propagated intervals.** Every reference-based metric also has a
+  `*_ref_propagated` interval. Bootstrap draw b pairs tournament weights b with joint reference
+  resample b, so the interval includes the reference's own uncertainty.
+* **Reference-uncertainty summaries.** Per field and reference, the analysis reports:
+  * P(same top-6 set);
+  * P(rank-6/7 reversal);
+  * the **reference-ambiguous set**: bots with 5% < P(reference top 6) < 95%;
+  * `reference_self_regret`: the regret of the reference's own point top 6 under its resamples,
+    i.e. the regret floor due to reference uncertainty alone.
+* **`crowded_cutoff`.** No unique "true top 6" is manufactured. Swaps inside the
+  reference-ambiguous set are separated from **clear** errors:
+  * `clear_misqualifications`: qualifiers the reference excludes with P > 95%;
+  * `clear_omissions`: bots the reference includes with P > 95% that did not qualify.
 
 ## Experiments and the six unique cells per field
 
@@ -120,72 +155,163 @@ two references is a finding in its own right.
 
 Shared cells have one identity hash and are simulated once (pinned by `tests/test_fhr4_core.py`).
 
-* **A. Rounds to reliability.** Reliability at 5, 10, 20, 30 and 40 rounds, read as exact
-  prefixes of the same 40-round trajectories.
-* **B. Fixed total poker budget.** 10 × 1600, 20 × 800 and 40 × 400 hands per bot. The 40 × 400
-  cell is the baseline.
-* **C. Adaptive Swiss vs frozen schedule.** The estimand is a **source-schedule
-  counterfactual**:
-  * the source adaptive tournament (baseline replicate r) generates a realised Swiss schedule;
-  * the frozen replay plays exactly that realised schedule with **fresh** poker randomness
-    (new cards and decisions);
-  * the replay's own results cannot affect its future pairings.
+### A. Rounds to reliability
 
-  This removes within-run result → future-pairing feedback while preserving realistic Swiss
-  schedule structure. It is *not* an identical-randomness causal pair of the source run.
+Reliability at 5, 10, 20, 30 and 40 rounds, read as exact prefixes of the same 40-round
+trajectories.
 
-  The initial core uses **J = 1** (one replay per source), and the analysis pairs the adaptive
-  baseline and its frozen replay by source tournament. J > 1 is supported as a later precision
-  extension (a new cell); uncertainty is then clustered by source tournament, so several replays
-  of one source are never treated as independent observations. The contrast is a diagnostic,
-  not an additive variance decomposition, and the frozen schedule is not a proposed format.
-* **D. Ordinary vs duplicate.** Uses the existing whole-match duplicate implementation:
-  * six lanes;
-  * the same initial stacks and chance stream in every lane;
-  * cyclic seats;
-  * independent stacks and bot state per lane;
-  * aggregation only after all lanes finish.
+### B. Fixed scheduled hand budget
 
-  Work is reported as both scheduled and actually played hands. The integer-constrained variants
-  are approximately, not exactly, equal in work.
+10 × 1600, 20 × 800 and 40 × 400 hands per bot have an **equal maximum (scheduled) hand
+budget**. They do **not** have equal actual simulator compute: longer matches end early more
+often (busts), and hands cost different amounts as tables shrink. The question is:
 
-  The fewer-rounds arm is deliberately **7 × 400 × 6**, which is +5% scheduled work and flagged
-  as a 1.05 work ratio. It is not 7 × 381: the arm isolates *fewer Swiss rounds plus duplicate
-  play* while keeping the standard 400-hand match object. Any per-compute comparison is made
-  explicit using the recorded scheduled and actual work.
+> Given the same maximum scheduled poker budget, should simulation be allocated across more
+> Swiss opponents or longer matches?
+
+Reported for each allocation:
+
+1. reliability at the scheduled hand budget (primary);
+2. actual hands played per tournament;
+3. recorded simulator wall-clock per tournament;
+4. reliability relative to actual simulated work, as a secondary efficiency view.
+
+Actual compute is not claimed to be held fixed.
+
+### C. Adaptive Swiss vs exogenous replay of its schedules
+
+* An adaptive source tournament (baseline replicate r) generates a realised schedule.
+* That schedule is replayed **exogenously** with fresh poker randomness (new cards and
+  decisions).
+* Replay outcomes cannot feed back into later pairings.
+
+The adaptive/frozen comparison therefore compares adaptive Swiss against exogenous replay of
+schedules generated by the adaptive process. Three things limit what it can show:
+
+* fresh poker randomness contributes noise to the paired contrast;
+* each frozen schedule was itself generated by an adaptive source trajectory;
+* it is not an identical-randomness pair.
+
+So this is a targeted counterfactual comparison, not a complete causal decomposition, and it
+does not cleanly identify an effect of Swiss feedback. The frozen schedule is not a proposed
+format.
+
+**Pairing and replays.** The initial core uses **J = 1**, and the analysis pairs each adaptive
+baseline tournament with its frozen replay by source tournament. J > 1 is a later precision
+extension (a new cell); uncertainty is then clustered by source tournament, so several replays
+of one source are never treated as independent observations.
+
+### D. Alternative evaluation packages: ordinary vs whole-match duplicate
+
+Experiment D is an operational comparison between alternative equal-ish-budget evaluation
+packages:
+
+* ordinary 40 × 400;
+* duplicate 7 × 400 × 6, with fewer Swiss rounds;
+* duplicate 40 × 67 × 6, with shorter matches.
+
+It uses the existing whole-match duplicate implementation:
+
+* six lanes;
+* the same initial stacks and chance stream in every lane;
+* cyclic seats;
+* independent stacks and bot state per lane;
+* aggregation only after all lanes finish.
+
+Each duplicate arm also changes either the number of Swiss rounds or the match length. The
+contrast is therefore not the isolated effect of turning duplicate play on. The question is:
+
+> Does whole-match duplicate evaluation provide better qualifier reliability per simulator
+> work under practical budget-preserving redesigns?
+
+**Work accounting.** Scheduled work ratio, actual hands played, recorded simulator wall-clock,
+qualification reliability and qualification regret are all reported.
+
+**The fewer-rounds arm.** It is deliberately **7 × 400 × 6**, which is +5% scheduled work and
+flagged as a 1.05 ratio. It is not 7 × 381, because the arm keeps the standard 400-hand match
+object. Any per-compute comparison is made explicit from the recorded work.
 
 ## Metrics
 
-* **Primary (qualification; these dominate):**
-  * expected number of changed qualifiers;
+**Primary (qualification; these dominate).** Every primary tournament analysis reports both
+kinds of error.
+
+* **Identity error:**
+  * expected number of changed qualifiers between reruns;
   * expected top-6 overlap;
   * per-bot P(qualify);
-  * number of bots with ambiguous qualification.
-* **Supporting:**
-  * rank-6/rank-7 gap and inversion uncertainty;
-  * Kendall tau;
-  * Spearman correlation;
-  * mean absolute rank displacement;
-  * pairwise inversion against the reference strength gap.
+  * number of bots with ambiguous qualification (P(qualify) in [0.1, 0.9]);
+  * changed qualifiers against the reference point top 6.
+* **Strength error** (against `mu_field`, and against `mu_swiss` where available; in BB per
+  ordinary-equivalent 400-hand match):
+  * **qualification regret** = Σ_{i ∈ Q*} μ_i − Σ_{i ∈ Q} μ_i, where Q* is the reference-optimal
+    set of 6;
+  * **boundary strength loss** = max(0, max_{j ∉ Q} μ_j − min_{i ∈ Q} μ_i), the reference-strength
+    advantage of the strongest omitted bot over the weakest qualifier.
 
-All uncertainty is computed over tournaments. Hands, matches and rounds are never replicates.
+  Strength error separates harmless swaps among nearly equivalent agents (regret ≈ 0) from
+  materially weak qualification mistakes.
 
-## Adaptive compute policy
+**Supporting:**
+
+* rank-6/rank-7 gap and inversion uncertainty;
+* Kendall tau;
+* Spearman correlation;
+* mean absolute rank displacement;
+* pairwise inversion against the reference strength gap.
+
+**Paired contrasts** (B, C, D against the adaptive 40 × 400 baseline, `contrasts.csv`) report
+arm-minus-baseline differences with shared bootstrap weights. All uncertainty is computed over
+tournaments (C: over source tournaments). Hands, matches and rounds are never replicates.
+
+## Adaptive compute policy and pre-registered extension rules
 
 This is **precision-driven compute allocation**, not "run everything until significance".
 
-* Every unique cell starts at 50 complete tournaments, every field reference at 250 matched
-  rounds, and `mu_swiss` at 100 tournaments per field.
-* A cell is extended (append-only: e.g. tournaments 50–99) only where uncertainty in the
-  **primary qualification metrics** is still consequential for a conclusion.
-* Field references extend from 250 to 500 rounds only where the reference ordering near the
-  cutoff is too uncertain to judge accuracy. `mu_swiss` extends from 100 to 200 per field only
-  where that is warranted after the 100-tournament run. Intrinsic ambiguity in `crowded_cutoff`
-  and `style_diverse` is not by itself a reason to extend.
-* Long horizons (60/80/120 rounds) are run only for fields whose qualification metrics have not
+* **Initial budgets:** every unique cell starts at 50 complete tournaments, every field reference
+  at 250 matched rounds, and `mu_swiss` at 100 tournaments per field.
+* **Long horizons** (60/80/120 rounds) run only for fields whose qualification metrics have not
   stabilised by 40 rounds.
-* Every extension is an explicit, logged command. No preset launches 100, 200 or 500
+* **Extensions** are explicit, logged and append-only. No preset launches 100, 200 or 500
   tournaments.
+
+The extension rules below were **pre-registered on 2026-10-01**, before any publication result
+existed. They live in `configs/fhr3b/matrix.yaml: core_fhr4.extension_rules`, are evaluated
+automatically into `reference.json` and `summary.json → extension_rules`, and are never executed
+automatically.
+
+**`mu_field` 250 → 500 rounds.** The criteria come from the joint round bootstrap.
+
+| field | extend to 500 if either holds |
+|---|---|
+| `spread` | P(same top-6 set) < 0.95, or P(rank-6/7 reversal) > 0.05 |
+| `crowded_cutoff` | any of the 3 designed leaders has P(top-6) < 0.95, or any bot outside the leaders and the designed crowd (ranks 4–15) has P(top-6) > 0.10 |
+| `style_diverse` | any point-rank 1–4 bot has P(top-6) < 0.90, or any point-rank ≥ 10 bot has P(top-6) > 0.10 |
+
+In `crowded_cutoff`, reordering inside ranks 4–15, or an unstable top-6 identity, is never a
+reason to extend.
+
+**Main matrix 50 → 100 tournaments, per unique cell.** Flag a cell if either holds:
+
+* the 95% Monte Carlo CI half-width of expected changed qualifiers or expected top-6 overlap is
+  above 0.30;
+* a paired contrast it takes part in has a CI spanning both −0.25 and +0.25 qualifiers.
+
+Mean qualification regret CIs are reported, but no regret threshold was pre-registered. Only the
+flagged cells are extended, never every cell. Extensions append replicates 50–99 and leave the
+first 50 byte-for-byte unchanged.
+
+**`mu_swiss` 100 → 200 tournaments, per field.** Extend a field if either holds:
+
+* a decision-relevant boundary bot (P(qualify) in [0.10, 0.90]) has a 95% Wilson half-width
+  above 0.10. In `crowded_cutoff`, the designed near-equal crowd is not decision-relevant for
+  this rule.
+* reference uncertainty prevents interpretation of the main results. This is a reviewed
+  judgement, and its reason is recorded.
+
+**Note.** At n = 100 the largest possible Wilson half-width is 0.096, so the first clause cannot
+fire at 100 tournaments. The rule is recorded as stated. Whether it should be re-expressed is an
+open decision (`docs/fhr3b/FHR4_CORE.md`).
 
 ## Match semantics
 
@@ -209,6 +335,17 @@ defect in itself.
 | `crowded_cutoff` | several genuinely similar bots, of different strategies, straddling the boundary |
 | `style_diverse` | deliberate balance of observed style across strength strata |
 
+**Strategic diversity.** `reports/fhr3b/field-calibration/nlhe6/field_diversity.md` comes from the
+frozen manifests, the behaviour audit and the pool ranking, with no simulation. Every field has
+60 distinct parameter vectors, 8 archetypes and all four observed styles.
+
+* `spread` and `style_diverse` have no near-duplicate pairs.
+* `crowded_cutoff` has 22 near-duplicate pairs overall, but its ranks 4–15 (exactly the designed
+  crowd) span 7 archetypes and all four styles, with only 3 near-duplicate pairs among 4 of the
+  12 bots. The boundary is not clone-driven.
+
+The synthetic agents are strategically heterogeneous, but not all 60 are qualitatively unique.
+
 Non-transitive (matchup) structure is **measured, never selected on**. The former
 `matchup_sensitive` field and its gate are retired.
 
@@ -219,7 +356,17 @@ roles. The FHR3A family misread heads-up roles, which persistent-stack busts mak
 realism audit are in `docs/fhr3b/FIELDS.md` and
 `reports/fhr3b/field-calibration/FIELD_CALIBRATION_REVIEW.md`.
 
-## Caveats every write-up must state
+## Limitations and caveats every write-up must state
+
+* **One field per regime.** There is one frozen field per constructed regime: one `spread`, one
+  `crowded_cutoff` and one `style_diverse`.
+  * Tournament repetitions are repeated stochastic runs **CONDITIONAL** on those fields. They are
+    not independent replications of the field regime.
+  * No regime-level inferential test treats 50 tournaments as 50 independent crowded fields.
+  * No universal claim (e.g. "crowded fields require X rounds"). Use wording such as "in our
+    constructed crowded-cutoff stress test …" or "across the three controlled field scenarios …".
+* **Estimated references.** `mu_field` and `mu_swiss` are estimated quantities (see "Reference
+  uncertainty"), not oracle labels.
 
 * **Stateless agents (D5).** Within-match opponent modelling is under-represented. The match
   runner exposes the rolling previous-hand history, as the public 2026 engine does, but the

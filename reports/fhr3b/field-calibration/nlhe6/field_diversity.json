@@ -1,0 +1,375 @@
+{
+ "fields": {
+  "crowded_cutoff": {
+   "allin_decision_rate_max": 0.016776,
+   "allin_decision_rate_min": 0.002406,
+   "allin_decision_rate_q25": 0.004781375,
+   "allin_decision_rate_q75": 0.00948065,
+   "archetypes": {
+    "aggressive": 4,
+    "loose": 6,
+    "maniac": 12,
+    "neutral": 6,
+    "nit": 7,
+    "station": 7,
+    "tight": 9,
+    "trapper": 9
+   },
+   "bots_in_near_duplicate_pairs": 18,
+   "boundary_ranks_4_15": {
+    "archetypes": {
+     "aggressive": 3,
+     "loose": 2,
+     "maniac": 2,
+     "neutral": 1,
+     "station": 1,
+     "tight": 2,
+     "trapper": 1
+    },
+    "bots_in_near_duplicate_pairs": 4,
+    "median_param_distance": 0.41911821137084565,
+    "min_param_distance": 0.12818420304396064,
+    "n": 12,
+    "n_archetypes": 7,
+    "near_duplicate_pair_ids": [
+     [
+      "nlhe6-neutral-e1-s1",
+      "nlhe6-tight-e1-s2"
+     ],
+     [
+      "nlhe6-aggressive-e1-s0",
+      "nlhe6-aggressive-e1-s1"
+     ],
+     [
+      "nlhe6-aggressive-e1-s0",
+      "nlhe6-tight-e1-s2"
+     ]
+    ],
+    "near_duplicate_pairs": 3,
+    "pairs": 66,
+    "styles": {
+     "LA": 2,
+     "LP": 1,
+     "TA": 5,
+     "TP": 4
+    }
+   },
+   "designed_crowd": {
+    "archetypes": {
+     "aggressive": 3,
+     "loose": 2,
+     "maniac": 2,
+     "neutral": 1,
+     "station": 1,
+     "tight": 2,
+     "trapper": 1
+    },
+    "bots_in_near_duplicate_pairs": 4,
+    "median_param_distance": 0.41911821137084565,
+    "min_param_distance": 0.12818420304396064,
+    "n": 12,
+    "n_archetypes": 7,
+    "near_duplicate_pair_ids": [
+     [
+      "nlhe6-neutral-e1-s1",
+      "nlhe6-tight-e1-s2"
+     ],
+     [
+      "nlhe6-aggressive-e1-s0",
+      "nlhe6-aggressive-e1-s1"
+     ],
+     [
+      "nlhe6-aggressive-e1-s0",
+      "nlhe6-tight-e1-s2"
+     ]
+    ],
+    "near_duplicate_pairs": 3,
+    "pairs": 66,
+    "same_as_ranks_4_15": true,
+    "styles": {
+     "LA": 2,
+     "LP": 1,
+     "TA": 5,
+     "TP": 4
+    }
+   },
+   "field": "crowded_cutoff",
+   "field_hash": "afbffedfc3706d84",
+   "median_param_distance": 0.470767158427011,
+   "min_param_distance": 0.06392186356734737,
+   "n": 60,
+   "n_archetypes": 8,
+   "n_distinct_parameter_vectors": 60,
+   "near_duplicate_pair_ids": [
+    [
+     "nlhe6-neutral-e1-s1",
+     "nlhe6-tight-e1-s2"
+    ],
+    [
+     "nlhe6-neutral-e1-s1",
+     "nlhe6-tight-e0"
+    ],
+    [
+     "nlhe6-aggressive-e1-s0",
+     "nlhe6-aggressive-e1-s1"
+    ],
+    [
+     "nlhe6-aggressive-e1-s0",
+     "nlhe6-tight-e1-s2"
+    ],
+    [
+     "nlhe6-trapper-e0",
+     "nlhe6-trapper-e1-s2"
+    ],
+    [
+     "nlhe6-trapper-e0",
+     "nlhe6-nit-e1-s1"
+    ],
+    [
+     "nlhe6-trapper-e0",
+     "nlhe6-nit-e0"
+    ],
+    [
+     "nlhe6-trapper-e0",
+     "nlhe6-trapper-e1-s0"
+    ],
+    [
+     "nlhe6-tight-e1-s2",
+     "nlhe6-tight-e0"
+    ],
+    [
+     "nlhe6-tight-e1-s2",
+     "nlhe6-tight-e1-s0"
+    ],
+    [
+     "nlhe6-station-e1-s2",
+     "nlhe6-station-e1-s0"
+    ],
+    [
+     "nlhe6-station-e1-s2",
+     "nlhe6-station-e1-s1"
+    ],
+    [
+     "nlhe6-station-e1-s0",
+     "nlhe6-station-e1-s1"
+    ],
+    [
+     "nlhe6-tight-e0",
+     "nlhe6-tight-e1-s0"
+    ],
+    [
+     "nlhe6-maniac-e1-s0",
+     "nlhe6-maniac-e0"
+    ],
+    [
+     "nlhe6-maniac-e1-s0",
+     "nlhe6-maniac-e1-s2"
+    ],
+    [
+     "nlhe6-maniac-e1-s0",
+     "nlhe6-maniac-e1-s1"
+    ],
+    [
+     "nlhe6-maniac-e0",
+     "nlhe6-maniac-e1-s2"
+    ],
+    [
+     "nlhe6-maniac-e0",
+     "nlhe6-maniac-e1-s1"
+    ],
+    [
+     "nlhe6-trapper-e1-s2",
+     "nlhe6-trapper-e1-s0"
+    ],
+    [
+     "nlhe6-maniac-e1-s2",
+     "nlhe6-maniac-e1-s1"
+    ],
+    [
+     "nlhe6-nit-e1-s1",
+     "nlhe6-nit-e0"
+    ]
+   ],
+   "near_duplicate_pairs": 22,
+   "pairs": 1770,
+   "pfr_max": 0.51179,
+   "pfr_min": 0.058003,
+   "pfr_q25": 0.1614,
+   "pfr_q75": 0.302415,
+   "post_aggression_max": 14.5,
+   "post_aggression_min": 0.32086,
+   "post_aggression_q25": 0.9971224999999999,
+   "post_aggression_q75": 3.350925,
+   "styles": {
+    "LA": 15,
+    "LP": 10,
+    "TA": 15,
+    "TP": 20
+   },
+   "threebet_max": 0.29416,
+   "threebet_min": 0.0032351,
+   "threebet_q25": 0.03062025,
+   "threebet_q75": 0.09590925,
+   "vpip_max": 0.60385,
+   "vpip_min": 0.097512,
+   "vpip_q25": 0.216845,
+   "vpip_q75": 0.3763975
+  },
+  "spread": {
+   "allin_decision_rate_max": 0.016776,
+   "allin_decision_rate_min": 0.002406,
+   "allin_decision_rate_q25": 0.005021325,
+   "allin_decision_rate_q75": 0.009440525,
+   "archetypes": {
+    "aggressive": 6,
+    "loose": 7,
+    "maniac": 9,
+    "neutral": 6,
+    "nit": 8,
+    "station": 8,
+    "tight": 8,
+    "trapper": 8
+   },
+   "bots_in_near_duplicate_pairs": 0,
+   "boundary_ranks_4_15": {
+    "archetypes": {
+     "aggressive": 3,
+     "loose": 2,
+     "maniac": 1,
+     "neutral": 1,
+     "nit": 1,
+     "station": 2,
+     "tight": 1,
+     "trapper": 1
+    },
+    "bots_in_near_duplicate_pairs": 0,
+    "median_param_distance": 0.4533822777128246,
+    "min_param_distance": 0.1609787508629854,
+    "n": 12,
+    "n_archetypes": 8,
+    "near_duplicate_pair_ids": [],
+    "near_duplicate_pairs": 0,
+    "pairs": 66,
+    "styles": {
+     "LA": 3,
+     "LP": 4,
+     "TA": 2,
+     "TP": 3
+    }
+   },
+   "field": "spread",
+   "field_hash": "ff0f2b07fc210f62",
+   "median_param_distance": 0.4876582790737064,
+   "min_param_distance": 0.1609787508629854,
+   "n": 60,
+   "n_archetypes": 8,
+   "n_distinct_parameter_vectors": 60,
+   "near_duplicate_pair_ids": [],
+   "near_duplicate_pairs": 0,
+   "pairs": 1770,
+   "pfr_max": 0.51179,
+   "pfr_min": 0.077382,
+   "pfr_q25": 0.164215,
+   "pfr_q75": 0.32412,
+   "post_aggression_max": 14.5,
+   "post_aggression_min": 0.32086,
+   "post_aggression_q25": 1.03275,
+   "post_aggression_q75": 3.271425,
+   "styles": {
+    "LA": 17,
+    "LP": 12,
+    "TA": 13,
+    "TP": 18
+   },
+   "threebet_max": 0.29416,
+   "threebet_min": 0.0098958,
+   "threebet_q25": 0.031177000000000003,
+   "threebet_q75": 0.085114,
+   "vpip_max": 0.70652,
+   "vpip_min": 0.10787,
+   "vpip_q25": 0.2329675,
+   "vpip_q75": 0.3948825
+  },
+  "style_diverse": {
+   "allin_decision_rate_max": 0.016776,
+   "allin_decision_rate_min": 0.002406,
+   "allin_decision_rate_q25": 0.00486585,
+   "allin_decision_rate_q75": 0.008386575,
+   "archetypes": {
+    "aggressive": 6,
+    "loose": 7,
+    "maniac": 7,
+    "neutral": 8,
+    "nit": 7,
+    "station": 9,
+    "tight": 8,
+    "trapper": 8
+   },
+   "bots_in_near_duplicate_pairs": 0,
+   "boundary_ranks_4_15": {
+    "archetypes": {
+     "aggressive": 2,
+     "loose": 1,
+     "neutral": 4,
+     "nit": 1,
+     "station": 2,
+     "tight": 1,
+     "trapper": 1
+    },
+    "bots_in_near_duplicate_pairs": 0,
+    "median_param_distance": 0.42566154274776535,
+    "min_param_distance": 0.1528901482277671,
+    "n": 12,
+    "n_archetypes": 7,
+    "near_duplicate_pair_ids": [],
+    "near_duplicate_pairs": 0,
+    "pairs": 66,
+    "styles": {
+     "LA": 3,
+     "LP": 3,
+     "TA": 3,
+     "TP": 3
+    }
+   },
+   "field": "style_diverse",
+   "field_hash": "ad7d6596ef1c8c3e",
+   "median_param_distance": 0.5042843961089819,
+   "min_param_distance": 0.1528901482277671,
+   "n": 60,
+   "n_archetypes": 8,
+   "n_distinct_parameter_vectors": 60,
+   "near_duplicate_pair_ids": [],
+   "near_duplicate_pairs": 0,
+   "pairs": 1770,
+   "pfr_max": 0.51179,
+   "pfr_min": 0.058003,
+   "pfr_q25": 0.18590500000000001,
+   "pfr_q75": 0.3348675,
+   "post_aggression_max": 8.1296,
+   "post_aggression_min": 0.32086,
+   "post_aggression_q25": 1.171325,
+   "post_aggression_q75": 3.0725,
+   "styles": {
+    "LA": 17,
+    "LP": 13,
+    "TA": 13,
+    "TP": 17
+   },
+   "threebet_max": 0.29416,
+   "threebet_min": 0.0032351,
+   "threebet_q25": 0.031221000000000002,
+   "threebet_q75": 0.08179425,
+   "vpip_max": 0.70652,
+   "vpip_min": 0.097512,
+   "vpip_q25": 0.2423275,
+   "vpip_q75": 0.41552500000000003
+  }
+ },
+ "mode": "nlhe6",
+ "near_dup_threshold": 0.15,
+ "rank_basis": "pool-calibration point ranking within the field (construction ranking)",
+ "sources": {
+  "behaviour": "<reports>/field-calibration/nlhe6/behaviour.csv",
+  "pool": "<reports>/field-calibration/nlhe6/pool_bots.csv"
+ }
+}

@@ -37,7 +37,7 @@ scripts/run_fhr4_core.sh field-reference    # NOT YET RUN; awaiting the launch i
 | work per bot | 1.2M hand-seats | 1.2M | 1.2M |
 | scheduled hands per field | 18.0M | 18.0M | 12.0M |
 | expected played (measured ratio) | 18.0M (1.00) | ≈ 15.1M (0.84) | ≈ 11.2M (0.93) |
-| bootstrap groups (10 rounds each) | 75 | 75 | 50 |
+| bootstrap units (superseded, see §3) | 75 groups | 75 groups | 50 groups |
 
 Every bot gets the same simulator work as 3,000 ordinary 400-hand matches.
 
@@ -85,11 +85,20 @@ Lanes are aggregated only after all of them have finished.
 
 * **Primary per-bot SE:** analytic `sd / sqrt(matches)`. Each bot has one independent matched
   observation per round.
-* **Bootstrap:** 10-round groups (75 or 50 groups), 1,000 resamples by default. Each resample
-  draws **one** multinomial weight vector over round groups and applies it to the whole bot
-  vector, so cross-bot covariance is preserved. A test checks this: in a zero-sum field every
-  resample's bot means sum to exactly 0.
-* **What the bootstrap feeds:** only the ranking, gap and robustness diagnostics
+* **Bootstrap (FHR #4, 2026-10-01): the unit is one complete matched round** (250 units per
+  core field), with 1,000 resamples by default (`src/fhr3/tournament/reference.py`).
+  * Each resample draws **one** multinomial weight vector over rounds and applies it to the
+    whole bot vector, so within-round covariance and zero-sum are preserved. Tests check that
+    all bots share the round weights and that every resample's bot means sum to 0.
+  * The stored 10-round chunks are only a storage unit and are split into rounds before
+    resampling; calibration ids are unchanged.
+  * Rounds are independent by construction (keyed partitions, decks and decisions; stateless
+    agents; fresh stacks). The 2,000-round NLHE6 pool calibration shows no serial dependence
+    (lag-1 autocorrelation 0.004; 10-round block variance ratio 1.00), so blocking is not
+    justified.
+  * The earlier plan of 10-round grouped resampling is superseded.
+* **What the bootstrap feeds:** the ranking, gap, robustness and reference-uncertainty diagnostics
+  (including the pre-registered extension rule in `reference.json → extension_rule`)
   (`reference.json → ranking_robustness`; per-bot `rank_lo95`, `rank_hi95` and `p_top_k` in
   `reference_bots.csv`):
   * P(same top-6 set);

@@ -6,6 +6,7 @@
 #
 # steps:
 #   plan             NO simulation: exact cells, counts, hands, ids/paths, wall estimate -> $REPORTS/fhr4-core-plan.json
+#   field-diversity  NO simulation: strategic-diversity table of the 3 frozen fields (existing audit outputs)
 #   smoke            correctness only: the core matrix + mu_field at smoke scale in ${ROOT}-core-smoke
 #   field-reference  EXPENSIVE: mu_field, 250 matched rounds x 3 NLHE6 fields (18M scheduled hands)   [launch 1st]
 #   matrix           EXPENSIVE: 6 unique cells x 3 fields x 50 tournaments (145.32M scheduled hands)   [2nd]
@@ -35,6 +36,8 @@ run() { echo "+ $*" >&2; "$@"; }
 case "$STEP" in
   plan)
     run "$F" core plan --root "$ROOT" --workers "$WORKERS" --json "$REPORTS/fhr4-core-plan.json" ;;
+  field-diversity)
+    run "$F" core field-diversity --reports "$REPORTS" ;;
   smoke)
     S="${ROOT}-core-smoke"
     run "$F" core matrix --profile smoke --fields smoke12 --root "$S" --replicates 3 --workers "$WORKERS" --quiet
@@ -56,5 +59,5 @@ case "$STEP" in
   analyse)
     run "$F" analyse --root "$ROOT" --profile publication --modes nlhe6 --out "$REPORTS/analysis-fhr4-core" ;;
   *)
-    sed -n '2,22p' "$0"; exit 2 ;;
+    sed -n '2,23p' "$0"; exit 2 ;;
 esac

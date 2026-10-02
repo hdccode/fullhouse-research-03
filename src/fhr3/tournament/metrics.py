@@ -242,3 +242,96 @@ def accuracy_vs_reference(rank: np.ndarray, reference: np.ndarray, k_cut: int,
     return {"reference_topk_overlap": bootstrap(mean(overlap), m, weights=ws),
             "reference_changed": bootstrap(mean(k_cut - overlap), m, weights=ws),
             "reference_kendall_tau": bootstrap(mean(tau), m, weights=ws)}
+
+
+# ------------------------------------------------------------------ strength-sensitive qualification error
+def qualification_regret(qualified: np.ndarray, reference: np.ndarray, k_cut: int) -> np.ndarray:
+    """Per tournament: sum(reference over the reference-optimal K) - sum(reference over the selected set).
+
+    ``qualified`` (M, N) bool with K True per row; ``reference`` (N,) on its own scale (e.g. BB per
+    ordinary-equivalent match). 0 = the selected set is as strong as the best possible set, so
+    swaps among exactly equal bots cost nothing; swapping a clearly stronger bot out costs its gap.
+    """
+    q = np.asarray(qualified, bool)
+    ref = np.asarray(reference, float)
+    best = np.sort(ref)[::-1][:k_cut].sum()
+    return best - q.astype(float) @ ref
+
+
+def boundary_strength_loss(qualified: np.ndarray, reference: np.ndarray) -> np.ndarray:
+    """Per tournament: the largest reference-strength advantage of an omitted bot over a selected one,
+    max(0, max_{j not selected} ref_j - min_{i selected} ref_i). The worst single bad swap; 0 when
+    every omitted bot is no stronger than every qualifier."""
+    q = np.asarray(qualified, bool)
+    ref = np.asarray(reference, float)
+    sel_min = np.where(q, ref[None, :], np.inf).min(1)
+    omit_max = np.where(~q, ref[None, :], -np.inf).max(1)
+    return np.maximum(0.0, omit_max - sel_min)
+
+
+def reference_qualification(qualified: np.ndarray, reference: np.ndarray, k_cut: int,
+                            weights: np.ndarray | None = None, b: int = 1000, seed: int = 20260929,
+                            boot_reference: np.ndarray | None = None,
+                            p_ref_top_k: np.ndarray | None = None, clear: tuple[float, float] = (0.05, 0.95)
+                            ) -> dict[str, Estimate]:
+    """Identity and strength error of finite tournaments against an ESTIMATED reference.
+
+    Point-reference metrics (operational): ``reference_changed`` (K minus overlap with the
+    reference point top K), ``qualification_regret``, ``boundary_strength_loss``. Their CIs
+    resample tournaments only, i.e. they treat the reference point estimate as fixed.
+
+    Reference uncertainty (``boot_reference`` (B_ref, N), joint resamples of the reference):
+
+    * ``*_ref_propagated``: same point value, but resample b pairs tournament weights b with
+      reference resample b, so the interval includes uncertainty in the reference itself;
+    * ``reference_self_regret``: regret of the reference's own point top K under its resamples,
+      the regret floor attributable to reference uncertainty alone;
+    * with ``p_ref_top_k`` (per-bot bootstrap P(in reference top K)): ``clear_misqualifications``
+      = qualifiers the reference clearly excludes (P < 0.05) and ``clear_omissions`` = bots the
+      reference clearly includes (P > 0.95) that did not qualify. Swaps inside the
+      reference-ambiguous set count in neither.
+    """
+    q = np.asarray(qualified, bool)
+    ref = np.asarray(reference, float)
+    m = q.shape[0]
+    ws = weights if weights is not None else bootstrap_weights(m, b, seed)
+    ref_top = (-ref).argsort(kind="stable").argsort() < k_cut
+    changed = (k_cut - (q & ref_top[None, :]).sum(1)).astype(float)
+    regret = qualification_regret(q, ref, k_cut)
+    loss = boundary_strength_loss(q, ref)
+
+    def mean(x: np.ndarray):
+        return lambda w: float(x.mean() if w is None else (w @ x) / w.sum())
+
+    out = {"reference_changed": bootstrap(mean(changed), m, weights=ws),
+           "qualification_regret": bootstrap(mean(regret), m, weights=ws),
+           "boundary_strength_loss": bootstrap(mean(loss), m, weights=ws)}
+    if boot_reference is not None and len(boot_reference):
+        br = np.asarray(boot_reference, float)
+        nb = len(br)
+        vals: dict[str, list[float]] = {"reference_changed": [], "qualification_regret": [],
+                                        "boundary_strength_loss": []}
+        for i, w in enumerate(ws):
+            r_b = br[i % nb]
+            top_b = (-r_b).argsort(kind="stable").argsort() < k_cut
+            per = {"reference_changed": (k_cut - (q & top_b[None, :]).sum(1)).astype(float),
+                   "qualification_regret": qualification_regret(q, r_b, k_cut),
+                   "boundary_strength_loss": boundary_strength_loss(q, r_b)}
+            for name, x in per.items():
+                vals[name].append(float((w @ x) / w.sum()))
+        for name, v in vals.items():
+            a = np.asarray(v)
+            out[f"{name}_ref_propagated"] = Estimate(out[name].value, float(a.std(ddof=1)),
+                                                     float(np.quantile(a, 0.025)), float(np.quantile(a, 0.975)), m)
+        self_r = np.array([np.sort(r_b)[::-1][:k_cut].sum() - r_b[ref_top].sum() for r_b in br])
+        out["reference_self_regret"] = Estimate(float(self_r.mean()), float(self_r.std(ddof=1)),
+                                                float(np.quantile(self_r, 0.025)), float(np.quantile(self_r, 0.975)),
+                                                nb)
+    if p_ref_top_k is not None:
+        p = np.asarray(p_ref_top_k, float)
+        out_lo, in_hi = p < clear[0], p > clear[1]
+        mis = (q & out_lo[None, :]).sum(1).astype(float)
+        om = ((~q) & in_hi[None, :]).sum(1).astype(float)
+        out["clear_misqualifications"] = bootstrap(mean(mis), m, weights=ws)
+        out["clear_omissions"] = bootstrap(mean(om), m, weights=ws)
+    return out

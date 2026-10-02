@@ -35,7 +35,7 @@ def test_pipeline_end_to_end(tmp_path, capsys):
     assert {int(r["R_prefix"]) for r in sweep} == {1, 2, 3, 4}
     budget = list(csv.DictReader((out / "budget_allocation.csv").open()))
     assert {(r["R"], r["H"]) for r in budget} == {("1", "40"), ("2", "20"), ("4", "10")}
-    assert all(r["budget_hands_per_bot"] == "40" for r in budget)
+    assert all(r["scheduled_hand_budget_per_bot"] == "40" for r in budget)
     man = json.loads((out / "MANIFEST.json").read_text())
     for rel, h in man["outputs_sha256"].items():
         assert hashlib.sha256((out / rel).read_bytes()).hexdigest() == h

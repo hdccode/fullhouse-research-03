@@ -63,7 +63,6 @@ from fhr3.tournament.calibration import (
     calibration_digest,
     load_calibration,
     matchup_rows,
-    verify_calibration_lanes,
 )
 from fhr3.tournament.diagnostics import (
     SplitHalf,
@@ -71,7 +70,6 @@ from fhr3.tournament.diagnostics import (
     crosshalf,
     param_distance,
     param_vectors,
-    reference_rank_diagnostics,
 )
 from fhr3.tournament.experiments import Profile
 from fhr3.tournament.fields import FieldManifest, select_crowded, subset, write_field_immutable
@@ -347,18 +345,25 @@ def select_fields(root: Path, prof: Profile, mode: str, reports: Path, n_boot: i
 
 def field_reference_report(root: Path, prof: Profile, mode: str, field: str, reports: Path,
                            n_boot: int = 1000) -> dict[str, Any]:
-    """mu_field (ordinary-match scale) inside a frozen field + robustness diagnostics (no selection statistics)."""
+    """mu_field (ordinary-match scale) inside a frozen field + robustness diagnostics (no selection statistics).
+
+    Bootstrap unit: one complete matched round, resampled jointly over the whole bot vector
+    (reference.estimate_field_reference). The pre-registered 250 -> 500 extension rule is
+    evaluated and written to ``reference.json -> extension_rule`` (never executed).
+    """
+    from fhr3.tournament.experiments import load_matrix
+    from fhr3.tournament.reference import estimate_field_reference, mu_field_extension_rule
+
     spec = prof.calibration_spec(mode, "field", field)
-    tabs = load_calibration(root, spec)
-    if not tabs:
+    res = estimate_field_reference(root, spec, prof.k, n_boot=n_boot)
+    if res is None:
         raise FileNotFoundError(f"no field-reference calibration for {mode}/{field}")
-    n_lane_chunks = verify_calibration_lanes(root, spec)
+    n_lane_chunks = res["lane_chunks_verified"]
     fm: FieldManifest = spec.field
     bots = sorted(fm.bot_ids)
     lanes = spec.lanes
-    res = analyse_calibration(tabs, bots, n_boot=n_boot, lanes=lanes)
     rep = reports / "field-calibration" / mode / fm.field_id
-    rank = reference_rank_diagnostics(res["mu"], res["boot_mu"], prof.k)
+    rank = res["diag"]
     rows = bot_rows(res, fm)
     pb = {b: i for i, b in enumerate(bots)}
     for r in rows:
@@ -377,9 +382,13 @@ def field_reference_report(root: Path, prof: Profile, mode: str, field: str, rep
            "calibration_digest": calibration_digest(root, spec),
            "match_format": spec.match_format, "lanes": lanes, "lane_chunks_verified": n_lane_chunks,
            "scale": "mu_field = mean(lane_sum) / lanes: chips per ordinary-equivalent H-hand match",
+           "matched_rounds": res["bootstrap_units"],
            "uncertainty": {"primary_se": "analytic sd / sqrt(matches), per bot",
-                           "bootstrap": f"joint resampling of {res['rounds_groups']} round groups "
-                                        f"({spec.chunk_rounds} rounds each) over the complete bot vector"},
+                           "bootstrap_unit": res["bootstrap_unit"],
+                           "bootstrap": f"joint resampling of {res['bootstrap_units']} matched rounds over the "
+                                        f"complete bot vector ({n_boot} resamples); one weight vector per resample"},
+           "estimand": "long-run expected performance against random partitions of this controlled field under "
+                       "the specified match semantics; an estimate, not universal poker skill or an oracle ranking",
            "coupling": "common random numbers: every field reference in this namespace shares one seed; "
                        "cross-field estimates are correlated and must not be analysed as independent",
            "gap_at_cutoff_bb": float(mu_sorted[k - 1] - mu_sorted[k]) / BB if len(bots) > k else None,
@@ -399,5 +408,8 @@ def field_reference_report(root: Path, prof: Profile, mode: str, field: str, rep
         c = fm.construction
         lo_r, hi_r = int(c["n_top"]), int(c["n_top"]) + int(c["crowd"])
         out["crowd_mu_range_in_field_reference_bb"] = float(mu_sorted[lo_r] - mu_sorted[hi_r - 1]) / BB
+    rules = (load_matrix(prof.config_root).get("core_fhr4", {}).get("extension_rules", {}) or {}).get("mu_field")
+    if rules and fm.kind in rules:
+        out["extension_rule"] = mu_field_extension_rule(fm.kind, bots, res["mu"], rank, dict(fm.construction), rules)
     (rep / "reference.json").write_text(json.dumps(out, indent=1, sort_keys=True, default=float) + "\n")
     return out

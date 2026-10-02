@@ -162,9 +162,10 @@ Implementation:
 * **Protocol switch.** `TournamentProtocol.match_format = "duplicate"` turns it on. The field is
   absent from the hash when ordinary, so existing identities are unchanged.
 * **Matched calibration.** `CalibrationSpec.match_format` does the same for calibration; matched
-  field-reference uses `rounds // k` at equal simulator work.
+  field-reference rounds are matched rounds (core: 250 per NLHE6 field).
 * **Experiment D cells.** `Profile.duplicate_cells` pairs the ordinary (R0, H0) cell with two
-  duplicate variants at equal work:
+  duplicate packages at approximately equal **scheduled** work. Each package also changes the
+  rounds or the match length, so this is an operational package comparison:
 
 | variant | AoF4 / NLHE4 (4 lanes) | NLHE6 (6 lanes) |
 |---|---|---|

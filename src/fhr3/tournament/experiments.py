@@ -199,7 +199,7 @@ class Profile:
 
     def calibration_rounds(self, stage: str, mode: str | None = None) -> int:
         """Configured rounds. ``matched_rounds`` is taken as is; an ordinary-equivalent ``rounds`` for a
-        duplicate calibration is divided by the lane count (equal simulator work).
+        duplicate calibration is divided by the lane count (equal scheduled work).
 
         The publication field reference has NO default: the FHR #4 core scopes its own budget
         (``core_fhr4.field_reference``, see core.core_field_rounds) and every other caller must pass
@@ -217,13 +217,16 @@ class Profile:
         return rounds
 
     def duplicate_cells(self, mode: str, field: str) -> list[tuple[str, Cell]]:
-        """Experiment D: ordinary (R0, H0) vs duplicate variants at equal simulator work (paired seeds)."""
+        """Experiment D: ordinary (R0, H0) vs duplicate packages at ~equal scheduled work (paired seeds).
+
+        Each package also changes the rounds or the match length: an operational comparison, not the
+        isolated effect of duplication."""
         m = load_mode(mode, self.config_root)
         out = [("ordinary", self.cell(mode, field, "duplicate_play"))]
         for a in duplicate_allocations(self.r0, self.h0, m.table_size):
             proto = self.protocol(m, a.rounds, a.hands_per_lane).with_(match_format="duplicate")
             out.append((f"{a.label} R{a.rounds}xH{a.hands_per_lane}x{a.lanes}lanes"
-                        f"{'' if a.exact else ' (approx. equal work)'}",
+                        f"{'' if a.exact else ' (approx. equal scheduled work)'}",
                         Cell("adaptive", m, proto, self.field(mode, field), self.seed_family,
                              self.namespaces["duplicate_play"])))
         return out

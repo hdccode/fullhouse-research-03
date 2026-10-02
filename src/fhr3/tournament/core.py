@@ -328,7 +328,7 @@ def build_plan(prof: Profile, root: Path, *, workers: int = 8, rate: float | Non
     for r in rows:
         b = baseline_sched.get(r["field"])
         r["scheduled_work_ratio_vs_baseline"] = r["scheduled_hands_per_tournament"] / b if b else None
-        r["exact_equal_work"] = (r["scheduled_hands_per_tournament"] == b) if b else None
+        r["exact_equal_scheduled_work"] = (r["scheduled_hands_per_tournament"] == b) if b else None
 
     def tot(rs: list[dict], k: str) -> float:
         return float(sum(x[k] or 0 for x in rs))

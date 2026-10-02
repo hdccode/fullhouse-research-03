@@ -146,7 +146,7 @@ def test_plan_accounting(pub, tmp_path):
     per = {r["cell"]: r["scheduled_hands_per_tournament"] for r in rows if r["field"] == "spread"}
     assert per == {"baseline": 160_000, "budget_half_rounds": 160_000, "budget_quarter_rounds": 160_000,
                    "frozen_schedule": 160_000, "dup_fewer_rounds": 168_000, "dup_shorter_matches": 160_800}
-    work = {r["cell"]: (r["scheduled_work_ratio_vs_baseline"], r["exact_equal_work"]) for r in rows
+    work = {r["cell"]: (r["scheduled_work_ratio_vs_baseline"], r["exact_equal_scheduled_work"]) for r in rows
             if r["field"] == "spread"}
     assert work["dup_fewer_rounds"] == (1.05, False) and work["dup_shorter_matches"] == (1.005, False)
     t = plan["totals"]
