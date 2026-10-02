@@ -78,7 +78,9 @@ def mu_field_extension_rule(field_kind: str, bots: Sequence[str], mu: np.ndarray
     """Pre-registered 250 -> 500 rule for one field (configs: core_fhr4.extension_rules.mu_field).
 
     Uses only the joint round-bootstrap diagnostics. Returns the evaluated criteria and
-    ``extend``; it never runs anything.
+    ``extend``; it never runs anything. crowded_cutoff is defined on the manifest structure:
+    "outside" = every bot in NEITHER the designed leaders (top_ids) NOR the designed ranks-4-15
+    crowd (crowd_ids), so the leaders are never counted as outside.
     """
     p_top = np.asarray(diag["per_bot"]["p_top_k"], float)
     order = np.argsort(-np.asarray(mu, float), kind="stable")

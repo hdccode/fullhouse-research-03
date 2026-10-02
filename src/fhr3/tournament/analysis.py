@@ -519,8 +519,9 @@ def matrix_extension_flags(base_rows: Sequence[dict], budget_rows: Sequence[dict
 
     A cell is flagged if its 95% Monte Carlo CI half-width for expected changed qualifiers or
     expected top-6 overlap exceeds ``qualifier_half_width_above``, or if a paired contrast it takes
-    part in has a CI spanning both -span and +span qualifiers. Mean qualification regret half-widths
-    are reported but no regret threshold was pre-registered. Flags are per cell and field; other
+    part in has a CI spanning both -span and +span qualifiers. Qualification regret half-widths are
+    reported and may affect interpretation, but regret never independently triggers an extension (no
+    common BB/match tolerance is defensible across fields). Flags are per cell and field; other
     cells are never extended because one contrast is noisy.
     """
     hw_max = float(rule["qualifier_half_width_above"])
@@ -563,7 +564,8 @@ def matrix_extension_flags(base_rows: Sequence[dict], budget_rows: Sequence[dict
         c["extend"] = bool(c["reasons"])
         c["action"] = "append replicates 50..99 for THIS cell" if c["extend"] else "keep 50"
     return {"rule": rule, "cells": cells,
-            "note": "regret half-widths reported only (no pre-registered regret threshold)"}
+            "note": "regret is reported and may affect interpretation; it never independently triggers "
+                    "an extension"}
 
 
 def _hands(root: Path, cell: Cell, rep: int) -> int:

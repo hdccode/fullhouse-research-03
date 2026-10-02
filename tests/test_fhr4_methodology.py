@@ -144,7 +144,8 @@ def test_rules_are_preregistered_in_config():
     assert r["mu_field"]["style_diverse"] == {"top_ranks": 4, "top_p_top_k_below": 0.90, "low_rank_from": 10,
                                               "low_p_top_k_above": 0.10}
     assert r["matrix"]["qualifier_half_width_above"] == 0.30 and r["matrix"]["contrast_inconclusive_span"] == 0.25
-    assert r["mu_swiss"]["p_qualify_band"] == [0.10, 0.90] and r["mu_swiss"]["half_width_above"] == 0.10
+    assert r["mu_swiss"]["p_qualify_band"] == [0.10, 0.90] and r["mu_swiss"]["half_width_above"] == 0.08
+    assert r["matrix"]["regret"] == "report_only"  # regret never independently triggers an extension
 
 
 def test_spread_rule():
@@ -170,6 +171,11 @@ def test_crowded_rule_ignores_reordering_inside_the_crowd():
     assert mu_field_extension_rule("crowded_cutoff", bots, mu, _diag(p_leak), con, rule)["extend"]
     p_leader = [0.90, 0.99, 0.99] + [0.25] * 12 + [0.0] * 5
     assert mu_field_extension_rule("crowded_cutoff", bots, mu, _diag(p_leader), con, rule)["extend"]
+    # "outside" = neither designed leaders nor designed crowd (manifest sets, not numeric ranks 4-15):
+    # leaders with P(top-6) ~ 1 are never counted as outside
+    out = mu_field_extension_rule("crowded_cutoff", bots, mu, _diag(p), con, rule)
+    assert out["criteria"]["outside_leaders_and_crowd_above"]["n_outside"] == len(rest)
+    assert not set(leaders) & set(out["criteria"]["outside_leaders_and_crowd_above"]["bots"])
 
 
 def test_style_diverse_rule():
@@ -186,23 +192,39 @@ def test_style_diverse_rule():
     assert mu_field_extension_rule("style_diverse", bots, mu, _diag(low_leak), {}, rule)["extend"]
 
 
-def test_mu_swiss_rule_and_its_n100_ceiling():
-    assert wilson_half_width_max(100) == pytest.approx(0.0962, abs=1e-4)
-    assert wilson_half_width_max(100) < 0.10  # the half-width clause cannot fire at n = 100
-    assert wilson_half_width_max(50) > 0.10
-    lo, hi = mt.wilson_interval(np.array([50]), 100)
-    assert (hi[0] - lo[0]) / 2 == pytest.approx(wilson_half_width_max(100), abs=1e-9)
+def _swiss_row(b, p, n):
+    lo, hi = mt.wilson_interval(np.array([round(p * n)]), n)
+    return {"bot_id": b, "p_qualify": p, "p_qualify_wilson_lo": float(lo[0]), "p_qualify_wilson_hi": float(hi[0])}
+
+
+def test_mu_swiss_rule_is_operational_at_n100():
     rule = RULES["mu_swiss"]
-    row = lambda b, p, n: {"bot_id": b, "p_qualify": p, "p_qualify_wilson_lo": float(mt.wilson_interval(  # noqa
-        np.array([round(p * n)]), n)[0][0]), "p_qualify_wilson_hi": float(mt.wilson_interval(
-        np.array([round(p * n)]), n)[1][0])}
-    out = mu_swiss_extension_rule([row("a", 0.5, 100), row("b", 1.0, 100)], 100, "spread", {}, rule)
-    assert out["decision_relevant_boundary_bots"] == ["a"] and not out["extend"]
-    assert out["rule_can_trigger_at_n"] is False
-    out50 = mu_swiss_extension_rule([row("a", 0.5, 50)], 50, "spread", {}, rule)
-    assert out50["extend"]
-    crowd = mu_swiss_extension_rule([row("c", 0.5, 50)], 50, "crowded_cutoff", {"crowd_ids": ["c"]}, rule)
-    assert not crowd["extend"] and crowd["excluded_designed_crowd"] == ["c"]  # designed ambiguity is not a reason
+    assert wilson_half_width_max(100) == pytest.approx(0.0962, abs=1e-4)
+    assert wilson_half_width_max(100) > rule["half_width_above"] > wilson_half_width_max(200)
+    # n = 100: fires for estimated P(qualify) in [0.22, 0.78], not near the band edges
+    for p, fires in ((0.10, False), (0.15, False), (0.21, False), (0.22, True), (0.50, True), (0.78, True),
+                     (0.79, False), (0.90, False)):
+        out = mu_swiss_extension_rule([_swiss_row("a", p, 100)], 100, "spread", {}, rule)
+        assert out["extend"] is fires, p
+        assert out["rule_can_trigger_at_n"] is True
+    out = mu_swiss_extension_rule([_swiss_row("a", 0.5, 100), _swiss_row("b", 1.0, 100)], 100, "spread", {}, rule)
+    assert out["decision_relevant_boundary_bots"] == ["a"] and out["extend"]
+    # no forced extension for probabilities already close to 0 or 1 (outside the band)
+    assert not mu_swiss_extension_rule([_swiss_row("x", 0.05, 100)], 100, "spread", {}, rule)["extend"]
+    # n = 200 (the approved ceiling): cannot fire again
+    out200 = mu_swiss_extension_rule([_swiss_row("a", 0.5, 200)], 200, "spread", {}, rule)
+    assert not out200["extend"] and out200["rule_can_trigger_at_n"] is False
+
+
+def test_mu_swiss_rule_keeps_crowded_exclusion():
+    rule = RULES["mu_swiss"]
+    crowd = mu_swiss_extension_rule([_swiss_row("c", 0.5, 100), _swiss_row("o", 0.95, 100)], 100, "crowded_cutoff",
+                                    {"crowd_ids": ["c"]}, rule)
+    assert not crowd["extend"] and crowd["excluded_designed_crowd"] == ["c"]
+    assert crowd["decision_relevant_boundary_bots"] == []
+    other = mu_swiss_extension_rule([_swiss_row("c", 0.5, 100), _swiss_row("d", 0.5, 100)], 100, "crowded_cutoff",
+                                    {"crowd_ids": ["c"]}, rule)
+    assert other["extend"] and list(other["flagged"]) == ["d"]  # a non-crowd boundary bot still counts
 
 
 def test_matrix_rule_flags_cells_not_everything():

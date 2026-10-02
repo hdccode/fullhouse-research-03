@@ -292,15 +292,17 @@ automatically. Full statement: `paper/FHR3B_SCOPE.md`.
 | stage | extend if |
 |---|---|
 | `mu_field` spread | P(same top-6) < 0.95, or P(rank-6/7 reversal) > 0.05 |
-| `mu_field` crowded_cutoff | a designed leader has P(top-6) < 0.95, or a bot outside leaders + designed crowd has P(top-6) > 0.10. Reordering inside ranks 4–15 is never a reason. |
+| `mu_field` crowded_cutoff | a designed leader (manifest `top_ids`) has P(top-6) < 0.95, or a bot in neither the designed leaders nor the designed ranks-4–15 crowd (manifest `crowd_ids`) has P(top-6) > 0.10. Defined on the manifest, not on numeric ranks, so leaders are never "outside". Reordering inside the crowd is never a reason. |
 | `mu_field` style_diverse | a point-rank 1–4 bot has P(top-6) < 0.90, or a point-rank ≥ 10 bot has P(top-6) > 0.10 |
-| matrix cell 50 → 100 | 95% CI half-width > 0.30 for E[changed qualifiers] or E[top-6 overlap], or a paired contrast CI spans both ±0.25 qualifiers. Only that cell; regret CIs are reported only. |
-| `mu_swiss` field 100 → 200 | a decision-relevant boundary bot (P(qualify) in [0.10, 0.90]; crowded_cutoff's designed crowd excluded) has a Wilson half-width > 0.10, or reference uncertainty prevents interpretation (reviewed judgement) |
+| matrix cell 50 → 100 | 95% CI half-width > 0.30 for E[changed qualifiers] or E[top-6 overlap], or a paired contrast CI spans both ±0.25 qualifiers. Only that cell. Qualification regret may affect interpretation but never independently triggers an extension. |
+| `mu_swiss` field 100 → 200 | a decision-relevant boundary bot (P(qualify) in [0.10, 0.90]; crowded_cutoff's designed crowd excluded) has a Wilson half-width > 0.08, or reference uncertainty prevents interpretation (reviewed judgement) |
 
-**Open point.** At n = 100 the largest possible 95% Wilson half-width is 0.096, at
-P(qualify) = 0.5. The first `mu_swiss` clause therefore cannot fire after the 100-tournament run.
-The analysis reports this (`rule_can_trigger_at_n: false`), and the threshold has been left as
-stated pending review.
+**Threshold correction.** The `mu_swiss` threshold was corrected from 0.10 to 0.08 on 2026-10-01,
+before any run, because 0.10 exceeds the n = 100 maximum Wilson half-width of 0.096.
+
+* At 0.08 the clause fires for estimated P(qualify) in about [0.22, 0.78].
+* At n = 200 (maximum 0.069) it cannot fire again.
+* The analysis reports `rule_can_trigger_at_n`.
 
 ## 6b. Field diversity
 

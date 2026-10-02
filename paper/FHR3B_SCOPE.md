@@ -285,11 +285,13 @@ automatically.
 | field | extend to 500 if either holds |
 |---|---|
 | `spread` | P(same top-6 set) < 0.95, or P(rank-6/7 reversal) > 0.05 |
-| `crowded_cutoff` | any of the 3 designed leaders has P(top-6) < 0.95, or any bot outside the leaders and the designed crowd (ranks 4–15) has P(top-6) > 0.10 |
+| `crowded_cutoff` | any of the 3 designed leaders (manifest `top_ids`) has P(top-6) < 0.95, or any bot in **neither** the designed leaders **nor** the designed ranks-4–15 crowd (manifest `crowd_ids`) has P(top-6) > 0.10 |
 | `style_diverse` | any point-rank 1–4 bot has P(top-6) < 0.90, or any point-rank ≥ 10 bot has P(top-6) > 0.10 |
 
-In `crowded_cutoff`, reordering inside ranks 4–15, or an unstable top-6 identity, is never a
-reason to extend.
+The `crowded_cutoff` rule is defined on the manifest structure, not on numeric ranks. "Outside"
+means outside both designed sets; a literal "outside ranks 4–15" would wrongly include the three
+leaders. Reordering inside the designed crowd, or an unstable top-6 identity, is never a reason to
+extend.
 
 **Main matrix 50 → 100 tournaments, per unique cell.** Flag a cell if either holds:
 
@@ -297,21 +299,26 @@ reason to extend.
   above 0.30;
 * a paired contrast it takes part in has a CI spanning both −0.25 and +0.25 qualifiers.
 
-Mean qualification regret CIs are reported, but no regret threshold was pre-registered. Only the
+Qualification regret stays a primary reported, strength-sensitive diagnostic and may affect
+interpretation. It never independently triggers a compute extension: no common absolute BB/match
+tolerance is defensible across `spread`, `crowded_cutoff` and `style_diverse`. Only the
 flagged cells are extended, never every cell. Extensions append replicates 50–99 and leave the
 first 50 byte-for-byte unchanged.
 
 **`mu_swiss` 100 → 200 tournaments, per field.** Extend a field if either holds:
 
 * a decision-relevant boundary bot (P(qualify) in [0.10, 0.90]) has a 95% Wilson half-width
-  above 0.10. In `crowded_cutoff`, the designed near-equal crowd is not decision-relevant for
+  above **0.08**. In `crowded_cutoff`, the designed near-equal crowd is not decision-relevant for
   this rule.
 * reference uncertainty prevents interpretation of the main results. This is a reviewed
   judgement, and its reason is recorded.
 
-**Note.** At n = 100 the largest possible Wilson half-width is 0.096, so the first clause cannot
-fire at 100 tournaments. The rule is recorded as stated. Whether it should be re-expressed is an
-open decision (`docs/fhr3b/FHR4_CORE.md`).
+**Threshold correction.** The threshold was corrected from 0.10 to 0.08 on 2026-10-01, before
+any run. At n = 100 the largest possible Wilson half-width is 0.096, so 0.10 could never fire.
+
+* At 0.08 the clause fires for estimated P(qualify) in about [0.22, 0.78].
+* It does not force extension for probabilities already near 0 or 1.
+* At n = 200 (maximum 0.069) it cannot fire again.
 
 ## Match semantics
 

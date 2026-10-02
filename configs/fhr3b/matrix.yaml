@@ -134,9 +134,11 @@ core_fhr4:
       spread:                        # extend if either holds
         p_same_top_k_set_below: 0.95
         p_rank6_rank7_reversal_above: 0.05
-      crowded_cutoff:                # NOT for reordering inside the designed crowd (ranks 4-15)
+      crowded_cutoff:                # defined on the MANIFEST structure, not on numeric ranks; NOT for
+                                     # reordering inside the designed crowd
         leader_p_top_k_below: 0.95   # any of the 3 designed leaders (construction.top_ids)
-        outside_p_top_k_above: 0.10  # any bot outside leaders + designed crowd (construction.crowd_ids)
+        outside_p_top_k_above: 0.10  # any bot in NEITHER set: not a designed leader (top_ids) and not in the
+                                     # designed ranks-4-15 crowd (crowd_ids); leaders are never "outside"
       style_diverse:                 # a perfectly certain top six is not required
         top_ranks: 4                 # point-estimate ranks 1..4 with P(top-6) below:
         top_p_top_k_below: 0.90
@@ -145,11 +147,14 @@ core_fhr4:
     matrix:                          # 50 -> 100 tournaments, per unique cell / contrast (never all cells)
       qualifier_half_width_above: 0.30   # 95% MC CI half-width of E[changed qualifiers] or E[top-6 overlap]
       contrast_inconclusive_span: 0.25   # paired contrast CI spans both -0.25 and +0.25 qualifiers
-      regret: report_only            # mean qualification regret CI reported; no regret threshold pre-registered
+      regret: report_only            # primary reported diagnostic; may affect interpretation but never
+                                     # independently triggers an extension (no common BB/match tolerance
+                                     # is defensible across the three fields)
     mu_swiss:                        # 100 -> 200 tournaments, per field
       p_qualify_band: [0.10, 0.90]   # decision-relevant boundary bots (crowded_cutoff: designed crowd excluded)
-      half_width_above: 0.10         # 95% Wilson half-width. NB: at n = 100 the maximum possible is 0.096,
-                                     # so this clause cannot fire at 100 reps (see FHR4_CORE.md section 6)
+      half_width_above: 0.08         # 95% Wilson half-width (corrected 2026-10-01 before any run: the former
+                                     # 0.10 could never fire at n = 100, max 0.096). At n = 100 it fires for
+                                     # P(qualify) in [0.22, 0.78]; at n = 200 (max 0.069) it cannot fire again
       manual_clause: reference uncertainty prevents interpretation of the main tournament results
   throughput:                        # planning only (fhr3b core plan); measured, see docs/fhr3b/FHR4_CORE.md
     nlhe6_hands_per_s_8_workers: 4260    # steady state of the 8-worker NLHE6 pool calibration (2026-10-01)
