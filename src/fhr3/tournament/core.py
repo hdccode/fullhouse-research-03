@@ -81,6 +81,33 @@ def check_scope(prof: Profile, cfg: dict[str, Any] | None = None) -> None:
             prof.field(mode, field)  # frozen + not revoked + manifest hash matches
 
 
+def held_fields(prof: Profile) -> dict[str, dict[str, Any]]:
+    """Core fields on HOLD (FROZEN.yaml ``held``): readable for provenance, never simulated further."""
+    import yaml
+
+    if prof.name != "publication":
+        return {}
+    reg = prof.config_root / "fields" / "FROZEN.yaml"
+    held = (yaml.safe_load(reg.read_text()).get("held") or {}) if reg.exists() else {}
+    cfg = core_config(prof)
+    return {r["field"]: dict(r) | {"field_hash": h} for h, r in held.items()
+            if r["mode"] in cfg["modes"] and r["field"] in cfg["fields"]
+            and prof.frozen_hash(r["mode"], r["field"]) == h}
+
+
+def resolve_fields(prof: Profile, fields: list[str] | None, allow_held: bool = False) -> list[str]:
+    """Requested core fields; the default is the ACTIVE fields. A held field is refused unless
+    ``allow_held`` (read-only uses such as the diversity table or the cell definition itself)."""
+    held = held_fields(prof)
+    if fields is None:
+        return [f for f in core_config(prof)["fields"] if f not in held]
+    bad = [f for f in fields if f in held]
+    if bad and not allow_held:
+        raise CoreScopeError(f"{bad} on HOLD ({', '.join(held[f]['status'] for f in bad)}): no further simulation; "
+                             f"see {held[bad[0]]['provenance']}")
+    return list(fields)
+
+
 def core_field_rounds(prof: Profile) -> int:
     """mu_field matched rounds for the core: the core-scoped 250 (publication) or the profile's own (smoke)."""
     if prof.name == "publication":
@@ -122,12 +149,17 @@ def _experiment_cells(prof: Profile, mode: str, field: str, j: int) -> list[tupl
     return out
 
 
-def core_cells(prof: Profile, fields: list[str] | None = None, keys: list[str] | None = None) -> list[CoreCell]:
-    """The deduplicated core cells, ordered by cell key then field (all baselines run first)."""
+def core_cells(prof: Profile, fields: list[str] | None = None, keys: list[str] | None = None,
+               allow_held: bool = False) -> list[CoreCell]:
+    """The deduplicated core cells, ordered by cell key then field (all baselines run first).
+
+    Default fields are the active ones; held fields (FROZEN.yaml ``held``) are refused unless
+    ``allow_held`` (cell definition / read-only use).
+    """
     cfg = core_config(prof)
     mx = load_matrix(prof.config_root)
     j = int(mx["experiments"]["frozen_schedule"]["replays_per_source"])
-    fields = list(fields or cfg["fields"])
+    fields = list(fields) if fields and prof.name != "publication" else resolve_fields(prof, fields, allow_held)
     by_field: dict[tuple[str, str], dict[str, CoreCell]] = {}
     for mode in cfg["modes"]:
         for field in fields:
@@ -263,7 +295,8 @@ def build_plan(prof: Profile, root: Path, *, workers: int = 8, rate: float | Non
     reps = replicates if replicates is not None else range(init_reps)
     mu_init = core_field_rounds(prof)
     mu_rounds = int(mu_field_rounds or mu_init)
-    fields = list(fields or cfg["fields"])
+    held = held_fields(prof)
+    fields = list(fields) if fields and prof.name != "publication" else resolve_fields(prof, fields)
     root = Path(root)
 
     # mu_field (matched field reference)
@@ -392,6 +425,7 @@ def build_plan(prof: Profile, root: Path, *, workers: int = 8, rate: float | Non
     return {
         "study": cfg["public_name"], "profile": prof.name, "results_root": str(root),
         "scope": {"modes": list(cfg["modes"]), "fields": {f: cfg["fields"].get(f) for f in fields},
+                  "held": {f: {"field_hash": r["field_hash"], "status": r["status"]} for f, r in held.items()},
                   "unique_cells_per_field": list(CORE_CELL_KEYS), "round_prefixes": list(cfg["round_prefixes"]),
                   "R0": prof.r0, "H0": prof.h0, "K": prof.k, "N": prof.field_size,
                   "horizon_extensions": cfg["horizon_extensions"], "out_of_scope": list(cfg["out_of_scope"])},
@@ -414,6 +448,8 @@ def format_plan(plan: dict[str, Any]) -> str:
     sc, a, t = plan["scope"], plan["assumptions"], plan["totals"]
     out = [f"{plan['study']} core plan (profile {plan['profile']}; root {plan['results_root']}) -- NO simulation",
            f"modes {sc['modes']}  fields {sc['fields']}",
+           *([f"HOLD (not simulated): " + ", ".join(f"{f} {r['field_hash']} [{r['status']}]"
+                                                    for f, r in sc["held"].items())] if sc.get("held") else []),
            f"R0={sc['R0']} H0={sc['H0']} K={sc['K']} N={sc['N']}  A prefixes {sc['round_prefixes']}  "
            f"horizon extensions enabled={sc['horizon_extensions']['enabled']}",
            f"throughput {a['hands_per_s']:.0f} hands/s on {a['workers']} workers",

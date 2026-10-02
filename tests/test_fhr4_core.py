@@ -40,7 +40,7 @@ def pub():
 
 @pytest.fixture(scope="module")
 def cells(pub):
-    return core.core_cells(pub)
+    return core.core_cells(pub, list(CORE_FIELDS), allow_held=True)  # the 18-cell definition (spread held)
 
 
 # ------------------------------------------------------------------ scope
@@ -133,36 +133,42 @@ def test_calibration_ids_unchanged_by_the_250_round_scope(pub):
 
 
 # ------------------------------------------------------------------ accounting / plan
+ACTIVE = ["crowded_cutoff", "style_diverse"]  # spread on HOLD (retired_spread_selection_bias)
+
+
 def test_plan_accounting(pub, tmp_path):
-    plan = core.build_plan(pub, tmp_path)
+    plan = core.build_plan(pub, tmp_path)  # default = the ACTIVE fields
     assert plan["simulates"] is False and not any(tmp_path.iterdir())  # planning writes nothing
+    assert list(plan["scope"]["fields"]) == ACTIVE
+    assert plan["scope"]["held"] == {"spread": {"field_hash": "ff0f2b07fc210f62",
+                                                "status": "retired_spread_selection_bias"}}
     fr = plan["field_reference"]
-    assert [r["calib_id"] for r in fr] == list(CORE_CALIB_IDS.values())
+    assert [r["calib_id"] for r in fr] == [CORE_CALIB_IDS[f] for f in ACTIVE]
     for r in fr:  # 250 rounds x 10 tables x 6 lanes x 400 hands
         assert (r["matched_rounds_to_run"], r["lanes"], r["tables_per_round"]) == (250, 6, 10)
         assert r["scheduled_hands_to_run"] == 6_000_000 and r["stage"] == "initial"
     rows = plan["matrix"]
-    assert len(rows) == 18 and all(r["to_run"] == 50 and r["replicates"] == [0, 50] for r in rows)
-    per = {r["cell"]: r["scheduled_hands_per_tournament"] for r in rows if r["field"] == "spread"}
+    assert len(rows) == 12 and all(r["to_run"] == 50 and r["replicates"] == [0, 50] for r in rows)
+    per = {r["cell"]: r["scheduled_hands_per_tournament"] for r in rows if r["field"] == "crowded_cutoff"}
     assert per == {"baseline": 160_000, "budget_half_rounds": 160_000, "budget_quarter_rounds": 160_000,
                    "frozen_schedule": 160_000, "dup_fewer_rounds": 168_000, "dup_shorter_matches": 160_800}
     work = {r["cell"]: (r["scheduled_work_ratio_vs_baseline"], r["exact_equal_scheduled_work"]) for r in rows
-            if r["field"] == "spread"}
+            if r["field"] == "crowded_cutoff"}
     assert work["dup_fewer_rounds"] == (1.05, False) and work["dup_shorter_matches"] == (1.005, False)
-    t = plan["totals"]
-    assert t["mu_field"]["scheduled_hands"] == 18_000_000
-    assert t["matrix"]["scheduled_hands"] == 145_320_000 and t["matrix"]["tournaments"] == 900
-    assert t["mu_field_plus_matrix"]["scheduled_hands"] == 163_320_000
-    assert t["mu_swiss"]["scheduled_hands"] == 48_000_000 and t["mu_swiss"]["tournaments"] == 300
-    assert t["programme"]["scheduled_hands"] == 211_320_000
+    t = plan["totals"]  # per field unchanged: 6M mu_field, 48.44M matrix, 16M mu_swiss
+    assert t["mu_field"]["scheduled_hands"] == 12_000_000
+    assert t["matrix"]["scheduled_hands"] == 96_880_000 and t["matrix"]["tournaments"] == 600
+    assert t["mu_field_plus_matrix"]["scheduled_hands"] == 108_880_000
+    assert t["mu_swiss"]["scheduled_hands"] == 32_000_000 and t["mu_swiss"]["tournaments"] == 200
+    assert t["programme"]["scheduled_hands"] == 140_880_000
     assert t["programme"]["slow_rate_wall_h_ideal"] == pytest.approx(t["programme"]["wall_h_ideal"] * 4260 / 1289)
     sw = plan["swiss_reference"]
-    assert sw["enabled"] is True and {r["field"]: r["cell_id"] for r in sw["rows"]} == SWISS_IDS
+    assert sw["enabled"] is True and {r["field"]: r["cell_id"] for r in sw["rows"]} == {f: SWISS_IDS[f] for f in ACTIVE}
     assert all(r["replicates"] == [0, 100] and r["stage"] == "initial" for r in sw["rows"])
     frozen = [r for r in rows if r["cell"] == "frozen_schedule"]
     assert all(r["replays_per_source"] == 1 and r["replicates"] == [0, 50] for r in frozen)
     assert {n: o["scheduled_hands"] for n, o in plan["swiss_reference"]["options"].items()} == {
-        "50": 24_000_000, "100": 48_000_000, "200": 96_000_000}
+        "50": 16_000_000, "100": 32_000_000, "200": 64_000_000}
 
 
 def test_plan_reports_extensions(pub, tmp_path):
@@ -178,7 +184,7 @@ def test_cli_plan_runs_no_simulation(tmp_path, capsys):
     assert main(["core", "plan", "--root", str(tmp_path / "r"), "--json", str(out)]) == 0
     assert "NO simulation" in capsys.readouterr().out
     plan = json.loads(out.read_text())
-    assert plan["totals"]["programme"]["scheduled_hands"] == 211_320_000
+    assert plan["totals"]["programme"]["scheduled_hands"] == 140_880_000
     assert not (tmp_path / "r").exists()
 
 
@@ -399,3 +405,45 @@ def test_swiss_reference_outputs(tmp_path):
     before = (tournament_dir(tmp_path, cell, 0) / "manifest.json").read_bytes()
     assert run_cell(cell, tmp_path, range(6), progress=False)["ran"] == 2
     assert (tournament_dir(tmp_path, cell, 0) / "manifest.json").read_bytes() == before
+
+
+# ------------------------------------------------------------------ retired spread: HOLD
+def test_spread_is_held_with_provenance(pub):
+    import yaml
+
+    repo = Path(__file__).resolve().parents[1]
+    assert core.held_fields(pub) == {"spread": core.held_fields(pub)["spread"]}
+    rec = core.held_fields(pub)["spread"]
+    assert rec["status"] == "retired_spread_selection_bias" and rec["field_hash"] == "ff0f2b07fc210f62"
+    assert core.resolve_fields(pub, None) == ["crowded_cutoff", "style_diverse"]
+    with pytest.raises(core.CoreScopeError, match="HOLD"):
+        core.resolve_fields(pub, ["spread"])
+    assert core.resolve_fields(pub, ["spread"], allow_held=True) == ["spread"]  # read-only uses
+    arch = repo / "configs/fhr3b/fields/retired/spread-selection-bias"
+    assert (arch / "nlhe6/spread.json").read_bytes() == (repo / "configs/fhr3b/fields/nlhe6/spread.json").read_bytes()
+    assert "retired_spread_selection_bias" in (arch / "README.md").read_text()
+    frozen = yaml.safe_load((repo / "configs/fhr3b/fields/FROZEN.yaml").read_text())
+    assert frozen["fields"]["nlhe6"]["spread"] == "ff0f2b07fc210f62"  # still a valid, readable manifest
+    assert "ff0f2b07fc210f62" not in frozen["revoked"]["hashes"]  # held, not revoked
+    assert pub.field("nlhe6", "spread").field_hash == "ff0f2b07fc210f62"
+    assert (repo / "reports/fhr3b/field-calibration/nlhe6/nlhe6-spread/reference.json").exists()
+
+
+@pytest.mark.parametrize("argv", [
+    ["core", "field-reference", "--fields", "spread", "--rounds", "500", "--extend"],
+    ["core", "matrix", "--fields", "spread"],
+    ["core", "swiss-reference", "--fields", "spread"],
+    ["calibrate", "--stage", "field", "--modes", "nlhe6", "--fields", "spread", "--rounds", "500", "--extend"],
+    ["run", "--experiment", "baseline", "--fields", "spread", "--replicates", "1"],
+    ["run", "--experiment", "duplicate-play", "--fields", "spread", "--replicates", "1"],
+])
+def test_held_spread_is_never_simulated(tmp_path, argv):
+    with pytest.raises(SystemExit, match="HOLD"):
+        main(argv + ["--root", str(tmp_path)])
+    assert not any(tmp_path.iterdir())
+
+
+def test_extension_commands_target_only_the_two_active_fields(pub, tmp_path):
+    plan = core.build_plan(pub, tmp_path, mu_field_rounds=500)
+    assert [(r["field"], r["matched_rounds_target"], r["stage"]) for r in plan["field_reference"]] == [
+        ("crowded_cutoff", 500, "extension"), ("style_diverse", 500, "extension")]

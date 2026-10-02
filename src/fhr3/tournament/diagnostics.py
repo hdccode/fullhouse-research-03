@@ -174,10 +174,12 @@ def archetype_cycle_test(groups: Sequence[Any], archetype_of: Sequence[str], rng
 
 
 # ------------------------------------------------------------------ reference ranking robustness
-def reference_rank_diagnostics(mu: np.ndarray, boot_mu: np.ndarray, k: int) -> dict[str, Any]:
-    """Ranking / cutoff robustness of a reference from a JOINT round-group bootstrap.
+def reference_rank_diagnostics(mu: np.ndarray, boot_mu: np.ndarray, k: int,
+                               unit: str = "round-level joint bootstrap") -> dict[str, Any]:
+    """Ranking / cutoff robustness of a reference from a JOINT bootstrap.
 
-    ``boot_mu`` (B x P) must come from resampling round groups with one weight vector for
+    ``boot_mu`` (B x P) must come from resampling independent units (mu_field: one matched round;
+    mu_swiss: one tournament) with one weight vector for
     the whole bot vector (cross-bot covariance kept). Per-bot rank intervals and top-k
     probabilities are diagnostics of the ordering, not independent per-bot inferences.
     """
@@ -205,5 +207,5 @@ def reference_rank_diagnostics(mu: np.ndarray, boot_mu: np.ndarray, k: int) -> d
         "per_bot": {"rank_lo95": np.quantile(ranks, 0.025, axis=0).tolist(),
                     "rank_hi95": np.quantile(ranks, 0.975, axis=0).tolist(),
                     "p_top_k": in_top.mean(0).tolist()},
-        "role": "ranking/gap robustness from a joint round-group bootstrap; primary per-bot SE is analytic",
+        "role": f"ranking/gap robustness from a {unit}; primary per-bot SE is analytic",
     }

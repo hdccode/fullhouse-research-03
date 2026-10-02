@@ -307,3 +307,89 @@ def test_field_diversity_table(tmp_path):
     assert f["spread"]["near_duplicate_pairs"] == 0 and f["style_diverse"]["near_duplicate_pairs"] == 0
     committed = json.loads((REPO / "reports/fhr3b/field-calibration/nlhe6/field_diversity.json").read_text())
     assert json.loads(json.dumps(res, sort_keys=True)) == committed  # committed table is reproducible
+
+
+# ------------------------------------------------------------------ spread_v2: split-sample selection
+POOL_ID = "nlhe6.nlhe6-pool.H400.pool-calibration.aadd073b"
+HAVE_POOL = (REPO / "results/fhr3b/calibration" / POOL_ID / "chunks").exists()
+
+
+def test_spread_v2_protocol_is_preregistered():
+    from fhr3.tournament import spread_v2
+
+    prof = load_profile("publication")
+    p = spread_v2.protocol(prof)
+    assert p["replaces"] == "ff0f2b07fc210f62" and p["pool_calibration"] == POOL_ID
+    assert p["split"] == {"rule": "round_parity", "selection": "even", "validation": "odd"}
+    assert p["attempts"] == 1
+    v = p["validation"]
+    assert (v["p_leaders_are_top6_at_least"], v["nonleader_p_top6_at_most"], v["resamples"]) == (0.95, 0.05, 2000)
+    s = p["selection"]
+    assert (s["n"], s["k"], s["leader_near_dup"], s["leader_archetype_cap"], s["separation_se"]) == (60, 6, 0.15, 3, 3.0)
+
+
+def test_spread_v2_fresh_reference_seed_is_scoped():
+    prof = load_profile("publication")
+    assert prof.field_seed_family("spread_v2") == "fhr3b-2026-spread-v2"
+    for f in ("spread", "crowded_cutoff", "style_diverse"):
+        assert prof.field_seed_family(f) == prof.seed_family  # existing references untouched
+
+
+@pytest.mark.skipif(not HAVE_POOL, reason="NLHE6 pool calibration not present")
+def test_spread_v2_split_is_disjoint_and_complete():
+    from fhr3.tournament import spread_v2
+
+    prof = load_profile("publication")
+    _, sel, val = spread_v2._halves(REPO / "results/fhr3b", prof, "nlhe6")
+    rs = {int(t.column("round")[0].as_py()) for t in sel}
+    rv = {int(t.column("round")[0].as_py()) for t in val}
+    assert len(rs) == len(rv) == 1000 and not rs & rv and rs | rv == set(range(2000))
+    assert all(r % 2 == 0 for r in rs) and all(t.num_rows == 96 for t in sel + val)  # every bot, every round
+
+
+@pytest.mark.skipif(not HAVE_POOL, reason="NLHE6 pool calibration not present")
+def test_spread_v2_selection_never_reads_the_validation_half(tmp_path, monkeypatch):
+    import shutil
+
+    from fhr3.tournament import spread_v2
+
+    prof = load_profile("publication")
+    beh = tmp_path / "field-calibration/nlhe6"
+    beh.mkdir(parents=True)
+    shutil.copy(REPO / "reports/fhr3b/field-calibration/nlhe6/behaviour.csv", beh / "behaviour.csv")
+    a = spread_v2.select(REPO / "results/fhr3b", prof, tmp_path)
+    real = spread_v2._halves
+
+    def poisoned(root, p, mode):
+        spec, sel, val = real(root, p, mode)
+        return spec, sel, None  # any read of the validation half would fail
+    monkeypatch.setattr(spread_v2, "_halves", poisoned)
+    b = spread_v2.select(REPO / "results/fhr3b", prof, tmp_path)
+    assert a["candidate"] == b["candidate"] and a["log"] == b["log"]
+    assert a["leader_checks"]["near_duplicate_pairs"] == 0 and a["leader_checks"]["max_per_archetype"] <= 3
+    assert a["non_leaders"]["n"] == 54 and len(a["leaders"]) == 6 and a["candidate"]["frozen"] is False
+
+
+def test_spread_v2_validation_is_single_attempt_and_protocol_locked(tmp_path):
+    from fhr3.tournament import spread_v2
+
+    prof = load_profile("publication")
+    d = spread_v2.out_dir(tmp_path)
+    d.mkdir(parents=True)
+    (d / "selection.json").write_text(json.dumps({"protocol_hash": "not-this-protocol"}))
+    with pytest.raises(ValueError, match="different protocol"):
+        spread_v2.validate(REPO / "results/fhr3b", prof, tmp_path)
+    (d / "selection.json").write_text(json.dumps({"protocol_hash": spread_v2.protocol_hash(prof)}))
+    (d / "validation.json").write_text("{}")
+    with pytest.raises(ValueError, match="one validation attempt"):
+        spread_v2.validate(REPO / "results/fhr3b", prof, tmp_path)
+
+
+def test_bootstrap_unit_wording_is_round_level():
+    from fhr3.tournament.diagnostics import reference_rank_diagnostics
+
+    d = reference_rank_diagnostics(np.array([3.0, 2, 1]), np.array([[3.0, 2, 1]] * 3), 1)
+    assert "round-level joint bootstrap" in d["role"] and "round-group" not in d["role"]
+    for doc in ("src/fhr3/tournament/diagnostics.py", "docs/fhr3b/FIELDS.md", "docs/fhr3b/FHR4_CORE.md",
+                "paper/FHR3B_SCOPE.md"):
+        assert "round-group" not in (REPO / doc).read_text(), doc

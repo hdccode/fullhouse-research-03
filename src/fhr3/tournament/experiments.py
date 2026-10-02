@@ -192,10 +192,21 @@ class Profile:
                 raise ValueError("field-reference calibration needs a field")
             fm = self.field(mode, field)
             c, ns = self.calibration["field_reference"], self.namespaces["field_reference"]
+            fam = self.field_seed_family(field)
+            return CalibrationSpec(m, fm, self.h0, m.stack_policy, fam, ns, int(c["chunk_rounds"]),
+                                   match_format=str(c.get("match_format", "ordinary")))
         else:
             raise ValueError("stage must be 'pool' or 'field'")
         return CalibrationSpec(m, fm, self.h0, m.stack_policy, self.seed_family, ns, int(c["chunk_rounds"]),
                                match_format=str(c.get("match_format", "ordinary")))
+
+    def field_seed_family(self, field: str) -> str:
+        """Seed family of a field reference: the profile's, except for a field given a FRESH reference seed
+        (core_fhr4.spread_v2.fresh_reference): its mu_field is then independent of every other reference."""
+        sv = (load_matrix(self.config_root).get("core_fhr4") or {}).get("spread_v2") or {}
+        if self.name == "publication" and sv and field == sv.get("field_name"):
+            return str(sv["fresh_reference"]["seed_family"])
+        return self.seed_family
 
     def calibration_rounds(self, stage: str, mode: str | None = None) -> int:
         """Configured rounds. ``matched_rounds`` is taken as is; an ordinary-equivalent ``rounds`` for a

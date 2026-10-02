@@ -156,6 +156,41 @@ core_fhr4:
                                      # 0.10 could never fire at n = 100, max 0.096). At n = 100 it fires for
                                      # P(qualify) in [0.22, 0.78]; at n = 200 (max 0.069) it cannot fire again
       manual_clause: reference uncertainty prevents interpretation of the main tournament results
+  spread_v2:                         # corrected spread selector (split-sample). PRE-REGISTERED 2026-10-02 BEFORE
+                                     # the validation half was read. Produces a CANDIDATE; freezing is a human
+                                     # decision. Code: src/fhr3/tournament/spread_v2.py (`fhr3b core spread-v2`).
+    replaces: ff0f2b07fc210f62       # retired_spread_selection_bias (FROZEN.yaml held)
+    field_name: spread_v2            # field id nlhe6-spread_v2, kind spread -> new field hash
+    pool_calibration: nlhe6.nlhe6-pool.H400.pool-calibration.aadd073b   # 2000 independent rounds, 96 bots
+    split: {rule: round_parity, selection: even, validation: odd}        # 1000 rounds / 1000 matches per bot each
+    selection:                       # uses the SELECTION half only
+      n: 60
+      k: 6
+      leader_near_dup: 0.15          # leaders: walk down selection-half mu; no near-duplicate leaders,
+      leader_archetype_cap: 3        # at most 3 leaders per archetype (selection v2 leader rule)
+      separation_se: 3.0             # eligible non-leaders: mu_b <= mu_L6 - separation_se * sqrt(se_L6^2 + se_b^2)
+      relax_step: 0.25               # if fewer than n - k eligible: lower separation_se by this step (every step logged)
+      relax_floor: 1.0
+      thinning: min_parameter_distance   # eligible surplus removed one at a time: the bot with the smallest minimum
+                                     # parameter distance to the rest (most redundant) goes first, never the last bot
+                                     # of a style or archetype among non-leaders; ties by bot_id. Near-duplicates
+                                     # among NON-leaders are allowed (only leaders must be near-duplicate free).
+    validation:                      # uses the VALIDATION half only; pass/fail, never optimised or re-tuned
+      bootstrap: round-level joint   # one weight vector over validation rounds for all bots
+      resamples: 2000
+      seed: 20261002
+      require_point_top6_equals_leaders: true
+      p_leaders_are_top6_at_least: 0.95    # = one-sided 95% lower bound of G = min(leaders) - max(non-leaders) > 0
+      nonleader_p_top6_at_most: 0.05       # no non-leader has a credible claim (> 5%) to a top-6 slot
+      context_note: "pool-context estimates (opponents drawn from the 96-bot pool); the fresh field-relative mu_field
+        reference is the definitive check under the pre-registered spread rule"
+    attempts: 1                      # ONE primary candidate. On failure: stop and report; no re-selection or
+                                     # re-validation on the same validation half.
+    fresh_reference:                 # only after a human freeze
+      seed_family: fhr3b-2026-spread-v2    # fresh seed: independent of the pool calibration, of the retired spread
+                                     # reference and of the other field references (no CRN coupling with them)
+      matched_rounds_initial: 250
+      extension_rule: spread         # the pre-registered core_fhr4.extension_rules.mu_field.spread rule
   throughput:                        # planning only (fhr3b core plan); measured, see docs/fhr3b/FHR4_CORE.md
     nlhe6_hands_per_s_8_workers: 4260    # steady state of the 8-worker NLHE6 pool calibration (2026-10-01)
     nlhe6_hands_per_s_8_workers_slow: 1289   # same run end to end, incl. two machine stalls (pessimistic)

@@ -55,10 +55,11 @@ Stages:
 
 1. **Pool calibration.** Namespace `pool-calibration`, 2,000 rounds.
 2. **Field reference.** Namespace `field-reference`, inside each frozen field. Matched (k-lane
-   duplicate) play at 3,000 ordinary-equivalent rounds: 750 × 4 lanes (AoF4/NLHE4), 500 × 6 lanes
-   (NLHE6). Reported `mu_field = mean(lane_sum) / k` (ordinary-match scale; raw
-   `mu_field_lane_sum` kept). Primary SE analytic; joint round-group bootstrap (10-round groups)
-   for ranking/gap robustness only. Per-lane outcomes persisted and validated. All field
+   duplicate) play. FHR #4 core: NLHE6 only, 250 matched rounds (6 lanes) per field initially.
+   (The earlier 3,000 ordinary-equivalent plan is superseded.) Reported
+   `mu_field = mean(lane_sum) / k` (ordinary-match scale; raw `mu_field_lane_sum` kept). Primary
+   SE analytic; a round-level joint bootstrap (unit = one matched round) feeds the ranking, gap and
+   reference-uncertainty diagnostics. Per-lane outcomes persisted and validated. All field
    references share one seed (common random numbers): cross-field estimates are correlated.
    Plan: `FIELD_REFERENCE_PLAN.md`.
 

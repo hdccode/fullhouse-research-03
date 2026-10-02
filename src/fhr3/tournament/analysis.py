@@ -147,7 +147,7 @@ def swiss_reference(root: Path, prof: ex.Profile, mode: str, field: str,
     sc = a["final_score"].astype(float)
     ws = mt.bootstrap_weights(len(reps), n_boot, seed=20261004)
     boot = (ws @ sc) / ws.sum(1, keepdims=True)
-    diag = reference_rank_diagnostics(sc.mean(0), boot, a["K"])
+    diag = reference_rank_diagnostics(sc.mean(0), boot, a["K"], unit="tournament-level joint bootstrap")
     return {"bots": a["bots"], "mu": sc.mean(0), "se": sc.std(0, ddof=1) / np.sqrt(len(reps)),
             "mean_rank": a["final_rank"].mean(0), "p_qualify": a["qualified"].mean(0), "cell_id": cell.cell_id,
             "n": len(reps), "boot_mu": boot, "diag": diag, "p_top_k": np.asarray(diag["per_bot"]["p_top_k"]),
@@ -734,7 +734,7 @@ def swiss_reference_report(root: Path, cell: Cell, fr: dict | None, n_boot: int 
     ws = mt.bootstrap_weights(m, n_boot, seed=20261004)
     mu = sc.mean(0)
     boot_mu = (ws @ sc) / ws.sum(1, keepdims=True)
-    diag = reference_rank_diagnostics(mu, boot_mu, k)
+    diag = reference_rank_diagnostics(mu, boot_mu, k, unit="tournament-level joint bootstrap")
     q = mt.qualification_table(a["qualified"], a["bots"])
     rank = a["final_rank"]
     mu_rank = (-mu).argsort(kind="stable").argsort() + 1

@@ -227,6 +227,18 @@ contrast is therefore not the isolated effect of turning duplicate play on. The 
 **Work accounting.** Scheduled work ratio, actual hands played, recorded simulator wall-clock,
 qualification reliability and qualification regret are all reported.
 
+**Measured duplicate diagnostic** (the `mu_field` reference, 2026-10-02;
+`reports/fhr3b/field-calibration/nlhe6/MU_FIELD_AUDIT.md`). This is a scientific diagnostic, not
+an implementation failure:
+
+* six-lane duplicate precision is about 0.98 of six independent ordinary matches;
+* all comparable lanes share identical boards, as intended;
+* about 60% of bot-lanes bust;
+* trajectories diverge within the first few hands, so little card-luck variance cancels.
+
+Experiment D tests whether this carries through to qualifier reliability under practical
+tournament redesigns.
+
 **The fewer-rounds arm.** It is deliberately **7 × 400 × 6**, which is +5% scheduled work and
 flagged as a 1.05 ratio. It is not 7 × 381, because the arm keeps the standard 400-hand match
 object. Any per-compute comparison is made explicit from the recorded work.
@@ -338,7 +350,7 @@ defect in itself.
 
 | field | purpose |
 |---|---|
-| `spread` | broad strength distribution with a separated rank-6/rank-7 boundary |
+| `spread` | broad strength distribution with a separated rank-6/rank-7 boundary. The 2026-10-01 field (`ff0f2b07fc210f62`) is **retired** (`retired_spread_selection_bias`) and on HOLD at 250 rounds: its 16.8 BB pool gap was 0.71 BB under the independent reference. A replacement is selected and validated on disjoint halves of the pool calibration (`core_fhr4.spread_v2`); see `docs/fhr3b/FHR4_CORE.md` |
 | `crowded_cutoff` | several genuinely similar bots, of different strategies, straddling the boundary |
 | `style_diverse` | deliberate balance of observed style across strength strata |
 

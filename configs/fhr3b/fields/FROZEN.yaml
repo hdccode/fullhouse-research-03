@@ -21,6 +21,19 @@ fields:
     crowded_cutoff: afbffedfc3706d84
     style_diverse: ad7d6596ef1c8c3e
 
+# Held / retired fields: kept frozen and readable for provenance, but publication runs refuse to
+# simulate them (no matrix, no reference extension). Not revoked: the manifest itself is valid.
+held:
+  ff0f2b07fc210f62:
+    mode: nlhe6
+    field: spread
+    status: retired_spread_selection_bias
+    date: 2026-10-02
+    reason: "pool-calibration rank-6/7 gap 16.8 BB collapsed to 0.71 BB under the independent mu_field
+      reference (regression to the mean from selecting and measuring on the same pool estimates)"
+    evidence: reports/fhr3b/field-calibration/nlhe6/MU_FIELD_AUDIT.md
+    provenance: configs/fhr3b/fields/retired/spread-selection-bias/README.md
+
 # Revoked / invalid field and pool hashes: refused by publication and pilot runs even if re-listed above.
 revoked:
   reason: "heads-up-role bug in the FHR3A heuristic family (configs/fhr3b/fields/retired/hu-role-bug/README.md)"

@@ -94,6 +94,11 @@ def cells_for(args: argparse.Namespace) -> list[tuple[str, Any]]:
     modes = args.modes or E.get(key, {}).get("modes") or mx["primary_modes"]
     fields = args.fields or (list(prof.fields) if exp in ("baseline", "swiss-reference") else
                              E.get(key, {}).get("fields", list(prof.fields)))
+    if not args.fields and prof.name == "publication":  # default: active fields only (held fields skipped)
+        from fhr3.tournament.core import held_fields
+
+        held = held_fields(prof)
+        fields = [f for f in fields if f not in held]
     out = []
     for mode in modes:
         for field in fields:
@@ -153,6 +158,19 @@ def _guard_horizon(args: argparse.Namespace, prof: ex.Profile) -> None:
         raise SystemExit(f"--horizon {h} is a long-horizon extension ({hz['horizons']}), disabled by default "
                          f"(enabled: {hz['enabled']}). Run it only if the qualification metrics have not "
                          "stabilised at 40 rounds, with --extend.")
+
+
+def _guard_held(prof: ex.Profile, field_hashes: list[str]) -> None:
+    """Publication runs never simulate a field on HOLD (FROZEN.yaml ``held``)."""
+    import yaml
+
+    reg = prof.config_root / "fields" / "FROZEN.yaml"
+    held = (yaml.safe_load(reg.read_text()).get("held") or {}) if reg.exists() else {}
+    bad = sorted({h for h in field_hashes if h in held})
+    if prof.name == "publication" and bad:
+        r = held[bad[0]]
+        raise SystemExit(f"field {r['mode']}/{r['field']} ({bad[0]}) is on HOLD [{r['status']}]: no further "
+                         f"simulation. See {r['provenance']}.")
 
 
 def _guard_swiss_reference(prof: ex.Profile) -> None:
@@ -242,6 +260,7 @@ def cmd_calibrate(args: argparse.Namespace) -> int:
         for f in fields:
             spec = prof.calibration_spec(m, args.stage, f)
             if args.stage == "field":
+                _guard_held(prof, [spec.field.field_hash])
                 rounds = _field_rounds(args, prof, m)
                 _guard_field_rounds(args, prof, rounds, m)
             else:
@@ -324,6 +343,7 @@ def cmd_run(args: argparse.Namespace) -> int:
     _guard_horizon(args, prof)
     cells = cells_for(args)
     _guard_modes(args, prof, sorted({c.mode.mode for _, c in cells}))
+    _guard_held(prof, [c.field.field_hash for _, c in cells])
     if args.experiment != "schedule-diagnostic":
         _guard_replicates(args, prof, reps)
     run_ids = {c.identity_hash for _, c in cells}
@@ -391,8 +411,17 @@ def cmd_core(args: argparse.Namespace) -> int:
         rounds = args.rounds or core.core_field_rounds(prof)  # publication: the core-scoped 250
         _guard_field_rounds(args, prof, rounds)
         reports = Path(args.reports) if args.reports else _reports_for(args)
+        try:
+            fields = core.resolve_fields(prof, args.fields) if prof.name == "publication" else (
+                args.fields or list(cfg["fields"]))
+        except core.CoreScopeError as e:
+            raise SystemExit(str(e)) from e
+        held = core.held_fields(prof)
+        if held and not args.fields:
+            print(f"HOLD (skipped): {', '.join(f'{f} [{r['status']}]' for f, r in held.items())}")
         for m in cfg["modes"]:
-            for f in args.fields or list(cfg["fields"]):
+            for f in fields:
+                _guard_held(prof, [prof.calibration_spec(m, "field", f).field.field_hash])
                 spec = prof.calibration_spec(m, "field", f)
                 print(f"[mu_field {m}/{f}] {spec.calib_id}: matched rounds 0..{rounds - 1}", flush=True)
                 _p(run_calibration(spec, Path(args.root), rounds, args.workers, args.allow_source_change,
@@ -404,8 +433,20 @@ def cmd_core(args: argparse.Namespace) -> int:
         from fhr3.tournament.field_diversity import field_diversity, write_field_diversity
 
         reports = Path(args.reports) if args.reports else _reports_for(args)
-        res = field_diversity(prof, cfg["modes"][0], args.fields or list(cfg["fields"]), reports)
+        res = field_diversity(prof, cfg["modes"][0], args.fields or list(cfg["fields"]), reports)  # read-only
         _p({k: str(v) for k, v in write_field_diversity(res, reports).items()})
+        return 0
+    if args.action == "spread-v2":
+        from fhr3.tournament import spread_v2
+
+        reports = Path(args.reports) if args.reports else _reports_for(args)
+        if args.stage == "select":
+            r = spread_v2.select(Path(args.root), prof, reports)
+            _p({k: r[k] for k in ("protocol_hash", "candidate", "separation_se_used", "selection_gap_bb", "leaders",
+                                  "non_leaders", "leader_checks")})
+        else:
+            _p({k: v for k, v in spread_v2.validate(Path(args.root), prof, reports).items()
+                if k not in ("top10_val", "nonleaders_p_top6_above_zero")})
         return 0
     if args.action == "matrix":
         return cmd_run(_core_args(args, range=args.range or f"{reps.start}:{reps.stop}", replicates=None))
@@ -413,7 +454,7 @@ def cmd_core(args: argparse.Namespace) -> int:
         _guard_swiss_reference(prof)
         sw = _replicates(args, core.swiss_initial(prof))  # default: the initial 100 per field
         return cmd_run(_core_args(args, experiment="swiss-reference", modes=list(cfg["modes"]),
-                                  fields=args.fields or list(cfg["fields"]), cells=None,
+                                  fields=args.fields or core.resolve_fields(prof, None), cells=None,
                                   range=f"{sw.start}:{sw.stop}", replicates=None))
     raise SystemExit(f"unknown core action {args.action}")
 
@@ -527,7 +568,10 @@ def build_parser() -> argparse.ArgumentParser:
     p.set_defaults(fn=cmd_run)
     p = sub.add_parser("core", help="FullHouse Research #4 core study (NLHE6): plan | field-reference | matrix | "
                                     "swiss-reference | field-diversity (no simulation)")
-    p.add_argument("action", choices=("plan", "field-reference", "matrix", "swiss-reference", "field-diversity"))
+    p.add_argument("action", choices=("plan", "field-reference", "matrix", "swiss-reference", "field-diversity",
+                                      "spread-v2"))
+    p.add_argument("--stage", choices=("select", "validate"), default="select",
+                   help="spread-v2: select (selection half) | validate (held-out half, once)")
     p.add_argument("--root", default=str(DEFAULT_ROOT), help="results root (default results/fhr3b)")
     p.add_argument("--profile", choices=("publication", "smoke"), default=None)
     p.add_argument("--fields", nargs="+", help="subset of the core fields (default: all three)")
