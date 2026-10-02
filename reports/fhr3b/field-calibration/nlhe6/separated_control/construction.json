@@ -1,0 +1,786 @@
+{
+ "candidate": {
+  "field_hash": "0b30004f650324e5",
+  "field_id": "nlhe6-separated_control",
+  "frozen": false,
+  "manifest": "configs/fhr3b/fields/nlhe6/separated_control.json",
+  "n": 60
+ },
+ "construction_gap_bb": 23.333615,
+ "construction_gap_se": 3.8886967461539665,
+ "construction_rank6": {
+  "bot": "nlhe6-station-e2-s3",
+  "mu_bb": 31.770855,
+  "se_bb": 4.224659095614637
+ },
+ "construction_rank7": {
+  "bot": "nlhe6-loose-e2-s1",
+  "mu_bb": 8.437240000000001,
+  "pool_rank": 43,
+  "se_bb": 4.26106587710061
+ },
+ "excluded_non_leaders": 36,
+ "field_archetypes": {
+  "aggressive": 3,
+  "loose": 5,
+  "maniac": 10,
+  "neutral": 6,
+  "nit": 12,
+  "station": 8,
+  "tight": 8,
+  "trapper": 8
+ },
+ "field_styles": {
+  "LA": 18,
+  "LP": 10,
+  "TA": 10,
+  "TP": 22
+ },
+ "filler_mu_range_bb": [
+  -57.266980000000004,
+  8.437240000000001
+ ],
+ "filler_near_duplicate_pairs": [
+  [
+   "nlhe6-trapper-e1-s0",
+   "nlhe6-nit-e1-s2"
+  ],
+  [
+   "nlhe6-trapper-e1-s0",
+   "nlhe6-trapper-e1-s2"
+  ],
+  [
+   "nlhe6-maniac-e1-s1",
+   "nlhe6-maniac-e1-s2"
+  ],
+  [
+   "nlhe6-maniac-e1-s1",
+   "nlhe6-maniac-e0"
+  ],
+  [
+   "nlhe6-maniac-e1-s1",
+   "nlhe6-maniac-e1-s0"
+  ],
+  [
+   "nlhe6-nit-e1-s2",
+   "nlhe6-nit-e0"
+  ],
+  [
+   "nlhe6-nit-e1-s2",
+   "nlhe6-nit-e1-s1"
+  ],
+  [
+   "nlhe6-nit-e1-s2",
+   "nlhe6-nit-e1-s0"
+  ],
+  [
+   "nlhe6-nit-e0",
+   "nlhe6-nit-e1-s1"
+  ],
+  [
+   "nlhe6-nit-e0",
+   "nlhe6-nit-e1-s0"
+  ],
+  [
+   "nlhe6-nit-e1-s1",
+   "nlhe6-nit-e1-s0"
+  ],
+  [
+   "nlhe6-maniac-e1-s2",
+   "nlhe6-maniac-e0"
+  ],
+  [
+   "nlhe6-maniac-e1-s2",
+   "nlhe6-maniac-e1-s0"
+  ],
+  [
+   "nlhe6-maniac-e0",
+   "nlhe6-maniac-e1-s0"
+  ],
+  [
+   "nlhe6-tight-e1-s0",
+   "nlhe6-tight-e0"
+  ]
+ ],
+ "framing": "engineered easy-selection control; NOT a representative field sample",
+ "leader_max_per_archetype": 2,
+ "leader_near_duplicate_pairs": 0,
+ "leader_param_distances": {
+  "nlhe6-maniac-e2-s2|nlhe6-neutral-e1-s0": 0.31733973894505957,
+  "nlhe6-maniac-e2-s2|nlhe6-nit-e3-s1": 0.5979095459814789,
+  "nlhe6-maniac-e2-s2|nlhe6-station-e2-s2": 0.5941598342618257,
+  "nlhe6-maniac-e2-s2|nlhe6-station-e2-s3": 0.5940918068869014,
+  "nlhe6-maniac-e2-s2|nlhe6-trapper-e3-s3": 0.4212177861701352,
+  "nlhe6-neutral-e1-s0|nlhe6-station-e2-s3": 0.4132206236418467,
+  "nlhe6-nit-e3-s1|nlhe6-neutral-e1-s0": 0.40133611840965416,
+  "nlhe6-nit-e3-s1|nlhe6-station-e2-s3": 0.4870519619466012,
+  "nlhe6-station-e2-s2|nlhe6-neutral-e1-s0": 0.40904779446200157,
+  "nlhe6-station-e2-s2|nlhe6-nit-e3-s1": 0.436818935675041,
+  "nlhe6-station-e2-s2|nlhe6-station-e2-s3": 0.27107607374693093,
+  "nlhe6-station-e2-s2|nlhe6-trapper-e3-s3": 0.4350367025057058,
+  "nlhe6-trapper-e3-s3|nlhe6-neutral-e1-s0": 0.36993909450101964,
+  "nlhe6-trapper-e3-s3|nlhe6-nit-e3-s1": 0.5424642182538255,
+  "nlhe6-trapper-e3-s3|nlhe6-station-e2-s3": 0.4265481727104099
+ },
+ "leaders": [
+  "nlhe6-maniac-e2-s2",
+  "nlhe6-station-e2-s2",
+  "nlhe6-trapper-e3-s3",
+  "nlhe6-nit-e3-s1",
+  "nlhe6-neutral-e1-s0",
+  "nlhe6-station-e2-s3"
+ ],
+ "log": [
+  {
+   "accepted": true,
+   "bot": "nlhe6-maniac-e2-s2",
+   "mu_bb": 54.208055,
+   "pool_rank": 1,
+   "reason": null,
+   "step": "leader"
+  },
+  {
+   "accepted": true,
+   "bot": "nlhe6-station-e2-s2",
+   "mu_bb": 52.74528,
+   "pool_rank": 2,
+   "reason": null,
+   "step": "leader"
+  },
+  {
+   "accepted": true,
+   "bot": "nlhe6-trapper-e3-s3",
+   "mu_bb": 38.45249,
+   "pool_rank": 3,
+   "reason": null,
+   "step": "leader"
+  },
+  {
+   "accepted": true,
+   "bot": "nlhe6-nit-e3-s1",
+   "mu_bb": 36.964095,
+   "pool_rank": 4,
+   "reason": null,
+   "step": "leader"
+  },
+  {
+   "accepted": true,
+   "bot": "nlhe6-neutral-e1-s0",
+   "mu_bb": 35.689095,
+   "pool_rank": 5,
+   "reason": null,
+   "step": "leader"
+  },
+  {
+   "accepted": true,
+   "bot": "nlhe6-station-e2-s3",
+   "mu_bb": 31.770855,
+   "pool_rank": 6,
+   "reason": null,
+   "step": "leader"
+  }
+ ],
+ "members": [
+  {
+   "archetype": "maniac",
+   "bot": "nlhe6-maniac-e2-s2",
+   "min_param_distance_in_field": 0.2634505355198701,
+   "mu_bb": 54.208055,
+   "pool_rank": 1,
+   "role": "leader",
+   "se_bb": 4.740745002342299,
+   "style": "LA"
+  },
+  {
+   "archetype": "station",
+   "bot": "nlhe6-station-e2-s2",
+   "min_param_distance_in_field": 0.2636070901281166,
+   "mu_bb": 52.74528,
+   "pool_rank": 2,
+   "role": "leader",
+   "se_bb": 4.505442832942262,
+   "style": "LP"
+  },
+  {
+   "archetype": "trapper",
+   "bot": "nlhe6-trapper-e3-s3",
+   "min_param_distance_in_field": 0.29890963266144727,
+   "mu_bb": 38.45249,
+   "pool_rank": 3,
+   "role": "leader",
+   "se_bb": 3.965098718014464,
+   "style": "LA"
+  },
+  {
+   "archetype": "nit",
+   "bot": "nlhe6-nit-e3-s1",
+   "min_param_distance_in_field": 0.3711239173010176,
+   "mu_bb": 36.964095,
+   "pool_rank": 4,
+   "role": "leader",
+   "se_bb": 4.431549389586049,
+   "style": "TP"
+  },
+  {
+   "archetype": "neutral",
+   "bot": "nlhe6-neutral-e1-s0",
+   "min_param_distance_in_field": 0.12126588261696794,
+   "mu_bb": 35.689095,
+   "pool_rank": 5,
+   "role": "leader",
+   "se_bb": 4.337119729280653,
+   "style": "LA"
+  },
+  {
+   "archetype": "station",
+   "bot": "nlhe6-station-e2-s3",
+   "min_param_distance_in_field": 0.2463075381119396,
+   "mu_bb": 31.770855,
+   "pool_rank": 6,
+   "role": "leader",
+   "se_bb": 4.224659095614637,
+   "style": "LP"
+  },
+  {
+   "archetype": "loose",
+   "bot": "nlhe6-loose-e2-s1",
+   "min_param_distance_in_field": 0.29449779702669454,
+   "mu_bb": 8.437240000000001,
+   "pool_rank": 43,
+   "role": "filler",
+   "se_bb": 4.26106587710061,
+   "style": "LA"
+  },
+  {
+   "archetype": "trapper",
+   "bot": "nlhe6-trapper-e2-s0",
+   "min_param_distance_in_field": 0.3059670478422111,
+   "mu_bb": 7.733215,
+   "pool_rank": 44,
+   "role": "filler",
+   "se_bb": 3.6563795420342906,
+   "style": "TA"
+  },
+  {
+   "archetype": "loose",
+   "bot": "nlhe6-loose-e2-s3",
+   "min_param_distance_in_field": 0.2283827250044813,
+   "mu_bb": 7.448825,
+   "pool_rank": 45,
+   "role": "filler",
+   "se_bb": 4.334567127624705,
+   "style": "LA"
+  },
+  {
+   "archetype": "tight",
+   "bot": "nlhe6-tight-e0",
+   "min_param_distance_in_field": 0.08262256426462866,
+   "mu_bb": 7.21756,
+   "pool_rank": 46,
+   "role": "filler",
+   "se_bb": 3.1942795072008336,
+   "style": "TP"
+  },
+  {
+   "archetype": "tight",
+   "bot": "nlhe6-tight-e1-s0",
+   "min_param_distance_in_field": 0.08262256426462866,
+   "mu_bb": 6.086915,
+   "pool_rank": 47,
+   "role": "filler",
+   "se_bb": 3.4503172843546412,
+   "style": "TP"
+  },
+  {
+   "archetype": "neutral",
+   "bot": "nlhe6-neutral-e2-s2",
+   "min_param_distance_in_field": 0.21685840278405472,
+   "mu_bb": 5.706525,
+   "pool_rank": 48,
+   "role": "filler",
+   "se_bb": 3.317274910741826,
+   "style": "TA"
+  },
+  {
+   "archetype": "loose",
+   "bot": "nlhe6-loose-e2-s0",
+   "min_param_distance_in_field": 0.2309967388756004,
+   "mu_bb": 4.827459999999999,
+   "pool_rank": 49,
+   "role": "filler",
+   "se_bb": 3.6659952207448656,
+   "style": "LP"
+  },
+  {
+   "archetype": "tight",
+   "bot": "nlhe6-tight-e2-s0",
+   "min_param_distance_in_field": 0.17539751342592927,
+   "mu_bb": 2.62873,
+   "pool_rank": 50,
+   "role": "filler",
+   "se_bb": 3.2251644698671647,
+   "style": "TP"
+  },
+  {
+   "archetype": "maniac",
+   "bot": "nlhe6-maniac-e1-s0",
+   "min_param_distance_in_field": 0.0966375673395161,
+   "mu_bb": 1.91686,
+   "pool_rank": 51,
+   "role": "filler",
+   "se_bb": 4.259285478254563,
+   "style": "LA"
+  },
+  {
+   "archetype": "neutral",
+   "bot": "nlhe6-neutral-e2-s0",
+   "min_param_distance_in_field": 0.22244679557722077,
+   "mu_bb": 0.587605,
+   "pool_rank": 52,
+   "role": "filler",
+   "se_bb": 3.4793289455952543,
+   "style": "LP"
+  },
+  {
+   "archetype": "trapper",
+   "bot": "nlhe6-trapper-e2-s1",
+   "min_param_distance_in_field": 0.20206038178957123,
+   "mu_bb": -0.174395,
+   "pool_rank": 53,
+   "role": "filler",
+   "se_bb": 3.4192903765938025,
+   "style": "LP"
+  },
+  {
+   "archetype": "maniac",
+   "bot": "nlhe6-maniac-e0",
+   "min_param_distance_in_field": 0.08228275920027876,
+   "mu_bb": -0.84021,
+   "pool_rank": 54,
+   "role": "filler",
+   "se_bb": 4.096588517947335,
+   "style": "LA"
+  },
+  {
+   "archetype": "station",
+   "bot": "nlhe6-station-e3-s0",
+   "min_param_distance_in_field": 0.40966960691897825,
+   "mu_bb": -1.46869,
+   "pool_rank": 55,
+   "role": "filler",
+   "se_bb": 4.386955340522849,
+   "style": "LP"
+  },
+  {
+   "archetype": "trapper",
+   "bot": "nlhe6-trapper-e1-s2",
+   "min_param_distance_in_field": 0.1303728224129598,
+   "mu_bb": -2.611515,
+   "pool_rank": 56,
+   "role": "filler",
+   "se_bb": 3.301707002775592,
+   "style": "TP"
+  },
+  {
+   "archetype": "maniac",
+   "bot": "nlhe6-maniac-e1-s2",
+   "min_param_distance_in_field": 0.09022492153568804,
+   "mu_bb": -4.441305,
+   "pool_rank": 57,
+   "role": "filler",
+   "se_bb": 4.053560894025583,
+   "style": "LA"
+  },
+  {
+   "archetype": "nit",
+   "bot": "nlhe6-nit-e2-s1",
+   "min_param_distance_in_field": 0.2731602567666338,
+   "mu_bb": -4.50075,
+   "pool_rank": 58,
+   "role": "filler",
+   "se_bb": 2.5484317359738613,
+   "style": "TP"
+  },
+  {
+   "archetype": "loose",
+   "bot": "nlhe6-loose-e3-s3",
+   "min_param_distance_in_field": 0.22951411689208373,
+   "mu_bb": -5.06812,
+   "pool_rank": 59,
+   "role": "filler",
+   "se_bb": 3.0180913218676464,
+   "style": "TP"
+  },
+  {
+   "archetype": "station",
+   "bot": "nlhe6-station-e1-s1",
+   "min_param_distance_in_field": 0.23390668512775167,
+   "mu_bb": -5.137614999999999,
+   "pool_rank": 60,
+   "role": "filler",
+   "se_bb": 3.428521021997807,
+   "style": "LP"
+  },
+  {
+   "archetype": "nit",
+   "bot": "nlhe6-nit-e1-s0",
+   "min_param_distance_in_field": 0.08895412026934166,
+   "mu_bb": -6.5273,
+   "pool_rank": 61,
+   "role": "filler",
+   "se_bb": 2.7081532325008864,
+   "style": "TP"
+  },
+  {
+   "archetype": "nit",
+   "bot": "nlhe6-nit-e1-s1",
+   "min_param_distance_in_field": 0.06945582621318945,
+   "mu_bb": -7.683825000000001,
+   "pool_rank": 62,
+   "role": "filler",
+   "se_bb": 2.857700349644743,
+   "style": "TP"
+  },
+  {
+   "archetype": "station",
+   "bot": "nlhe6-station-e2-s0",
+   "min_param_distance_in_field": 0.2873075764612291,
+   "mu_bb": -8.038475,
+   "pool_rank": 63,
+   "role": "filler",
+   "se_bb": 3.521285170724204,
+   "style": "TA"
+  },
+  {
+   "archetype": "tight",
+   "bot": "nlhe6-tight-e1-s1",
+   "min_param_distance_in_field": 0.16903064676921092,
+   "mu_bb": -8.37736,
+   "pool_rank": 64,
+   "role": "filler",
+   "se_bb": 2.800048066161579,
+   "style": "TA"
+  },
+  {
+   "archetype": "tight",
+   "bot": "nlhe6-tight-e3-s0",
+   "min_param_distance_in_field": 0.3613266197576645,
+   "mu_bb": -8.94822,
+   "pool_rank": 65,
+   "role": "filler",
+   "se_bb": 3.2707516757109207,
+   "style": "TA"
+  },
+  {
+   "archetype": "aggressive",
+   "bot": "nlhe6-aggressive-e2-s2",
+   "min_param_distance_in_field": 0.268840290772967,
+   "mu_bb": -10.095375,
+   "pool_rank": 66,
+   "role": "filler",
+   "se_bb": 3.2354976716387363,
+   "style": "LA"
+  },
+  {
+   "archetype": "nit",
+   "bot": "nlhe6-nit-e0",
+   "min_param_distance_in_field": 0.06945582621318945,
+   "mu_bb": -12.165550000000001,
+   "pool_rank": 67,
+   "role": "filler",
+   "se_bb": 2.68021438663006,
+   "style": "TP"
+  },
+  {
+   "archetype": "tight",
+   "bot": "nlhe6-tight-e3-s3",
+   "min_param_distance_in_field": 0.34781959669842427,
+   "mu_bb": -12.40752,
+   "pool_rank": 68,
+   "role": "filler",
+   "se_bb": 2.3773663207054985,
+   "style": "TA"
+  },
+  {
+   "archetype": "maniac",
+   "bot": "nlhe6-maniac-e3-s0",
+   "min_param_distance_in_field": 0.3227803612475105,
+   "mu_bb": -12.654555,
+   "pool_rank": 69,
+   "role": "filler",
+   "se_bb": 3.9978382363723752,
+   "style": "LA"
+  },
+  {
+   "archetype": "trapper",
+   "bot": "nlhe6-trapper-e3-s0",
+   "min_param_distance_in_field": 0.26625366458073035,
+   "mu_bb": -12.74737,
+   "pool_rank": 70,
+   "role": "filler",
+   "se_bb": 2.572261551843348,
+   "style": "TP"
+  },
+  {
+   "archetype": "nit",
+   "bot": "nlhe6-nit-e2-s0",
+   "min_param_distance_in_field": 0.17907485906735957,
+   "mu_bb": -14.54226,
+   "pool_rank": 71,
+   "role": "filler",
+   "se_bb": 2.6985298911252027,
+   "style": "TP"
+  },
+  {
+   "archetype": "nit",
+   "bot": "nlhe6-nit-e1-s2",
+   "min_param_distance_in_field": 0.09941596413532323,
+   "mu_bb": -15.09622,
+   "pool_rank": 72,
+   "role": "filler",
+   "se_bb": 2.4423290056636104,
+   "style": "TP"
+  },
+  {
+   "archetype": "tight",
+   "bot": "nlhe6-tight-e2-s2",
+   "min_param_distance_in_field": 0.22478073589117376,
+   "mu_bb": -15.673710000000002,
+   "pool_rank": 73,
+   "role": "filler",
+   "se_bb": 2.552133816567609,
+   "style": "TP"
+  },
+  {
+   "archetype": "maniac",
+   "bot": "nlhe6-maniac-e1-s1",
+   "min_param_distance_in_field": 0.08228275920027876,
+   "mu_bb": -15.722719999999999,
+   "pool_rank": 74,
+   "role": "filler",
+   "se_bb": 4.095299609204533,
+   "style": "LA"
+  },
+  {
+   "archetype": "aggressive",
+   "bot": "nlhe6-aggressive-e3-s1",
+   "min_param_distance_in_field": 0.5745444229544114,
+   "mu_bb": -16.35123,
+   "pool_rank": 75,
+   "role": "filler",
+   "se_bb": 3.782389672560661,
+   "style": "LA"
+  },
+  {
+   "archetype": "trapper",
+   "bot": "nlhe6-trapper-e1-s0",
+   "min_param_distance_in_field": 0.1303728224129598,
+   "mu_bb": -18.8764,
+   "pool_rank": 76,
+   "role": "filler",
+   "se_bb": 2.7643443678149073,
+   "style": "TP"
+  },
+  {
+   "archetype": "nit",
+   "bot": "nlhe6-nit-e3-s2",
+   "min_param_distance_in_field": 0.37115756956323415,
+   "mu_bb": -19.02113,
+   "pool_rank": 77,
+   "role": "filler",
+   "se_bb": 3.496485021083538,
+   "style": "TP"
+  },
+  {
+   "archetype": "neutral",
+   "bot": "nlhe6-neutral-e3-s1",
+   "min_param_distance_in_field": 0.3931963532720525,
+   "mu_bb": -19.816010000000002,
+   "pool_rank": 78,
+   "role": "filler",
+   "se_bb": 3.3722675513799243,
+   "style": "TA"
+  },
+  {
+   "archetype": "nit",
+   "bot": "nlhe6-nit-e2-s2",
+   "min_param_distance_in_field": 0.21747890547198148,
+   "mu_bb": -20.283905,
+   "pool_rank": 79,
+   "role": "filler",
+   "se_bb": 2.2228501790945083,
+   "style": "TP"
+  },
+  {
+   "archetype": "maniac",
+   "bot": "nlhe6-maniac-e3-s3",
+   "min_param_distance_in_field": 0.33480085909875923,
+   "mu_bb": -22.43728,
+   "pool_rank": 80,
+   "role": "filler",
+   "se_bb": 4.122779138069465,
+   "style": "LP"
+  },
+  {
+   "archetype": "tight",
+   "bot": "nlhe6-tight-e3-s1",
+   "min_param_distance_in_field": 0.40872035675173896,
+   "mu_bb": -27.239430000000002,
+   "pool_rank": 81,
+   "role": "filler",
+   "se_bb": 3.4463837510697424,
+   "style": "TA"
+  },
+  {
+   "archetype": "loose",
+   "bot": "nlhe6-loose-e3-s0",
+   "min_param_distance_in_field": 0.3462388501190567,
+   "mu_bb": -28.03116,
+   "pool_rank": 82,
+   "role": "filler",
+   "se_bb": 3.596414572379997,
+   "style": "TP"
+  },
+  {
+   "archetype": "nit",
+   "bot": "nlhe6-nit-e2-s3",
+   "min_param_distance_in_field": 0.19123198282908105,
+   "mu_bb": -30.083505,
+   "pool_rank": 83,
+   "role": "filler",
+   "se_bb": 2.018944472919572,
+   "style": "TP"
+  },
+  {
+   "archetype": "trapper",
+   "bot": "nlhe6-trapper-e2-s3",
+   "min_param_distance_in_field": 0.3059670478422111,
+   "mu_bb": -31.517175,
+   "pool_rank": 84,
+   "role": "filler",
+   "se_bb": 2.7637776542867347,
+   "style": "LA"
+  },
+  {
+   "archetype": "maniac",
+   "bot": "nlhe6-maniac-e2-s0",
+   "min_param_distance_in_field": 0.27126986678256965,
+   "mu_bb": -31.790084999999998,
+   "pool_rank": 85,
+   "role": "filler",
+   "se_bb": 3.5741783186029465,
+   "style": "LA"
+  },
+  {
+   "archetype": "trapper",
+   "bot": "nlhe6-trapper-e3-s1",
+   "min_param_distance_in_field": 0.41708982020530044,
+   "mu_bb": -32.46466,
+   "pool_rank": 86,
+   "role": "filler",
+   "se_bb": 2.9939842456736807,
+   "style": "TP"
+  },
+  {
+   "archetype": "nit",
+   "bot": "nlhe6-nit-e3-s3",
+   "min_param_distance_in_field": 0.48676420066149495,
+   "mu_bb": -33.820235,
+   "pool_rank": 87,
+   "role": "filler",
+   "se_bb": 1.9836329535217414,
+   "style": "TA"
+  },
+  {
+   "archetype": "station",
+   "bot": "nlhe6-station-e3-s1",
+   "min_param_distance_in_field": 0.31612020868086227,
+   "mu_bb": -34.144315,
+   "pool_rank": 88,
+   "role": "filler",
+   "se_bb": 3.4002720997392823,
+   "style": "LA"
+  },
+  {
+   "archetype": "maniac",
+   "bot": "nlhe6-maniac-e2-s1",
+   "min_param_distance_in_field": 0.23661264247101244,
+   "mu_bb": -34.569535,
+   "pool_rank": 89,
+   "role": "filler",
+   "se_bb": 3.596788456062837,
+   "style": "LA"
+  },
+  {
+   "archetype": "maniac",
+   "bot": "nlhe6-maniac-e3-s1",
+   "min_param_distance_in_field": 0.24105792524311845,
+   "mu_bb": -37.392784999999996,
+   "pool_rank": 90,
+   "role": "filler",
+   "se_bb": 3.5673439937013205,
+   "style": "LA"
+  },
+  {
+   "archetype": "neutral",
+   "bot": "nlhe6-neutral-e3-s0",
+   "min_param_distance_in_field": 0.42719218313846063,
+   "mu_bb": -37.96259,
+   "pool_rank": 91,
+   "role": "filler",
+   "se_bb": 3.3303888747856383,
+   "style": "LP"
+  },
+  {
+   "archetype": "station",
+   "bot": "nlhe6-station-e3-s2",
+   "min_param_distance_in_field": 0.4753404685256856,
+   "mu_bb": -38.266715,
+   "pool_rank": 92,
+   "role": "filler",
+   "se_bb": 3.0976835501434596,
+   "style": "TA"
+  },
+  {
+   "archetype": "aggressive",
+   "bot": "nlhe6-aggressive-e2-s1",
+   "min_param_distance_in_field": 0.31713801827722143,
+   "mu_bb": -38.34292,
+   "pool_rank": 93,
+   "role": "filler",
+   "se_bb": 3.479025826289135,
+   "style": "LA"
+  },
+  {
+   "archetype": "station",
+   "bot": "nlhe6-station-e3-s3",
+   "min_param_distance_in_field": 0.376047843765075,
+   "mu_bb": -43.921775,
+   "pool_rank": 94,
+   "role": "filler",
+   "se_bb": 2.9231508151564274,
+   "style": "LP"
+  },
+  {
+   "archetype": "nit",
+   "bot": "nlhe6-nit-e3-s0",
+   "min_param_distance_in_field": 0.4485302585295276,
+   "mu_bb": -51.87350000000001,
+   "pool_rank": 95,
+   "role": "filler",
+   "se_bb": 1.629529792248365,
+   "style": "TP"
+  },
+  {
+   "archetype": "neutral",
+   "bot": "nlhe6-neutral-e3-s2",
+   "min_param_distance_in_field": 0.4262281184825945,
+   "mu_bb": -57.266980000000004,
+   "pool_rank": 96,
+   "role": "filler",
+   "se_bb": 2.778391577916943,
+   "style": "TP"
+  }
+ ],
+ "protocol_hash": "cb7bcf14d66d01ad"
+}

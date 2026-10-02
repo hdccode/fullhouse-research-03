@@ -48,7 +48,7 @@ from fhr3.tournament.calibration import (
 )
 from fhr3.tournament.diagnostics import param_distance, param_vectors, reference_rank_diagnostics
 from fhr3.tournament.experiments import Profile, load_matrix
-from fhr3.tournament.fields import FHR3B_CONFIGS, load_field, subset, write_field_immutable
+from fhr3.tournament.fields import load_field, subset, write_field_immutable
 from fhr3.tournament.reference import split_by_round
 
 BB = 100.0
@@ -163,7 +163,7 @@ def construct(root: Path, prof: Profile, reports: Path) -> dict[str, Any]:
         "protocol_hash": protocol_hash(prof), "framing": "engineered easy-selection control; NOT a representative "
                                                           "field sample",
         "candidate": {"field_id": fm.field_id, "field_hash": fm.field_hash, "n": fm.n, "frozen": False,
-                      "manifest": str(manifest_path(prof).relative_to(FHR3B_CONFIGS.parents[1]))},
+                      "manifest": f"configs/fhr3b/fields/{MODE}/{p['field_name']}.json"},
         "leaders": leaders, "construction_rank6": {"bot": l6, "mu_bb": mu[l6], "se_bb": se[l6]},
         "construction_rank7": {"bot": best, "mu_bb": mu[best], "se_bb": se[best], "pool_rank": rank[best]},
         "construction_gap_bb": gap, "construction_gap_se": construction["construction_gap_se"],

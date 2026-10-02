@@ -8,6 +8,7 @@ import re
 from pathlib import Path
 
 import numpy as np
+import yaml
 import pytest
 
 from fhr3.tournament import metrics as mt
@@ -393,3 +394,86 @@ def test_bootstrap_unit_wording_is_round_level():
     for doc in ("src/fhr3/tournament/diagnostics.py", "docs/fhr3b/FIELDS.md", "docs/fhr3b/FHR4_CORE.md",
                 "paper/FHR3B_SCOPE.md"):
         assert "round-group" not in (REPO / doc).read_text(), doc
+
+
+# ------------------------------------------------------------------ separated_control: one-shot engineered control
+SC_HASH = "0b30004f650324e5"
+
+
+def test_separated_control_protocol_and_fresh_seeds():
+    import glob
+
+    from fhr3.rng import derive_seed
+    from fhr3.tournament import separated_control as sc
+
+    prof = load_profile("publication")
+    p = sc.protocol(prof)
+    assert p["attempts"] == 1 and p["construction"]["fill"] == "weakest"
+    v = p["validation"]
+    assert (v["rounds"], v["p_leaders_are_top6_at_least"], v["nonleader_p_top6_at_most"],
+            v["gap_lcb95_one_sided_above_bb"]) == (4000, 0.95, 0.05, 0.0)
+    vs = sc.validation_spec(prof)
+    assert vs.seed_family == "fhr3b-2026-separated-control-validation" and vs.field.n == 96
+    used = set()
+    for f in glob.glob(str(REPO / "results/fhr3b/calibration/*/calibration.lock.json")):
+        s = json.loads(Path(f).read_text())["spec"]
+        if s["seed_family"] != vs.seed_family:
+            used.add(derive_seed("fhr3b-calibration", s["seed_family"], s["namespace"]))
+    assert vs.seed not in used
+    assert prof.field_seed_family("separated_control") == "fhr3b-2026-spread-v2"
+    assert RULES["mu_field"]["separated_control"] == {"p_same_top_k_set_below": 0.95,
+                                                      "p_rank6_rank7_reversal_above": 0.05}
+
+
+def test_separated_control_candidate_is_fixed_and_not_yet_frozen():
+    from fhr3.tournament import separated_control as sc
+    from fhr3.tournament.experiments import FieldNotFrozenError
+
+    prof = load_profile("publication")
+    fm = load_field(sc.manifest_path(prof))
+    assert fm.field_hash == SC_HASH and fm.n == 60 and fm.kind == "separated_control"
+    c = json.loads((REPO / "reports/fhr3b/field-calibration/nlhe6/separated_control/construction.json").read_text())
+    assert c["leader_near_duplicate_pairs"] == 0 and c["leader_max_per_archetype"] <= 3
+    assert set(c["field_styles"]) == {"LA", "LP", "TA", "TP"} and len(c["field_archetypes"]) == 8
+    assert c["construction_gap_bb"] > 20 and c["candidate"]["frozen"] is False
+    b = json.loads((REPO / "reports/fhr3b/field-calibration/nlhe6/separated_control/binding.json").read_text())
+    assert b["candidate_field_hash"] == SC_HASH and b["protocol_hash"] == sc.protocol_hash(prof)
+    frozen = yaml.safe_load((FHR3B_CONFIGS / "fields/FROZEN.yaml").read_text())["fields"]["nlhe6"]
+    if "separated_control" not in frozen:  # before a PASS + human freeze, publication refuses the candidate
+        with pytest.raises(FieldNotFrozenError):
+            prof.field("nlhe6", "separated_control")
+
+
+@pytest.mark.skipif(not HAVE_POOL, reason="NLHE6 pool calibration not present")
+def test_separated_control_construction_is_deterministic(tmp_path):
+    import shutil
+
+    from fhr3.tournament import separated_control as sc
+
+    cfg = tmp_path / "configs"
+    shutil.copytree(FHR3B_CONFIGS, cfg)
+    (cfg / "fields/nlhe6/separated_control.json").unlink()
+    beh = tmp_path / "reports/field-calibration/nlhe6"
+    beh.mkdir(parents=True)
+    shutil.copy(REPO / "reports/fhr3b/field-calibration/nlhe6/behaviour.csv", beh / "behaviour.csv")
+    prof = load_profile("publication", config_root=cfg)
+    r = sc.construct(REPO / "results/fhr3b", prof, tmp_path / "reports")
+    assert r["candidate"]["field_hash"] == SC_HASH  # existing data only; reproducible exactly
+
+
+def test_separated_control_evaluation_is_one_shot_and_bound(tmp_path):
+    from fhr3.tournament import separated_control as sc
+
+    prof = load_profile("publication")
+    d = sc.out_dir(tmp_path)
+    d.mkdir(parents=True)
+    good = json.loads((REPO / "reports/fhr3b/field-calibration/nlhe6/separated_control/binding.json").read_text())
+    (d / "binding.json").write_text(json.dumps(good | {"candidate_field_hash": "deadbeefdeadbeef"}))
+    with pytest.raises(ValueError, match="does not match"):
+        sc.evaluate(REPO / "results/fhr3b", prof, tmp_path)
+    with pytest.raises(ValueError, match="does not match"):
+        sc.simulate(REPO / "results/fhr3b", prof, tmp_path, 1)
+    (d / "binding.json").write_text(json.dumps(good))
+    (d / "validation.json").write_text("{}")
+    with pytest.raises(ValueError, match="one shot"):
+        sc.evaluate(REPO / "results/fhr3b", prof, tmp_path)

@@ -1,0 +1,10 @@
+{
+ "candidate_field_hash": "0b30004f650324e5",
+ "note": "commit this file BEFORE `simulate`; evaluation refuses a different candidate or protocol",
+ "protocol_hash": "cb7bcf14d66d01ad",
+ "validation_calib_id": "nlhe6.nlhe6-pool.H400.pool-calibration.9def2e8e",
+ "validation_namespace": "pool-calibration",
+ "validation_rounds": 4000,
+ "validation_seed": 8173343052463570196,
+ "validation_seed_family": "fhr3b-2026-separated-control-validation"
+}
