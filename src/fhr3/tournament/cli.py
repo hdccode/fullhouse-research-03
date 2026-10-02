@@ -440,13 +440,32 @@ def cmd_core(args: argparse.Namespace) -> int:
         from fhr3.tournament import spread_v2
 
         reports = Path(args.reports) if args.reports else _reports_for(args)
-        if args.stage == "select":
+        if args.stage in (None, "select"):
             r = spread_v2.select(Path(args.root), prof, reports)
             _p({k: r[k] for k in ("protocol_hash", "candidate", "separation_se_used", "selection_gap_bb", "leaders",
                                   "non_leaders", "leader_checks")})
         else:
             _p({k: v for k, v in spread_v2.validate(Path(args.root), prof, reports).items()
                 if k not in ("top10_val", "nonleaders_p_top6_above_zero")})
+        return 0
+    if args.action == "separated-control":
+        from fhr3.tournament import separated_control as sc
+
+        reports = Path(args.reports) if args.reports else _reports_for(args)
+        if args.stage == "construct":
+            r = sc.construct(Path(args.root), prof, reports)
+            _p({k: r[k] for k in ("candidate", "leaders", "construction_rank6", "construction_rank7",
+                                  "construction_gap_bb", "construction_gap_se", "field_styles", "field_archetypes",
+                                  "leader_near_duplicate_pairs", "leader_max_per_archetype", "filler_mu_range_bb")})
+        elif args.stage == "bind":
+            _p(sc.bind(prof, reports))
+        elif args.stage == "simulate":
+            _p(sc.simulate(Path(args.root), prof, reports, args.workers))
+        elif args.stage == "evaluate":
+            _p({k: v for k, v in sc.evaluate(Path(args.root), prof, reports).items()
+                if k not in ("top12_val", "nonleaders_p_top6_above_zero")})
+        else:
+            raise SystemExit("separated-control stages: construct | bind | simulate | evaluate")
         return 0
     if args.action == "matrix":
         return cmd_run(_core_args(args, range=args.range or f"{reps.start}:{reps.stop}", replicates=None))
@@ -569,9 +588,10 @@ def build_parser() -> argparse.ArgumentParser:
     p = sub.add_parser("core", help="FullHouse Research #4 core study (NLHE6): plan | field-reference | matrix | "
                                     "swiss-reference | field-diversity (no simulation)")
     p.add_argument("action", choices=("plan", "field-reference", "matrix", "swiss-reference", "field-diversity",
-                                      "spread-v2"))
-    p.add_argument("--stage", choices=("select", "validate"), default="select",
-                   help="spread-v2: select (selection half) | validate (held-out half, once)")
+                                      "spread-v2", "separated-control"))
+    p.add_argument("--stage", choices=("select", "validate", "construct", "bind", "simulate", "evaluate"),
+                   default=None, help="spread-v2: select | validate; separated-control: construct | bind | "
+                                      "simulate | evaluate (one shot)")
     p.add_argument("--root", default=str(DEFAULT_ROOT), help="results root (default results/fhr3b)")
     p.add_argument("--profile", choices=("publication", "smoke"), default=None)
     p.add_argument("--fields", nargs="+", help="subset of the core fields (default: all three)")

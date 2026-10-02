@@ -139,6 +139,9 @@ core_fhr4:
         leader_p_top_k_below: 0.95   # any of the 3 designed leaders (construction.top_ids)
         outside_p_top_k_above: 0.10  # any bot in NEITHER set: not a designed leader (top_ids) and not in the
                                      # designed ranks-4-15 crowd (crowd_ids); leaders are never "outside"
+      separated_control:             # engineered control (added 2026-10-02, before its reference exists)
+        p_same_top_k_set_below: 0.95
+        p_rank6_rank7_reversal_above: 0.05
       style_diverse:                 # a perfectly certain top six is not required
         top_ranks: 4                 # point-estimate ranks 1..4 with P(top-6) below:
         top_p_top_k_below: 0.90
@@ -191,6 +194,41 @@ core_fhr4:
                                      # reference and of the other field references (no CRN coupling with them)
       matched_rounds_initial: 250
       extension_rule: spread         # the pre-registered core_fhr4.extension_rules.mu_field.spread rule
+  separated_control:                 # ENGINEERED easy-selection sanity-check field (NOT a representative field sample).
+                                     # Replaces the retired spread concept (spread: retired_spread_selection_bias;
+                                     # spread_v2: failed its single validation). Protocol frozen 2026-10-02 BEFORE the
+                                     # candidate was built and before any validation round existed.
+                                     # Code: src/fhr3/tournament/separated_control.py (`fhr3b core separated-control`).
+    field_name: separated_control    # field id nlhe6-separated_control, kind separated_control (new field hash)
+    construction:                    # uses ALL 2,000 existing pool rounds; nothing from the validation data
+      pool_calibration: nlhe6.nlhe6-pool.H400.pool-calibration.aadd073b
+      n: 60
+      k: 6
+      leader_near_dup: 0.15          # leaders: walk down the full-data pool ranking; no near-duplicate leaders,
+      leader_archetype_cap: 3        # at most 3 leaders per archetype (the strongest defensible six)
+      fill: weakest                  # the other 54 = the 54 lowest-mu non-leaders (deliberately large separation)
+      require_styles: [LA, LP, TA, TP]   # all four observed styles present among the 60
+      require_archetypes: all        # every pool archetype present among the 60
+      coverage_repair: "while a required style/archetype is missing: swap the strongest selected filler out for the
+        weakest excluded non-leader of a missing class (deterministic; every swap logged)"
+    validation:                      # ONE SHOT, fresh data, pool-style (96-bot pool, ordinary 400-hand matches)
+      seed_family: fhr3b-2026-separated-control-validation   # never used by any other calibration or reference
+      namespace: pool-calibration
+      rounds: 4000                   # 4000 x 16 tables x 400 hands = 25.6M scheduled hands
+      chunk_rounds: 25
+      bootstrap: round-level joint   # spread_v2 criteria (pre-registered), plus the explicit gap LCB
+      resamples: 2000
+      seed: 20261002
+      require_point_top6_equals_leaders: true
+      p_leaders_are_top6_at_least: 0.95
+      nonleader_p_top6_at_most: 0.05
+      gap_lcb95_one_sided_above_bb: 0.0    # G = min(leaders) - max(non-leaders): one-sided 95% LCB > 0
+    attempts: 1                      # FAIL -> retire the candidate; no second candidate, no threshold change;
+                                     # proceed with crowded_cutoff + style_diverse only
+    fresh_reference:                 # only after a PASS and freeze; never the 4,000 validation rounds
+      seed_family: fhr3b-2026-spread-v2    # the already-prepared independent family (never used)
+      matched_rounds_initial: 250
+      extension_rule: separated_control
   throughput:                        # planning only (fhr3b core plan); measured, see docs/fhr3b/FHR4_CORE.md
     nlhe6_hands_per_s_8_workers: 4260    # steady state of the 8-worker NLHE6 pool calibration (2026-10-01)
     nlhe6_hands_per_s_8_workers_slow: 1289   # same run end to end, incl. two machine stalls (pessimistic)

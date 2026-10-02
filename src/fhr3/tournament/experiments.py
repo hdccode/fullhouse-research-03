@@ -36,7 +36,7 @@ from fhr3.tournament.protocol import (
     round_sweep,
 )
 
-RESEARCH_FIELDS = ("spread", "crowded_cutoff", "style_diverse")
+RESEARCH_FIELDS = ("spread", "crowded_cutoff", "style_diverse", "separated_control", "spread_v2")
 
 
 class FieldNotFrozenError(RuntimeError):
@@ -203,9 +203,12 @@ class Profile:
     def field_seed_family(self, field: str) -> str:
         """Seed family of a field reference: the profile's, except for a field given a FRESH reference seed
         (core_fhr4.spread_v2.fresh_reference): its mu_field is then independent of every other reference."""
-        sv = (load_matrix(self.config_root).get("core_fhr4") or {}).get("spread_v2") or {}
-        if self.name == "publication" and sv and field == sv.get("field_name"):
-            return str(sv["fresh_reference"]["seed_family"])
+        core = load_matrix(self.config_root).get("core_fhr4") or {}
+        if self.name == "publication":
+            for block in ("separated_control", "spread_v2"):
+                sv = core.get(block) or {}
+                if sv and field == sv.get("field_name"):
+                    return str(sv["fresh_reference"]["seed_family"])
         return self.seed_family
 
     def calibration_rounds(self, stage: str, mode: str | None = None) -> int:

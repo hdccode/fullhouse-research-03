@@ -89,7 +89,7 @@ def mu_field_extension_rule(field_kind: str, bots: Sequence[str], mu: np.ndarray
     ix = {b: i for i, b in enumerate(bots)}
     r = rules[field_kind]
     crit: dict[str, Any] = {}
-    if field_kind == "spread":
+    if field_kind in ("spread", "separated_control"):
         crit["p_same_top_k_set"] = {"value": diag["p_same_top_k_set"], "trigger_below": r["p_same_top_k_set_below"]}
         crit["p_cutoff_pair_order_reversed"] = {"value": diag["p_cutoff_pair_order_reversed"],
                                                 "trigger_above": r["p_rank6_rank7_reversal_above"]}
