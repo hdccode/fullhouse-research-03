@@ -1,0 +1,248 @@
+{
+ "best_non_leader_sel": {
+  "bot": "nlhe6-tight-e2-s3",
+  "mu_sel_bb": 8.64921
+ },
+ "candidate": {
+  "field_hash": "82cefd0b3814ea03",
+  "field_id": "nlhe6-spread_v2",
+  "frozen": false,
+  "n": 60
+ },
+ "data": {
+  "median_se_bb": 5.0966400983174625,
+  "pool_calibration": "nlhe6.nlhe6-pool.H400.pool-calibration.aadd073b",
+  "selection_matches_per_bot": 1000,
+  "selection_rounds": 1000
+ },
+ "excluded_above_band": [
+  "nlhe6-station-e2-s3",
+  "nlhe6-loose-e0",
+  "nlhe6-loose-e1-s2",
+  "nlhe6-loose-e1-s0",
+  "nlhe6-neutral-e2-s1",
+  "nlhe6-tight-e2-s1",
+  "nlhe6-loose-e2-s2",
+  "nlhe6-aggressive-e3-s3",
+  "nlhe6-trapper-e2-s2",
+  "nlhe6-neutral-e3-s3",
+  "nlhe6-station-e2-s1",
+  "nlhe6-neutral-e1-s2",
+  "nlhe6-trapper-e1-s1",
+  "nlhe6-station-e0",
+  "nlhe6-neutral-e2-s3",
+  "nlhe6-loose-e1-s1",
+  "nlhe6-neutral-e0",
+  "nlhe6-aggressive-e3-s0",
+  "nlhe6-aggressive-e1-s0",
+  "nlhe6-tight-e1-s0",
+  "nlhe6-maniac-e3-s2",
+  "nlhe6-aggressive-e1-s2",
+  "nlhe6-aggressive-e0",
+  "nlhe6-aggressive-e2-s0",
+  "nlhe6-tight-e3-s2",
+  "nlhe6-neutral-e1-s1",
+  "nlhe6-station-e1-s2",
+  "nlhe6-trapper-e0",
+  "nlhe6-loose-e3-s2",
+  "nlhe6-aggressive-e1-s1",
+  "nlhe6-tight-e1-s2",
+  "nlhe6-loose-e3-s1"
+ ],
+ "leader_checks": {
+  "max_per_archetype": 1,
+  "near_duplicate_pairs": 0
+ },
+ "leaders": [
+  {
+   "archetype": "station",
+   "bot": "nlhe6-station-e2-s2",
+   "mu_sel_bb": 57.86903,
+   "se_sel_bb": 6.291732760898153,
+   "style": "LP"
+  },
+  {
+   "archetype": "maniac",
+   "bot": "nlhe6-maniac-e2-s2",
+   "mu_sel_bb": 56.31178,
+   "se_sel_bb": 6.742111071840303,
+   "style": "LA"
+  },
+  {
+   "archetype": "neutral",
+   "bot": "nlhe6-neutral-e1-s0",
+   "mu_sel_bb": 41.57464,
+   "se_sel_bb": 6.284347031352613,
+   "style": "LA"
+  },
+  {
+   "archetype": "nit",
+   "bot": "nlhe6-nit-e3-s1",
+   "mu_sel_bb": 36.43855,
+   "se_sel_bb": 6.297155473973745,
+   "style": "TP"
+  },
+  {
+   "archetype": "trapper",
+   "bot": "nlhe6-trapper-e3-s3",
+   "mu_sel_bb": 35.43371,
+   "se_sel_bb": 5.564365405770535,
+   "style": "LA"
+  },
+  {
+   "archetype": "aggressive",
+   "bot": "nlhe6-aggressive-e2-s3",
+   "mu_sel_bb": 32.40356,
+   "se_sel_bb": 6.695061864338999,
+   "style": "LA"
+  }
+ ],
+ "log": [
+  {
+   "accepted": true,
+   "bot": "nlhe6-station-e2-s2",
+   "mu_sel_bb": 57.86903,
+   "reason": null,
+   "step": "leader"
+  },
+  {
+   "accepted": true,
+   "bot": "nlhe6-maniac-e2-s2",
+   "mu_sel_bb": 56.31178,
+   "reason": null,
+   "step": "leader"
+  },
+  {
+   "accepted": true,
+   "bot": "nlhe6-neutral-e1-s0",
+   "mu_sel_bb": 41.57464,
+   "reason": null,
+   "step": "leader"
+  },
+  {
+   "accepted": true,
+   "bot": "nlhe6-nit-e3-s1",
+   "mu_sel_bb": 36.43855,
+   "reason": null,
+   "step": "leader"
+  },
+  {
+   "accepted": true,
+   "bot": "nlhe6-trapper-e3-s3",
+   "mu_sel_bb": 35.43371,
+   "reason": null,
+   "step": "leader"
+  },
+  {
+   "accepted": true,
+   "bot": "nlhe6-aggressive-e2-s3",
+   "mu_sel_bb": 32.40356,
+   "reason": null,
+   "step": "leader"
+  },
+  {
+   "eligible": 53,
+   "feasible": false,
+   "separation_se": 3.0,
+   "step": "separation"
+  },
+  {
+   "eligible": 58,
+   "feasible": true,
+   "separation_se": 2.75,
+   "step": "separation"
+  },
+  {
+   "bot": "nlhe6-nit-e0",
+   "min_param_distance": 0.06945582621318945,
+   "mu_sel_bb": -8.73102,
+   "step": "thin"
+  },
+  {
+   "bot": "nlhe6-maniac-e0",
+   "min_param_distance": 0.08228275920027876,
+   "mu_sel_bb": 2.67485,
+   "step": "thin"
+  },
+  {
+   "bot": "nlhe6-nit-e1-s0",
+   "min_param_distance": 0.1125598140611245,
+   "mu_sel_bb": -12.9521,
+   "step": "thin"
+  },
+  {
+   "bot": "nlhe6-tight-e0",
+   "min_param_distance": 0.12126588261696794,
+   "mu_sel_bb": 3.82449,
+   "step": "thin"
+  }
+ ],
+ "non_leaders": {
+  "archetypes": {
+   "aggressive": 4,
+   "loose": 5,
+   "maniac": 9,
+   "neutral": 5,
+   "nit": 9,
+   "station": 7,
+   "tight": 7,
+   "trapper": 8
+  },
+  "mu_sel_range_bb": [
+   -56.42548,
+   8.64921
+  ],
+  "n": 54,
+  "near_duplicate_pairs": 7,
+  "styles": {
+   "LA": 16,
+   "LP": 10,
+   "TA": 11,
+   "TP": 17
+  }
+ },
+ "protocol": {
+  "attempts": 1,
+  "field_name": "spread_v2",
+  "fresh_reference": {
+   "extension_rule": "spread",
+   "matched_rounds_initial": 250,
+   "seed_family": "fhr3b-2026-spread-v2"
+  },
+  "pool_calibration": "nlhe6.nlhe6-pool.H400.pool-calibration.aadd073b",
+  "replaces": "ff0f2b07fc210f62",
+  "selection": {
+   "k": 6,
+   "leader_archetype_cap": 3,
+   "leader_near_dup": 0.15,
+   "n": 60,
+   "relax_floor": 1.0,
+   "relax_step": 0.25,
+   "separation_se": 3.0,
+   "thinning": "min_parameter_distance"
+  },
+  "split": {
+   "rule": "round_parity",
+   "selection": "even",
+   "validation": "odd"
+  },
+  "validation": {
+   "bootstrap": "round-level joint",
+   "context_note": "pool-context estimates (opponents drawn from the 96-bot pool); the fresh field-relative mu_field reference is the definitive check under the pre-registered spread rule",
+   "nonleader_p_top6_at_most": 0.05,
+   "p_leaders_are_top6_at_least": 0.95,
+   "require_point_top6_equals_leaders": true,
+   "resamples": 2000,
+   "seed": 20261002
+  }
+ },
+ "protocol_hash": "b01323bccc932cf2",
+ "selection_gap_bb": 23.754350000000002,
+ "separation_se_used": 2.75,
+ "thinned": [
+  "nlhe6-nit-e0",
+  "nlhe6-maniac-e0",
+  "nlhe6-nit-e1-s0",
+  "nlhe6-tight-e0"
+ ]
+}
