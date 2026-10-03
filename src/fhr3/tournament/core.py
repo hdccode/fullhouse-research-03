@@ -35,6 +35,7 @@ from fhr3.tournament.cells import Cell
 from fhr3.tournament.experiments import Profile, load_matrix
 
 CORE_KEY = "core_fhr4"
+CORE_FIELD_NAMES = ("separated_control", "crowded_cutoff", "style_diverse")  # spread: retired (held)
 CORE_CELL_KEYS = ("baseline", "budget_half_rounds", "budget_quarter_rounds", "frozen_schedule", "dup_fewer_rounds",
                   "dup_shorter_matches")
 BUDGET_KEYS = {"baseline": "baseline", "half_rounds_2x_hands": "budget_half_rounds",
@@ -60,8 +61,8 @@ def check_scope(prof: Profile, cfg: dict[str, Any] | None = None) -> None:
         raise CoreScopeError(f"core scope must be NLHE6 only, got {cfg['modes']}")
     if tuple(cfg["cells"]) != CORE_CELL_KEYS:
         raise CoreScopeError(f"core cells must be {CORE_CELL_KEYS}, got {cfg['cells']}")
-    if sorted(cfg["fields"]) != sorted(("spread", "crowded_cutoff", "style_diverse")):
-        raise CoreScopeError(f"core fields must be the three research fields, got {sorted(cfg['fields'])}")
+    if sorted(cfg["fields"]) != sorted(CORE_FIELD_NAMES):
+        raise CoreScopeError(f"core fields must be {CORE_FIELD_NAMES}, got {sorted(cfg['fields'])}")
     if "matched_rounds" in mx["calibration"]["field_reference"] or "rounds" in mx["calibration"]["field_reference"]:
         raise CoreScopeError("calibration.field_reference must not carry a global round count; the core scopes its "
                              "own (core_fhr4.field_reference.matched_rounds_initial)")
@@ -91,8 +92,7 @@ def held_fields(prof: Profile) -> dict[str, dict[str, Any]]:
     held = (yaml.safe_load(reg.read_text()).get("held") or {}) if reg.exists() else {}
     cfg = core_config(prof)
     return {r["field"]: dict(r) | {"field_hash": h} for h, r in held.items()
-            if r["mode"] in cfg["modes"] and r["field"] in cfg["fields"]
-            and prof.frozen_hash(r["mode"], r["field"]) == h}
+            if r["mode"] in cfg["modes"] and prof.frozen_hash(r["mode"], r["field"]) == h}
 
 
 def resolve_fields(prof: Profile, fields: list[str] | None, allow_held: bool = False) -> list[str]:
@@ -262,7 +262,7 @@ def swiss_reference_precision(prof: Profile, reports: Path, fields: list[str], o
         fm = prof.field(mode, field)
         s = sorted(sd[b] for b in fm.bot_ids)
         med = s[len(s) // 2] / BB
-        gap = float(gaps[field]["gap_k_k1_bb"])
+        gap = float(gaps[field]["gap_k_k1_bb"] if field in gaps else fm.construction["construction_gap_bb"])
         rows = {}
         for n in options:
             se = med / math.sqrt(r0 * n)

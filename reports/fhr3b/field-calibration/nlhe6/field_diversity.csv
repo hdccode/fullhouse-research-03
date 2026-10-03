@@ -1,4 +1,4 @@
 field,n_bots,archetypes,styles,distinct_param_vectors,near_dup_pairs,near_dup_pairs_ranks_4_15,bots_in_near_dup_pairs,bots_in_near_dup_pairs_ranks_4_15,archetypes_ranks_4_15,styles_ranks_4_15,median_param_distance,median_param_distance_ranks_4_15,vpip_range,pfr_range,threebet_range,post_aggression_range,allin_rate_range
-spread,60,8,LA:17 LP:12 TA:13 TP:18,60,0,0,0,0,8,LA:3 LP:4 TA:2 TP:3,0.488,0.453,0.11-0.71,0.08-0.51,0.010-0.294,0.32-14.50,0.0024-0.0168
+separated_control,60,8,LA:18 LP:10 TA:10 TP:22,60,16,2,13,3,7,LA:4 LP:2 TA:2 TP:4,0.476,0.347,0.10-0.71,0.06-0.51,0.003-0.267,0.32-14.50,0.0024-0.0168
 crowded_cutoff,60,8,LA:15 LP:10 TA:15 TP:20,60,22,3,18,4,7,LA:2 LP:1 TA:5 TP:4,0.471,0.419,0.10-0.60,0.06-0.51,0.003-0.294,0.32-14.50,0.0024-0.0168
 style_diverse,60,8,LA:17 LP:13 TA:13 TP:17,60,0,0,0,0,7,LA:3 LP:3 TA:3 TP:3,0.504,0.426,0.10-0.71,0.06-0.51,0.003-0.294,0.32-8.13,0.0024-0.0168

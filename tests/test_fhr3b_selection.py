@@ -121,7 +121,7 @@ def test_matrix_locks_modes_fields_and_retires_matchup():
     for name, ex in mx["experiments"].items():
         if name not in ("smoke",):
             assert "plo6" not in ex.get("modes", []), name
-    assert mx["experiments"]["baseline"]["fields"] == ["spread", "crowded_cutoff", "style_diverse"]
+    assert mx["experiments"]["baseline"]["fields"] == ["separated_control", "crowded_cutoff", "style_diverse"]
     assert mx["experiments"]["duplicate_play"]["status"] == "implemented"
     assert mx["calibration"]["field_reference"]["match_format"] == "duplicate"
     text = (FHR3B_CONFIGS / "matrix.yaml").read_text()

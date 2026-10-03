@@ -60,17 +60,17 @@ experiments:
     namespace: pilot
   baseline:                         # A: horizon cells; checkpoints are read from their round prefixes
     modes: [nlhe6]
-    fields: [spread, crowded_cutoff, style_diverse]
+    fields: [separated_control, crowded_cutoff, style_diverse]
     namespace: publication
   round_sweep:                      # A: derived from baseline (exact prefix identity, verified by `validate --prefix`)
     derived_from: baseline
   budget_sweep:                     # B: fixed R*H, generated from (R0, H0): 10x1600, 20x800, 40x400 (= baseline)
     modes: [nlhe6]
-    fields: [spread, crowded_cutoff, style_diverse]
+    fields: [separated_control, crowded_cutoff, style_diverse]
     namespace: publication
   frozen_schedule:                  # C (core): adaptive baseline vs frozen replay of each baseline schedule
     modes: [nlhe6]
-    fields: [spread, crowded_cutoff, style_diverse]
+    fields: [separated_control, crowded_cutoff, style_diverse]
     namespace: publication
     replays_per_source: 1           # J (identity): frozen replicate r replays baseline tournament r once.
                                     # J > 1 is a later precision extension (a NEW cell); analysis then
@@ -83,12 +83,12 @@ experiments:
   duplicate_play:                   # D: ordinary vs k-lane duplicate PACKAGES at ~equal SCHEDULED work (paired seeds)
     status: implemented             # match.DuplicateMatchPlayer; variants from protocol.duplicate_allocations
     modes: [nlhe6]
-    fields: [spread, crowded_cutoff, style_diverse]
+    fields: [separated_control, crowded_cutoff, style_diverse]
     namespace: publication
     lanes: table_size               # 4 (AoF4, NLHE4) / 6 (NLHE6)
   swiss_reference:                  # mu_swiss: expected Swiss performance, separate namespace (gated: core_fhr4)
     modes: [nlhe6]
-    fields: [spread, crowded_cutoff, style_diverse]
+    fields: [separated_control, crowded_cutoff, style_diverse]
     namespace: swiss-reference
   operational_2026:                 # H: historical validation; blocked until required historical values are supplied
     historical: protocols/historical_2026_reconstruction.yaml
@@ -103,7 +103,8 @@ core_fhr4:
   public_name: "FullHouse Research #4"
   modes: [nlhe6]
   fields:                            # frozen field hashes (must equal fields/FROZEN.yaml)
-    spread: ff0f2b07fc210f62
+    separated_control: 0b30004f650324e5  # engineered easy-selection control; independently validated 2026-10-03
+                                     # (replaces spread ff0f2b07fc210f62: retired_spread_selection_bias, held)
     crowded_cutoff: afbffedfc3706d84
     style_diverse: ad7d6596ef1c8c3e
   cells:                             # the six UNIQUE tournament cells per field (src/fhr3/tournament/core.py)

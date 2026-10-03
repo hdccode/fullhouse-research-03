@@ -341,6 +341,8 @@ def cmd_run(args: argparse.Namespace) -> int:
     if args.experiment == "swiss-reference":
         _guard_swiss_reference(prof)
     _guard_horizon(args, prof)
+    if args.modes:  # refuse non-core modes before resolving any field of those modes
+        _guard_modes(args, prof, list(args.modes))
     cells = cells_for(args)
     _guard_modes(args, prof, sorted({c.mode.mode for _, c in cells}))
     _guard_held(prof, [c.field.field_hash for _, c in cells])

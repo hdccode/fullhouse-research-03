@@ -20,6 +20,11 @@ fields:
     spread: ff0f2b07fc210f62            # gap 16.8 BB = 3.06 SE; zero near-duplicates
     crowded_cutoff: afbffedfc3706d84
     style_diverse: ad7d6596ef1c8c3e
+    # Engineered separated control (NOT a representative field); frozen 2026-10-03 after PASSING its one-shot
+    # independent validation (reports/fhr3b/field-calibration/nlhe6/separated_control/validation.json:
+    # 4,000 fresh rounds, P(leaders top 6) 0.998, gap 12.36 BB, one-sided 95% LCB 4.38 BB), per the
+    # pre-registered decision (core_fhr4.separated_control). Replaces the held spread field in the FHR4 core.
+    separated_control: 0b30004f650324e5
 
 # Held / retired fields: kept frozen and readable for provenance, but publication runs refuse to
 # simulate them (no matrix, no reference extension). Not revoked: the manifest itself is valid.

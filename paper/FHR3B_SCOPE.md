@@ -348,17 +348,28 @@ defect in itself.
 
 ## Controlled fields
 
-| field | purpose |
+The three controlled scenarios (one frozen field each; no regime-level population claims):
+
+| scenario | role |
 |---|---|
-| `spread` | broad strength distribution with a separated rank-6/rank-7 boundary. The 2026-10-01 field (`ff0f2b07fc210f62`) is **retired** (`retired_spread_selection_bias`) and on HOLD at 250 rounds: its 16.8 BB pool gap was 0.71 BB under the independent reference. A replacement is selected and validated on disjoint halves of the pool calibration (`core_fhr4.spread_v2`); see `docs/fhr3b/FHR4_CORE.md` |
-| `crowded_cutoff` | several genuinely similar bots, of different strategies, straddling the boundary |
-| `style_diverse` | deliberate balance of observed style across strength strata |
+| `separated_control` | **Deliberately engineered easy-selection sanity check.** Six stronger agents whose separation from the other 54 is verified on independent data. It is **not** a representative field sample. Field `0b30004f650324e5`. On 4,000 fresh pool rounds it passed: P(leaders are the top 6) = 0.998 and a 12.4 BB gap (one-sided 95% LCB 4.4 BB). It has a fresh, independent `mu_field` reference. |
+| `crowded_cutoff` | Deliberately difficult qualification-boundary stress test: several genuinely similar bots, of different strategies, straddling the cutoff. At the 500-round reference ceiling the ambiguity reaches one bot outside the designed crowd (loose-e2-s1, P(top 6) = 0.21), which is carried as reference uncertainty. |
+| `style_diverse` | Strategically heterogeneous field: tests robustness across play styles and strength levels. |
+
+**Methodological note** (appendix, not a headline result). The original `spread` field was
+selected for a large gap using noisy calibration estimates, and it failed independent
+field-relative evaluation because of regression to the mean (16.8 BB at construction, 0.71 BB
+under the independent reference). A split-sample replacement (`spread_v2`) also failed its
+held-out validation. This motivated validating the separated control on fresh, independent data
+before using it. Both are retired, with provenance kept (`configs/fhr3b/fields/retired/`,
+`reports/fhr3b/field-calibration/nlhe6/spread_v2/`).
 
 **Strategic diversity.** `reports/fhr3b/field-calibration/nlhe6/field_diversity.md` comes from the
 frozen manifests, the behaviour audit and the pool ranking, with no simulation. Every field has
 60 distinct parameter vectors, 8 archetypes and all four observed styles.
 
-* `spread` and `style_diverse` have no near-duplicate pairs.
+* `style_diverse` has no near-duplicate pairs. `separated_control` has 16 pairs, almost all among
+  its weak fillers.
 * `crowded_cutoff` has 22 near-duplicate pairs overall, but its ranks 4–15 (exactly the designed
   crowd) span 7 archetypes and all four styles, with only 3 near-duplicate pairs among 4 of the
   12 bots. The boundary is not clone-driven.

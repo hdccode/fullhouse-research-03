@@ -215,79 +215,152 @@
    "vpip_q25": 0.216845,
    "vpip_q75": 0.3763975
   },
-  "spread": {
+  "separated_control": {
    "allin_decision_rate_max": 0.016776,
    "allin_decision_rate_min": 0.002406,
-   "allin_decision_rate_q25": 0.005021325,
+   "allin_decision_rate_q25": 0.0045685000000000005,
    "allin_decision_rate_q75": 0.009440525,
    "archetypes": {
-    "aggressive": 6,
-    "loose": 7,
-    "maniac": 9,
+    "aggressive": 3,
+    "loose": 5,
+    "maniac": 10,
     "neutral": 6,
-    "nit": 8,
+    "nit": 12,
     "station": 8,
     "tight": 8,
     "trapper": 8
    },
-   "bots_in_near_duplicate_pairs": 0,
+   "bots_in_near_duplicate_pairs": 13,
    "boundary_ranks_4_15": {
     "archetypes": {
-     "aggressive": 3,
-     "loose": 2,
+     "loose": 3,
      "maniac": 1,
-     "neutral": 1,
+     "neutral": 2,
      "nit": 1,
-     "station": 2,
-     "tight": 1,
+     "station": 1,
+     "tight": 3,
      "trapper": 1
     },
-    "bots_in_near_duplicate_pairs": 0,
-    "median_param_distance": 0.4533822777128246,
-    "min_param_distance": 0.1609787508629854,
+    "bots_in_near_duplicate_pairs": 3,
+    "median_param_distance": 0.3466763371996707,
+    "min_param_distance": 0.08262256426462866,
     "n": 12,
-    "n_archetypes": 8,
-    "near_duplicate_pair_ids": [],
-    "near_duplicate_pairs": 0,
+    "n_archetypes": 7,
+    "near_duplicate_pair_ids": [
+     [
+      "nlhe6-neutral-e1-s0",
+      "nlhe6-tight-e0"
+     ],
+     [
+      "nlhe6-tight-e0",
+      "nlhe6-tight-e1-s0"
+     ]
+    ],
+    "near_duplicate_pairs": 2,
     "pairs": 66,
     "styles": {
-     "LA": 3,
-     "LP": 4,
+     "LA": 4,
+     "LP": 2,
      "TA": 2,
-     "TP": 3
+     "TP": 4
     }
    },
-   "field": "spread",
-   "field_hash": "ff0f2b07fc210f62",
-   "median_param_distance": 0.4876582790737064,
-   "min_param_distance": 0.1609787508629854,
+   "field": "separated_control",
+   "field_hash": "0b30004f650324e5",
+   "median_param_distance": 0.47587468635161834,
+   "min_param_distance": 0.06945582621318945,
    "n": 60,
    "n_archetypes": 8,
    "n_distinct_parameter_vectors": 60,
-   "near_duplicate_pair_ids": [],
-   "near_duplicate_pairs": 0,
+   "near_duplicate_pair_ids": [
+    [
+     "nlhe6-neutral-e1-s0",
+     "nlhe6-tight-e0"
+    ],
+    [
+     "nlhe6-tight-e0",
+     "nlhe6-tight-e1-s0"
+    ],
+    [
+     "nlhe6-maniac-e1-s0",
+     "nlhe6-maniac-e0"
+    ],
+    [
+     "nlhe6-maniac-e1-s0",
+     "nlhe6-maniac-e1-s2"
+    ],
+    [
+     "nlhe6-maniac-e1-s0",
+     "nlhe6-maniac-e1-s1"
+    ],
+    [
+     "nlhe6-maniac-e0",
+     "nlhe6-maniac-e1-s2"
+    ],
+    [
+     "nlhe6-maniac-e0",
+     "nlhe6-maniac-e1-s1"
+    ],
+    [
+     "nlhe6-trapper-e1-s2",
+     "nlhe6-trapper-e1-s0"
+    ],
+    [
+     "nlhe6-maniac-e1-s2",
+     "nlhe6-maniac-e1-s1"
+    ],
+    [
+     "nlhe6-nit-e1-s0",
+     "nlhe6-nit-e1-s1"
+    ],
+    [
+     "nlhe6-nit-e1-s0",
+     "nlhe6-nit-e0"
+    ],
+    [
+     "nlhe6-nit-e1-s0",
+     "nlhe6-nit-e1-s2"
+    ],
+    [
+     "nlhe6-nit-e1-s1",
+     "nlhe6-nit-e0"
+    ],
+    [
+     "nlhe6-nit-e1-s1",
+     "nlhe6-nit-e1-s2"
+    ],
+    [
+     "nlhe6-nit-e0",
+     "nlhe6-nit-e1-s2"
+    ],
+    [
+     "nlhe6-nit-e1-s2",
+     "nlhe6-trapper-e1-s0"
+    ]
+   ],
+   "near_duplicate_pairs": 16,
    "pairs": 1770,
    "pfr_max": 0.51179,
-   "pfr_min": 0.077382,
-   "pfr_q25": 0.164215,
+   "pfr_min": 0.058003,
+   "pfr_q25": 0.14879499999999998,
    "pfr_q75": 0.32412,
    "post_aggression_max": 14.5,
    "post_aggression_min": 0.32086,
    "post_aggression_q25": 1.03275,
-   "post_aggression_q75": 3.271425,
+   "post_aggression_q75": 3.223675,
    "styles": {
-    "LA": 17,
-    "LP": 12,
-    "TA": 13,
-    "TP": 18
+    "LA": 18,
+    "LP": 10,
+    "TA": 10,
+    "TP": 22
    },
-   "threebet_max": 0.29416,
-   "threebet_min": 0.0098958,
-   "threebet_q25": 0.031177000000000003,
-   "threebet_q75": 0.085114,
+   "threebet_max": 0.26721,
+   "threebet_min": 0.0032351,
+   "threebet_q25": 0.028612,
+   "threebet_q75": 0.08179425,
    "vpip_max": 0.70652,
-   "vpip_min": 0.10787,
-   "vpip_q25": 0.2329675,
+   "vpip_min": 0.097512,
+   "vpip_q25": 0.1886025,
    "vpip_q75": 0.3948825
   },
   "style_diverse": {

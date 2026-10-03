@@ -295,7 +295,7 @@ def test_field_diversity_table(tmp_path):
     from fhr3.tournament.field_diversity import field_diversity
 
     prof = load_profile("publication")
-    res = field_diversity(prof, "nlhe6", ["spread", "crowded_cutoff", "style_diverse"], REPO / "reports/fhr3b")
+    res = field_diversity(prof, "nlhe6", ["separated_control", "crowded_cutoff", "style_diverse"], REPO / "reports/fhr3b")
     f = res["fields"]
     for name in f:
         assert f[name]["n"] == 60 and f[name]["n_distinct_parameter_vectors"] == 60
@@ -305,7 +305,8 @@ def test_field_diversity_table(tmp_path):
     b = c["boundary_ranks_4_15"]
     assert b["near_duplicate_pairs"] == 3 and b["bots_in_near_duplicate_pairs"] == 4  # not clone-driven
     assert b["n_archetypes"] == 7 and len(b["styles"]) == 4
-    assert f["spread"]["near_duplicate_pairs"] == 0 and f["style_diverse"]["near_duplicate_pairs"] == 0
+    assert f["style_diverse"]["near_duplicate_pairs"] == 0
+    assert f["separated_control"]["boundary_ranks_4_15"]["n"] == 12
     committed = json.loads((REPO / "reports/fhr3b/field-calibration/nlhe6/field_diversity.json").read_text())
     assert json.loads(json.dumps(res, sort_keys=True)) == committed  # committed table is reproducible
 
@@ -442,6 +443,12 @@ def test_separated_control_candidate_is_fixed_and_not_yet_frozen():
     if "separated_control" not in frozen:  # before a PASS + human freeze, publication refuses the candidate
         with pytest.raises(FieldNotFrozenError):
             prof.field("nlhe6", "separated_control")
+    else:  # frozen only after the committed one-shot validation PASSED, with the same candidate hash
+        v = json.loads((REPO / "reports/fhr3b/field-calibration/nlhe6/separated_control/validation.json").read_text())
+        assert v["passed"] is True and v["binding"]["candidate_field_hash"] == SC_HASH == frozen["separated_control"]
+        assert prof.field("nlhe6", "separated_control").field_hash == SC_HASH
+        assert prof.calibration_spec("nlhe6", "field", "separated_control").calib_id == \
+            "nlhe6.nlhe6-separated_control.H400.dup.field-reference.5be0e1c0"
 
 
 @pytest.mark.skipif(not HAVE_POOL, reason="NLHE6 pool calibration not present")

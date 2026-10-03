@@ -10,100 +10,100 @@
    "tight",
    "trapper"
   ],
-  "cyc_rms_bb": 2.740805725252392,
+  "cyc_rms_bb": 3.293410482179004,
   "cyclic_matrix_bb": [
    [
     0.0,
-    10.234,
-    5.264,
-    -4.639,
-    -5.697,
-    -3.994,
-    -1.777,
-    0.609
+    6.83,
+    5.575,
+    -5.427,
+    -2.868,
+    -3.442,
+    -2.369,
+    1.701
    ],
    [
-    -10.234,
+    -6.83,
     -0.0,
-    1.725,
-    1.867,
-    2.788,
-    -3.541,
-    3.281,
-    4.114
-   ],
-   [
-    -5.264,
-    -1.725,
-    0.0,
-    0.706,
-    7.297,
-    2.716,
-    0.447,
-    -4.176
-   ],
-   [
-    4.639,
-    -1.867,
-    -0.706,
-    0.0,
-    -1.382,
-    3.516,
-    -1.399,
-    -2.801
-   ],
-   [
-    5.697,
-    -2.788,
-    -7.297,
-    1.382,
-    0.0,
-    4.286,
-    -1.56,
-    0.28
-   ],
-   [
-    3.994,
-    3.541,
-    -2.716,
-    -3.516,
-    -4.286,
-    0.0,
-    1.952,
-    1.03
-   ],
-   [
-    1.777,
-    -3.281,
+    -0.095,
+    -0.541,
+    2.667,
     -0.447,
-    1.399,
-    1.56,
-    -1.952,
-    0.0,
-    0.944
+    1.125,
+    4.121
    ],
    [
-    -0.609,
-    -4.114,
-    4.176,
-    2.801,
-    -0.28,
-    -1.03,
-    -0.944,
+    -5.575,
+    0.095,
+    0.0,
+    -0.413,
+    7.949,
+    0.812,
+    2.915,
+    -5.782
+   ],
+   [
+    5.427,
+    0.541,
+    0.413,
+    0.0,
+    -0.688,
+    -1.845,
+    -0.615,
+    -3.234
+   ],
+   [
+    2.868,
+    -2.667,
+    -7.949,
+    0.688,
+    -0.0,
+    6.281,
+    1.207,
+    -0.428
+   ],
+   [
+    3.442,
+    0.447,
+    -0.812,
+    1.845,
+    -6.281,
+    -0.0,
+    -0.713,
+    2.072
+   ],
+   [
+    2.369,
+    -1.125,
+    -2.915,
+    0.615,
+    -1.207,
+    0.713,
+    0.0,
+    1.55
+   ],
+   [
+    -1.701,
+    -4.121,
+    5.782,
+    3.234,
+    0.428,
+    -2.072,
+    -1.55,
     0.0
    ]
   ],
-  "grad_rms_bb": 1.9275157089473214,
-  "perm_null_q95": 0.41728171993366225,
-  "perm_p": 0.1,
-  "r_cyclic": 0.34016971971738513,
-  "r_gradient": 0.8772254758898979,
+  "grad_rms_bb": 1.935628945740152,
+  "perm_null_q95": 0.45525218703777637,
+  "perm_p": 0.0,
+  "r_cyclic": 0.8175194451790672,
+  "r_gradient": 0.9520448178168464,
   "role": "descriptive; computed once"
  },
  "calib_id": "nlhe6.nlhe6-crowded_cutoff.H400.dup.field-reference.7d2640ae",
- "calibration_digest": "10745eba8842cca4feba0e4076120130",
+ "calibration_digest": "f717e385979e1182978c7ca0f22630be",
  "coupling": "common random numbers: every field reference in this namespace shares one seed; cross-field estimates are correlated and must not be analysed as independent",
- "crowd_mu_range_in_field_reference_bb": 17.34268666666667,
+ "crowd_mu_range_in_field_reference_bb": 11.687973333333332,
  "estimand": "long-run expected performance against random partitions of this controlled field under the specified match semantics; an estimate, not universal poker skill or an oracle ranking",
  "extension_rule": {
   "action": "extend to 500 matched rounds (append-only)",
@@ -119,8 +119,7 @@
    },
    "outside_leaders_and_crowd_above": {
     "bots": {
-     "nlhe6-loose-e2-s0": 0.134,
-     "nlhe6-neutral-e2-s0": 0.145
+     "nlhe6-loose-e2-s1": 0.208
     },
     "n_outside": 45,
     "threshold": 0.1
@@ -136,42 +135,42 @@
  },
  "field_hash": "afbffedfc3706d84",
  "field_id": "nlhe6-crowded_cutoff",
- "gap_at_cutoff_bb": 2.61507333333333,
- "lane_chunks_verified": 25,
+ "gap_at_cutoff_bb": 0.6088133333333325,
+ "lane_chunks_verified": 50,
  "lanes": 6,
  "match_format": "duplicate",
- "matched_rounds": 250,
- "median_se_bb": 4.108461300490036,
- "median_se_bootstrap_bb": 4.134968201169578,
+ "matched_rounds": 500,
+ "median_se_bb": 2.880571101054569,
+ "median_se_bootstrap_bb": 2.872420582023019,
  "mode": "nlhe6",
  "ranking_robustness": {
   "bootstrap_resamples": 1000,
-  "gap_at_cutoff_bb": 2.61507333333333,
+  "gap_at_cutoff_bb": 0.6088133333333325,
   "gap_at_cutoff_pair_ci95_bb": [
-   -8.939293833333338,
-   13.899312499999999
+   -8.065751500000001,
+   9.144099166666667
   ],
   "gap_order_statistic_ci95_bb": [
-   0.05084850000000052,
-   5.481686499999995
+   0.05139574999999917,
+   4.194146750000001
   ],
   "k": 6,
-  "p_cutoff_pair_order_reversed": 0.345,
-  "p_same_top_k_set": 0.169,
-  "role": "ranking/gap robustness from a joint round-group bootstrap; primary per-bot SE is analytic",
-  "spearman_point_vs_bootstrap_median": 0.97404834676299
+  "p_cutoff_pair_order_reversed": 0.439,
+  "p_same_top_k_set": 0.205,
+  "role": "ranking/gap robustness from a round-level joint bootstrap; primary per-bot SE is analytic",
+  "spearman_point_vs_bootstrap_median": 0.9807168657960547
  },
  "scale": "mu_field = mean(lane_sum) / lanes: chips per ordinary-equivalent H-hand match",
  "splithalf": {
-  "cyc_energy_per_pair": 244141.08120102307,
-  "grad_energy_per_pair": 309526.5022374673,
-  "r_cyclic": 0.02319155376930647,
-  "r_gradient": 0.8722868510858648,
-  "r_mu": 0.9528474772542761,
+  "cyc_energy_per_pair": 637365.5153069579,
+  "grad_energy_per_pair": 321187.2916690202,
+  "r_cyclic": 0.12201784143530228,
+  "r_gradient": 0.9269628366704193,
+  "r_mu": 0.9658462011760438,
   "r_null_se": 0.024175473851486187
  },
  "uncertainty": {
-  "bootstrap": "joint resampling of 250 matched rounds over the complete bot vector (1000 resamples); one weight vector per resample",
+  "bootstrap": "joint resampling of 500 matched rounds over the complete bot vector (1000 resamples); one weight vector per resample",
   "bootstrap_unit": "one complete matched round (joint across all bots)",
   "primary_se": "analytic sd / sqrt(matches), per bot"
  }

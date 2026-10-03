@@ -23,12 +23,12 @@ from fhr3.tournament.manifests import RESULT_SOURCES, engine_source_hash
 from fhr3.tournament.replay import check_replay, validate_cell
 from fhr3.tournament.store import completed_replicates, load_cell_arrays, tournament_dir
 
-CORE_FIELDS = {"spread": "ff0f2b07fc210f62", "crowded_cutoff": "afbffedfc3706d84",
-               "style_diverse": "ad7d6596ef1c8c3e"}
-SWISS_IDS = {"spread": "nlhe6.nlhe6-spread.fhr3b_baseline.R40H400K6.swiss.swiss-reference.2d98a8cd",
+CORE_FIELDS = {"separated_control": "0b30004f650324e5", "crowded_cutoff": "afbffedfc3706d84",
+               "style_diverse": "ad7d6596ef1c8c3e"}  # spread ff0f2b07fc210f62: retired (held)
+SWISS_IDS = {"separated_control": "nlhe6.nlhe6-separated_control.fhr3b_baseline.R40H400K6.swiss.swiss-reference.9972cfaa",
              "crowded_cutoff": "nlhe6.nlhe6-crowded_cutoff.fhr3b_baseline.R40H400K6.swiss.swiss-reference.bc25b57b",
              "style_diverse": "nlhe6.nlhe6-style_diverse.fhr3b_baseline.R40H400K6.swiss.swiss-reference.77d62182"}
-CORE_CALIB_IDS = {"spread": "nlhe6.nlhe6-spread.H400.dup.field-reference.3cea71b5",
+CORE_CALIB_IDS = {"separated_control": "nlhe6.nlhe6-separated_control.H400.dup.field-reference.5be0e1c0",
                   "crowded_cutoff": "nlhe6.nlhe6-crowded_cutoff.H400.dup.field-reference.7d2640ae",
                   "style_diverse": "nlhe6.nlhe6-style_diverse.H400.dup.field-reference.0caf92cc"}
 
@@ -63,7 +63,7 @@ def test_exactly_six_unique_cells_per_field(cells):
     assert {c.mode for c in cells} == {"nlhe6"}
     assert {c.cell.field.field_hash for c in cells} == set(CORE_FIELDS.values())
     shape = {c.key: (c.cell.kind, c.cell.protocol.match_format, c.cell.protocol.rounds,
-                     c.cell.protocol.hands_per_match, core.lanes(c.cell)) for c in cells if c.field == "spread"}
+                     c.cell.protocol.hands_per_match, core.lanes(c.cell)) for c in cells if c.field == "separated_control"}
     assert shape == {
         "baseline": ("adaptive", "ordinary", 40, 400, 1),
         "budget_half_rounds": ("adaptive", "ordinary", 20, 800, 1),
@@ -133,7 +133,7 @@ def test_calibration_ids_unchanged_by_the_250_round_scope(pub):
 
 
 # ------------------------------------------------------------------ accounting / plan
-ACTIVE = ["crowded_cutoff", "style_diverse"]  # spread on HOLD (retired_spread_selection_bias)
+ACTIVE = ["separated_control", "crowded_cutoff", "style_diverse"]  # spread on HOLD (retired)
 
 
 def test_plan_accounting(pub, tmp_path):
@@ -148,19 +148,19 @@ def test_plan_accounting(pub, tmp_path):
         assert (r["matched_rounds_to_run"], r["lanes"], r["tables_per_round"]) == (250, 6, 10)
         assert r["scheduled_hands_to_run"] == 6_000_000 and r["stage"] == "initial"
     rows = plan["matrix"]
-    assert len(rows) == 12 and all(r["to_run"] == 50 and r["replicates"] == [0, 50] for r in rows)
+    assert len(rows) == 18 and all(r["to_run"] == 50 and r["replicates"] == [0, 50] for r in rows)
     per = {r["cell"]: r["scheduled_hands_per_tournament"] for r in rows if r["field"] == "crowded_cutoff"}
     assert per == {"baseline": 160_000, "budget_half_rounds": 160_000, "budget_quarter_rounds": 160_000,
                    "frozen_schedule": 160_000, "dup_fewer_rounds": 168_000, "dup_shorter_matches": 160_800}
     work = {r["cell"]: (r["scheduled_work_ratio_vs_baseline"], r["exact_equal_scheduled_work"]) for r in rows
             if r["field"] == "crowded_cutoff"}
     assert work["dup_fewer_rounds"] == (1.05, False) and work["dup_shorter_matches"] == (1.005, False)
-    t = plan["totals"]  # per field unchanged: 6M mu_field, 48.44M matrix, 16M mu_swiss
-    assert t["mu_field"]["scheduled_hands"] == 12_000_000
-    assert t["matrix"]["scheduled_hands"] == 96_880_000 and t["matrix"]["tournaments"] == 600
-    assert t["mu_field_plus_matrix"]["scheduled_hands"] == 108_880_000
-    assert t["mu_swiss"]["scheduled_hands"] == 32_000_000 and t["mu_swiss"]["tournaments"] == 200
-    assert t["programme"]["scheduled_hands"] == 140_880_000
+    t = plan["totals"]  # per field: 6M mu_field, 48.44M matrix, 16M mu_swiss (empty root)
+    assert t["mu_field"]["scheduled_hands"] == 18_000_000
+    assert t["matrix"]["scheduled_hands"] == 145_320_000 and t["matrix"]["tournaments"] == 900
+    assert t["mu_field_plus_matrix"]["scheduled_hands"] == 163_320_000
+    assert t["mu_swiss"]["scheduled_hands"] == 48_000_000 and t["mu_swiss"]["tournaments"] == 300
+    assert t["programme"]["scheduled_hands"] == 211_320_000
     assert t["programme"]["slow_rate_wall_h_ideal"] == pytest.approx(t["programme"]["wall_h_ideal"] * 4260 / 1289)
     sw = plan["swiss_reference"]
     assert sw["enabled"] is True and {r["field"]: r["cell_id"] for r in sw["rows"]} == {f: SWISS_IDS[f] for f in ACTIVE}
@@ -168,7 +168,7 @@ def test_plan_accounting(pub, tmp_path):
     frozen = [r for r in rows if r["cell"] == "frozen_schedule"]
     assert all(r["replays_per_source"] == 1 and r["replicates"] == [0, 50] for r in frozen)
     assert {n: o["scheduled_hands"] for n, o in plan["swiss_reference"]["options"].items()} == {
-        "50": 16_000_000, "100": 32_000_000, "200": 64_000_000}
+        "50": 24_000_000, "100": 48_000_000, "200": 96_000_000}
 
 
 def test_plan_reports_extensions(pub, tmp_path):
@@ -184,7 +184,7 @@ def test_cli_plan_runs_no_simulation(tmp_path, capsys):
     assert main(["core", "plan", "--root", str(tmp_path / "r"), "--json", str(out)]) == 0
     assert "NO simulation" in capsys.readouterr().out
     plan = json.loads(out.read_text())
-    assert plan["totals"]["programme"]["scheduled_hands"] == 140_880_000
+    assert plan["totals"]["programme"]["scheduled_hands"] == 211_320_000
     assert not (tmp_path / "r").exists()
 
 
@@ -237,7 +237,8 @@ def test_core_refuses_a_revoked_or_unpinned_field(tmp_path):
     cfg_root = tmp_path / "configs"
     shutil.copytree(FHR3B_CONFIGS, cfg_root)
     mx = (cfg_root / "matrix.yaml").read_text()
-    (cfg_root / "matrix.yaml").write_text(mx.replace("spread: ff0f2b07fc210f62", "spread: 16df070db91a53bd"))
+    (cfg_root / "matrix.yaml").write_text(mx.replace("separated_control: 0b30004f650324e5",
+                                                     "separated_control: 16df070db91a53bd"))
     prof = load_profile("publication", config_root=cfg_root)
     with pytest.raises(core.CoreScopeError, match="16df070db91a53bd"):
         core.check_scope(prof)
@@ -415,7 +416,7 @@ def test_spread_is_held_with_provenance(pub):
     assert core.held_fields(pub) == {"spread": core.held_fields(pub)["spread"]}
     rec = core.held_fields(pub)["spread"]
     assert rec["status"] == "retired_spread_selection_bias" and rec["field_hash"] == "ff0f2b07fc210f62"
-    assert core.resolve_fields(pub, None) == ["crowded_cutoff", "style_diverse"]
+    assert core.resolve_fields(pub, None) == ["separated_control", "crowded_cutoff", "style_diverse"]
     with pytest.raises(core.CoreScopeError, match="HOLD"):
         core.resolve_fields(pub, ["spread"])
     assert core.resolve_fields(pub, ["spread"], allow_held=True) == ["spread"]  # read-only uses
@@ -444,6 +445,6 @@ def test_held_spread_is_never_simulated(tmp_path, argv):
 
 
 def test_extension_commands_target_only_the_two_active_fields(pub, tmp_path):
-    plan = core.build_plan(pub, tmp_path, mu_field_rounds=500)
+    plan = core.build_plan(pub, tmp_path, mu_field_rounds=500, fields=["crowded_cutoff", "style_diverse"])
     assert [(r["field"], r["matched_rounds_target"], r["stage"]) for r in plan["field_reference"]] == [
         ("crowded_cutoff", 500, "extension"), ("style_diverse", 500, "extension")]
