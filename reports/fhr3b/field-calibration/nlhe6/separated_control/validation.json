@@ -1,0 +1,214 @@
+{
+ "binding": {
+  "candidate_field_hash": "0b30004f650324e5",
+  "note": "commit this file BEFORE `simulate`; evaluation refuses a different candidate or protocol",
+  "protocol_hash": "cb7bcf14d66d01ad",
+  "validation_calib_id": "nlhe6.nlhe6-pool.H400.pool-calibration.9def2e8e",
+  "validation_namespace": "pool-calibration",
+  "validation_rounds": 4000,
+  "validation_seed": 8173343052463570196,
+  "validation_seed_family": "fhr3b-2026-separated-control-validation"
+ },
+ "context": "pool-style (96-bot pool opponents)",
+ "criteria": {
+  "gap_lcb95_one_sided_bb": {
+   "above": 0.0,
+   "value": 4.376360750000002
+  },
+  "max_nonleader_p_top6": {
+   "at_most": 0.05,
+   "bot": "nlhe6-loose-e2-s1",
+   "value": 0.0015
+  },
+  "p_leaders_are_top6": {
+   "at_least": 0.95,
+   "value": 0.998
+  },
+  "point_top6_equals_leaders": {
+   "required": true,
+   "value": true
+  }
+ },
+ "decision": "PASS: freeze as a new field and add to the FHR4 core scope",
+ "gap_boot_quantiles_bb": {
+  "0.025": 3.1517646874999974,
+  "0.05": 4.376360750000002,
+  "0.5": 10.192338750000001,
+  "0.95": 15.8152565,
+  "0.975": 16.875707125
+ },
+ "gap_lcb95_one_sided_bb": 4.376360750000002,
+ "gap_point_bb": 12.3617675,
+ "leaders_val": [
+  {
+   "bot": "nlhe6-maniac-e2-s2",
+   "mu_bb": 56.375135,
+   "p_top6": 1.0,
+   "se_bb": 3.3918496178313897
+  },
+  {
+   "bot": "nlhe6-station-e2-s2",
+   "mu_bb": 53.63446,
+   "p_top6": 1.0,
+   "se_bb": 3.231806436095701
+  },
+  {
+   "bot": "nlhe6-trapper-e3-s3",
+   "mu_bb": 40.47628,
+   "p_top6": 1.0,
+   "se_bb": 2.781930181484234
+  },
+  {
+   "bot": "nlhe6-nit-e3-s1",
+   "mu_bb": 34.4512275,
+   "p_top6": 1.0,
+   "se_bb": 3.112721595791143
+  },
+  {
+   "bot": "nlhe6-neutral-e1-s0",
+   "mu_bb": 30.9851675,
+   "p_top6": 1.0,
+   "se_bb": 3.0273095435271373
+  },
+  {
+   "bot": "nlhe6-station-e2-s3",
+   "mu_bb": 23.036205,
+   "p_top6": 0.998,
+   "se_bb": 2.8786294741876723
+  }
+ ],
+ "matches_per_bot": 4000,
+ "median_se_bb": 2.374686261598753,
+ "nonleaders_p_top6_above_zero": [
+  {
+   "bot": "nlhe6-loose-e2-s1",
+   "mu_bb": 10.6744375,
+   "p_top6": 0.0015
+  },
+  {
+   "bot": "nlhe6-loose-e2-s3",
+   "mu_bb": 10.0027375,
+   "p_top6": 0.0005
+  }
+ ],
+ "p_rank6_rank7_reversal": 0.0015,
+ "p_same_top6_set": 0.998,
+ "passed": true,
+ "point_rank6": {
+  "bot": "nlhe6-station-e2-s3",
+  "leader": true,
+  "mu_bb": 23.036205,
+  "se_bb": 2.8786294741876723
+ },
+ "point_rank7": {
+  "bot": "nlhe6-loose-e2-s1",
+  "leader": false,
+  "mu_bb": 10.6744375,
+  "se_bb": 3.0185352979853324
+ },
+ "rank6_rank7_pair_gap_ci95_bb": [
+  4.272876875,
+  20.635849374999996
+ ],
+ "top12_val": [
+  {
+   "bot": "nlhe6-maniac-e2-s2",
+   "leader": true,
+   "mu_bb": 56.375135,
+   "p_top6": 1.0,
+   "rank": 1,
+   "se_bb": 3.3918496178313897
+  },
+  {
+   "bot": "nlhe6-station-e2-s2",
+   "leader": true,
+   "mu_bb": 53.63446,
+   "p_top6": 1.0,
+   "rank": 2,
+   "se_bb": 3.231806436095701
+  },
+  {
+   "bot": "nlhe6-trapper-e3-s3",
+   "leader": true,
+   "mu_bb": 40.47628,
+   "p_top6": 1.0,
+   "rank": 3,
+   "se_bb": 2.781930181484234
+  },
+  {
+   "bot": "nlhe6-nit-e3-s1",
+   "leader": true,
+   "mu_bb": 34.4512275,
+   "p_top6": 1.0,
+   "rank": 4,
+   "se_bb": 3.112721595791143
+  },
+  {
+   "bot": "nlhe6-neutral-e1-s0",
+   "leader": true,
+   "mu_bb": 30.9851675,
+   "p_top6": 1.0,
+   "rank": 5,
+   "se_bb": 3.0273095435271373
+  },
+  {
+   "bot": "nlhe6-station-e2-s3",
+   "leader": true,
+   "mu_bb": 23.036205,
+   "p_top6": 0.998,
+   "rank": 6,
+   "se_bb": 2.8786294741876723
+  },
+  {
+   "bot": "nlhe6-loose-e2-s1",
+   "leader": false,
+   "mu_bb": 10.6744375,
+   "p_top6": 0.0015,
+   "rank": 7,
+   "se_bb": 3.0185352979853324
+  },
+  {
+   "bot": "nlhe6-loose-e2-s3",
+   "leader": false,
+   "mu_bb": 10.0027375,
+   "p_top6": 0.0005,
+   "rank": 8,
+   "se_bb": 3.1402260621701696
+  },
+  {
+   "bot": "nlhe6-neutral-e2-s0",
+   "leader": false,
+   "mu_bb": 9.8624475,
+   "p_top6": 0.0,
+   "rank": 9,
+   "se_bb": 2.5068275710414722
+  },
+  {
+   "bot": "nlhe6-tight-e0",
+   "leader": false,
+   "mu_bb": 6.3551175,
+   "p_top6": 0.0,
+   "rank": 10,
+   "se_bb": 2.2934758233103416
+  },
+  {
+   "bot": "nlhe6-loose-e2-s0",
+   "leader": false,
+   "mu_bb": 6.08868,
+   "p_top6": 0.0,
+   "rank": 11,
+   "se_bb": 2.6234466118594635
+  },
+  {
+   "bot": "nlhe6-station-e3-s0",
+   "leader": false,
+   "mu_bb": 5.676475,
+   "p_top6": 0.0,
+   "rank": 12,
+   "se_bb": 3.188511072321781
+  }
+ ],
+ "validation_calib_id": "nlhe6.nlhe6-pool.H400.pool-calibration.9def2e8e",
+ "validation_digest": "ea26be106375c7fdb09b264109683968",
+ "validation_rounds": 4000
+}
