@@ -1,0 +1,168 @@
+{
+ "archetype_cycle": {
+  "archetypes": [
+   "aggressive",
+   "loose",
+   "maniac",
+   "neutral",
+   "nit",
+   "station",
+   "tight",
+   "trapper"
+  ],
+  "cyc_rms_bb": 0.0,
+  "cyclic_matrix_bb": [
+   [
+    0.0,
+    4.873,
+    0.636,
+    0.367,
+    -0.205,
+    -0.398,
+    -0.806,
+    -4.467
+   ],
+   [
+    -4.873,
+    -0.0,
+    4.821,
+    -0.116,
+    2.818,
+    2.148,
+    -4.867,
+    0.069
+   ],
+   [
+    -0.636,
+    -4.821,
+    -0.0,
+    0.591,
+    5.802,
+    2.101,
+    -2.789,
+    -0.247
+   ],
+   [
+    -0.367,
+    0.116,
+    -0.591,
+    -0.0,
+    -0.345,
+    0.195,
+    2.012,
+    -1.02
+   ],
+   [
+    0.205,
+    -2.818,
+    -5.802,
+    0.345,
+    0.0,
+    2.238,
+    3.297,
+    2.534
+   ],
+   [
+    0.398,
+    -2.148,
+    -2.101,
+    -0.195,
+    -2.238,
+    0.0,
+    0.182,
+    6.102
+   ],
+   [
+    0.806,
+    4.867,
+    2.789,
+    -2.012,
+    -3.297,
+    -0.182,
+    0.0,
+    -2.972
+   ],
+   [
+    4.467,
+    -0.069,
+    0.247,
+    1.02,
+    -2.534,
+    -6.102,
+    2.972,
+    0.0
+   ]
+  ],
+  "grad_rms_bb": 1.9039245686659467,
+  "perm_null_q95": 0.4506130961301612,
+  "perm_p": 0.855,
+  "r_cyclic": -0.18832784829430121,
+  "r_gradient": 0.619056422905897,
+  "role": "descriptive; computed once"
+ },
+ "calib_id": "nlhe6.nlhe6-separated_control.H400.dup.field-reference.5be0e1c0",
+ "calibration_digest": "90ae3326f96c13c17471a7aaa872a62b",
+ "coupling": "common random numbers: every field reference in this namespace shares one seed; cross-field estimates are correlated and must not be analysed as independent",
+ "estimand": "long-run expected performance against random partitions of this controlled field under the specified match semantics; an estimate, not universal poker skill or an oracle ranking",
+ "extension_rule": {
+  "action": "keep 250 matched rounds",
+  "criteria": {
+   "p_cutoff_pair_order_reversed": {
+    "trigger_above": 0.05,
+    "value": 0.0
+   },
+   "p_same_top_k_set": {
+    "trigger_below": 0.95,
+    "value": 0.999
+   }
+  },
+  "extend": false,
+  "field_kind": "separated_control",
+  "note": "pre-registered rule; applied mechanically, never executed automatically",
+  "triggered": [
+   false,
+   false
+  ]
+ },
+ "field_hash": "0b30004f650324e5",
+ "field_id": "nlhe6-separated_control",
+ "gap_at_cutoff_bb": 23.834486666666663,
+ "lane_chunks_verified": 25,
+ "lanes": 6,
+ "match_format": "duplicate",
+ "matched_rounds": 250,
+ "median_se_bb": 4.042796140245375,
+ "median_se_bootstrap_bb": 3.967790998035765,
+ "mode": "nlhe6",
+ "ranking_robustness": {
+  "bootstrap_resamples": 1000,
+  "gap_at_cutoff_bb": 23.834486666666663,
+  "gap_at_cutoff_pair_ci95_bb": [
+   9.329114833333334,
+   37.82523216666666
+  ],
+  "gap_order_statistic_ci95_bb": [
+   6.186135833333333,
+   26.193337666666665
+  ],
+  "k": 6,
+  "p_cutoff_pair_order_reversed": 0.0,
+  "p_same_top_k_set": 0.999,
+  "role": "ranking/gap robustness from a round-level joint bootstrap; primary per-bot SE is analytic",
+  "spearman_point_vs_bootstrap_median": 0.9816060016671301
+ },
+ "scale": "mu_field = mean(lane_sum) / lanes: chips per ordinary-equivalent H-hand match",
+ "splithalf": {
+  "cyc_energy_per_pair": 665011.433991331,
+  "grad_energy_per_pair": 456798.0620765317,
+  "r_cyclic": 0.06365596260930029,
+  "r_gradient": 0.8273906607790024,
+  "r_mu": 0.9567764771242238,
+  "r_null_se": 0.024175473851486187
+ },
+ "uncertainty": {
+  "bootstrap": "joint resampling of 250 matched rounds over the complete bot vector (1000 resamples); one weight vector per resample",
+  "bootstrap_unit": "one complete matched round (joint across all bots)",
+  "primary_se": "analytic sd / sqrt(matches), per bot"
+ }
+}
