@@ -1,0 +1,1261 @@
+field,cell,cell_label,bot_id,mu_field_bb,mu_field_rank,p_reference_top6,n_tournaments,p_qualify,wilson_lo,wilson_hi
+separated_control,baseline,R40H400 adaptive,nlhe6-aggressive-e2-s1,-32.1736,56,0.0,50,0.0,0.0,0.0713
+separated_control,baseline,R40H400 adaptive,nlhe6-aggressive-e2-s2,7.8337,20,0.0,50,0.02,0.0035,0.105
+separated_control,baseline,R40H400 adaptive,nlhe6-aggressive-e3-s1,-19.6549,46,0.0,50,0.0,0.0,0.0713
+separated_control,baseline,R40H400 adaptive,nlhe6-loose-e2-s0,15.5501,12,0.0,50,0.16,0.0834,0.2851
+separated_control,baseline,R40H400 adaptive,nlhe6-loose-e2-s1,19.6981,9,0.0,50,0.16,0.0834,0.2851
+separated_control,baseline,R40H400 adaptive,nlhe6-loose-e2-s3,24.0239,7,0.0,50,0.2,0.1124,0.3304
+separated_control,baseline,R40H400 adaptive,nlhe6-loose-e3-s0,-13.5306,41,0.0,50,0.06,0.0206,0.1622
+separated_control,baseline,R40H400 adaptive,nlhe6-loose-e3-s3,6.029,22,0.0,50,0.02,0.0035,0.105
+separated_control,baseline,R40H400 adaptive,nlhe6-maniac-e0,7.0987,21,0.0,50,0.18,0.0977,0.308
+separated_control,baseline,R40H400 adaptive,nlhe6-maniac-e1-s0,12.1648,17,0.0,50,0.18,0.0977,0.308
+separated_control,baseline,R40H400 adaptive,nlhe6-maniac-e1-s1,-16.2317,43,0.0,50,0.02,0.0035,0.105
+separated_control,baseline,R40H400 adaptive,nlhe6-maniac-e1-s2,-7.2628,37,0.0,50,0.12,0.0562,0.238
+separated_control,baseline,R40H400 adaptive,nlhe6-maniac-e2-s0,-29.0785,55,0.0,50,0.02,0.0035,0.105
+separated_control,baseline,R40H400 adaptive,nlhe6-maniac-e2-s1,-23.1793,51,0.0,50,0.0,0.0,0.0713
+separated_control,baseline,R40H400 adaptive,nlhe6-maniac-e2-s2,60.8264,2,1.0,50,0.64,0.5014,0.7586
+separated_control,baseline,R40H400 adaptive,nlhe6-maniac-e3-s0,3.4548,27,0.0,50,0.08,0.0315,0.1884
+separated_control,baseline,R40H400 adaptive,nlhe6-maniac-e3-s1,-37.5814,58,0.0,50,0.04,0.011,0.1346
+separated_control,baseline,R40H400 adaptive,nlhe6-maniac-e3-s3,-16.6747,44,0.0,50,0.02,0.0035,0.105
+separated_control,baseline,R40H400 adaptive,nlhe6-neutral-e1-s0,47.8584,6,0.999,50,0.56,0.4231,0.6884
+separated_control,baseline,R40H400 adaptive,nlhe6-neutral-e2-s0,18.8867,10,0.0,50,0.08,0.0315,0.1884
+separated_control,baseline,R40H400 adaptive,nlhe6-neutral-e2-s2,14.4242,15,0.0,50,0.1,0.0435,0.2136
+separated_control,baseline,R40H400 adaptive,nlhe6-neutral-e3-s0,-32.8644,57,0.0,50,0.0,0.0,0.0713
+separated_control,baseline,R40H400 adaptive,nlhe6-neutral-e3-s1,-3.9848,32,0.0,50,0.04,0.011,0.1346
+separated_control,baseline,R40H400 adaptive,nlhe6-neutral-e3-s2,-50.4088,60,0.0,50,0.0,0.0,0.0713
+separated_control,baseline,R40H400 adaptive,nlhe6-nit-e0,0.2144,30,0.0,50,0.02,0.0035,0.105
+separated_control,baseline,R40H400 adaptive,nlhe6-nit-e1-s0,3.778,25,0.0,50,0.02,0.0035,0.105
+separated_control,baseline,R40H400 adaptive,nlhe6-nit-e1-s1,4.7851,23,0.0,50,0.0,0.0,0.0713
+separated_control,baseline,R40H400 adaptive,nlhe6-nit-e1-s2,-6.2556,34,0.0,50,0.02,0.0035,0.105
+separated_control,baseline,R40H400 adaptive,nlhe6-nit-e2-s0,-7.1433,36,0.0,50,0.0,0.0,0.0713
+separated_control,baseline,R40H400 adaptive,nlhe6-nit-e2-s1,2.8661,28,0.0,50,0.0,0.0,0.0713
+separated_control,baseline,R40H400 adaptive,nlhe6-nit-e2-s2,-18.3876,45,0.0,50,0.0,0.0,0.0713
+separated_control,baseline,R40H400 adaptive,nlhe6-nit-e2-s3,-28.418,54,0.0,50,0.0,0.0,0.0713
+separated_control,baseline,R40H400 adaptive,nlhe6-nit-e3-s0,-46.9459,59,0.0,50,0.0,0.0,0.0713
+separated_control,baseline,R40H400 adaptive,nlhe6-nit-e3-s1,51.2514,3,1.0,50,0.38,0.2586,0.5185
+separated_control,baseline,R40H400 adaptive,nlhe6-nit-e3-s2,-7.8382,38,0.0,50,0.0,0.0,0.0713
+separated_control,baseline,R40H400 adaptive,nlhe6-nit-e3-s3,-24.315,52,0.0,50,0.0,0.0,0.0713
+separated_control,baseline,R40H400 adaptive,nlhe6-station-e1-s1,8.3794,19,0.0,50,0.06,0.0206,0.1622
+separated_control,baseline,R40H400 adaptive,nlhe6-station-e2-s0,-0.5513,31,0.0,50,0.06,0.0206,0.1622
+separated_control,baseline,R40H400 adaptive,nlhe6-station-e2-s2,73.6758,1,1.0,50,0.74,0.6045,0.8413
+separated_control,baseline,R40H400 adaptive,nlhe6-station-e2-s3,50.6395,4,1.0,50,0.32,0.2076,0.4581
+separated_control,baseline,R40H400 adaptive,nlhe6-station-e3-s0,22.5828,8,0.001,50,0.16,0.0834,0.2851
+separated_control,baseline,R40H400 adaptive,nlhe6-station-e3-s1,-23.0585,50,0.0,50,0.02,0.0035,0.105
+separated_control,baseline,R40H400 adaptive,nlhe6-station-e3-s2,-22.0994,48,0.0,50,0.0,0.0,0.0713
+separated_control,baseline,R40H400 adaptive,nlhe6-station-e3-s3,-27.141,53,0.0,50,0.0,0.0,0.0713
+separated_control,baseline,R40H400 adaptive,nlhe6-tight-e0,14.606,13,0.0,50,0.16,0.0834,0.2851
+separated_control,baseline,R40H400 adaptive,nlhe6-tight-e1-s0,3.6909,26,0.0,50,0.16,0.0834,0.2851
+separated_control,baseline,R40H400 adaptive,nlhe6-tight-e1-s1,4.664,24,0.0,50,0.1,0.0435,0.2136
+separated_control,baseline,R40H400 adaptive,nlhe6-tight-e2-s0,13.9135,16,0.0,50,0.1,0.0435,0.2136
+separated_control,baseline,R40H400 adaptive,nlhe6-tight-e2-s2,-9.6654,39,0.0,50,0.0,0.0,0.0713
+separated_control,baseline,R40H400 adaptive,nlhe6-tight-e3-s0,-6.8298,35,0.0,50,0.06,0.0206,0.1622
+separated_control,baseline,R40H400 adaptive,nlhe6-tight-e3-s1,-15.6736,42,0.0,50,0.0,0.0,0.0713
+separated_control,baseline,R40H400 adaptive,nlhe6-tight-e3-s3,1.0944,29,0.0,50,0.02,0.0035,0.105
+separated_control,baseline,R40H400 adaptive,nlhe6-trapper-e1-s0,-11.3838,40,0.0,50,0.0,0.0,0.0713
+separated_control,baseline,R40H400 adaptive,nlhe6-trapper-e1-s2,18.8259,11,0.0,50,0.08,0.0315,0.1884
+separated_control,baseline,R40H400 adaptive,nlhe6-trapper-e2-s0,9.6211,18,0.0,50,0.16,0.0834,0.2851
+separated_control,baseline,R40H400 adaptive,nlhe6-trapper-e2-s1,14.581,14,0.0,50,0.04,0.011,0.1346
+separated_control,baseline,R40H400 adaptive,nlhe6-trapper-e2-s3,-20.7261,47,0.0,50,0.0,0.0,0.0713
+separated_control,baseline,R40H400 adaptive,nlhe6-trapper-e3-s0,-5.864,33,0.0,50,0.0,0.0,0.0713
+separated_control,baseline,R40H400 adaptive,nlhe6-trapper-e3-s1,-22.1261,49,0.0,50,0.0,0.0,0.0713
+separated_control,baseline,R40H400 adaptive,nlhe6-trapper-e3-s3,50.0299,5,1.0,50,0.62,0.4815,0.7414
+separated_control,budget_half_rounds,R20H800,nlhe6-aggressive-e2-s1,-32.1736,56,0.0,50,0.02,0.0035,0.105
+separated_control,budget_half_rounds,R20H800,nlhe6-aggressive-e2-s2,7.8337,20,0.0,50,0.02,0.0035,0.105
+separated_control,budget_half_rounds,R20H800,nlhe6-aggressive-e3-s1,-19.6549,46,0.0,50,0.0,0.0,0.0713
+separated_control,budget_half_rounds,R20H800,nlhe6-loose-e2-s0,15.5501,12,0.0,50,0.14,0.0695,0.2619
+separated_control,budget_half_rounds,R20H800,nlhe6-loose-e2-s1,19.6981,9,0.0,50,0.18,0.0977,0.308
+separated_control,budget_half_rounds,R20H800,nlhe6-loose-e2-s3,24.0239,7,0.0,50,0.16,0.0834,0.2851
+separated_control,budget_half_rounds,R20H800,nlhe6-loose-e3-s0,-13.5306,41,0.0,50,0.02,0.0035,0.105
+separated_control,budget_half_rounds,R20H800,nlhe6-loose-e3-s3,6.029,22,0.0,50,0.04,0.011,0.1346
+separated_control,budget_half_rounds,R20H800,nlhe6-maniac-e0,7.0987,21,0.0,50,0.12,0.0562,0.238
+separated_control,budget_half_rounds,R20H800,nlhe6-maniac-e1-s0,12.1648,17,0.0,50,0.16,0.0834,0.2851
+separated_control,budget_half_rounds,R20H800,nlhe6-maniac-e1-s1,-16.2317,43,0.0,50,0.04,0.011,0.1346
+separated_control,budget_half_rounds,R20H800,nlhe6-maniac-e1-s2,-7.2628,37,0.0,50,0.08,0.0315,0.1884
+separated_control,budget_half_rounds,R20H800,nlhe6-maniac-e2-s0,-29.0785,55,0.0,50,0.02,0.0035,0.105
+separated_control,budget_half_rounds,R20H800,nlhe6-maniac-e2-s1,-23.1793,51,0.0,50,0.02,0.0035,0.105
+separated_control,budget_half_rounds,R20H800,nlhe6-maniac-e2-s2,60.8264,2,1.0,50,0.56,0.4231,0.6884
+separated_control,budget_half_rounds,R20H800,nlhe6-maniac-e3-s0,3.4548,27,0.0,50,0.08,0.0315,0.1884
+separated_control,budget_half_rounds,R20H800,nlhe6-maniac-e3-s1,-37.5814,58,0.0,50,0.0,0.0,0.0713
+separated_control,budget_half_rounds,R20H800,nlhe6-maniac-e3-s3,-16.6747,44,0.0,50,0.04,0.011,0.1346
+separated_control,budget_half_rounds,R20H800,nlhe6-neutral-e1-s0,47.8584,6,0.999,50,0.44,0.3116,0.5769
+separated_control,budget_half_rounds,R20H800,nlhe6-neutral-e2-s0,18.8867,10,0.0,50,0.06,0.0206,0.1622
+separated_control,budget_half_rounds,R20H800,nlhe6-neutral-e2-s2,14.4242,15,0.0,50,0.24,0.143,0.3741
+separated_control,budget_half_rounds,R20H800,nlhe6-neutral-e3-s0,-32.8644,57,0.0,50,0.0,0.0,0.0713
+separated_control,budget_half_rounds,R20H800,nlhe6-neutral-e3-s1,-3.9848,32,0.0,50,0.0,0.0,0.0713
+separated_control,budget_half_rounds,R20H800,nlhe6-neutral-e3-s2,-50.4088,60,0.0,50,0.0,0.0,0.0713
+separated_control,budget_half_rounds,R20H800,nlhe6-nit-e0,0.2144,30,0.0,50,0.02,0.0035,0.105
+separated_control,budget_half_rounds,R20H800,nlhe6-nit-e1-s0,3.778,25,0.0,50,0.04,0.011,0.1346
+separated_control,budget_half_rounds,R20H800,nlhe6-nit-e1-s1,4.7851,23,0.0,50,0.0,0.0,0.0713
+separated_control,budget_half_rounds,R20H800,nlhe6-nit-e1-s2,-6.2556,34,0.0,50,0.02,0.0035,0.105
+separated_control,budget_half_rounds,R20H800,nlhe6-nit-e2-s0,-7.1433,36,0.0,50,0.02,0.0035,0.105
+separated_control,budget_half_rounds,R20H800,nlhe6-nit-e2-s1,2.8661,28,0.0,50,0.08,0.0315,0.1884
+separated_control,budget_half_rounds,R20H800,nlhe6-nit-e2-s2,-18.3876,45,0.0,50,0.0,0.0,0.0713
+separated_control,budget_half_rounds,R20H800,nlhe6-nit-e2-s3,-28.418,54,0.0,50,0.0,0.0,0.0713
+separated_control,budget_half_rounds,R20H800,nlhe6-nit-e3-s0,-46.9459,59,0.0,50,0.0,0.0,0.0713
+separated_control,budget_half_rounds,R20H800,nlhe6-nit-e3-s1,51.2514,3,1.0,50,0.32,0.2076,0.4581
+separated_control,budget_half_rounds,R20H800,nlhe6-nit-e3-s2,-7.8382,38,0.0,50,0.0,0.0,0.0713
+separated_control,budget_half_rounds,R20H800,nlhe6-nit-e3-s3,-24.315,52,0.0,50,0.0,0.0,0.0713
+separated_control,budget_half_rounds,R20H800,nlhe6-station-e1-s1,8.3794,19,0.0,50,0.1,0.0435,0.2136
+separated_control,budget_half_rounds,R20H800,nlhe6-station-e2-s0,-0.5513,31,0.0,50,0.04,0.011,0.1346
+separated_control,budget_half_rounds,R20H800,nlhe6-station-e2-s2,73.6758,1,1.0,50,0.66,0.5215,0.7756
+separated_control,budget_half_rounds,R20H800,nlhe6-station-e2-s3,50.6395,4,1.0,50,0.44,0.3116,0.5769
+separated_control,budget_half_rounds,R20H800,nlhe6-station-e3-s0,22.5828,8,0.001,50,0.22,0.1275,0.3524
+separated_control,budget_half_rounds,R20H800,nlhe6-station-e3-s1,-23.0585,50,0.0,50,0.04,0.011,0.1346
+separated_control,budget_half_rounds,R20H800,nlhe6-station-e3-s2,-22.0994,48,0.0,50,0.04,0.011,0.1346
+separated_control,budget_half_rounds,R20H800,nlhe6-station-e3-s3,-27.141,53,0.0,50,0.0,0.0,0.0713
+separated_control,budget_half_rounds,R20H800,nlhe6-tight-e0,14.606,13,0.0,50,0.14,0.0695,0.2619
+separated_control,budget_half_rounds,R20H800,nlhe6-tight-e1-s0,3.6909,26,0.0,50,0.06,0.0206,0.1622
+separated_control,budget_half_rounds,R20H800,nlhe6-tight-e1-s1,4.664,24,0.0,50,0.06,0.0206,0.1622
+separated_control,budget_half_rounds,R20H800,nlhe6-tight-e2-s0,13.9135,16,0.0,50,0.06,0.0206,0.1622
+separated_control,budget_half_rounds,R20H800,nlhe6-tight-e2-s2,-9.6654,39,0.0,50,0.02,0.0035,0.105
+separated_control,budget_half_rounds,R20H800,nlhe6-tight-e3-s0,-6.8298,35,0.0,50,0.02,0.0035,0.105
+separated_control,budget_half_rounds,R20H800,nlhe6-tight-e3-s1,-15.6736,42,0.0,50,0.0,0.0,0.0713
+separated_control,budget_half_rounds,R20H800,nlhe6-tight-e3-s3,1.0944,29,0.0,50,0.0,0.0,0.0713
+separated_control,budget_half_rounds,R20H800,nlhe6-trapper-e1-s0,-11.3838,40,0.0,50,0.02,0.0035,0.105
+separated_control,budget_half_rounds,R20H800,nlhe6-trapper-e1-s2,18.8259,11,0.0,50,0.08,0.0315,0.1884
+separated_control,budget_half_rounds,R20H800,nlhe6-trapper-e2-s0,9.6211,18,0.0,50,0.2,0.1124,0.3304
+separated_control,budget_half_rounds,R20H800,nlhe6-trapper-e2-s1,14.581,14,0.0,50,0.16,0.0834,0.2851
+separated_control,budget_half_rounds,R20H800,nlhe6-trapper-e2-s3,-20.7261,47,0.0,50,0.0,0.0,0.0713
+separated_control,budget_half_rounds,R20H800,nlhe6-trapper-e3-s0,-5.864,33,0.0,50,0.0,0.0,0.0713
+separated_control,budget_half_rounds,R20H800,nlhe6-trapper-e3-s1,-22.1261,49,0.0,50,0.02,0.0035,0.105
+separated_control,budget_half_rounds,R20H800,nlhe6-trapper-e3-s3,50.0299,5,1.0,50,0.68,0.5419,0.7924
+separated_control,budget_quarter_rounds,R10H1600,nlhe6-aggressive-e2-s1,-32.1736,56,0.0,50,0.02,0.0035,0.105
+separated_control,budget_quarter_rounds,R10H1600,nlhe6-aggressive-e2-s2,7.8337,20,0.0,50,0.1,0.0435,0.2136
+separated_control,budget_quarter_rounds,R10H1600,nlhe6-aggressive-e3-s1,-19.6549,46,0.0,50,0.08,0.0315,0.1884
+separated_control,budget_quarter_rounds,R10H1600,nlhe6-loose-e2-s0,15.5501,12,0.0,50,0.18,0.0977,0.308
+separated_control,budget_quarter_rounds,R10H1600,nlhe6-loose-e2-s1,19.6981,9,0.0,50,0.3,0.191,0.4375
+separated_control,budget_quarter_rounds,R10H1600,nlhe6-loose-e2-s3,24.0239,7,0.0,50,0.12,0.0562,0.238
+separated_control,budget_quarter_rounds,R10H1600,nlhe6-loose-e3-s0,-13.5306,41,0.0,50,0.02,0.0035,0.105
+separated_control,budget_quarter_rounds,R10H1600,nlhe6-loose-e3-s3,6.029,22,0.0,50,0.12,0.0562,0.238
+separated_control,budget_quarter_rounds,R10H1600,nlhe6-maniac-e0,7.0987,21,0.0,50,0.22,0.1275,0.3524
+separated_control,budget_quarter_rounds,R10H1600,nlhe6-maniac-e1-s0,12.1648,17,0.0,50,0.2,0.1124,0.3304
+separated_control,budget_quarter_rounds,R10H1600,nlhe6-maniac-e1-s1,-16.2317,43,0.0,50,0.02,0.0035,0.105
+separated_control,budget_quarter_rounds,R10H1600,nlhe6-maniac-e1-s2,-7.2628,37,0.0,50,0.16,0.0834,0.2851
+separated_control,budget_quarter_rounds,R10H1600,nlhe6-maniac-e2-s0,-29.0785,55,0.0,50,0.04,0.011,0.1346
+separated_control,budget_quarter_rounds,R10H1600,nlhe6-maniac-e2-s1,-23.1793,51,0.0,50,0.04,0.011,0.1346
+separated_control,budget_quarter_rounds,R10H1600,nlhe6-maniac-e2-s2,60.8264,2,1.0,50,0.34,0.2244,0.4785
+separated_control,budget_quarter_rounds,R10H1600,nlhe6-maniac-e3-s0,3.4548,27,0.0,50,0.1,0.0435,0.2136
+separated_control,budget_quarter_rounds,R10H1600,nlhe6-maniac-e3-s1,-37.5814,58,0.0,50,0.02,0.0035,0.105
+separated_control,budget_quarter_rounds,R10H1600,nlhe6-maniac-e3-s3,-16.6747,44,0.0,50,0.0,0.0,0.0713
+separated_control,budget_quarter_rounds,R10H1600,nlhe6-neutral-e1-s0,47.8584,6,0.999,50,0.24,0.143,0.3741
+separated_control,budget_quarter_rounds,R10H1600,nlhe6-neutral-e2-s0,18.8867,10,0.0,50,0.16,0.0834,0.2851
+separated_control,budget_quarter_rounds,R10H1600,nlhe6-neutral-e2-s2,14.4242,15,0.0,50,0.26,0.1587,0.3955
+separated_control,budget_quarter_rounds,R10H1600,nlhe6-neutral-e3-s0,-32.8644,57,0.0,50,0.0,0.0,0.0713
+separated_control,budget_quarter_rounds,R10H1600,nlhe6-neutral-e3-s1,-3.9848,32,0.0,50,0.02,0.0035,0.105
+separated_control,budget_quarter_rounds,R10H1600,nlhe6-neutral-e3-s2,-50.4088,60,0.0,50,0.02,0.0035,0.105
+separated_control,budget_quarter_rounds,R10H1600,nlhe6-nit-e0,0.2144,30,0.0,50,0.08,0.0315,0.1884
+separated_control,budget_quarter_rounds,R10H1600,nlhe6-nit-e1-s0,3.778,25,0.0,50,0.04,0.011,0.1346
+separated_control,budget_quarter_rounds,R10H1600,nlhe6-nit-e1-s1,4.7851,23,0.0,50,0.12,0.0562,0.238
+separated_control,budget_quarter_rounds,R10H1600,nlhe6-nit-e1-s2,-6.2556,34,0.0,50,0.02,0.0035,0.105
+separated_control,budget_quarter_rounds,R10H1600,nlhe6-nit-e2-s0,-7.1433,36,0.0,50,0.0,0.0,0.0713
+separated_control,budget_quarter_rounds,R10H1600,nlhe6-nit-e2-s1,2.8661,28,0.0,50,0.08,0.0315,0.1884
+separated_control,budget_quarter_rounds,R10H1600,nlhe6-nit-e2-s2,-18.3876,45,0.0,50,0.0,0.0,0.0713
+separated_control,budget_quarter_rounds,R10H1600,nlhe6-nit-e2-s3,-28.418,54,0.0,50,0.0,0.0,0.0713
+separated_control,budget_quarter_rounds,R10H1600,nlhe6-nit-e3-s0,-46.9459,59,0.0,50,0.0,0.0,0.0713
+separated_control,budget_quarter_rounds,R10H1600,nlhe6-nit-e3-s1,51.2514,3,1.0,50,0.28,0.1747,0.4167
+separated_control,budget_quarter_rounds,R10H1600,nlhe6-nit-e3-s2,-7.8382,38,0.0,50,0.02,0.0035,0.105
+separated_control,budget_quarter_rounds,R10H1600,nlhe6-nit-e3-s3,-24.315,52,0.0,50,0.0,0.0,0.0713
+separated_control,budget_quarter_rounds,R10H1600,nlhe6-station-e1-s1,8.3794,19,0.0,50,0.1,0.0435,0.2136
+separated_control,budget_quarter_rounds,R10H1600,nlhe6-station-e2-s0,-0.5513,31,0.0,50,0.04,0.011,0.1346
+separated_control,budget_quarter_rounds,R10H1600,nlhe6-station-e2-s2,73.6758,1,1.0,50,0.38,0.2586,0.5185
+separated_control,budget_quarter_rounds,R10H1600,nlhe6-station-e2-s3,50.6395,4,1.0,50,0.3,0.191,0.4375
+separated_control,budget_quarter_rounds,R10H1600,nlhe6-station-e3-s0,22.5828,8,0.001,50,0.18,0.0977,0.308
+separated_control,budget_quarter_rounds,R10H1600,nlhe6-station-e3-s1,-23.0585,50,0.0,50,0.02,0.0035,0.105
+separated_control,budget_quarter_rounds,R10H1600,nlhe6-station-e3-s2,-22.0994,48,0.0,50,0.0,0.0,0.0713
+separated_control,budget_quarter_rounds,R10H1600,nlhe6-station-e3-s3,-27.141,53,0.0,50,0.02,0.0035,0.105
+separated_control,budget_quarter_rounds,R10H1600,nlhe6-tight-e0,14.606,13,0.0,50,0.1,0.0435,0.2136
+separated_control,budget_quarter_rounds,R10H1600,nlhe6-tight-e1-s0,3.6909,26,0.0,50,0.12,0.0562,0.238
+separated_control,budget_quarter_rounds,R10H1600,nlhe6-tight-e1-s1,4.664,24,0.0,50,0.02,0.0035,0.105
+separated_control,budget_quarter_rounds,R10H1600,nlhe6-tight-e2-s0,13.9135,16,0.0,50,0.1,0.0435,0.2136
+separated_control,budget_quarter_rounds,R10H1600,nlhe6-tight-e2-s2,-9.6654,39,0.0,50,0.06,0.0206,0.1622
+separated_control,budget_quarter_rounds,R10H1600,nlhe6-tight-e3-s0,-6.8298,35,0.0,50,0.1,0.0435,0.2136
+separated_control,budget_quarter_rounds,R10H1600,nlhe6-tight-e3-s1,-15.6736,42,0.0,50,0.0,0.0,0.0713
+separated_control,budget_quarter_rounds,R10H1600,nlhe6-tight-e3-s3,1.0944,29,0.0,50,0.04,0.011,0.1346
+separated_control,budget_quarter_rounds,R10H1600,nlhe6-trapper-e1-s0,-11.3838,40,0.0,50,0.02,0.0035,0.105
+separated_control,budget_quarter_rounds,R10H1600,nlhe6-trapper-e1-s2,18.8259,11,0.0,50,0.14,0.0695,0.2619
+separated_control,budget_quarter_rounds,R10H1600,nlhe6-trapper-e2-s0,9.6211,18,0.0,50,0.08,0.0315,0.1884
+separated_control,budget_quarter_rounds,R10H1600,nlhe6-trapper-e2-s1,14.581,14,0.0,50,0.08,0.0315,0.1884
+separated_control,budget_quarter_rounds,R10H1600,nlhe6-trapper-e2-s3,-20.7261,47,0.0,50,0.04,0.011,0.1346
+separated_control,budget_quarter_rounds,R10H1600,nlhe6-trapper-e3-s0,-5.864,33,0.0,50,0.02,0.0035,0.105
+separated_control,budget_quarter_rounds,R10H1600,nlhe6-trapper-e3-s1,-22.1261,49,0.0,50,0.02,0.0035,0.105
+separated_control,budget_quarter_rounds,R10H1600,nlhe6-trapper-e3-s3,50.0299,5,1.0,50,0.6,0.4618,0.7239
+separated_control,frozen_schedule,R40H400 frozen schedule,nlhe6-aggressive-e2-s1,-32.1736,56,0.0,50,0.04,0.011,0.1346
+separated_control,frozen_schedule,R40H400 frozen schedule,nlhe6-aggressive-e2-s2,7.8337,20,0.0,50,0.04,0.011,0.1346
+separated_control,frozen_schedule,R40H400 frozen schedule,nlhe6-aggressive-e3-s1,-19.6549,46,0.0,50,0.02,0.0035,0.105
+separated_control,frozen_schedule,R40H400 frozen schedule,nlhe6-loose-e2-s0,15.5501,12,0.0,50,0.16,0.0834,0.2851
+separated_control,frozen_schedule,R40H400 frozen schedule,nlhe6-loose-e2-s1,19.6981,9,0.0,50,0.22,0.1275,0.3524
+separated_control,frozen_schedule,R40H400 frozen schedule,nlhe6-loose-e2-s3,24.0239,7,0.0,50,0.16,0.0834,0.2851
+separated_control,frozen_schedule,R40H400 frozen schedule,nlhe6-loose-e3-s0,-13.5306,41,0.0,50,0.02,0.0035,0.105
+separated_control,frozen_schedule,R40H400 frozen schedule,nlhe6-loose-e3-s3,6.029,22,0.0,50,0.12,0.0562,0.238
+separated_control,frozen_schedule,R40H400 frozen schedule,nlhe6-maniac-e0,7.0987,21,0.0,50,0.12,0.0562,0.238
+separated_control,frozen_schedule,R40H400 frozen schedule,nlhe6-maniac-e1-s0,12.1648,17,0.0,50,0.06,0.0206,0.1622
+separated_control,frozen_schedule,R40H400 frozen schedule,nlhe6-maniac-e1-s1,-16.2317,43,0.0,50,0.06,0.0206,0.1622
+separated_control,frozen_schedule,R40H400 frozen schedule,nlhe6-maniac-e1-s2,-7.2628,37,0.0,50,0.06,0.0206,0.1622
+separated_control,frozen_schedule,R40H400 frozen schedule,nlhe6-maniac-e2-s0,-29.0785,55,0.0,50,0.02,0.0035,0.105
+separated_control,frozen_schedule,R40H400 frozen schedule,nlhe6-maniac-e2-s1,-23.1793,51,0.0,50,0.04,0.011,0.1346
+separated_control,frozen_schedule,R40H400 frozen schedule,nlhe6-maniac-e2-s2,60.8264,2,1.0,50,0.58,0.4423,0.7062
+separated_control,frozen_schedule,R40H400 frozen schedule,nlhe6-maniac-e3-s0,3.4548,27,0.0,50,0.1,0.0435,0.2136
+separated_control,frozen_schedule,R40H400 frozen schedule,nlhe6-maniac-e3-s1,-37.5814,58,0.0,50,0.0,0.0,0.0713
+separated_control,frozen_schedule,R40H400 frozen schedule,nlhe6-maniac-e3-s3,-16.6747,44,0.0,50,0.04,0.011,0.1346
+separated_control,frozen_schedule,R40H400 frozen schedule,nlhe6-neutral-e1-s0,47.8584,6,0.999,50,0.36,0.2414,0.4986
+separated_control,frozen_schedule,R40H400 frozen schedule,nlhe6-neutral-e2-s0,18.8867,10,0.0,50,0.12,0.0562,0.238
+separated_control,frozen_schedule,R40H400 frozen schedule,nlhe6-neutral-e2-s2,14.4242,15,0.0,50,0.24,0.143,0.3741
+separated_control,frozen_schedule,R40H400 frozen schedule,nlhe6-neutral-e3-s0,-32.8644,57,0.0,50,0.0,0.0,0.0713
+separated_control,frozen_schedule,R40H400 frozen schedule,nlhe6-neutral-e3-s1,-3.9848,32,0.0,50,0.14,0.0695,0.2619
+separated_control,frozen_schedule,R40H400 frozen schedule,nlhe6-neutral-e3-s2,-50.4088,60,0.0,50,0.06,0.0206,0.1622
+separated_control,frozen_schedule,R40H400 frozen schedule,nlhe6-nit-e0,0.2144,30,0.0,50,0.02,0.0035,0.105
+separated_control,frozen_schedule,R40H400 frozen schedule,nlhe6-nit-e1-s0,3.778,25,0.0,50,0.06,0.0206,0.1622
+separated_control,frozen_schedule,R40H400 frozen schedule,nlhe6-nit-e1-s1,4.7851,23,0.0,50,0.06,0.0206,0.1622
+separated_control,frozen_schedule,R40H400 frozen schedule,nlhe6-nit-e1-s2,-6.2556,34,0.0,50,0.0,0.0,0.0713
+separated_control,frozen_schedule,R40H400 frozen schedule,nlhe6-nit-e2-s0,-7.1433,36,0.0,50,0.06,0.0206,0.1622
+separated_control,frozen_schedule,R40H400 frozen schedule,nlhe6-nit-e2-s1,2.8661,28,0.0,50,0.04,0.011,0.1346
+separated_control,frozen_schedule,R40H400 frozen schedule,nlhe6-nit-e2-s2,-18.3876,45,0.0,50,0.0,0.0,0.0713
+separated_control,frozen_schedule,R40H400 frozen schedule,nlhe6-nit-e2-s3,-28.418,54,0.0,50,0.0,0.0,0.0713
+separated_control,frozen_schedule,R40H400 frozen schedule,nlhe6-nit-e3-s0,-46.9459,59,0.0,50,0.0,0.0,0.0713
+separated_control,frozen_schedule,R40H400 frozen schedule,nlhe6-nit-e3-s1,51.2514,3,1.0,50,0.38,0.2586,0.5185
+separated_control,frozen_schedule,R40H400 frozen schedule,nlhe6-nit-e3-s2,-7.8382,38,0.0,50,0.1,0.0435,0.2136
+separated_control,frozen_schedule,R40H400 frozen schedule,nlhe6-nit-e3-s3,-24.315,52,0.0,50,0.0,0.0,0.0713
+separated_control,frozen_schedule,R40H400 frozen schedule,nlhe6-station-e1-s1,8.3794,19,0.0,50,0.16,0.0834,0.2851
+separated_control,frozen_schedule,R40H400 frozen schedule,nlhe6-station-e2-s0,-0.5513,31,0.0,50,0.18,0.0977,0.308
+separated_control,frozen_schedule,R40H400 frozen schedule,nlhe6-station-e2-s2,73.6758,1,1.0,50,0.42,0.2938,0.5577
+separated_control,frozen_schedule,R40H400 frozen schedule,nlhe6-station-e2-s3,50.6395,4,1.0,50,0.28,0.1747,0.4167
+separated_control,frozen_schedule,R40H400 frozen schedule,nlhe6-station-e3-s0,22.5828,8,0.001,50,0.16,0.0834,0.2851
+separated_control,frozen_schedule,R40H400 frozen schedule,nlhe6-station-e3-s1,-23.0585,50,0.0,50,0.0,0.0,0.0713
+separated_control,frozen_schedule,R40H400 frozen schedule,nlhe6-station-e3-s2,-22.0994,48,0.0,50,0.0,0.0,0.0713
+separated_control,frozen_schedule,R40H400 frozen schedule,nlhe6-station-e3-s3,-27.141,53,0.0,50,0.02,0.0035,0.105
+separated_control,frozen_schedule,R40H400 frozen schedule,nlhe6-tight-e0,14.606,13,0.0,50,0.12,0.0562,0.238
+separated_control,frozen_schedule,R40H400 frozen schedule,nlhe6-tight-e1-s0,3.6909,26,0.0,50,0.16,0.0834,0.2851
+separated_control,frozen_schedule,R40H400 frozen schedule,nlhe6-tight-e1-s1,4.664,24,0.0,50,0.04,0.011,0.1346
+separated_control,frozen_schedule,R40H400 frozen schedule,nlhe6-tight-e2-s0,13.9135,16,0.0,50,0.1,0.0435,0.2136
+separated_control,frozen_schedule,R40H400 frozen schedule,nlhe6-tight-e2-s2,-9.6654,39,0.0,50,0.0,0.0,0.0713
+separated_control,frozen_schedule,R40H400 frozen schedule,nlhe6-tight-e3-s0,-6.8298,35,0.0,50,0.02,0.0035,0.105
+separated_control,frozen_schedule,R40H400 frozen schedule,nlhe6-tight-e3-s1,-15.6736,42,0.0,50,0.0,0.0,0.0713
+separated_control,frozen_schedule,R40H400 frozen schedule,nlhe6-tight-e3-s3,1.0944,29,0.0,50,0.0,0.0,0.0713
+separated_control,frozen_schedule,R40H400 frozen schedule,nlhe6-trapper-e1-s0,-11.3838,40,0.0,50,0.02,0.0035,0.105
+separated_control,frozen_schedule,R40H400 frozen schedule,nlhe6-trapper-e1-s2,18.8259,11,0.0,50,0.18,0.0977,0.308
+separated_control,frozen_schedule,R40H400 frozen schedule,nlhe6-trapper-e2-s0,9.6211,18,0.0,50,0.16,0.0834,0.2851
+separated_control,frozen_schedule,R40H400 frozen schedule,nlhe6-trapper-e2-s1,14.581,14,0.0,50,0.1,0.0435,0.2136
+separated_control,frozen_schedule,R40H400 frozen schedule,nlhe6-trapper-e2-s3,-20.7261,47,0.0,50,0.0,0.0,0.0713
+separated_control,frozen_schedule,R40H400 frozen schedule,nlhe6-trapper-e3-s0,-5.864,33,0.0,50,0.0,0.0,0.0713
+separated_control,frozen_schedule,R40H400 frozen schedule,nlhe6-trapper-e3-s1,-22.1261,49,0.0,50,0.04,0.011,0.1346
+separated_control,frozen_schedule,R40H400 frozen schedule,nlhe6-trapper-e3-s3,50.0299,5,1.0,50,0.34,0.2244,0.4785
+separated_control,dup_fewer_rounds,R7H400 x6 duplicate,nlhe6-aggressive-e2-s1,-32.1736,56,0.0,50,0.0,0.0,0.0713
+separated_control,dup_fewer_rounds,R7H400 x6 duplicate,nlhe6-aggressive-e2-s2,7.8337,20,0.0,50,0.1,0.0435,0.2136
+separated_control,dup_fewer_rounds,R7H400 x6 duplicate,nlhe6-aggressive-e3-s1,-19.6549,46,0.0,50,0.02,0.0035,0.105
+separated_control,dup_fewer_rounds,R7H400 x6 duplicate,nlhe6-loose-e2-s0,15.5501,12,0.0,50,0.02,0.0035,0.105
+separated_control,dup_fewer_rounds,R7H400 x6 duplicate,nlhe6-loose-e2-s1,19.6981,9,0.0,50,0.2,0.1124,0.3304
+separated_control,dup_fewer_rounds,R7H400 x6 duplicate,nlhe6-loose-e2-s3,24.0239,7,0.0,50,0.2,0.1124,0.3304
+separated_control,dup_fewer_rounds,R7H400 x6 duplicate,nlhe6-loose-e3-s0,-13.5306,41,0.0,50,0.0,0.0,0.0713
+separated_control,dup_fewer_rounds,R7H400 x6 duplicate,nlhe6-loose-e3-s3,6.029,22,0.0,50,0.1,0.0435,0.2136
+separated_control,dup_fewer_rounds,R7H400 x6 duplicate,nlhe6-maniac-e0,7.0987,21,0.0,50,0.14,0.0695,0.2619
+separated_control,dup_fewer_rounds,R7H400 x6 duplicate,nlhe6-maniac-e1-s0,12.1648,17,0.0,50,0.18,0.0977,0.308
+separated_control,dup_fewer_rounds,R7H400 x6 duplicate,nlhe6-maniac-e1-s1,-16.2317,43,0.0,50,0.0,0.0,0.0713
+separated_control,dup_fewer_rounds,R7H400 x6 duplicate,nlhe6-maniac-e1-s2,-7.2628,37,0.0,50,0.04,0.011,0.1346
+separated_control,dup_fewer_rounds,R7H400 x6 duplicate,nlhe6-maniac-e2-s0,-29.0785,55,0.0,50,0.0,0.0,0.0713
+separated_control,dup_fewer_rounds,R7H400 x6 duplicate,nlhe6-maniac-e2-s1,-23.1793,51,0.0,50,0.04,0.011,0.1346
+separated_control,dup_fewer_rounds,R7H400 x6 duplicate,nlhe6-maniac-e2-s2,60.8264,2,1.0,50,0.7,0.5625,0.809
+separated_control,dup_fewer_rounds,R7H400 x6 duplicate,nlhe6-maniac-e3-s0,3.4548,27,0.0,50,0.04,0.011,0.1346
+separated_control,dup_fewer_rounds,R7H400 x6 duplicate,nlhe6-maniac-e3-s1,-37.5814,58,0.0,50,0.06,0.0206,0.1622
+separated_control,dup_fewer_rounds,R7H400 x6 duplicate,nlhe6-maniac-e3-s3,-16.6747,44,0.0,50,0.02,0.0035,0.105
+separated_control,dup_fewer_rounds,R7H400 x6 duplicate,nlhe6-neutral-e1-s0,47.8584,6,0.999,50,0.62,0.4815,0.7414
+separated_control,dup_fewer_rounds,R7H400 x6 duplicate,nlhe6-neutral-e2-s0,18.8867,10,0.0,50,0.12,0.0562,0.238
+separated_control,dup_fewer_rounds,R7H400 x6 duplicate,nlhe6-neutral-e2-s2,14.4242,15,0.0,50,0.06,0.0206,0.1622
+separated_control,dup_fewer_rounds,R7H400 x6 duplicate,nlhe6-neutral-e3-s0,-32.8644,57,0.0,50,0.0,0.0,0.0713
+separated_control,dup_fewer_rounds,R7H400 x6 duplicate,nlhe6-neutral-e3-s1,-3.9848,32,0.0,50,0.0,0.0,0.0713
+separated_control,dup_fewer_rounds,R7H400 x6 duplicate,nlhe6-neutral-e3-s2,-50.4088,60,0.0,50,0.0,0.0,0.0713
+separated_control,dup_fewer_rounds,R7H400 x6 duplicate,nlhe6-nit-e0,0.2144,30,0.0,50,0.04,0.011,0.1346
+separated_control,dup_fewer_rounds,R7H400 x6 duplicate,nlhe6-nit-e1-s0,3.778,25,0.0,50,0.02,0.0035,0.105
+separated_control,dup_fewer_rounds,R7H400 x6 duplicate,nlhe6-nit-e1-s1,4.7851,23,0.0,50,0.08,0.0315,0.1884
+separated_control,dup_fewer_rounds,R7H400 x6 duplicate,nlhe6-nit-e1-s2,-6.2556,34,0.0,50,0.0,0.0,0.0713
+separated_control,dup_fewer_rounds,R7H400 x6 duplicate,nlhe6-nit-e2-s0,-7.1433,36,0.0,50,0.0,0.0,0.0713
+separated_control,dup_fewer_rounds,R7H400 x6 duplicate,nlhe6-nit-e2-s1,2.8661,28,0.0,50,0.02,0.0035,0.105
+separated_control,dup_fewer_rounds,R7H400 x6 duplicate,nlhe6-nit-e2-s2,-18.3876,45,0.0,50,0.0,0.0,0.0713
+separated_control,dup_fewer_rounds,R7H400 x6 duplicate,nlhe6-nit-e2-s3,-28.418,54,0.0,50,0.0,0.0,0.0713
+separated_control,dup_fewer_rounds,R7H400 x6 duplicate,nlhe6-nit-e3-s0,-46.9459,59,0.0,50,0.0,0.0,0.0713
+separated_control,dup_fewer_rounds,R7H400 x6 duplicate,nlhe6-nit-e3-s1,51.2514,3,1.0,50,0.64,0.5014,0.7586
+separated_control,dup_fewer_rounds,R7H400 x6 duplicate,nlhe6-nit-e3-s2,-7.8382,38,0.0,50,0.04,0.011,0.1346
+separated_control,dup_fewer_rounds,R7H400 x6 duplicate,nlhe6-nit-e3-s3,-24.315,52,0.0,50,0.0,0.0,0.0713
+separated_control,dup_fewer_rounds,R7H400 x6 duplicate,nlhe6-station-e1-s1,8.3794,19,0.0,50,0.12,0.0562,0.238
+separated_control,dup_fewer_rounds,R7H400 x6 duplicate,nlhe6-station-e2-s0,-0.5513,31,0.0,50,0.02,0.0035,0.105
+separated_control,dup_fewer_rounds,R7H400 x6 duplicate,nlhe6-station-e2-s2,73.6758,1,1.0,50,0.66,0.5215,0.7756
+separated_control,dup_fewer_rounds,R7H400 x6 duplicate,nlhe6-station-e2-s3,50.6395,4,1.0,50,0.36,0.2414,0.4986
+separated_control,dup_fewer_rounds,R7H400 x6 duplicate,nlhe6-station-e3-s0,22.5828,8,0.001,50,0.18,0.0977,0.308
+separated_control,dup_fewer_rounds,R7H400 x6 duplicate,nlhe6-station-e3-s1,-23.0585,50,0.0,50,0.0,0.0,0.0713
+separated_control,dup_fewer_rounds,R7H400 x6 duplicate,nlhe6-station-e3-s2,-22.0994,48,0.0,50,0.0,0.0,0.0713
+separated_control,dup_fewer_rounds,R7H400 x6 duplicate,nlhe6-station-e3-s3,-27.141,53,0.0,50,0.0,0.0,0.0713
+separated_control,dup_fewer_rounds,R7H400 x6 duplicate,nlhe6-tight-e0,14.606,13,0.0,50,0.06,0.0206,0.1622
+separated_control,dup_fewer_rounds,R7H400 x6 duplicate,nlhe6-tight-e1-s0,3.6909,26,0.0,50,0.1,0.0435,0.2136
+separated_control,dup_fewer_rounds,R7H400 x6 duplicate,nlhe6-tight-e1-s1,4.664,24,0.0,50,0.02,0.0035,0.105
+separated_control,dup_fewer_rounds,R7H400 x6 duplicate,nlhe6-tight-e2-s0,13.9135,16,0.0,50,0.12,0.0562,0.238
+separated_control,dup_fewer_rounds,R7H400 x6 duplicate,nlhe6-tight-e2-s2,-9.6654,39,0.0,50,0.0,0.0,0.0713
+separated_control,dup_fewer_rounds,R7H400 x6 duplicate,nlhe6-tight-e3-s0,-6.8298,35,0.0,50,0.02,0.0035,0.105
+separated_control,dup_fewer_rounds,R7H400 x6 duplicate,nlhe6-tight-e3-s1,-15.6736,42,0.0,50,0.02,0.0035,0.105
+separated_control,dup_fewer_rounds,R7H400 x6 duplicate,nlhe6-tight-e3-s3,1.0944,29,0.0,50,0.0,0.0,0.0713
+separated_control,dup_fewer_rounds,R7H400 x6 duplicate,nlhe6-trapper-e1-s0,-11.3838,40,0.0,50,0.04,0.011,0.1346
+separated_control,dup_fewer_rounds,R7H400 x6 duplicate,nlhe6-trapper-e1-s2,18.8259,11,0.0,50,0.14,0.0695,0.2619
+separated_control,dup_fewer_rounds,R7H400 x6 duplicate,nlhe6-trapper-e2-s0,9.6211,18,0.0,50,0.12,0.0562,0.238
+separated_control,dup_fewer_rounds,R7H400 x6 duplicate,nlhe6-trapper-e2-s1,14.581,14,0.0,50,0.06,0.0206,0.1622
+separated_control,dup_fewer_rounds,R7H400 x6 duplicate,nlhe6-trapper-e2-s3,-20.7261,47,0.0,50,0.0,0.0,0.0713
+separated_control,dup_fewer_rounds,R7H400 x6 duplicate,nlhe6-trapper-e3-s0,-5.864,33,0.0,50,0.0,0.0,0.0713
+separated_control,dup_fewer_rounds,R7H400 x6 duplicate,nlhe6-trapper-e3-s1,-22.1261,49,0.0,50,0.0,0.0,0.0713
+separated_control,dup_fewer_rounds,R7H400 x6 duplicate,nlhe6-trapper-e3-s3,50.0299,5,1.0,50,0.46,0.3297,0.596
+separated_control,dup_shorter_matches,R40H67 x6 duplicate,nlhe6-aggressive-e2-s1,-32.1736,56,0.0,50,0.0,0.0,0.0713
+separated_control,dup_shorter_matches,R40H67 x6 duplicate,nlhe6-aggressive-e2-s2,7.8337,20,0.0,50,0.02,0.0035,0.105
+separated_control,dup_shorter_matches,R40H67 x6 duplicate,nlhe6-aggressive-e3-s1,-19.6549,46,0.0,50,0.0,0.0,0.0713
+separated_control,dup_shorter_matches,R40H67 x6 duplicate,nlhe6-loose-e2-s0,15.5501,12,0.0,50,0.1,0.0435,0.2136
+separated_control,dup_shorter_matches,R40H67 x6 duplicate,nlhe6-loose-e2-s1,19.6981,9,0.0,50,0.08,0.0315,0.1884
+separated_control,dup_shorter_matches,R40H67 x6 duplicate,nlhe6-loose-e2-s3,24.0239,7,0.0,50,0.16,0.0834,0.2851
+separated_control,dup_shorter_matches,R40H67 x6 duplicate,nlhe6-loose-e3-s0,-13.5306,41,0.0,50,0.0,0.0,0.0713
+separated_control,dup_shorter_matches,R40H67 x6 duplicate,nlhe6-loose-e3-s3,6.029,22,0.0,50,0.0,0.0,0.0713
+separated_control,dup_shorter_matches,R40H67 x6 duplicate,nlhe6-maniac-e0,7.0987,21,0.0,50,0.16,0.0834,0.2851
+separated_control,dup_shorter_matches,R40H67 x6 duplicate,nlhe6-maniac-e1-s0,12.1648,17,0.0,50,0.16,0.0834,0.2851
+separated_control,dup_shorter_matches,R40H67 x6 duplicate,nlhe6-maniac-e1-s1,-16.2317,43,0.0,50,0.04,0.011,0.1346
+separated_control,dup_shorter_matches,R40H67 x6 duplicate,nlhe6-maniac-e1-s2,-7.2628,37,0.0,50,0.1,0.0435,0.2136
+separated_control,dup_shorter_matches,R40H67 x6 duplicate,nlhe6-maniac-e2-s0,-29.0785,55,0.0,50,0.0,0.0,0.0713
+separated_control,dup_shorter_matches,R40H67 x6 duplicate,nlhe6-maniac-e2-s1,-23.1793,51,0.0,50,0.0,0.0,0.0713
+separated_control,dup_shorter_matches,R40H67 x6 duplicate,nlhe6-maniac-e2-s2,60.8264,2,1.0,50,0.86,0.7381,0.9305
+separated_control,dup_shorter_matches,R40H67 x6 duplicate,nlhe6-maniac-e3-s0,3.4548,27,0.0,50,0.02,0.0035,0.105
+separated_control,dup_shorter_matches,R40H67 x6 duplicate,nlhe6-maniac-e3-s1,-37.5814,58,0.0,50,0.0,0.0,0.0713
+separated_control,dup_shorter_matches,R40H67 x6 duplicate,nlhe6-maniac-e3-s3,-16.6747,44,0.0,50,0.04,0.011,0.1346
+separated_control,dup_shorter_matches,R40H67 x6 duplicate,nlhe6-neutral-e1-s0,47.8584,6,0.999,50,0.58,0.4423,0.7062
+separated_control,dup_shorter_matches,R40H67 x6 duplicate,nlhe6-neutral-e2-s0,18.8867,10,0.0,50,0.1,0.0435,0.2136
+separated_control,dup_shorter_matches,R40H67 x6 duplicate,nlhe6-neutral-e2-s2,14.4242,15,0.0,50,0.12,0.0562,0.238
+separated_control,dup_shorter_matches,R40H67 x6 duplicate,nlhe6-neutral-e3-s0,-32.8644,57,0.0,50,0.0,0.0,0.0713
+separated_control,dup_shorter_matches,R40H67 x6 duplicate,nlhe6-neutral-e3-s1,-3.9848,32,0.0,50,0.02,0.0035,0.105
+separated_control,dup_shorter_matches,R40H67 x6 duplicate,nlhe6-neutral-e3-s2,-50.4088,60,0.0,50,0.0,0.0,0.0713
+separated_control,dup_shorter_matches,R40H67 x6 duplicate,nlhe6-nit-e0,0.2144,30,0.0,50,0.04,0.011,0.1346
+separated_control,dup_shorter_matches,R40H67 x6 duplicate,nlhe6-nit-e1-s0,3.778,25,0.0,50,0.06,0.0206,0.1622
+separated_control,dup_shorter_matches,R40H67 x6 duplicate,nlhe6-nit-e1-s1,4.7851,23,0.0,50,0.06,0.0206,0.1622
+separated_control,dup_shorter_matches,R40H67 x6 duplicate,nlhe6-nit-e1-s2,-6.2556,34,0.0,50,0.0,0.0,0.0713
+separated_control,dup_shorter_matches,R40H67 x6 duplicate,nlhe6-nit-e2-s0,-7.1433,36,0.0,50,0.0,0.0,0.0713
+separated_control,dup_shorter_matches,R40H67 x6 duplicate,nlhe6-nit-e2-s1,2.8661,28,0.0,50,0.02,0.0035,0.105
+separated_control,dup_shorter_matches,R40H67 x6 duplicate,nlhe6-nit-e2-s2,-18.3876,45,0.0,50,0.0,0.0,0.0713
+separated_control,dup_shorter_matches,R40H67 x6 duplicate,nlhe6-nit-e2-s3,-28.418,54,0.0,50,0.0,0.0,0.0713
+separated_control,dup_shorter_matches,R40H67 x6 duplicate,nlhe6-nit-e3-s0,-46.9459,59,0.0,50,0.0,0.0,0.0713
+separated_control,dup_shorter_matches,R40H67 x6 duplicate,nlhe6-nit-e3-s1,51.2514,3,1.0,50,0.74,0.6045,0.8413
+separated_control,dup_shorter_matches,R40H67 x6 duplicate,nlhe6-nit-e3-s2,-7.8382,38,0.0,50,0.0,0.0,0.0713
+separated_control,dup_shorter_matches,R40H67 x6 duplicate,nlhe6-nit-e3-s3,-24.315,52,0.0,50,0.0,0.0,0.0713
+separated_control,dup_shorter_matches,R40H67 x6 duplicate,nlhe6-station-e1-s1,8.3794,19,0.0,50,0.04,0.011,0.1346
+separated_control,dup_shorter_matches,R40H67 x6 duplicate,nlhe6-station-e2-s0,-0.5513,31,0.0,50,0.06,0.0206,0.1622
+separated_control,dup_shorter_matches,R40H67 x6 duplicate,nlhe6-station-e2-s2,73.6758,1,1.0,50,0.66,0.5215,0.7756
+separated_control,dup_shorter_matches,R40H67 x6 duplicate,nlhe6-station-e2-s3,50.6395,4,1.0,50,0.18,0.0977,0.308
+separated_control,dup_shorter_matches,R40H67 x6 duplicate,nlhe6-station-e3-s0,22.5828,8,0.001,50,0.32,0.2076,0.4581
+separated_control,dup_shorter_matches,R40H67 x6 duplicate,nlhe6-station-e3-s1,-23.0585,50,0.0,50,0.0,0.0,0.0713
+separated_control,dup_shorter_matches,R40H67 x6 duplicate,nlhe6-station-e3-s2,-22.0994,48,0.0,50,0.0,0.0,0.0713
+separated_control,dup_shorter_matches,R40H67 x6 duplicate,nlhe6-station-e3-s3,-27.141,53,0.0,50,0.0,0.0,0.0713
+separated_control,dup_shorter_matches,R40H67 x6 duplicate,nlhe6-tight-e0,14.606,13,0.0,50,0.2,0.1124,0.3304
+separated_control,dup_shorter_matches,R40H67 x6 duplicate,nlhe6-tight-e1-s0,3.6909,26,0.0,50,0.06,0.0206,0.1622
+separated_control,dup_shorter_matches,R40H67 x6 duplicate,nlhe6-tight-e1-s1,4.664,24,0.0,50,0.06,0.0206,0.1622
+separated_control,dup_shorter_matches,R40H67 x6 duplicate,nlhe6-tight-e2-s0,13.9135,16,0.0,50,0.1,0.0435,0.2136
+separated_control,dup_shorter_matches,R40H67 x6 duplicate,nlhe6-tight-e2-s2,-9.6654,39,0.0,50,0.0,0.0,0.0713
+separated_control,dup_shorter_matches,R40H67 x6 duplicate,nlhe6-tight-e3-s0,-6.8298,35,0.0,50,0.04,0.011,0.1346
+separated_control,dup_shorter_matches,R40H67 x6 duplicate,nlhe6-tight-e3-s1,-15.6736,42,0.0,50,0.02,0.0035,0.105
+separated_control,dup_shorter_matches,R40H67 x6 duplicate,nlhe6-tight-e3-s3,1.0944,29,0.0,50,0.0,0.0,0.0713
+separated_control,dup_shorter_matches,R40H67 x6 duplicate,nlhe6-trapper-e1-s0,-11.3838,40,0.0,50,0.0,0.0,0.0713
+separated_control,dup_shorter_matches,R40H67 x6 duplicate,nlhe6-trapper-e1-s2,18.8259,11,0.0,50,0.12,0.0562,0.238
+separated_control,dup_shorter_matches,R40H67 x6 duplicate,nlhe6-trapper-e2-s0,9.6211,18,0.0,50,0.16,0.0834,0.2851
+separated_control,dup_shorter_matches,R40H67 x6 duplicate,nlhe6-trapper-e2-s1,14.581,14,0.0,50,0.0,0.0,0.0713
+separated_control,dup_shorter_matches,R40H67 x6 duplicate,nlhe6-trapper-e2-s3,-20.7261,47,0.0,50,0.0,0.0,0.0713
+separated_control,dup_shorter_matches,R40H67 x6 duplicate,nlhe6-trapper-e3-s0,-5.864,33,0.0,50,0.0,0.0,0.0713
+separated_control,dup_shorter_matches,R40H67 x6 duplicate,nlhe6-trapper-e3-s1,-22.1261,49,0.0,50,0.0,0.0,0.0713
+separated_control,dup_shorter_matches,R40H67 x6 duplicate,nlhe6-trapper-e3-s3,50.0299,5,1.0,50,0.5,0.3664,0.6336
+separated_control,mu_swiss,R40H400 adaptive (mu_swiss reference),nlhe6-aggressive-e2-s1,-32.1736,56,0.0,200,0.005,0.0009,0.0278
+separated_control,mu_swiss,R40H400 adaptive (mu_swiss reference),nlhe6-aggressive-e2-s2,7.8337,20,0.0,200,0.05,0.0274,0.0896
+separated_control,mu_swiss,R40H400 adaptive (mu_swiss reference),nlhe6-aggressive-e3-s1,-19.6549,46,0.0,200,0.015,0.0051,0.0432
+separated_control,mu_swiss,R40H400 adaptive (mu_swiss reference),nlhe6-loose-e2-s0,15.5501,12,0.0,200,0.16,0.1157,0.2171
+separated_control,mu_swiss,R40H400 adaptive (mu_swiss reference),nlhe6-loose-e2-s1,19.6981,9,0.0,200,0.205,0.1549,0.2663
+separated_control,mu_swiss,R40H400 adaptive (mu_swiss reference),nlhe6-loose-e2-s3,24.0239,7,0.0,200,0.195,0.1461,0.2554
+separated_control,mu_swiss,R40H400 adaptive (mu_swiss reference),nlhe6-loose-e3-s0,-13.5306,41,0.0,200,0.02,0.0078,0.0503
+separated_control,mu_swiss,R40H400 adaptive (mu_swiss reference),nlhe6-loose-e3-s3,6.029,22,0.0,200,0.07,0.0422,0.1141
+separated_control,mu_swiss,R40H400 adaptive (mu_swiss reference),nlhe6-maniac-e0,7.0987,21,0.0,200,0.12,0.082,0.1723
+separated_control,mu_swiss,R40H400 adaptive (mu_swiss reference),nlhe6-maniac-e1-s0,12.1648,17,0.0,200,0.24,0.1861,0.3037
+separated_control,mu_swiss,R40H400 adaptive (mu_swiss reference),nlhe6-maniac-e1-s1,-16.2317,43,0.0,200,0.05,0.0274,0.0896
+separated_control,mu_swiss,R40H400 adaptive (mu_swiss reference),nlhe6-maniac-e1-s2,-7.2628,37,0.0,200,0.07,0.0422,0.1141
+separated_control,mu_swiss,R40H400 adaptive (mu_swiss reference),nlhe6-maniac-e2-s0,-29.0785,55,0.0,200,0.015,0.0051,0.0432
+separated_control,mu_swiss,R40H400 adaptive (mu_swiss reference),nlhe6-maniac-e2-s1,-23.1793,51,0.0,200,0.01,0.0027,0.0357
+separated_control,mu_swiss,R40H400 adaptive (mu_swiss reference),nlhe6-maniac-e2-s2,60.8264,2,1.0,200,0.76,0.6963,0.8139
+separated_control,mu_swiss,R40H400 adaptive (mu_swiss reference),nlhe6-maniac-e3-s0,3.4548,27,0.0,200,0.095,0.0617,0.1436
+separated_control,mu_swiss,R40H400 adaptive (mu_swiss reference),nlhe6-maniac-e3-s1,-37.5814,58,0.0,200,0.005,0.0009,0.0278
+separated_control,mu_swiss,R40H400 adaptive (mu_swiss reference),nlhe6-maniac-e3-s3,-16.6747,44,0.0,200,0.03,0.0138,0.0639
+separated_control,mu_swiss,R40H400 adaptive (mu_swiss reference),nlhe6-neutral-e1-s0,47.8584,6,0.999,200,0.385,0.3203,0.454
+separated_control,mu_swiss,R40H400 adaptive (mu_swiss reference),nlhe6-neutral-e2-s0,18.8867,10,0.0,200,0.13,0.0903,0.1837
+separated_control,mu_swiss,R40H400 adaptive (mu_swiss reference),nlhe6-neutral-e2-s2,14.4242,15,0.0,200,0.085,0.0537,0.1319
+separated_control,mu_swiss,R40H400 adaptive (mu_swiss reference),nlhe6-neutral-e3-s0,-32.8644,57,0.0,200,0.0,0.0,0.0188
+separated_control,mu_swiss,R40H400 adaptive (mu_swiss reference),nlhe6-neutral-e3-s1,-3.9848,32,0.0,200,0.045,0.0239,0.0833
+separated_control,mu_swiss,R40H400 adaptive (mu_swiss reference),nlhe6-neutral-e3-s2,-50.4088,60,0.0,200,0.0,0.0,0.0188
+separated_control,mu_swiss,R40H400 adaptive (mu_swiss reference),nlhe6-nit-e0,0.2144,30,0.0,200,0.03,0.0138,0.0639
+separated_control,mu_swiss,R40H400 adaptive (mu_swiss reference),nlhe6-nit-e1-s0,3.778,25,0.0,200,0.01,0.0027,0.0357
+separated_control,mu_swiss,R40H400 adaptive (mu_swiss reference),nlhe6-nit-e1-s1,4.7851,23,0.0,200,0.035,0.0171,0.0705
+separated_control,mu_swiss,R40H400 adaptive (mu_swiss reference),nlhe6-nit-e1-s2,-6.2556,34,0.0,200,0.01,0.0027,0.0357
+separated_control,mu_swiss,R40H400 adaptive (mu_swiss reference),nlhe6-nit-e2-s0,-7.1433,36,0.0,200,0.005,0.0009,0.0278
+separated_control,mu_swiss,R40H400 adaptive (mu_swiss reference),nlhe6-nit-e2-s1,2.8661,28,0.0,200,0.02,0.0078,0.0503
+separated_control,mu_swiss,R40H400 adaptive (mu_swiss reference),nlhe6-nit-e2-s2,-18.3876,45,0.0,200,0.0,0.0,0.0188
+separated_control,mu_swiss,R40H400 adaptive (mu_swiss reference),nlhe6-nit-e2-s3,-28.418,54,0.0,200,0.0,0.0,0.0188
+separated_control,mu_swiss,R40H400 adaptive (mu_swiss reference),nlhe6-nit-e3-s0,-46.9459,59,0.0,200,0.0,0.0,0.0188
+separated_control,mu_swiss,R40H400 adaptive (mu_swiss reference),nlhe6-nit-e3-s1,51.2514,3,1.0,200,0.585,0.5157,0.6511
+separated_control,mu_swiss,R40H400 adaptive (mu_swiss reference),nlhe6-nit-e3-s2,-7.8382,38,0.0,200,0.01,0.0027,0.0357
+separated_control,mu_swiss,R40H400 adaptive (mu_swiss reference),nlhe6-nit-e3-s3,-24.315,52,0.0,200,0.0,0.0,0.0188
+separated_control,mu_swiss,R40H400 adaptive (mu_swiss reference),nlhe6-station-e1-s1,8.3794,19,0.0,200,0.09,0.0577,0.1378
+separated_control,mu_swiss,R40H400 adaptive (mu_swiss reference),nlhe6-station-e2-s0,-0.5513,31,0.0,200,0.04,0.0204,0.0769
+separated_control,mu_swiss,R40H400 adaptive (mu_swiss reference),nlhe6-station-e2-s2,73.6758,1,1.0,200,0.65,0.5816,0.7127
+separated_control,mu_swiss,R40H400 adaptive (mu_swiss reference),nlhe6-station-e2-s3,50.6395,4,1.0,200,0.31,0.25,0.3772
+separated_control,mu_swiss,R40H400 adaptive (mu_swiss reference),nlhe6-station-e3-s0,22.5828,8,0.001,200,0.175,0.1286,0.2336
+separated_control,mu_swiss,R40H400 adaptive (mu_swiss reference),nlhe6-station-e3-s1,-23.0585,50,0.0,200,0.0,0.0,0.0188
+separated_control,mu_swiss,R40H400 adaptive (mu_swiss reference),nlhe6-station-e3-s2,-22.0994,48,0.0,200,0.01,0.0027,0.0357
+separated_control,mu_swiss,R40H400 adaptive (mu_swiss reference),nlhe6-station-e3-s3,-27.141,53,0.0,200,0.0,0.0,0.0188
+separated_control,mu_swiss,R40H400 adaptive (mu_swiss reference),nlhe6-tight-e0,14.606,13,0.0,200,0.095,0.0617,0.1436
+separated_control,mu_swiss,R40H400 adaptive (mu_swiss reference),nlhe6-tight-e1-s0,3.6909,26,0.0,200,0.09,0.0577,0.1378
+separated_control,mu_swiss,R40H400 adaptive (mu_swiss reference),nlhe6-tight-e1-s1,4.664,24,0.0,200,0.04,0.0204,0.0769
+separated_control,mu_swiss,R40H400 adaptive (mu_swiss reference),nlhe6-tight-e2-s0,13.9135,16,0.0,200,0.105,0.0697,0.1552
+separated_control,mu_swiss,R40H400 adaptive (mu_swiss reference),nlhe6-tight-e2-s2,-9.6654,39,0.0,200,0.01,0.0027,0.0357
+separated_control,mu_swiss,R40H400 adaptive (mu_swiss reference),nlhe6-tight-e3-s0,-6.8298,35,0.0,200,0.03,0.0138,0.0639
+separated_control,mu_swiss,R40H400 adaptive (mu_swiss reference),nlhe6-tight-e3-s1,-15.6736,42,0.0,200,0.005,0.0009,0.0278
+separated_control,mu_swiss,R40H400 adaptive (mu_swiss reference),nlhe6-tight-e3-s3,1.0944,29,0.0,200,0.02,0.0078,0.0503
+separated_control,mu_swiss,R40H400 adaptive (mu_swiss reference),nlhe6-trapper-e1-s0,-11.3838,40,0.0,200,0.0,0.0,0.0188
+separated_control,mu_swiss,R40H400 adaptive (mu_swiss reference),nlhe6-trapper-e1-s2,18.8259,11,0.0,200,0.09,0.0577,0.1378
+separated_control,mu_swiss,R40H400 adaptive (mu_swiss reference),nlhe6-trapper-e2-s0,9.6211,18,0.0,200,0.155,0.1114,0.2116
+separated_control,mu_swiss,R40H400 adaptive (mu_swiss reference),nlhe6-trapper-e2-s1,14.581,14,0.0,200,0.08,0.0498,0.126
+separated_control,mu_swiss,R40H400 adaptive (mu_swiss reference),nlhe6-trapper-e2-s3,-20.7261,47,0.0,200,0.01,0.0027,0.0357
+separated_control,mu_swiss,R40H400 adaptive (mu_swiss reference),nlhe6-trapper-e3-s0,-5.864,33,0.0,200,0.005,0.0009,0.0278
+separated_control,mu_swiss,R40H400 adaptive (mu_swiss reference),nlhe6-trapper-e3-s1,-22.1261,49,0.0,200,0.005,0.0009,0.0278
+separated_control,mu_swiss,R40H400 adaptive (mu_swiss reference),nlhe6-trapper-e3-s3,50.0299,5,1.0,200,0.52,0.451,0.5882
+crowded_cutoff,baseline,R40H400 adaptive,nlhe6-aggressive-e1-s0,21.8064,5,0.593,50,0.22,0.1275,0.3524
+crowded_cutoff,baseline,R40H400 adaptive,nlhe6-aggressive-e1-s1,15.1189,12,0.033,50,0.3,0.191,0.4375
+crowded_cutoff,baseline,R40H400 adaptive,nlhe6-aggressive-e2-s0,25.189,4,0.871,50,0.26,0.1587,0.3955
+crowded_cutoff,baseline,R40H400 adaptive,nlhe6-aggressive-e3-s1,-18.3688,45,0.0,50,0.02,0.0035,0.105
+crowded_cutoff,baseline,R40H400 adaptive,nlhe6-loose-e2-s0,16.8248,10,0.073,50,0.18,0.0977,0.308
+crowded_cutoff,baseline,R40H400 adaptive,nlhe6-loose-e2-s1,18.7073,8,0.208,50,0.22,0.1275,0.3524
+crowded_cutoff,baseline,R40H400 adaptive,nlhe6-loose-e3-s0,-26.769,53,0.0,50,0.0,0.0,0.0713
+crowded_cutoff,baseline,R40H400 adaptive,nlhe6-loose-e3-s1,12.6325,20,0.013,50,0.18,0.0977,0.308
+crowded_cutoff,baseline,R40H400 adaptive,nlhe6-loose-e3-s2,12.6391,19,0.003,50,0.14,0.0695,0.2619
+crowded_cutoff,baseline,R40H400 adaptive,nlhe6-loose-e3-s3,6.5159,27,0.0,50,0.02,0.0035,0.105
+crowded_cutoff,baseline,R40H400 adaptive,nlhe6-maniac-e0,13.4649,16,0.016,50,0.04,0.011,0.1346
+crowded_cutoff,baseline,R40H400 adaptive,nlhe6-maniac-e1-s0,5.701,28,0.0,50,0.12,0.0562,0.238
+crowded_cutoff,baseline,R40H400 adaptive,nlhe6-maniac-e1-s1,-21.3374,48,0.0,50,0.1,0.0435,0.2136
+crowded_cutoff,baseline,R40H400 adaptive,nlhe6-maniac-e1-s2,2.7033,31,0.0,50,0.0,0.0,0.0713
+crowded_cutoff,baseline,R40H400 adaptive,nlhe6-maniac-e2-s0,-27.2505,54,0.0,50,0.0,0.0,0.0713
+crowded_cutoff,baseline,R40H400 adaptive,nlhe6-maniac-e2-s1,-28.6284,55,0.0,50,0.02,0.0035,0.105
+crowded_cutoff,baseline,R40H400 adaptive,nlhe6-maniac-e2-s2,58.4007,2,1.0,50,0.74,0.6045,0.8413
+crowded_cutoff,baseline,R40H400 adaptive,nlhe6-maniac-e2-s3,21.1514,7,0.468,50,0.16,0.0834,0.2851
+crowded_cutoff,baseline,R40H400 adaptive,nlhe6-maniac-e3-s0,-4.204,35,0.0,50,0.12,0.0562,0.238
+crowded_cutoff,baseline,R40H400 adaptive,nlhe6-maniac-e3-s1,-29.9573,56,0.0,50,0.02,0.0035,0.105
+crowded_cutoff,baseline,R40H400 adaptive,nlhe6-maniac-e3-s2,9.7475,26,0.001,50,0.16,0.0834,0.2851
+crowded_cutoff,baseline,R40H400 adaptive,nlhe6-maniac-e3-s3,-25.1619,51,0.0,50,0.04,0.011,0.1346
+crowded_cutoff,baseline,R40H400 adaptive,nlhe6-neutral-e1-s1,21.7602,6,0.568,50,0.22,0.1275,0.3524
+crowded_cutoff,baseline,R40H400 adaptive,nlhe6-neutral-e2-s0,13.5011,15,0.006,50,0.16,0.0834,0.2851
+crowded_cutoff,baseline,R40H400 adaptive,nlhe6-neutral-e2-s2,13.9547,14,0.001,50,0.1,0.0435,0.2136
+crowded_cutoff,baseline,R40H400 adaptive,nlhe6-neutral-e3-s0,-36.7852,58,0.0,50,0.0,0.0,0.0713
+crowded_cutoff,baseline,R40H400 adaptive,nlhe6-neutral-e3-s1,-9.1361,41,0.0,50,0.12,0.0562,0.238
+crowded_cutoff,baseline,R40H400 adaptive,nlhe6-neutral-e3-s2,-45.4526,60,0.0,50,0.0,0.0,0.0713
+crowded_cutoff,baseline,R40H400 adaptive,nlhe6-nit-e0,-8.926,39,0.0,50,0.04,0.011,0.1346
+crowded_cutoff,baseline,R40H400 adaptive,nlhe6-nit-e1-s1,-3.0948,34,0.0,50,0.08,0.0315,0.1884
+crowded_cutoff,baseline,R40H400 adaptive,nlhe6-nit-e2-s0,-12.1665,42,0.0,50,0.0,0.0,0.0713
+crowded_cutoff,baseline,R40H400 adaptive,nlhe6-nit-e2-s1,-0.0067,33,0.0,50,0.0,0.0,0.0713
+crowded_cutoff,baseline,R40H400 adaptive,nlhe6-nit-e2-s2,-18.0766,44,0.0,50,0.0,0.0,0.0713
+crowded_cutoff,baseline,R40H400 adaptive,nlhe6-nit-e3-s0,-43.9692,59,0.0,50,0.0,0.0,0.0713
+crowded_cutoff,baseline,R40H400 adaptive,nlhe6-nit-e3-s3,-25.0303,50,0.0,50,0.0,0.0,0.0713
+crowded_cutoff,baseline,R40H400 adaptive,nlhe6-station-e1-s0,14.9209,13,0.041,50,0.14,0.0695,0.2619
+crowded_cutoff,baseline,R40H400 adaptive,nlhe6-station-e1-s1,11.0352,24,0.0,50,0.02,0.0035,0.105
+crowded_cutoff,baseline,R40H400 adaptive,nlhe6-station-e1-s2,11.4453,22,0.001,50,0.1,0.0435,0.2136
+crowded_cutoff,baseline,R40H400 adaptive,nlhe6-station-e2-s0,3.8231,30,0.0,50,0.12,0.0562,0.238
+crowded_cutoff,baseline,R40H400 adaptive,nlhe6-station-e2-s2,66.4571,1,1.0,50,0.6,0.4618,0.7239
+crowded_cutoff,baseline,R40H400 adaptive,nlhe6-station-e3-s2,-25.8574,52,0.0,50,0.0,0.0,0.0713
+crowded_cutoff,baseline,R40H400 adaptive,nlhe6-station-e3-s3,-32.5818,57,0.0,50,0.0,0.0,0.0713
+crowded_cutoff,baseline,R40H400 adaptive,nlhe6-tight-e0,13.0064,17,0.003,50,0.1,0.0435,0.2136
+crowded_cutoff,baseline,R40H400 adaptive,nlhe6-tight-e1-s0,3.9378,29,0.0,50,0.06,0.0206,0.1622
+crowded_cutoff,baseline,R40H400 adaptive,nlhe6-tight-e1-s1,0.9918,32,0.0,50,0.02,0.0035,0.105
+crowded_cutoff,baseline,R40H400 adaptive,nlhe6-tight-e1-s2,11.1495,23,0.0,50,0.08,0.0315,0.1884
+crowded_cutoff,baseline,R40H400 adaptive,nlhe6-tight-e2-s2,-18.7363,47,0.0,50,0.0,0.0,0.0713
+crowded_cutoff,baseline,R40H400 adaptive,nlhe6-tight-e2-s3,16.8983,9,0.069,50,0.14,0.0695,0.2619
+crowded_cutoff,baseline,R40H400 adaptive,nlhe6-tight-e3-s0,-7.57,38,0.0,50,0.0,0.0,0.0713
+crowded_cutoff,baseline,R40H400 adaptive,nlhe6-tight-e3-s1,-24.2281,49,0.0,50,0.02,0.0035,0.105
+crowded_cutoff,baseline,R40H400 adaptive,nlhe6-tight-e3-s3,-5.0422,36,0.0,50,0.02,0.0035,0.105
+crowded_cutoff,baseline,R40H400 adaptive,nlhe6-trapper-e0,15.8632,11,0.027,50,0.08,0.0315,0.1884
+crowded_cutoff,baseline,R40H400 adaptive,nlhe6-trapper-e1-s0,-9.056,40,0.0,50,0.0,0.0,0.0713
+crowded_cutoff,baseline,R40H400 adaptive,nlhe6-trapper-e1-s2,12.8802,18,0.003,50,0.06,0.0206,0.1622
+crowded_cutoff,baseline,R40H400 adaptive,nlhe6-trapper-e2-s0,11.7815,21,0.002,50,0.16,0.0834,0.2851
+crowded_cutoff,baseline,R40H400 adaptive,nlhe6-trapper-e2-s1,10.4284,25,0.0,50,0.06,0.0206,0.1622
+crowded_cutoff,baseline,R40H400 adaptive,nlhe6-trapper-e2-s3,-15.9418,43,0.0,50,0.0,0.0,0.0713
+crowded_cutoff,baseline,R40H400 adaptive,nlhe6-trapper-e3-s0,-7.3479,37,0.0,50,0.0,0.0,0.0713
+crowded_cutoff,baseline,R40H400 adaptive,nlhe6-trapper-e3-s1,-18.611,46,0.0,50,0.0,0.0,0.0713
+crowded_cutoff,baseline,R40H400 adaptive,nlhe6-trapper-e3-s3,54.8561,3,1.0,50,0.44,0.3116,0.5769
+crowded_cutoff,budget_half_rounds,R20H800,nlhe6-aggressive-e1-s0,21.8064,5,0.593,50,0.22,0.1275,0.3524
+crowded_cutoff,budget_half_rounds,R20H800,nlhe6-aggressive-e1-s1,15.1189,12,0.033,50,0.22,0.1275,0.3524
+crowded_cutoff,budget_half_rounds,R20H800,nlhe6-aggressive-e2-s0,25.189,4,0.871,50,0.12,0.0562,0.238
+crowded_cutoff,budget_half_rounds,R20H800,nlhe6-aggressive-e3-s1,-18.3688,45,0.0,50,0.02,0.0035,0.105
+crowded_cutoff,budget_half_rounds,R20H800,nlhe6-loose-e2-s0,16.8248,10,0.073,50,0.16,0.0834,0.2851
+crowded_cutoff,budget_half_rounds,R20H800,nlhe6-loose-e2-s1,18.7073,8,0.208,50,0.14,0.0695,0.2619
+crowded_cutoff,budget_half_rounds,R20H800,nlhe6-loose-e3-s0,-26.769,53,0.0,50,0.02,0.0035,0.105
+crowded_cutoff,budget_half_rounds,R20H800,nlhe6-loose-e3-s1,12.6325,20,0.013,50,0.1,0.0435,0.2136
+crowded_cutoff,budget_half_rounds,R20H800,nlhe6-loose-e3-s2,12.6391,19,0.003,50,0.1,0.0435,0.2136
+crowded_cutoff,budget_half_rounds,R20H800,nlhe6-loose-e3-s3,6.5159,27,0.0,50,0.02,0.0035,0.105
+crowded_cutoff,budget_half_rounds,R20H800,nlhe6-maniac-e0,13.4649,16,0.016,50,0.06,0.0206,0.1622
+crowded_cutoff,budget_half_rounds,R20H800,nlhe6-maniac-e1-s0,5.701,28,0.0,50,0.1,0.0435,0.2136
+crowded_cutoff,budget_half_rounds,R20H800,nlhe6-maniac-e1-s1,-21.3374,48,0.0,50,0.02,0.0035,0.105
+crowded_cutoff,budget_half_rounds,R20H800,nlhe6-maniac-e1-s2,2.7033,31,0.0,50,0.1,0.0435,0.2136
+crowded_cutoff,budget_half_rounds,R20H800,nlhe6-maniac-e2-s0,-27.2505,54,0.0,50,0.04,0.011,0.1346
+crowded_cutoff,budget_half_rounds,R20H800,nlhe6-maniac-e2-s1,-28.6284,55,0.0,50,0.04,0.011,0.1346
+crowded_cutoff,budget_half_rounds,R20H800,nlhe6-maniac-e2-s2,58.4007,2,1.0,50,0.6,0.4618,0.7239
+crowded_cutoff,budget_half_rounds,R20H800,nlhe6-maniac-e2-s3,21.1514,7,0.468,50,0.2,0.1124,0.3304
+crowded_cutoff,budget_half_rounds,R20H800,nlhe6-maniac-e3-s0,-4.204,35,0.0,50,0.12,0.0562,0.238
+crowded_cutoff,budget_half_rounds,R20H800,nlhe6-maniac-e3-s1,-29.9573,56,0.0,50,0.0,0.0,0.0713
+crowded_cutoff,budget_half_rounds,R20H800,nlhe6-maniac-e3-s2,9.7475,26,0.001,50,0.12,0.0562,0.238
+crowded_cutoff,budget_half_rounds,R20H800,nlhe6-maniac-e3-s3,-25.1619,51,0.0,50,0.04,0.011,0.1346
+crowded_cutoff,budget_half_rounds,R20H800,nlhe6-neutral-e1-s1,21.7602,6,0.568,50,0.16,0.0834,0.2851
+crowded_cutoff,budget_half_rounds,R20H800,nlhe6-neutral-e2-s0,13.5011,15,0.006,50,0.18,0.0977,0.308
+crowded_cutoff,budget_half_rounds,R20H800,nlhe6-neutral-e2-s2,13.9547,14,0.001,50,0.08,0.0315,0.1884
+crowded_cutoff,budget_half_rounds,R20H800,nlhe6-neutral-e3-s0,-36.7852,58,0.0,50,0.0,0.0,0.0713
+crowded_cutoff,budget_half_rounds,R20H800,nlhe6-neutral-e3-s1,-9.1361,41,0.0,50,0.08,0.0315,0.1884
+crowded_cutoff,budget_half_rounds,R20H800,nlhe6-neutral-e3-s2,-45.4526,60,0.0,50,0.0,0.0,0.0713
+crowded_cutoff,budget_half_rounds,R20H800,nlhe6-nit-e0,-8.926,39,0.0,50,0.04,0.011,0.1346
+crowded_cutoff,budget_half_rounds,R20H800,nlhe6-nit-e1-s1,-3.0948,34,0.0,50,0.0,0.0,0.0713
+crowded_cutoff,budget_half_rounds,R20H800,nlhe6-nit-e2-s0,-12.1665,42,0.0,50,0.0,0.0,0.0713
+crowded_cutoff,budget_half_rounds,R20H800,nlhe6-nit-e2-s1,-0.0067,33,0.0,50,0.02,0.0035,0.105
+crowded_cutoff,budget_half_rounds,R20H800,nlhe6-nit-e2-s2,-18.0766,44,0.0,50,0.0,0.0,0.0713
+crowded_cutoff,budget_half_rounds,R20H800,nlhe6-nit-e3-s0,-43.9692,59,0.0,50,0.0,0.0,0.0713
+crowded_cutoff,budget_half_rounds,R20H800,nlhe6-nit-e3-s3,-25.0303,50,0.0,50,0.0,0.0,0.0713
+crowded_cutoff,budget_half_rounds,R20H800,nlhe6-station-e1-s0,14.9209,13,0.041,50,0.16,0.0834,0.2851
+crowded_cutoff,budget_half_rounds,R20H800,nlhe6-station-e1-s1,11.0352,24,0.0,50,0.06,0.0206,0.1622
+crowded_cutoff,budget_half_rounds,R20H800,nlhe6-station-e1-s2,11.4453,22,0.001,50,0.12,0.0562,0.238
+crowded_cutoff,budget_half_rounds,R20H800,nlhe6-station-e2-s0,3.8231,30,0.0,50,0.0,0.0,0.0713
+crowded_cutoff,budget_half_rounds,R20H800,nlhe6-station-e2-s2,66.4571,1,1.0,50,0.72,0.5833,0.8253
+crowded_cutoff,budget_half_rounds,R20H800,nlhe6-station-e3-s2,-25.8574,52,0.0,50,0.04,0.011,0.1346
+crowded_cutoff,budget_half_rounds,R20H800,nlhe6-station-e3-s3,-32.5818,57,0.0,50,0.0,0.0,0.0713
+crowded_cutoff,budget_half_rounds,R20H800,nlhe6-tight-e0,13.0064,17,0.003,50,0.06,0.0206,0.1622
+crowded_cutoff,budget_half_rounds,R20H800,nlhe6-tight-e1-s0,3.9378,29,0.0,50,0.1,0.0435,0.2136
+crowded_cutoff,budget_half_rounds,R20H800,nlhe6-tight-e1-s1,0.9918,32,0.0,50,0.02,0.0035,0.105
+crowded_cutoff,budget_half_rounds,R20H800,nlhe6-tight-e1-s2,11.1495,23,0.0,50,0.22,0.1275,0.3524
+crowded_cutoff,budget_half_rounds,R20H800,nlhe6-tight-e2-s2,-18.7363,47,0.0,50,0.02,0.0035,0.105
+crowded_cutoff,budget_half_rounds,R20H800,nlhe6-tight-e2-s3,16.8983,9,0.069,50,0.18,0.0977,0.308
+crowded_cutoff,budget_half_rounds,R20H800,nlhe6-tight-e3-s0,-7.57,38,0.0,50,0.02,0.0035,0.105
+crowded_cutoff,budget_half_rounds,R20H800,nlhe6-tight-e3-s1,-24.2281,49,0.0,50,0.02,0.0035,0.105
+crowded_cutoff,budget_half_rounds,R20H800,nlhe6-tight-e3-s3,-5.0422,36,0.0,50,0.04,0.011,0.1346
+crowded_cutoff,budget_half_rounds,R20H800,nlhe6-trapper-e0,15.8632,11,0.027,50,0.14,0.0695,0.2619
+crowded_cutoff,budget_half_rounds,R20H800,nlhe6-trapper-e1-s0,-9.056,40,0.0,50,0.02,0.0035,0.105
+crowded_cutoff,budget_half_rounds,R20H800,nlhe6-trapper-e1-s2,12.8802,18,0.003,50,0.04,0.011,0.1346
+crowded_cutoff,budget_half_rounds,R20H800,nlhe6-trapper-e2-s0,11.7815,21,0.002,50,0.12,0.0562,0.238
+crowded_cutoff,budget_half_rounds,R20H800,nlhe6-trapper-e2-s1,10.4284,25,0.0,50,0.12,0.0562,0.238
+crowded_cutoff,budget_half_rounds,R20H800,nlhe6-trapper-e2-s3,-15.9418,43,0.0,50,0.0,0.0,0.0713
+crowded_cutoff,budget_half_rounds,R20H800,nlhe6-trapper-e3-s0,-7.3479,37,0.0,50,0.0,0.0,0.0713
+crowded_cutoff,budget_half_rounds,R20H800,nlhe6-trapper-e3-s1,-18.611,46,0.0,50,0.02,0.0035,0.105
+crowded_cutoff,budget_half_rounds,R20H800,nlhe6-trapper-e3-s3,54.8561,3,1.0,50,0.64,0.5014,0.7586
+crowded_cutoff,budget_quarter_rounds,R10H1600,nlhe6-aggressive-e1-s0,21.8064,5,0.593,50,0.3,0.191,0.4375
+crowded_cutoff,budget_quarter_rounds,R10H1600,nlhe6-aggressive-e1-s1,15.1189,12,0.033,50,0.22,0.1275,0.3524
+crowded_cutoff,budget_quarter_rounds,R10H1600,nlhe6-aggressive-e2-s0,25.189,4,0.871,50,0.22,0.1275,0.3524
+crowded_cutoff,budget_quarter_rounds,R10H1600,nlhe6-aggressive-e3-s1,-18.3688,45,0.0,50,0.02,0.0035,0.105
+crowded_cutoff,budget_quarter_rounds,R10H1600,nlhe6-loose-e2-s0,16.8248,10,0.073,50,0.18,0.0977,0.308
+crowded_cutoff,budget_quarter_rounds,R10H1600,nlhe6-loose-e2-s1,18.7073,8,0.208,50,0.2,0.1124,0.3304
+crowded_cutoff,budget_quarter_rounds,R10H1600,nlhe6-loose-e3-s0,-26.769,53,0.0,50,0.1,0.0435,0.2136
+crowded_cutoff,budget_quarter_rounds,R10H1600,nlhe6-loose-e3-s1,12.6325,20,0.013,50,0.14,0.0695,0.2619
+crowded_cutoff,budget_quarter_rounds,R10H1600,nlhe6-loose-e3-s2,12.6391,19,0.003,50,0.16,0.0834,0.2851
+crowded_cutoff,budget_quarter_rounds,R10H1600,nlhe6-loose-e3-s3,6.5159,27,0.0,50,0.02,0.0035,0.105
+crowded_cutoff,budget_quarter_rounds,R10H1600,nlhe6-maniac-e0,13.4649,16,0.016,50,0.1,0.0435,0.2136
+crowded_cutoff,budget_quarter_rounds,R10H1600,nlhe6-maniac-e1-s0,5.701,28,0.0,50,0.18,0.0977,0.308
+crowded_cutoff,budget_quarter_rounds,R10H1600,nlhe6-maniac-e1-s1,-21.3374,48,0.0,50,0.06,0.0206,0.1622
+crowded_cutoff,budget_quarter_rounds,R10H1600,nlhe6-maniac-e1-s2,2.7033,31,0.0,50,0.12,0.0562,0.238
+crowded_cutoff,budget_quarter_rounds,R10H1600,nlhe6-maniac-e2-s0,-27.2505,54,0.0,50,0.04,0.011,0.1346
+crowded_cutoff,budget_quarter_rounds,R10H1600,nlhe6-maniac-e2-s1,-28.6284,55,0.0,50,0.02,0.0035,0.105
+crowded_cutoff,budget_quarter_rounds,R10H1600,nlhe6-maniac-e2-s2,58.4007,2,1.0,50,0.26,0.1587,0.3955
+crowded_cutoff,budget_quarter_rounds,R10H1600,nlhe6-maniac-e2-s3,21.1514,7,0.468,50,0.14,0.0695,0.2619
+crowded_cutoff,budget_quarter_rounds,R10H1600,nlhe6-maniac-e3-s0,-4.204,35,0.0,50,0.08,0.0315,0.1884
+crowded_cutoff,budget_quarter_rounds,R10H1600,nlhe6-maniac-e3-s1,-29.9573,56,0.0,50,0.02,0.0035,0.105
+crowded_cutoff,budget_quarter_rounds,R10H1600,nlhe6-maniac-e3-s2,9.7475,26,0.001,50,0.1,0.0435,0.2136
+crowded_cutoff,budget_quarter_rounds,R10H1600,nlhe6-maniac-e3-s3,-25.1619,51,0.0,50,0.02,0.0035,0.105
+crowded_cutoff,budget_quarter_rounds,R10H1600,nlhe6-neutral-e1-s1,21.7602,6,0.568,50,0.22,0.1275,0.3524
+crowded_cutoff,budget_quarter_rounds,R10H1600,nlhe6-neutral-e2-s0,13.5011,15,0.006,50,0.14,0.0695,0.2619
+crowded_cutoff,budget_quarter_rounds,R10H1600,nlhe6-neutral-e2-s2,13.9547,14,0.001,50,0.12,0.0562,0.238
+crowded_cutoff,budget_quarter_rounds,R10H1600,nlhe6-neutral-e3-s0,-36.7852,58,0.0,50,0.0,0.0,0.0713
+crowded_cutoff,budget_quarter_rounds,R10H1600,nlhe6-neutral-e3-s1,-9.1361,41,0.0,50,0.06,0.0206,0.1622
+crowded_cutoff,budget_quarter_rounds,R10H1600,nlhe6-neutral-e3-s2,-45.4526,60,0.0,50,0.0,0.0,0.0713
+crowded_cutoff,budget_quarter_rounds,R10H1600,nlhe6-nit-e0,-8.926,39,0.0,50,0.02,0.0035,0.105
+crowded_cutoff,budget_quarter_rounds,R10H1600,nlhe6-nit-e1-s1,-3.0948,34,0.0,50,0.08,0.0315,0.1884
+crowded_cutoff,budget_quarter_rounds,R10H1600,nlhe6-nit-e2-s0,-12.1665,42,0.0,50,0.0,0.0,0.0713
+crowded_cutoff,budget_quarter_rounds,R10H1600,nlhe6-nit-e2-s1,-0.0067,33,0.0,50,0.08,0.0315,0.1884
+crowded_cutoff,budget_quarter_rounds,R10H1600,nlhe6-nit-e2-s2,-18.0766,44,0.0,50,0.0,0.0,0.0713
+crowded_cutoff,budget_quarter_rounds,R10H1600,nlhe6-nit-e3-s0,-43.9692,59,0.0,50,0.0,0.0,0.0713
+crowded_cutoff,budget_quarter_rounds,R10H1600,nlhe6-nit-e3-s3,-25.0303,50,0.0,50,0.0,0.0,0.0713
+crowded_cutoff,budget_quarter_rounds,R10H1600,nlhe6-station-e1-s0,14.9209,13,0.041,50,0.1,0.0435,0.2136
+crowded_cutoff,budget_quarter_rounds,R10H1600,nlhe6-station-e1-s1,11.0352,24,0.0,50,0.16,0.0834,0.2851
+crowded_cutoff,budget_quarter_rounds,R10H1600,nlhe6-station-e1-s2,11.4453,22,0.001,50,0.1,0.0435,0.2136
+crowded_cutoff,budget_quarter_rounds,R10H1600,nlhe6-station-e2-s0,3.8231,30,0.0,50,0.02,0.0035,0.105
+crowded_cutoff,budget_quarter_rounds,R10H1600,nlhe6-station-e2-s2,66.4571,1,1.0,50,0.44,0.3116,0.5769
+crowded_cutoff,budget_quarter_rounds,R10H1600,nlhe6-station-e3-s2,-25.8574,52,0.0,50,0.02,0.0035,0.105
+crowded_cutoff,budget_quarter_rounds,R10H1600,nlhe6-station-e3-s3,-32.5818,57,0.0,50,0.0,0.0,0.0713
+crowded_cutoff,budget_quarter_rounds,R10H1600,nlhe6-tight-e0,13.0064,17,0.003,50,0.18,0.0977,0.308
+crowded_cutoff,budget_quarter_rounds,R10H1600,nlhe6-tight-e1-s0,3.9378,29,0.0,50,0.08,0.0315,0.1884
+crowded_cutoff,budget_quarter_rounds,R10H1600,nlhe6-tight-e1-s1,0.9918,32,0.0,50,0.06,0.0206,0.1622
+crowded_cutoff,budget_quarter_rounds,R10H1600,nlhe6-tight-e1-s2,11.1495,23,0.0,50,0.12,0.0562,0.238
+crowded_cutoff,budget_quarter_rounds,R10H1600,nlhe6-tight-e2-s2,-18.7363,47,0.0,50,0.06,0.0206,0.1622
+crowded_cutoff,budget_quarter_rounds,R10H1600,nlhe6-tight-e2-s3,16.8983,9,0.069,50,0.16,0.0834,0.2851
+crowded_cutoff,budget_quarter_rounds,R10H1600,nlhe6-tight-e3-s0,-7.57,38,0.0,50,0.0,0.0,0.0713
+crowded_cutoff,budget_quarter_rounds,R10H1600,nlhe6-tight-e3-s1,-24.2281,49,0.0,50,0.0,0.0,0.0713
+crowded_cutoff,budget_quarter_rounds,R10H1600,nlhe6-tight-e3-s3,-5.0422,36,0.0,50,0.0,0.0,0.0713
+crowded_cutoff,budget_quarter_rounds,R10H1600,nlhe6-trapper-e0,15.8632,11,0.027,50,0.1,0.0435,0.2136
+crowded_cutoff,budget_quarter_rounds,R10H1600,nlhe6-trapper-e1-s0,-9.056,40,0.0,50,0.0,0.0,0.0713
+crowded_cutoff,budget_quarter_rounds,R10H1600,nlhe6-trapper-e1-s2,12.8802,18,0.003,50,0.08,0.0315,0.1884
+crowded_cutoff,budget_quarter_rounds,R10H1600,nlhe6-trapper-e2-s0,11.7815,21,0.002,50,0.08,0.0315,0.1884
+crowded_cutoff,budget_quarter_rounds,R10H1600,nlhe6-trapper-e2-s1,10.4284,25,0.0,50,0.1,0.0435,0.2136
+crowded_cutoff,budget_quarter_rounds,R10H1600,nlhe6-trapper-e2-s3,-15.9418,43,0.0,50,0.08,0.0315,0.1884
+crowded_cutoff,budget_quarter_rounds,R10H1600,nlhe6-trapper-e3-s0,-7.3479,37,0.0,50,0.0,0.0,0.0713
+crowded_cutoff,budget_quarter_rounds,R10H1600,nlhe6-trapper-e3-s1,-18.611,46,0.0,50,0.0,0.0,0.0713
+crowded_cutoff,budget_quarter_rounds,R10H1600,nlhe6-trapper-e3-s3,54.8561,3,1.0,50,0.64,0.5014,0.7586
+crowded_cutoff,frozen_schedule,R40H400 frozen schedule,nlhe6-aggressive-e1-s0,21.8064,5,0.593,50,0.2,0.1124,0.3304
+crowded_cutoff,frozen_schedule,R40H400 frozen schedule,nlhe6-aggressive-e1-s1,15.1189,12,0.033,50,0.26,0.1587,0.3955
+crowded_cutoff,frozen_schedule,R40H400 frozen schedule,nlhe6-aggressive-e2-s0,25.189,4,0.871,50,0.1,0.0435,0.2136
+crowded_cutoff,frozen_schedule,R40H400 frozen schedule,nlhe6-aggressive-e3-s1,-18.3688,45,0.0,50,0.0,0.0,0.0713
+crowded_cutoff,frozen_schedule,R40H400 frozen schedule,nlhe6-loose-e2-s0,16.8248,10,0.073,50,0.14,0.0695,0.2619
+crowded_cutoff,frozen_schedule,R40H400 frozen schedule,nlhe6-loose-e2-s1,18.7073,8,0.208,50,0.22,0.1275,0.3524
+crowded_cutoff,frozen_schedule,R40H400 frozen schedule,nlhe6-loose-e3-s0,-26.769,53,0.0,50,0.04,0.011,0.1346
+crowded_cutoff,frozen_schedule,R40H400 frozen schedule,nlhe6-loose-e3-s1,12.6325,20,0.013,50,0.26,0.1587,0.3955
+crowded_cutoff,frozen_schedule,R40H400 frozen schedule,nlhe6-loose-e3-s2,12.6391,19,0.003,50,0.14,0.0695,0.2619
+crowded_cutoff,frozen_schedule,R40H400 frozen schedule,nlhe6-loose-e3-s3,6.5159,27,0.0,50,0.08,0.0315,0.1884
+crowded_cutoff,frozen_schedule,R40H400 frozen schedule,nlhe6-maniac-e0,13.4649,16,0.016,50,0.08,0.0315,0.1884
+crowded_cutoff,frozen_schedule,R40H400 frozen schedule,nlhe6-maniac-e1-s0,5.701,28,0.0,50,0.14,0.0695,0.2619
+crowded_cutoff,frozen_schedule,R40H400 frozen schedule,nlhe6-maniac-e1-s1,-21.3374,48,0.0,50,0.0,0.0,0.0713
+crowded_cutoff,frozen_schedule,R40H400 frozen schedule,nlhe6-maniac-e1-s2,2.7033,31,0.0,50,0.08,0.0315,0.1884
+crowded_cutoff,frozen_schedule,R40H400 frozen schedule,nlhe6-maniac-e2-s0,-27.2505,54,0.0,50,0.02,0.0035,0.105
+crowded_cutoff,frozen_schedule,R40H400 frozen schedule,nlhe6-maniac-e2-s1,-28.6284,55,0.0,50,0.02,0.0035,0.105
+crowded_cutoff,frozen_schedule,R40H400 frozen schedule,nlhe6-maniac-e2-s2,58.4007,2,1.0,50,0.54,0.404,0.6703
+crowded_cutoff,frozen_schedule,R40H400 frozen schedule,nlhe6-maniac-e2-s3,21.1514,7,0.468,50,0.16,0.0834,0.2851
+crowded_cutoff,frozen_schedule,R40H400 frozen schedule,nlhe6-maniac-e3-s0,-4.204,35,0.0,50,0.08,0.0315,0.1884
+crowded_cutoff,frozen_schedule,R40H400 frozen schedule,nlhe6-maniac-e3-s1,-29.9573,56,0.0,50,0.0,0.0,0.0713
+crowded_cutoff,frozen_schedule,R40H400 frozen schedule,nlhe6-maniac-e3-s2,9.7475,26,0.001,50,0.2,0.1124,0.3304
+crowded_cutoff,frozen_schedule,R40H400 frozen schedule,nlhe6-maniac-e3-s3,-25.1619,51,0.0,50,0.04,0.011,0.1346
+crowded_cutoff,frozen_schedule,R40H400 frozen schedule,nlhe6-neutral-e1-s1,21.7602,6,0.568,50,0.18,0.0977,0.308
+crowded_cutoff,frozen_schedule,R40H400 frozen schedule,nlhe6-neutral-e2-s0,13.5011,15,0.006,50,0.16,0.0834,0.2851
+crowded_cutoff,frozen_schedule,R40H400 frozen schedule,nlhe6-neutral-e2-s2,13.9547,14,0.001,50,0.12,0.0562,0.238
+crowded_cutoff,frozen_schedule,R40H400 frozen schedule,nlhe6-neutral-e3-s0,-36.7852,58,0.0,50,0.02,0.0035,0.105
+crowded_cutoff,frozen_schedule,R40H400 frozen schedule,nlhe6-neutral-e3-s1,-9.1361,41,0.0,50,0.04,0.011,0.1346
+crowded_cutoff,frozen_schedule,R40H400 frozen schedule,nlhe6-neutral-e3-s2,-45.4526,60,0.0,50,0.0,0.0,0.0713
+crowded_cutoff,frozen_schedule,R40H400 frozen schedule,nlhe6-nit-e0,-8.926,39,0.0,50,0.0,0.0,0.0713
+crowded_cutoff,frozen_schedule,R40H400 frozen schedule,nlhe6-nit-e1-s1,-3.0948,34,0.0,50,0.04,0.011,0.1346
+crowded_cutoff,frozen_schedule,R40H400 frozen schedule,nlhe6-nit-e2-s0,-12.1665,42,0.0,50,0.0,0.0,0.0713
+crowded_cutoff,frozen_schedule,R40H400 frozen schedule,nlhe6-nit-e2-s1,-0.0067,33,0.0,50,0.0,0.0,0.0713
+crowded_cutoff,frozen_schedule,R40H400 frozen schedule,nlhe6-nit-e2-s2,-18.0766,44,0.0,50,0.0,0.0,0.0713
+crowded_cutoff,frozen_schedule,R40H400 frozen schedule,nlhe6-nit-e3-s0,-43.9692,59,0.0,50,0.0,0.0,0.0713
+crowded_cutoff,frozen_schedule,R40H400 frozen schedule,nlhe6-nit-e3-s3,-25.0303,50,0.0,50,0.0,0.0,0.0713
+crowded_cutoff,frozen_schedule,R40H400 frozen schedule,nlhe6-station-e1-s0,14.9209,13,0.041,50,0.28,0.1747,0.4167
+crowded_cutoff,frozen_schedule,R40H400 frozen schedule,nlhe6-station-e1-s1,11.0352,24,0.0,50,0.08,0.0315,0.1884
+crowded_cutoff,frozen_schedule,R40H400 frozen schedule,nlhe6-station-e1-s2,11.4453,22,0.001,50,0.14,0.0695,0.2619
+crowded_cutoff,frozen_schedule,R40H400 frozen schedule,nlhe6-station-e2-s0,3.8231,30,0.0,50,0.06,0.0206,0.1622
+crowded_cutoff,frozen_schedule,R40H400 frozen schedule,nlhe6-station-e2-s2,66.4571,1,1.0,50,0.5,0.3664,0.6336
+crowded_cutoff,frozen_schedule,R40H400 frozen schedule,nlhe6-station-e3-s2,-25.8574,52,0.0,50,0.0,0.0,0.0713
+crowded_cutoff,frozen_schedule,R40H400 frozen schedule,nlhe6-station-e3-s3,-32.5818,57,0.0,50,0.02,0.0035,0.105
+crowded_cutoff,frozen_schedule,R40H400 frozen schedule,nlhe6-tight-e0,13.0064,17,0.003,50,0.06,0.0206,0.1622
+crowded_cutoff,frozen_schedule,R40H400 frozen schedule,nlhe6-tight-e1-s0,3.9378,29,0.0,50,0.1,0.0435,0.2136
+crowded_cutoff,frozen_schedule,R40H400 frozen schedule,nlhe6-tight-e1-s1,0.9918,32,0.0,50,0.02,0.0035,0.105
+crowded_cutoff,frozen_schedule,R40H400 frozen schedule,nlhe6-tight-e1-s2,11.1495,23,0.0,50,0.2,0.1124,0.3304
+crowded_cutoff,frozen_schedule,R40H400 frozen schedule,nlhe6-tight-e2-s2,-18.7363,47,0.0,50,0.0,0.0,0.0713
+crowded_cutoff,frozen_schedule,R40H400 frozen schedule,nlhe6-tight-e2-s3,16.8983,9,0.069,50,0.16,0.0834,0.2851
+crowded_cutoff,frozen_schedule,R40H400 frozen schedule,nlhe6-tight-e3-s0,-7.57,38,0.0,50,0.06,0.0206,0.1622
+crowded_cutoff,frozen_schedule,R40H400 frozen schedule,nlhe6-tight-e3-s1,-24.2281,49,0.0,50,0.06,0.0206,0.1622
+crowded_cutoff,frozen_schedule,R40H400 frozen schedule,nlhe6-tight-e3-s3,-5.0422,36,0.0,50,0.02,0.0035,0.105
+crowded_cutoff,frozen_schedule,R40H400 frozen schedule,nlhe6-trapper-e0,15.8632,11,0.027,50,0.1,0.0435,0.2136
+crowded_cutoff,frozen_schedule,R40H400 frozen schedule,nlhe6-trapper-e1-s0,-9.056,40,0.0,50,0.0,0.0,0.0713
+crowded_cutoff,frozen_schedule,R40H400 frozen schedule,nlhe6-trapper-e1-s2,12.8802,18,0.003,50,0.18,0.0977,0.308
+crowded_cutoff,frozen_schedule,R40H400 frozen schedule,nlhe6-trapper-e2-s0,11.7815,21,0.002,50,0.16,0.0834,0.2851
+crowded_cutoff,frozen_schedule,R40H400 frozen schedule,nlhe6-trapper-e2-s1,10.4284,25,0.0,50,0.08,0.0315,0.1884
+crowded_cutoff,frozen_schedule,R40H400 frozen schedule,nlhe6-trapper-e2-s3,-15.9418,43,0.0,50,0.0,0.0,0.0713
+crowded_cutoff,frozen_schedule,R40H400 frozen schedule,nlhe6-trapper-e3-s0,-7.3479,37,0.0,50,0.02,0.0035,0.105
+crowded_cutoff,frozen_schedule,R40H400 frozen schedule,nlhe6-trapper-e3-s1,-18.611,46,0.0,50,0.0,0.0,0.0713
+crowded_cutoff,frozen_schedule,R40H400 frozen schedule,nlhe6-trapper-e3-s3,54.8561,3,1.0,50,0.34,0.2244,0.4785
+crowded_cutoff,dup_fewer_rounds,R7H400 x6 duplicate,nlhe6-aggressive-e1-s0,21.8064,5,0.593,50,0.08,0.0315,0.1884
+crowded_cutoff,dup_fewer_rounds,R7H400 x6 duplicate,nlhe6-aggressive-e1-s1,15.1189,12,0.033,50,0.1,0.0435,0.2136
+crowded_cutoff,dup_fewer_rounds,R7H400 x6 duplicate,nlhe6-aggressive-e2-s0,25.189,4,0.871,50,0.28,0.1747,0.4167
+crowded_cutoff,dup_fewer_rounds,R7H400 x6 duplicate,nlhe6-aggressive-e3-s1,-18.3688,45,0.0,50,0.02,0.0035,0.105
+crowded_cutoff,dup_fewer_rounds,R7H400 x6 duplicate,nlhe6-loose-e2-s0,16.8248,10,0.073,50,0.2,0.1124,0.3304
+crowded_cutoff,dup_fewer_rounds,R7H400 x6 duplicate,nlhe6-loose-e2-s1,18.7073,8,0.208,50,0.36,0.2414,0.4986
+crowded_cutoff,dup_fewer_rounds,R7H400 x6 duplicate,nlhe6-loose-e3-s0,-26.769,53,0.0,50,0.0,0.0,0.0713
+crowded_cutoff,dup_fewer_rounds,R7H400 x6 duplicate,nlhe6-loose-e3-s1,12.6325,20,0.013,50,0.24,0.143,0.3741
+crowded_cutoff,dup_fewer_rounds,R7H400 x6 duplicate,nlhe6-loose-e3-s2,12.6391,19,0.003,50,0.06,0.0206,0.1622
+crowded_cutoff,dup_fewer_rounds,R7H400 x6 duplicate,nlhe6-loose-e3-s3,6.5159,27,0.0,50,0.04,0.011,0.1346
+crowded_cutoff,dup_fewer_rounds,R7H400 x6 duplicate,nlhe6-maniac-e0,13.4649,16,0.016,50,0.14,0.0695,0.2619
+crowded_cutoff,dup_fewer_rounds,R7H400 x6 duplicate,nlhe6-maniac-e1-s0,5.701,28,0.0,50,0.18,0.0977,0.308
+crowded_cutoff,dup_fewer_rounds,R7H400 x6 duplicate,nlhe6-maniac-e1-s1,-21.3374,48,0.0,50,0.0,0.0,0.0713
+crowded_cutoff,dup_fewer_rounds,R7H400 x6 duplicate,nlhe6-maniac-e1-s2,2.7033,31,0.0,50,0.06,0.0206,0.1622
+crowded_cutoff,dup_fewer_rounds,R7H400 x6 duplicate,nlhe6-maniac-e2-s0,-27.2505,54,0.0,50,0.0,0.0,0.0713
+crowded_cutoff,dup_fewer_rounds,R7H400 x6 duplicate,nlhe6-maniac-e2-s1,-28.6284,55,0.0,50,0.0,0.0,0.0713
+crowded_cutoff,dup_fewer_rounds,R7H400 x6 duplicate,nlhe6-maniac-e2-s2,58.4007,2,1.0,50,0.84,0.7149,0.9166
+crowded_cutoff,dup_fewer_rounds,R7H400 x6 duplicate,nlhe6-maniac-e2-s3,21.1514,7,0.468,50,0.24,0.143,0.3741
+crowded_cutoff,dup_fewer_rounds,R7H400 x6 duplicate,nlhe6-maniac-e3-s0,-4.204,35,0.0,50,0.08,0.0315,0.1884
+crowded_cutoff,dup_fewer_rounds,R7H400 x6 duplicate,nlhe6-maniac-e3-s1,-29.9573,56,0.0,50,0.0,0.0,0.0713
+crowded_cutoff,dup_fewer_rounds,R7H400 x6 duplicate,nlhe6-maniac-e3-s2,9.7475,26,0.001,50,0.12,0.0562,0.238
+crowded_cutoff,dup_fewer_rounds,R7H400 x6 duplicate,nlhe6-maniac-e3-s3,-25.1619,51,0.0,50,0.04,0.011,0.1346
+crowded_cutoff,dup_fewer_rounds,R7H400 x6 duplicate,nlhe6-neutral-e1-s1,21.7602,6,0.568,50,0.2,0.1124,0.3304
+crowded_cutoff,dup_fewer_rounds,R7H400 x6 duplicate,nlhe6-neutral-e2-s0,13.5011,15,0.006,50,0.02,0.0035,0.105
+crowded_cutoff,dup_fewer_rounds,R7H400 x6 duplicate,nlhe6-neutral-e2-s2,13.9547,14,0.001,50,0.06,0.0206,0.1622
+crowded_cutoff,dup_fewer_rounds,R7H400 x6 duplicate,nlhe6-neutral-e3-s0,-36.7852,58,0.0,50,0.02,0.0035,0.105
+crowded_cutoff,dup_fewer_rounds,R7H400 x6 duplicate,nlhe6-neutral-e3-s1,-9.1361,41,0.0,50,0.04,0.011,0.1346
+crowded_cutoff,dup_fewer_rounds,R7H400 x6 duplicate,nlhe6-neutral-e3-s2,-45.4526,60,0.0,50,0.0,0.0,0.0713
+crowded_cutoff,dup_fewer_rounds,R7H400 x6 duplicate,nlhe6-nit-e0,-8.926,39,0.0,50,0.0,0.0,0.0713
+crowded_cutoff,dup_fewer_rounds,R7H400 x6 duplicate,nlhe6-nit-e1-s1,-3.0948,34,0.0,50,0.02,0.0035,0.105
+crowded_cutoff,dup_fewer_rounds,R7H400 x6 duplicate,nlhe6-nit-e2-s0,-12.1665,42,0.0,50,0.0,0.0,0.0713
+crowded_cutoff,dup_fewer_rounds,R7H400 x6 duplicate,nlhe6-nit-e2-s1,-0.0067,33,0.0,50,0.02,0.0035,0.105
+crowded_cutoff,dup_fewer_rounds,R7H400 x6 duplicate,nlhe6-nit-e2-s2,-18.0766,44,0.0,50,0.0,0.0,0.0713
+crowded_cutoff,dup_fewer_rounds,R7H400 x6 duplicate,nlhe6-nit-e3-s0,-43.9692,59,0.0,50,0.0,0.0,0.0713
+crowded_cutoff,dup_fewer_rounds,R7H400 x6 duplicate,nlhe6-nit-e3-s3,-25.0303,50,0.0,50,0.02,0.0035,0.105
+crowded_cutoff,dup_fewer_rounds,R7H400 x6 duplicate,nlhe6-station-e1-s0,14.9209,13,0.041,50,0.18,0.0977,0.308
+crowded_cutoff,dup_fewer_rounds,R7H400 x6 duplicate,nlhe6-station-e1-s1,11.0352,24,0.0,50,0.06,0.0206,0.1622
+crowded_cutoff,dup_fewer_rounds,R7H400 x6 duplicate,nlhe6-station-e1-s2,11.4453,22,0.001,50,0.14,0.0695,0.2619
+crowded_cutoff,dup_fewer_rounds,R7H400 x6 duplicate,nlhe6-station-e2-s0,3.8231,30,0.0,50,0.02,0.0035,0.105
+crowded_cutoff,dup_fewer_rounds,R7H400 x6 duplicate,nlhe6-station-e2-s2,66.4571,1,1.0,50,0.72,0.5833,0.8253
+crowded_cutoff,dup_fewer_rounds,R7H400 x6 duplicate,nlhe6-station-e3-s2,-25.8574,52,0.0,50,0.04,0.011,0.1346
+crowded_cutoff,dup_fewer_rounds,R7H400 x6 duplicate,nlhe6-station-e3-s3,-32.5818,57,0.0,50,0.0,0.0,0.0713
+crowded_cutoff,dup_fewer_rounds,R7H400 x6 duplicate,nlhe6-tight-e0,13.0064,17,0.003,50,0.08,0.0315,0.1884
+crowded_cutoff,dup_fewer_rounds,R7H400 x6 duplicate,nlhe6-tight-e1-s0,3.9378,29,0.0,50,0.02,0.0035,0.105
+crowded_cutoff,dup_fewer_rounds,R7H400 x6 duplicate,nlhe6-tight-e1-s1,0.9918,32,0.0,50,0.0,0.0,0.0713
+crowded_cutoff,dup_fewer_rounds,R7H400 x6 duplicate,nlhe6-tight-e1-s2,11.1495,23,0.0,50,0.06,0.0206,0.1622
+crowded_cutoff,dup_fewer_rounds,R7H400 x6 duplicate,nlhe6-tight-e2-s2,-18.7363,47,0.0,50,0.0,0.0,0.0713
+crowded_cutoff,dup_fewer_rounds,R7H400 x6 duplicate,nlhe6-tight-e2-s3,16.8983,9,0.069,50,0.1,0.0435,0.2136
+crowded_cutoff,dup_fewer_rounds,R7H400 x6 duplicate,nlhe6-tight-e3-s0,-7.57,38,0.0,50,0.0,0.0,0.0713
+crowded_cutoff,dup_fewer_rounds,R7H400 x6 duplicate,nlhe6-tight-e3-s1,-24.2281,49,0.0,50,0.0,0.0,0.0713
+crowded_cutoff,dup_fewer_rounds,R7H400 x6 duplicate,nlhe6-tight-e3-s3,-5.0422,36,0.0,50,0.0,0.0,0.0713
+crowded_cutoff,dup_fewer_rounds,R7H400 x6 duplicate,nlhe6-trapper-e0,15.8632,11,0.027,50,0.1,0.0435,0.2136
+crowded_cutoff,dup_fewer_rounds,R7H400 x6 duplicate,nlhe6-trapper-e1-s0,-9.056,40,0.0,50,0.0,0.0,0.0713
+crowded_cutoff,dup_fewer_rounds,R7H400 x6 duplicate,nlhe6-trapper-e1-s2,12.8802,18,0.003,50,0.08,0.0315,0.1884
+crowded_cutoff,dup_fewer_rounds,R7H400 x6 duplicate,nlhe6-trapper-e2-s0,11.7815,21,0.002,50,0.22,0.1275,0.3524
+crowded_cutoff,dup_fewer_rounds,R7H400 x6 duplicate,nlhe6-trapper-e2-s1,10.4284,25,0.0,50,0.06,0.0206,0.1622
+crowded_cutoff,dup_fewer_rounds,R7H400 x6 duplicate,nlhe6-trapper-e2-s3,-15.9418,43,0.0,50,0.0,0.0,0.0713
+crowded_cutoff,dup_fewer_rounds,R7H400 x6 duplicate,nlhe6-trapper-e3-s0,-7.3479,37,0.0,50,0.02,0.0035,0.105
+crowded_cutoff,dup_fewer_rounds,R7H400 x6 duplicate,nlhe6-trapper-e3-s1,-18.611,46,0.0,50,0.02,0.0035,0.105
+crowded_cutoff,dup_fewer_rounds,R7H400 x6 duplicate,nlhe6-trapper-e3-s3,54.8561,3,1.0,50,0.6,0.4618,0.7239
+crowded_cutoff,dup_shorter_matches,R40H67 x6 duplicate,nlhe6-aggressive-e1-s0,21.8064,5,0.593,50,0.22,0.1275,0.3524
+crowded_cutoff,dup_shorter_matches,R40H67 x6 duplicate,nlhe6-aggressive-e1-s1,15.1189,12,0.033,50,0.1,0.0435,0.2136
+crowded_cutoff,dup_shorter_matches,R40H67 x6 duplicate,nlhe6-aggressive-e2-s0,25.189,4,0.871,50,0.34,0.2244,0.4785
+crowded_cutoff,dup_shorter_matches,R40H67 x6 duplicate,nlhe6-aggressive-e3-s1,-18.3688,45,0.0,50,0.02,0.0035,0.105
+crowded_cutoff,dup_shorter_matches,R40H67 x6 duplicate,nlhe6-loose-e2-s0,16.8248,10,0.073,50,0.1,0.0435,0.2136
+crowded_cutoff,dup_shorter_matches,R40H67 x6 duplicate,nlhe6-loose-e2-s1,18.7073,8,0.208,50,0.04,0.011,0.1346
+crowded_cutoff,dup_shorter_matches,R40H67 x6 duplicate,nlhe6-loose-e3-s0,-26.769,53,0.0,50,0.02,0.0035,0.105
+crowded_cutoff,dup_shorter_matches,R40H67 x6 duplicate,nlhe6-loose-e3-s1,12.6325,20,0.013,50,0.22,0.1275,0.3524
+crowded_cutoff,dup_shorter_matches,R40H67 x6 duplicate,nlhe6-loose-e3-s2,12.6391,19,0.003,50,0.04,0.011,0.1346
+crowded_cutoff,dup_shorter_matches,R40H67 x6 duplicate,nlhe6-loose-e3-s3,6.5159,27,0.0,50,0.02,0.0035,0.105
+crowded_cutoff,dup_shorter_matches,R40H67 x6 duplicate,nlhe6-maniac-e0,13.4649,16,0.016,50,0.08,0.0315,0.1884
+crowded_cutoff,dup_shorter_matches,R40H67 x6 duplicate,nlhe6-maniac-e1-s0,5.701,28,0.0,50,0.14,0.0695,0.2619
+crowded_cutoff,dup_shorter_matches,R40H67 x6 duplicate,nlhe6-maniac-e1-s1,-21.3374,48,0.0,50,0.0,0.0,0.0713
+crowded_cutoff,dup_shorter_matches,R40H67 x6 duplicate,nlhe6-maniac-e1-s2,2.7033,31,0.0,50,0.04,0.011,0.1346
+crowded_cutoff,dup_shorter_matches,R40H67 x6 duplicate,nlhe6-maniac-e2-s0,-27.2505,54,0.0,50,0.0,0.0,0.0713
+crowded_cutoff,dup_shorter_matches,R40H67 x6 duplicate,nlhe6-maniac-e2-s1,-28.6284,55,0.0,50,0.02,0.0035,0.105
+crowded_cutoff,dup_shorter_matches,R40H67 x6 duplicate,nlhe6-maniac-e2-s2,58.4007,2,1.0,50,0.72,0.5833,0.8253
+crowded_cutoff,dup_shorter_matches,R40H67 x6 duplicate,nlhe6-maniac-e2-s3,21.1514,7,0.468,50,0.24,0.143,0.3741
+crowded_cutoff,dup_shorter_matches,R40H67 x6 duplicate,nlhe6-maniac-e3-s0,-4.204,35,0.0,50,0.04,0.011,0.1346
+crowded_cutoff,dup_shorter_matches,R40H67 x6 duplicate,nlhe6-maniac-e3-s1,-29.9573,56,0.0,50,0.0,0.0,0.0713
+crowded_cutoff,dup_shorter_matches,R40H67 x6 duplicate,nlhe6-maniac-e3-s2,9.7475,26,0.001,50,0.28,0.1747,0.4167
+crowded_cutoff,dup_shorter_matches,R40H67 x6 duplicate,nlhe6-maniac-e3-s3,-25.1619,51,0.0,50,0.02,0.0035,0.105
+crowded_cutoff,dup_shorter_matches,R40H67 x6 duplicate,nlhe6-neutral-e1-s1,21.7602,6,0.568,50,0.26,0.1587,0.3955
+crowded_cutoff,dup_shorter_matches,R40H67 x6 duplicate,nlhe6-neutral-e2-s0,13.5011,15,0.006,50,0.06,0.0206,0.1622
+crowded_cutoff,dup_shorter_matches,R40H67 x6 duplicate,nlhe6-neutral-e2-s2,13.9547,14,0.001,50,0.08,0.0315,0.1884
+crowded_cutoff,dup_shorter_matches,R40H67 x6 duplicate,nlhe6-neutral-e3-s0,-36.7852,58,0.0,50,0.0,0.0,0.0713
+crowded_cutoff,dup_shorter_matches,R40H67 x6 duplicate,nlhe6-neutral-e3-s1,-9.1361,41,0.0,50,0.02,0.0035,0.105
+crowded_cutoff,dup_shorter_matches,R40H67 x6 duplicate,nlhe6-neutral-e3-s2,-45.4526,60,0.0,50,0.0,0.0,0.0713
+crowded_cutoff,dup_shorter_matches,R40H67 x6 duplicate,nlhe6-nit-e0,-8.926,39,0.0,50,0.02,0.0035,0.105
+crowded_cutoff,dup_shorter_matches,R40H67 x6 duplicate,nlhe6-nit-e1-s1,-3.0948,34,0.0,50,0.04,0.011,0.1346
+crowded_cutoff,dup_shorter_matches,R40H67 x6 duplicate,nlhe6-nit-e2-s0,-12.1665,42,0.0,50,0.0,0.0,0.0713
+crowded_cutoff,dup_shorter_matches,R40H67 x6 duplicate,nlhe6-nit-e2-s1,-0.0067,33,0.0,50,0.12,0.0562,0.238
+crowded_cutoff,dup_shorter_matches,R40H67 x6 duplicate,nlhe6-nit-e2-s2,-18.0766,44,0.0,50,0.0,0.0,0.0713
+crowded_cutoff,dup_shorter_matches,R40H67 x6 duplicate,nlhe6-nit-e3-s0,-43.9692,59,0.0,50,0.0,0.0,0.0713
+crowded_cutoff,dup_shorter_matches,R40H67 x6 duplicate,nlhe6-nit-e3-s3,-25.0303,50,0.0,50,0.0,0.0,0.0713
+crowded_cutoff,dup_shorter_matches,R40H67 x6 duplicate,nlhe6-station-e1-s0,14.9209,13,0.041,50,0.24,0.143,0.3741
+crowded_cutoff,dup_shorter_matches,R40H67 x6 duplicate,nlhe6-station-e1-s1,11.0352,24,0.0,50,0.04,0.011,0.1346
+crowded_cutoff,dup_shorter_matches,R40H67 x6 duplicate,nlhe6-station-e1-s2,11.4453,22,0.001,50,0.08,0.0315,0.1884
+crowded_cutoff,dup_shorter_matches,R40H67 x6 duplicate,nlhe6-station-e2-s0,3.8231,30,0.0,50,0.02,0.0035,0.105
+crowded_cutoff,dup_shorter_matches,R40H67 x6 duplicate,nlhe6-station-e2-s2,66.4571,1,1.0,50,0.74,0.6045,0.8413
+crowded_cutoff,dup_shorter_matches,R40H67 x6 duplicate,nlhe6-station-e3-s2,-25.8574,52,0.0,50,0.0,0.0,0.0713
+crowded_cutoff,dup_shorter_matches,R40H67 x6 duplicate,nlhe6-station-e3-s3,-32.5818,57,0.0,50,0.0,0.0,0.0713
+crowded_cutoff,dup_shorter_matches,R40H67 x6 duplicate,nlhe6-tight-e0,13.0064,17,0.003,50,0.1,0.0435,0.2136
+crowded_cutoff,dup_shorter_matches,R40H67 x6 duplicate,nlhe6-tight-e1-s0,3.9378,29,0.0,50,0.08,0.0315,0.1884
+crowded_cutoff,dup_shorter_matches,R40H67 x6 duplicate,nlhe6-tight-e1-s1,0.9918,32,0.0,50,0.02,0.0035,0.105
+crowded_cutoff,dup_shorter_matches,R40H67 x6 duplicate,nlhe6-tight-e1-s2,11.1495,23,0.0,50,0.2,0.1124,0.3304
+crowded_cutoff,dup_shorter_matches,R40H67 x6 duplicate,nlhe6-tight-e2-s2,-18.7363,47,0.0,50,0.0,0.0,0.0713
+crowded_cutoff,dup_shorter_matches,R40H67 x6 duplicate,nlhe6-tight-e2-s3,16.8983,9,0.069,50,0.22,0.1275,0.3524
+crowded_cutoff,dup_shorter_matches,R40H67 x6 duplicate,nlhe6-tight-e3-s0,-7.57,38,0.0,50,0.04,0.011,0.1346
+crowded_cutoff,dup_shorter_matches,R40H67 x6 duplicate,nlhe6-tight-e3-s1,-24.2281,49,0.0,50,0.02,0.0035,0.105
+crowded_cutoff,dup_shorter_matches,R40H67 x6 duplicate,nlhe6-tight-e3-s3,-5.0422,36,0.0,50,0.02,0.0035,0.105
+crowded_cutoff,dup_shorter_matches,R40H67 x6 duplicate,nlhe6-trapper-e0,15.8632,11,0.027,50,0.12,0.0562,0.238
+crowded_cutoff,dup_shorter_matches,R40H67 x6 duplicate,nlhe6-trapper-e1-s0,-9.056,40,0.0,50,0.0,0.0,0.0713
+crowded_cutoff,dup_shorter_matches,R40H67 x6 duplicate,nlhe6-trapper-e1-s2,12.8802,18,0.003,50,0.02,0.0035,0.105
+crowded_cutoff,dup_shorter_matches,R40H67 x6 duplicate,nlhe6-trapper-e2-s0,11.7815,21,0.002,50,0.14,0.0695,0.2619
+crowded_cutoff,dup_shorter_matches,R40H67 x6 duplicate,nlhe6-trapper-e2-s1,10.4284,25,0.0,50,0.0,0.0,0.0713
+crowded_cutoff,dup_shorter_matches,R40H67 x6 duplicate,nlhe6-trapper-e2-s3,-15.9418,43,0.0,50,0.0,0.0,0.0713
+crowded_cutoff,dup_shorter_matches,R40H67 x6 duplicate,nlhe6-trapper-e3-s0,-7.3479,37,0.0,50,0.06,0.0206,0.1622
+crowded_cutoff,dup_shorter_matches,R40H67 x6 duplicate,nlhe6-trapper-e3-s1,-18.611,46,0.0,50,0.0,0.0,0.0713
+crowded_cutoff,dup_shorter_matches,R40H67 x6 duplicate,nlhe6-trapper-e3-s3,54.8561,3,1.0,50,0.54,0.404,0.6703
+crowded_cutoff,mu_swiss,R40H400 adaptive (mu_swiss reference),nlhe6-aggressive-e1-s0,21.8064,5,0.593,200,0.215,0.1637,0.277
+crowded_cutoff,mu_swiss,R40H400 adaptive (mu_swiss reference),nlhe6-aggressive-e1-s1,15.1189,12,0.033,200,0.145,0.1029,0.2005
+crowded_cutoff,mu_swiss,R40H400 adaptive (mu_swiss reference),nlhe6-aggressive-e2-s0,25.189,4,0.871,200,0.255,0.1996,0.3196
+crowded_cutoff,mu_swiss,R40H400 adaptive (mu_swiss reference),nlhe6-aggressive-e3-s1,-18.3688,45,0.0,200,0.005,0.0009,0.0278
+crowded_cutoff,mu_swiss,R40H400 adaptive (mu_swiss reference),nlhe6-loose-e2-s0,16.8248,10,0.073,200,0.135,0.0945,0.1893
+crowded_cutoff,mu_swiss,R40H400 adaptive (mu_swiss reference),nlhe6-loose-e2-s1,18.7073,8,0.208,200,0.185,0.1373,0.2446
+crowded_cutoff,mu_swiss,R40H400 adaptive (mu_swiss reference),nlhe6-loose-e3-s0,-26.769,53,0.0,200,0.015,0.0051,0.0432
+crowded_cutoff,mu_swiss,R40H400 adaptive (mu_swiss reference),nlhe6-loose-e3-s1,12.6325,20,0.013,200,0.185,0.1373,0.2446
+crowded_cutoff,mu_swiss,R40H400 adaptive (mu_swiss reference),nlhe6-loose-e3-s2,12.6391,19,0.003,200,0.1,0.0657,0.1494
+crowded_cutoff,mu_swiss,R40H400 adaptive (mu_swiss reference),nlhe6-loose-e3-s3,6.5159,27,0.0,200,0.045,0.0239,0.0833
+crowded_cutoff,mu_swiss,R40H400 adaptive (mu_swiss reference),nlhe6-maniac-e0,13.4649,16,0.016,200,0.14,0.0987,0.1949
+crowded_cutoff,mu_swiss,R40H400 adaptive (mu_swiss reference),nlhe6-maniac-e1-s0,5.701,28,0.0,200,0.21,0.1593,0.2716
+crowded_cutoff,mu_swiss,R40H400 adaptive (mu_swiss reference),nlhe6-maniac-e1-s1,-21.3374,48,0.0,200,0.02,0.0078,0.0503
+crowded_cutoff,mu_swiss,R40H400 adaptive (mu_swiss reference),nlhe6-maniac-e1-s2,2.7033,31,0.0,200,0.09,0.0577,0.1378
+crowded_cutoff,mu_swiss,R40H400 adaptive (mu_swiss reference),nlhe6-maniac-e2-s0,-27.2505,54,0.0,200,0.015,0.0051,0.0432
+crowded_cutoff,mu_swiss,R40H400 adaptive (mu_swiss reference),nlhe6-maniac-e2-s1,-28.6284,55,0.0,200,0.01,0.0027,0.0357
+crowded_cutoff,mu_swiss,R40H400 adaptive (mu_swiss reference),nlhe6-maniac-e2-s2,58.4007,2,1.0,200,0.73,0.6646,0.7868
+crowded_cutoff,mu_swiss,R40H400 adaptive (mu_swiss reference),nlhe6-maniac-e2-s3,21.1514,7,0.468,200,0.17,0.1243,0.2282
+crowded_cutoff,mu_swiss,R40H400 adaptive (mu_swiss reference),nlhe6-maniac-e3-s0,-4.204,35,0.0,200,0.05,0.0274,0.0896
+crowded_cutoff,mu_swiss,R40H400 adaptive (mu_swiss reference),nlhe6-maniac-e3-s1,-29.9573,56,0.0,200,0.01,0.0027,0.0357
+crowded_cutoff,mu_swiss,R40H400 adaptive (mu_swiss reference),nlhe6-maniac-e3-s2,9.7475,26,0.001,200,0.17,0.1243,0.2282
+crowded_cutoff,mu_swiss,R40H400 adaptive (mu_swiss reference),nlhe6-maniac-e3-s3,-25.1619,51,0.0,200,0.025,0.0107,0.0572
+crowded_cutoff,mu_swiss,R40H400 adaptive (mu_swiss reference),nlhe6-neutral-e1-s1,21.7602,6,0.568,200,0.165,0.12,0.2227
+crowded_cutoff,mu_swiss,R40H400 adaptive (mu_swiss reference),nlhe6-neutral-e2-s0,13.5011,15,0.006,200,0.105,0.0697,0.1552
+crowded_cutoff,mu_swiss,R40H400 adaptive (mu_swiss reference),nlhe6-neutral-e2-s2,13.9547,14,0.001,200,0.145,0.1029,0.2005
+crowded_cutoff,mu_swiss,R40H400 adaptive (mu_swiss reference),nlhe6-neutral-e3-s0,-36.7852,58,0.0,200,0.005,0.0009,0.0278
+crowded_cutoff,mu_swiss,R40H400 adaptive (mu_swiss reference),nlhe6-neutral-e3-s1,-9.1361,41,0.0,200,0.045,0.0239,0.0833
+crowded_cutoff,mu_swiss,R40H400 adaptive (mu_swiss reference),nlhe6-neutral-e3-s2,-45.4526,60,0.0,200,0.0,0.0,0.0188
+crowded_cutoff,mu_swiss,R40H400 adaptive (mu_swiss reference),nlhe6-nit-e0,-8.926,39,0.0,200,0.01,0.0027,0.0357
+crowded_cutoff,mu_swiss,R40H400 adaptive (mu_swiss reference),nlhe6-nit-e1-s1,-3.0948,34,0.0,200,0.035,0.0171,0.0705
+crowded_cutoff,mu_swiss,R40H400 adaptive (mu_swiss reference),nlhe6-nit-e2-s0,-12.1665,42,0.0,200,0.0,0.0,0.0188
+crowded_cutoff,mu_swiss,R40H400 adaptive (mu_swiss reference),nlhe6-nit-e2-s1,-0.0067,33,0.0,200,0.005,0.0009,0.0278
+crowded_cutoff,mu_swiss,R40H400 adaptive (mu_swiss reference),nlhe6-nit-e2-s2,-18.0766,44,0.0,200,0.0,0.0,0.0188
+crowded_cutoff,mu_swiss,R40H400 adaptive (mu_swiss reference),nlhe6-nit-e3-s0,-43.9692,59,0.0,200,0.0,0.0,0.0188
+crowded_cutoff,mu_swiss,R40H400 adaptive (mu_swiss reference),nlhe6-nit-e3-s3,-25.0303,50,0.0,200,0.0,0.0,0.0188
+crowded_cutoff,mu_swiss,R40H400 adaptive (mu_swiss reference),nlhe6-station-e1-s0,14.9209,13,0.041,200,0.205,0.1549,0.2663
+crowded_cutoff,mu_swiss,R40H400 adaptive (mu_swiss reference),nlhe6-station-e1-s1,11.0352,24,0.0,200,0.065,0.0384,0.108
+crowded_cutoff,mu_swiss,R40H400 adaptive (mu_swiss reference),nlhe6-station-e1-s2,11.4453,22,0.001,200,0.125,0.0861,0.178
+crowded_cutoff,mu_swiss,R40H400 adaptive (mu_swiss reference),nlhe6-station-e2-s0,3.8231,30,0.0,200,0.045,0.0239,0.0833
+crowded_cutoff,mu_swiss,R40H400 adaptive (mu_swiss reference),nlhe6-station-e2-s2,66.4571,1,1.0,200,0.68,0.6125,0.7407
+crowded_cutoff,mu_swiss,R40H400 adaptive (mu_swiss reference),nlhe6-station-e3-s2,-25.8574,52,0.0,200,0.005,0.0009,0.0278
+crowded_cutoff,mu_swiss,R40H400 adaptive (mu_swiss reference),nlhe6-station-e3-s3,-32.5818,57,0.0,200,0.0,0.0,0.0188
+crowded_cutoff,mu_swiss,R40H400 adaptive (mu_swiss reference),nlhe6-tight-e0,13.0064,17,0.003,200,0.09,0.0577,0.1378
+crowded_cutoff,mu_swiss,R40H400 adaptive (mu_swiss reference),nlhe6-tight-e1-s0,3.9378,29,0.0,200,0.04,0.0204,0.0769
+crowded_cutoff,mu_swiss,R40H400 adaptive (mu_swiss reference),nlhe6-tight-e1-s1,0.9918,32,0.0,200,0.015,0.0051,0.0432
+crowded_cutoff,mu_swiss,R40H400 adaptive (mu_swiss reference),nlhe6-tight-e1-s2,11.1495,23,0.0,200,0.115,0.0779,0.1666
+crowded_cutoff,mu_swiss,R40H400 adaptive (mu_swiss reference),nlhe6-tight-e2-s2,-18.7363,47,0.0,200,0.015,0.0051,0.0432
+crowded_cutoff,mu_swiss,R40H400 adaptive (mu_swiss reference),nlhe6-tight-e2-s3,16.8983,9,0.069,200,0.19,0.1417,0.25
+crowded_cutoff,mu_swiss,R40H400 adaptive (mu_swiss reference),nlhe6-tight-e3-s0,-7.57,38,0.0,200,0.03,0.0138,0.0639
+crowded_cutoff,mu_swiss,R40H400 adaptive (mu_swiss reference),nlhe6-tight-e3-s1,-24.2281,49,0.0,200,0.01,0.0027,0.0357
+crowded_cutoff,mu_swiss,R40H400 adaptive (mu_swiss reference),nlhe6-tight-e3-s3,-5.0422,36,0.0,200,0.025,0.0107,0.0572
+crowded_cutoff,mu_swiss,R40H400 adaptive (mu_swiss reference),nlhe6-trapper-e0,15.8632,11,0.027,200,0.095,0.0617,0.1436
+crowded_cutoff,mu_swiss,R40H400 adaptive (mu_swiss reference),nlhe6-trapper-e1-s0,-9.056,40,0.0,200,0.0,0.0,0.0188
+crowded_cutoff,mu_swiss,R40H400 adaptive (mu_swiss reference),nlhe6-trapper-e1-s2,12.8802,18,0.003,200,0.08,0.0498,0.126
+crowded_cutoff,mu_swiss,R40H400 adaptive (mu_swiss reference),nlhe6-trapper-e2-s0,11.7815,21,0.002,200,0.125,0.0861,0.178
+crowded_cutoff,mu_swiss,R40H400 adaptive (mu_swiss reference),nlhe6-trapper-e2-s1,10.4284,25,0.0,200,0.085,0.0537,0.1319
+crowded_cutoff,mu_swiss,R40H400 adaptive (mu_swiss reference),nlhe6-trapper-e2-s3,-15.9418,43,0.0,200,0.005,0.0009,0.0278
+crowded_cutoff,mu_swiss,R40H400 adaptive (mu_swiss reference),nlhe6-trapper-e3-s0,-7.3479,37,0.0,200,0.01,0.0027,0.0357
+crowded_cutoff,mu_swiss,R40H400 adaptive (mu_swiss reference),nlhe6-trapper-e3-s1,-18.611,46,0.0,200,0.01,0.0027,0.0357
+crowded_cutoff,mu_swiss,R40H400 adaptive (mu_swiss reference),nlhe6-trapper-e3-s3,54.8561,3,1.0,200,0.495,0.4265,0.5637
+style_diverse,baseline,R40H400 adaptive,nlhe6-aggressive-e0,12.364,19,0.0,50,0.18,0.0977,0.308
+style_diverse,baseline,R40H400 adaptive,nlhe6-aggressive-e2-s0,13.7938,17,0.0,50,0.26,0.1587,0.3955
+style_diverse,baseline,R40H400 adaptive,nlhe6-aggressive-e2-s2,-12.385,44,0.0,50,0.0,0.0,0.0713
+style_diverse,baseline,R40H400 adaptive,nlhe6-aggressive-e3-s1,-26.2102,51,0.0,50,0.0,0.0,0.0713
+style_diverse,baseline,R40H400 adaptive,nlhe6-aggressive-e3-s2,5.0877,29,0.0,50,0.26,0.1587,0.3955
+style_diverse,baseline,R40H400 adaptive,nlhe6-aggressive-e3-s3,20.5554,10,0.067,50,0.1,0.0435,0.2136
+style_diverse,baseline,R40H400 adaptive,nlhe6-loose-e0,22.8204,7,0.195,50,0.22,0.1275,0.3524
+style_diverse,baseline,R40H400 adaptive,nlhe6-loose-e2-s1,9.6876,22,0.0,50,0.1,0.0435,0.2136
+style_diverse,baseline,R40H400 adaptive,nlhe6-loose-e2-s3,12.5915,18,0.0,50,0.08,0.0315,0.1884
+style_diverse,baseline,R40H400 adaptive,nlhe6-loose-e3-s0,-29.3175,54,0.0,50,0.0,0.0,0.0713
+style_diverse,baseline,R40H400 adaptive,nlhe6-loose-e3-s1,-0.3361,33,0.0,50,0.16,0.0834,0.2851
+style_diverse,baseline,R40H400 adaptive,nlhe6-loose-e3-s2,10.2543,21,0.0,50,0.1,0.0435,0.2136
+style_diverse,baseline,R40H400 adaptive,nlhe6-loose-e3-s3,-6.6111,37,0.0,50,0.04,0.011,0.1346
+style_diverse,baseline,R40H400 adaptive,nlhe6-maniac-e1-s0,2.9269,31,0.0,50,0.12,0.0562,0.238
+style_diverse,baseline,R40H400 adaptive,nlhe6-maniac-e2-s0,-26.2137,52,0.0,50,0.0,0.0,0.0713
+style_diverse,baseline,R40H400 adaptive,nlhe6-maniac-e2-s2,58.8012,1,1.0,50,0.76,0.6259,0.857
+style_diverse,baseline,R40H400 adaptive,nlhe6-maniac-e2-s3,14.8176,15,0.002,50,0.14,0.0695,0.2619
+style_diverse,baseline,R40H400 adaptive,nlhe6-maniac-e3-s0,-9.1613,40,0.0,50,0.08,0.0315,0.1884
+style_diverse,baseline,R40H400 adaptive,nlhe6-maniac-e3-s2,11.569,20,0.0,50,0.06,0.0206,0.1622
+style_diverse,baseline,R40H400 adaptive,nlhe6-maniac-e3-s3,-23.1484,49,0.0,50,0.04,0.011,0.1346
+style_diverse,baseline,R40H400 adaptive,nlhe6-neutral-e1-s2,22.6094,8,0.176,50,0.14,0.0695,0.2619
+style_diverse,baseline,R40H400 adaptive,nlhe6-neutral-e2-s0,5.1132,28,0.0,50,0.06,0.0206,0.1622
+style_diverse,baseline,R40H400 adaptive,nlhe6-neutral-e2-s1,32.3109,5,0.973,50,0.16,0.0834,0.2851
+style_diverse,baseline,R40H400 adaptive,nlhe6-neutral-e2-s2,6.6267,26,0.0,50,0.0,0.0,0.0713
+style_diverse,baseline,R40H400 adaptive,nlhe6-neutral-e2-s3,14.2084,16,0.0,50,0.1,0.0435,0.2136
+style_diverse,baseline,R40H400 adaptive,nlhe6-neutral-e3-s0,-36.9869,57,0.0,50,0.0,0.0,0.0713
+style_diverse,baseline,R40H400 adaptive,nlhe6-neutral-e3-s1,-9.2271,41,0.0,50,0.0,0.0,0.0713
+style_diverse,baseline,R40H400 adaptive,nlhe6-neutral-e3-s3,7.9509,24,0.0,50,0.06,0.0206,0.1622
+style_diverse,baseline,R40H400 adaptive,nlhe6-nit-e1-s0,-8.788,39,0.0,50,0.0,0.0,0.0713
+style_diverse,baseline,R40H400 adaptive,nlhe6-nit-e2-s0,-18.8946,48,0.0,50,0.0,0.0,0.0713
+style_diverse,baseline,R40H400 adaptive,nlhe6-nit-e2-s1,-7.538,38,0.0,50,0.0,0.0,0.0713
+style_diverse,baseline,R40H400 adaptive,nlhe6-nit-e3-s0,-48.8225,60,0.0,50,0.0,0.0,0.0713
+style_diverse,baseline,R40H400 adaptive,nlhe6-nit-e3-s1,34.4141,4,0.992,50,0.4,0.2761,0.5382
+style_diverse,baseline,R40H400 adaptive,nlhe6-nit-e3-s2,-16.9891,46,0.0,50,0.0,0.0,0.0713
+style_diverse,baseline,R40H400 adaptive,nlhe6-nit-e3-s3,-30.7988,55,0.0,50,0.0,0.0,0.0713
+style_diverse,baseline,R40H400 adaptive,nlhe6-station-e1-s0,7.7452,25,0.0,50,0.04,0.011,0.1346
+style_diverse,baseline,R40H400 adaptive,nlhe6-station-e2-s0,-6.391,36,0.0,50,0.04,0.011,0.1346
+style_diverse,baseline,R40H400 adaptive,nlhe6-station-e2-s1,17.7916,12,0.013,50,0.2,0.1124,0.3304
+style_diverse,baseline,R40H400 adaptive,nlhe6-station-e2-s2,51.3039,2,1.0,50,0.5,0.3664,0.6336
+style_diverse,baseline,R40H400 adaptive,nlhe6-station-e2-s3,18.5817,11,0.021,50,0.14,0.0695,0.2619
+style_diverse,baseline,R40H400 adaptive,nlhe6-station-e3-s0,1.0758,32,0.0,50,0.06,0.0206,0.1622
+style_diverse,baseline,R40H400 adaptive,nlhe6-station-e3-s1,-37.6016,58,0.0,50,0.0,0.0,0.0713
+style_diverse,baseline,R40H400 adaptive,nlhe6-station-e3-s2,-35.5807,56,0.0,50,0.0,0.0,0.0713
+style_diverse,baseline,R40H400 adaptive,nlhe6-station-e3-s3,-46.2488,59,0.0,50,0.0,0.0,0.0713
+style_diverse,baseline,R40H400 adaptive,nlhe6-tight-e1-s0,-2.832,34,0.0,50,0.0,0.0,0.0713
+style_diverse,baseline,R40H400 adaptive,nlhe6-tight-e2-s0,-5.6436,35,0.0,50,0.06,0.0206,0.1622
+style_diverse,baseline,R40H400 adaptive,nlhe6-tight-e2-s1,22.4707,9,0.145,50,0.28,0.1747,0.4167
+style_diverse,baseline,R40H400 adaptive,nlhe6-tight-e2-s2,-17.4765,47,0.0,50,0.02,0.0035,0.105
+style_diverse,baseline,R40H400 adaptive,nlhe6-tight-e2-s3,6.5067,27,0.0,50,0.06,0.0206,0.1622
+style_diverse,baseline,R40H400 adaptive,nlhe6-tight-e3-s0,-11.6923,42,0.0,50,0.0,0.0,0.0713
+style_diverse,baseline,R40H400 adaptive,nlhe6-tight-e3-s2,24.8452,6,0.393,50,0.22,0.1275,0.3524
+style_diverse,baseline,R40H400 adaptive,nlhe6-tight-e3-s3,-12.1422,43,0.0,50,0.0,0.0,0.0713
+style_diverse,baseline,R40H400 adaptive,nlhe6-trapper-e1-s1,9.454,23,0.0,50,0.1,0.0435,0.2136
+style_diverse,baseline,R40H400 adaptive,nlhe6-trapper-e2-s0,4.5465,30,0.0,50,0.06,0.0206,0.1622
+style_diverse,baseline,R40H400 adaptive,nlhe6-trapper-e2-s2,17.6044,13,0.021,50,0.28,0.1747,0.4167
+style_diverse,baseline,R40H400 adaptive,nlhe6-trapper-e2-s3,-27.382,53,0.0,50,0.02,0.0035,0.105
+style_diverse,baseline,R40H400 adaptive,nlhe6-trapper-e3-s0,-13.5182,45,0.0,50,0.02,0.0035,0.105
+style_diverse,baseline,R40H400 adaptive,nlhe6-trapper-e3-s1,-25.6269,50,0.0,50,0.0,0.0,0.0713
+style_diverse,baseline,R40H400 adaptive,nlhe6-trapper-e3-s2,16.6222,14,0.002,50,0.12,0.0562,0.238
+style_diverse,baseline,R40H400 adaptive,nlhe6-trapper-e3-s3,36.5132,3,1.0,50,0.16,0.0834,0.2851
+style_diverse,budget_half_rounds,R20H800,nlhe6-aggressive-e0,12.364,19,0.0,50,0.14,0.0695,0.2619
+style_diverse,budget_half_rounds,R20H800,nlhe6-aggressive-e2-s0,13.7938,17,0.0,50,0.14,0.0695,0.2619
+style_diverse,budget_half_rounds,R20H800,nlhe6-aggressive-e2-s2,-12.385,44,0.0,50,0.06,0.0206,0.1622
+style_diverse,budget_half_rounds,R20H800,nlhe6-aggressive-e3-s1,-26.2102,51,0.0,50,0.0,0.0,0.0713
+style_diverse,budget_half_rounds,R20H800,nlhe6-aggressive-e3-s2,5.0877,29,0.0,50,0.2,0.1124,0.3304
+style_diverse,budget_half_rounds,R20H800,nlhe6-aggressive-e3-s3,20.5554,10,0.067,50,0.14,0.0695,0.2619
+style_diverse,budget_half_rounds,R20H800,nlhe6-loose-e0,22.8204,7,0.195,50,0.22,0.1275,0.3524
+style_diverse,budget_half_rounds,R20H800,nlhe6-loose-e2-s1,9.6876,22,0.0,50,0.1,0.0435,0.2136
+style_diverse,budget_half_rounds,R20H800,nlhe6-loose-e2-s3,12.5915,18,0.0,50,0.08,0.0315,0.1884
+style_diverse,budget_half_rounds,R20H800,nlhe6-loose-e3-s0,-29.3175,54,0.0,50,0.0,0.0,0.0713
+style_diverse,budget_half_rounds,R20H800,nlhe6-loose-e3-s1,-0.3361,33,0.0,50,0.06,0.0206,0.1622
+style_diverse,budget_half_rounds,R20H800,nlhe6-loose-e3-s2,10.2543,21,0.0,50,0.14,0.0695,0.2619
+style_diverse,budget_half_rounds,R20H800,nlhe6-loose-e3-s3,-6.6111,37,0.0,50,0.06,0.0206,0.1622
+style_diverse,budget_half_rounds,R20H800,nlhe6-maniac-e1-s0,2.9269,31,0.0,50,0.1,0.0435,0.2136
+style_diverse,budget_half_rounds,R20H800,nlhe6-maniac-e2-s0,-26.2137,52,0.0,50,0.0,0.0,0.0713
+style_diverse,budget_half_rounds,R20H800,nlhe6-maniac-e2-s2,58.8012,1,1.0,50,0.54,0.404,0.6703
+style_diverse,budget_half_rounds,R20H800,nlhe6-maniac-e2-s3,14.8176,15,0.002,50,0.12,0.0562,0.238
+style_diverse,budget_half_rounds,R20H800,nlhe6-maniac-e3-s0,-9.1613,40,0.0,50,0.06,0.0206,0.1622
+style_diverse,budget_half_rounds,R20H800,nlhe6-maniac-e3-s2,11.569,20,0.0,50,0.16,0.0834,0.2851
+style_diverse,budget_half_rounds,R20H800,nlhe6-maniac-e3-s3,-23.1484,49,0.0,50,0.02,0.0035,0.105
+style_diverse,budget_half_rounds,R20H800,nlhe6-neutral-e1-s2,22.6094,8,0.176,50,0.2,0.1124,0.3304
+style_diverse,budget_half_rounds,R20H800,nlhe6-neutral-e2-s0,5.1132,28,0.0,50,0.14,0.0695,0.2619
+style_diverse,budget_half_rounds,R20H800,nlhe6-neutral-e2-s1,32.3109,5,0.973,50,0.16,0.0834,0.2851
+style_diverse,budget_half_rounds,R20H800,nlhe6-neutral-e2-s2,6.6267,26,0.0,50,0.04,0.011,0.1346
+style_diverse,budget_half_rounds,R20H800,nlhe6-neutral-e2-s3,14.2084,16,0.0,50,0.08,0.0315,0.1884
+style_diverse,budget_half_rounds,R20H800,nlhe6-neutral-e3-s0,-36.9869,57,0.0,50,0.0,0.0,0.0713
+style_diverse,budget_half_rounds,R20H800,nlhe6-neutral-e3-s1,-9.2271,41,0.0,50,0.0,0.0,0.0713
+style_diverse,budget_half_rounds,R20H800,nlhe6-neutral-e3-s3,7.9509,24,0.0,50,0.1,0.0435,0.2136
+style_diverse,budget_half_rounds,R20H800,nlhe6-nit-e1-s0,-8.788,39,0.0,50,0.0,0.0,0.0713
+style_diverse,budget_half_rounds,R20H800,nlhe6-nit-e2-s0,-18.8946,48,0.0,50,0.0,0.0,0.0713
+style_diverse,budget_half_rounds,R20H800,nlhe6-nit-e2-s1,-7.538,38,0.0,50,0.0,0.0,0.0713
+style_diverse,budget_half_rounds,R20H800,nlhe6-nit-e3-s0,-48.8225,60,0.0,50,0.0,0.0,0.0713
+style_diverse,budget_half_rounds,R20H800,nlhe6-nit-e3-s1,34.4141,4,0.992,50,0.18,0.0977,0.308
+style_diverse,budget_half_rounds,R20H800,nlhe6-nit-e3-s2,-16.9891,46,0.0,50,0.02,0.0035,0.105
+style_diverse,budget_half_rounds,R20H800,nlhe6-nit-e3-s3,-30.7988,55,0.0,50,0.0,0.0,0.0713
+style_diverse,budget_half_rounds,R20H800,nlhe6-station-e1-s0,7.7452,25,0.0,50,0.08,0.0315,0.1884
+style_diverse,budget_half_rounds,R20H800,nlhe6-station-e2-s0,-6.391,36,0.0,50,0.04,0.011,0.1346
+style_diverse,budget_half_rounds,R20H800,nlhe6-station-e2-s1,17.7916,12,0.013,50,0.3,0.191,0.4375
+style_diverse,budget_half_rounds,R20H800,nlhe6-station-e2-s2,51.3039,2,1.0,50,0.36,0.2414,0.4986
+style_diverse,budget_half_rounds,R20H800,nlhe6-station-e2-s3,18.5817,11,0.021,50,0.22,0.1275,0.3524
+style_diverse,budget_half_rounds,R20H800,nlhe6-station-e3-s0,1.0758,32,0.0,50,0.08,0.0315,0.1884
+style_diverse,budget_half_rounds,R20H800,nlhe6-station-e3-s1,-37.6016,58,0.0,50,0.0,0.0,0.0713
+style_diverse,budget_half_rounds,R20H800,nlhe6-station-e3-s2,-35.5807,56,0.0,50,0.02,0.0035,0.105
+style_diverse,budget_half_rounds,R20H800,nlhe6-station-e3-s3,-46.2488,59,0.0,50,0.0,0.0,0.0713
+style_diverse,budget_half_rounds,R20H800,nlhe6-tight-e1-s0,-2.832,34,0.0,50,0.02,0.0035,0.105
+style_diverse,budget_half_rounds,R20H800,nlhe6-tight-e2-s0,-5.6436,35,0.0,50,0.02,0.0035,0.105
+style_diverse,budget_half_rounds,R20H800,nlhe6-tight-e2-s1,22.4707,9,0.145,50,0.16,0.0834,0.2851
+style_diverse,budget_half_rounds,R20H800,nlhe6-tight-e2-s2,-17.4765,47,0.0,50,0.02,0.0035,0.105
+style_diverse,budget_half_rounds,R20H800,nlhe6-tight-e2-s3,6.5067,27,0.0,50,0.08,0.0315,0.1884
+style_diverse,budget_half_rounds,R20H800,nlhe6-tight-e3-s0,-11.6923,42,0.0,50,0.02,0.0035,0.105
+style_diverse,budget_half_rounds,R20H800,nlhe6-tight-e3-s2,24.8452,6,0.393,50,0.26,0.1587,0.3955
+style_diverse,budget_half_rounds,R20H800,nlhe6-tight-e3-s3,-12.1422,43,0.0,50,0.0,0.0,0.0713
+style_diverse,budget_half_rounds,R20H800,nlhe6-trapper-e1-s1,9.454,23,0.0,50,0.14,0.0695,0.2619
+style_diverse,budget_half_rounds,R20H800,nlhe6-trapper-e2-s0,4.5465,30,0.0,50,0.02,0.0035,0.105
+style_diverse,budget_half_rounds,R20H800,nlhe6-trapper-e2-s2,17.6044,13,0.021,50,0.28,0.1747,0.4167
+style_diverse,budget_half_rounds,R20H800,nlhe6-trapper-e2-s3,-27.382,53,0.0,50,0.0,0.0,0.0713
+style_diverse,budget_half_rounds,R20H800,nlhe6-trapper-e3-s0,-13.5182,45,0.0,50,0.0,0.0,0.0713
+style_diverse,budget_half_rounds,R20H800,nlhe6-trapper-e3-s1,-25.6269,50,0.0,50,0.0,0.0,0.0713
+style_diverse,budget_half_rounds,R20H800,nlhe6-trapper-e3-s2,16.6222,14,0.002,50,0.2,0.1124,0.3304
+style_diverse,budget_half_rounds,R20H800,nlhe6-trapper-e3-s3,36.5132,3,1.0,50,0.42,0.2938,0.5577
+style_diverse,budget_quarter_rounds,R10H1600,nlhe6-aggressive-e0,12.364,19,0.0,50,0.2,0.1124,0.3304
+style_diverse,budget_quarter_rounds,R10H1600,nlhe6-aggressive-e2-s0,13.7938,17,0.0,50,0.14,0.0695,0.2619
+style_diverse,budget_quarter_rounds,R10H1600,nlhe6-aggressive-e2-s2,-12.385,44,0.0,50,0.04,0.011,0.1346
+style_diverse,budget_quarter_rounds,R10H1600,nlhe6-aggressive-e3-s1,-26.2102,51,0.0,50,0.02,0.0035,0.105
+style_diverse,budget_quarter_rounds,R10H1600,nlhe6-aggressive-e3-s2,5.0877,29,0.0,50,0.28,0.1747,0.4167
+style_diverse,budget_quarter_rounds,R10H1600,nlhe6-aggressive-e3-s3,20.5554,10,0.067,50,0.12,0.0562,0.238
+style_diverse,budget_quarter_rounds,R10H1600,nlhe6-loose-e0,22.8204,7,0.195,50,0.4,0.2761,0.5382
+style_diverse,budget_quarter_rounds,R10H1600,nlhe6-loose-e2-s1,9.6876,22,0.0,50,0.14,0.0695,0.2619
+style_diverse,budget_quarter_rounds,R10H1600,nlhe6-loose-e2-s3,12.5915,18,0.0,50,0.06,0.0206,0.1622
+style_diverse,budget_quarter_rounds,R10H1600,nlhe6-loose-e3-s0,-29.3175,54,0.0,50,0.04,0.011,0.1346
+style_diverse,budget_quarter_rounds,R10H1600,nlhe6-loose-e3-s1,-0.3361,33,0.0,50,0.08,0.0315,0.1884
+style_diverse,budget_quarter_rounds,R10H1600,nlhe6-loose-e3-s2,10.2543,21,0.0,50,0.08,0.0315,0.1884
+style_diverse,budget_quarter_rounds,R10H1600,nlhe6-loose-e3-s3,-6.6111,37,0.0,50,0.04,0.011,0.1346
+style_diverse,budget_quarter_rounds,R10H1600,nlhe6-maniac-e1-s0,2.9269,31,0.0,50,0.14,0.0695,0.2619
+style_diverse,budget_quarter_rounds,R10H1600,nlhe6-maniac-e2-s0,-26.2137,52,0.0,50,0.06,0.0206,0.1622
+style_diverse,budget_quarter_rounds,R10H1600,nlhe6-maniac-e2-s2,58.8012,1,1.0,50,0.24,0.143,0.3741
+style_diverse,budget_quarter_rounds,R10H1600,nlhe6-maniac-e2-s3,14.8176,15,0.002,50,0.1,0.0435,0.2136
+style_diverse,budget_quarter_rounds,R10H1600,nlhe6-maniac-e3-s0,-9.1613,40,0.0,50,0.22,0.1275,0.3524
+style_diverse,budget_quarter_rounds,R10H1600,nlhe6-maniac-e3-s2,11.569,20,0.0,50,0.08,0.0315,0.1884
+style_diverse,budget_quarter_rounds,R10H1600,nlhe6-maniac-e3-s3,-23.1484,49,0.0,50,0.0,0.0,0.0713
+style_diverse,budget_quarter_rounds,R10H1600,nlhe6-neutral-e1-s2,22.6094,8,0.176,50,0.2,0.1124,0.3304
+style_diverse,budget_quarter_rounds,R10H1600,nlhe6-neutral-e2-s0,5.1132,28,0.0,50,0.16,0.0834,0.2851
+style_diverse,budget_quarter_rounds,R10H1600,nlhe6-neutral-e2-s1,32.3109,5,0.973,50,0.1,0.0435,0.2136
+style_diverse,budget_quarter_rounds,R10H1600,nlhe6-neutral-e2-s2,6.6267,26,0.0,50,0.02,0.0035,0.105
+style_diverse,budget_quarter_rounds,R10H1600,nlhe6-neutral-e2-s3,14.2084,16,0.0,50,0.08,0.0315,0.1884
+style_diverse,budget_quarter_rounds,R10H1600,nlhe6-neutral-e3-s0,-36.9869,57,0.0,50,0.02,0.0035,0.105
+style_diverse,budget_quarter_rounds,R10H1600,nlhe6-neutral-e3-s1,-9.2271,41,0.0,50,0.02,0.0035,0.105
+style_diverse,budget_quarter_rounds,R10H1600,nlhe6-neutral-e3-s3,7.9509,24,0.0,50,0.16,0.0834,0.2851
+style_diverse,budget_quarter_rounds,R10H1600,nlhe6-nit-e1-s0,-8.788,39,0.0,50,0.0,0.0,0.0713
+style_diverse,budget_quarter_rounds,R10H1600,nlhe6-nit-e2-s0,-18.8946,48,0.0,50,0.06,0.0206,0.1622
+style_diverse,budget_quarter_rounds,R10H1600,nlhe6-nit-e2-s1,-7.538,38,0.0,50,0.04,0.011,0.1346
+style_diverse,budget_quarter_rounds,R10H1600,nlhe6-nit-e3-s0,-48.8225,60,0.0,50,0.0,0.0,0.0713
+style_diverse,budget_quarter_rounds,R10H1600,nlhe6-nit-e3-s1,34.4141,4,0.992,50,0.18,0.0977,0.308
+style_diverse,budget_quarter_rounds,R10H1600,nlhe6-nit-e3-s2,-16.9891,46,0.0,50,0.02,0.0035,0.105
+style_diverse,budget_quarter_rounds,R10H1600,nlhe6-nit-e3-s3,-30.7988,55,0.0,50,0.0,0.0,0.0713
+style_diverse,budget_quarter_rounds,R10H1600,nlhe6-station-e1-s0,7.7452,25,0.0,50,0.1,0.0435,0.2136
+style_diverse,budget_quarter_rounds,R10H1600,nlhe6-station-e2-s0,-6.391,36,0.0,50,0.0,0.0,0.0713
+style_diverse,budget_quarter_rounds,R10H1600,nlhe6-station-e2-s1,17.7916,12,0.013,50,0.1,0.0435,0.2136
+style_diverse,budget_quarter_rounds,R10H1600,nlhe6-station-e2-s2,51.3039,2,1.0,50,0.42,0.2938,0.5577
+style_diverse,budget_quarter_rounds,R10H1600,nlhe6-station-e2-s3,18.5817,11,0.021,50,0.2,0.1124,0.3304
+style_diverse,budget_quarter_rounds,R10H1600,nlhe6-station-e3-s0,1.0758,32,0.0,50,0.06,0.0206,0.1622
+style_diverse,budget_quarter_rounds,R10H1600,nlhe6-station-e3-s1,-37.6016,58,0.0,50,0.0,0.0,0.0713
+style_diverse,budget_quarter_rounds,R10H1600,nlhe6-station-e3-s2,-35.5807,56,0.0,50,0.0,0.0,0.0713
+style_diverse,budget_quarter_rounds,R10H1600,nlhe6-station-e3-s3,-46.2488,59,0.0,50,0.0,0.0,0.0713
+style_diverse,budget_quarter_rounds,R10H1600,nlhe6-tight-e1-s0,-2.832,34,0.0,50,0.04,0.011,0.1346
+style_diverse,budget_quarter_rounds,R10H1600,nlhe6-tight-e2-s0,-5.6436,35,0.0,50,0.04,0.011,0.1346
+style_diverse,budget_quarter_rounds,R10H1600,nlhe6-tight-e2-s1,22.4707,9,0.145,50,0.18,0.0977,0.308
+style_diverse,budget_quarter_rounds,R10H1600,nlhe6-tight-e2-s2,-17.4765,47,0.0,50,0.0,0.0,0.0713
+style_diverse,budget_quarter_rounds,R10H1600,nlhe6-tight-e2-s3,6.5067,27,0.0,50,0.18,0.0977,0.308
+style_diverse,budget_quarter_rounds,R10H1600,nlhe6-tight-e3-s0,-11.6923,42,0.0,50,0.0,0.0,0.0713
+style_diverse,budget_quarter_rounds,R10H1600,nlhe6-tight-e3-s2,24.8452,6,0.393,50,0.16,0.0834,0.2851
+style_diverse,budget_quarter_rounds,R10H1600,nlhe6-tight-e3-s3,-12.1422,43,0.0,50,0.0,0.0,0.0713
+style_diverse,budget_quarter_rounds,R10H1600,nlhe6-trapper-e1-s1,9.454,23,0.0,50,0.12,0.0562,0.238
+style_diverse,budget_quarter_rounds,R10H1600,nlhe6-trapper-e2-s0,4.5465,30,0.0,50,0.08,0.0315,0.1884
+style_diverse,budget_quarter_rounds,R10H1600,nlhe6-trapper-e2-s2,17.6044,13,0.021,50,0.2,0.1124,0.3304
+style_diverse,budget_quarter_rounds,R10H1600,nlhe6-trapper-e2-s3,-27.382,53,0.0,50,0.04,0.011,0.1346
+style_diverse,budget_quarter_rounds,R10H1600,nlhe6-trapper-e3-s0,-13.5182,45,0.0,50,0.0,0.0,0.0713
+style_diverse,budget_quarter_rounds,R10H1600,nlhe6-trapper-e3-s1,-25.6269,50,0.0,50,0.0,0.0,0.0713
+style_diverse,budget_quarter_rounds,R10H1600,nlhe6-trapper-e3-s2,16.6222,14,0.002,50,0.2,0.1124,0.3304
+style_diverse,budget_quarter_rounds,R10H1600,nlhe6-trapper-e3-s3,36.5132,3,1.0,50,0.34,0.2244,0.4785
+style_diverse,frozen_schedule,R40H400 frozen schedule,nlhe6-aggressive-e0,12.364,19,0.0,50,0.16,0.0834,0.2851
+style_diverse,frozen_schedule,R40H400 frozen schedule,nlhe6-aggressive-e2-s0,13.7938,17,0.0,50,0.22,0.1275,0.3524
+style_diverse,frozen_schedule,R40H400 frozen schedule,nlhe6-aggressive-e2-s2,-12.385,44,0.0,50,0.02,0.0035,0.105
+style_diverse,frozen_schedule,R40H400 frozen schedule,nlhe6-aggressive-e3-s1,-26.2102,51,0.0,50,0.0,0.0,0.0713
+style_diverse,frozen_schedule,R40H400 frozen schedule,nlhe6-aggressive-e3-s2,5.0877,29,0.0,50,0.08,0.0315,0.1884
+style_diverse,frozen_schedule,R40H400 frozen schedule,nlhe6-aggressive-e3-s3,20.5554,10,0.067,50,0.24,0.143,0.3741
+style_diverse,frozen_schedule,R40H400 frozen schedule,nlhe6-loose-e0,22.8204,7,0.195,50,0.2,0.1124,0.3304
+style_diverse,frozen_schedule,R40H400 frozen schedule,nlhe6-loose-e2-s1,9.6876,22,0.0,50,0.16,0.0834,0.2851
+style_diverse,frozen_schedule,R40H400 frozen schedule,nlhe6-loose-e2-s3,12.5915,18,0.0,50,0.18,0.0977,0.308
+style_diverse,frozen_schedule,R40H400 frozen schedule,nlhe6-loose-e3-s0,-29.3175,54,0.0,50,0.0,0.0,0.0713
+style_diverse,frozen_schedule,R40H400 frozen schedule,nlhe6-loose-e3-s1,-0.3361,33,0.0,50,0.22,0.1275,0.3524
+style_diverse,frozen_schedule,R40H400 frozen schedule,nlhe6-loose-e3-s2,10.2543,21,0.0,50,0.06,0.0206,0.1622
+style_diverse,frozen_schedule,R40H400 frozen schedule,nlhe6-loose-e3-s3,-6.6111,37,0.0,50,0.0,0.0,0.0713
+style_diverse,frozen_schedule,R40H400 frozen schedule,nlhe6-maniac-e1-s0,2.9269,31,0.0,50,0.06,0.0206,0.1622
+style_diverse,frozen_schedule,R40H400 frozen schedule,nlhe6-maniac-e2-s0,-26.2137,52,0.0,50,0.0,0.0,0.0713
+style_diverse,frozen_schedule,R40H400 frozen schedule,nlhe6-maniac-e2-s2,58.8012,1,1.0,50,0.58,0.4423,0.7062
+style_diverse,frozen_schedule,R40H400 frozen schedule,nlhe6-maniac-e2-s3,14.8176,15,0.002,50,0.08,0.0315,0.1884
+style_diverse,frozen_schedule,R40H400 frozen schedule,nlhe6-maniac-e3-s0,-9.1613,40,0.0,50,0.1,0.0435,0.2136
+style_diverse,frozen_schedule,R40H400 frozen schedule,nlhe6-maniac-e3-s2,11.569,20,0.0,50,0.08,0.0315,0.1884
+style_diverse,frozen_schedule,R40H400 frozen schedule,nlhe6-maniac-e3-s3,-23.1484,49,0.0,50,0.02,0.0035,0.105
+style_diverse,frozen_schedule,R40H400 frozen schedule,nlhe6-neutral-e1-s2,22.6094,8,0.176,50,0.22,0.1275,0.3524
+style_diverse,frozen_schedule,R40H400 frozen schedule,nlhe6-neutral-e2-s0,5.1132,28,0.0,50,0.04,0.011,0.1346
+style_diverse,frozen_schedule,R40H400 frozen schedule,nlhe6-neutral-e2-s1,32.3109,5,0.973,50,0.28,0.1747,0.4167
+style_diverse,frozen_schedule,R40H400 frozen schedule,nlhe6-neutral-e2-s2,6.6267,26,0.0,50,0.04,0.011,0.1346
+style_diverse,frozen_schedule,R40H400 frozen schedule,nlhe6-neutral-e2-s3,14.2084,16,0.0,50,0.06,0.0206,0.1622
+style_diverse,frozen_schedule,R40H400 frozen schedule,nlhe6-neutral-e3-s0,-36.9869,57,0.0,50,0.0,0.0,0.0713
+style_diverse,frozen_schedule,R40H400 frozen schedule,nlhe6-neutral-e3-s1,-9.2271,41,0.0,50,0.0,0.0,0.0713
+style_diverse,frozen_schedule,R40H400 frozen schedule,nlhe6-neutral-e3-s3,7.9509,24,0.0,50,0.1,0.0435,0.2136
+style_diverse,frozen_schedule,R40H400 frozen schedule,nlhe6-nit-e1-s0,-8.788,39,0.0,50,0.02,0.0035,0.105
+style_diverse,frozen_schedule,R40H400 frozen schedule,nlhe6-nit-e2-s0,-18.8946,48,0.0,50,0.02,0.0035,0.105
+style_diverse,frozen_schedule,R40H400 frozen schedule,nlhe6-nit-e2-s1,-7.538,38,0.0,50,0.04,0.011,0.1346
+style_diverse,frozen_schedule,R40H400 frozen schedule,nlhe6-nit-e3-s0,-48.8225,60,0.0,50,0.0,0.0,0.0713
+style_diverse,frozen_schedule,R40H400 frozen schedule,nlhe6-nit-e3-s1,34.4141,4,0.992,50,0.3,0.191,0.4375
+style_diverse,frozen_schedule,R40H400 frozen schedule,nlhe6-nit-e3-s2,-16.9891,46,0.0,50,0.02,0.0035,0.105
+style_diverse,frozen_schedule,R40H400 frozen schedule,nlhe6-nit-e3-s3,-30.7988,55,0.0,50,0.0,0.0,0.0713
+style_diverse,frozen_schedule,R40H400 frozen schedule,nlhe6-station-e1-s0,7.7452,25,0.0,50,0.04,0.011,0.1346
+style_diverse,frozen_schedule,R40H400 frozen schedule,nlhe6-station-e2-s0,-6.391,36,0.0,50,0.0,0.0,0.0713
+style_diverse,frozen_schedule,R40H400 frozen schedule,nlhe6-station-e2-s1,17.7916,12,0.013,50,0.18,0.0977,0.308
+style_diverse,frozen_schedule,R40H400 frozen schedule,nlhe6-station-e2-s2,51.3039,2,1.0,50,0.38,0.2586,0.5185
+style_diverse,frozen_schedule,R40H400 frozen schedule,nlhe6-station-e2-s3,18.5817,11,0.021,50,0.2,0.1124,0.3304
+style_diverse,frozen_schedule,R40H400 frozen schedule,nlhe6-station-e3-s0,1.0758,32,0.0,50,0.08,0.0315,0.1884
+style_diverse,frozen_schedule,R40H400 frozen schedule,nlhe6-station-e3-s1,-37.6016,58,0.0,50,0.0,0.0,0.0713
+style_diverse,frozen_schedule,R40H400 frozen schedule,nlhe6-station-e3-s2,-35.5807,56,0.0,50,0.0,0.0,0.0713
+style_diverse,frozen_schedule,R40H400 frozen schedule,nlhe6-station-e3-s3,-46.2488,59,0.0,50,0.02,0.0035,0.105
+style_diverse,frozen_schedule,R40H400 frozen schedule,nlhe6-tight-e1-s0,-2.832,34,0.0,50,0.04,0.011,0.1346
+style_diverse,frozen_schedule,R40H400 frozen schedule,nlhe6-tight-e2-s0,-5.6436,35,0.0,50,0.04,0.011,0.1346
+style_diverse,frozen_schedule,R40H400 frozen schedule,nlhe6-tight-e2-s1,22.4707,9,0.145,50,0.14,0.0695,0.2619
+style_diverse,frozen_schedule,R40H400 frozen schedule,nlhe6-tight-e2-s2,-17.4765,47,0.0,50,0.0,0.0,0.0713
+style_diverse,frozen_schedule,R40H400 frozen schedule,nlhe6-tight-e2-s3,6.5067,27,0.0,50,0.12,0.0562,0.238
+style_diverse,frozen_schedule,R40H400 frozen schedule,nlhe6-tight-e3-s0,-11.6923,42,0.0,50,0.02,0.0035,0.105
+style_diverse,frozen_schedule,R40H400 frozen schedule,nlhe6-tight-e3-s2,24.8452,6,0.393,50,0.28,0.1747,0.4167
+style_diverse,frozen_schedule,R40H400 frozen schedule,nlhe6-tight-e3-s3,-12.1422,43,0.0,50,0.0,0.0,0.0713
+style_diverse,frozen_schedule,R40H400 frozen schedule,nlhe6-trapper-e1-s1,9.454,23,0.0,50,0.14,0.0695,0.2619
+style_diverse,frozen_schedule,R40H400 frozen schedule,nlhe6-trapper-e2-s0,4.5465,30,0.0,50,0.08,0.0315,0.1884
+style_diverse,frozen_schedule,R40H400 frozen schedule,nlhe6-trapper-e2-s2,17.6044,13,0.021,50,0.2,0.1124,0.3304
+style_diverse,frozen_schedule,R40H400 frozen schedule,nlhe6-trapper-e2-s3,-27.382,53,0.0,50,0.02,0.0035,0.105
+style_diverse,frozen_schedule,R40H400 frozen schedule,nlhe6-trapper-e3-s0,-13.5182,45,0.0,50,0.0,0.0,0.0713
+style_diverse,frozen_schedule,R40H400 frozen schedule,nlhe6-trapper-e3-s1,-25.6269,50,0.0,50,0.0,0.0,0.0713
+style_diverse,frozen_schedule,R40H400 frozen schedule,nlhe6-trapper-e3-s2,16.6222,14,0.002,50,0.16,0.0834,0.2851
+style_diverse,frozen_schedule,R40H400 frozen schedule,nlhe6-trapper-e3-s3,36.5132,3,1.0,50,0.26,0.1587,0.3955
+style_diverse,dup_fewer_rounds,R7H400 x6 duplicate,nlhe6-aggressive-e0,12.364,19,0.0,50,0.24,0.143,0.3741
+style_diverse,dup_fewer_rounds,R7H400 x6 duplicate,nlhe6-aggressive-e2-s0,13.7938,17,0.0,50,0.1,0.0435,0.2136
+style_diverse,dup_fewer_rounds,R7H400 x6 duplicate,nlhe6-aggressive-e2-s2,-12.385,44,0.0,50,0.04,0.011,0.1346
+style_diverse,dup_fewer_rounds,R7H400 x6 duplicate,nlhe6-aggressive-e3-s1,-26.2102,51,0.0,50,0.0,0.0,0.0713
+style_diverse,dup_fewer_rounds,R7H400 x6 duplicate,nlhe6-aggressive-e3-s2,5.0877,29,0.0,50,0.04,0.011,0.1346
+style_diverse,dup_fewer_rounds,R7H400 x6 duplicate,nlhe6-aggressive-e3-s3,20.5554,10,0.067,50,0.18,0.0977,0.308
+style_diverse,dup_fewer_rounds,R7H400 x6 duplicate,nlhe6-loose-e0,22.8204,7,0.195,50,0.2,0.1124,0.3304
+style_diverse,dup_fewer_rounds,R7H400 x6 duplicate,nlhe6-loose-e2-s1,9.6876,22,0.0,50,0.14,0.0695,0.2619
+style_diverse,dup_fewer_rounds,R7H400 x6 duplicate,nlhe6-loose-e2-s3,12.5915,18,0.0,50,0.14,0.0695,0.2619
+style_diverse,dup_fewer_rounds,R7H400 x6 duplicate,nlhe6-loose-e3-s0,-29.3175,54,0.0,50,0.02,0.0035,0.105
+style_diverse,dup_fewer_rounds,R7H400 x6 duplicate,nlhe6-loose-e3-s1,-0.3361,33,0.0,50,0.08,0.0315,0.1884
+style_diverse,dup_fewer_rounds,R7H400 x6 duplicate,nlhe6-loose-e3-s2,10.2543,21,0.0,50,0.14,0.0695,0.2619
+style_diverse,dup_fewer_rounds,R7H400 x6 duplicate,nlhe6-loose-e3-s3,-6.6111,37,0.0,50,0.1,0.0435,0.2136
+style_diverse,dup_fewer_rounds,R7H400 x6 duplicate,nlhe6-maniac-e1-s0,2.9269,31,0.0,50,0.14,0.0695,0.2619
+style_diverse,dup_fewer_rounds,R7H400 x6 duplicate,nlhe6-maniac-e2-s0,-26.2137,52,0.0,50,0.0,0.0,0.0713
+style_diverse,dup_fewer_rounds,R7H400 x6 duplicate,nlhe6-maniac-e2-s2,58.8012,1,1.0,50,0.74,0.6045,0.8413
+style_diverse,dup_fewer_rounds,R7H400 x6 duplicate,nlhe6-maniac-e2-s3,14.8176,15,0.002,50,0.14,0.0695,0.2619
+style_diverse,dup_fewer_rounds,R7H400 x6 duplicate,nlhe6-maniac-e3-s0,-9.1613,40,0.0,50,0.06,0.0206,0.1622
+style_diverse,dup_fewer_rounds,R7H400 x6 duplicate,nlhe6-maniac-e3-s2,11.569,20,0.0,50,0.08,0.0315,0.1884
+style_diverse,dup_fewer_rounds,R7H400 x6 duplicate,nlhe6-maniac-e3-s3,-23.1484,49,0.0,50,0.02,0.0035,0.105
+style_diverse,dup_fewer_rounds,R7H400 x6 duplicate,nlhe6-neutral-e1-s2,22.6094,8,0.176,50,0.12,0.0562,0.238
+style_diverse,dup_fewer_rounds,R7H400 x6 duplicate,nlhe6-neutral-e2-s0,5.1132,28,0.0,50,0.08,0.0315,0.1884
+style_diverse,dup_fewer_rounds,R7H400 x6 duplicate,nlhe6-neutral-e2-s1,32.3109,5,0.973,50,0.32,0.2076,0.4581
+style_diverse,dup_fewer_rounds,R7H400 x6 duplicate,nlhe6-neutral-e2-s2,6.6267,26,0.0,50,0.08,0.0315,0.1884
+style_diverse,dup_fewer_rounds,R7H400 x6 duplicate,nlhe6-neutral-e2-s3,14.2084,16,0.0,50,0.06,0.0206,0.1622
+style_diverse,dup_fewer_rounds,R7H400 x6 duplicate,nlhe6-neutral-e3-s0,-36.9869,57,0.0,50,0.02,0.0035,0.105
+style_diverse,dup_fewer_rounds,R7H400 x6 duplicate,nlhe6-neutral-e3-s1,-9.2271,41,0.0,50,0.02,0.0035,0.105
+style_diverse,dup_fewer_rounds,R7H400 x6 duplicate,nlhe6-neutral-e3-s3,7.9509,24,0.0,50,0.04,0.011,0.1346
+style_diverse,dup_fewer_rounds,R7H400 x6 duplicate,nlhe6-nit-e1-s0,-8.788,39,0.0,50,0.02,0.0035,0.105
+style_diverse,dup_fewer_rounds,R7H400 x6 duplicate,nlhe6-nit-e2-s0,-18.8946,48,0.0,50,0.0,0.0,0.0713
+style_diverse,dup_fewer_rounds,R7H400 x6 duplicate,nlhe6-nit-e2-s1,-7.538,38,0.0,50,0.0,0.0,0.0713
+style_diverse,dup_fewer_rounds,R7H400 x6 duplicate,nlhe6-nit-e3-s0,-48.8225,60,0.0,50,0.0,0.0,0.0713
+style_diverse,dup_fewer_rounds,R7H400 x6 duplicate,nlhe6-nit-e3-s1,34.4141,4,0.992,50,0.38,0.2586,0.5185
+style_diverse,dup_fewer_rounds,R7H400 x6 duplicate,nlhe6-nit-e3-s2,-16.9891,46,0.0,50,0.02,0.0035,0.105
+style_diverse,dup_fewer_rounds,R7H400 x6 duplicate,nlhe6-nit-e3-s3,-30.7988,55,0.0,50,0.0,0.0,0.0713
+style_diverse,dup_fewer_rounds,R7H400 x6 duplicate,nlhe6-station-e1-s0,7.7452,25,0.0,50,0.08,0.0315,0.1884
+style_diverse,dup_fewer_rounds,R7H400 x6 duplicate,nlhe6-station-e2-s0,-6.391,36,0.0,50,0.02,0.0035,0.105
+style_diverse,dup_fewer_rounds,R7H400 x6 duplicate,nlhe6-station-e2-s1,17.7916,12,0.013,50,0.1,0.0435,0.2136
+style_diverse,dup_fewer_rounds,R7H400 x6 duplicate,nlhe6-station-e2-s2,51.3039,2,1.0,50,0.38,0.2586,0.5185
+style_diverse,dup_fewer_rounds,R7H400 x6 duplicate,nlhe6-station-e2-s3,18.5817,11,0.021,50,0.08,0.0315,0.1884
+style_diverse,dup_fewer_rounds,R7H400 x6 duplicate,nlhe6-station-e3-s0,1.0758,32,0.0,50,0.04,0.011,0.1346
+style_diverse,dup_fewer_rounds,R7H400 x6 duplicate,nlhe6-station-e3-s1,-37.6016,58,0.0,50,0.0,0.0,0.0713
+style_diverse,dup_fewer_rounds,R7H400 x6 duplicate,nlhe6-station-e3-s2,-35.5807,56,0.0,50,0.0,0.0,0.0713
+style_diverse,dup_fewer_rounds,R7H400 x6 duplicate,nlhe6-station-e3-s3,-46.2488,59,0.0,50,0.0,0.0,0.0713
+style_diverse,dup_fewer_rounds,R7H400 x6 duplicate,nlhe6-tight-e1-s0,-2.832,34,0.0,50,0.06,0.0206,0.1622
+style_diverse,dup_fewer_rounds,R7H400 x6 duplicate,nlhe6-tight-e2-s0,-5.6436,35,0.0,50,0.04,0.011,0.1346
+style_diverse,dup_fewer_rounds,R7H400 x6 duplicate,nlhe6-tight-e2-s1,22.4707,9,0.145,50,0.22,0.1275,0.3524
+style_diverse,dup_fewer_rounds,R7H400 x6 duplicate,nlhe6-tight-e2-s2,-17.4765,47,0.0,50,0.0,0.0,0.0713
+style_diverse,dup_fewer_rounds,R7H400 x6 duplicate,nlhe6-tight-e2-s3,6.5067,27,0.0,50,0.06,0.0206,0.1622
+style_diverse,dup_fewer_rounds,R7H400 x6 duplicate,nlhe6-tight-e3-s0,-11.6923,42,0.0,50,0.0,0.0,0.0713
+style_diverse,dup_fewer_rounds,R7H400 x6 duplicate,nlhe6-tight-e3-s2,24.8452,6,0.393,50,0.24,0.143,0.3741
+style_diverse,dup_fewer_rounds,R7H400 x6 duplicate,nlhe6-tight-e3-s3,-12.1422,43,0.0,50,0.0,0.0,0.0713
+style_diverse,dup_fewer_rounds,R7H400 x6 duplicate,nlhe6-trapper-e1-s1,9.454,23,0.0,50,0.1,0.0435,0.2136
+style_diverse,dup_fewer_rounds,R7H400 x6 duplicate,nlhe6-trapper-e2-s0,4.5465,30,0.0,50,0.08,0.0315,0.1884
+style_diverse,dup_fewer_rounds,R7H400 x6 duplicate,nlhe6-trapper-e2-s2,17.6044,13,0.021,50,0.3,0.191,0.4375
+style_diverse,dup_fewer_rounds,R7H400 x6 duplicate,nlhe6-trapper-e2-s3,-27.382,53,0.0,50,0.0,0.0,0.0713
+style_diverse,dup_fewer_rounds,R7H400 x6 duplicate,nlhe6-trapper-e3-s0,-13.5182,45,0.0,50,0.0,0.0,0.0713
+style_diverse,dup_fewer_rounds,R7H400 x6 duplicate,nlhe6-trapper-e3-s1,-25.6269,50,0.0,50,0.02,0.0035,0.105
+style_diverse,dup_fewer_rounds,R7H400 x6 duplicate,nlhe6-trapper-e3-s2,16.6222,14,0.002,50,0.22,0.1275,0.3524
+style_diverse,dup_fewer_rounds,R7H400 x6 duplicate,nlhe6-trapper-e3-s3,36.5132,3,1.0,50,0.2,0.1124,0.3304
+style_diverse,dup_shorter_matches,R40H67 x6 duplicate,nlhe6-aggressive-e0,12.364,19,0.0,50,0.12,0.0562,0.238
+style_diverse,dup_shorter_matches,R40H67 x6 duplicate,nlhe6-aggressive-e2-s0,13.7938,17,0.0,50,0.18,0.0977,0.308
+style_diverse,dup_shorter_matches,R40H67 x6 duplicate,nlhe6-aggressive-e2-s2,-12.385,44,0.0,50,0.0,0.0,0.0713
+style_diverse,dup_shorter_matches,R40H67 x6 duplicate,nlhe6-aggressive-e3-s1,-26.2102,51,0.0,50,0.0,0.0,0.0713
+style_diverse,dup_shorter_matches,R40H67 x6 duplicate,nlhe6-aggressive-e3-s2,5.0877,29,0.0,50,0.08,0.0315,0.1884
+style_diverse,dup_shorter_matches,R40H67 x6 duplicate,nlhe6-aggressive-e3-s3,20.5554,10,0.067,50,0.16,0.0834,0.2851
+style_diverse,dup_shorter_matches,R40H67 x6 duplicate,nlhe6-loose-e0,22.8204,7,0.195,50,0.16,0.0834,0.2851
+style_diverse,dup_shorter_matches,R40H67 x6 duplicate,nlhe6-loose-e2-s1,9.6876,22,0.0,50,0.04,0.011,0.1346
+style_diverse,dup_shorter_matches,R40H67 x6 duplicate,nlhe6-loose-e2-s3,12.5915,18,0.0,50,0.18,0.0977,0.308
+style_diverse,dup_shorter_matches,R40H67 x6 duplicate,nlhe6-loose-e3-s0,-29.3175,54,0.0,50,0.0,0.0,0.0713
+style_diverse,dup_shorter_matches,R40H67 x6 duplicate,nlhe6-loose-e3-s1,-0.3361,33,0.0,50,0.18,0.0977,0.308
+style_diverse,dup_shorter_matches,R40H67 x6 duplicate,nlhe6-loose-e3-s2,10.2543,21,0.0,50,0.02,0.0035,0.105
+style_diverse,dup_shorter_matches,R40H67 x6 duplicate,nlhe6-loose-e3-s3,-6.6111,37,0.0,50,0.0,0.0,0.0713
+style_diverse,dup_shorter_matches,R40H67 x6 duplicate,nlhe6-maniac-e1-s0,2.9269,31,0.0,50,0.14,0.0695,0.2619
+style_diverse,dup_shorter_matches,R40H67 x6 duplicate,nlhe6-maniac-e2-s0,-26.2137,52,0.0,50,0.0,0.0,0.0713
+style_diverse,dup_shorter_matches,R40H67 x6 duplicate,nlhe6-maniac-e2-s2,58.8012,1,1.0,50,0.68,0.5419,0.7924
+style_diverse,dup_shorter_matches,R40H67 x6 duplicate,nlhe6-maniac-e2-s3,14.8176,15,0.002,50,0.16,0.0834,0.2851
+style_diverse,dup_shorter_matches,R40H67 x6 duplicate,nlhe6-maniac-e3-s0,-9.1613,40,0.0,50,0.0,0.0,0.0713
+style_diverse,dup_shorter_matches,R40H67 x6 duplicate,nlhe6-maniac-e3-s2,11.569,20,0.0,50,0.24,0.143,0.3741
+style_diverse,dup_shorter_matches,R40H67 x6 duplicate,nlhe6-maniac-e3-s3,-23.1484,49,0.0,50,0.0,0.0,0.0713
+style_diverse,dup_shorter_matches,R40H67 x6 duplicate,nlhe6-neutral-e1-s2,22.6094,8,0.176,50,0.22,0.1275,0.3524
+style_diverse,dup_shorter_matches,R40H67 x6 duplicate,nlhe6-neutral-e2-s0,5.1132,28,0.0,50,0.1,0.0435,0.2136
+style_diverse,dup_shorter_matches,R40H67 x6 duplicate,nlhe6-neutral-e2-s1,32.3109,5,0.973,50,0.28,0.1747,0.4167
+style_diverse,dup_shorter_matches,R40H67 x6 duplicate,nlhe6-neutral-e2-s2,6.6267,26,0.0,50,0.06,0.0206,0.1622
+style_diverse,dup_shorter_matches,R40H67 x6 duplicate,nlhe6-neutral-e2-s3,14.2084,16,0.0,50,0.12,0.0562,0.238
+style_diverse,dup_shorter_matches,R40H67 x6 duplicate,nlhe6-neutral-e3-s0,-36.9869,57,0.0,50,0.0,0.0,0.0713
+style_diverse,dup_shorter_matches,R40H67 x6 duplicate,nlhe6-neutral-e3-s1,-9.2271,41,0.0,50,0.02,0.0035,0.105
+style_diverse,dup_shorter_matches,R40H67 x6 duplicate,nlhe6-neutral-e3-s3,7.9509,24,0.0,50,0.0,0.0,0.0713
+style_diverse,dup_shorter_matches,R40H67 x6 duplicate,nlhe6-nit-e1-s0,-8.788,39,0.0,50,0.02,0.0035,0.105
+style_diverse,dup_shorter_matches,R40H67 x6 duplicate,nlhe6-nit-e2-s0,-18.8946,48,0.0,50,0.02,0.0035,0.105
+style_diverse,dup_shorter_matches,R40H67 x6 duplicate,nlhe6-nit-e2-s1,-7.538,38,0.0,50,0.02,0.0035,0.105
+style_diverse,dup_shorter_matches,R40H67 x6 duplicate,nlhe6-nit-e3-s0,-48.8225,60,0.0,50,0.0,0.0,0.0713
+style_diverse,dup_shorter_matches,R40H67 x6 duplicate,nlhe6-nit-e3-s1,34.4141,4,0.992,50,0.7,0.5625,0.809
+style_diverse,dup_shorter_matches,R40H67 x6 duplicate,nlhe6-nit-e3-s2,-16.9891,46,0.0,50,0.0,0.0,0.0713
+style_diverse,dup_shorter_matches,R40H67 x6 duplicate,nlhe6-nit-e3-s3,-30.7988,55,0.0,50,0.0,0.0,0.0713
+style_diverse,dup_shorter_matches,R40H67 x6 duplicate,nlhe6-station-e1-s0,7.7452,25,0.0,50,0.1,0.0435,0.2136
+style_diverse,dup_shorter_matches,R40H67 x6 duplicate,nlhe6-station-e2-s0,-6.391,36,0.0,50,0.02,0.0035,0.105
+style_diverse,dup_shorter_matches,R40H67 x6 duplicate,nlhe6-station-e2-s1,17.7916,12,0.013,50,0.14,0.0695,0.2619
+style_diverse,dup_shorter_matches,R40H67 x6 duplicate,nlhe6-station-e2-s2,51.3039,2,1.0,50,0.46,0.3297,0.596
+style_diverse,dup_shorter_matches,R40H67 x6 duplicate,nlhe6-station-e2-s3,18.5817,11,0.021,50,0.02,0.0035,0.105
+style_diverse,dup_shorter_matches,R40H67 x6 duplicate,nlhe6-station-e3-s0,1.0758,32,0.0,50,0.1,0.0435,0.2136
+style_diverse,dup_shorter_matches,R40H67 x6 duplicate,nlhe6-station-e3-s1,-37.6016,58,0.0,50,0.0,0.0,0.0713
+style_diverse,dup_shorter_matches,R40H67 x6 duplicate,nlhe6-station-e3-s2,-35.5807,56,0.0,50,0.0,0.0,0.0713
+style_diverse,dup_shorter_matches,R40H67 x6 duplicate,nlhe6-station-e3-s3,-46.2488,59,0.0,50,0.0,0.0,0.0713
+style_diverse,dup_shorter_matches,R40H67 x6 duplicate,nlhe6-tight-e1-s0,-2.832,34,0.0,50,0.0,0.0,0.0713
+style_diverse,dup_shorter_matches,R40H67 x6 duplicate,nlhe6-tight-e2-s0,-5.6436,35,0.0,50,0.06,0.0206,0.1622
+style_diverse,dup_shorter_matches,R40H67 x6 duplicate,nlhe6-tight-e2-s1,22.4707,9,0.145,50,0.2,0.1124,0.3304
+style_diverse,dup_shorter_matches,R40H67 x6 duplicate,nlhe6-tight-e2-s2,-17.4765,47,0.0,50,0.0,0.0,0.0713
+style_diverse,dup_shorter_matches,R40H67 x6 duplicate,nlhe6-tight-e2-s3,6.5067,27,0.0,50,0.06,0.0206,0.1622
+style_diverse,dup_shorter_matches,R40H67 x6 duplicate,nlhe6-tight-e3-s0,-11.6923,42,0.0,50,0.0,0.0,0.0713
+style_diverse,dup_shorter_matches,R40H67 x6 duplicate,nlhe6-tight-e3-s2,24.8452,6,0.393,50,0.26,0.1587,0.3955
+style_diverse,dup_shorter_matches,R40H67 x6 duplicate,nlhe6-tight-e3-s3,-12.1422,43,0.0,50,0.0,0.0,0.0713
+style_diverse,dup_shorter_matches,R40H67 x6 duplicate,nlhe6-trapper-e1-s1,9.454,23,0.0,50,0.02,0.0035,0.105
+style_diverse,dup_shorter_matches,R40H67 x6 duplicate,nlhe6-trapper-e2-s0,4.5465,30,0.0,50,0.1,0.0435,0.2136
+style_diverse,dup_shorter_matches,R40H67 x6 duplicate,nlhe6-trapper-e2-s2,17.6044,13,0.021,50,0.24,0.143,0.3741
+style_diverse,dup_shorter_matches,R40H67 x6 duplicate,nlhe6-trapper-e2-s3,-27.382,53,0.0,50,0.0,0.0,0.0713
+style_diverse,dup_shorter_matches,R40H67 x6 duplicate,nlhe6-trapper-e3-s0,-13.5182,45,0.0,50,0.02,0.0035,0.105
+style_diverse,dup_shorter_matches,R40H67 x6 duplicate,nlhe6-trapper-e3-s1,-25.6269,50,0.0,50,0.0,0.0,0.0713
+style_diverse,dup_shorter_matches,R40H67 x6 duplicate,nlhe6-trapper-e3-s2,16.6222,14,0.002,50,0.06,0.0206,0.1622
+style_diverse,dup_shorter_matches,R40H67 x6 duplicate,nlhe6-trapper-e3-s3,36.5132,3,1.0,50,0.24,0.143,0.3741
+style_diverse,mu_swiss,R40H400 adaptive (mu_swiss reference),nlhe6-aggressive-e0,12.364,19,0.0,200,0.2,0.1505,0.2609
+style_diverse,mu_swiss,R40H400 adaptive (mu_swiss reference),nlhe6-aggressive-e2-s0,13.7938,17,0.0,200,0.2,0.1505,0.2609
+style_diverse,mu_swiss,R40H400 adaptive (mu_swiss reference),nlhe6-aggressive-e2-s2,-12.385,44,0.0,200,0.005,0.0009,0.0278
+style_diverse,mu_swiss,R40H400 adaptive (mu_swiss reference),nlhe6-aggressive-e3-s1,-26.2102,51,0.0,200,0.01,0.0027,0.0357
+style_diverse,mu_swiss,R40H400 adaptive (mu_swiss reference),nlhe6-aggressive-e3-s2,5.0877,29,0.0,200,0.12,0.082,0.1723
+style_diverse,mu_swiss,R40H400 adaptive (mu_swiss reference),nlhe6-aggressive-e3-s3,20.5554,10,0.067,200,0.22,0.1682,0.2824
+style_diverse,mu_swiss,R40H400 adaptive (mu_swiss reference),nlhe6-loose-e0,22.8204,7,0.195,200,0.21,0.1593,0.2716
+style_diverse,mu_swiss,R40H400 adaptive (mu_swiss reference),nlhe6-loose-e2-s1,9.6876,22,0.0,200,0.105,0.0697,0.1552
+style_diverse,mu_swiss,R40H400 adaptive (mu_swiss reference),nlhe6-loose-e2-s3,12.5915,18,0.0,200,0.15,0.1071,0.2061
+style_diverse,mu_swiss,R40H400 adaptive (mu_swiss reference),nlhe6-loose-e3-s0,-29.3175,54,0.0,200,0.0,0.0,0.0188
+style_diverse,mu_swiss,R40H400 adaptive (mu_swiss reference),nlhe6-loose-e3-s1,-0.3361,33,0.0,200,0.15,0.1071,0.2061
+style_diverse,mu_swiss,R40H400 adaptive (mu_swiss reference),nlhe6-loose-e3-s2,10.2543,21,0.0,200,0.085,0.0537,0.1319
+style_diverse,mu_swiss,R40H400 adaptive (mu_swiss reference),nlhe6-loose-e3-s3,-6.6111,37,0.0,200,0.025,0.0107,0.0572
+style_diverse,mu_swiss,R40H400 adaptive (mu_swiss reference),nlhe6-maniac-e1-s0,2.9269,31,0.0,200,0.12,0.082,0.1723
+style_diverse,mu_swiss,R40H400 adaptive (mu_swiss reference),nlhe6-maniac-e2-s0,-26.2137,52,0.0,200,0.005,0.0009,0.0278
+style_diverse,mu_swiss,R40H400 adaptive (mu_swiss reference),nlhe6-maniac-e2-s2,58.8012,1,1.0,200,0.695,0.628,0.7546
+style_diverse,mu_swiss,R40H400 adaptive (mu_swiss reference),nlhe6-maniac-e2-s3,14.8176,15,0.002,200,0.095,0.0617,0.1436
+style_diverse,mu_swiss,R40H400 adaptive (mu_swiss reference),nlhe6-maniac-e3-s0,-9.1613,40,0.0,200,0.07,0.0422,0.1141
+style_diverse,mu_swiss,R40H400 adaptive (mu_swiss reference),nlhe6-maniac-e3-s2,11.569,20,0.0,200,0.135,0.0945,0.1893
+style_diverse,mu_swiss,R40H400 adaptive (mu_swiss reference),nlhe6-maniac-e3-s3,-23.1484,49,0.0,200,0.035,0.0171,0.0705
+style_diverse,mu_swiss,R40H400 adaptive (mu_swiss reference),nlhe6-neutral-e1-s2,22.6094,8,0.176,200,0.135,0.0945,0.1893
+style_diverse,mu_swiss,R40H400 adaptive (mu_swiss reference),nlhe6-neutral-e2-s0,5.1132,28,0.0,200,0.045,0.0239,0.0833
+style_diverse,mu_swiss,R40H400 adaptive (mu_swiss reference),nlhe6-neutral-e2-s1,32.3109,5,0.973,200,0.22,0.1682,0.2824
+style_diverse,mu_swiss,R40H400 adaptive (mu_swiss reference),nlhe6-neutral-e2-s2,6.6267,26,0.0,200,0.025,0.0107,0.0572
+style_diverse,mu_swiss,R40H400 adaptive (mu_swiss reference),nlhe6-neutral-e2-s3,14.2084,16,0.0,200,0.12,0.082,0.1723
+style_diverse,mu_swiss,R40H400 adaptive (mu_swiss reference),nlhe6-neutral-e3-s0,-36.9869,57,0.0,200,0.005,0.0009,0.0278
+style_diverse,mu_swiss,R40H400 adaptive (mu_swiss reference),nlhe6-neutral-e3-s1,-9.2271,41,0.0,200,0.0,0.0,0.0188
+style_diverse,mu_swiss,R40H400 adaptive (mu_swiss reference),nlhe6-neutral-e3-s3,7.9509,24,0.0,200,0.055,0.031,0.0958
+style_diverse,mu_swiss,R40H400 adaptive (mu_swiss reference),nlhe6-nit-e1-s0,-8.788,39,0.0,200,0.005,0.0009,0.0278
+style_diverse,mu_swiss,R40H400 adaptive (mu_swiss reference),nlhe6-nit-e2-s0,-18.8946,48,0.0,200,0.0,0.0,0.0188
+style_diverse,mu_swiss,R40H400 adaptive (mu_swiss reference),nlhe6-nit-e2-s1,-7.538,38,0.0,200,0.005,0.0009,0.0278
+style_diverse,mu_swiss,R40H400 adaptive (mu_swiss reference),nlhe6-nit-e3-s0,-48.8225,60,0.0,200,0.0,0.0,0.0188
+style_diverse,mu_swiss,R40H400 adaptive (mu_swiss reference),nlhe6-nit-e3-s1,34.4141,4,0.992,200,0.425,0.3585,0.4943
+style_diverse,mu_swiss,R40H400 adaptive (mu_swiss reference),nlhe6-nit-e3-s2,-16.9891,46,0.0,200,0.01,0.0027,0.0357
+style_diverse,mu_swiss,R40H400 adaptive (mu_swiss reference),nlhe6-nit-e3-s3,-30.7988,55,0.0,200,0.0,0.0,0.0188
+style_diverse,mu_swiss,R40H400 adaptive (mu_swiss reference),nlhe6-station-e1-s0,7.7452,25,0.0,200,0.04,0.0204,0.0769
+style_diverse,mu_swiss,R40H400 adaptive (mu_swiss reference),nlhe6-station-e2-s0,-6.391,36,0.0,200,0.02,0.0078,0.0503
+style_diverse,mu_swiss,R40H400 adaptive (mu_swiss reference),nlhe6-station-e2-s1,17.7916,12,0.013,200,0.22,0.1682,0.2824
+style_diverse,mu_swiss,R40H400 adaptive (mu_swiss reference),nlhe6-station-e2-s2,51.3039,2,1.0,200,0.485,0.4167,0.5539
+style_diverse,mu_swiss,R40H400 adaptive (mu_swiss reference),nlhe6-station-e2-s3,18.5817,11,0.021,200,0.165,0.12,0.2227
+style_diverse,mu_swiss,R40H400 adaptive (mu_swiss reference),nlhe6-station-e3-s0,1.0758,32,0.0,200,0.095,0.0617,0.1436
+style_diverse,mu_swiss,R40H400 adaptive (mu_swiss reference),nlhe6-station-e3-s1,-37.6016,58,0.0,200,0.0,0.0,0.0188
+style_diverse,mu_swiss,R40H400 adaptive (mu_swiss reference),nlhe6-station-e3-s2,-35.5807,56,0.0,200,0.0,0.0,0.0188
+style_diverse,mu_swiss,R40H400 adaptive (mu_swiss reference),nlhe6-station-e3-s3,-46.2488,59,0.0,200,0.0,0.0,0.0188
+style_diverse,mu_swiss,R40H400 adaptive (mu_swiss reference),nlhe6-tight-e1-s0,-2.832,34,0.0,200,0.015,0.0051,0.0432
+style_diverse,mu_swiss,R40H400 adaptive (mu_swiss reference),nlhe6-tight-e2-s0,-5.6436,35,0.0,200,0.03,0.0138,0.0639
+style_diverse,mu_swiss,R40H400 adaptive (mu_swiss reference),nlhe6-tight-e2-s1,22.4707,9,0.145,200,0.23,0.1771,0.2931
+style_diverse,mu_swiss,R40H400 adaptive (mu_swiss reference),nlhe6-tight-e2-s2,-17.4765,47,0.0,200,0.0,0.0,0.0188
+style_diverse,mu_swiss,R40H400 adaptive (mu_swiss reference),nlhe6-tight-e2-s3,6.5067,27,0.0,200,0.08,0.0498,0.126
+style_diverse,mu_swiss,R40H400 adaptive (mu_swiss reference),nlhe6-tight-e3-s0,-11.6923,42,0.0,200,0.025,0.0107,0.0572
+style_diverse,mu_swiss,R40H400 adaptive (mu_swiss reference),nlhe6-tight-e3-s2,24.8452,6,0.393,200,0.17,0.1243,0.2282
+style_diverse,mu_swiss,R40H400 adaptive (mu_swiss reference),nlhe6-tight-e3-s3,-12.1422,43,0.0,200,0.0,0.0,0.0188
+style_diverse,mu_swiss,R40H400 adaptive (mu_swiss reference),nlhe6-trapper-e1-s1,9.454,23,0.0,200,0.095,0.0617,0.1436
+style_diverse,mu_swiss,R40H400 adaptive (mu_swiss reference),nlhe6-trapper-e2-s0,4.5465,30,0.0,200,0.06,0.0347,0.1019
+style_diverse,mu_swiss,R40H400 adaptive (mu_swiss reference),nlhe6-trapper-e2-s2,17.6044,13,0.021,200,0.21,0.1593,0.2716
+style_diverse,mu_swiss,R40H400 adaptive (mu_swiss reference),nlhe6-trapper-e2-s3,-27.382,53,0.0,200,0.0,0.0,0.0188
+style_diverse,mu_swiss,R40H400 adaptive (mu_swiss reference),nlhe6-trapper-e3-s0,-13.5182,45,0.0,200,0.005,0.0009,0.0278
+style_diverse,mu_swiss,R40H400 adaptive (mu_swiss reference),nlhe6-trapper-e3-s1,-25.6269,50,0.0,200,0.0,0.0,0.0188
+style_diverse,mu_swiss,R40H400 adaptive (mu_swiss reference),nlhe6-trapper-e3-s2,16.6222,14,0.002,200,0.15,0.1071,0.2061
+style_diverse,mu_swiss,R40H400 adaptive (mu_swiss reference),nlhe6-trapper-e3-s3,36.5132,3,1.0,200,0.22,0.1682,0.2824

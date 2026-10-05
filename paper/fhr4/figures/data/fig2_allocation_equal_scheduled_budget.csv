@@ -1,0 +1,43 @@
+panel,metric,field,allocation,value,ci_lo,ci_hi,hands_played_ratio_vs_R40,contrast,pairing
+a,changed_qualifiers,separated_control,R10 x H1600,4.69796,4.54316,4.85895,0.622262,,
+a,changed_qualifiers,separated_control,R20 x H800,4.00408,3.74241,4.25005,0.856532,,
+a,changed_qualifiers,separated_control,R40 x H400,3.82939,3.59038,4.06999,1.0,,
+a,changed_qualifiers,crowded_cutoff,R10 x H1600,4.73878,4.53499,4.90788,0.623697,,
+a,changed_qualifiers,crowded_cutoff,R20 x H800,4.25551,4.03312,4.46773,0.858655,,
+a,changed_qualifiers,crowded_cutoff,R40 x H400,4.32082,4.12456,4.51588,1.0,,
+a,changed_qualifiers,style_diverse,R10 x H1600,4.90041,4.71117,5.0649,0.576423,,
+a,changed_qualifiers,style_diverse,R20 x H800,4.72,4.53089,4.87408,0.832957,,
+a,changed_qualifiers,style_diverse,R40 x H400,4.37878,4.15198,4.57088,1.0,,
+b,mu_field_qualification_regret,separated_control,R10 x H1600,188.559,173.118,203.31,0.622262,,
+b,mu_field_qualification_regret,separated_control,R20 x H800,131.817,118.183,144.936,0.856532,,
+b,mu_field_qualification_regret,separated_control,R40 x H400,122.897,109.899,138.103,1.0,,
+b,mu_field_qualification_regret,crowded_cutoff,R10 x H1600,123.33,111.427,135.257,0.623697,,
+b,mu_field_qualification_regret,crowded_cutoff,R20 x H800,89.7319,78.355,101.066,0.858655,,
+b,mu_field_qualification_regret,crowded_cutoff,R40 x H400,93.7229,82.0521,105.696,1.0,,
+b,mu_field_qualification_regret,style_diverse,R10 x H1600,135.971,124.308,148.439,0.576423,,
+b,mu_field_qualification_regret,style_diverse,R20 x H800,107.778,96.2499,119.518,0.832957,,
+b,mu_field_qualification_regret,style_diverse,R40 x H400,94.2825,85.0342,103.672,1.0,,
+c,changed_qualifiers,separated_control,,0.868571,0.597123,1.13546,,R10 minus R40,same replicate ids (pair-specific)
+c,changed_qualifiers,separated_control,,0.174694,-0.184203,0.509624,,R20 minus R40,same replicate ids (pair-specific)
+c,changed_qualifiers,separated_control,,0.693878,0.426117,0.982456,,R10 minus R20,same replicate ids (pair-specific)
+c,changed_qualifiers,separated_control,,0.68,0.41,0.93,,R10 vs R40 prefix R=25 (matched played hands),same replicate ids; played hands matched
+c,changed_qualifiers,crowded_cutoff,,0.417959,0.12122,0.6938,,R10 minus R40,same replicate ids (pair-specific)
+c,changed_qualifiers,crowded_cutoff,,-0.0653061,-0.393963,0.239269,,R20 minus R40,same replicate ids (pair-specific)
+c,changed_qualifiers,crowded_cutoff,,0.483265,0.237605,0.742453,,R10 minus R20,same replicate ids (pair-specific)
+c,changed_qualifiers,crowded_cutoff,,0.1,-0.15,0.37,,R10 vs R40 prefix R=25 (matched played hands),same replicate ids; played hands matched
+c,changed_qualifiers,style_diverse,,0.521633,0.251179,0.794099,,R10 minus R40,same replicate ids (pair-specific)
+c,changed_qualifiers,style_diverse,,0.341224,0.0540436,0.621712,,R20 minus R40,same replicate ids (pair-specific)
+c,changed_qualifiers,style_diverse,,0.180408,-0.0830623,0.422483,,R10 minus R20,same replicate ids (pair-specific)
+c,changed_qualifiers,style_diverse,,0.21,-0.01,0.48,,R10 vs R40 prefix R=23 (matched played hands),same replicate ids; played hands matched
+d,mu_field_qualification_regret,separated_control,,65.6617,47.2477,84.94,,R10 minus R40,same replicate ids (pair-specific)
+d,mu_field_qualification_regret,separated_control,,8.91948,-10.1965,26.4742,,R20 minus R40,same replicate ids (pair-specific)
+d,mu_field_qualification_regret,separated_control,,56.7422,38.7274,76.7612,,R10 minus R20,same replicate ids (pair-specific)
+d,mu_field_qualification_regret,separated_control,,51.55,27.77,72.47,,R10 vs R40 prefix R=25 (matched played hands),same replicate ids; played hands matched
+d,mu_field_qualification_regret,crowded_cutoff,,29.6069,12.8311,46.2346,,R10 minus R40,same replicate ids (pair-specific)
+d,mu_field_qualification_regret,crowded_cutoff,,-3.99099,-21.9067,12.4352,,R20 minus R40,same replicate ids (pair-specific)
+d,mu_field_qualification_regret,crowded_cutoff,,33.5979,17.6249,49.7413,,R10 minus R20,same replicate ids (pair-specific)
+d,mu_field_qualification_regret,crowded_cutoff,,10.49,-5.9,28.33,,R10 vs R40 prefix R=25 (matched played hands),same replicate ids; played hands matched
+d,mu_field_qualification_regret,style_diverse,,41.6884,26.9545,57.0727,,R10 minus R40,same replicate ids (pair-specific)
+d,mu_field_qualification_regret,style_diverse,,13.4957,-1.73721,29.3672,,R20 minus R40,same replicate ids (pair-specific)
+d,mu_field_qualification_regret,style_diverse,,28.1926,11.0199,44.3504,,R10 minus R20,same replicate ids (pair-specific)
+d,mu_field_qualification_regret,style_diverse,,23.56,9.22,39.17,,R10 vs R40 prefix R=23 (matched played hands),same replicate ids; played hands matched

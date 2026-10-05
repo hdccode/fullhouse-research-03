@@ -1,0 +1,32 @@
+{
+ "fig1_reliability_vs_rounds": {
+  "pdf": "d8dea7dbd6f46613050cd8b54b245c974b14ad78dada3d7afecfe6d6b101b191",
+  "png": "c15909590f4d7eb2aa89801865de2e519b66fd4c12acd2bf78b4827a66075f09",
+  "svg": "81f16d52a07dfa1e46462812eaad6edf62198c9684d4e5a62bef20a844e8c52f"
+ },
+ "fig2_allocation_equal_scheduled_budget": {
+  "pdf": "0c94a42f1750735095204f1bf4adeaeb68dd24108b249c500880612776852dbe",
+  "png": "95c2fa98d53ec4329c2d5b5e4ba71e2f7abea83910d01361301c5e45fef2220c",
+  "svg": "588f4b1c3ea39e2ba7eedd4aa777f8338679a883319cb062e1923ddd5ccb63f6"
+ },
+ "fig3_adaptive_vs_frozen": {
+  "pdf": "8722cd095d0d1591f240490702a4ec1b652113e73f07ad54b826c7e054528705",
+  "png": "583cd957dbfbbe42264c468278ea307daaa26cf37b2219de2ec1b869ad97004f",
+  "svg": "4524c112552a63114994170a5fbb8b6db06f55516791fd75eed2a6f482775889"
+ },
+ "fig4_duplicate_packages": {
+  "pdf": "8fc0563026efd979c9c3f668f9445b2f36524067b3ca7c99c15a9fd4e245e0ba",
+  "png": "4aec828e00a61fe49bb77c75bdd705e51a9d6cde0dabd539e2130d9d508ae0c7",
+  "svg": "cb7ffd3578432d39f05fbb1e43b22a9622a5dd78fcc5196f7cc14789f805e911"
+ },
+ "fig5_qualification_probability_at_cutoff": {
+  "pdf": "e7e3b2b642c591e740f74c0e692428cc44a880253e05d8e8a0f4d5d17b372fb2",
+  "png": "12921d6b63b7fe983b4e9585bd5e836016f09e4d0c09c7fcf10bf6b1311ed9bb",
+  "svg": "903012c0b7ecfb65632f5e3c866b2a21dace2ead6bf3a158277d7d95ff614603"
+ },
+ "figS1_identity_vs_strength_error": {
+  "pdf": "9bc276f20f1b1a283c15ad33d2a49ec55902984bddd3536f5dce396b1e1736f8",
+  "png": "d248e746c5d77296db9a9f2f19f25cc479e40af96ef6b80b201ce784960d3ac6",
+  "svg": "738101249b38bafd60f76893eb3192ed53a85449948d2a57d4d1ff6b530bb512"
+ }
+}

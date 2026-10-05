@@ -1,0 +1,7 @@
+panel,metric,field,adaptive,frozen,adaptive_minus_frozen,ci_lo,ci_hi,n_source_tournaments
+a,changed_qualifiers,separated_control,3.82939,4.63102,-0.801633,-1.06408,-0.555278,50
+a,changed_qualifiers,crowded_cutoff,4.32082,4.70286,-0.382041,-0.647483,-0.107913,50
+a,changed_qualifiers,style_diverse,4.37878,4.70531,-0.326531,-0.586087,-0.0856247,50
+b,mu_field_qualification_regret,separated_control,122.897,177.135,-54.2378,-74.2834,-36.5386,50
+b,mu_field_qualification_regret,crowded_cutoff,93.7229,114.939,-21.2157,-40.3694,-1.6067,50
+b,mu_field_qualification_regret,style_diverse,94.2825,105.872,-11.5896,-24.721,1.06588,50

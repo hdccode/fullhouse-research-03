@@ -1,0 +1,37 @@
+panel,metric,field,package,value,ci_lo,ci_hi,scheduled_work_ratio,played_hands_ratio,contrast
+a,changed_qualifiers,separated_control,ordinary,3.82939,3.60627,4.06099,1.0,1.0,
+a,changed_qualifiers,separated_control,dup_fewer_rounds,3.70776,3.44531,3.95739,1.05,1.05139,
+a,changed_qualifiers,separated_control,dup_shorter_matches,3.37796,3.10907,3.62039,1.005,1.06477,
+a,changed_qualifiers,crowded_cutoff,ordinary,4.32082,4.11335,4.52429,1.0,1.0,
+a,changed_qualifiers,crowded_cutoff,dup_fewer_rounds,3.8351,3.58045,4.09202,1.05,1.05454,
+a,changed_qualifiers,crowded_cutoff,dup_shorter_matches,4.01388,3.81074,4.19951,1.005,1.06215,
+a,changed_qualifiers,style_diverse,ordinary,4.37878,4.17179,4.57826,1.0,1.0,
+a,changed_qualifiers,style_diverse,dup_fewer_rounds,4.51429,4.35274,4.68391,1.05,1.04972,
+a,changed_qualifiers,style_diverse,dup_shorter_matches,4.2049,3.9633,4.41069,1.005,1.06828,
+b,spearman_rho,separated_control,ordinary,0.433123,0.404357,0.461616,1.0,1.0,
+b,spearman_rho,separated_control,dup_fewer_rounds,0.436247,0.405136,0.465697,1.05,1.05139,
+b,spearman_rho,separated_control,dup_shorter_matches,0.542054,0.519509,0.564115,1.005,1.06477,
+b,spearman_rho,crowded_cutoff,ordinary,0.371221,0.34216,0.399606,1.0,1.0,
+b,spearman_rho,crowded_cutoff,dup_fewer_rounds,0.41485,0.391242,0.438507,1.05,1.05454,
+b,spearman_rho,crowded_cutoff,dup_shorter_matches,0.51065,0.4841,0.535669,1.005,1.06215,
+b,spearman_rho,style_diverse,ordinary,0.427957,0.40529,0.451271,1.0,1.0,
+b,spearman_rho,style_diverse,dup_fewer_rounds,0.431207,0.406943,0.455781,1.05,1.04972,
+b,spearman_rho,style_diverse,dup_shorter_matches,0.494193,0.470353,0.51631,1.005,1.06828,
+c,changed_qualifiers,separated_control,,-0.121633,-0.457747,0.208419,,,Dup R7xH400 minus ordinary
+c,changed_qualifiers,separated_control,,-0.451429,-0.786932,-0.13476,,,Dup R40xH67 minus ordinary
+c,changed_qualifiers,separated_control,,-0.329796,-0.680245,-0.009097,,,Dup R40xH67 minus dup R7xH400
+c,changed_qualifiers,crowded_cutoff,,-0.485714,-0.7812,-0.20098,,,Dup R7xH400 minus ordinary
+c,changed_qualifiers,crowded_cutoff,,-0.306939,-0.623136,0.000893393,,,Dup R40xH67 minus ordinary
+c,changed_qualifiers,crowded_cutoff,,0.178776,-0.17203,0.528062,,,Dup R40xH67 minus dup R7xH400
+c,changed_qualifiers,style_diverse,,0.13551,-0.149638,0.422436,,,Dup R7xH400 minus ordinary
+c,changed_qualifiers,style_diverse,,-0.173878,-0.458788,0.0862136,,,Dup R40xH67 minus ordinary
+c,changed_qualifiers,style_diverse,,-0.309388,-0.611621,-0.025001,,,Dup R40xH67 minus dup R7xH400
+d,mu_field_qualification_regret,separated_control,,-8.27156,-26.2918,8.75941,,,Dup R7xH400 minus ordinary
+d,mu_field_qualification_regret,separated_control,,-17.2804,-33.0489,-3.58863,,,Dup R40xH67 minus ordinary
+d,mu_field_qualification_regret,separated_control,,-9.00889,-26.171,6.14537,,,Dup R40xH67 minus dup R7xH400
+d,mu_field_qualification_regret,crowded_cutoff,,-23.7229,-36.4835,-11.1067,,,Dup R7xH400 minus ordinary
+d,mu_field_qualification_regret,crowded_cutoff,,-16.6414,-33.8045,1.25793,,,Dup R40xH67 minus ordinary
+d,mu_field_qualification_regret,crowded_cutoff,,7.08148,-10.1111,23.5536,,,Dup R40xH67 minus dup R7xH400
+d,mu_field_qualification_regret,style_diverse,,4.36227,-10.3194,18.384,,,Dup R7xH400 minus ordinary
+d,mu_field_qualification_regret,style_diverse,,-8.16539,-20.1463,2.5932,,,Dup R40xH67 minus ordinary
+d,mu_field_qualification_regret,style_diverse,,-12.5277,-25.8792,0.871228,,,Dup R40xH67 minus dup R7xH400
