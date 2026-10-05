@@ -276,6 +276,18 @@ kinds of error.
 arm-minus-baseline differences with shared bootstrap weights. All uncertainty is computed over
 tournaments (C: over source tournaments). Hands, matches and rounds are never replicates.
 
+## Final simulation state (frozen 2026-10-05)
+
+| component | final state |
+|---|---|
+| `mu_field` | separated_control 250 matched rounds, crowded_cutoff 500, style_diverse 500 |
+| core matrix | 18 cells × 50 tournaments; no 50 → 100 extension |
+| `mu_swiss` | 200 tournaments per field |
+| longer horizons | no 60/80/120-round runs |
+
+The simulation programme is complete. Any further simulation would be a separately pre-registered
+study.
+
 ## Adaptive compute policy and pre-registered extension rules
 
 This is **precision-driven compute allocation**, not "run everything until significance".

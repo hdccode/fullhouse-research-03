@@ -101,6 +101,15 @@ experiments:
 # the PRIMARY qualification metrics is still consequential (never "run until significant").
 core_fhr4:
   public_name: "FullHouse Research #4"
+  simulation_freeze:                 # FHR4 SIMULATION PROGRAMME COMPLETE (2026-10-05). Publication-profile simulation
+    frozen: true                     # commands refuse to run while this is true (cli._guard_frozen); smoke/test,
+    date: 2026-10-05                 # plan, analyse and validate (temp-dir replays) stay available. Any further
+    final_inventory:                 # simulation is a NEW, separately pre-registered study, not FHR4 core work.
+      mu_field_matched_rounds: {separated_control: 250, crowded_cutoff: 500, style_diverse: 500}
+      matrix_tournaments_per_cell: 50          # all 18 cells; no 50 -> 100 extension (verdict 18/18 LOCK_AT_50)
+      mu_swiss_tournaments_per_field: 200      # pre-registered ceiling; no further extension
+      separated_control_validation_rounds: 4000
+      not_run: [60/80/120-round horizons, matrix 50 -> 100, mu_field beyond the above, mu_swiss beyond 200]
   modes: [nlhe6]
   fields:                            # frozen field hashes (must equal fields/FROZEN.yaml)
     separated_control: 0b30004f650324e5  # engineered easy-selection control; independently validated 2026-10-03

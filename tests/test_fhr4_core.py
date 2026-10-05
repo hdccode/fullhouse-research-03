@@ -448,3 +448,34 @@ def test_extension_commands_target_only_the_two_active_fields(pub, tmp_path):
     plan = core.build_plan(pub, tmp_path, mu_field_rounds=500, fields=["crowded_cutoff", "style_diverse"])
     assert [(r["field"], r["matched_rounds_target"], r["stage"]) for r in plan["field_reference"]] == [
         ("crowded_cutoff", 500, "extension"), ("style_diverse", 500, "extension")]
+
+
+# ------------------------------------------------------------------ simulation freeze (2026-10-05)
+def test_simulation_freeze_inventory(pub):
+    fz = core.core_config(pub)["simulation_freeze"]
+    assert fz["frozen"] is True
+    inv = fz["final_inventory"]
+    assert inv["mu_field_matched_rounds"] == {"separated_control": 250, "crowded_cutoff": 500, "style_diverse": 500}
+    assert inv["matrix_tournaments_per_cell"] == 50 and inv["mu_swiss_tournaments_per_field"] == 200
+    assert inv["separated_control_validation_rounds"] == 4000
+
+
+@pytest.mark.parametrize("argv", [
+    ["core", "matrix", "--replicates", "50"],
+    ["core", "matrix", "--fields", "crowded_cutoff", "--cells", "baseline", "--range", "50:100", "--extend"],
+    ["core", "swiss-reference", "--range", "100:200", "--extend"],
+    ["core", "field-reference", "--fields", "crowded_cutoff", "--rounds", "500", "--extend"],
+    ["core", "separated-control", "--stage", "simulate"],
+    ["calibrate", "--stage", "pool", "--modes", "nlhe6"],
+    ["run", "--experiment", "baseline", "--replicates", "50"],
+])
+def test_frozen_programme_refuses_publication_simulation(tmp_path, argv):
+    with pytest.raises(SystemExit, match="FROZEN"):
+        main(argv + ["--root", str(tmp_path)])
+    assert not any(tmp_path.iterdir())
+
+
+def test_freeze_leaves_planning_and_smoke_available(tmp_path):
+    assert main(["core", "plan", "--root", str(tmp_path / "r")]) == 0
+    assert main(["core", "matrix", "--profile", "smoke", "--fields", "smoke12", "--root", str(tmp_path / "s"),
+                 "--replicates", "1", "--workers", "1", "--quiet", "--cells", "baseline"]) == 0

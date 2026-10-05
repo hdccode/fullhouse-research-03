@@ -95,6 +95,12 @@ rerun changed-qualifier contrast spans both −0.25 and +0.25.
 
 Under the broad reading, 4 cells would extend. This does not govern the extension decision.
 
+## Simulation freeze (2026-10-05)
+
+`mu_swiss` was extended to 200 per field (`MU_SWISS_AUDIT.md`). With it, the matrix verdicts above are
+unchanged (primary 18/18 LOCK_AT_50; broad sensitivity flags the same 4 cells). The FHR4 simulation
+programme is COMPLETE (`core_fhr4.simulation_freeze`).
+
 ## 3. Key results
 
 See the chat report of 2026-10-05; the numbers come from the CSVs in this directory. Summary:

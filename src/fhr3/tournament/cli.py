@@ -161,6 +161,15 @@ def _guard_horizon(args: argparse.Namespace, prof: ex.Profile) -> None:
                          "pre-registered follow-up).")
 
 
+def _guard_frozen(prof: ex.Profile) -> None:
+    """The FHR4 simulation programme is complete: publication simulation commands refuse to run."""
+    fz = (ex.load_matrix(prof.config_root).get("core_fhr4") or {}).get("simulation_freeze") or {}
+    if prof.name == "publication" and fz.get("frozen"):
+        raise SystemExit(f"FHR4 simulation programme is FROZEN (complete {fz.get('date')}); no publication "
+                         "simulation. Final inventory: configs/fhr3b/matrix.yaml core_fhr4.simulation_freeze. "
+                         "Further simulation needs a separately pre-registered study.")
+
+
 def _guard_held(prof: ex.Profile, field_hashes: list[str]) -> None:
     """Publication runs never simulate a field on HOLD (FROZEN.yaml ``held``)."""
     import yaml
@@ -266,6 +275,7 @@ def cmd_calibrate(args: argparse.Namespace) -> int:
                 _guard_field_rounds(args, prof, rounds, m)
             else:
                 rounds = args.rounds or prof.calibration_rounds(args.stage, m)
+            _guard_frozen(prof)
             _p(run_calibration(spec, Path(args.root), rounds, args.workers, args.allow_source_change))
     return 0
 
@@ -349,6 +359,7 @@ def cmd_run(args: argparse.Namespace) -> int:
     _guard_held(prof, [c.field.field_hash for _, c in cells])
     if args.experiment != "schedule-diagnostic":
         _guard_replicates(args, prof, reps)
+    _guard_frozen(prof)
     run_ids = {c.identity_hash for _, c in cells}
     for label, c in cells:  # frozen replicate r replays source tournament r: it must exist or run first
         if c.kind == "frozen_replay" and c.source is not None and c.source.identity_hash not in run_ids:
@@ -422,6 +433,7 @@ def cmd_core(args: argparse.Namespace) -> int:
         held = core.held_fields(prof)
         if held and not args.fields:
             print(f"HOLD (skipped): {', '.join(f'{f} [{r['status']}]' for f, r in held.items())}")
+        _guard_frozen(prof)
         for m in cfg["modes"]:
             for f in fields:
                 _guard_held(prof, [prof.calibration_spec(m, "field", f).field.field_hash])
@@ -463,6 +475,7 @@ def cmd_core(args: argparse.Namespace) -> int:
         elif args.stage == "bind":
             _p(sc.bind(prof, reports))
         elif args.stage == "simulate":
+            _guard_frozen(prof)
             _p(sc.simulate(Path(args.root), prof, reports, args.workers))
         elif args.stage == "evaluate":
             _p({k: v for k, v in sc.evaluate(Path(args.root), prof, reports).items()

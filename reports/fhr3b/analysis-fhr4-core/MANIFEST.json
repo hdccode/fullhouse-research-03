@@ -302,11 +302,11 @@
    "field_hash": "0b30004f650324e5",
    "game_hash": "ee13350473b2be84",
    "identity_hash": "9972cfaac3142659",
-   "n_tournaments": 100,
+   "n_tournaments": 200,
    "protocol_hash": "ca1cccabac0c8c23",
    "replicates": [
     0,
-    99
+    199
    ]
   },
   {
@@ -316,11 +316,11 @@
    "field_hash": "afbffedfc3706d84",
    "game_hash": "ee13350473b2be84",
    "identity_hash": "bc25b57b88439e56",
-   "n_tournaments": 100,
+   "n_tournaments": 200,
    "protocol_hash": "ca1cccabac0c8c23",
    "replicates": [
     0,
-    99
+    199
    ]
   },
   {
@@ -330,11 +330,11 @@
    "field_hash": "ad7d6596ef1c8c3e",
    "game_hash": "ee13350473b2be84",
    "identity_hash": "77d62182a8907e1a",
-   "n_tournaments": 100,
+   "n_tournaments": 200,
    "protocol_hash": "ca1cccabac0c8c23",
    "replicates": [
     0,
-    99
+    199
    ]
   },
   {
@@ -381,28 +381,28 @@
   }
  ],
  "outputs_sha256": {
-  "MATRIX_AUDIT.md": "41ed1b69ea7ec2bfc9ad6a19f5a681048894b84cad4fcafbcb93eca4906e64f3",
+  "MATRIX_AUDIT.md": "53baf0e9d6dc5847746b862571ef8d9bfb9aa5b9646c589ced3a436a448692e2",
   "audit_extra.json": "ea83d51caab74ebfb7ba572aaf557c32b084bb36ea5f63230266c9d34c732854",
   "audit_integrity.json": "3661070cb810334fc3724618d7b62301b6c8ac9de030e22e02188894b38b5ed4",
-  "baseline_reliability.csv": "e5407e02f12fb49d038f49b03c1f4e13788f8e75050d01c7e043c695bf7b232b",
-  "budget_allocation.csv": "be0da6a08ffa552d01143ba0378cd162dab6f8038ceec3ca89852cedf9a772e3",
-  "contrasts.csv": "b515880d2289914c920de14d1533135b496a4d594cb6a7d7a4965da2c8d90322",
-  "duplicate_play.csv": "fd59c0e0b4d21024f5582d8330136961a69d5ee782209a8a1f257360c3448bef",
-  "field_references.csv": "eec428b74889a84c8622fbb1764b969782d75ea62ede149081b95e041988ec71",
-  "figure_data/fig1_round_sweep.csv": "5ec96315edc68737ee8863514e552223ec372162546fb23b35cc84888a87720a",
+  "baseline_reliability.csv": "1fbbe0f0861615bca1b8430947ad4c42527f599c41a171260900ae1c11faf26e",
+  "budget_allocation.csv": "e77c226eb8a771593c78dad7005b8540be2abe5a4576ae7fe5f483fa6b8d67b8",
+  "contrasts.csv": "1458abfea5c908228b3fe5bdb8935e3f7d74343a0da10cc458afbcf07959a1aa",
+  "duplicate_play.csv": "6fa125783d3b422432dd9d78106c82758b4f41c2c4c3edc3acfed09d7cdc9661",
+  "field_references.csv": "ce090d7c82a56d9b48de4ec915031c77cb6650a99d66d38073260afff69aac41",
+  "figure_data/fig1_round_sweep.csv": "8b3cb8c9d2ab88a668e582fa638f39be3fb2b0fc32841d7364eccf1de50109e4",
   "figure_data/fig2_cutoff_p_qualify_by_R.csv": "8438a2a85812059a5d576f63aa314a9dc01308a416ed49da9f830fa81e465102",
-  "figure_data/fig3_budget_allocation.csv": "be0da6a08ffa552d01143ba0378cd162dab6f8038ceec3ca89852cedf9a772e3",
+  "figure_data/fig3_budget_allocation.csv": "e77c226eb8a771593c78dad7005b8540be2abe5a4576ae7fe5f483fa6b8d67b8",
   "figure_data/fig4_schedule_diagnostic.csv": "7eb70257593da06f682a3ddda54a9d260d4fc514f645237f5ca74b08f8da61a6",
-  "figure_data/fig5_modes_baseline.csv": "e5407e02f12fb49d038f49b03c1f4e13788f8e75050d01c7e043c695bf7b232b",
-  "frozen_schedule.csv": "eee685bae135c1be3be99d2a9b0547255036acaa4e6b271abea81c85b2d2b056",
+  "figure_data/fig5_modes_baseline.csv": "1fbbe0f0861615bca1b8430947ad4c42527f599c41a171260900ae1c11faf26e",
+  "frozen_schedule.csv": "af3aa620a60172a14a3425c72bab4271543315e01c02b91c3a8f9b2f17c58f46",
   "pairwise_inversions.csv": "2bb3d02f6cf93188665c0da75a8c7a26026f14beb9c170c83fff1fd53c7fde62",
   "pairwise_inversions_binned.csv": "ed69a0e357107621e5d881edf2dbf5e6cd174e2dd1fcf18fecd29e0b5287bcaa",
   "qualification_probabilities.csv": "74c7754f64567d67f5070c79ed49dc4ca35ff6dd28aa160f27e0414ec7913889",
   "rank_stability.csv": "dee6b5d5f19fa9c1f6c139273a387bb3f3b1c01ba25fdc87ffca71600f131980",
-  "reference_accuracy.csv": "49b6591e388d98070cd86bdb801d7e2cfcc7c8e7f63e40d0863c8766bea4e761",
-  "round_sweep.csv": "5ec96315edc68737ee8863514e552223ec372162546fb23b35cc84888a87720a",
+  "reference_accuracy.csv": "63e865098186fc005b207264b0f659ffe7668d8ff386c13ee3416e3ebd4eb4c3",
+  "round_sweep.csv": "8b3cb8c9d2ab88a668e582fa638f39be3fb2b0fc32841d7364eccf1de50109e4",
   "schedule_diagnostic.csv": "7eb70257593da06f682a3ddda54a9d260d4fc514f645237f5ca74b08f8da61a6",
-  "summary.json": "b222922bcd5eef2b09612f836b003630e28d4a91095fc4eacaccee55e820631a",
-  "swiss_reference_bots.csv": "679848f8b0b1998873f000c6b2203d054a873f107130a39cc0f674e49d2c6ff1"
+  "summary.json": "ec42d9bbecf44e38dfb1e05e98864ed27bd1374f9432d3cf36b7cbc55faf2797",
+  "swiss_reference_bots.csv": "23e6323d73f9937e36bc090f50a4b778af06a7079f8cc2972f1a4c1732a9972e"
  }
 }

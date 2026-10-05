@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 # FullHouse Research #4 core publication study (NLHE6 only; configs/fhr3b/matrix.yaml: core_fhr4).
+# FROZEN 2026-10-05: the FHR4 simulation programme is COMPLETE. The simulation steps below are historical
+# and now refused by the CLI (core_fhr4.simulation_freeze); plan / analyse / validate still work.
 # Every simulation step is resumable and append-only; nothing outside the core scope runs from here.
 #
 #   scripts/run_fhr4_core.sh <step>
