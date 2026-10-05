@@ -156,7 +156,7 @@ Those budgets belong to the later, separately designed operational studies.
 
 | field | calibration id |
 |---|---|
-| separated_control | `nlhe6.nlhe6-separated_control.H400.dup.field-reference.5be0e1c0` (fresh seed family; not yet run) |
+| separated_control | `nlhe6.nlhe6-separated_control.H400.dup.field-reference.5be0e1c0` (fresh seed family; 250 rounds, locked) |
 | crowded_cutoff | `nlhe6.nlhe6-crowded_cutoff.H400.dup.field-reference.7d2640ae` |
 | style_diverse | `nlhe6.nlhe6-style_diverse.H400.dup.field-reference.0caf92cc` |
 
