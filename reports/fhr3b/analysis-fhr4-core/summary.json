@@ -1,0 +1,1924 @@
+{
+ "analysis_version": "fhr3b-analysis-v1",
+ "created": "2026-10-04T17:55:51-0700",
+ "extension_rules": {
+  "matrix": {
+   "cells": {
+    "nlhe6.nlhe6-crowded_cutoff.fhr3b_baseline.R10H1600K6.swiss.publication.614bb63e": {
+     "action": "keep 50",
+     "cell": "quarter_rounds_4x_hands",
+     "extend": false,
+     "field": "nlhe6-crowded_cutoff",
+     "half_widths": {
+      "changed_qualifiers": 0.1864457220676381,
+      "mu_field_qualification_regret": 11.914820065,
+      "topk_overlap": 0.18644572206763843
+     },
+     "reasons": []
+    },
+    "nlhe6.nlhe6-crowded_cutoff.fhr3b_baseline.R20H800K6.swiss.publication.ed78ee35": {
+     "action": "append replicates 50..99 for THIS cell",
+     "cell": "half_rounds_2x_hands",
+     "extend": true,
+     "field": "nlhe6-crowded_cutoff",
+     "half_widths": {
+      "changed_qualifiers": 0.21730253611514305,
+      "mu_field_qualification_regret": 11.355355035833341,
+      "topk_overlap": 0.2173025361151424
+     },
+     "reasons": [
+      "B contrast mu_field_reference_changed CI [-0.40, 0.42] spans +/-0.25",
+      "B contrast mu_swiss_reference_changed CI [-0.50, 0.26] spans +/-0.25"
+     ]
+    },
+    "nlhe6.nlhe6-crowded_cutoff.fhr3b_baseline.R40H400K6.frozen.publication.85cba4b8": {
+     "action": "keep 50",
+     "cell": "frozen_schedule",
+     "extend": false,
+     "field": "nlhe6-crowded_cutoff",
+     "half_widths": {
+      "changed_qualifiers": 0.1880058207197628,
+      "topk_overlap": 0.18800582071976268
+     },
+     "reasons": []
+    },
+    "nlhe6.nlhe6-crowded_cutoff.fhr3b_baseline.R40H400K6.swiss.publication.7f40559c": {
+     "action": "append replicates 50..99 for THIS cell",
+     "cell": "baseline",
+     "extend": true,
+     "field": "nlhe6-crowded_cutoff",
+     "half_widths": {
+      "changed_qualifiers": 0.19151488099279934,
+      "mu_field_qualification_regret": 12.080439129166663,
+      "topk_overlap": 0.19151488099279945
+     },
+     "reasons": [
+      "B contrast mu_field_reference_changed CI [-0.40, 0.42] spans +/-0.25",
+      "B contrast mu_swiss_reference_changed CI [-0.50, 0.26] spans +/-0.25"
+     ]
+    },
+    "nlhe6.nlhe6-crowded_cutoff.fhr3b_baseline.R40H67K6dup.swiss.publication.6f076fbf": {
+     "action": "keep 50",
+     "cell": "dup_shorter_matches R40xH67x6lanes (approx. equal scheduled work)",
+     "extend": false,
+     "field": "nlhe6-crowded_cutoff",
+     "half_widths": {
+      "changed_qualifiers": 0.19438496626624713,
+      "mu_field_qualification_regret": 10.137947163333337,
+      "topk_overlap": 0.19438496626624702
+     },
+     "reasons": []
+    },
+    "nlhe6.nlhe6-crowded_cutoff.fhr3b_baseline.R7H400K6dup.swiss.publication.30e72800": {
+     "action": "keep 50",
+     "cell": "dup_fewer_rounds R7xH400x6lanes (approx. equal scheduled work)",
+     "extend": false,
+     "field": "nlhe6-crowded_cutoff",
+     "half_widths": {
+      "changed_qualifiers": 0.25578569963389874,
+      "mu_field_qualification_regret": 11.97299807416665,
+      "topk_overlap": 0.25578569963389897
+     },
+     "reasons": []
+    },
+    "nlhe6.nlhe6-separated_control.fhr3b_baseline.R10H1600K6.swiss.publication.d29667e0": {
+     "action": "keep 50",
+     "cell": "quarter_rounds_4x_hands",
+     "extend": false,
+     "field": "nlhe6-separated_control",
+     "half_widths": {
+      "changed_qualifiers": 0.15789484256079467,
+      "mu_field_qualification_regret": 15.095966860000019,
+      "topk_overlap": 0.15789484256079467
+     },
+     "reasons": []
+    },
+    "nlhe6.nlhe6-separated_control.fhr3b_baseline.R20H800K6.swiss.publication.730f8b76": {
+     "action": "keep 50",
+     "cell": "half_rounds_2x_hands",
+     "extend": false,
+     "field": "nlhe6-separated_control",
+     "half_widths": {
+      "changed_qualifiers": 0.2538161074938394,
+      "mu_field_qualification_regret": 13.37665685333333,
+      "topk_overlap": 0.25381610749383954
+     },
+     "reasons": []
+    },
+    "nlhe6.nlhe6-separated_control.fhr3b_baseline.R40H400K6.frozen.publication.b51788b7": {
+     "action": "keep 50",
+     "cell": "frozen_schedule",
+     "extend": false,
+     "field": "nlhe6-separated_control",
+     "half_widths": {
+      "changed_qualifiers": 0.1797696133881841,
+      "topk_overlap": 0.1797696133881842
+     },
+     "reasons": []
+    },
+    "nlhe6.nlhe6-separated_control.fhr3b_baseline.R40H400K6.swiss.publication.cf4a6b58": {
+     "action": "keep 50",
+     "cell": "baseline",
+     "extend": false,
+     "field": "nlhe6-separated_control",
+     "half_widths": {
+      "changed_qualifiers": 0.23852065752078722,
+      "mu_field_qualification_regret": 13.832048143333331,
+      "topk_overlap": 0.238520657520787
+     },
+     "reasons": []
+    },
+    "nlhe6.nlhe6-separated_control.fhr3b_baseline.R40H67K6dup.swiss.publication.5ea6a2af": {
+     "action": "keep 50",
+     "cell": "dup_shorter_matches R40xH67x6lanes (approx. equal scheduled work)",
+     "extend": false,
+     "field": "nlhe6-separated_control",
+     "half_widths": {
+      "changed_qualifiers": 0.2556609717809104,
+      "mu_field_qualification_regret": 11.250854873333317,
+      "topk_overlap": 0.2556609717809104
+     },
+     "reasons": []
+    },
+    "nlhe6.nlhe6-separated_control.fhr3b_baseline.R7H400K6dup.swiss.publication.680ccbf9": {
+     "action": "keep 50",
+     "cell": "dup_fewer_rounds R7xH400x6lanes (approx. equal scheduled work)",
+     "extend": false,
+     "field": "nlhe6-separated_control",
+     "half_widths": {
+      "changed_qualifiers": 0.256040885865497,
+      "mu_field_qualification_regret": 13.164550595000001,
+      "topk_overlap": 0.256040885865497
+     },
+     "reasons": []
+    },
+    "nlhe6.nlhe6-style_diverse.fhr3b_baseline.R10H1600K6.swiss.publication.f4bb4d9f": {
+     "action": "keep 50",
+     "cell": "quarter_rounds_4x_hands",
+     "extend": false,
+     "field": "nlhe6-style_diverse",
+     "half_widths": {
+      "changed_qualifiers": 0.17686333224202588,
+      "mu_field_qualification_regret": 12.065571238333334,
+      "topk_overlap": 0.176863332242026
+     },
+     "reasons": []
+    },
+    "nlhe6.nlhe6-style_diverse.fhr3b_baseline.R20H800K6.swiss.publication.36235c3a": {
+     "action": "keep 50",
+     "cell": "half_rounds_2x_hands",
+     "extend": false,
+     "field": "nlhe6-style_diverse",
+     "half_widths": {
+      "changed_qualifiers": 0.1715926546440718,
+      "mu_field_qualification_regret": 11.634046427500003,
+      "topk_overlap": 0.17159265464407147
+     },
+     "reasons": []
+    },
+    "nlhe6.nlhe6-style_diverse.fhr3b_baseline.R40H400K6.frozen.publication.c99bd91a": {
+     "action": "keep 50",
+     "cell": "frozen_schedule",
+     "extend": false,
+     "field": "nlhe6-style_diverse",
+     "half_widths": {
+      "changed_qualifiers": 0.16780259619046278,
+      "topk_overlap": 0.16780259619046256
+     },
+     "reasons": []
+    },
+    "nlhe6.nlhe6-style_diverse.fhr3b_baseline.R40H400K6.swiss.publication.4cb85cc5": {
+     "action": "append replicates 50..99 for THIS cell",
+     "cell": "baseline",
+     "extend": true,
+     "field": "nlhe6-style_diverse",
+     "half_widths": {
+      "changed_qualifiers": 0.19142110106080068,
+      "mu_field_qualification_regret": 9.089891560000005,
+      "topk_overlap": 0.19142110106080068
+     },
+     "reasons": [
+      "D contrast mu_field_reference_changed CI [-0.44, 0.28] spans +/-0.25",
+      "D contrast mu_swiss_reference_changed CI [-0.26, 0.46] spans +/-0.25"
+     ]
+    },
+    "nlhe6.nlhe6-style_diverse.fhr3b_baseline.R40H67K6dup.swiss.publication.f222bed2": {
+     "action": "keep 50",
+     "cell": "dup_shorter_matches R40xH67x6lanes (approx. equal scheduled work)",
+     "extend": false,
+     "field": "nlhe6-style_diverse",
+     "half_widths": {
+      "changed_qualifiers": 0.22369520917161734,
+      "mu_field_qualification_regret": 9.884047909166668,
+      "topk_overlap": 0.22369520917161734
+     },
+     "reasons": []
+    },
+    "nlhe6.nlhe6-style_diverse.fhr3b_baseline.R7H400K6dup.swiss.publication.137478d3": {
+     "action": "append replicates 50..99 for THIS cell",
+     "cell": "dup_fewer_rounds R7xH400x6lanes (approx. equal scheduled work)",
+     "extend": true,
+     "field": "nlhe6-style_diverse",
+     "half_widths": {
+      "changed_qualifiers": 0.16558607396241998,
+      "mu_field_qualification_regret": 8.9519120275,
+      "topk_overlap": 0.16558607396241987
+     },
+     "reasons": [
+      "D contrast mu_field_reference_changed CI [-0.44, 0.28] spans +/-0.25",
+      "D contrast mu_swiss_reference_changed CI [-0.26, 0.46] spans +/-0.25"
+     ]
+    }
+   },
+   "note": "regret is reported and may affect interpretation; it never independently triggers an extension",
+   "rule": {
+    "contrast_inconclusive_span": 0.25,
+    "qualifier_half_width_above": 0.3,
+    "regret": "report_only"
+   }
+  },
+  "mu_field": {
+   "nlhe6/crowded_cutoff": {
+    "action": "extend to 500 matched rounds (append-only)",
+    "criteria": {
+     "designed_leaders_below": {
+      "bots": {},
+      "leaders": [
+       "nlhe6-maniac-e2-s2",
+       "nlhe6-station-e2-s2",
+       "nlhe6-trapper-e3-s3"
+      ],
+      "threshold": 0.95
+     },
+     "outside_leaders_and_crowd_above": {
+      "bots": {
+       "nlhe6-loose-e2-s1": 0.208
+      },
+      "n_outside": 45,
+      "threshold": 0.1
+     }
+    },
+    "extend": true,
+    "field_kind": "crowded_cutoff",
+    "note": "pre-registered rule; applied mechanically, never executed automatically",
+    "triggered": [
+     false,
+     true
+    ]
+   },
+   "nlhe6/separated_control": {
+    "action": "keep 250 matched rounds",
+    "criteria": {
+     "p_cutoff_pair_order_reversed": {
+      "trigger_above": 0.05,
+      "value": 0.0
+     },
+     "p_same_top_k_set": {
+      "trigger_below": 0.95,
+      "value": 0.999
+     }
+    },
+    "extend": false,
+    "field_kind": "separated_control",
+    "note": "pre-registered rule; applied mechanically, never executed automatically",
+    "triggered": [
+     false,
+     false
+    ]
+   },
+   "nlhe6/style_diverse": {
+    "action": "keep 250 matched rounds",
+    "criteria": {
+     "point_ranks_10_plus_above": {
+      "bots": {},
+      "threshold": 0.1
+     },
+     "point_ranks_1_to_4_below": {
+      "bots": {},
+      "threshold": 0.9
+     }
+    },
+    "extend": false,
+    "field_kind": "style_diverse",
+    "note": "pre-registered rule; applied mechanically, never executed automatically",
+    "triggered": [
+     false,
+     false
+    ]
+   }
+  },
+  "mu_swiss": {
+   "nlhe6/crowded_cutoff": {
+    "decision_relevant_boundary_bots": [
+     "nlhe6-loose-e2-s0",
+     "nlhe6-loose-e2-s1",
+     "nlhe6-maniac-e0",
+     "nlhe6-maniac-e1-s0",
+     "nlhe6-maniac-e1-s2",
+     "nlhe6-maniac-e2-s2",
+     "nlhe6-neutral-e2-s2",
+     "nlhe6-station-e1-s0",
+     "nlhe6-station-e2-s2",
+     "nlhe6-trapper-e3-s3"
+    ],
+    "excluded_designed_crowd": [
+     "nlhe6-aggressive-e1-s0",
+     "nlhe6-aggressive-e1-s1",
+     "nlhe6-aggressive-e2-s0",
+     "nlhe6-loose-e3-s1",
+     "nlhe6-loose-e3-s2",
+     "nlhe6-maniac-e2-s3",
+     "nlhe6-maniac-e3-s2",
+     "nlhe6-neutral-e1-s1",
+     "nlhe6-station-e1-s2",
+     "nlhe6-tight-e1-s2",
+     "nlhe6-tight-e2-s3",
+     "nlhe6-trapper-e0"
+    ],
+    "extend": true,
+    "field_kind": "crowded_cutoff",
+    "flagged": {
+     "nlhe6-maniac-e2-s2": 0.08270505396432848,
+     "nlhe6-station-e1-s0": 0.08034535565190197,
+     "nlhe6-station-e2-s2": 0.08674171749367476,
+     "nlhe6-trapper-e3-s3": 0.0960016253527968
+    },
+    "manual_clause": "extend also if reference uncertainty prevents interpretation of the main results (reviewed judgement, record the reason)",
+    "max_possible_wilson_half_width_at_n": 0.09616846963400436,
+    "n_tournaments": 100,
+    "note": "pre-registered rule; evaluated, never executed",
+    "rule_can_trigger_at_n": true,
+    "threshold": 0.08
+   },
+   "nlhe6/separated_control": {
+    "decision_relevant_boundary_bots": [
+     "nlhe6-loose-e2-s0",
+     "nlhe6-loose-e2-s1",
+     "nlhe6-loose-e2-s3",
+     "nlhe6-maniac-e0",
+     "nlhe6-maniac-e1-s0",
+     "nlhe6-maniac-e2-s2",
+     "nlhe6-maniac-e3-s0",
+     "nlhe6-neutral-e1-s0",
+     "nlhe6-neutral-e2-s0",
+     "nlhe6-nit-e3-s1",
+     "nlhe6-station-e2-s2",
+     "nlhe6-station-e2-s3",
+     "nlhe6-station-e3-s0",
+     "nlhe6-tight-e0",
+     "nlhe6-trapper-e2-s0",
+     "nlhe6-trapper-e3-s3"
+    ],
+    "excluded_designed_crowd": [],
+    "extend": true,
+    "field_kind": "separated_control",
+    "flagged": {
+     "nlhe6-maniac-e1-s0": 0.08379626092886966,
+     "nlhe6-maniac-e2-s2": 0.0815555857128516,
+     "nlhe6-neutral-e1-s0": 0.08996735642726646,
+     "nlhe6-nit-e3-s1": 0.09346322726005096,
+     "nlhe6-station-e2-s2": 0.08762027713224418,
+     "nlhe6-station-e2-s3": 0.08674171749367475,
+     "nlhe6-station-e3-s0": 0.08034535565190197,
+     "nlhe6-trapper-e3-s3": 0.09609435238362063
+    },
+    "manual_clause": "extend also if reference uncertainty prevents interpretation of the main results (reviewed judgement, record the reason)",
+    "max_possible_wilson_half_width_at_n": 0.09616846963400436,
+    "n_tournaments": 100,
+    "note": "pre-registered rule; evaluated, never executed",
+    "rule_can_trigger_at_n": true,
+    "threshold": 0.08
+   },
+   "nlhe6/style_diverse": {
+    "decision_relevant_boundary_bots": [
+     "nlhe6-aggressive-e0",
+     "nlhe6-aggressive-e2-s0",
+     "nlhe6-aggressive-e3-s2",
+     "nlhe6-aggressive-e3-s3",
+     "nlhe6-loose-e0",
+     "nlhe6-loose-e2-s1",
+     "nlhe6-loose-e2-s3",
+     "nlhe6-loose-e3-s1",
+     "nlhe6-loose-e3-s2",
+     "nlhe6-maniac-e1-s0",
+     "nlhe6-maniac-e2-s2",
+     "nlhe6-maniac-e2-s3",
+     "nlhe6-maniac-e3-s2",
+     "nlhe6-neutral-e1-s2",
+     "nlhe6-neutral-e2-s1",
+     "nlhe6-nit-e3-s1",
+     "nlhe6-station-e2-s1",
+     "nlhe6-station-e2-s2",
+     "nlhe6-station-e2-s3",
+     "nlhe6-tight-e2-s1",
+     "nlhe6-tight-e2-s3",
+     "nlhe6-tight-e3-s2",
+     "nlhe6-trapper-e1-s1",
+     "nlhe6-trapper-e2-s2",
+     "nlhe6-trapper-e3-s2",
+     "nlhe6-trapper-e3-s3"
+    ],
+    "excluded_designed_crowd": [],
+    "extend": true,
+    "field_kind": "style_diverse",
+    "flagged": {
+     "nlhe6-aggressive-e0": 0.08155558571285165,
+     "nlhe6-aggressive-e2-s0": 0.08155558571285165,
+     "nlhe6-loose-e0": 0.08155558571285165,
+     "nlhe6-maniac-e2-s2": 0.09190654230007256,
+     "nlhe6-nit-e3-s1": 0.09570429511522946,
+     "nlhe6-station-e2-s1": 0.08155558571285165,
+     "nlhe6-station-e2-s2": 0.0960016253527968,
+     "nlhe6-trapper-e3-s3": 0.0827050539643285
+    },
+    "manual_clause": "extend also if reference uncertainty prevents interpretation of the main results (reviewed judgement, record the reason)",
+    "max_possible_wilson_half_width_at_n": 0.09616846963400436,
+    "n_tournaments": 100,
+    "note": "pre-registered rule; evaluated, never executed",
+    "rule_can_trigger_at_n": true,
+    "threshold": 0.08
+   }
+  },
+  "note": "pre-registered (configs/fhr3b/matrix.yaml: core_fhr4.extension_rules); evaluated, never executed"
+ },
+ "inputs": [
+  {
+   "cell_id": "nlhe6.nlhe6-separated_control.fhr3b_baseline.R40H400K6.swiss.publication.cf4a6b58",
+   "engine_source_hash": "4647ee69857e7c9b",
+   "experiment": "baseline",
+   "field_hash": "0b30004f650324e5",
+   "game_hash": "ee13350473b2be84",
+   "identity_hash": "cf4a6b58da482f9f",
+   "n_tournaments": 50,
+   "protocol_hash": "ca1cccabac0c8c23",
+   "replicates": [
+    0,
+    49
+   ]
+  },
+  {
+   "cell_id": "nlhe6.nlhe6-crowded_cutoff.fhr3b_baseline.R40H400K6.swiss.publication.7f40559c",
+   "engine_source_hash": "4647ee69857e7c9b",
+   "experiment": "baseline",
+   "field_hash": "afbffedfc3706d84",
+   "game_hash": "ee13350473b2be84",
+   "identity_hash": "7f40559c7f018346",
+   "n_tournaments": 50,
+   "protocol_hash": "ca1cccabac0c8c23",
+   "replicates": [
+    0,
+    49
+   ]
+  },
+  {
+   "cell_id": "nlhe6.nlhe6-style_diverse.fhr3b_baseline.R40H400K6.swiss.publication.4cb85cc5",
+   "engine_source_hash": "4647ee69857e7c9b",
+   "experiment": "baseline",
+   "field_hash": "ad7d6596ef1c8c3e",
+   "game_hash": "ee13350473b2be84",
+   "identity_hash": "4cb85cc564098ce9",
+   "n_tournaments": 50,
+   "protocol_hash": "ca1cccabac0c8c23",
+   "replicates": [
+    0,
+    49
+   ]
+  },
+  {
+   "cell_id": "nlhe6.nlhe6-separated_control.fhr3b_baseline.R10H1600K6.swiss.publication.d29667e0",
+   "engine_source_hash": "4647ee69857e7c9b",
+   "experiment": "budget_sweep",
+   "field_hash": "0b30004f650324e5",
+   "game_hash": "ee13350473b2be84",
+   "identity_hash": "d29667e0a7ed59b5",
+   "n_tournaments": 50,
+   "protocol_hash": "c6a40b0c35e95769",
+   "replicates": [
+    0,
+    49
+   ]
+  },
+  {
+   "cell_id": "nlhe6.nlhe6-separated_control.fhr3b_baseline.R20H800K6.swiss.publication.730f8b76",
+   "engine_source_hash": "4647ee69857e7c9b",
+   "experiment": "budget_sweep",
+   "field_hash": "0b30004f650324e5",
+   "game_hash": "ee13350473b2be84",
+   "identity_hash": "730f8b76ebcaba7f",
+   "n_tournaments": 50,
+   "protocol_hash": "6b2619b620857e3e",
+   "replicates": [
+    0,
+    49
+   ]
+  },
+  {
+   "cell_id": "nlhe6.nlhe6-separated_control.fhr3b_baseline.R40H400K6.swiss.publication.cf4a6b58",
+   "engine_source_hash": "4647ee69857e7c9b",
+   "experiment": "budget_sweep",
+   "field_hash": "0b30004f650324e5",
+   "game_hash": "ee13350473b2be84",
+   "identity_hash": "cf4a6b58da482f9f",
+   "n_tournaments": 50,
+   "protocol_hash": "ca1cccabac0c8c23",
+   "replicates": [
+    0,
+    49
+   ]
+  },
+  {
+   "cell_id": "nlhe6.nlhe6-crowded_cutoff.fhr3b_baseline.R10H1600K6.swiss.publication.614bb63e",
+   "engine_source_hash": "4647ee69857e7c9b",
+   "experiment": "budget_sweep",
+   "field_hash": "afbffedfc3706d84",
+   "game_hash": "ee13350473b2be84",
+   "identity_hash": "614bb63eddf72822",
+   "n_tournaments": 50,
+   "protocol_hash": "c6a40b0c35e95769",
+   "replicates": [
+    0,
+    49
+   ]
+  },
+  {
+   "cell_id": "nlhe6.nlhe6-crowded_cutoff.fhr3b_baseline.R20H800K6.swiss.publication.ed78ee35",
+   "engine_source_hash": "4647ee69857e7c9b",
+   "experiment": "budget_sweep",
+   "field_hash": "afbffedfc3706d84",
+   "game_hash": "ee13350473b2be84",
+   "identity_hash": "ed78ee35a86b0c93",
+   "n_tournaments": 50,
+   "protocol_hash": "6b2619b620857e3e",
+   "replicates": [
+    0,
+    49
+   ]
+  },
+  {
+   "cell_id": "nlhe6.nlhe6-crowded_cutoff.fhr3b_baseline.R40H400K6.swiss.publication.7f40559c",
+   "engine_source_hash": "4647ee69857e7c9b",
+   "experiment": "budget_sweep",
+   "field_hash": "afbffedfc3706d84",
+   "game_hash": "ee13350473b2be84",
+   "identity_hash": "7f40559c7f018346",
+   "n_tournaments": 50,
+   "protocol_hash": "ca1cccabac0c8c23",
+   "replicates": [
+    0,
+    49
+   ]
+  },
+  {
+   "cell_id": "nlhe6.nlhe6-style_diverse.fhr3b_baseline.R10H1600K6.swiss.publication.f4bb4d9f",
+   "engine_source_hash": "4647ee69857e7c9b",
+   "experiment": "budget_sweep",
+   "field_hash": "ad7d6596ef1c8c3e",
+   "game_hash": "ee13350473b2be84",
+   "identity_hash": "f4bb4d9f895185fc",
+   "n_tournaments": 50,
+   "protocol_hash": "c6a40b0c35e95769",
+   "replicates": [
+    0,
+    49
+   ]
+  },
+  {
+   "cell_id": "nlhe6.nlhe6-style_diverse.fhr3b_baseline.R20H800K6.swiss.publication.36235c3a",
+   "engine_source_hash": "4647ee69857e7c9b",
+   "experiment": "budget_sweep",
+   "field_hash": "ad7d6596ef1c8c3e",
+   "game_hash": "ee13350473b2be84",
+   "identity_hash": "36235c3a091044fb",
+   "n_tournaments": 50,
+   "protocol_hash": "6b2619b620857e3e",
+   "replicates": [
+    0,
+    49
+   ]
+  },
+  {
+   "cell_id": "nlhe6.nlhe6-style_diverse.fhr3b_baseline.R40H400K6.swiss.publication.4cb85cc5",
+   "engine_source_hash": "4647ee69857e7c9b",
+   "experiment": "budget_sweep",
+   "field_hash": "ad7d6596ef1c8c3e",
+   "game_hash": "ee13350473b2be84",
+   "identity_hash": "4cb85cc564098ce9",
+   "n_tournaments": 50,
+   "protocol_hash": "ca1cccabac0c8c23",
+   "replicates": [
+    0,
+    49
+   ]
+  },
+  {
+   "cell_id": "nlhe6.nlhe6-separated_control.fhr3b_baseline.R40H400K6.swiss.publication.cf4a6b58",
+   "engine_source_hash": "4647ee69857e7c9b",
+   "experiment": "duplicate_play",
+   "field_hash": "0b30004f650324e5",
+   "game_hash": "ee13350473b2be84",
+   "identity_hash": "cf4a6b58da482f9f",
+   "n_tournaments": 50,
+   "protocol_hash": "ca1cccabac0c8c23",
+   "replicates": [
+    0,
+    49
+   ]
+  },
+  {
+   "cell_id": "nlhe6.nlhe6-separated_control.fhr3b_baseline.R7H400K6dup.swiss.publication.680ccbf9",
+   "engine_source_hash": "4647ee69857e7c9b",
+   "experiment": "duplicate_play",
+   "field_hash": "0b30004f650324e5",
+   "game_hash": "ee13350473b2be84",
+   "identity_hash": "680ccbf9b5458c47",
+   "n_tournaments": 50,
+   "protocol_hash": "51bfe87a933f9bed",
+   "replicates": [
+    0,
+    49
+   ]
+  },
+  {
+   "cell_id": "nlhe6.nlhe6-separated_control.fhr3b_baseline.R40H67K6dup.swiss.publication.5ea6a2af",
+   "engine_source_hash": "4647ee69857e7c9b",
+   "experiment": "duplicate_play",
+   "field_hash": "0b30004f650324e5",
+   "game_hash": "ee13350473b2be84",
+   "identity_hash": "5ea6a2aff2ea1cf5",
+   "n_tournaments": 50,
+   "protocol_hash": "b5a1d478f4a355d6",
+   "replicates": [
+    0,
+    49
+   ]
+  },
+  {
+   "cell_id": "nlhe6.nlhe6-crowded_cutoff.fhr3b_baseline.R40H400K6.swiss.publication.7f40559c",
+   "engine_source_hash": "4647ee69857e7c9b",
+   "experiment": "duplicate_play",
+   "field_hash": "afbffedfc3706d84",
+   "game_hash": "ee13350473b2be84",
+   "identity_hash": "7f40559c7f018346",
+   "n_tournaments": 50,
+   "protocol_hash": "ca1cccabac0c8c23",
+   "replicates": [
+    0,
+    49
+   ]
+  },
+  {
+   "cell_id": "nlhe6.nlhe6-crowded_cutoff.fhr3b_baseline.R7H400K6dup.swiss.publication.30e72800",
+   "engine_source_hash": "4647ee69857e7c9b",
+   "experiment": "duplicate_play",
+   "field_hash": "afbffedfc3706d84",
+   "game_hash": "ee13350473b2be84",
+   "identity_hash": "30e72800b7cc65dc",
+   "n_tournaments": 50,
+   "protocol_hash": "51bfe87a933f9bed",
+   "replicates": [
+    0,
+    49
+   ]
+  },
+  {
+   "cell_id": "nlhe6.nlhe6-crowded_cutoff.fhr3b_baseline.R40H67K6dup.swiss.publication.6f076fbf",
+   "engine_source_hash": "4647ee69857e7c9b",
+   "experiment": "duplicate_play",
+   "field_hash": "afbffedfc3706d84",
+   "game_hash": "ee13350473b2be84",
+   "identity_hash": "6f076fbfe16c6fa9",
+   "n_tournaments": 50,
+   "protocol_hash": "b5a1d478f4a355d6",
+   "replicates": [
+    0,
+    49
+   ]
+  },
+  {
+   "cell_id": "nlhe6.nlhe6-style_diverse.fhr3b_baseline.R40H400K6.swiss.publication.4cb85cc5",
+   "engine_source_hash": "4647ee69857e7c9b",
+   "experiment": "duplicate_play",
+   "field_hash": "ad7d6596ef1c8c3e",
+   "game_hash": "ee13350473b2be84",
+   "identity_hash": "4cb85cc564098ce9",
+   "n_tournaments": 50,
+   "protocol_hash": "ca1cccabac0c8c23",
+   "replicates": [
+    0,
+    49
+   ]
+  },
+  {
+   "cell_id": "nlhe6.nlhe6-style_diverse.fhr3b_baseline.R7H400K6dup.swiss.publication.137478d3",
+   "engine_source_hash": "4647ee69857e7c9b",
+   "experiment": "duplicate_play",
+   "field_hash": "ad7d6596ef1c8c3e",
+   "game_hash": "ee13350473b2be84",
+   "identity_hash": "137478d3f7e7cf48",
+   "n_tournaments": 50,
+   "protocol_hash": "51bfe87a933f9bed",
+   "replicates": [
+    0,
+    49
+   ]
+  },
+  {
+   "cell_id": "nlhe6.nlhe6-style_diverse.fhr3b_baseline.R40H67K6dup.swiss.publication.f222bed2",
+   "engine_source_hash": "4647ee69857e7c9b",
+   "experiment": "duplicate_play",
+   "field_hash": "ad7d6596ef1c8c3e",
+   "game_hash": "ee13350473b2be84",
+   "identity_hash": "f222bed2c5367409",
+   "n_tournaments": 50,
+   "protocol_hash": "b5a1d478f4a355d6",
+   "replicates": [
+    0,
+    49
+   ]
+  },
+  {
+   "cell_id": "nlhe6.nlhe6-separated_control.fhr3b_baseline.R40H400K6.swiss.swiss-reference.9972cfaa",
+   "engine_source_hash": "4647ee69857e7c9b",
+   "experiment": "swiss_reference",
+   "field_hash": "0b30004f650324e5",
+   "game_hash": "ee13350473b2be84",
+   "identity_hash": "9972cfaac3142659",
+   "n_tournaments": 100,
+   "protocol_hash": "ca1cccabac0c8c23",
+   "replicates": [
+    0,
+    99
+   ]
+  },
+  {
+   "cell_id": "nlhe6.nlhe6-crowded_cutoff.fhr3b_baseline.R40H400K6.swiss.swiss-reference.bc25b57b",
+   "engine_source_hash": "4647ee69857e7c9b",
+   "experiment": "swiss_reference",
+   "field_hash": "afbffedfc3706d84",
+   "game_hash": "ee13350473b2be84",
+   "identity_hash": "bc25b57b88439e56",
+   "n_tournaments": 100,
+   "protocol_hash": "ca1cccabac0c8c23",
+   "replicates": [
+    0,
+    99
+   ]
+  },
+  {
+   "cell_id": "nlhe6.nlhe6-style_diverse.fhr3b_baseline.R40H400K6.swiss.swiss-reference.77d62182",
+   "engine_source_hash": "4647ee69857e7c9b",
+   "experiment": "swiss_reference",
+   "field_hash": "ad7d6596ef1c8c3e",
+   "game_hash": "ee13350473b2be84",
+   "identity_hash": "77d62182a8907e1a",
+   "n_tournaments": 100,
+   "protocol_hash": "ca1cccabac0c8c23",
+   "replicates": [
+    0,
+    99
+   ]
+  },
+  {
+   "cell_id": "nlhe6.nlhe6-separated_control.fhr3b_baseline.R40H400K6.frozen.publication.b51788b7",
+   "engine_source_hash": "4647ee69857e7c9b",
+   "experiment": "frozen_schedule",
+   "field_hash": "0b30004f650324e5",
+   "game_hash": "ee13350473b2be84",
+   "identity_hash": "b51788b7756aa675",
+   "n_tournaments": 50,
+   "protocol_hash": "ca1cccabac0c8c23",
+   "replicates": [
+    0,
+    49
+   ]
+  },
+  {
+   "cell_id": "nlhe6.nlhe6-crowded_cutoff.fhr3b_baseline.R40H400K6.frozen.publication.85cba4b8",
+   "engine_source_hash": "4647ee69857e7c9b",
+   "experiment": "frozen_schedule",
+   "field_hash": "afbffedfc3706d84",
+   "game_hash": "ee13350473b2be84",
+   "identity_hash": "85cba4b82f72d067",
+   "n_tournaments": 50,
+   "protocol_hash": "ca1cccabac0c8c23",
+   "replicates": [
+    0,
+    49
+   ]
+  },
+  {
+   "cell_id": "nlhe6.nlhe6-style_diverse.fhr3b_baseline.R40H400K6.frozen.publication.c99bd91a",
+   "engine_source_hash": "4647ee69857e7c9b",
+   "experiment": "frozen_schedule",
+   "field_hash": "ad7d6596ef1c8c3e",
+   "game_hash": "ee13350473b2be84",
+   "identity_hash": "c99bd91a658d6722",
+   "n_tournaments": 50,
+   "protocol_hash": "ca1cccabac0c8c23",
+   "replicates": [
+    0,
+    49
+   ]
+  }
+ ],
+ "lab": {
+  "H0": 400,
+  "K": 6,
+  "R0": 40,
+  "allocations": [
+   {
+    "budget": 16000,
+    "exact": true,
+    "hands_per_match": 1600,
+    "label": "quarter_rounds_4x_hands",
+    "rounds": 10
+   },
+   {
+    "budget": 16000,
+    "exact": true,
+    "hands_per_match": 800,
+    "label": "half_rounds_2x_hands",
+    "rounds": 20
+   },
+   {
+    "budget": 16000,
+    "exact": true,
+    "hands_per_match": 400,
+    "label": "baseline",
+    "rounds": 40
+   }
+  ],
+  "design_status": "predeclared research design choices; not 2026 FullHouse settings (see paper/FHR3B_SCOPE.md)",
+  "environment": "lab60_top6",
+  "horizon": 40,
+  "horizon_status": "initial research horizon; not assumed sufficient",
+  "protocol": "fhr3b_baseline",
+  "protocol_hash": "ca1cccabac0c8c23",
+  "round_sweep": [
+   5,
+   10,
+   20,
+   30,
+   40
+  ]
+ },
+ "notes": [
+  "Tournament repetitions are stochastic reruns CONDITIONAL on one frozen field per constructed regime (spread, crowded_cutoff, style_diverse). They are not independent replications of a field regime: no regime-level inference, and no universal claims (e.g. 'crowded fields require X rounds').",
+  "mu_field = long-run expected performance against random partitions of the controlled field under the specified match semantics; mu_swiss = long-run expected outcome under the specified adaptive Swiss mechanism. Both are finite-sample ESTIMATES, neither is universal poker skill or an oracle ranking; they can disagree because multiplayer, non-transitive games need not admit one context-free ranking.",
+  "Accuracy against mu_swiss measures convergence / repeatability / finite-sample approximation to the Swiss mechanism, not independent normative fairness.",
+  "Identity error (changed qualifiers, top-6 overlap) and strength error (qualification regret, boundary strength loss; BB per ordinary-equivalent match) are reported together. '*_ref_propagated' intervals add reference uncertainty (joint reference bootstrap); 'reference_self_regret' is the regret floor due to reference uncertainty alone; 'clear_*' counts ignore swaps inside the reference-ambiguous set.",
+  "Experiment B holds the SCHEDULED (maximum) hand budget fixed, not actual simulator compute.",
+  "Experiment C compares adaptive Swiss with exogenous replay of schedules generated by the adaptive process (fresh poker randomness); a targeted counterfactual comparison, not a complete causal decomposition.",
+  "Experiment D compares operational evaluation packages (duplicate arms also change rounds or match length); not the isolated effect of turning duplicate play on."
+ ],
+ "pairing": {
+  "baseline": "independent across fields and modes (different fields/games); shared seed family",
+  "budget_sweep": "paired by replicate index: shared tournament seeds, identical round-1 tables and a shared hand-prefix of round-1 chance; tables diverge after round 1",
+  "duplicate_play": "paired by replicate index: shared tournament seeds (round-1 tables); work is reported as scheduled and actually played hands, never assumed equal",
+  "frozen_schedule": "paired by replicate: frozen replicate r replays the complete table schedule of baseline tournament r with fresh cards/decisions (same round-1 tables); replicates are independent",
+  "round_sweep": "paired: checkpoint leaderboards are exact round prefixes of the same horizon tournaments",
+  "schedule_diagnostic": "paired by (source, replay): frozen and adaptive replay j share card/decision seeds and round-1 tables; sources are independent",
+  "swiss_reference": "separate namespace from every finite-budget cell"
+ },
+ "profile": "publication",
+ "results_root": "results/fhr3b",
+ "sections": {
+  "baseline": {
+   "nlhe6.nlhe6-crowded_cutoff.fhr3b_baseline.R40H400K6.swiss.publication.7f40559c": {
+    "headline": {
+     "changed_qualifiers": 4.320816326530612,
+     "kendall_tau": 0.26035558630231753,
+     "n_ambiguous_bots": 25.0,
+     "topk_overlap": 1.6791836734693877
+    },
+    "monte_carlo": {
+     "changed_qualifiers": {
+      "approx_tournaments_for_target": 184,
+      "ci_half_width": 0.19151488099279934,
+      "extension_needed": true,
+      "target_half_width": 0.1
+     },
+     "kendall_tau": {
+      "approx_tournaments_for_target": 207,
+      "ci_half_width": 0.02031006930823165,
+      "extension_needed": true,
+      "target_half_width": 0.01
+     },
+     "mean_abs_rank_diff": {
+      "approx_tournaments_for_target": 744,
+      "ci_half_width": 0.3856715182262338,
+      "extension_needed": true,
+      "target_half_width": 0.1
+     },
+     "spearman_rho": {
+      "approx_tournaments_for_target": 409,
+      "ci_half_width": 0.028583410891866057,
+      "extension_needed": true,
+      "target_half_width": 0.01
+     },
+     "topk_overlap": {
+      "approx_tournaments_for_target": 184,
+      "ci_half_width": 0.19151488099279945,
+      "extension_needed": true,
+      "target_half_width": 0.1
+     }
+    },
+    "n_tournaments": 50
+   },
+   "nlhe6.nlhe6-separated_control.fhr3b_baseline.R40H400K6.swiss.publication.cf4a6b58": {
+    "headline": {
+     "changed_qualifiers": 3.829387755102041,
+     "kendall_tau": 0.305695376455667,
+     "n_ambiguous_bots": 19.0,
+     "topk_overlap": 2.170612244897959
+    },
+    "monte_carlo": {
+     "changed_qualifiers": {
+      "approx_tournaments_for_target": 285,
+      "ci_half_width": 0.23852065752078722,
+      "extension_needed": true,
+      "target_half_width": 0.1
+     },
+     "kendall_tau": {
+      "approx_tournaments_for_target": 257,
+      "ci_half_width": 0.022643149941358104,
+      "extension_needed": true,
+      "target_half_width": 0.01
+     },
+     "mean_abs_rank_diff": {
+      "approx_tournaments_for_target": 929,
+      "ci_half_width": 0.43104145804287963,
+      "extension_needed": true,
+      "target_half_width": 0.1
+     },
+     "spearman_rho": {
+      "approx_tournaments_for_target": 489,
+      "ci_half_width": 0.031241739239260685,
+      "extension_needed": true,
+      "target_half_width": 0.01
+     },
+     "topk_overlap": {
+      "approx_tournaments_for_target": 285,
+      "ci_half_width": 0.238520657520787,
+      "extension_needed": true,
+      "target_half_width": 0.1
+     }
+    },
+    "n_tournaments": 50
+   },
+   "nlhe6.nlhe6-style_diverse.fhr3b_baseline.R40H400K6.swiss.publication.4cb85cc5": {
+    "headline": {
+     "changed_qualifiers": 4.378775510204082,
+     "kendall_tau": 0.2993409431569238,
+     "n_ambiguous_bots": 24.0,
+     "topk_overlap": 1.6212244897959183
+    },
+    "monte_carlo": {
+     "changed_qualifiers": {
+      "approx_tournaments_for_target": 184,
+      "ci_half_width": 0.19142110106080068,
+      "extension_needed": true,
+      "target_half_width": 0.1
+     },
+     "kendall_tau": {
+      "approx_tournaments_for_target": 145,
+      "ci_half_width": 0.017028431542144506,
+      "extension_needed": true,
+      "target_half_width": 0.01
+     },
+     "mean_abs_rank_diff": {
+      "approx_tournaments_for_target": 564,
+      "ci_half_width": 0.33564441768449527,
+      "extension_needed": true,
+      "target_half_width": 0.1
+     },
+     "spearman_rho": {
+      "approx_tournaments_for_target": 266,
+      "ci_half_width": 0.023055366211827577,
+      "extension_needed": true,
+      "target_half_width": 0.01
+     },
+     "topk_overlap": {
+      "approx_tournaments_for_target": 184,
+      "ci_half_width": 0.19142110106080068,
+      "extension_needed": true,
+      "target_half_width": 0.1
+     }
+    },
+    "n_tournaments": 50
+   }
+  },
+  "references": {
+   "nlhe6/crowded_cutoff": {
+    "field_reference": {
+     "bootstrap_unit": "one complete matched round (joint across all bots)",
+     "calib_id": "nlhe6.nlhe6-crowded_cutoff.H400.dup.field-reference.7d2640ae",
+     "coupling": "common random numbers across fields (not independent)",
+     "lanes": 6,
+     "matched_rounds": 500,
+     "scale": "lane_sum / lanes (ordinary-match)",
+     "uncertainty": {
+      "note": "point-estimate ranking is operational; membership inside the ambiguous set is not resolved",
+      "p_cutoff_pair_order_reversed": 0.439,
+      "p_same_top_k_set": 0.205,
+      "point_top_k": [
+       "nlhe6-station-e2-s2",
+       "nlhe6-maniac-e2-s2",
+       "nlhe6-trapper-e3-s3",
+       "nlhe6-aggressive-e2-s0",
+       "nlhe6-aggressive-e1-s0",
+       "nlhe6-neutral-e1-s1"
+      ],
+      "reference_ambiguous_bots": [
+       "nlhe6-aggressive-e2-s0",
+       "nlhe6-aggressive-e1-s0",
+       "nlhe6-neutral-e1-s1",
+       "nlhe6-maniac-e2-s3",
+       "nlhe6-loose-e2-s1",
+       "nlhe6-tight-e2-s3",
+       "nlhe6-loose-e2-s0"
+      ],
+      "reference_clear_top_k": [
+       "nlhe6-station-e2-s2",
+       "nlhe6-maniac-e2-s2",
+       "nlhe6-trapper-e3-s3"
+      ]
+     }
+    },
+    "ordering_agreement": {
+     "kendall_tau": 0.8700564971751412,
+     "note": "mu_field and mu_swiss are different estimands; neither is 'the true ranking'",
+     "significant_discordant_pairs": [],
+     "spearman_rho": 0.9706585162545152
+    },
+    "swiss_reference": {
+     "cell_id": "nlhe6.nlhe6-crowded_cutoff.fhr3b_baseline.R40H400K6.swiss.swiss-reference.bc25b57b",
+     "n_tournaments": 100,
+     "uncertainty": {
+      "note": "point-estimate ranking is operational; membership inside the ambiguous set is not resolved",
+      "p_cutoff_pair_order_reversed": 0.477,
+      "p_same_top_k_set": 0.247,
+      "point_top_k": [
+       "nlhe6-station-e2-s2",
+       "nlhe6-maniac-e2-s2",
+       "nlhe6-trapper-e3-s3",
+       "nlhe6-aggressive-e2-s0",
+       "nlhe6-tight-e2-s3",
+       "nlhe6-station-e1-s0"
+      ],
+      "reference_ambiguous_bots": [
+       "nlhe6-aggressive-e2-s0",
+       "nlhe6-tight-e2-s3",
+       "nlhe6-station-e1-s0",
+       "nlhe6-aggressive-e1-s0",
+       "nlhe6-neutral-e1-s1"
+      ],
+      "reference_clear_top_k": [
+       "nlhe6-station-e2-s2",
+       "nlhe6-maniac-e2-s2",
+       "nlhe6-trapper-e3-s3"
+      ]
+     }
+    }
+   },
+   "nlhe6/separated_control": {
+    "field_reference": {
+     "bootstrap_unit": "one complete matched round (joint across all bots)",
+     "calib_id": "nlhe6.nlhe6-separated_control.H400.dup.field-reference.5be0e1c0",
+     "coupling": "common random numbers across fields (not independent)",
+     "lanes": 6,
+     "matched_rounds": 250,
+     "scale": "lane_sum / lanes (ordinary-match)",
+     "uncertainty": {
+      "note": "point-estimate ranking is operational; membership inside the ambiguous set is not resolved",
+      "p_cutoff_pair_order_reversed": 0.0,
+      "p_same_top_k_set": 0.999,
+      "point_top_k": [
+       "nlhe6-station-e2-s2",
+       "nlhe6-maniac-e2-s2",
+       "nlhe6-nit-e3-s1",
+       "nlhe6-station-e2-s3",
+       "nlhe6-trapper-e3-s3",
+       "nlhe6-neutral-e1-s0"
+      ],
+      "reference_ambiguous_bots": [],
+      "reference_clear_top_k": [
+       "nlhe6-station-e2-s2",
+       "nlhe6-maniac-e2-s2",
+       "nlhe6-nit-e3-s1",
+       "nlhe6-station-e2-s3",
+       "nlhe6-trapper-e3-s3",
+       "nlhe6-neutral-e1-s0"
+      ]
+     }
+    },
+    "ordering_agreement": {
+     "kendall_tau": 0.8824858757062147,
+     "note": "mu_field and mu_swiss are different estimands; neither is 'the true ranking'",
+     "significant_discordant_pairs": [],
+     "spearman_rho": 0.9758266185051403
+    },
+    "swiss_reference": {
+     "cell_id": "nlhe6.nlhe6-separated_control.fhr3b_baseline.R40H400K6.swiss.swiss-reference.9972cfaa",
+     "n_tournaments": 100,
+     "uncertainty": {
+      "note": "point-estimate ranking is operational; membership inside the ambiguous set is not resolved",
+      "p_cutoff_pair_order_reversed": 0.004,
+      "p_same_top_k_set": 0.987,
+      "point_top_k": [
+       "nlhe6-maniac-e2-s2",
+       "nlhe6-station-e2-s2",
+       "nlhe6-nit-e3-s1",
+       "nlhe6-trapper-e3-s3",
+       "nlhe6-neutral-e1-s0",
+       "nlhe6-station-e2-s3"
+      ],
+      "reference_ambiguous_bots": [],
+      "reference_clear_top_k": [
+       "nlhe6-maniac-e2-s2",
+       "nlhe6-station-e2-s2",
+       "nlhe6-nit-e3-s1",
+       "nlhe6-trapper-e3-s3",
+       "nlhe6-neutral-e1-s0",
+       "nlhe6-station-e2-s3"
+      ]
+     }
+    }
+   },
+   "nlhe6/style_diverse": {
+    "field_reference": {
+     "bootstrap_unit": "one complete matched round (joint across all bots)",
+     "calib_id": "nlhe6.nlhe6-style_diverse.H400.dup.field-reference.0caf92cc",
+     "coupling": "common random numbers across fields (not independent)",
+     "lanes": 6,
+     "matched_rounds": 500,
+     "scale": "lane_sum / lanes (ordinary-match)",
+     "uncertainty": {
+      "note": "point-estimate ranking is operational; membership inside the ambiguous set is not resolved",
+      "p_cutoff_pair_order_reversed": 0.353,
+      "p_same_top_k_set": 0.366,
+      "point_top_k": [
+       "nlhe6-maniac-e2-s2",
+       "nlhe6-station-e2-s2",
+       "nlhe6-trapper-e3-s3",
+       "nlhe6-nit-e3-s1",
+       "nlhe6-neutral-e2-s1",
+       "nlhe6-tight-e3-s2"
+      ],
+      "reference_ambiguous_bots": [
+       "nlhe6-tight-e3-s2",
+       "nlhe6-loose-e0",
+       "nlhe6-neutral-e1-s2",
+       "nlhe6-tight-e2-s1",
+       "nlhe6-aggressive-e3-s3"
+      ],
+      "reference_clear_top_k": [
+       "nlhe6-maniac-e2-s2",
+       "nlhe6-station-e2-s2",
+       "nlhe6-trapper-e3-s3",
+       "nlhe6-nit-e3-s1",
+       "nlhe6-neutral-e2-s1"
+      ]
+     }
+    },
+    "ordering_agreement": {
+     "kendall_tau": 0.8757062146892656,
+     "note": "mu_field and mu_swiss are different estimands; neither is 'the true ranking'",
+     "significant_discordant_pairs": [],
+     "spearman_rho": 0.9709919422061684
+    },
+    "swiss_reference": {
+     "cell_id": "nlhe6.nlhe6-style_diverse.fhr3b_baseline.R40H400K6.swiss.swiss-reference.77d62182",
+     "n_tournaments": 100,
+     "uncertainty": {
+      "note": "point-estimate ranking is operational; membership inside the ambiguous set is not resolved",
+      "p_cutoff_pair_order_reversed": 0.478,
+      "p_same_top_k_set": 0.091,
+      "point_top_k": [
+       "nlhe6-maniac-e2-s2",
+       "nlhe6-station-e2-s2",
+       "nlhe6-nit-e3-s1",
+       "nlhe6-trapper-e3-s3",
+       "nlhe6-tight-e2-s1",
+       "nlhe6-aggressive-e0"
+      ],
+      "reference_ambiguous_bots": [
+       "nlhe6-tight-e2-s1",
+       "nlhe6-aggressive-e0",
+       "nlhe6-neutral-e2-s1",
+       "nlhe6-station-e2-s1",
+       "nlhe6-trapper-e2-s2",
+       "nlhe6-aggressive-e2-s0",
+       "nlhe6-loose-e0",
+       "nlhe6-aggressive-e3-s3"
+      ],
+      "reference_clear_top_k": [
+       "nlhe6-maniac-e2-s2",
+       "nlhe6-station-e2-s2",
+       "nlhe6-nit-e3-s1",
+       "nlhe6-trapper-e3-s3"
+      ]
+     }
+    }
+   }
+  },
+  "status": {
+   "baseline_reliability.csv": "ok",
+   "budget_allocation.csv": "ok",
+   "contrasts.csv": "ok",
+   "duplicate_play.csv": "ok",
+   "field_references.csv": "ok",
+   "figure_data/fig1_round_sweep.csv": "ok",
+   "figure_data/fig2_cutoff_p_qualify_by_R.csv": "ok",
+   "figure_data/fig3_budget_allocation.csv": "ok",
+   "figure_data/fig4_schedule_diagnostic.csv": "no data",
+   "figure_data/fig5_modes_baseline.csv": "ok",
+   "frozen_schedule.csv": "ok",
+   "pairwise_inversions.csv": "ok",
+   "pairwise_inversions_binned.csv": "ok",
+   "qualification_probabilities.csv": "ok",
+   "rank_stability.csv": "ok",
+   "reference_accuracy.csv": "ok",
+   "round_sweep.csv": "ok",
+   "schedule_diagnostic.csv": "no data",
+   "swiss_reference_bots.csv": "ok"
+  },
+  "swiss_reference": {
+   "nlhe6.nlhe6-crowded_cutoff.fhr3b_baseline.R40H400K6.swiss.swiss-reference.bc25b57b": {
+    "K": 6,
+    "R": 40,
+    "boundary_bots": [
+     "nlhe6-station-e2-s2",
+     "nlhe6-maniac-e2-s2",
+     "nlhe6-trapper-e3-s3",
+     "nlhe6-aggressive-e2-s0",
+     "nlhe6-tight-e2-s3",
+     "nlhe6-station-e1-s0",
+     "nlhe6-aggressive-e1-s0",
+     "nlhe6-neutral-e1-s1",
+     "nlhe6-maniac-e2-s3",
+     "nlhe6-maniac-e3-s2",
+     "nlhe6-aggressive-e1-s1",
+     "nlhe6-loose-e2-s0",
+     "nlhe6-loose-e2-s1",
+     "nlhe6-loose-e3-s2",
+     "nlhe6-station-e1-s2",
+     "nlhe6-maniac-e1-s0",
+     "nlhe6-neutral-e2-s2",
+     "nlhe6-loose-e3-s1",
+     "nlhe6-maniac-e0",
+     "nlhe6-maniac-e1-s2"
+    ],
+    "cell_id": "nlhe6.nlhe6-crowded_cutoff.fhr3b_baseline.R40H400K6.swiss.swiss-reference.bc25b57b",
+    "estimand": "long-run expected outcome under the specified adaptive Swiss mechanism (an estimate)",
+    "expected_topk_overlap": {
+     "vs_mu_field": {
+      "reference_changed_ci_hi": 3.47,
+      "reference_changed_ci_lo": 3.09,
+      "reference_changed_n_tournaments": 100,
+      "reference_changed_se": 0.09483401811054401,
+      "reference_changed_value": 3.29,
+      "reference_kendall_tau_ci_hi": 0.4676508474576271,
+      "reference_kendall_tau_ci_lo": 0.44337627118644063,
+      "reference_kendall_tau_n_tournaments": 100,
+      "reference_kendall_tau_se": 0.006225299176717644,
+      "reference_kendall_tau_value": 0.4552429378531073,
+      "reference_topk_overlap_ci_hi": 2.91,
+      "reference_topk_overlap_ci_lo": 2.53,
+      "reference_topk_overlap_n_tournaments": 100,
+      "reference_topk_overlap_se": 0.09483401811054401,
+      "reference_topk_overlap_value": 2.71
+     },
+     "vs_mu_swiss_in_sample": {
+      "reference_changed_ci_hi": 3.44,
+      "reference_changed_ci_lo": 3.02,
+      "reference_changed_n_tournaments": 100,
+      "reference_changed_se": 0.10490290854032704,
+      "reference_changed_value": 3.23,
+      "reference_kendall_tau_ci_hi": 0.477628813559322,
+      "reference_kendall_tau_ci_lo": 0.45431610169491526,
+      "reference_kendall_tau_n_tournaments": 100,
+      "reference_kendall_tau_se": 0.005887759461478611,
+      "reference_kendall_tau_value": 0.46593220338983043,
+      "reference_topk_overlap_ci_hi": 2.98,
+      "reference_topk_overlap_ci_lo": 2.56,
+      "reference_topk_overlap_n_tournaments": 100,
+      "reference_topk_overlap_se": 0.10490290854032704,
+      "reference_topk_overlap_value": 2.77
+     }
+    },
+    "extension_rule": {
+     "decision_relevant_boundary_bots": [
+      "nlhe6-loose-e2-s0",
+      "nlhe6-loose-e2-s1",
+      "nlhe6-maniac-e0",
+      "nlhe6-maniac-e1-s0",
+      "nlhe6-maniac-e1-s2",
+      "nlhe6-maniac-e2-s2",
+      "nlhe6-neutral-e2-s2",
+      "nlhe6-station-e1-s0",
+      "nlhe6-station-e2-s2",
+      "nlhe6-trapper-e3-s3"
+     ],
+     "excluded_designed_crowd": [
+      "nlhe6-aggressive-e1-s0",
+      "nlhe6-aggressive-e1-s1",
+      "nlhe6-aggressive-e2-s0",
+      "nlhe6-loose-e3-s1",
+      "nlhe6-loose-e3-s2",
+      "nlhe6-maniac-e2-s3",
+      "nlhe6-maniac-e3-s2",
+      "nlhe6-neutral-e1-s1",
+      "nlhe6-station-e1-s2",
+      "nlhe6-tight-e1-s2",
+      "nlhe6-tight-e2-s3",
+      "nlhe6-trapper-e0"
+     ],
+     "extend": true,
+     "field_kind": "crowded_cutoff",
+     "flagged": {
+      "nlhe6-maniac-e2-s2": 0.08270505396432848,
+      "nlhe6-station-e1-s0": 0.08034535565190197,
+      "nlhe6-station-e2-s2": 0.08674171749367476,
+      "nlhe6-trapper-e3-s3": 0.0960016253527968
+     },
+     "manual_clause": "extend also if reference uncertainty prevents interpretation of the main results (reviewed judgement, record the reason)",
+     "max_possible_wilson_half_width_at_n": 0.09616846963400436,
+     "n_tournaments": 100,
+     "note": "pre-registered rule; evaluated, never executed",
+     "rule_can_trigger_at_n": true,
+     "threshold": 0.08
+    },
+    "field_id": "nlhe6-crowded_cutoff",
+    "n_ambiguous_bots": 20,
+    "n_tournaments": 100,
+    "notes": [
+     "vs_mu_swiss_in_sample uses the same tournaments that define mu_swiss (optimistic)",
+     "ambiguity near the cutoff is part of the experimental object in crowded_cutoff and style_diverse; it is not expected to resolve into a clean rank-6/rank-7 order"
+    ],
+    "ranking_robustness": {
+     "bootstrap_resamples": 1000,
+     "gap_at_cutoff": 578.0400000000081,
+     "gap_at_cutoff_pair_ci95": [
+      -19999.7845,
+      22376.705000000005
+     ],
+     "gap_order_statistic_ci95": [
+      171.9957499999975,
+      13507.541750000004
+     ],
+     "k": 6,
+     "p_cutoff_pair_order_reversed": 0.477,
+     "p_same_top_k_set": 0.247,
+     "role": "ranking/gap robustness from a tournament-level joint bootstrap; primary per-bot SE is analytic",
+     "spearman_point_vs_bootstrap_median": 0.9883023061961658
+    },
+    "replicates": [
+     0,
+     99
+    ],
+    "rerun_stability": {
+     "changed_qualifiers_ci_hi": 4.211053462772604,
+     "changed_qualifiers_ci_lo": 3.859606478912771,
+     "changed_qualifiers_n_tournaments": 100,
+     "changed_qualifiers_se": 0.0917153382934471,
+     "changed_qualifiers_value": 4.048080808080808,
+     "jaccard_ci_hi": 0.22870986915324895,
+     "jaccard_ci_lo": 0.1861842019453662,
+     "jaccard_n_tournaments": 100,
+     "jaccard_se": 0.011191995207735549,
+     "jaccard_value": 0.20612829594647777,
+     "kendall_tau_ci_hi": 0.3080454972087821,
+     "kendall_tau_ci_lo": 0.28175436757177985,
+     "kendall_tau_n_tournaments": 100,
+     "kendall_tau_se": 0.006649552350189445,
+     "kendall_tau_value": 0.294989898989899,
+     "mean_abs_rank_diff_ci_hi": 14.775500533609918,
+     "mean_abs_rank_diff_ci_lo": 14.258279279798197,
+     "mean_abs_rank_diff_n_tournaments": 100,
+     "mean_abs_rank_diff_se": 0.12945381424281033,
+     "mean_abs_rank_diff_value": 14.511986531986533,
+     "n_ambiguous_bots_ci_hi": 23.0,
+     "n_ambiguous_bots_ci_lo": 17.0,
+     "n_ambiguous_bots_n_tournaments": 100,
+     "n_ambiguous_bots_se": 1.5607263907767006,
+     "n_ambiguous_bots_value": 20.0,
+     "p_same_winner_ci_hi": 0.2052030541595789,
+     "p_same_winner_ci_lo": 0.10806340092617615,
+     "p_same_winner_n_tournaments": 100,
+     "p_same_winner_se": 0.02492527248775134,
+     "p_same_winner_value": 0.15171717171717172,
+     "spearman_rho_ci_hi": 0.43800257621574157,
+     "spearman_rho_ci_lo": 0.4026804693897922,
+     "spearman_rho_n_tournaments": 100,
+     "spearman_rho_se": 0.009041109607080568,
+     "spearman_rho_value": 0.4204866896247836,
+     "topk_overlap_ci_hi": 2.140393521087229,
+     "topk_overlap_ci_lo": 1.7889465372273958,
+     "topk_overlap_n_tournaments": 100,
+     "topk_overlap_se": 0.0917153382934471,
+     "topk_overlap_value": 1.9519191919191918
+    },
+    "strength_error_vs_mu_field": {
+     "mu_field_boundary_strength_loss_ci_hi": 52.81494529916665,
+     "mu_field_boundary_strength_loss_ci_lo": 43.980201998333314,
+     "mu_field_boundary_strength_loss_n_tournaments": 100,
+     "mu_field_boundary_strength_loss_ref_propagated_ci_hi": 55.28527273500001,
+     "mu_field_boundary_strength_loss_ref_propagated_ci_lo": 43.85433569166666,
+     "mu_field_boundary_strength_loss_ref_propagated_n_tournaments": 100,
+     "mu_field_boundary_strength_loss_ref_propagated_se": 2.889059898380107,
+     "mu_field_boundary_strength_loss_ref_propagated_value": 48.48028343333333,
+     "mu_field_boundary_strength_loss_se": 2.237541325521827,
+     "mu_field_boundary_strength_loss_value": 48.48028343333333,
+     "mu_field_clear_misqualifications_ci_hi": 2.8002499999999997,
+     "mu_field_clear_misqualifications_ci_lo": 2.45,
+     "mu_field_clear_misqualifications_n_tournaments": 100,
+     "mu_field_clear_misqualifications_se": 0.09165419571187995,
+     "mu_field_clear_misqualifications_value": 2.63,
+     "mu_field_clear_omissions_ci_hi": 1.14,
+     "mu_field_clear_omissions_ci_lo": 0.83,
+     "mu_field_clear_omissions_n_tournaments": 100,
+     "mu_field_clear_omissions_se": 0.08022840268007708,
+     "mu_field_clear_omissions_value": 0.99,
+     "mu_field_qualification_regret_ci_hi": 85.6982963533333,
+     "mu_field_qualification_regret_ci_lo": 69.51773872499997,
+     "mu_field_qualification_regret_n_tournaments": 100,
+     "mu_field_qualification_regret_ref_propagated_ci_hi": 93.7312393783333,
+     "mu_field_qualification_regret_ref_propagated_ci_lo": 69.25961985999999,
+     "mu_field_qualification_regret_ref_propagated_n_tournaments": 100,
+     "mu_field_qualification_regret_ref_propagated_se": 6.246128850222517,
+     "mu_field_qualification_regret_ref_propagated_value": 78.0162318333333,
+     "mu_field_qualification_regret_se": 4.261155090693876,
+     "mu_field_qualification_regret_value": 78.0162318333333,
+     "mu_field_reference_changed_ci_hi": 3.47,
+     "mu_field_reference_changed_ci_lo": 3.09,
+     "mu_field_reference_changed_n_tournaments": 100,
+     "mu_field_reference_changed_ref_propagated_ci_hi": 3.62,
+     "mu_field_reference_changed_ref_propagated_ci_lo": 3.13,
+     "mu_field_reference_changed_ref_propagated_n_tournaments": 100,
+     "mu_field_reference_changed_ref_propagated_se": 0.12505059796759094,
+     "mu_field_reference_changed_ref_propagated_value": 3.29,
+     "mu_field_reference_changed_se": 0.09483401811054401,
+     "mu_field_reference_changed_value": 3.29,
+     "mu_field_reference_self_regret_ci_hi": 10.732050583333375,
+     "mu_field_reference_self_regret_ci_lo": -2.842170943040401e-14,
+     "mu_field_reference_self_regret_n_tournaments": 1000,
+     "mu_field_reference_self_regret_se": 3.0333662887587387,
+     "mu_field_reference_self_regret_value": 3.2424787933333343
+    }
+   },
+   "nlhe6.nlhe6-separated_control.fhr3b_baseline.R40H400K6.swiss.swiss-reference.9972cfaa": {
+    "K": 6,
+    "R": 40,
+    "boundary_bots": [
+     "nlhe6-maniac-e2-s2",
+     "nlhe6-station-e2-s2",
+     "nlhe6-nit-e3-s1",
+     "nlhe6-trapper-e3-s3",
+     "nlhe6-neutral-e1-s0",
+     "nlhe6-station-e2-s3",
+     "nlhe6-loose-e2-s3",
+     "nlhe6-trapper-e2-s0",
+     "nlhe6-loose-e2-s1",
+     "nlhe6-loose-e2-s0",
+     "nlhe6-station-e3-s0",
+     "nlhe6-maniac-e1-s0",
+     "nlhe6-neutral-e2-s0",
+     "nlhe6-tight-e0",
+     "nlhe6-maniac-e0",
+     "nlhe6-maniac-e3-s0"
+    ],
+    "cell_id": "nlhe6.nlhe6-separated_control.fhr3b_baseline.R40H400K6.swiss.swiss-reference.9972cfaa",
+    "estimand": "long-run expected outcome under the specified adaptive Swiss mechanism (an estimate)",
+    "expected_topk_overlap": {
+     "vs_mu_field": {
+      "reference_changed_ci_hi": 2.98,
+      "reference_changed_ci_lo": 2.6,
+      "reference_changed_n_tournaments": 100,
+      "reference_changed_se": 0.0972130355162016,
+      "reference_changed_value": 2.78,
+      "reference_kendall_tau_ci_hi": 0.48634209039548026,
+      "reference_kendall_tau_ci_lo": 0.4622457627118644,
+      "reference_kendall_tau_n_tournaments": 100,
+      "reference_kendall_tau_se": 0.005898073026797043,
+      "reference_kendall_tau_value": 0.4744632768361582,
+      "reference_topk_overlap_ci_hi": 3.4,
+      "reference_topk_overlap_ci_lo": 3.02,
+      "reference_topk_overlap_n_tournaments": 100,
+      "reference_topk_overlap_se": 0.0972130355162016,
+      "reference_topk_overlap_value": 3.22
+     },
+     "vs_mu_swiss_in_sample": {
+      "reference_changed_ci_hi": 2.98,
+      "reference_changed_ci_lo": 2.6,
+      "reference_changed_n_tournaments": 100,
+      "reference_changed_se": 0.0972130355162016,
+      "reference_changed_value": 2.78,
+      "reference_kendall_tau_ci_hi": 0.4981816384180791,
+      "reference_kendall_tau_ci_lo": 0.4742451977401129,
+      "reference_kendall_tau_n_tournaments": 100,
+      "reference_kendall_tau_se": 0.00608211145742209,
+      "reference_kendall_tau_value": 0.48625988700564976,
+      "reference_topk_overlap_ci_hi": 3.4,
+      "reference_topk_overlap_ci_lo": 3.02,
+      "reference_topk_overlap_n_tournaments": 100,
+      "reference_topk_overlap_se": 0.0972130355162016,
+      "reference_topk_overlap_value": 3.22
+     }
+    },
+    "extension_rule": {
+     "decision_relevant_boundary_bots": [
+      "nlhe6-loose-e2-s0",
+      "nlhe6-loose-e2-s1",
+      "nlhe6-loose-e2-s3",
+      "nlhe6-maniac-e0",
+      "nlhe6-maniac-e1-s0",
+      "nlhe6-maniac-e2-s2",
+      "nlhe6-maniac-e3-s0",
+      "nlhe6-neutral-e1-s0",
+      "nlhe6-neutral-e2-s0",
+      "nlhe6-nit-e3-s1",
+      "nlhe6-station-e2-s2",
+      "nlhe6-station-e2-s3",
+      "nlhe6-station-e3-s0",
+      "nlhe6-tight-e0",
+      "nlhe6-trapper-e2-s0",
+      "nlhe6-trapper-e3-s3"
+     ],
+     "excluded_designed_crowd": [],
+     "extend": true,
+     "field_kind": "separated_control",
+     "flagged": {
+      "nlhe6-maniac-e1-s0": 0.08379626092886966,
+      "nlhe6-maniac-e2-s2": 0.0815555857128516,
+      "nlhe6-neutral-e1-s0": 0.08996735642726646,
+      "nlhe6-nit-e3-s1": 0.09346322726005096,
+      "nlhe6-station-e2-s2": 0.08762027713224418,
+      "nlhe6-station-e2-s3": 0.08674171749367475,
+      "nlhe6-station-e3-s0": 0.08034535565190197,
+      "nlhe6-trapper-e3-s3": 0.09609435238362063
+     },
+     "manual_clause": "extend also if reference uncertainty prevents interpretation of the main results (reviewed judgement, record the reason)",
+     "max_possible_wilson_half_width_at_n": 0.09616846963400436,
+     "n_tournaments": 100,
+     "note": "pre-registered rule; evaluated, never executed",
+     "rule_can_trigger_at_n": true,
+     "threshold": 0.08
+    },
+    "field_id": "nlhe6-separated_control",
+    "n_ambiguous_bots": 16,
+    "n_tournaments": 100,
+    "notes": [
+     "vs_mu_swiss_in_sample uses the same tournaments that define mu_swiss (optimistic)",
+     "ambiguity near the cutoff is part of the experimental object in crowded_cutoff and style_diverse; it is not expected to resolve into a clean rank-6/rank-7 order"
+    ],
+    "ranking_robustness": {
+     "bootstrap_resamples": 1000,
+     "gap_at_cutoff": 32456.32,
+     "gap_at_cutoff_pair_ci95": [
+      7159.40325,
+      56251.871249999975
+     ],
+     "gap_order_statistic_ci95": [
+      3224.8790000000035,
+      39059.443250000004
+     ],
+     "k": 6,
+     "p_cutoff_pair_order_reversed": 0.004,
+     "p_same_top_k_set": 0.987,
+     "role": "ranking/gap robustness from a tournament-level joint bootstrap; primary per-bot SE is analytic",
+     "spearman_point_vs_bootstrap_median": 0.9912197832731318
+    },
+    "replicates": [
+     0,
+     99
+    ],
+    "rerun_stability": {
+     "changed_qualifiers_ci_hi": 3.972248873629583,
+     "changed_qualifiers_ci_lo": 3.585271904518852,
+     "changed_qualifiers_n_tournaments": 100,
+     "changed_qualifiers_se": 0.09683651854341409,
+     "changed_qualifiers_value": 3.77010101010101,
+     "jaccard_ci_hi": 0.26600298812975454,
+     "jaccard_ci_lo": 0.21553552741940382,
+     "jaccard_n_tournaments": 100,
+     "jaccard_se": 0.012728650815721687,
+     "jaccard_value": 0.24140662031571125,
+     "kendall_tau_ci_hi": 0.3257586650870666,
+     "kendall_tau_ci_lo": 0.298232770813534,
+     "kendall_tau_n_tournaments": 100,
+     "kendall_tau_se": 0.006893362320829333,
+     "kendall_tau_value": 0.31212509273526223,
+     "mean_abs_rank_diff_ci_hi": 14.393408767100658,
+     "mean_abs_rank_diff_ci_lo": 13.880237492429739,
+     "mean_abs_rank_diff_n_tournaments": 100,
+     "mean_abs_rank_diff_se": 0.12946403208848267,
+     "mean_abs_rank_diff_value": 14.138882154882154,
+     "n_ambiguous_bots_ci_hi": 20.0,
+     "n_ambiguous_bots_ci_lo": 14.0,
+     "n_ambiguous_bots_n_tournaments": 100,
+     "n_ambiguous_bots_se": 1.4671020374835517,
+     "n_ambiguous_bots_value": 16.0,
+     "p_same_winner_ci_hi": 0.2673272035589597,
+     "p_same_winner_ci_lo": 0.14867660354272397,
+     "p_same_winner_n_tournaments": 100,
+     "p_same_winner_se": 0.03056799664851429,
+     "p_same_winner_value": 0.20383838383838385,
+     "spearman_rho_ci_hi": 0.460635187704051,
+     "spearman_rho_ci_lo": 0.423021834900016,
+     "spearman_rho_n_tournaments": 100,
+     "spearman_rho_se": 0.009376983255327735,
+     "spearman_rho_value": 0.4419974796590524,
+     "topk_overlap_ci_hi": 2.414728095481148,
+     "topk_overlap_ci_lo": 2.027751126370417,
+     "topk_overlap_n_tournaments": 100,
+     "topk_overlap_se": 0.09683651854341406,
+     "topk_overlap_value": 2.22989898989899
+    },
+    "strength_error_vs_mu_field": {
+     "mu_field_boundary_strength_loss_ci_hi": 62.10819858166666,
+     "mu_field_boundary_strength_loss_ci_lo": 54.77676438666667,
+     "mu_field_boundary_strength_loss_n_tournaments": 100,
+     "mu_field_boundary_strength_loss_ref_propagated_ci_hi": 66.63854771833334,
+     "mu_field_boundary_strength_loss_ref_propagated_ci_lo": 54.185850185,
+     "mu_field_boundary_strength_loss_ref_propagated_n_tournaments": 100,
+     "mu_field_boundary_strength_loss_ref_propagated_se": 3.240043131458542,
+     "mu_field_boundary_strength_loss_ref_propagated_value": 58.109253800000005,
+     "mu_field_boundary_strength_loss_se": 1.9072888054102306,
+     "mu_field_boundary_strength_loss_value": 58.109253800000005,
+     "mu_field_clear_misqualifications_ci_hi": 2.98,
+     "mu_field_clear_misqualifications_ci_lo": 2.6,
+     "mu_field_clear_misqualifications_n_tournaments": 100,
+     "mu_field_clear_misqualifications_se": 0.0972130355162016,
+     "mu_field_clear_misqualifications_value": 2.78,
+     "mu_field_clear_omissions_ci_hi": 2.98,
+     "mu_field_clear_omissions_ci_lo": 2.6,
+     "mu_field_clear_omissions_n_tournaments": 100,
+     "mu_field_clear_omissions_se": 0.0972130355162016,
+     "mu_field_clear_omissions_value": 2.78,
+     "mu_field_qualification_regret_ci_hi": 132.15929889,
+     "mu_field_qualification_regret_ci_lo": 112.67474495333336,
+     "mu_field_qualification_regret_n_tournaments": 100,
+     "mu_field_qualification_regret_ref_propagated_ci_hi": 140.03631663166664,
+     "mu_field_qualification_regret_ref_propagated_ci_lo": 105.88420767999997,
+     "mu_field_qualification_regret_ref_propagated_n_tournaments": 100,
+     "mu_field_qualification_regret_ref_propagated_se": 8.715758935472794,
+     "mu_field_qualification_regret_ref_propagated_value": 122.09058366666673,
+     "mu_field_qualification_regret_se": 5.025756862686528,
+     "mu_field_qualification_regret_value": 122.09058366666673,
+     "mu_field_reference_changed_ci_hi": 2.98,
+     "mu_field_reference_changed_ci_lo": 2.6,
+     "mu_field_reference_changed_n_tournaments": 100,
+     "mu_field_reference_changed_ref_propagated_ci_hi": 2.98,
+     "mu_field_reference_changed_ref_propagated_ci_lo": 2.6,
+     "mu_field_reference_changed_ref_propagated_n_tournaments": 100,
+     "mu_field_reference_changed_ref_propagated_se": 0.0972340931405691,
+     "mu_field_reference_changed_ref_propagated_value": 2.78,
+     "mu_field_reference_changed_se": 0.0972130355162016,
+     "mu_field_reference_changed_value": 2.78,
+     "mu_field_reference_self_regret_ci_hi": 5.684341886080802e-14,
+     "mu_field_reference_self_regret_ci_lo": -5.684341886080802e-14,
+     "mu_field_reference_self_regret_n_tournaments": 1000,
+     "mu_field_reference_self_regret_se": 0.009393440380277321,
+     "mu_field_reference_self_regret_value": 0.0002970466666661764
+    }
+   },
+   "nlhe6.nlhe6-style_diverse.fhr3b_baseline.R40H400K6.swiss.swiss-reference.77d62182": {
+    "K": 6,
+    "R": 40,
+    "boundary_bots": [
+     "nlhe6-maniac-e2-s2",
+     "nlhe6-station-e2-s2",
+     "nlhe6-nit-e3-s1",
+     "nlhe6-trapper-e3-s3",
+     "nlhe6-tight-e2-s1",
+     "nlhe6-aggressive-e0",
+     "nlhe6-neutral-e2-s1",
+     "nlhe6-station-e2-s1",
+     "nlhe6-trapper-e2-s2",
+     "nlhe6-aggressive-e2-s0",
+     "nlhe6-loose-e0",
+     "nlhe6-aggressive-e3-s3",
+     "nlhe6-tight-e3-s2",
+     "nlhe6-station-e2-s3",
+     "nlhe6-trapper-e3-s2",
+     "nlhe6-tight-e2-s3",
+     "nlhe6-neutral-e1-s2",
+     "nlhe6-maniac-e3-s2",
+     "nlhe6-maniac-e2-s3",
+     "nlhe6-loose-e2-s3",
+     "nlhe6-maniac-e1-s0",
+     "nlhe6-aggressive-e3-s2",
+     "nlhe6-loose-e3-s1",
+     "nlhe6-loose-e2-s1",
+     "nlhe6-loose-e3-s2",
+     "nlhe6-trapper-e1-s1"
+    ],
+    "cell_id": "nlhe6.nlhe6-style_diverse.fhr3b_baseline.R40H400K6.swiss.swiss-reference.77d62182",
+    "estimand": "long-run expected outcome under the specified adaptive Swiss mechanism (an estimate)",
+    "expected_topk_overlap": {
+     "vs_mu_field": {
+      "reference_changed_ci_hi": 3.99,
+      "reference_changed_ci_lo": 3.6,
+      "reference_changed_n_tournaments": 100,
+      "reference_changed_se": 0.10022449226036942,
+      "reference_changed_value": 3.79,
+      "reference_kendall_tau_ci_hi": 0.47998954802259886,
+      "reference_kendall_tau_ci_lo": 0.45564632768361585,
+      "reference_kendall_tau_n_tournaments": 100,
+      "reference_kendall_tau_se": 0.006188726289172296,
+      "reference_kendall_tau_value": 0.46819209039548026,
+      "reference_topk_overlap_ci_hi": 2.4,
+      "reference_topk_overlap_ci_lo": 2.01,
+      "reference_topk_overlap_n_tournaments": 100,
+      "reference_topk_overlap_se": 0.10022449226036942,
+      "reference_topk_overlap_value": 2.21
+     },
+     "vs_mu_swiss_in_sample": {
+      "reference_changed_ci_hi": 3.91,
+      "reference_changed_ci_lo": 3.54975,
+      "reference_changed_n_tournaments": 100,
+      "reference_changed_se": 0.09523607462463952,
+      "reference_changed_value": 3.73,
+      "reference_kendall_tau_ci_hi": 0.4883299435028248,
+      "reference_kendall_tau_ci_lo": 0.46532118644067794,
+      "reference_kendall_tau_n_tournaments": 100,
+      "reference_kendall_tau_se": 0.00586152100677049,
+      "reference_kendall_tau_value": 0.47700564971751414,
+      "reference_topk_overlap_ci_hi": 2.45025,
+      "reference_topk_overlap_ci_lo": 2.09,
+      "reference_topk_overlap_n_tournaments": 100,
+      "reference_topk_overlap_se": 0.09523607462463952,
+      "reference_topk_overlap_value": 2.27
+     }
+    },
+    "extension_rule": {
+     "decision_relevant_boundary_bots": [
+      "nlhe6-aggressive-e0",
+      "nlhe6-aggressive-e2-s0",
+      "nlhe6-aggressive-e3-s2",
+      "nlhe6-aggressive-e3-s3",
+      "nlhe6-loose-e0",
+      "nlhe6-loose-e2-s1",
+      "nlhe6-loose-e2-s3",
+      "nlhe6-loose-e3-s1",
+      "nlhe6-loose-e3-s2",
+      "nlhe6-maniac-e1-s0",
+      "nlhe6-maniac-e2-s2",
+      "nlhe6-maniac-e2-s3",
+      "nlhe6-maniac-e3-s2",
+      "nlhe6-neutral-e1-s2",
+      "nlhe6-neutral-e2-s1",
+      "nlhe6-nit-e3-s1",
+      "nlhe6-station-e2-s1",
+      "nlhe6-station-e2-s2",
+      "nlhe6-station-e2-s3",
+      "nlhe6-tight-e2-s1",
+      "nlhe6-tight-e2-s3",
+      "nlhe6-tight-e3-s2",
+      "nlhe6-trapper-e1-s1",
+      "nlhe6-trapper-e2-s2",
+      "nlhe6-trapper-e3-s2",
+      "nlhe6-trapper-e3-s3"
+     ],
+     "excluded_designed_crowd": [],
+     "extend": true,
+     "field_kind": "style_diverse",
+     "flagged": {
+      "nlhe6-aggressive-e0": 0.08155558571285165,
+      "nlhe6-aggressive-e2-s0": 0.08155558571285165,
+      "nlhe6-loose-e0": 0.08155558571285165,
+      "nlhe6-maniac-e2-s2": 0.09190654230007256,
+      "nlhe6-nit-e3-s1": 0.09570429511522946,
+      "nlhe6-station-e2-s1": 0.08155558571285165,
+      "nlhe6-station-e2-s2": 0.0960016253527968,
+      "nlhe6-trapper-e3-s3": 0.0827050539643285
+     },
+     "manual_clause": "extend also if reference uncertainty prevents interpretation of the main results (reviewed judgement, record the reason)",
+     "max_possible_wilson_half_width_at_n": 0.09616846963400436,
+     "n_tournaments": 100,
+     "note": "pre-registered rule; evaluated, never executed",
+     "rule_can_trigger_at_n": true,
+     "threshold": 0.08
+    },
+    "field_id": "nlhe6-style_diverse",
+    "n_ambiguous_bots": 26,
+    "n_tournaments": 100,
+    "notes": [
+     "vs_mu_swiss_in_sample uses the same tournaments that define mu_swiss (optimistic)",
+     "ambiguity near the cutoff is part of the experimental object in crowded_cutoff and style_diverse; it is not expected to resolve into a clean rank-6/rank-7 order"
+    ],
+    "ranking_robustness": {
+     "bootstrap_resamples": 1000,
+     "gap_at_cutoff": 118.94000000000233,
+     "gap_at_cutoff_pair_ci95": [
+      -22760.917499999996,
+      23259.125750000003
+     ],
+     "gap_order_statistic_ci95": [
+      93.34875000001266,
+      11594.002999999997
+     ],
+     "k": 6,
+     "p_cutoff_pair_order_reversed": 0.478,
+     "p_same_top_k_set": 0.091,
+     "role": "ranking/gap robustness from a tournament-level joint bootstrap; primary per-bot SE is analytic",
+     "spearman_point_vs_bootstrap_median": 0.9884968046679636
+    },
+    "replicates": [
+     0,
+     99
+    ],
+    "rerun_stability": {
+     "changed_qualifiers_ci_hi": 4.55351451926683,
+     "changed_qualifiers_ci_lo": 4.298631310159896,
+     "changed_qualifiers_n_tournaments": 100,
+     "changed_qualifiers_se": 0.06478681056575308,
+     "changed_qualifiers_value": 4.433333333333334,
+     "jaccard_ci_hi": 0.17478364360672266,
+     "jaccard_ci_lo": 0.1459789820564627,
+     "jaccard_n_tournaments": 100,
+     "jaccard_se": 0.007321761414103252,
+     "jaccard_value": 0.15954960864051773,
+     "kendall_tau_ci_hi": 0.32131167009844425,
+     "kendall_tau_ci_lo": 0.2948631609304994,
+     "kendall_tau_n_tournaments": 100,
+     "kendall_tau_se": 0.006672859866747164,
+     "kendall_tau_value": 0.3082684471837014,
+     "mean_abs_rank_diff_ci_hi": 14.573241553873677,
+     "mean_abs_rank_diff_ci_lo": 14.070954657329915,
+     "mean_abs_rank_diff_n_tournaments": 100,
+     "mean_abs_rank_diff_se": 0.12813698306403484,
+     "mean_abs_rank_diff_value": 14.312188552188553,
+     "n_ambiguous_bots_ci_hi": 27.0,
+     "n_ambiguous_bots_ci_lo": 21.0,
+     "n_ambiguous_bots_n_tournaments": 100,
+     "n_ambiguous_bots_se": 1.4506910437803442,
+     "n_ambiguous_bots_value": 26.0,
+     "p_same_winner_ci_hi": 0.1849113731171783,
+     "p_same_winner_ci_lo": 0.07765642670407781,
+     "p_same_winner_n_tournaments": 100,
+     "p_same_winner_se": 0.02805499470535599,
+     "p_same_winner_value": 0.12848484848484848,
+     "spearman_rho_ci_hi": 0.4577486181089454,
+     "spearman_rho_ci_lo": 0.420930480434347,
+     "spearman_rho_n_tournaments": 100,
+     "spearman_rho_se": 0.009226219937050412,
+     "spearman_rho_value": 0.4395488758100594,
+     "topk_overlap_ci_hi": 1.7013686898401044,
+     "topk_overlap_ci_lo": 1.4464854807331695,
+     "topk_overlap_n_tournaments": 100,
+     "topk_overlap_se": 0.06478681056575307,
+     "topk_overlap_value": 1.5666666666666667
+    },
+    "strength_error_vs_mu_field": {
+     "mu_field_boundary_strength_loss_ci_hi": 49.56768985083333,
+     "mu_field_boundary_strength_loss_ci_lo": 44.49139239249999,
+     "mu_field_boundary_strength_loss_n_tournaments": 100,
+     "mu_field_boundary_strength_loss_ref_propagated_ci_hi": 53.26399775833334,
+     "mu_field_boundary_strength_loss_ref_propagated_ci_lo": 42.84908981833334,
+     "mu_field_boundary_strength_loss_ref_propagated_n_tournaments": 100,
+     "mu_field_boundary_strength_loss_ref_propagated_se": 2.598650024847796,
+     "mu_field_boundary_strength_loss_ref_propagated_value": 47.00788486666667,
+     "mu_field_boundary_strength_loss_se": 1.3250375409162163,
+     "mu_field_boundary_strength_loss_value": 47.00788486666667,
+     "mu_field_clear_misqualifications_ci_hi": 3.2,
+     "mu_field_clear_misqualifications_ci_lo": 2.83,
+     "mu_field_clear_misqualifications_n_tournaments": 100,
+     "mu_field_clear_misqualifications_se": 0.09429704095003158,
+     "mu_field_clear_misqualifications_value": 3.01,
+     "mu_field_clear_omissions_ci_hi": 3.1,
+     "mu_field_clear_omissions_ci_lo": 2.74,
+     "mu_field_clear_omissions_n_tournaments": 100,
+     "mu_field_clear_omissions_se": 0.09669938299012396,
+     "mu_field_clear_omissions_value": 2.92,
+     "mu_field_qualification_regret_ci_hi": 99.82246570500006,
+     "mu_field_qualification_regret_ci_lo": 86.36003124333334,
+     "mu_field_qualification_regret_n_tournaments": 100,
+     "mu_field_qualification_regret_ref_propagated_ci_hi": 107.90707498083339,
+     "mu_field_qualification_regret_ref_propagated_ci_lo": 82.32277172666666,
+     "mu_field_qualification_regret_ref_propagated_n_tournaments": 100,
+     "mu_field_qualification_regret_ref_propagated_se": 6.650567721242941,
+     "mu_field_qualification_regret_ref_propagated_value": 92.90103003333337,
+     "mu_field_qualification_regret_se": 3.4959232483711427,
+     "mu_field_qualification_regret_value": 92.90103003333337,
+     "mu_field_reference_changed_ci_hi": 3.99,
+     "mu_field_reference_changed_ci_lo": 3.6,
+     "mu_field_reference_changed_n_tournaments": 100,
+     "mu_field_reference_changed_ref_propagated_ci_hi": 3.97025,
+     "mu_field_reference_changed_ref_propagated_ci_lo": 3.54,
+     "mu_field_reference_changed_ref_propagated_n_tournaments": 100,
+     "mu_field_reference_changed_ref_propagated_se": 0.10753116455870525,
+     "mu_field_reference_changed_ref_propagated_value": 3.79,
+     "mu_field_reference_changed_se": 0.10022449226036942,
+     "mu_field_reference_changed_value": 3.79,
+     "mu_field_reference_self_regret_ci_hi": 9.75026799999998,
+     "mu_field_reference_self_regret_ci_lo": -2.842170943040401e-14,
+     "mu_field_reference_self_regret_n_tournaments": 1000,
+     "mu_field_reference_self_regret_se": 2.92084562148958,
+     "mu_field_reference_self_regret_value": 2.503711189999998
+    }
+   }
+  }
+ }
+}

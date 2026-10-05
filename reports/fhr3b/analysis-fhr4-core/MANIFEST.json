@@ -1,0 +1,405 @@
+{
+ "analysis_version": "fhr3b-analysis-v1",
+ "inputs": [
+  {
+   "cell_id": "nlhe6.nlhe6-separated_control.fhr3b_baseline.R40H400K6.swiss.publication.cf4a6b58",
+   "engine_source_hash": "4647ee69857e7c9b",
+   "experiment": "baseline",
+   "field_hash": "0b30004f650324e5",
+   "game_hash": "ee13350473b2be84",
+   "identity_hash": "cf4a6b58da482f9f",
+   "n_tournaments": 50,
+   "protocol_hash": "ca1cccabac0c8c23",
+   "replicates": [
+    0,
+    49
+   ]
+  },
+  {
+   "cell_id": "nlhe6.nlhe6-crowded_cutoff.fhr3b_baseline.R40H400K6.swiss.publication.7f40559c",
+   "engine_source_hash": "4647ee69857e7c9b",
+   "experiment": "baseline",
+   "field_hash": "afbffedfc3706d84",
+   "game_hash": "ee13350473b2be84",
+   "identity_hash": "7f40559c7f018346",
+   "n_tournaments": 50,
+   "protocol_hash": "ca1cccabac0c8c23",
+   "replicates": [
+    0,
+    49
+   ]
+  },
+  {
+   "cell_id": "nlhe6.nlhe6-style_diverse.fhr3b_baseline.R40H400K6.swiss.publication.4cb85cc5",
+   "engine_source_hash": "4647ee69857e7c9b",
+   "experiment": "baseline",
+   "field_hash": "ad7d6596ef1c8c3e",
+   "game_hash": "ee13350473b2be84",
+   "identity_hash": "4cb85cc564098ce9",
+   "n_tournaments": 50,
+   "protocol_hash": "ca1cccabac0c8c23",
+   "replicates": [
+    0,
+    49
+   ]
+  },
+  {
+   "cell_id": "nlhe6.nlhe6-separated_control.fhr3b_baseline.R10H1600K6.swiss.publication.d29667e0",
+   "engine_source_hash": "4647ee69857e7c9b",
+   "experiment": "budget_sweep",
+   "field_hash": "0b30004f650324e5",
+   "game_hash": "ee13350473b2be84",
+   "identity_hash": "d29667e0a7ed59b5",
+   "n_tournaments": 50,
+   "protocol_hash": "c6a40b0c35e95769",
+   "replicates": [
+    0,
+    49
+   ]
+  },
+  {
+   "cell_id": "nlhe6.nlhe6-separated_control.fhr3b_baseline.R20H800K6.swiss.publication.730f8b76",
+   "engine_source_hash": "4647ee69857e7c9b",
+   "experiment": "budget_sweep",
+   "field_hash": "0b30004f650324e5",
+   "game_hash": "ee13350473b2be84",
+   "identity_hash": "730f8b76ebcaba7f",
+   "n_tournaments": 50,
+   "protocol_hash": "6b2619b620857e3e",
+   "replicates": [
+    0,
+    49
+   ]
+  },
+  {
+   "cell_id": "nlhe6.nlhe6-separated_control.fhr3b_baseline.R40H400K6.swiss.publication.cf4a6b58",
+   "engine_source_hash": "4647ee69857e7c9b",
+   "experiment": "budget_sweep",
+   "field_hash": "0b30004f650324e5",
+   "game_hash": "ee13350473b2be84",
+   "identity_hash": "cf4a6b58da482f9f",
+   "n_tournaments": 50,
+   "protocol_hash": "ca1cccabac0c8c23",
+   "replicates": [
+    0,
+    49
+   ]
+  },
+  {
+   "cell_id": "nlhe6.nlhe6-crowded_cutoff.fhr3b_baseline.R10H1600K6.swiss.publication.614bb63e",
+   "engine_source_hash": "4647ee69857e7c9b",
+   "experiment": "budget_sweep",
+   "field_hash": "afbffedfc3706d84",
+   "game_hash": "ee13350473b2be84",
+   "identity_hash": "614bb63eddf72822",
+   "n_tournaments": 50,
+   "protocol_hash": "c6a40b0c35e95769",
+   "replicates": [
+    0,
+    49
+   ]
+  },
+  {
+   "cell_id": "nlhe6.nlhe6-crowded_cutoff.fhr3b_baseline.R20H800K6.swiss.publication.ed78ee35",
+   "engine_source_hash": "4647ee69857e7c9b",
+   "experiment": "budget_sweep",
+   "field_hash": "afbffedfc3706d84",
+   "game_hash": "ee13350473b2be84",
+   "identity_hash": "ed78ee35a86b0c93",
+   "n_tournaments": 50,
+   "protocol_hash": "6b2619b620857e3e",
+   "replicates": [
+    0,
+    49
+   ]
+  },
+  {
+   "cell_id": "nlhe6.nlhe6-crowded_cutoff.fhr3b_baseline.R40H400K6.swiss.publication.7f40559c",
+   "engine_source_hash": "4647ee69857e7c9b",
+   "experiment": "budget_sweep",
+   "field_hash": "afbffedfc3706d84",
+   "game_hash": "ee13350473b2be84",
+   "identity_hash": "7f40559c7f018346",
+   "n_tournaments": 50,
+   "protocol_hash": "ca1cccabac0c8c23",
+   "replicates": [
+    0,
+    49
+   ]
+  },
+  {
+   "cell_id": "nlhe6.nlhe6-style_diverse.fhr3b_baseline.R10H1600K6.swiss.publication.f4bb4d9f",
+   "engine_source_hash": "4647ee69857e7c9b",
+   "experiment": "budget_sweep",
+   "field_hash": "ad7d6596ef1c8c3e",
+   "game_hash": "ee13350473b2be84",
+   "identity_hash": "f4bb4d9f895185fc",
+   "n_tournaments": 50,
+   "protocol_hash": "c6a40b0c35e95769",
+   "replicates": [
+    0,
+    49
+   ]
+  },
+  {
+   "cell_id": "nlhe6.nlhe6-style_diverse.fhr3b_baseline.R20H800K6.swiss.publication.36235c3a",
+   "engine_source_hash": "4647ee69857e7c9b",
+   "experiment": "budget_sweep",
+   "field_hash": "ad7d6596ef1c8c3e",
+   "game_hash": "ee13350473b2be84",
+   "identity_hash": "36235c3a091044fb",
+   "n_tournaments": 50,
+   "protocol_hash": "6b2619b620857e3e",
+   "replicates": [
+    0,
+    49
+   ]
+  },
+  {
+   "cell_id": "nlhe6.nlhe6-style_diverse.fhr3b_baseline.R40H400K6.swiss.publication.4cb85cc5",
+   "engine_source_hash": "4647ee69857e7c9b",
+   "experiment": "budget_sweep",
+   "field_hash": "ad7d6596ef1c8c3e",
+   "game_hash": "ee13350473b2be84",
+   "identity_hash": "4cb85cc564098ce9",
+   "n_tournaments": 50,
+   "protocol_hash": "ca1cccabac0c8c23",
+   "replicates": [
+    0,
+    49
+   ]
+  },
+  {
+   "cell_id": "nlhe6.nlhe6-separated_control.fhr3b_baseline.R40H400K6.swiss.publication.cf4a6b58",
+   "engine_source_hash": "4647ee69857e7c9b",
+   "experiment": "duplicate_play",
+   "field_hash": "0b30004f650324e5",
+   "game_hash": "ee13350473b2be84",
+   "identity_hash": "cf4a6b58da482f9f",
+   "n_tournaments": 50,
+   "protocol_hash": "ca1cccabac0c8c23",
+   "replicates": [
+    0,
+    49
+   ]
+  },
+  {
+   "cell_id": "nlhe6.nlhe6-separated_control.fhr3b_baseline.R7H400K6dup.swiss.publication.680ccbf9",
+   "engine_source_hash": "4647ee69857e7c9b",
+   "experiment": "duplicate_play",
+   "field_hash": "0b30004f650324e5",
+   "game_hash": "ee13350473b2be84",
+   "identity_hash": "680ccbf9b5458c47",
+   "n_tournaments": 50,
+   "protocol_hash": "51bfe87a933f9bed",
+   "replicates": [
+    0,
+    49
+   ]
+  },
+  {
+   "cell_id": "nlhe6.nlhe6-separated_control.fhr3b_baseline.R40H67K6dup.swiss.publication.5ea6a2af",
+   "engine_source_hash": "4647ee69857e7c9b",
+   "experiment": "duplicate_play",
+   "field_hash": "0b30004f650324e5",
+   "game_hash": "ee13350473b2be84",
+   "identity_hash": "5ea6a2aff2ea1cf5",
+   "n_tournaments": 50,
+   "protocol_hash": "b5a1d478f4a355d6",
+   "replicates": [
+    0,
+    49
+   ]
+  },
+  {
+   "cell_id": "nlhe6.nlhe6-crowded_cutoff.fhr3b_baseline.R40H400K6.swiss.publication.7f40559c",
+   "engine_source_hash": "4647ee69857e7c9b",
+   "experiment": "duplicate_play",
+   "field_hash": "afbffedfc3706d84",
+   "game_hash": "ee13350473b2be84",
+   "identity_hash": "7f40559c7f018346",
+   "n_tournaments": 50,
+   "protocol_hash": "ca1cccabac0c8c23",
+   "replicates": [
+    0,
+    49
+   ]
+  },
+  {
+   "cell_id": "nlhe6.nlhe6-crowded_cutoff.fhr3b_baseline.R7H400K6dup.swiss.publication.30e72800",
+   "engine_source_hash": "4647ee69857e7c9b",
+   "experiment": "duplicate_play",
+   "field_hash": "afbffedfc3706d84",
+   "game_hash": "ee13350473b2be84",
+   "identity_hash": "30e72800b7cc65dc",
+   "n_tournaments": 50,
+   "protocol_hash": "51bfe87a933f9bed",
+   "replicates": [
+    0,
+    49
+   ]
+  },
+  {
+   "cell_id": "nlhe6.nlhe6-crowded_cutoff.fhr3b_baseline.R40H67K6dup.swiss.publication.6f076fbf",
+   "engine_source_hash": "4647ee69857e7c9b",
+   "experiment": "duplicate_play",
+   "field_hash": "afbffedfc3706d84",
+   "game_hash": "ee13350473b2be84",
+   "identity_hash": "6f076fbfe16c6fa9",
+   "n_tournaments": 50,
+   "protocol_hash": "b5a1d478f4a355d6",
+   "replicates": [
+    0,
+    49
+   ]
+  },
+  {
+   "cell_id": "nlhe6.nlhe6-style_diverse.fhr3b_baseline.R40H400K6.swiss.publication.4cb85cc5",
+   "engine_source_hash": "4647ee69857e7c9b",
+   "experiment": "duplicate_play",
+   "field_hash": "ad7d6596ef1c8c3e",
+   "game_hash": "ee13350473b2be84",
+   "identity_hash": "4cb85cc564098ce9",
+   "n_tournaments": 50,
+   "protocol_hash": "ca1cccabac0c8c23",
+   "replicates": [
+    0,
+    49
+   ]
+  },
+  {
+   "cell_id": "nlhe6.nlhe6-style_diverse.fhr3b_baseline.R7H400K6dup.swiss.publication.137478d3",
+   "engine_source_hash": "4647ee69857e7c9b",
+   "experiment": "duplicate_play",
+   "field_hash": "ad7d6596ef1c8c3e",
+   "game_hash": "ee13350473b2be84",
+   "identity_hash": "137478d3f7e7cf48",
+   "n_tournaments": 50,
+   "protocol_hash": "51bfe87a933f9bed",
+   "replicates": [
+    0,
+    49
+   ]
+  },
+  {
+   "cell_id": "nlhe6.nlhe6-style_diverse.fhr3b_baseline.R40H67K6dup.swiss.publication.f222bed2",
+   "engine_source_hash": "4647ee69857e7c9b",
+   "experiment": "duplicate_play",
+   "field_hash": "ad7d6596ef1c8c3e",
+   "game_hash": "ee13350473b2be84",
+   "identity_hash": "f222bed2c5367409",
+   "n_tournaments": 50,
+   "protocol_hash": "b5a1d478f4a355d6",
+   "replicates": [
+    0,
+    49
+   ]
+  },
+  {
+   "cell_id": "nlhe6.nlhe6-separated_control.fhr3b_baseline.R40H400K6.swiss.swiss-reference.9972cfaa",
+   "engine_source_hash": "4647ee69857e7c9b",
+   "experiment": "swiss_reference",
+   "field_hash": "0b30004f650324e5",
+   "game_hash": "ee13350473b2be84",
+   "identity_hash": "9972cfaac3142659",
+   "n_tournaments": 100,
+   "protocol_hash": "ca1cccabac0c8c23",
+   "replicates": [
+    0,
+    99
+   ]
+  },
+  {
+   "cell_id": "nlhe6.nlhe6-crowded_cutoff.fhr3b_baseline.R40H400K6.swiss.swiss-reference.bc25b57b",
+   "engine_source_hash": "4647ee69857e7c9b",
+   "experiment": "swiss_reference",
+   "field_hash": "afbffedfc3706d84",
+   "game_hash": "ee13350473b2be84",
+   "identity_hash": "bc25b57b88439e56",
+   "n_tournaments": 100,
+   "protocol_hash": "ca1cccabac0c8c23",
+   "replicates": [
+    0,
+    99
+   ]
+  },
+  {
+   "cell_id": "nlhe6.nlhe6-style_diverse.fhr3b_baseline.R40H400K6.swiss.swiss-reference.77d62182",
+   "engine_source_hash": "4647ee69857e7c9b",
+   "experiment": "swiss_reference",
+   "field_hash": "ad7d6596ef1c8c3e",
+   "game_hash": "ee13350473b2be84",
+   "identity_hash": "77d62182a8907e1a",
+   "n_tournaments": 100,
+   "protocol_hash": "ca1cccabac0c8c23",
+   "replicates": [
+    0,
+    99
+   ]
+  },
+  {
+   "cell_id": "nlhe6.nlhe6-separated_control.fhr3b_baseline.R40H400K6.frozen.publication.b51788b7",
+   "engine_source_hash": "4647ee69857e7c9b",
+   "experiment": "frozen_schedule",
+   "field_hash": "0b30004f650324e5",
+   "game_hash": "ee13350473b2be84",
+   "identity_hash": "b51788b7756aa675",
+   "n_tournaments": 50,
+   "protocol_hash": "ca1cccabac0c8c23",
+   "replicates": [
+    0,
+    49
+   ]
+  },
+  {
+   "cell_id": "nlhe6.nlhe6-crowded_cutoff.fhr3b_baseline.R40H400K6.frozen.publication.85cba4b8",
+   "engine_source_hash": "4647ee69857e7c9b",
+   "experiment": "frozen_schedule",
+   "field_hash": "afbffedfc3706d84",
+   "game_hash": "ee13350473b2be84",
+   "identity_hash": "85cba4b82f72d067",
+   "n_tournaments": 50,
+   "protocol_hash": "ca1cccabac0c8c23",
+   "replicates": [
+    0,
+    49
+   ]
+  },
+  {
+   "cell_id": "nlhe6.nlhe6-style_diverse.fhr3b_baseline.R40H400K6.frozen.publication.c99bd91a",
+   "engine_source_hash": "4647ee69857e7c9b",
+   "experiment": "frozen_schedule",
+   "field_hash": "ad7d6596ef1c8c3e",
+   "game_hash": "ee13350473b2be84",
+   "identity_hash": "c99bd91a658d6722",
+   "n_tournaments": 50,
+   "protocol_hash": "ca1cccabac0c8c23",
+   "replicates": [
+    0,
+    49
+   ]
+  }
+ ],
+ "outputs_sha256": {
+  "baseline_reliability.csv": "e5407e02f12fb49d038f49b03c1f4e13788f8e75050d01c7e043c695bf7b232b",
+  "budget_allocation.csv": "9f3a1bfe8861a33f5bcfe35b4b1f6b54de40e85a0df46a2efc189672a8c7a49f",
+  "contrasts.csv": "4ca361fabab7c368241b6f66b9608226159e45ad85d75853344c22087b1f11ce",
+  "duplicate_play.csv": "72d1d09e91a055af649d6873c4eabc1816e400b687fcdbd0b7914530bb985b2f",
+  "field_references.csv": "eec428b74889a84c8622fbb1764b969782d75ea62ede149081b95e041988ec71",
+  "figure_data/fig1_round_sweep.csv": "5ec96315edc68737ee8863514e552223ec372162546fb23b35cc84888a87720a",
+  "figure_data/fig2_cutoff_p_qualify_by_R.csv": "8438a2a85812059a5d576f63aa314a9dc01308a416ed49da9f830fa81e465102",
+  "figure_data/fig3_budget_allocation.csv": "9f3a1bfe8861a33f5bcfe35b4b1f6b54de40e85a0df46a2efc189672a8c7a49f",
+  "figure_data/fig4_schedule_diagnostic.csv": "7eb70257593da06f682a3ddda54a9d260d4fc514f645237f5ca74b08f8da61a6",
+  "figure_data/fig5_modes_baseline.csv": "e5407e02f12fb49d038f49b03c1f4e13788f8e75050d01c7e043c695bf7b232b",
+  "frozen_schedule.csv": "eee685bae135c1be3be99d2a9b0547255036acaa4e6b271abea81c85b2d2b056",
+  "pairwise_inversions.csv": "2bb3d02f6cf93188665c0da75a8c7a26026f14beb9c170c83fff1fd53c7fde62",
+  "pairwise_inversions_binned.csv": "ed69a0e357107621e5d881edf2dbf5e6cd174e2dd1fcf18fecd29e0b5287bcaa",
+  "qualification_probabilities.csv": "74c7754f64567d67f5070c79ed49dc4ca35ff6dd28aa160f27e0414ec7913889",
+  "rank_stability.csv": "dee6b5d5f19fa9c1f6c139273a387bb3f3b1c01ba25fdc87ffca71600f131980",
+  "reference_accuracy.csv": "49b6591e388d98070cd86bdb801d7e2cfcc7c8e7f63e40d0863c8766bea4e761",
+  "round_sweep.csv": "5ec96315edc68737ee8863514e552223ec372162546fb23b35cc84888a87720a",
+  "schedule_diagnostic.csv": "7eb70257593da06f682a3ddda54a9d260d4fc514f645237f5ca74b08f8da61a6",
+  "summary.json": "b23e1d598dcf619037fa3b1dc90970c2c7700b0520b3cbb8fe22203bd3063c17",
+  "swiss_reference_bots.csv": "679848f8b0b1998873f000c6b2203d054a873f107130a39cc0f674e49d2c6ff1"
+ }
+}
