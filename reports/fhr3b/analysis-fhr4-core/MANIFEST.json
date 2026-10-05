@@ -381,14 +381,17 @@
   }
  ],
  "outputs_sha256": {
+  "MATRIX_AUDIT.md": "41ed1b69ea7ec2bfc9ad6a19f5a681048894b84cad4fcafbcb93eca4906e64f3",
+  "audit_extra.json": "ea83d51caab74ebfb7ba572aaf557c32b084bb36ea5f63230266c9d34c732854",
+  "audit_integrity.json": "3661070cb810334fc3724618d7b62301b6c8ac9de030e22e02188894b38b5ed4",
   "baseline_reliability.csv": "e5407e02f12fb49d038f49b03c1f4e13788f8e75050d01c7e043c695bf7b232b",
-  "budget_allocation.csv": "9f3a1bfe8861a33f5bcfe35b4b1f6b54de40e85a0df46a2efc189672a8c7a49f",
-  "contrasts.csv": "4ca361fabab7c368241b6f66b9608226159e45ad85d75853344c22087b1f11ce",
-  "duplicate_play.csv": "72d1d09e91a055af649d6873c4eabc1816e400b687fcdbd0b7914530bb985b2f",
+  "budget_allocation.csv": "be0da6a08ffa552d01143ba0378cd162dab6f8038ceec3ca89852cedf9a772e3",
+  "contrasts.csv": "b515880d2289914c920de14d1533135b496a4d594cb6a7d7a4965da2c8d90322",
+  "duplicate_play.csv": "fd59c0e0b4d21024f5582d8330136961a69d5ee782209a8a1f257360c3448bef",
   "field_references.csv": "eec428b74889a84c8622fbb1764b969782d75ea62ede149081b95e041988ec71",
   "figure_data/fig1_round_sweep.csv": "5ec96315edc68737ee8863514e552223ec372162546fb23b35cc84888a87720a",
   "figure_data/fig2_cutoff_p_qualify_by_R.csv": "8438a2a85812059a5d576f63aa314a9dc01308a416ed49da9f830fa81e465102",
-  "figure_data/fig3_budget_allocation.csv": "9f3a1bfe8861a33f5bcfe35b4b1f6b54de40e85a0df46a2efc189672a8c7a49f",
+  "figure_data/fig3_budget_allocation.csv": "be0da6a08ffa552d01143ba0378cd162dab6f8038ceec3ca89852cedf9a772e3",
   "figure_data/fig4_schedule_diagnostic.csv": "7eb70257593da06f682a3ddda54a9d260d4fc514f645237f5ca74b08f8da61a6",
   "figure_data/fig5_modes_baseline.csv": "e5407e02f12fb49d038f49b03c1f4e13788f8e75050d01c7e043c695bf7b232b",
   "frozen_schedule.csv": "eee685bae135c1be3be99d2a9b0547255036acaa4e6b271abea81c85b2d2b056",
@@ -399,7 +402,7 @@
   "reference_accuracy.csv": "49b6591e388d98070cd86bdb801d7e2cfcc7c8e7f63e40d0863c8766bea4e761",
   "round_sweep.csv": "5ec96315edc68737ee8863514e552223ec372162546fb23b35cc84888a87720a",
   "schedule_diagnostic.csv": "7eb70257593da06f682a3ddda54a9d260d4fc514f645237f5ca74b08f8da61a6",
-  "summary.json": "b23e1d598dcf619037fa3b1dc90970c2c7700b0520b3cbb8fe22203bd3063c17",
+  "summary.json": "b222922bcd5eef2b09612f836b003630e28d4a91095fc4eacaccee55e820631a",
   "swiss_reference_bots.csv": "679848f8b0b1998873f000c6b2203d054a873f107130a39cc0f674e49d2c6ff1"
  }
 }

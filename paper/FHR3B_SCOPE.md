@@ -48,7 +48,7 @@ declaration of the 2027 competition format, which this study neither knows nor d
 |---|---|---|
 | field size N | 60 bots | research design choice |
 | qualifiers K | top 6 (~10%) | research design choice |
-| rounds | **40 is the initial horizon**; checkpoints 5, 10, 20, 30, 40 | a starting point, **not** an assumption that 40 rounds suffice. 60/80/120-round extensions exist but are disabled by default; a field is extended only if its qualification metrics have not stabilised |
+| rounds | **40 is the initial horizon**; checkpoints 5, 10, 20, 30, 40 | a starting point, **not** an assumption that 40 rounds suffice. The pre-registered Experiment A horizon is 5/10/20/30/40 rounds. Longer horizons (60/80/120) are not part of FHR #4; they are future work, only as a separately pre-registered follow-up |
 | hands per match | 400 | retained from the public 2026 engine |
 | round 1 | deterministic seeded shuffle | research design choice |
 | later rounds | standings-dependent Swiss assignment | public 2026 engine rule |
@@ -282,8 +282,10 @@ This is **precision-driven compute allocation**, not "run everything until signi
 
 * **Initial budgets:** every unique cell starts at 50 complete tournaments, every field reference
   at 250 matched rounds, and `mu_swiss` at 100 tournaments per field.
-* **Long horizons** (60/80/120 rounds) run only for fields whose qualification metrics have not
-  stabilised by 40 rounds.
+* **Long horizons** (60/80/120 rounds) are not run in FHR #4. The result is stated within the
+  pre-registered horizon: "reliability improved continuously through 40 rounds, with no evidence of
+  a plateau within the pre-registered horizon". No inference is made about how many rounds would
+  ultimately suffice. Longer horizons are future work, as a separately pre-registered follow-up.
 * **Extensions** are explicit, logged and append-only. No preset launches 100, 200 or 500
   tournaments.
 
@@ -310,6 +312,17 @@ extend.
 * the 95% Monte Carlo CI half-width of expected changed qualifiers or expected top-6 overlap is
   above 0.30;
 * a paired contrast it takes part in has a CI spanning both −0.25 and +0.25 qualifiers.
+
+**Protocol clarification** (2026-10-05). The original wording was ambiguous, and this was decided
+before any matrix extension ran:
+
+* In clause 2, "changed qualifiers" means the pre-registered rerun / tournament-instability metric:
+  expected changed qualifiers between independent tournaments.
+* Each contrast is paired only on the replicate ids shared by that pair of cells, never restricted
+  by a third cell.
+* Wrong-vs-reference (`mu_field` / `mu_swiss`) contrasts remain primary diagnostic results but do
+  not trigger an extension. The verdict under that broader reading is reported as a sensitivity
+  only.
 
 Qualification regret stays a primary reported, strength-sensitive diagnostic and may affect
 interpretation. It never independently triggers a compute extension: no common absolute BB/match

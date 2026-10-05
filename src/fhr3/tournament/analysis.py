@@ -286,60 +286,60 @@ def analyse(root: Path, out: Path, modes: Iterable[str] | None = None, n_boot: i
                 for row in mt.binned_inversions(a["final_rank"], mu, edges, b=min(n_boot, 500)):
                     inv_bin_rows.append(info | {"reference": name} | row)
 
-        # B: equal SCHEDULED (maximum) hand budget, paired by replicate index. Actual hands played and
-        # wall-clock differ between allocations and are reported, never assumed equal.
+        # B: equal SCHEDULED (maximum) hand budget. Actual hands played and wall-clock differ between
+        # allocations and are reported, never assumed equal. Per-cell rows use each cell's own replicates;
+        # every pairwise contrast is paired on the replicates shared by THAT PAIR only.
         for field in E["budget_sweep"]["fields"]:
             cells = _try(prof.budget_cells, mode, field)
             if not cells:
                 continue
-            reps_by = {a.label: set(_existing(root, c)) for a, c in cells}
-            common = sorted(set.intersection(*reps_by.values())) if reps_by else []
-            if len(common) < min_tournaments:
+            labelled = [(alloc.label, c) for alloc, c in cells]
+            if any(len(_existing(root, c)) < min_tournaments for _, c in labelled):
                 continue
             fr, sr = refs_for(mode, field)
-            ws = mt.bootstrap_weights(len(common), n_boot, seed=20260930)
-            arrs = {alloc.label: (alloc, c, load_cell_arrays(root, c, common)) for alloc, c in cells}
-            work = {lab: _work(root, c, common) for lab, (_, c, _) in arrs.items()}
-            h0, t0 = work["baseline"]
-            for lab, (alloc, c, a) in arrs.items():
-                inputs.append(_input(root, c, common, "budget_sweep"))
+            by = dict(labelled)
+            h0, t0 = _work(root, by["baseline"], _existing(root, by["baseline"]))
+            for alloc, c in cells:
+                reps = _existing(root, c)
+                ws = mt.bootstrap_weights(len(reps), n_boot, seed=20260930)
+                a = load_cell_arrays(root, c, reps)
+                inputs.append(_input(root, c, reps, "budget_sweep"))
                 refs = reference_set(fr, sr, a["bots"])
                 est = mt.rerun_stability(a["final_rank"], a["qualified"], a["K"], weights=ws)
-                hp, rt = work[lab]
+                hp, rt = _work(root, c, reps)
                 budget_rows.append(_cell_info("budget_sweep", c) | {
                     "allocation": alloc.label, "scheduled_hand_budget_per_bot": alloc.budget,
                     "scheduled_budget_exact": alloc.exact, "hands_scheduled_per_tournament": scheduled_hands(c),
                     "hands_played_per_tournament": hp, "hands_played_ratio_vs_40x400": hp / h0,
                     "runtime_s_per_tournament": rt, "runtime_ratio_vs_40x400": rt / t0 if t0 else None,
                     "budget_note": "equal scheduled (maximum) hand budget; actual simulated work differs",
-                    "n_common_replicates": len(common)} | mt.estimates_to_row(est)
+                    "n_replicates": len(reps)} | mt.estimates_to_row(est)
                     | _ref_cols(a["qualified"], refs, a["K"], ws))
-                if lab != "baseline":
-                    contrast_rows.extend(_contrast("B", mode, field, arrs["baseline"][1], c, arrs["baseline"][2], a,
-                                                   refs, ws, rules, {"hands_played_ratio": hp / h0,
-                                                                     "runtime_ratio": rt / t0 if t0 else None}))
+            pairs = [("baseline", "half_rounds_2x_hands"), ("baseline", "quarter_rounds_4x_hands"),
+                     ("half_rounds_2x_hands", "quarter_rounds_4x_hands")]
+            contrast_rows.extend(_pairwise_contrasts("B", mode, field, labelled, pairs, root, fr, sr, n_boot,
+                                                     20260930, rules, min_tournaments))
 
-        # D: ordinary vs whole-match duplicate packages at approximately equal scheduled work, paired by
-        # replicate. Duplicate arms also change the number of rounds or the match length.
+        # D: ordinary vs whole-match duplicate packages at approximately equal scheduled work. Duplicate arms
+        # also change the number of rounds or the match length. Pair-specific pairing as in B.
         if mode in E.get("duplicate_play", {}).get("modes", []):
             for field in E["duplicate_play"]["fields"]:
                 cells = _try(prof.duplicate_cells, mode, field)
                 if not cells:
                     continue
-                reps_by = {lab: set(_existing(root, c)) for lab, c in cells}
-                common = sorted(set.intersection(*reps_by.values())) if reps_by else []
-                if len(common) < min_tournaments:
+                if any(len(_existing(root, c)) < min_tournaments for _, c in cells):
                     continue
                 fr, sr = refs_for(mode, field)
-                ws = mt.bootstrap_weights(len(common), n_boot, seed=20261002)
-                arrs = {lab: (c, load_cell_arrays(root, c, common)) for lab, c in cells}
-                c0, a0_ = arrs["ordinary"]
-                h0, t0 = _work(root, c0, common)
+                c0 = cells[0][1]
+                h0, t0 = _work(root, c0, _existing(root, c0))
                 sched0 = scheduled_hands(c0)
-                for lab, (c, a) in arrs.items():
-                    inputs.append(_input(root, c, common, "duplicate_play"))
+                for lab, c in cells:
+                    reps = _existing(root, c)
+                    ws = mt.bootstrap_weights(len(reps), n_boot, seed=20261002)
+                    a = load_cell_arrays(root, c, reps)
+                    inputs.append(_input(root, c, reps, "duplicate_play"))
                     refs = reference_set(fr, sr, a["bots"])
-                    hp, rt = _work(root, c, common)
+                    hp, rt = _work(root, c, reps)
                     sched = scheduled_hands(c)
                     est = mt.rerun_stability(a["final_rank"], a["qualified"], a["K"], weights=ws)
                     dup_rows.append(_cell_info("duplicate_play", c) | {
@@ -350,12 +350,12 @@ def analyse(root: Path, out: Path, modes: Iterable[str] | None = None, n_boot: i
                         "runtime_s_per_tournament": rt, "runtime_ratio_vs_ordinary": rt / t0 if t0 else None,
                         "package_note": "operational package comparison: duplicate arms also change rounds or "
                                         "match length; not the isolated effect of duplication",
-                        "n_common_replicates": len(common)} | mt.estimates_to_row(est)
+                        "n_replicates": len(reps)} | mt.estimates_to_row(est)
                         | _ref_cols(a["qualified"], refs, a["K"], ws))
-                    if lab != "ordinary":
-                        contrast_rows.extend(_contrast("D", mode, field, c0, c, a0_, a, refs, ws, rules, {
-                            "scheduled_work_ratio": sched / sched0, "hands_played_ratio": hp / h0,
-                            "runtime_ratio": rt / t0 if t0 else None}))
+                labs = [lab for lab, _ in cells]
+                pairs = [(labs[0], labs[1]), (labs[0], labs[2]), (labs[1], labs[2])]
+                contrast_rows.extend(_pairwise_contrasts("D", mode, field, cells, pairs, root, fr, sr, n_boot,
+                                                         20261002, rules, min_tournaments))
 
         # mu_swiss reference outputs (per field)
         for field in fields:
@@ -495,6 +495,34 @@ def _contrast(exp: str, mode: str, field: str, base: Cell, arm: Cell, a0: dict, 
     return rows
 
 
+def _pairwise_contrasts(exp: str, mode: str, field: str, labelled: Sequence[tuple[str, Cell]],
+                        pairs: Sequence[tuple[str, str]], root: Path, fr: dict | None, sr: dict | None, n_boot: int,
+                        seed: int, rules: dict, min_tournaments: int = 2) -> list[dict[str, Any]]:
+    """Every (comparator, arm) contrast, arm - comparator, paired ONLY on the replicate ids shared by that pair.
+
+    A third cell of the experiment never restricts the pairing: extending two cells to more
+    replicates enlarges exactly the contrasts between them.
+    """
+    by = dict(labelled)
+    rows: list[dict[str, Any]] = []
+    for comp, arm in pairs:
+        cc, ca = by[comp], by[arm]
+        common = sorted(set(_existing(root, cc)) & set(_existing(root, ca)))
+        if len(common) < min_tournaments:
+            continue
+        ws = mt.bootstrap_weights(len(common), n_boot, seed=seed)
+        a0, a1 = load_cell_arrays(root, cc, common), load_cell_arrays(root, ca, common)
+        h0, t0 = _work(root, cc, common)
+        h1, t1 = _work(root, ca, common)
+        refs = reference_set(fr, sr, a0["bots"])
+        work = {"scheduled_work_ratio": scheduled_hands(ca) / scheduled_hands(cc), "hands_played_ratio": h1 / h0,
+                "runtime_ratio": t1 / t0 if t0 else None}
+        for r in _contrast(exp, mode, field, cc, ca, a0, a1, refs, ws, rules, work):
+            rows.append(r | {"pair": f"{arm} - {comp}", "comparator": comp, "arm": arm,
+                             "paired_replicates": [common[0], common[-1]]})
+    return rows
+
+
 def _frozen_contrast_rows(rows: Sequence[dict], rules: dict) -> list[dict[str, Any]]:
     """C contrasts in the common arm-minus-baseline convention (arm = frozen replay, baseline = adaptive)."""
     tol = float((rules.get("matrix") or {}).get("contrast_inconclusive_span", 0.25))
@@ -554,18 +582,25 @@ def matrix_extension_flags(base_rows: Sequence[dict], budget_rows: Sequence[dict
         if r["metric"] in ("changed_qualifiers", "topk_overlap"):
             hw = (r["frozen_ci_hi"] - r["frozen_ci_lo"]) / 2
             add(r["frozen_cell"], r["field_id"], "frozen_schedule", {r["metric"]: hw})
+    primary = str(rule.get("contrast_metric", "changed_qualifiers"))
+    broad = set(rule.get("sensitivity_metrics", [])) | {primary}
     for c in contrast_rows:
-        if c["inconclusive_span"]:
-            for cid in (c["baseline_cell"], c["arm_cell"]):
-                cells.setdefault(cid, {"field": c["field"], "cell": "", "half_widths": {}, "reasons": []})[
-                    "reasons"].append(f"{c['experiment']} contrast {c['metric']} CI [{c['diff_ci_lo']:.2f}, "
-                                      f"{c['diff_ci_hi']:.2f}] spans +/-{rule['contrast_inconclusive_span']}")
+        if not c["inconclusive_span"] or c["metric"] not in broad:
+            continue
+        key = "reasons" if c["metric"] == primary else "sensitivity_reasons"
+        for cid in (c["baseline_cell"], c["arm_cell"]):
+            cell = cells.setdefault(cid, {"field": c["field"], "cell": "", "half_widths": {}, "reasons": []})
+            cell.setdefault(key, []).append(
+                f"{c['experiment']} {c.get('pair', '')} {c['metric']} CI [{c['diff_ci_lo']:.2f}, "
+                f"{c['diff_ci_hi']:.2f}] spans +/-{rule['contrast_inconclusive_span']}")
     for c in cells.values():
         c["extend"] = bool(c["reasons"])
+        c["extend_broad_sensitivity"] = bool(c["reasons"] or c.get("sensitivity_reasons"))
         c["action"] = "append replicates 50..99 for THIS cell" if c["extend"] else "keep 50"
-    return {"rule": rule, "cells": cells,
-            "note": "regret is reported and may affect interpretation; it never independently triggers "
-                    "an extension"}
+    return {"rule": rule, "cells": cells, "primary_contrast_metric": primary,
+            "note": "the extension is governed by rerun (between-tournament) expected changed qualifiers; "
+                    "wrong-vs-reference contrasts are reported as a sensitivity only; regret is reported and "
+                    "never independently triggers an extension"}
 
 
 def _hands(root: Path, cell: Cell, rep: int) -> int:

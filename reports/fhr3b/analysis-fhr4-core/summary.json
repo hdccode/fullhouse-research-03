@@ -1,6 +1,6 @@
 {
  "analysis_version": "fhr3b-analysis-v1",
- "created": "2026-10-04T17:55:51-0700",
+ "created": "2026-10-05T06:19:30-0700",
  "extension_rules": {
   "matrix": {
    "cells": {
@@ -8,6 +8,7 @@
      "action": "keep 50",
      "cell": "quarter_rounds_4x_hands",
      "extend": false,
+     "extend_broad_sensitivity": false,
      "field": "nlhe6-crowded_cutoff",
      "half_widths": {
       "changed_qualifiers": 0.1864457220676381,
@@ -17,24 +18,27 @@
      "reasons": []
     },
     "nlhe6.nlhe6-crowded_cutoff.fhr3b_baseline.R20H800K6.swiss.publication.ed78ee35": {
-     "action": "append replicates 50..99 for THIS cell",
+     "action": "keep 50",
      "cell": "half_rounds_2x_hands",
-     "extend": true,
+     "extend": false,
+     "extend_broad_sensitivity": true,
      "field": "nlhe6-crowded_cutoff",
      "half_widths": {
       "changed_qualifiers": 0.21730253611514305,
       "mu_field_qualification_regret": 11.355355035833341,
       "topk_overlap": 0.2173025361151424
      },
-     "reasons": [
-      "B contrast mu_field_reference_changed CI [-0.40, 0.42] spans +/-0.25",
-      "B contrast mu_swiss_reference_changed CI [-0.50, 0.26] spans +/-0.25"
+     "reasons": [],
+     "sensitivity_reasons": [
+      "B half_rounds_2x_hands - baseline mu_field_reference_changed CI [-0.40, 0.42] spans +/-0.25",
+      "B half_rounds_2x_hands - baseline mu_swiss_reference_changed CI [-0.50, 0.26] spans +/-0.25"
      ]
     },
     "nlhe6.nlhe6-crowded_cutoff.fhr3b_baseline.R40H400K6.frozen.publication.85cba4b8": {
      "action": "keep 50",
      "cell": "frozen_schedule",
      "extend": false,
+     "extend_broad_sensitivity": false,
      "field": "nlhe6-crowded_cutoff",
      "half_widths": {
       "changed_qualifiers": 0.1880058207197628,
@@ -43,24 +47,27 @@
      "reasons": []
     },
     "nlhe6.nlhe6-crowded_cutoff.fhr3b_baseline.R40H400K6.swiss.publication.7f40559c": {
-     "action": "append replicates 50..99 for THIS cell",
+     "action": "keep 50",
      "cell": "baseline",
-     "extend": true,
+     "extend": false,
+     "extend_broad_sensitivity": true,
      "field": "nlhe6-crowded_cutoff",
      "half_widths": {
       "changed_qualifiers": 0.19151488099279934,
       "mu_field_qualification_regret": 12.080439129166663,
       "topk_overlap": 0.19151488099279945
      },
-     "reasons": [
-      "B contrast mu_field_reference_changed CI [-0.40, 0.42] spans +/-0.25",
-      "B contrast mu_swiss_reference_changed CI [-0.50, 0.26] spans +/-0.25"
+     "reasons": [],
+     "sensitivity_reasons": [
+      "B half_rounds_2x_hands - baseline mu_field_reference_changed CI [-0.40, 0.42] spans +/-0.25",
+      "B half_rounds_2x_hands - baseline mu_swiss_reference_changed CI [-0.50, 0.26] spans +/-0.25"
      ]
     },
     "nlhe6.nlhe6-crowded_cutoff.fhr3b_baseline.R40H67K6dup.swiss.publication.6f076fbf": {
      "action": "keep 50",
      "cell": "dup_shorter_matches R40xH67x6lanes (approx. equal scheduled work)",
      "extend": false,
+     "extend_broad_sensitivity": false,
      "field": "nlhe6-crowded_cutoff",
      "half_widths": {
       "changed_qualifiers": 0.19438496626624713,
@@ -73,6 +80,7 @@
      "action": "keep 50",
      "cell": "dup_fewer_rounds R7xH400x6lanes (approx. equal scheduled work)",
      "extend": false,
+     "extend_broad_sensitivity": false,
      "field": "nlhe6-crowded_cutoff",
      "half_widths": {
       "changed_qualifiers": 0.25578569963389874,
@@ -85,6 +93,7 @@
      "action": "keep 50",
      "cell": "quarter_rounds_4x_hands",
      "extend": false,
+     "extend_broad_sensitivity": false,
      "field": "nlhe6-separated_control",
      "half_widths": {
       "changed_qualifiers": 0.15789484256079467,
@@ -97,6 +106,7 @@
      "action": "keep 50",
      "cell": "half_rounds_2x_hands",
      "extend": false,
+     "extend_broad_sensitivity": false,
      "field": "nlhe6-separated_control",
      "half_widths": {
       "changed_qualifiers": 0.2538161074938394,
@@ -109,6 +119,7 @@
      "action": "keep 50",
      "cell": "frozen_schedule",
      "extend": false,
+     "extend_broad_sensitivity": false,
      "field": "nlhe6-separated_control",
      "half_widths": {
       "changed_qualifiers": 0.1797696133881841,
@@ -120,6 +131,7 @@
      "action": "keep 50",
      "cell": "baseline",
      "extend": false,
+     "extend_broad_sensitivity": false,
      "field": "nlhe6-separated_control",
      "half_widths": {
       "changed_qualifiers": 0.23852065752078722,
@@ -132,6 +144,7 @@
      "action": "keep 50",
      "cell": "dup_shorter_matches R40xH67x6lanes (approx. equal scheduled work)",
      "extend": false,
+     "extend_broad_sensitivity": false,
      "field": "nlhe6-separated_control",
      "half_widths": {
       "changed_qualifiers": 0.2556609717809104,
@@ -144,6 +157,7 @@
      "action": "keep 50",
      "cell": "dup_fewer_rounds R7xH400x6lanes (approx. equal scheduled work)",
      "extend": false,
+     "extend_broad_sensitivity": false,
      "field": "nlhe6-separated_control",
      "half_widths": {
       "changed_qualifiers": 0.256040885865497,
@@ -156,6 +170,7 @@
      "action": "keep 50",
      "cell": "quarter_rounds_4x_hands",
      "extend": false,
+     "extend_broad_sensitivity": false,
      "field": "nlhe6-style_diverse",
      "half_widths": {
       "changed_qualifiers": 0.17686333224202588,
@@ -168,6 +183,7 @@
      "action": "keep 50",
      "cell": "half_rounds_2x_hands",
      "extend": false,
+     "extend_broad_sensitivity": false,
      "field": "nlhe6-style_diverse",
      "half_widths": {
       "changed_qualifiers": 0.1715926546440718,
@@ -180,6 +196,7 @@
      "action": "keep 50",
      "cell": "frozen_schedule",
      "extend": false,
+     "extend_broad_sensitivity": false,
      "field": "nlhe6-style_diverse",
      "half_widths": {
       "changed_qualifiers": 0.16780259619046278,
@@ -188,24 +205,27 @@
      "reasons": []
     },
     "nlhe6.nlhe6-style_diverse.fhr3b_baseline.R40H400K6.swiss.publication.4cb85cc5": {
-     "action": "append replicates 50..99 for THIS cell",
+     "action": "keep 50",
      "cell": "baseline",
-     "extend": true,
+     "extend": false,
+     "extend_broad_sensitivity": true,
      "field": "nlhe6-style_diverse",
      "half_widths": {
       "changed_qualifiers": 0.19142110106080068,
       "mu_field_qualification_regret": 9.089891560000005,
       "topk_overlap": 0.19142110106080068
      },
-     "reasons": [
-      "D contrast mu_field_reference_changed CI [-0.44, 0.28] spans +/-0.25",
-      "D contrast mu_swiss_reference_changed CI [-0.26, 0.46] spans +/-0.25"
+     "reasons": [],
+     "sensitivity_reasons": [
+      "D dup_fewer_rounds R7xH400x6lanes (approx. equal scheduled work) - ordinary mu_field_reference_changed CI [-0.44, 0.28] spans +/-0.25",
+      "D dup_fewer_rounds R7xH400x6lanes (approx. equal scheduled work) - ordinary mu_swiss_reference_changed CI [-0.26, 0.46] spans +/-0.25"
      ]
     },
     "nlhe6.nlhe6-style_diverse.fhr3b_baseline.R40H67K6dup.swiss.publication.f222bed2": {
      "action": "keep 50",
      "cell": "dup_shorter_matches R40xH67x6lanes (approx. equal scheduled work)",
      "extend": false,
+     "extend_broad_sensitivity": false,
      "field": "nlhe6-style_diverse",
      "half_widths": {
       "changed_qualifiers": 0.22369520917161734,
@@ -215,26 +235,34 @@
      "reasons": []
     },
     "nlhe6.nlhe6-style_diverse.fhr3b_baseline.R7H400K6dup.swiss.publication.137478d3": {
-     "action": "append replicates 50..99 for THIS cell",
+     "action": "keep 50",
      "cell": "dup_fewer_rounds R7xH400x6lanes (approx. equal scheduled work)",
-     "extend": true,
+     "extend": false,
+     "extend_broad_sensitivity": true,
      "field": "nlhe6-style_diverse",
      "half_widths": {
       "changed_qualifiers": 0.16558607396241998,
       "mu_field_qualification_regret": 8.9519120275,
       "topk_overlap": 0.16558607396241987
      },
-     "reasons": [
-      "D contrast mu_field_reference_changed CI [-0.44, 0.28] spans +/-0.25",
-      "D contrast mu_swiss_reference_changed CI [-0.26, 0.46] spans +/-0.25"
+     "reasons": [],
+     "sensitivity_reasons": [
+      "D dup_fewer_rounds R7xH400x6lanes (approx. equal scheduled work) - ordinary mu_field_reference_changed CI [-0.44, 0.28] spans +/-0.25",
+      "D dup_fewer_rounds R7xH400x6lanes (approx. equal scheduled work) - ordinary mu_swiss_reference_changed CI [-0.26, 0.46] spans +/-0.25"
      ]
     }
    },
-   "note": "regret is reported and may affect interpretation; it never independently triggers an extension",
+   "note": "the extension is governed by rerun (between-tournament) expected changed qualifiers; wrong-vs-reference contrasts are reported as a sensitivity only; regret is reported and never independently triggers an extension",
+   "primary_contrast_metric": "changed_qualifiers",
    "rule": {
     "contrast_inconclusive_span": 0.25,
+    "contrast_metric": "changed_qualifiers",
     "qualifier_half_width_above": 0.3,
-    "regret": "report_only"
+    "regret": "report_only",
+    "sensitivity_metrics": [
+     "mu_field_reference_changed",
+     "mu_swiss_reference_changed"
+    ]
    }
   },
   "mu_field": {

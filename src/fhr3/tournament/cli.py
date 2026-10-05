@@ -157,7 +157,8 @@ def _guard_horizon(args: argparse.Namespace, prof: ex.Profile) -> None:
         hz = _core_cfg()["horizon_extensions"]
         raise SystemExit(f"--horizon {h} is a long-horizon extension ({hz['horizons']}), disabled by default "
                          f"(enabled: {hz['enabled']}). Run it only if the qualification metrics have not "
-                         "stabilised at 40 rounds, with --extend.")
+                         "stabilised at 40 rounds, with --extend. Not part of the FHR4 core (future, separately "
+                         "pre-registered follow-up).")
 
 
 def _guard_held(prof: ex.Profile, field_hashes: list[str]) -> None:

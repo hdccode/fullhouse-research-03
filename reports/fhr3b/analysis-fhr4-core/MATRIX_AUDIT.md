@@ -35,31 +35,65 @@ Written for: the FHR #4 researchers reviewing the completed matrix before any ex
 **Caveat:** per-tournament runtime is distorted by machine throttling and sleep. Played hands are the work
 measure, and CPU ratios are indicative only.
 
-## 2. Decision table (pre-registered 50 → 100 rule, applied mechanically)
+## 2. Decision table: CORRECTED 2026-10-05 (pair-specific contrasts; clause-2 clarification)
 
-| Field | Cell | Changed qualifiers (rerun) | Top-6 overlap | Regret (BB, vs mu_field) | CI HW changed | CI HW overlap | Contrast trigger? | Decision |
+**Protocol clarification.** The wording was ambiguous; this was decided before any extension ran.
+
+* In clause 2, "changed qualifiers" is the pre-registered rerun metric: expected changed qualifiers between
+  independent tournaments.
+* Every contrast is paired on the replicates shared by that pair of cells only. This fixes the earlier
+  pairing over the intersection of all three cells.
+* Wrong-vs-reference contrasts do not trigger an extension. Their verdict is reported below as a
+  sensitivity.
+
+| Field | Cell | Changed qualifiers (rerun) | Top-6 overlap | Regret (BB) | CI HW changed | CI HW overlap | Pair-specific rerun contrasts (none spans ±0.25) | Decision |
 |---|---|---:|---:|---:|---:|---:|---|---|
-| separated_control | baseline | 3.83 | 2.17 | 122.9 | 0.239 | 0.239 | no | **LOCK_AT_50** |
-| separated_control | R20H800 | 4.00 | 2.00 | 131.8 | 0.254 | 0.254 | no | **LOCK_AT_50** |
-| separated_control | R10H1600 | 4.70 | 1.30 | 188.6 | 0.158 | 0.158 | no | **LOCK_AT_50** |
-| separated_control | frozen R40H400 | 4.63 | 1.37 | 177.1 | 0.180 | 0.180 | no | **LOCK_AT_50** |
-| separated_control | R7H400x6 dup | 3.71 | 2.29 | 114.6 | 0.256 | 0.256 | no | **LOCK_AT_50** |
-| separated_control | R40H67x6 dup | 3.38 | 2.62 | 105.6 | 0.256 | 0.256 | no | **LOCK_AT_50** |
-| crowded_cutoff | baseline | 4.32 | 1.68 | 93.7 | 0.192 | 0.192 | B mu_field_reference_changed CI [-0.40, 0.42]; B mu_swiss_reference_changed CI [-0.50, 0.26] | **EXTEND_TO_100** |
-| crowded_cutoff | R20H800 | 4.26 | 1.74 | 89.7 | 0.217 | 0.217 | B mu_field_reference_changed CI [-0.40, 0.42]; B mu_swiss_reference_changed CI [-0.50, 0.26] | **EXTEND_TO_100** |
-| crowded_cutoff | R10H1600 | 4.74 | 1.26 | 123.3 | 0.186 | 0.186 | no | **LOCK_AT_50** |
-| crowded_cutoff | frozen R40H400 | 4.70 | 1.30 | 114.9 | 0.188 | 0.188 | no | **LOCK_AT_50** |
-| crowded_cutoff | R7H400x6 dup | 3.84 | 2.16 | 70.0 | 0.256 | 0.256 | no | **LOCK_AT_50** |
-| crowded_cutoff | R40H67x6 dup | 4.01 | 1.99 | 77.1 | 0.194 | 0.194 | no | **LOCK_AT_50** |
-| style_diverse | baseline | 4.38 | 1.62 | 94.3 | 0.191 | 0.191 | D mu_field_reference_changed CI [-0.44, 0.28]; D mu_swiss_reference_changed CI [-0.26, 0.46] | **EXTEND_TO_100** |
-| style_diverse | R20H800 | 4.72 | 1.28 | 107.8 | 0.172 | 0.172 | no | **LOCK_AT_50** |
-| style_diverse | R10H1600 | 4.90 | 1.10 | 136.0 | 0.177 | 0.177 | no | **LOCK_AT_50** |
-| style_diverse | frozen R40H400 | 4.71 | 1.29 | 105.9 | 0.168 | 0.168 | no | **LOCK_AT_50** |
-| style_diverse | R7H400x6 dup | 4.51 | 1.49 | 98.6 | 0.166 | 0.166 | D mu_field_reference_changed CI [-0.44, 0.28]; D mu_swiss_reference_changed CI [-0.26, 0.46] | **EXTEND_TO_100** |
-| style_diverse | R40H67x6 dup | 4.20 | 1.80 | 86.1 | 0.224 | 0.224 | no | **LOCK_AT_50** |
+| separated_control | baseline | 3.83 | 2.17 | 122.9 | 0.239 | 0.239 | B R20H800−baseline [-0.18,+0.51]; B R10H1600−baseline [+0.60,+1.14]; D R7H400x6 dup−baseline [-0.46,+0.21]; D R40H67x6 dup−baseline [-0.79,-0.13]; C frozen R40H400−baseline [+0.56,+1.06] | **LOCK_AT_50** |
+| separated_control | R20H800 | 4.00 | 2.00 | 131.8 | 0.254 | 0.254 | B R20H800−baseline [-0.18,+0.51]; B R10H1600−R20H800 [+0.43,+0.98] | **LOCK_AT_50** |
+| separated_control | R10H1600 | 4.70 | 1.30 | 188.6 | 0.158 | 0.158 | B R10H1600−baseline [+0.60,+1.14]; B R10H1600−R20H800 [+0.43,+0.98] | **LOCK_AT_50** |
+| separated_control | frozen R40H400 | 4.63 | 1.37 | 177.1 | 0.180 | 0.180 | C frozen R40H400−baseline [+0.56,+1.06] | **LOCK_AT_50** |
+| separated_control | R7H400x6 dup | 3.71 | 2.29 | 114.6 | 0.256 | 0.256 | D R7H400x6 dup−baseline [-0.46,+0.21]; D R40H67x6 dup−R7H400x6 dup [-0.68,-0.01] | **LOCK_AT_50** |
+| separated_control | R40H67x6 dup | 3.38 | 2.62 | 105.6 | 0.256 | 0.256 | D R40H67x6 dup−baseline [-0.79,-0.13]; D R40H67x6 dup−R7H400x6 dup [-0.68,-0.01] | **LOCK_AT_50** |
+| crowded_cutoff | baseline | 4.32 | 1.68 | 93.7 | 0.192 | 0.192 | B R20H800−baseline [-0.39,+0.24]; B R10H1600−baseline [+0.12,+0.69]; D R7H400x6 dup−baseline [-0.78,-0.20]; D R40H67x6 dup−baseline [-0.62,+0.00]; C frozen R40H400−baseline [+0.11,+0.65] | **LOCK_AT_50** |
+| crowded_cutoff | R20H800 | 4.26 | 1.74 | 89.7 | 0.217 | 0.217 | B R20H800−baseline [-0.39,+0.24]; B R10H1600−R20H800 [+0.24,+0.74] | **LOCK_AT_50** |
+| crowded_cutoff | R10H1600 | 4.74 | 1.26 | 123.3 | 0.186 | 0.186 | B R10H1600−baseline [+0.12,+0.69]; B R10H1600−R20H800 [+0.24,+0.74] | **LOCK_AT_50** |
+| crowded_cutoff | frozen R40H400 | 4.70 | 1.30 | 114.9 | 0.188 | 0.188 | C frozen R40H400−baseline [+0.11,+0.65] | **LOCK_AT_50** |
+| crowded_cutoff | R7H400x6 dup | 3.84 | 2.16 | 70.0 | 0.256 | 0.256 | D R7H400x6 dup−baseline [-0.78,-0.20]; D R40H67x6 dup−R7H400x6 dup [-0.17,+0.53] | **LOCK_AT_50** |
+| crowded_cutoff | R40H67x6 dup | 4.01 | 1.99 | 77.1 | 0.194 | 0.194 | D R40H67x6 dup−baseline [-0.62,+0.00]; D R40H67x6 dup−R7H400x6 dup [-0.17,+0.53] | **LOCK_AT_50** |
+| style_diverse | baseline | 4.38 | 1.62 | 94.3 | 0.191 | 0.191 | B R20H800−baseline [+0.05,+0.62]; B R10H1600−baseline [+0.25,+0.79]; D R7H400x6 dup−baseline [-0.15,+0.42]; D R40H67x6 dup−baseline [-0.46,+0.09]; C frozen R40H400−baseline [+0.09,+0.59] | **LOCK_AT_50** |
+| style_diverse | R20H800 | 4.72 | 1.28 | 107.8 | 0.172 | 0.172 | B R20H800−baseline [+0.05,+0.62]; B R10H1600−R20H800 [-0.08,+0.42] | **LOCK_AT_50** |
+| style_diverse | R10H1600 | 4.90 | 1.10 | 136.0 | 0.177 | 0.177 | B R10H1600−baseline [+0.25,+0.79]; B R10H1600−R20H800 [-0.08,+0.42] | **LOCK_AT_50** |
+| style_diverse | frozen R40H400 | 4.71 | 1.29 | 105.9 | 0.168 | 0.168 | C frozen R40H400−baseline [+0.09,+0.59] | **LOCK_AT_50** |
+| style_diverse | R7H400x6 dup | 4.51 | 1.49 | 98.6 | 0.166 | 0.166 | D R7H400x6 dup−baseline [-0.15,+0.42]; D R40H67x6 dup−R7H400x6 dup [-0.61,-0.03] | **LOCK_AT_50** |
+| style_diverse | R40H67x6 dup | 4.20 | 1.80 | 86.1 | 0.224 | 0.224 | D R40H67x6 dup−baseline [-0.46,+0.09]; D R40H67x6 dup−R7H400x6 dup [-0.61,-0.03] | **LOCK_AT_50** |
 
-No cell fires the half-width clause (the maximum is 0.256). Four cells fire the paired-contrast clause, through
-reference-changed-qualifier contrasts.
+**Primary verdict: 18 / 18 LOCK_AT_50.** No half-width exceeds 0.30 (the maximum is 0.256), and no pair-specific
+rerun changed-qualifier contrast spans both −0.25 and +0.25.
+
+### Sensitivity: broad reading (also counting wrong-vs-`mu_field` / `mu_swiss` contrasts). Reported only.
+
+| Field | Cell | Primary (rerun changed qualifiers) | Broad reading (+ wrong-vs-reference contrasts) | Broad trigger |
+|---|---|---|---|---|
+| separated_control | baseline | LOCK_AT_50 | LOCK_AT_50 | — |
+| separated_control | R20H800 | LOCK_AT_50 | LOCK_AT_50 | — |
+| separated_control | R10H1600 | LOCK_AT_50 | LOCK_AT_50 | — |
+| separated_control | frozen R40H400 | LOCK_AT_50 | LOCK_AT_50 | — |
+| separated_control | R7H400x6 dup | LOCK_AT_50 | LOCK_AT_50 | — |
+| separated_control | R40H67x6 dup | LOCK_AT_50 | LOCK_AT_50 | — |
+| crowded_cutoff | baseline | LOCK_AT_50 | EXTEND_TO_100 | mu_field_reference_changed (B); mu_swiss_reference_changed (B) |
+| crowded_cutoff | R20H800 | LOCK_AT_50 | EXTEND_TO_100 | mu_field_reference_changed (B); mu_swiss_reference_changed (B) |
+| crowded_cutoff | R10H1600 | LOCK_AT_50 | LOCK_AT_50 | — |
+| crowded_cutoff | frozen R40H400 | LOCK_AT_50 | LOCK_AT_50 | — |
+| crowded_cutoff | R7H400x6 dup | LOCK_AT_50 | LOCK_AT_50 | — |
+| crowded_cutoff | R40H67x6 dup | LOCK_AT_50 | LOCK_AT_50 | — |
+| style_diverse | baseline | LOCK_AT_50 | EXTEND_TO_100 | mu_field_reference_changed (D); mu_swiss_reference_changed (D) |
+| style_diverse | R20H800 | LOCK_AT_50 | LOCK_AT_50 | — |
+| style_diverse | R10H1600 | LOCK_AT_50 | LOCK_AT_50 | — |
+| style_diverse | frozen R40H400 | LOCK_AT_50 | LOCK_AT_50 | — |
+| style_diverse | R7H400x6 dup | LOCK_AT_50 | EXTEND_TO_100 | mu_field_reference_changed (D); mu_swiss_reference_changed (D) |
+| style_diverse | R40H67x6 dup | LOCK_AT_50 | LOCK_AT_50 | — |
+
+Under the broad reading, 4 cells would extend. This does not govern the extension decision.
 
 ## 3. Key results
 
@@ -79,12 +113,12 @@ See the chat report of 2026-10-05; the numbers come from the CSVs in this direct
 
 ## 4. Issues found
 
-1. **Extension pairing.** The B and D contrasts are computed over replicates common to ALL three cells of
-   the experiment. Extending only the two flagged cells would not change the contrasts that triggered the
-   flags. Contrasts must be paired per contrast before extending, or the extension is wasted.
-2. **Reading of clause 2.** The committed rule applies it to every qualifier-unit contrast, including
-   reference-changed qualifiers. Read narrowly as rerun changed qualifiers only, no cell would extend.
-3. **Horizon.** The A curves have not stabilised at 40 rounds. No numeric stabilisation threshold was
-   pre-registered for 60/80/120, so this is a decision for review.
+1. **Extension pairing: FIXED (2026-10-05).** Contrasts are now paired per pair of cells
+   (`_pairwise_contrasts`), and all three pairs within B and within D are reported.
+2. **Reading of clause 2: RESOLVED (2026-10-05).** The rule uses rerun changed qualifiers; the broad reading
+   is reported as a sensitivity.
+3. **Horizon: RESOLVED (2026-10-05).** No 60/80/120 in FHR #4. The stated result: "reliability improved
+   continuously through 40 rounds, with no evidence of a plateau within the pre-registered horizon".
+   Longer horizons are future work, as a separately pre-registered follow-up.
 4. **`mu_swiss` 100 → 200.** The pre-registered rule fires in all three fields, with Wilson half-widths
    0.080–0.096. This is a decision for review; it is not executed.

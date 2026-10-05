@@ -484,3 +484,63 @@ def test_separated_control_evaluation_is_one_shot_and_bound(tmp_path):
     (d / "validation.json").write_text("{}")
     with pytest.raises(ValueError, match="one shot"):
         sc.evaluate(REPO / "results/fhr3b", prof, tmp_path)
+
+
+# ------------------------------------------------------------------ pair-specific contrasts (2026-10-05 fix)
+def _smoke_budget_cells(tmp_path):
+    from fhr3.tournament.batch import run_cell
+
+    prof = load_profile("smoke", tmp_path)
+    cells = prof.budget_cells("nlhe6", "smoke12")
+    labelled = [(a.label, c) for a, c in cells]
+    by = dict(labelled)
+    run_cell(by["baseline"], tmp_path, range(6), progress=False)
+    run_cell(by["half_rounds_2x_hands"], tmp_path, range(6), progress=False)
+    return prof, labelled, by
+
+
+def test_contrasts_pair_only_on_the_two_cells_compared(tmp_path):
+    from fhr3.tournament.analysis import _pairwise_contrasts
+    from fhr3.tournament.batch import run_cell
+
+    prof, labelled, by = _smoke_budget_cells(tmp_path)
+    pairs = [("baseline", "half_rounds_2x_hands"), ("baseline", "quarter_rounds_4x_hands"),
+             ("half_rounds_2x_hands", "quarter_rounds_4x_hands")]
+    rules = {"matrix": RULES["matrix"]}
+    before = _pairwise_contrasts("B", "nlhe6", "smoke12", labelled, pairs, tmp_path, None, None, 50, 7, rules)
+    assert {r["pair"] for r in before} == {"half_rounds_2x_hands - baseline"}  # the third cell is still empty
+    run_cell(by["quarter_rounds_4x_hands"], tmp_path, range(3), progress=False)  # third cell: fewer replicates
+    after = _pairwise_contrasts("B", "nlhe6", "smoke12", labelled, pairs, tmp_path, None, None, 50, 7, rules)
+    n = {(r["pair"], r["metric"]): r["n_common_replicates"] for r in after}
+    assert n[("half_rounds_2x_hands - baseline", "changed_qualifiers")] == 6  # not cut to 3 by the third cell
+    assert n[("quarter_rounds_4x_hands - baseline", "changed_qualifiers")] == 3
+    assert n[("quarter_rounds_4x_hands - half_rounds_2x_hands", "changed_qualifiers")] == 3
+    pick = lambda rows: [(r["metric"], r["diff_value"], r["diff_ci_lo"], r["diff_ci_hi"])  # noqa: E731
+                         for r in rows if r["pair"] == "half_rounds_2x_hands - baseline"]
+    assert pick(before) == pick(after)  # identical whatever the third cell holds
+    run_cell(by["baseline"], tmp_path, range(6, 8), progress=False)  # extend ONE arm: pairing follows the pair
+    ext = _pairwise_contrasts("B", "nlhe6", "smoke12", labelled, pairs, tmp_path, None, None, 50, 7, rules)
+    assert {r["n_common_replicates"] for r in ext if r["pair"] == "half_rounds_2x_hands - baseline"} == {6}
+    run_cell(by["half_rounds_2x_hands"], tmp_path, range(6, 8), progress=False)
+    ext = _pairwise_contrasts("B", "nlhe6", "smoke12", labelled, pairs, tmp_path, None, None, 50, 7, rules)
+    assert {r["n_common_replicates"] for r in ext if r["pair"] == "half_rounds_2x_hands - baseline"} == {8}
+
+
+def test_extension_rule_is_governed_by_rerun_changed_qualifiers():
+    from fhr3.tournament.analysis import matrix_extension_flags
+
+    rule = RULES["matrix"]
+    assert rule["contrast_metric"] == "changed_qualifiers"
+    base = [{"cell_id": "b", "field_id": "f", "changed_qualifiers_ci_lo": 3.9, "changed_qualifiers_ci_hi": 4.1,
+             "topk_overlap_ci_lo": 1.9, "topk_overlap_ci_hi": 2.1}]
+
+    def con(metric, lo, hi, arm):
+        return {"experiment": "B", "pair": f"{arm} - b", "field": "f", "baseline_cell": "b", "arm_cell": arm,
+                "metric": metric, "diff_ci_lo": lo, "diff_ci_hi": hi, "inconclusive_span": lo <= -0.25 <= 0.25 <= hi}
+
+    out = matrix_extension_flags(base, [], [], [], [con("mu_field_reference_changed", -0.4, 0.42, "x"),
+                                                   con("changed_qualifiers", -0.3, 0.2, "x")], rule)["cells"]
+    assert out["b"]["extend"] is False and out["x"]["extend"] is False  # reference-changed does not trigger
+    assert out["b"]["extend_broad_sensitivity"] is True  # ...but is reported as the broad sensitivity
+    out = matrix_extension_flags(base, [], [], [], [con("changed_qualifiers", -0.3, 0.3, "x")], rule)["cells"]
+    assert out["b"]["extend"] is True and out["x"]["extend"] is True

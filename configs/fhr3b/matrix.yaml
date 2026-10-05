@@ -119,8 +119,10 @@ core_fhr4:
   field_reference:                   # core-scoped: the ONLY default mu_field budget in the repo
     matched_rounds_initial: 250      # per NLHE6 field: 250 x 10 tables x 6 lanes x 400 = 6M scheduled hands
     matched_rounds_extension: 500    # supported append-only extension target (rounds 250..499); needs --extend
-  horizon_extensions:
-    enabled: false                   # 60/80/120-round cells only if qualification metrics have not stabilised
+  horizon_extensions:                # NOT part of the FHR4 core (decision 2026-10-05): the pre-registered
+                                     # Experiment A horizon is 5/10/20/30/40 rounds. 60/80/120 = future work,
+                                     # only as a separately pre-registered follow-up.
+    enabled: false
     horizons: [60, 80, 120]
   swiss_reference:                   # mu_swiss (long-run expected final performance under adaptive Swiss)
     enabled: true                    # approved 2026-10-01 at 100 reps/field; NOT yet run
@@ -151,6 +153,12 @@ core_fhr4:
     matrix:                          # 50 -> 100 tournaments, per unique cell / contrast (never all cells)
       qualifier_half_width_above: 0.30   # 95% MC CI half-width of E[changed qualifiers] or E[top-6 overlap]
       contrast_inconclusive_span: 0.25   # paired contrast CI spans both -0.25 and +0.25 qualifiers
+      contrast_metric: changed_qualifiers   # PROTOCOL CLARIFICATION 2026-10-05 (ambiguous wording, decided before
+                                     # any extension ran): "changed qualifiers" = the pre-registered rerun /
+                                     # tournament-instability metric (expected changed qualifiers between
+                                     # independent tournaments). Each contrast is paired on the replicates shared
+                                     # by THAT pair of cells only. Wrong-vs-reference contrasts do not trigger:
+      sensitivity_metrics: [mu_field_reference_changed, mu_swiss_reference_changed]   # reported only
       regret: report_only            # primary reported diagnostic; may affect interpretation but never
                                      # independently triggers an extension (no common BB/match tolerance
                                      # is defensible across the three fields)
