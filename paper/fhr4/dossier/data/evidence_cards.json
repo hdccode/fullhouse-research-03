@@ -1,0 +1,137 @@
+[
+  {
+    "id": "F1",
+    "finding": "Baseline tournament reliability (R40H400)",
+    "support": [
+      "Rerun changed qualifiers: Separated control 3.83 [3.59, 4.07], Crowded cutoff 4.32 [4.12, 4.50], Style diverse 4.38 [4.18, 4.56] of 6.",
+      "Wrong vs mu_field: Separated control 2.74 [2.50, 3.00], Crowded cutoff 3.52 [3.26, 3.80], Style diverse 3.80 [3.58, 4.08].",
+      "Rerun Spearman over all 60 bots: 0.37 to 0.43.",
+      "Replicated in the independent 200-tournament mu_swiss reference: rerun changed qualifiers 3.82 [3.69, 3.94], 4.19 [4.07, 4.31], 4.43 [4.34, 4.52]; wrong vs mu_field 2.79 [2.66, 2.92], 3.46 [3.33, 3.59], 3.79 [3.65, 3.92].",
+      "Engineered separated control: the six validated leaders qualify with P = 0.31 to 0.76 (mu_swiss 200); the exact mu_field top 6 was selected in 2 of 250 tournaments."
+    ],
+    "uncertainty": "Tournament bootstrap half-widths about 0.2 qualifiers at n = 50 and about 0.1 at n = 200; conditional on one frozen field per scenario.",
+    "fields": "All three.",
+    "identity_vs_strength": "Agree: high rerun disagreement, many wrong qualifiers, and large regret (122.9 [110.3, 137.9], 93.7 [81.2, 105.3], 94.3 [85.5, 103.7] BB).",
+    "consistency": "Consistent across all three fields and across both references; the two independent tournament samples (50 matrix, 200 mu_swiss) agree within intervals.",
+    "defensible": "In these controlled fields, 40 rounds of 400-hand matches selected the top 6 with substantial poker-variance error: independent reruns disagreed on 3.83 to 4.38 of 6 qualifiers, and 2.74 to 3.80 selected bots were outside the mu_field reference top 6.",
+    "overclaim": [
+      "Avoid: \"Swiss is unreliable in general\" or \"40 rounds are insufficient in general\".",
+      "Avoid: \"the tournament fails to find the true skill ranking\" (references are estimands, not a true skill ranking)."
+    ]
+  },
+  {
+    "id": "F2",
+    "finding": "Improvement with rounds (Experiment A)",
+    "support": [
+      "Separated control: wrong vs mu_field 4.18 [3.94, 4.40] at R5 to 2.74 [2.50, 3.00] at R40; regret 224.8 [210.3, 238.1] to 122.9 [110.3, 137.9] BB; rerun Spearman 0.11 [0.09, 0.14] to 0.43 [0.40, 0.46].",
+      "Crowded cutoff: wrong vs mu_field 4.58 [4.36, 4.80] at R5 to 3.52 [3.26, 3.80] at R40; regret 168.6 [153.7, 183.3] to 93.7 [81.2, 105.3] BB; rerun Spearman 0.08 [0.06, 0.10] to 0.37 [0.34, 0.40].",
+      "Style diverse: wrong vs mu_field 4.56 [4.26, 4.82] at R5 to 3.80 [3.58, 4.08] at R40; regret 161.0 [145.0, 176.4] to 94.3 [85.5, 103.7] BB; rerun Spearman 0.08 [0.06, 0.10] to 0.43 [0.41, 0.45].",
+      "Every metric improves at every step 5, 10, 20, 30, 40 in every field (generator check).",
+      "Last step R30 to R40 regret: Separated control 136.0 to 122.9, Crowded cutoff 101.6 to 93.7, Style diverse 110.6 to 94.3 BB."
+    ],
+    "uncertainty": "Prefixes are nested in the same 50 tournaments, so successive points are strongly correlated; adjacent-step differences are not separately tested. Endpoints (R5 vs R40) are far outside each other's intervals.",
+    "fields": "All three.",
+    "identity_vs_strength": "Agree (wrong qualifiers, regret, boundary loss, rerun rank correlation all improve).",
+    "consistency": "Consistent across all three fields.",
+    "defensible": "Reliability improved continuously with rounds in all three controlled fields, with no evidence of a plateau within the preregistered 40-round horizon.",
+    "overclaim": [
+      "Avoid: any rounds-needed extrapolation beyond 40 rounds, or \"reliability plateaus at N rounds\".",
+      "Avoid: \"40 rounds are insufficient in general\"."
+    ]
+  },
+  {
+    "id": "F3",
+    "finding": "Rounds versus match length at an equal scheduled hand budget (Experiment B)",
+    "support": [
+      "R10H1600 minus R40H400, rerun changed qualifiers: Separated control 0.87 [0.60, 1.14], Crowded cutoff 0.42 [0.12, 0.69], Style diverse 0.52 [0.25, 0.79].",
+      "Same, regret (BB): Separated control 65.7 [47.2, 84.9], Crowded cutoff 29.6 [12.8, 46.2], Style diverse 41.7 [27.0, 57.1].",
+      "R20H800 minus R40H400, rerun changed qualifiers: Separated control 0.17 [\u22120.18, 0.51], Crowded cutoff \u22120.07 [\u22120.39, 0.24], Style diverse 0.34 [0.05, 0.62]; regret: Separated control 8.9 [\u221210.2, 26.5], Crowded cutoff \u22124.0 [\u221221.9, 12.4], Style diverse 13.5 [\u22121.7, 29.4].",
+      "Played / scheduled hands (mean over fields): R10H1600 0.57, R20H800 0.80, R40H400 0.94.",
+      "R10H1600 vs the R40 prefix with matched played hands, regret (BB): Separated control 51.5 [27.8, 72.5], Crowded cutoff 10.5 [\u22125.9, 28.3], Style diverse 23.6 [9.2, 39.2]; rerun changed qualifiers: Separated control 0.68 [0.41, 0.93], Crowded cutoff 0.10 [\u22120.15, 0.37], Style diverse 0.21 [\u22120.01, 0.48]."
+    ],
+    "uncertainty": "Paired bootstrap on 50 shared replicate ids. The matched-played-hands comparison is post hoc and descriptive, and uses prefixes of the baseline tournaments.",
+    "fields": "R10 worse: all three on both metrics. R20 vs R40: no clear difference except style_diverse changed qualifiers. Matched played hands: separated_control (both metrics), style_diverse (regret and wrong vs mu_field), not crowded_cutoff.",
+    "identity_vs_strength": "Agree for R10 vs R40 in all fields. For R20 vs R40 in style_diverse the identity contrast excludes zero while regret does not.",
+    "consistency": "R10 disadvantage consistent across fields; the size of R20 vs R40 and the matched-played result vary by field.",
+    "defensible": "At an equal scheduled hand budget, ten 1,600-hand rounds selected less reliably than forty 400-hand rounds in all three controlled fields; twenty 800-hand rounds were close to forty 400-hand rounds. Part of the R10 deficit remained at matched played hands in two of the three fields.",
+    "overclaim": [
+      "Avoid: \"compute was held fixed\" (scheduled hands were fixed; played hands and runtime were not).",
+      "Avoid: \"R10 is worse at equal played hands everywhere\" or \"R20 is equivalent to R40\".",
+      "Avoid: \"longer matches are always worse\"."
+    ]
+  },
+  {
+    "id": "F4",
+    "finding": "Adaptive versus frozen schedule (Experiment C)",
+    "support": [
+      "Adaptive minus frozen, rerun changed qualifiers: Separated control \u22120.80 [\u22121.06, \u22120.56], Crowded cutoff \u22120.38 [\u22120.65, \u22120.11], Style diverse \u22120.33 [\u22120.59, \u22120.09].",
+      "Rerun Spearman: Separated control 0.15 [0.11, 0.21], Crowded cutoff 0.10 [0.06, 0.14], Style diverse 0.12 [0.08, 0.16].",
+      "Regret vs mu_field (BB): Separated control \u221254.2 [\u221274.3, \u221236.5], Crowded cutoff \u221221.2 [\u221240.4, \u22121.6], Style diverse \u221211.6 [\u221224.7, 1.1].",
+      "Wrong vs mu_field: Separated control \u22120.90 [\u22121.26, \u22120.54], Crowded cutoff \u22120.62 [\u22121.04, \u22120.18], Style diverse \u22120.12 [\u22120.48, 0.24]."
+    ],
+    "uncertainty": "Bootstrap paired by source tournament (50 sources, J = 1 replay each). The frozen arm adds fresh poker randomness, so the contrast includes that noise.",
+    "fields": "Identity and rank-correlation contrasts favour adaptive in all three. Regret clear in separated_control and crowded_cutoff; style_diverse regret and wrong-vs-mu_field intervals include zero.",
+    "identity_vs_strength": "Rerun identity metrics agree in all fields; reference-based metrics agree in two of three.",
+    "consistency": "Direction consistent in all three fields on every metric; strength of evidence varies by field.",
+    "defensible": "In a source-schedule counterfactual, adaptive Swiss selected more consistently than a frozen replay of its own realised schedule in all three controlled fields.",
+    "overclaim": [
+      "Avoid: \"adaptive Swiss causally improves selection\" or a clean causal estimate of adaptation.",
+      "Avoid: \"adaptive pairing reduces regret in every field\"."
+    ]
+  },
+  {
+    "id": "F5",
+    "finding": "Duplicate packages (Experiment D)",
+    "support": [
+      "Rerun Spearman, ordinary vs R40H67x6: Separated control 0.43 [0.40, 0.46] vs 0.54 [0.52, 0.56], Crowded cutoff 0.37 [0.34, 0.40] vs 0.51 [0.48, 0.54], Style diverse 0.43 [0.41, 0.45] vs 0.49 [0.47, 0.52] (intervals do not overlap in any field).",
+      "R40H67x6 minus ordinary, rerun changed qualifiers: Separated control \u22120.45 [\u22120.79, \u22120.13], Crowded cutoff \u22120.31 [\u22120.62, 0.00], Style diverse \u22120.17 [\u22120.46, 0.09]; regret (BB): Separated control \u221217.3 [\u221233.0, \u22123.6], Crowded cutoff \u221216.6 [\u221233.8, 1.3], Style diverse \u22128.2 [\u221220.1, 2.6].",
+      "R7H400x6 minus ordinary, rerun changed qualifiers: Separated control \u22120.12 [\u22120.46, 0.21], Crowded cutoff \u22120.49 [\u22120.78, \u22120.20], Style diverse 0.14 [\u22120.15, 0.42]; regret (BB): Separated control \u22128.3 [\u221226.3, 8.8], Crowded cutoff \u221223.7 [\u221236.5, \u221211.1], Style diverse 4.4 [\u221210.3, 18.4].",
+      "Scheduled work 1.050 (R7H400x6) and 1.005 (R40H67x6) of ordinary; played hands about 1.05 and 1.06 to 1.07."
+    ],
+    "uncertainty": "Paired bootstrap on 50 shared replicate ids. Spearman is compared on levels (no paired Spearman contrast stored for D).",
+    "fields": "R40H67x6: Spearman higher in all three; changed qualifiers clear only in separated_control (crowded_cutoff upper bound +0.0009, includes zero). R7H400x6: clear improvement only in crowded_cutoff.",
+    "identity_vs_strength": "R40H67x6: identity and regret both negative in all fields, regret clear only in separated_control. R7H400x6: agree in crowded_cutoff; mixed elsewhere.",
+    "consistency": "Directionally consistent for R40H67x6; not consistent for R7H400x6.",
+    "defensible": "In an operational package comparison, the short-match six-lane duplicate package gave higher rerun rank correlation than ordinary play in all three controlled fields, with consistently negative but mostly inconclusive qualifier and regret contrasts; the fewer-rounds duplicate package helped only in the crowded-cutoff field.",
+    "overclaim": [
+      "Avoid: \"duplication causally reduces variance\" (both packages also change rounds or match length).",
+      "Avoid: \"short duplication significantly improves selection in every field\"."
+    ]
+  },
+  {
+    "id": "F6",
+    "finding": "Error severity: wrong qualifiers are mostly clearly weaker entrants",
+    "support": [
+      "Share of wrong qualifiers outside the mu_field reference-ambiguous set (baseline + mu_swiss, 250 tournaments): Separated control 1.00, Crowded cutoff 0.80, Style diverse 0.79.",
+      "Mean regret per wrong qualifier (BB per match): Separated control 44.0, Crowded cutoff 24.7, Style diverse 24.7.",
+      "Correlation of wrong-qualifier count with regret across tournaments: Separated control 0.90, Crowded cutoff 0.79, Style diverse 0.79.",
+      "Baseline clear misqualifications vs wrong qualifiers: Separated control 2.74 of 2.74, Crowded cutoff 2.82 of 3.52, Style diverse 3.06 of 3.80."
+    ],
+    "uncertainty": "Pooled descriptive shares (no interval computed). The ambiguous set uses 5% < P(reference top 6) < 95%; a different band would move borderline bots.",
+    "fields": "All three; strongest in separated_control (no ambiguous bots).",
+    "identity_vs_strength": "This card is the bridge: identity errors carry large strength costs.",
+    "consistency": "Consistent: roughly four in five wrong qualifiers are clearly weaker in the two fields with reference ambiguity.",
+    "defensible": "Most selection errors in these controlled fields admitted bots the mu_field reference clearly places outside the top 6, rather than swaps among near-equals.",
+    "overclaim": [
+      "Avoid: \"errors are only near-equal swaps\" (opposite of the data) and \"every error is costly\" (some are ambiguous swaps)."
+    ]
+  },
+  {
+    "id": "F7",
+    "finding": "Reference uncertainty is small relative to tournament noise; references agree",
+    "support": [
+      "Reference self-regret (BB; bootstrap median [2.5, 97.5 percentile]): Separated control 0.0 [0.0, 0.0], Crowded cutoff 2.7 [0.0, 10.7], Style diverse 1.5 [0.0, 9.8] vs tournament regret 122.9 [110.3, 137.9], 93.7 [81.2, 105.3], 94.3 [85.5, 103.7].",
+      "Regret interval with reference uncertainty propagated: Separated control 122.9 [105.7, 142.1], Crowded cutoff 93.7 [82.5, 112.3], Style diverse 94.3 [82.7, 112.3].",
+      "mu_field vs mu_swiss ordering: Spearman 0.978, 0.970, 0.980; Kendall 0.885, 0.869, 0.890; no significant discordant pairs.",
+      "Wrong vs mu_field and wrong vs mu_swiss baseline counts are equal or nearly equal: Separated control 2.74 / 2.74, Crowded cutoff 3.52 / 3.52, Style diverse 3.80 / 3.74."
+    ],
+    "uncertainty": "crowded_cutoff mu_field reference still fires its rule at the 500-round ceiling (one bot outside the designed sets, P(top 6) 0.208); reference P(same top 6) 0.205 (crowded) and 0.366 (style).",
+    "fields": "All three; least reference uncertainty in separated_control.",
+    "identity_vs_strength": "Agree: wrong-qualifier counts barely change between references; regret intervals widen modestly.",
+    "consistency": "Consistent.",
+    "defensible": "Finite reference uncertainty was small relative to tournament noise, and the mu_field and mu_swiss references ordered the bots almost identically in all three controlled fields.",
+    "overclaim": [
+      "Avoid: \"the references are the true skill ranking\" or \"the crowded-cutoff reference top 6 is settled\"."
+    ]
+  }
+]

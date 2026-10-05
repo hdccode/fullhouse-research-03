@@ -1,0 +1,6 @@
+item,placement,files,source,cards
+Table 1,main,tables/table1_design.csv,"field references, config",-
+Table 2,main,tables/table2_baseline_reliability.csv,baseline_reliability.csv,F1
+Table 3,main,tables/table3_primary_contrasts.csv,"contrasts.csv, frozen_schedule.csv","F3, F4, F5"
+Table 4,main or methods,dossier/tables/table4_final_references.csv,"reference.json, summary.json",F7
+Table A1,appendix,dossier/tables/tableA1_per_bot_qualification.csv,"exports/qualification_probabilities_all_cells.csv, field_references.csv","F1, F6"

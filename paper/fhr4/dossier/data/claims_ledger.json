@@ -1,0 +1,212 @@
+[
+  {
+    "id": "S1",
+    "tier": "strong",
+    "claim": "At R40H400, independent reruns disagree on 3.83 to 4.38 of 6 qualifiers in these controlled fields.",
+    "reason": "Tight intervals in all three fields; replicated by the independent 200-tournament mu_swiss sample.",
+    "evidence": "Table 2; 2.1; 2.6; Card F1"
+  },
+  {
+    "id": "S2",
+    "tier": "strong",
+    "claim": "2.74 to 3.80 of the selected six are outside the mu_field reference top 6 at R40H400.",
+    "reason": "All fields; consistent against mu_swiss reference; robust to reference propagation.",
+    "evidence": "Table 2; Card F1, F7"
+  },
+  {
+    "id": "S3",
+    "tier": "strong",
+    "claim": "In the engineered separated control, each validated leader qualifies with probability 0.31 to 0.76, and the exact top 6 was selected in 2 of 250 tournaments.",
+    "reason": "Wilson intervals from 200 tournaments; leaders independently validated.",
+    "evidence": "Figure 5a; Table A1; Card F1"
+  },
+  {
+    "id": "S4",
+    "tier": "strong",
+    "claim": "Reliability improves continuously with rounds, with no evidence of a plateau within the preregistered 40-round horizon.",
+    "reason": "Monotone at every step on every metric in every field.",
+    "evidence": "Figure 1; 2.2; Card F2"
+  },
+  {
+    "id": "S5",
+    "tier": "strong",
+    "claim": "At an equal scheduled hand budget, ten 1,600-hand rounds select less reliably than forty 400-hand rounds in all three controlled fields.",
+    "reason": "Paired contrasts exclude zero on rerun changed qualifiers and regret in every field.",
+    "evidence": "Figure 2; Table 3; Card F3"
+  },
+  {
+    "id": "S6",
+    "tier": "strong",
+    "claim": "In the source-schedule counterfactual, adaptive Swiss is more consistent than a frozen replay of its own schedule in all three controlled fields.",
+    "reason": "Changed-qualifier and rerun rank-correlation contrasts exclude zero in every field.",
+    "evidence": "Figure 3; Table 3; Card F4"
+  },
+  {
+    "id": "S7",
+    "tier": "strong",
+    "claim": "Most wrong qualifiers are bots the mu_field reference clearly places outside the top 6.",
+    "reason": "Shares 1.00, 0.80, 0.79; regret tracks wrong count (r 0.90, 0.79, 0.79).",
+    "evidence": "Figure S1; Card F6"
+  },
+  {
+    "id": "S8",
+    "tier": "strong",
+    "claim": "Reference uncertainty is small relative to tournament noise, and the mu_field and mu_swiss references order the bots almost identically.",
+    "reason": "Self-regret median <= 2.7 BB (97.5 percentile <= 10.7) vs tournament regret >= 94 BB; Spearman >= 0.97; no significant discordant pairs.",
+    "evidence": "Section 6; Table 4; Card F7"
+  },
+  {
+    "id": "Q1",
+    "tier": "qualified",
+    "claim": "Twenty 800-hand rounds perform close to forty 400-hand rounds.",
+    "reason": "Intervals include zero except style_diverse changed qualifiers (0.34 [0.05, 0.62]); absence of difference is not equivalence.",
+    "evidence": "Table 3; 4.2"
+  },
+  {
+    "id": "Q2",
+    "tier": "qualified",
+    "claim": "Part of the R10H1600 deficit persists at matched played hands.",
+    "reason": "Holds in separated_control (both metrics) and style_diverse (regret, wrong vs mu_field); inconclusive in crowded_cutoff; post hoc descriptive.",
+    "evidence": "2.3; 4.3; Figure 2 last rows"
+  },
+  {
+    "id": "Q3",
+    "tier": "qualified",
+    "claim": "Adaptive pairing reduces regret relative to the frozen replay.",
+    "reason": "Clear in separated_control and crowded_cutoff; style_diverse regret \u221211.6 [\u221224.7, 1.1] includes zero.",
+    "evidence": "Figure 3b; 4.7"
+  },
+  {
+    "id": "Q4",
+    "tier": "qualified",
+    "claim": "The short-match six-lane duplicate package is more consistent than ordinary play.",
+    "reason": "Rerun Spearman higher in all three fields; changed-qualifier and regret contrasts negative everywhere but individually clear only in separated_control; package comparison.",
+    "evidence": "Figure 4; 4.4"
+  },
+  {
+    "id": "Q5",
+    "tier": "qualified",
+    "claim": "The fewer-rounds six-lane duplicate package helps in the crowded-cutoff field.",
+    "reason": "Only that field (\u22120.49 [\u22120.78, \u22120.20]); not in the other two.",
+    "evidence": "Table 3; Figure 4"
+  },
+  {
+    "id": "Q6",
+    "tier": "qualified",
+    "claim": "Duplication helps only when lanes stay coupled (short matches).",
+    "reason": "Mechanistic reading consistent with bust rates and played-hand ratios; not tested directly.",
+    "evidence": "4.8; Figure 4 caption"
+  },
+  {
+    "id": "Q7",
+    "tier": "qualified",
+    "claim": "Tournament noise per bot is about as large as the between-bot strength spread inside Swiss.",
+    "reason": "Descriptive approximation in this dossier (Section 4.11); not a preregistered analysis.",
+    "evidence": "derived_checks.json"
+  },
+  {
+    "id": "Q8",
+    "tier": "qualified",
+    "claim": "The separated control has the costliest errors.",
+    "reason": "True for regret per wrong qualifier, but driven by its engineered gap; regret is not comparable across fields.",
+    "evidence": "4.1; 4.6"
+  },
+  {
+    "id": "A1",
+    "tier": "avoid",
+    "claim": "Swiss is unreliable in general.",
+    "reason": "One frozen field per scenario; synthetic agents; research semantics.",
+    "evidence": "Limitations 1, 2, 9"
+  },
+  {
+    "id": "A2",
+    "tier": "avoid",
+    "claim": "40 rounds are insufficient in general.",
+    "reason": "Only these fields; no external target reliability; no horizon beyond 40.",
+    "evidence": "Limitations 1, 4"
+  },
+  {
+    "id": "A3",
+    "tier": "avoid",
+    "claim": "The tournament fails to recover true skill.",
+    "reason": "References are mechanism-specific estimands; no true skill ranking exists in the design.",
+    "evidence": "1.4; Section 6"
+  },
+  {
+    "id": "A4",
+    "tier": "avoid",
+    "claim": "Compute was held fixed in Experiment B.",
+    "reason": "Only scheduled hands were equal; played fractions 0.57 / 0.80 / 0.94; runtime throttled.",
+    "evidence": "2.3; Limitation 10"
+  },
+  {
+    "id": "A5",
+    "tier": "avoid",
+    "claim": "Adaptive Swiss causally improves selection.",
+    "reason": "Experiment C is a source-schedule counterfactual with inherited adaptive schedules and fresh randomness.",
+    "evidence": "4.7; Limitation 5"
+  },
+  {
+    "id": "A6",
+    "tier": "avoid",
+    "claim": "Duplication causally reduces variance.",
+    "reason": "Experiment D packages also change rounds or match length.",
+    "evidence": "4.8; Limitation 6"
+  },
+  {
+    "id": "A7",
+    "tier": "avoid",
+    "claim": "The separated control is representative.",
+    "reason": "Engineered from the strongest six plus the 54 weakest pool bots.",
+    "evidence": "5.1; Limitation 3"
+  },
+  {
+    "id": "A8",
+    "tier": "avoid",
+    "claim": "R10 is worse at equal played hands everywhere.",
+    "reason": "Inconclusive in crowded_cutoff; identity metric inconclusive in style_diverse.",
+    "evidence": "4.3"
+  },
+  {
+    "id": "A9",
+    "tier": "avoid",
+    "claim": "Reliability plateaus at some number of rounds, or N more rounds would reach a target.",
+    "reason": "No plateau observed and no data beyond 40 rounds.",
+    "evidence": "Figure 1; Limitation 4"
+  },
+  {
+    "id": "A10",
+    "tier": "avoid",
+    "claim": "Selection errors are mainly near-equal swaps at the cutoff.",
+    "reason": "About four in five (all, in the separated control) are clearly weaker bots.",
+    "evidence": "Figure S1; 4.5"
+  },
+  {
+    "id": "A11",
+    "tier": "avoid",
+    "claim": "Crowded fields (or diverse fields) require X rounds.",
+    "reason": "No regime-level inference from one field per scenario.",
+    "evidence": "Limitation 1"
+  },
+  {
+    "id": "A12",
+    "tier": "avoid",
+    "claim": "Results describe historical FullHouse events or any future competition format.",
+    "reason": "Research semantics only; no future-format statements.",
+    "evidence": "Limitation 9"
+  },
+  {
+    "id": "A13",
+    "tier": "avoid",
+    "claim": "High-variance styles systematically over-qualify relative to their strength.",
+    "reason": "Archetype residuals are small and change sign across fields; not analysed as a hypothesis.",
+    "evidence": "4.10; derived_checks.json"
+  },
+  {
+    "id": "A14",
+    "tier": "avoid",
+    "claim": "Short duplication significantly improves selection in every field.",
+    "reason": "Individually clear only in separated_control on qualifier and regret contrasts.",
+    "evidence": "4.4"
+  }
+]

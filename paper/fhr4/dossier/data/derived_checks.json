@@ -1,0 +1,292 @@
+{
+  "note": "descriptive, computed in this dossier from stored outputs; not pre-registered",
+  "separated_control": {
+    "p_qualify_residual_by_archetype_ranks_7_30": {
+      "aggressive": {
+        "mean": -0.032,
+        "n": 1
+      },
+      "loose": {
+        "mean": 0.021,
+        "n": 4
+      },
+      "maniac": {
+        "mean": 0.071,
+        "n": 3
+      },
+      "neutral": {
+        "mean": -0.031,
+        "n": 2
+      },
+      "nit": {
+        "mean": -0.026,
+        "n": 4
+      },
+      "station": {
+        "mean": 0.001,
+        "n": 2
+      },
+      "tight": {
+        "mean": -0.01,
+        "n": 5
+      },
+      "trapper": {
+        "mean": -0.016,
+        "n": 3
+      }
+    },
+    "weakest_reference_top6_p_qualify": 0.31,
+    "non_top6_bots_qualifying_more_often_than_weakest_reference_top6": [],
+    "tournaments_pooled": 250,
+    "pooled_cells": [
+      "baseline (50)",
+      "mu_swiss (200)"
+    ],
+    "exact_reference_top6_selected": 2,
+    "wrong_qualifiers_total": 695,
+    "wrong_in_reference_ambiguous_set": 0,
+    "wrong_clearly_outside": 695,
+    "share_wrong_clearly_outside": 1.0,
+    "mean_regret_per_wrong_qualifier_bb": 44.02,
+    "corr_wrong_count_vs_regret": 0.8959,
+    "per_bot_tournament_sd_of_mean_per_match_score_bb_median": 17.57,
+    "sd_of_mu_swiss_per_match_across_bots_bb": 17.71,
+    "sd_of_mu_field_across_bots_bb": 25.45,
+    "signal_share_within_swiss": 0.504,
+    "point_top6_overlap_mu_field_vs_mu_swiss": 6,
+    "largest_rank_displacements_top12": [
+      {
+        "bot": "station-e3-s0",
+        "mu_field_rank": 8,
+        "mu_swiss_rank": 15,
+        "abs_diff": 7
+      },
+      {
+        "bot": "trapper-e1-s2",
+        "mu_field_rank": 11,
+        "mu_swiss_rank": 17,
+        "abs_diff": 6
+      },
+      {
+        "bot": "loose-e2-s0",
+        "mu_field_rank": 12,
+        "mu_swiss_rank": 8,
+        "abs_diff": 4
+      }
+    ]
+  },
+  "crowded_cutoff": {
+    "p_qualify_residual_by_archetype_ranks_7_30": {
+      "aggressive": {
+        "mean": 0.003,
+        "n": 1
+      },
+      "loose": {
+        "mean": -0.001,
+        "n": 5
+      },
+      "maniac": {
+        "mean": 0.047,
+        "n": 4
+      },
+      "neutral": {
+        "mean": -0.008,
+        "n": 2
+      },
+      "station": {
+        "mean": -0.002,
+        "n": 4
+      },
+      "tight": {
+        "mean": -0.009,
+        "n": 4
+      },
+      "trapper": {
+        "mean": -0.031,
+        "n": 4
+      }
+    },
+    "weakest_reference_top6_p_qualify": 0.165,
+    "non_top6_bots_qualifying_more_often_than_weakest_reference_top6": [
+      {
+        "bot": "maniac-e2-s3",
+        "mu_field_rank": 7,
+        "p_qualify": 0.17
+      },
+      {
+        "bot": "loose-e2-s1",
+        "mu_field_rank": 8,
+        "p_qualify": 0.185
+      },
+      {
+        "bot": "tight-e2-s3",
+        "mu_field_rank": 9,
+        "p_qualify": 0.19
+      },
+      {
+        "bot": "station-e1-s0",
+        "mu_field_rank": 13,
+        "p_qualify": 0.205
+      },
+      {
+        "bot": "loose-e3-s1",
+        "mu_field_rank": 20,
+        "p_qualify": 0.185
+      },
+      {
+        "bot": "maniac-e3-s2",
+        "mu_field_rank": 26,
+        "p_qualify": 0.17
+      },
+      {
+        "bot": "maniac-e1-s0",
+        "mu_field_rank": 28,
+        "p_qualify": 0.21
+      }
+    ],
+    "tournaments_pooled": 250,
+    "pooled_cells": [
+      "baseline (50)",
+      "mu_swiss (200)"
+    ],
+    "exact_reference_top6_selected": 0,
+    "wrong_qualifiers_total": 868,
+    "wrong_in_reference_ambiguous_set": 171,
+    "wrong_clearly_outside": 697,
+    "share_wrong_clearly_outside": 0.803,
+    "mean_regret_per_wrong_qualifier_bb": 24.69,
+    "corr_wrong_count_vs_regret": 0.7856,
+    "per_bot_tournament_sd_of_mean_per_match_score_bb_median": 18.53,
+    "sd_of_mu_swiss_per_match_across_bots_bb": 17.0,
+    "sd_of_mu_field_across_bots_bb": 22.83,
+    "signal_share_within_swiss": 0.457,
+    "point_top6_overlap_mu_field_vs_mu_swiss": 6,
+    "largest_rank_displacements_top12": [
+      {
+        "bot": "trapper-e0",
+        "mu_field_rank": 11,
+        "mu_swiss_rank": 19,
+        "abs_diff": 8
+      },
+      {
+        "bot": "loose-e2-s0",
+        "mu_field_rank": 10,
+        "mu_swiss_rank": 15,
+        "abs_diff": 5
+      },
+      {
+        "bot": "aggressive-e1-s1",
+        "mu_field_rank": 12,
+        "mu_swiss_rank": 16,
+        "abs_diff": 4
+      }
+    ]
+  },
+  "style_diverse": {
+    "p_qualify_residual_by_archetype_ranks_7_30": {
+      "aggressive": {
+        "mean": 0.054,
+        "n": 4
+      },
+      "loose": {
+        "mean": -0.001,
+        "n": 4
+      },
+      "maniac": {
+        "mean": -0.018,
+        "n": 2
+      },
+      "neutral": {
+        "mean": -0.041,
+        "n": 5
+      },
+      "station": {
+        "mean": -0.005,
+        "n": 3
+      },
+      "tight": {
+        "mean": 0.01,
+        "n": 2
+      },
+      "trapper": {
+        "mean": 0.006,
+        "n": 4
+      }
+    },
+    "weakest_reference_top6_p_qualify": 0.17,
+    "non_top6_bots_qualifying_more_often_than_weakest_reference_top6": [
+      {
+        "bot": "loose-e0",
+        "mu_field_rank": 7,
+        "p_qualify": 0.21
+      },
+      {
+        "bot": "tight-e2-s1",
+        "mu_field_rank": 9,
+        "p_qualify": 0.23
+      },
+      {
+        "bot": "aggressive-e3-s3",
+        "mu_field_rank": 10,
+        "p_qualify": 0.22
+      },
+      {
+        "bot": "station-e2-s1",
+        "mu_field_rank": 12,
+        "p_qualify": 0.22
+      },
+      {
+        "bot": "trapper-e2-s2",
+        "mu_field_rank": 13,
+        "p_qualify": 0.21
+      },
+      {
+        "bot": "aggressive-e2-s0",
+        "mu_field_rank": 17,
+        "p_qualify": 0.2
+      },
+      {
+        "bot": "aggressive-e0",
+        "mu_field_rank": 19,
+        "p_qualify": 0.2
+      }
+    ],
+    "tournaments_pooled": 250,
+    "pooled_cells": [
+      "baseline (50)",
+      "mu_swiss (200)"
+    ],
+    "exact_reference_top6_selected": 0,
+    "wrong_qualifiers_total": 947,
+    "wrong_in_reference_ambiguous_set": 196,
+    "wrong_clearly_outside": 751,
+    "share_wrong_clearly_outside": 0.793,
+    "mean_regret_per_wrong_qualifier_bb": 24.71,
+    "corr_wrong_count_vs_regret": 0.7943,
+    "per_bot_tournament_sd_of_mean_per_match_score_bb_median": 19.08,
+    "sd_of_mu_swiss_per_match_across_bots_bb": 17.81,
+    "sd_of_mu_field_across_bots_bb": 22.66,
+    "signal_share_within_swiss": 0.466,
+    "point_top6_overlap_mu_field_vs_mu_swiss": 5,
+    "largest_rank_displacements_top12": [
+      {
+        "bot": "neutral-e1-s2",
+        "mu_field_rank": 8,
+        "mu_swiss_rank": 15,
+        "abs_diff": 7
+      },
+      {
+        "bot": "tight-e3-s2",
+        "mu_field_rank": 6,
+        "mu_swiss_rank": 12,
+        "abs_diff": 6
+      },
+      {
+        "bot": "station-e2-s1",
+        "mu_field_rank": 12,
+        "mu_swiss_rank": 7,
+        "abs_diff": 5
+      }
+    ]
+  }
+}

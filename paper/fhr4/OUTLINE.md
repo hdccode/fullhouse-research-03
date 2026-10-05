@@ -4,19 +4,18 @@ Status: outline only, not full prose. All numbers come from stored analysis outp
 (`reports/fhr3b/analysis-fhr4-core/`). No simulation has run since the freeze. Figures and tables:
 `paper/fhr4/figures/`, `paper/fhr4/TABLES.md`.
 
+**Ownership note.**
+
+* The final title and introduction are writer-owned; this file proposes no title and contains no introduction text.
+* The abstract scaffold below is retained because it summarises the frozen study design and principal results, but it
+  is not final manuscript prose.
+
 **Research question.** How should a finite poker-bot simulation budget be allocated so that a Swiss
 tournament reliably identifies the strongest agents?
 
-## Title options
+## Results-grounded abstract scaffold
 
-1. **Six from sixty: how reliably does a poker-bot Swiss tournament find its strongest agents?**
-   Subtitle: Rounds, match length, adaptive pairing and duplication under a fixed scheduled hand budget
-2. **Noise at the cutoff: allocating simulation budget in six-player poker-bot Swiss tournaments**
-   Subtitle: Evidence from three controlled NLHE fields with independent reference strengths
-3. **More opponents, not longer matches: top-6 selection reliability in poker-bot Swiss tournaments**
-   Subtitle: A controlled simulation study with validated reference strengths
-
-## Abstract outline
+Not final manuscript prose: a structured summary of the frozen design and principal results for the writer to work from.
 
 * **Setting.** Six-player no-limit hold'em Swiss tournaments for synthetic poker bots: 60 bots, top 6
   qualify, persistent-stack 400-hand matches. There are three controlled fields:

@@ -12,6 +12,8 @@ run to produce it.
 | draft captions | `figures/CAPTIONS.md` | hand-written from the plotted values |
 | Tables 1 to 3 | `TABLES.md`, `tables/*.csv` | `scripts/fhr4_publication.py` |
 | manuscript skeleton | `OUTLINE.md` | hand-written |
+| reference_self_regret median and percentile interval | `reports/fhr3b/analysis-fhr4-core/exports/reference_self_regret.csv` | `.venv/bin/python scripts/fhr4_export_self_regret.py` (stored references only) |
+| research dossier, results sheet, claims ledger, provenance timeline, Tables 4 and A1 | `dossier/` | `.venv/bin/python scripts/fhr4_dossier.py` (reads stored outputs only) |
 
 Analysis inputs: `reports/fhr3b/analysis-fhr4-core/` (MATRIX_AUDIT.md, MU_SWISS_AUDIT.md) and
 `reports/fhr3b/field-calibration/nlhe6/`.

@@ -1,0 +1,158 @@
+{
+  "separated_control": {
+    "spearman_mu_field_vs_mu_swiss": 0.9776048902472909,
+    "kendall_mu_field_vs_mu_swiss": 0.8847457627118644,
+    "significant_discordant_pairs": 0,
+    "point_top6_overlap": 6,
+    "largest_rank_displacements_top12": [
+      {
+        "bot": "station-e3-s0",
+        "mu_field_rank": 8,
+        "mu_swiss_rank": 15,
+        "abs_diff": 7
+      },
+      {
+        "bot": "trapper-e1-s2",
+        "mu_field_rank": 11,
+        "mu_swiss_rank": 17,
+        "abs_diff": 6
+      },
+      {
+        "bot": "loose-e2-s0",
+        "mu_field_rank": 12,
+        "mu_swiss_rank": 8,
+        "abs_diff": 4
+      }
+    ],
+    "mu_field_matched_rounds": 250,
+    "mu_field_median_se_bb": 4.042796140245375,
+    "splithalf_r_mu": 0.9567764771242238,
+    "mu_field_p_same_top6": 0.999,
+    "mu_swiss_p_same_top6": 1.0,
+    "mu_field_ambiguous_bots": 0,
+    "self_regret_median_ci_bb": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "self_regret_mean_bb_stored": 0.000297,
+    "self_regret_share_zero": 0.999,
+    "baseline_regret_bb": [
+      122.897,
+      110.279,
+      137.943
+    ],
+    "baseline_regret_ref_propagated_bb": [
+      122.897,
+      105.683,
+      142.118
+    ]
+  },
+  "crowded_cutoff": {
+    "spearman_mu_field_vs_mu_swiss": 0.9701583773270352,
+    "kendall_mu_field_vs_mu_swiss": 0.8689265536723164,
+    "significant_discordant_pairs": 0,
+    "point_top6_overlap": 6,
+    "largest_rank_displacements_top12": [
+      {
+        "bot": "trapper-e0",
+        "mu_field_rank": 11,
+        "mu_swiss_rank": 19,
+        "abs_diff": 8
+      },
+      {
+        "bot": "loose-e2-s0",
+        "mu_field_rank": 10,
+        "mu_swiss_rank": 15,
+        "abs_diff": 5
+      },
+      {
+        "bot": "aggressive-e1-s1",
+        "mu_field_rank": 12,
+        "mu_swiss_rank": 16,
+        "abs_diff": 4
+      }
+    ],
+    "mu_field_matched_rounds": 500,
+    "mu_field_median_se_bb": 2.880571101054569,
+    "splithalf_r_mu": 0.9658462011760438,
+    "mu_field_p_same_top6": 0.205,
+    "mu_swiss_p_same_top6": 0.212,
+    "mu_field_ambiguous_bots": 7,
+    "self_regret_median_ci_bb": [
+      2.711918,
+      0.0,
+      10.732051
+    ],
+    "self_regret_mean_bb_stored": 3.242479,
+    "self_regret_share_zero": 0.205,
+    "baseline_regret_bb": [
+      93.7229,
+      81.1675,
+      105.328
+    ],
+    "baseline_regret_ref_propagated_bb": [
+      93.7229,
+      82.509,
+      112.273
+    ]
+  },
+  "style_diverse": {
+    "spearman_mu_field_vs_mu_swiss": 0.9796054459572103,
+    "kendall_mu_field_vs_mu_swiss": 0.8903954802259887,
+    "significant_discordant_pairs": 0,
+    "point_top6_overlap": 5,
+    "largest_rank_displacements_top12": [
+      {
+        "bot": "neutral-e1-s2",
+        "mu_field_rank": 8,
+        "mu_swiss_rank": 15,
+        "abs_diff": 7
+      },
+      {
+        "bot": "tight-e3-s2",
+        "mu_field_rank": 6,
+        "mu_swiss_rank": 12,
+        "abs_diff": 6
+      },
+      {
+        "bot": "station-e2-s1",
+        "mu_field_rank": 12,
+        "mu_swiss_rank": 7,
+        "abs_diff": 5
+      }
+    ],
+    "mu_field_matched_rounds": 500,
+    "mu_field_median_se_bb": 2.922713478016791,
+    "splithalf_r_mu": 0.9699032588335946,
+    "mu_field_p_same_top6": 0.366,
+    "mu_swiss_p_same_top6": 0.232,
+    "mu_field_ambiguous_bots": 5,
+    "self_regret_median_ci_bb": [
+      1.543558,
+      0.0,
+      9.750268
+    ],
+    "self_regret_mean_bb_stored": 2.503711,
+    "self_regret_share_zero": 0.366,
+    "baseline_regret_bb": [
+      94.2825,
+      85.5433,
+      103.723
+    ],
+    "baseline_regret_ref_propagated_bb": [
+      94.2825,
+      82.7473,
+      112.278
+    ]
+  },
+  "points": [
+    "mu_field and mu_swiss are different estimands (random-partition play vs the adaptive Swiss mechanism); their near-identical orderings are evidence that the conclusions do not depend on the choice of reference, not that either is a context-free ranking.",
+    "Discordance is confined to near-equal bots: no pair is significantly discordant in any field, and the largest top-12 rank displacements are listed above.",
+    "Reference self-regret (regret of the reference's own point top 6 under its bootstrap; median [2.5, 97.5 percentile]) is Separated control 0.0 [0.0, 0.0], Crowded cutoff 2.7 [0.0, 10.7], Style diverse 1.5 [0.0, 9.8] BB, against tournament regret of 122.9 [110.3, 137.9], 93.7 [81.2, 105.3], 94.3 [85.5, 103.7] BB.",
+    "Propagating reference uncertainty widens regret intervals modestly and leaves wrong-qualifier intervals nearly unchanged (Section 2.1).",
+    "Why tournament noise dominates: per-bot SE of mu_field is about 3 to 4 BB per match after 250 to 500 matched duplicate rounds, while one tournament gives each bot 40 single-lane matches whose mean varies by about 18 BB between tournaments (Section 4.11).",
+    "mu_swiss vs mu_field selection metrics differ in scale (Swiss pairing compresses spread), so compare regret only within one reference.",
+    "**Reporting change (dossier cleanup).** The frozen analysis stores `reference_self_regret` as the bootstrap MEAN paired with a 2.5/97.5 PERCENTILE interval. In the separated control 999 of 1,000 resamples give zero, so the mean (0.000297 BB) lies above a [0, 0] interval. The dossier now reports the bootstrap MEDIAN with the same percentile interval in every field and table, recomputed read-only by `scripts/fhr4_export_self_regret.py` from the same resamples (the recomputed means reproduce the stored values; `exports/reference_self_regret.csv`). Stored analysis outputs are unchanged; the means remain in the results sheet as `*_reference_self_regret_mean` rows without an interval."
+  ]
+}

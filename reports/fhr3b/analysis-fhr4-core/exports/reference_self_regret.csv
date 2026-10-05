@@ -1,0 +1,7 @@
+field,reference,n_resamples,median_bb,ci_lo_bb,ci_hi_bb,mean_bb,stored_mean_bb,share_zero,max_bb
+separated_control,mu_field,1000,0.0,0.0,0.0,0.000297,0.000297047,0.999,0.297047
+separated_control,mu_swiss,1000,0.0,0.0,0.0,0.0,4.54747e-16,1.0,0.0
+crowded_cutoff,mu_field,1000,2.711918,0.0,10.732051,3.242479,3.24248,0.205,16.449317
+crowded_cutoff,mu_swiss,1000,1.245077,0.0,5.041223,1.527451,1.52745,0.212,8.51283
+style_diverse,mu_field,1000,1.543558,0.0,9.750268,2.503711,2.50371,0.366,15.56313
+style_diverse,mu_swiss,1000,1.383191,0.0,5.421481,1.679278,1.67928,0.232,7.622725

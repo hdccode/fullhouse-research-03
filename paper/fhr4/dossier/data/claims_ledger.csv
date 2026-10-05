@@ -1,0 +1,31 @@
+id,tier,claim,reason,evidence
+S1,strong,"At R40H400, independent reruns disagree on 3.83 to 4.38 of 6 qualifiers in these controlled fields.",Tight intervals in all three fields; replicated by the independent 200-tournament mu_swiss sample.,Table 2; 2.1; 2.6; Card F1
+S2,strong,2.74 to 3.80 of the selected six are outside the mu_field reference top 6 at R40H400.,All fields; consistent against mu_swiss reference; robust to reference propagation.,"Table 2; Card F1, F7"
+S3,strong,"In the engineered separated control, each validated leader qualifies with probability 0.31 to 0.76, and the exact top 6 was selected in 2 of 250 tournaments.",Wilson intervals from 200 tournaments; leaders independently validated.,Figure 5a; Table A1; Card F1
+S4,strong,"Reliability improves continuously with rounds, with no evidence of a plateau within the preregistered 40-round horizon.",Monotone at every step on every metric in every field.,Figure 1; 2.2; Card F2
+S5,strong,"At an equal scheduled hand budget, ten 1,600-hand rounds select less reliably than forty 400-hand rounds in all three controlled fields.",Paired contrasts exclude zero on rerun changed qualifiers and regret in every field.,Figure 2; Table 3; Card F3
+S6,strong,"In the source-schedule counterfactual, adaptive Swiss is more consistent than a frozen replay of its own schedule in all three controlled fields.",Changed-qualifier and rerun rank-correlation contrasts exclude zero in every field.,Figure 3; Table 3; Card F4
+S7,strong,Most wrong qualifiers are bots the mu_field reference clearly places outside the top 6.,"Shares 1.00, 0.80, 0.79; regret tracks wrong count (r 0.90, 0.79, 0.79).",Figure S1; Card F6
+S8,strong,"Reference uncertainty is small relative to tournament noise, and the mu_field and mu_swiss references order the bots almost identically.",Self-regret median <= 2.7 BB (97.5 percentile <= 10.7) vs tournament regret >= 94 BB; Spearman >= 0.97; no significant discordant pairs.,Section 6; Table 4; Card F7
+Q1,qualified,Twenty 800-hand rounds perform close to forty 400-hand rounds.,"Intervals include zero except style_diverse changed qualifiers (0.34 [0.05, 0.62]); absence of difference is not equivalence.",Table 3; 4.2
+Q2,qualified,Part of the R10H1600 deficit persists at matched played hands.,"Holds in separated_control (both metrics) and style_diverse (regret, wrong vs mu_field); inconclusive in crowded_cutoff; post hoc descriptive.",2.3; 4.3; Figure 2 last rows
+Q3,qualified,Adaptive pairing reduces regret relative to the frozen replay.,"Clear in separated_control and crowded_cutoff; style_diverse regret −11.6 [−24.7, 1.1] includes zero.",Figure 3b; 4.7
+Q4,qualified,The short-match six-lane duplicate package is more consistent than ordinary play.,Rerun Spearman higher in all three fields; changed-qualifier and regret contrasts negative everywhere but individually clear only in separated_control; package comparison.,Figure 4; 4.4
+Q5,qualified,The fewer-rounds six-lane duplicate package helps in the crowded-cutoff field.,"Only that field (−0.49 [−0.78, −0.20]); not in the other two.",Table 3; Figure 4
+Q6,qualified,Duplication helps only when lanes stay coupled (short matches).,Mechanistic reading consistent with bust rates and played-hand ratios; not tested directly.,4.8; Figure 4 caption
+Q7,qualified,Tournament noise per bot is about as large as the between-bot strength spread inside Swiss.,Descriptive approximation in this dossier (Section 4.11); not a preregistered analysis.,derived_checks.json
+Q8,qualified,The separated control has the costliest errors.,"True for regret per wrong qualifier, but driven by its engineered gap; regret is not comparable across fields.",4.1; 4.6
+A1,avoid,Swiss is unreliable in general.,One frozen field per scenario; synthetic agents; research semantics.,"Limitations 1, 2, 9"
+A2,avoid,40 rounds are insufficient in general.,Only these fields; no external target reliability; no horizon beyond 40.,"Limitations 1, 4"
+A3,avoid,The tournament fails to recover true skill.,References are mechanism-specific estimands; no true skill ranking exists in the design.,1.4; Section 6
+A4,avoid,Compute was held fixed in Experiment B.,Only scheduled hands were equal; played fractions 0.57 / 0.80 / 0.94; runtime throttled.,2.3; Limitation 10
+A5,avoid,Adaptive Swiss causally improves selection.,Experiment C is a source-schedule counterfactual with inherited adaptive schedules and fresh randomness.,4.7; Limitation 5
+A6,avoid,Duplication causally reduces variance.,Experiment D packages also change rounds or match length.,4.8; Limitation 6
+A7,avoid,The separated control is representative.,Engineered from the strongest six plus the 54 weakest pool bots.,5.1; Limitation 3
+A8,avoid,R10 is worse at equal played hands everywhere.,Inconclusive in crowded_cutoff; identity metric inconclusive in style_diverse.,4.3
+A9,avoid,"Reliability plateaus at some number of rounds, or N more rounds would reach a target.",No plateau observed and no data beyond 40 rounds.,Figure 1; Limitation 4
+A10,avoid,Selection errors are mainly near-equal swaps at the cutoff.,"About four in five (all, in the separated control) are clearly weaker bots.",Figure S1; 4.5
+A11,avoid,Crowded fields (or diverse fields) require X rounds.,No regime-level inference from one field per scenario.,Limitation 1
+A12,avoid,Results describe historical FullHouse events or any future competition format.,Research semantics only; no future-format statements.,Limitation 9
+A13,avoid,High-variance styles systematically over-qualify relative to their strength.,Archetype residuals are small and change sign across fields; not analysed as a hypothesis.,4.10; derived_checks.json
+A14,avoid,Short duplication significantly improves selection in every field.,Individually clear only in separated_control on qualifier and regret contrasts.,4.4

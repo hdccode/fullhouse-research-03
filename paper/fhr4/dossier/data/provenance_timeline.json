@@ -1,0 +1,227 @@
+[
+  {
+    "date": "2026-09-30",
+    "commit": "75408be",
+    "event": "Fields and duplicate evaluation protocol frozen; original `spread` field selected from the 96-bot pool calibration for a large rank-6/7 gap (16.8 BB, 2.89 SE).",
+    "classification": "genuinely pre-registered decision",
+    "data_seen": "pool calibration only",
+    "effect": "Defined the original third field.",
+    "record": "configs/fhr3b/fields/retired/spread-selection-bias/README.md"
+  },
+  {
+    "date": "2026-10-01",
+    "commit": "fec0aed",
+    "event": "Heads-up heuristic role bug fixed; affected NLHE fields revoked and re-frozen (2291f5c).",
+    "classification": "bug fix",
+    "data_seen": "no core data",
+    "effect": "Fields used in FHR4 are the corrected ones.",
+    "record": "git history"
+  },
+  {
+    "date": "2026-10-01",
+    "commit": "1e35878",
+    "event": "mu_field estimator fixed before launch: normalised scale, analytic SE, joint round bootstrap, per-lane persistence.",
+    "classification": "genuinely pre-registered decision",
+    "data_seen": "no reference data",
+    "effect": "Defines the mu_field reference.",
+    "record": "docs/fhr3b/FIELD_REFERENCE_PLAN.md"
+  },
+  {
+    "date": "2026-10-01",
+    "commit": "3226137",
+    "event": "Scope fixed to NLHE6 core: 3 fields, 6 unique cells, 50 tournaments per cell, mu_field 250.",
+    "classification": "genuinely pre-registered decision",
+    "data_seen": "no core data",
+    "effect": "Defines the study.",
+    "record": "paper/FHR3B_SCOPE.md"
+  },
+  {
+    "date": "2026-10-01",
+    "commit": "c488026",
+    "event": "Methodology hardening: analysis plan, metrics (incl. regret), reference uncertainty, B/C/D wording, extension rules.",
+    "classification": "genuinely pre-registered decision",
+    "data_seen": "no core data",
+    "effect": "Defines metrics and rules.",
+    "record": "docs/fhr3b/FHR4_CORE.md"
+  },
+  {
+    "date": "2026-10-01",
+    "commit": "28c4207",
+    "event": "Pre-launch rule correction: mu_swiss threshold 0.08; regret never triggers an extension; crowded \"outside\" = outside both designed sets.",
+    "classification": "protocol clarification",
+    "data_seen": "no core data",
+    "effect": "Rules as applied.",
+    "record": "configs/fhr3b/matrix.yaml"
+  },
+  {
+    "date": "2026-10-02",
+    "commit": "b872c16",
+    "event": "mu_field references at 250 rounds; the preregistered rule fires in spread, crowded_cutoff and style_diverse (EXTEND_TO_500).",
+    "classification": "genuinely pre-registered decision",
+    "data_seen": "yes (reference data)",
+    "effect": "Crowded and style extended to 500.",
+    "record": "reports/fhr3b/field-calibration/nlhe6/MU_FIELD_AUDIT.md"
+  },
+  {
+    "date": "2026-10-02",
+    "commit": "b872c16",
+    "event": "Selection bias discovered: spread's 16.8 BB pool gap measured 0.71 BB by the field-relative mu_field reference (regression to the mean from selecting on noisy estimates).",
+    "classification": "descriptive analysis",
+    "data_seen": "yes",
+    "effect": "Spread placed on HOLD.",
+    "record": "MU_FIELD_AUDIT.md; retired README"
+  },
+  {
+    "date": "2026-10-02",
+    "commit": "c425a5f",
+    "event": "spread retired (held, provenance kept); spread_v2 split-sample protocol pre-registered (select on even pool rounds, validate once on odd rounds, no second attempt).",
+    "classification": "post-hoc design decision",
+    "data_seen": "yes (spread reference)",
+    "effect": "Replaced the third field.",
+    "record": "configs/fhr3b/fields/retired/; SPREAD_V2_REPORT.md"
+  },
+  {
+    "date": "2026-10-02",
+    "commit": "d01d551",
+    "event": "spread_v2 candidate selected on the selection half only (not frozen).",
+    "classification": "genuinely pre-registered decision",
+    "data_seen": "selection half only",
+    "effect": "-",
+    "record": "spread_v2/selection.json"
+  },
+  {
+    "date": "2026-10-02",
+    "commit": "9e321ca",
+    "event": "spread_v2 held-out validation FAILED (P(leaders are top 6) 0.208 vs 0.95 required); stopped, no re-selection.",
+    "classification": "genuinely pre-registered decision",
+    "data_seen": "held-out half",
+    "effect": "No spread-type field from this split.",
+    "record": "spread_v2/validation.json"
+  },
+  {
+    "date": "2026-10-02",
+    "commit": "64a90e6",
+    "event": "separated_control construction and one-shot validation protocol pre-registered.",
+    "classification": "post-hoc design decision",
+    "data_seen": "yes (2,000 pool rounds used for construction)",
+    "effect": "Defined the replacement field.",
+    "record": "docs/fhr3b/FHR4_CORE.md"
+  },
+  {
+    "date": "2026-10-02",
+    "commit": "d7568e8",
+    "event": "separated_control candidate `0b30004f650324e5` built once and bound to the validation protocol before any validation round.",
+    "classification": "genuinely pre-registered decision",
+    "data_seen": "construction data only",
+    "effect": "-",
+    "record": "separated_control/construction.json, binding.json"
+  },
+  {
+    "date": "2026-10-03",
+    "commit": "bd732e3",
+    "event": "One-shot validation on 4,000 fresh pool-style rounds PASSED (P(leaders are top 6) 0.998).",
+    "classification": "genuinely pre-registered decision",
+    "data_seen": "fresh data",
+    "effect": "Field frozen.",
+    "record": "separated_control/validation.json"
+  },
+  {
+    "date": "2026-10-03",
+    "commit": "9171b2c",
+    "event": "separated_control frozen into the core; crowded_cutoff and style_diverse mu_field references extended to 500; crowded still fires at the ceiling (carried as uncertainty), style locks.",
+    "classification": "genuinely pre-registered decision",
+    "data_seen": "yes",
+    "effect": "Final references for two fields.",
+    "record": "FHR4_CORE.md section 6c"
+  },
+  {
+    "date": "2026-10-04",
+    "commit": "d7db218",
+    "event": "Independent separated_control mu_field reference (250 matched rounds; seed family `fhr3b-2026-spread-v2`, prepared for a spread_v2 reference that was never run, assigned in the protocol before validation); rule does not fire; locked.",
+    "classification": "genuinely pre-registered decision",
+    "data_seen": "yes",
+    "effect": "Final reference for separated control.",
+    "record": "nlhe6-separated_control/reference.json"
+  },
+  {
+    "date": "2026-10-05",
+    "commit": "dce170d",
+    "event": "Matrix complete: 18 cells x 50 = 900 tournaments verified; audit, including matched-played-hands comparison (descriptive).",
+    "classification": "genuinely pre-registered decision",
+    "data_seen": "yes",
+    "effect": "All A to D results.",
+    "record": "MATRIX_AUDIT.md; audit_extra.json"
+  },
+  {
+    "date": "2026-10-05",
+    "commit": "931d942",
+    "event": "Extension contrasts paired per pair of cells (previously over the intersection of all three cells); all three pairs within B and D now reported.",
+    "classification": "bug fix",
+    "data_seen": "yes",
+    "effect": "Changed some contrast intervals; definitions unchanged.",
+    "record": "MATRIX_AUDIT.md"
+  },
+  {
+    "date": "2026-10-05",
+    "commit": "931d942",
+    "event": "Clause 2 clarified: rerun changed qualifiers govern the matrix rule; wrong-vs-reference contrasts become a sensitivity. Under the broad reading 4 cells would have extended 50 to 100.",
+    "classification": "protocol clarification",
+    "data_seen": "yes (matrix results)",
+    "effect": "Original audit (dce170d) said EXTEND_TO_100 for these 4 cells; final verdict 18/18 LOCK_AT_50.",
+    "record": "MATRIX_AUDIT.md; summary.json extension_rules"
+  },
+  {
+    "date": "2026-10-05",
+    "commit": "931d942",
+    "event": "Horizon confirmed: Experiment A stays at 5 to 40 rounds; 60/80/120 dropped from FHR4 (future, separately preregistered).",
+    "classification": "protocol clarification",
+    "data_seen": "yes",
+    "effect": "No horizon extension.",
+    "record": "configs/fhr3b/matrix.yaml"
+  },
+  {
+    "date": "2026-10-05",
+    "commit": "9f72e79",
+    "event": "mu_swiss 100-tournament report; preregistered rule fires in all three fields (half-widths 0.080 to 0.096).",
+    "classification": "genuinely pre-registered decision",
+    "data_seen": "yes",
+    "effect": "mu_swiss extended to 200.",
+    "record": "git 9f72e79"
+  },
+  {
+    "date": "2026-10-05",
+    "commit": "db45b56",
+    "event": "mu_swiss complete at 200 per field (ceiling); audited; SIMULATION FREEZE (publication commands refuse to run).",
+    "classification": "genuinely pre-registered decision",
+    "data_seen": "yes",
+    "effect": "Final inventory.",
+    "record": "MU_SWISS_AUDIT.md; matrix.yaml simulation_freeze"
+  },
+  {
+    "date": "2026-10-05",
+    "commit": "e222c9a",
+    "event": "Publication package: per-tournament error export (clear-outside shares, cost per wrong qualifier); Figure 2 played-hand labels corrected; Figure 4 panel b set to rerun Spearman after results were seen.",
+    "classification": "descriptive analysis",
+    "data_seen": "yes",
+    "effect": "Presentation and descriptive analyses only.",
+    "record": "paper/fhr4/"
+  },
+  {
+    "date": "2026-10-05",
+    "commit": "",
+    "event": "This dossier: noise-vs-spread consistency check, rank displacement between references, Table 4 and Table A1.",
+    "classification": "descriptive analysis",
+    "data_seen": "yes",
+    "effect": "Descriptive only.",
+    "record": "paper/fhr4/dossier/"
+  },
+  {
+    "date": "2026-10-05",
+    "commit": "",
+    "event": "Dossier cleanup: reference_self_regret reported as bootstrap median with its percentile interval (was bootstrap mean with a percentile interval, incoherent in separated_control); recomputed read-only from the same resamples.",
+    "classification": "bug fix",
+    "data_seen": "yes",
+    "effect": "Reporting only; stored analysis outputs and all other numbers unchanged.",
+    "record": "scripts/fhr4_export_self_regret.py; exports/reference_self_regret.csv"
+  }
+]

@@ -1,0 +1,4 @@
+Field,mu_field matched rounds,mu_field calibration,mu_field digest,Median SE (BB),Split-half r,Rank-6/7 gap (BB),mu_field P(same top 6),mu_field P(6/7 reversal),Reference-ambiguous bots,mu_field rule at final rounds,mu_swiss tournaments,mu_swiss P(same top 6),mu_swiss max Wilson half-width,Spearman mu_field vs mu_swiss,Kendall mu_field vs mu_swiss,Point top-6 overlap
+Separated control,250,5be0e1c0,90ae3326,4.04,0.957,23.83,0.999,0.000,0,does not fire (locked),200,1.000,0.069,0.978,0.885,6
+Crowded cutoff,500,7d2640ae,f717e385,2.88,0.966,0.61,0.205,0.439,7,fires (ceiling; carried as uncertainty),200,0.212,0.069,0.970,0.869,6
+Style diverse,500,0caf92cc,f88129a4,2.92,0.970,2.02,0.366,0.353,5,does not fire (locked),200,0.232,0.069,0.980,0.890,5
